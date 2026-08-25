@@ -82,6 +82,9 @@
     <IsCriticalLimit>false</IsCriticalLimit>
     <PunishmentType>ShutOff</PunishmentType>
     <AllowedDirections>Forward</AllowedDirections>
+    <AllowedDirections>Backward</AllowedDirections>
+    <AllowedDirections>Left</AllowedDirections>
+    <AllowedDirections>Right</AllowedDirections>
   </BlockLimits>
 
   <BlockLimits>
@@ -107,7 +110,7 @@
   </BlockLimits>
 
   <BlockLimits>
-    <Name>Production</Name>
+    <Name>NoProduction</Name>
     <BlockGroups>Production</BlockGroups>
     <MaxCount>0</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>

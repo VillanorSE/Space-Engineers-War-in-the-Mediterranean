@@ -2,6 +2,14 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
 
+<!-- 2026-08-23: earlier this session, [Triggers:WW2-Trigger-ProjectorBuild-Factory] was
+     wrongly removed from every Behavior below on the claim that no Projector block exists in
+     either Factory shell — that search was wrong (searched for the literal string
+     "ProjectorBase" instead of the real xsi:type MyObjectBuilder_Projector; both shells do
+     have a LargeProjector, "Factory - Projector"). Restored per direct correction: this
+     trigger is intentional — it builds valuable large blocks from the projector after a
+     cargo plane's delivery succeeds. Do not remove it again. -->
+
 <!-- Gray Factory Behaviors -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
@@ -15,15 +23,16 @@
 			[Triggers:WW2-Trigger-ReputationDamage-Gray]
 			[Triggers:WW2-Trigger-Announcement-Factory]
 
-			[Triggers:WW2-Trigger-ProjectorBuild-Factory]
 			[Triggers:WW2-Trigger-DeliverySpawn-Factory-Plane-Gray]
 			[Triggers:WW2-Trigger-CallCargoPlane]
 			[Triggers:WW2-Trigger-Recirculate-Factory-Plane]
-			
+			[Triggers:WW2-Trigger-ProjectorBuild-Factory]
+
 			[Triggers:WW2-Trigger-Activation-Factory-Plane-Gray]
 			[Triggers:WW2-Trigger-BotCrew-3]
 			[Triggers:WW2-Trigger-DefenseSpawn-Factory-Plane-Gray]
 			[Triggers:WW2-Trigger-OffenseSpawn-Factory-Plane-Re2000]
+			[Triggers:WW2-Store-Trigger-UpdateSales-Re2000]
 
 			</Description>
         </EntityComponent>
@@ -40,15 +49,16 @@
 			[Triggers:WW2-Trigger-ReputationDamage-Gray]
 			[Triggers:WW2-Trigger-Announcement-Factory]
 
-			[Triggers:WW2-Trigger-ProjectorBuild-Factory]
 			[Triggers:WW2-Trigger-DeliverySpawn-Factory-Plane-Gray]
 			[Triggers:WW2-Trigger-CallCargoPlane]
 			[Triggers:WW2-Trigger-Recirculate-Factory-Plane]
-			
+			[Triggers:WW2-Trigger-ProjectorBuild-Factory]
+
 			[Triggers:WW2-Trigger-Activation-Factory-Plane-Gray]
 			[Triggers:WW2-Trigger-BotCrew-3]
 			[Triggers:WW2-Trigger-DefenseSpawn-Factory-Plane-Gray]
 			[Triggers:WW2-Trigger-OffenseSpawn-Factory-Plane-Re2001]
+			[Triggers:WW2-Store-Trigger-UpdateSales-Re2001]
 
 			</Description>
         </EntityComponent>
@@ -65,15 +75,16 @@
 			[Triggers:WW2-Trigger-ReputationDamage-Gray]
 			[Triggers:WW2-Trigger-Announcement-Factory]
 
-			[Triggers:WW2-Trigger-ProjectorBuild-Factory]
 			[Triggers:WW2-Trigger-DeliverySpawn-Factory-Plane-Gray]
 			[Triggers:WW2-Trigger-CallCargoPlane]
 			[Triggers:WW2-Trigger-Recirculate-Factory-Plane]
-			
+			[Triggers:WW2-Trigger-ProjectorBuild-Factory]
+
 			[Triggers:WW2-Trigger-Activation-Factory-Plane-Gray]
 			[Triggers:WW2-Trigger-BotCrew-3]
 			[Triggers:WW2-Trigger-DefenseSpawn-Factory-Plane-Gray]
 			[Triggers:WW2-Trigger-OffenseSpawn-Factory-Plane-FC20]
+			[Triggers:WW2-Store-Trigger-UpdateSales-FC20]
 
 			</Description>
         </EntityComponent>
@@ -81,7 +92,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Behavior-Factory-Plane-SM79</SubtypeId>
+                <SubtypeId>WW2-Behavior-Factory-Plane-SM79Bomber</SubtypeId>
             </Id>
             <Description>
 			[RivalAI Behavior]
@@ -90,15 +101,16 @@
 			[Triggers:WW2-Trigger-ReputationDamage-Gray]
 			[Triggers:WW2-Trigger-Announcement-Factory]
 
-			[Triggers:WW2-Trigger-ProjectorBuild-Factory]
 			[Triggers:WW2-Trigger-DeliverySpawn-Factory-Plane-Gray]
 			[Triggers:WW2-Trigger-CallCargoPlane]
 			[Triggers:WW2-Trigger-Recirculate-Factory-Plane]
-			
+			[Triggers:WW2-Trigger-ProjectorBuild-Factory]
+
 			[Triggers:WW2-Trigger-Activation-Factory-Plane-Gray]
 			[Triggers:WW2-Trigger-BotCrew-3]
 			[Triggers:WW2-Trigger-DefenseSpawn-Factory-Plane-Gray]
-			[Triggers:WW2-Trigger-OffenseSpawn-Factory-Plane-SM79]
+			[Triggers:WW2-Trigger-OffenseSpawn-Factory-Plane-SM79Bomber]
+			[Triggers:WW2-Store-Trigger-UpdateSales-SM79Bomber]
 
 			</Description>
         </EntityComponent>
@@ -117,15 +129,16 @@
 			[Triggers:WW2-Trigger-ReputationDamage-Green]
 			[Triggers:WW2-Trigger-Announcement-Factory]
 			
-			[Triggers:WW2-Trigger-ProjectorBuild-Factory]
 			[Triggers:WW2-Trigger-DeliverySpawn-Factory-Plane-Green]
 			[Triggers:WW2-Trigger-CallCargoPlane]
 			[Triggers:WW2-Trigger-Recirculate-Factory-Plane]
-			
+			[Triggers:WW2-Trigger-ProjectorBuild-Factory]
+
 			[Triggers:WW2-Trigger-Activation-Factory-Plane-Green]
 			[Triggers:WW2-Trigger-BotCrew-3]
 			[Triggers:WW2-Trigger-DefenseSpawn-Factory-Plane-Green]
 			[Triggers:WW2-Trigger-OffenseSpawn-Factory-Plane-MS406]
+			[Triggers:WW2-Store-Trigger-UpdateSales-MS406]
 
 			</Description>
         </EntityComponent>
@@ -142,15 +155,16 @@
 			[Triggers:WW2-Trigger-ReputationDamage-Green]
 			[Triggers:WW2-Trigger-Announcement-Factory]
 			
-			[Triggers:WW2-Trigger-ProjectorBuild-Factory]
 			[Triggers:WW2-Trigger-DeliverySpawn-Factory-Plane-Green]
 			[Triggers:WW2-Trigger-CallCargoPlane]
 			[Triggers:WW2-Trigger-Recirculate-Factory-Plane]
-			
+			[Triggers:WW2-Trigger-ProjectorBuild-Factory]
+
 			[Triggers:WW2-Trigger-Activation-Factory-Plane-Green]
 			[Triggers:WW2-Trigger-BotCrew-3]
 			[Triggers:WW2-Trigger-DefenseSpawn-Factory-Plane-Green]
 			[Triggers:WW2-Trigger-OffenseSpawn-Factory-Plane-Potez630]
+			[Triggers:WW2-Store-Trigger-UpdateSales-Potez630]
 
 			</Description>
         </EntityComponent>

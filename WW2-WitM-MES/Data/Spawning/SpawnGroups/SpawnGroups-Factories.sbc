@@ -3,24 +3,58 @@
 	<SpawnGroups>
 
 <!-- Plane Factory Spawns -->
+<!-- 2026-08-23: rebuilt per direct request. Each factory now combines the generic shell
+     (NPC-WW2-Factory-Plane-Gray/Green, unchanged) with THREE copies of its Player-tier
+     plane in a line, evenly spaced, at decreasing build progress (100%/66%/33%) — an
+     assembly-line read instead of the old single fully-built plane. The 66%/33% copies
+     are new prefab files (Player-WW2-<Plane>_66pct.sbc / _33pct.sbc) generated
+     programmatically from the clean 100% Player-tier blueprint by setting every block's
+     IntegrityPercent/BuildPercent — same technique already used elsewhere this session,
+     not new in-game builds. Positions are a first-pass guess from the shell's own
+     interior bounding box (Gray: X[-13,9] Y[-1,9] Z[-22,17] blocks; Green: X[-36,-16]
+     Y[-1,14] Z[-18,13] blocks, both x2.5m/block) — NOT visually confirmed, expect the
+     same kind of position tuning the Hangar roster needed. Behaviour references are
+     UNCHANGED (WW2-Behavior-Factory-Plane-<Plane>) on the SHELL prefab only — the three
+     plane prefabs get no Behaviour at all, since they're static under-construction
+     displays, not flyable — so the full existing trigger system (Announcement,
+     DeliverySpawn, CallCargoPlane, Recirculate, Activation, OffenseSpawn, DefenseSpawn,
+     BotCrew, ReputationDamage, ProjectorBuild) keeps working exactly as before — no changes
+     to the trigger system were needed for this rebuild after all (an earlier version of this
+     note claimed ProjectorBuild was dead/no-op; that was based on a bad search and was wrong
+     — both shells have a real LargeProjector, and the trigger is intentional; see
+     Behaviors-Factory-Plane.sbc's own note).
+     The four old single-combined-blueprint prefabs (NPC-WW2-Factory-Plane-Re2000/Re2001/
+     FC20/MS406/Potez630.sbc) are now unused and have been deleted. SM79 now has an
+     actual factory SpawnGroup for the first time — WW2-Behavior-Factory-Plane-SM79
+     already existed and referenced NPC-WW2-SM79 for its offense spawn, but no
+     SpawnGroup ever used that behavior, and NPC-WW2-SM79 itself was a dangling
+     reference (no such prefab file exists, only NPC-WW2-SM79_Bomber/_Torpedo).
+     2026-08-23 (later same day): per direct request, the Factory's SM79 identity is
+     rebranded to the Bomber specifically, resolving the earlier Bomber-vs-Torpedo
+     ambiguity — renamed throughout to WW2-Factory-Gray-SM79Bomber /
+     WW2-Behavior-Factory-Plane-SM79Bomber / NPC-WW2-SM79Bomber (SpawnGroups-Planes-
+     Attackers.sbc, now correctly pointing at the real NPC-WW2-SM79_Bomber prefab) /
+     WW2-Store-Profile-SM79Bomber (already bomber-named). Torpedo remains available via
+     the Hangar roster (WW2-Hangar-Gray-SM79Torpedo) only, not the Factory. -->
+
 	<!-- Gray Re. 2000 Factory -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Factory-Plane-Re2000</SubtypeId>
+			<SubtypeId>WW2-Factory-Gray-Re2000</SubtypeId>
 		</Id>
 		<Description>
-		
+
 		[Modular Encounters SpawnGroup]
-	
+
 		[PlanetaryInstallationType:Medium]
-		
+
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
-		
+
 		[FactionOverride:GRAY]
 		[SpawnRandomCargo:true]
-	
+
 		[UseContainerTypeAssignment:true]
 		[ContainerTypeAssignBlockName:Small Cargo Container]
 		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
@@ -32,13 +66,37 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Re2000">
- 				<Position>
+			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Gray">
+				<Position>
 					<X>0.0</X>
-					<Y>-2.5</Y>
+					<Y>0.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Factory-Plane-Re2000</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Re2000">
+				<Position>
+					<X>-5.0</X>
+					<Y>3.0</Y>
+					<Z>-20.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Re2000_66pct">
+				<Position>
+					<X>-5.0</X>
+					<Y>3.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Re2000_33pct">
+				<Position>
+					<X>-5.0</X>
+					<Y>3.0</Y>
+					<Z>20.0</Z>
+				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -48,20 +106,20 @@
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Factory-Plane-Re2001</SubtypeId>
+			<SubtypeId>WW2-Factory-Gray-Re2001</SubtypeId>
 		</Id>
 		<Description>
-		
+
 		[Modular Encounters SpawnGroup]
-	
+
 		[PlanetaryInstallationType:Medium]
-		
+
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
-		
+
 		[FactionOverride:GRAY]
 		[SpawnRandomCargo:true]
-	
+
 		[UseContainerTypeAssignment:true]
 		[ContainerTypeAssignBlockName:Small Cargo Container]
 		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
@@ -73,13 +131,37 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Re2001">
- 				<Position>
+			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Gray">
+				<Position>
 					<X>0.0</X>
-					<Y>28.5</Y>
+					<Y>0.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Factory-Plane-Re2001</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Re2001">
+				<Position>
+					<X>-5.0</X>
+					<Y>3.0</Y>
+					<Z>-20.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Re2001_66pct">
+				<Position>
+					<X>-5.0</X>
+					<Y>3.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Re2001_33pct">
+				<Position>
+					<X>-5.0</X>
+					<Y>3.0</Y>
+					<Z>20.0</Z>
+				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -89,20 +171,20 @@
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Factory-Plane-FC20</SubtypeId>
+			<SubtypeId>WW2-Factory-Gray-FC20</SubtypeId>
 		</Id>
 		<Description>
-		
+
 		[Modular Encounters SpawnGroup]
-	
+
 		[PlanetaryInstallationType:Medium]
-		
+
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
-		
+
 		[FactionOverride:GRAY]
 		[SpawnRandomCargo:true]
-	
+
 		[UseContainerTypeAssignment:true]
 		[ContainerTypeAssignBlockName:Small Cargo Container]
 		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
@@ -114,97 +196,232 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Factory-Plane-FC20">
- 				<Position>
+			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Gray">
+				<Position>
 					<X>0.0</X>
-					<Y>23</Y>
+					<Y>0.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Factory-Plane-FC20</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
+			<Prefab SubtypeId="Player-WW2-FC20">
+				<Position>
+					<X>-5.0</X>
+					<Y>3.0</Y>
+					<Z>-20.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-FC20_66pct">
+				<Position>
+					<X>-5.0</X>
+					<Y>3.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-FC20_33pct">
+				<Position>
+					<X>-5.0</X>
+					<Y>3.0</Y>
+					<Z>20.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
-	
-	<!-- Green MS406 Factory -->
+
+	<!-- Gray SM79 Bomber Factory -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Factory-Plane-MS406</SubtypeId>
+			<SubtypeId>WW2-Factory-Gray-SM79Bomber</SubtypeId>
 		</Id>
 		<Description>
-		
+
 		[Modular Encounters SpawnGroup]
-	
+
 		[PlanetaryInstallationType:Medium]
-		
+
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
-		
-		
-		[FactionOverride:GREEN]
+
+		[FactionOverride:GRAY]
 		[SpawnRandomCargo:true]
-	
+
 		[UseContainerTypeAssignment:true]
 		[ContainerTypeAssignBlockName:Small Cargo Container]
 		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
 
 		[ContainerTypeAssignBlockName:Medium Cargo Container]
 		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
-		
+
 		</Description>
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Factory-Plane-MS406">
- 				<Position>
+			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Gray">
+				<Position>
 					<X>0.0</X>
-					<Y>-8.0</Y>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Factory-Plane-SM79Bomber</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-SM79_Bomber">
+				<Position>
+					<X>-5.0</X>
+					<Y>3.0</Y>
+					<Z>-20.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-SM79_Bomber_66pct">
+				<Position>
+					<X>-5.0</X>
+					<Y>3.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-SM79_Bomber_33pct">
+				<Position>
+					<X>-5.0</X>
+					<Y>3.0</Y>
+					<Z>20.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Green MS406 Factory -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Factory-Green-MS406</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Medium]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GREEN]
+		[SpawnRandomCargo:true]
+
+		[UseContainerTypeAssignment:true]
+		[ContainerTypeAssignBlockName:Small Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
+
+		[ContainerTypeAssignBlockName:Medium Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Green">
+				<Position>
+					<X>-26.0</X>
+					<Y>0.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Factory-Plane-MS406</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
+			<Prefab SubtypeId="Player-WW2-MS406">
+				<Position>
+					<X>-31.0</X>
+					<Y>3.0</Y>
+					<Z>-20.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-MS406_66pct">
+				<Position>
+					<X>-31.0</X>
+					<Y>3.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-MS406_33pct">
+				<Position>
+					<X>-31.0</X>
+					<Y>3.0</Y>
+					<Z>20.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
-	
+
 	<!-- Green Potez 630 Factory -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Factory-Plane-Potez630</SubtypeId>
+			<SubtypeId>WW2-Factory-Green-Potez630</SubtypeId>
 		</Id>
 		<Description>
-		
+
 		[Modular Encounters SpawnGroup]
-	
+
 		[PlanetaryInstallationType:Medium]
-		
+
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
-		
-		
+
 		[FactionOverride:GREEN]
 		[SpawnRandomCargo:true]
-	
+
 		[UseContainerTypeAssignment:true]
 		[ContainerTypeAssignBlockName:Small Cargo Container]
 		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
 
 		[ContainerTypeAssignBlockName:Medium Cargo Container]
 		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
-		
+
 		</Description>
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Potez630">
- 				<Position>
-					<X>0.0</X>
-					<Y>-5.0</Y>
+			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Green">
+				<Position>
+					<X>-26.0</X>
+					<Y>0.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Factory-Plane-Potez630</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Potez630">
+				<Position>
+					<X>-31.0</X>
+					<Y>3.0</Y>
+					<Z>-20.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Potez630_66pct">
+				<Position>
+					<X>-31.0</X>
+					<Y>3.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Potez630_33pct">
+				<Position>
+					<X>-31.0</X>
+					<Y>3.0</Y>
+					<Z>20.0</Z>
+				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -214,4 +431,3 @@
 
 	</SpawnGroups>
 </Definitions>
-

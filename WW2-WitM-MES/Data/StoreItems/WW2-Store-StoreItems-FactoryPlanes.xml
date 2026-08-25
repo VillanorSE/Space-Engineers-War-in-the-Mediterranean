@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StoreItemsContainer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<!-- 2026-08-23: one StoreItem per Factory-roster plane, ItemType=Prefab (this is what makes
+     a grid, not a component, sellable at an NPC store — confirmed against a real working
+     example, GVK-Derelicts Workshop ID 2653133286, Data/StoreItems/GVK-Store-StoreItems-
+     AllVehicles.xml). ItemSubtypeId references the CLEAN 100%-built Player-tier blueprint,
+     not the _66pct/_33pct display copies — selling an unfinished plane doesn't make sense.
+     MinAmount/MaxAmount are both 1 (a factory has exactly one of its own plane for sale, not
+     a restockable batch, unlike GVK's own 10-15 range for a generic economy). Prices are
+     placeholder estimates scaled roughly by block count/complexity — adjust freely, nothing
+     about the mechanism depends on the exact number. -->
+	<StoreItems>
+		<StoreItem>
+			<StoreItemId>WW2-Re2000</StoreItemId>
+			<ItemType>Prefab</ItemType>
+			<ItemSubtypeId>Player-WW2-Re2000</ItemSubtypeId>
+			<Offer>
+				<CustomPrice>80000</CustomPrice>
+				<MinPriceMultiplier>100</MinPriceMultiplier>
+				<MaxPriceMultiplier>100</MaxPriceMultiplier>
+				<MinAmount>1</MinAmount>
+				<MaxAmount>1</MaxAmount>
+			</Offer>
+		</StoreItem>
+		<StoreItem>
+			<StoreItemId>WW2-Re2001</StoreItemId>
+			<ItemType>Prefab</ItemType>
+			<ItemSubtypeId>Player-WW2-Re2001</ItemSubtypeId>
+			<Offer>
+				<CustomPrice>85000</CustomPrice>
+				<MinPriceMultiplier>100</MinPriceMultiplier>
+				<MaxPriceMultiplier>100</MaxPriceMultiplier>
+				<MinAmount>1</MinAmount>
+				<MaxAmount>1</MaxAmount>
+			</Offer>
+		</StoreItem>
+		<StoreItem>
+			<StoreItemId>WW2-FC20</StoreItemId>
+			<ItemType>Prefab</ItemType>
+			<ItemSubtypeId>Player-WW2-FC20</ItemSubtypeId>
+			<Offer>
+				<CustomPrice>150000</CustomPrice>
+				<MinPriceMultiplier>100</MinPriceMultiplier>
+				<MaxPriceMultiplier>100</MaxPriceMultiplier>
+				<MinAmount>1</MinAmount>
+				<MaxAmount>1</MaxAmount>
+			</Offer>
+		</StoreItem>
+		<StoreItem>
+			<StoreItemId>WW2-SM79Bomber</StoreItemId>
+			<ItemType>Prefab</ItemType>
+			<ItemSubtypeId>Player-WW2-SM79_Bomber</ItemSubtypeId>
+			<Offer>
+				<CustomPrice>250000</CustomPrice>
+				<MinPriceMultiplier>100</MinPriceMultiplier>
+				<MaxPriceMultiplier>100</MaxPriceMultiplier>
+				<MinAmount>1</MinAmount>
+				<MaxAmount>1</MaxAmount>
+			</Offer>
+		</StoreItem>
+		<StoreItem>
+			<StoreItemId>WW2-MS406</StoreItemId>
+			<ItemType>Prefab</ItemType>
+			<ItemSubtypeId>Player-WW2-MS406</ItemSubtypeId>
+			<Offer>
+				<CustomPrice>90000</CustomPrice>
+				<MinPriceMultiplier>100</MinPriceMultiplier>
+				<MaxPriceMultiplier>100</MaxPriceMultiplier>
+				<MinAmount>1</MinAmount>
+				<MaxAmount>1</MaxAmount>
+			</Offer>
+		</StoreItem>
+		<StoreItem>
+			<StoreItemId>WW2-Potez630</StoreItemId>
+			<ItemType>Prefab</ItemType>
+			<ItemSubtypeId>Player-WW2-Potez630</ItemSubtypeId>
+			<Offer>
+				<CustomPrice>140000</CustomPrice>
+				<MinPriceMultiplier>100</MinPriceMultiplier>
+				<MaxPriceMultiplier>100</MaxPriceMultiplier>
+				<MinAmount>1</MinAmount>
+				<MaxAmount>1</MaxAmount>
+			</Offer>
+		</StoreItem>
+	</StoreItems>
+</StoreItemsContainer>

@@ -95,21 +95,21 @@
 <SpawnGroup>
 	<Id>
 		<TypeId>SpawnGroupDefinition</TypeId>
-		<SubtypeId>NPC-WW2-SM79</SubtypeId>
+		<SubtypeId>NPC-WW2-SM79Bomber</SubtypeId>
 	</Id>
 	<Description>
-	  
+
 	[Modular Encounters SpawnGroup]
 
 	[SpawnConditionsProfiles:WW2-SpawnConditions-Fighters]
 	[ManipulationProfiles:MES-Manipulation-RivalAi]
 	[FactionOverride:GRAY]
-	  
+
 	</Description>
 	<Frequency>1.0</Frequency>
 	<IsPirate>true</IsPirate>
 	<Prefabs>
-		<Prefab SubtypeId="NPC-WW2-SM79">
+		<Prefab SubtypeId="NPC-WW2-SM79_Bomber">
 			<Position>
 				<X>0.0</X>
 				<Y>0.0</Y>
