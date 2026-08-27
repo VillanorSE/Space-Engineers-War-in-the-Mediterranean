@@ -5,33 +5,33 @@
 <!-- Plane Factory Spawns -->
 <!-- 2026-08-23: rebuilt per direct request. Each factory now combines the generic shell
      (NPC-WW2-Factory-Plane-Gray/Green, unchanged) with THREE copies of its Player-tier
-     plane in a line, evenly spaced, at decreasing build progress (100%/66%/33%) — an
+     plane in a line, evenly spaced, at decreasing build progress (100%/66%/33%)  - an
      assembly-line read instead of the old single fully-built plane. The 66%/33% copies
      are new prefab files (Player-WW2-<Plane>_66pct.sbc / _33pct.sbc) generated
      programmatically from the clean 100% Player-tier blueprint by setting every block's
-     IntegrityPercent/BuildPercent — same technique already used elsewhere this session,
+     IntegrityPercent/BuildPercent  - same technique already used elsewhere this session,
      not new in-game builds. Positions are a first-pass guess from the shell's own
      interior bounding box (Gray: X[-13,9] Y[-1,9] Z[-22,17] blocks; Green: X[-36,-16]
-     Y[-1,14] Z[-18,13] blocks, both x2.5m/block) — NOT visually confirmed, expect the
+     Y[-1,14] Z[-18,13] blocks, both x2.5m/block)  - NOT visually confirmed, expect the
      same kind of position tuning the Hangar roster needed. Behaviour references are
-     UNCHANGED (WW2-Behavior-Factory-Plane-<Plane>) on the SHELL prefab only — the three
+     UNCHANGED (WW2-Behavior-Factory-Plane-<Plane>) on the SHELL prefab only  - the three
      plane prefabs get no Behaviour at all, since they're static under-construction
-     displays, not flyable — so the full existing trigger system (Announcement,
+     displays, not flyable  - so the full existing trigger system (Announcement,
      DeliverySpawn, CallCargoPlane, Recirculate, Activation, OffenseSpawn, DefenseSpawn,
-     BotCrew, ReputationDamage, ProjectorBuild) keeps working exactly as before — no changes
+     BotCrew, ReputationDamage, ProjectorBuild) keeps working exactly as before  - no changes
      to the trigger system were needed for this rebuild after all (an earlier version of this
      note claimed ProjectorBuild was dead/no-op; that was based on a bad search and was wrong
-     — both shells have a real LargeProjector, and the trigger is intentional; see
+      - both shells have a real LargeProjector, and the trigger is intentional; see
      Behaviors-Factory-Plane.sbc's own note).
      The four old single-combined-blueprint prefabs (NPC-WW2-Factory-Plane-Re2000/Re2001/
      FC20/MS406/Potez630.sbc) are now unused and have been deleted. SM79 now has an
-     actual factory SpawnGroup for the first time — WW2-Behavior-Factory-Plane-SM79
+     actual factory SpawnGroup for the first time  - WW2-Behavior-Factory-Plane-SM79
      already existed and referenced NPC-WW2-SM79 for its offense spawn, but no
      SpawnGroup ever used that behavior, and NPC-WW2-SM79 itself was a dangling
      reference (no such prefab file exists, only NPC-WW2-SM79_Bomber/_Torpedo).
      2026-08-23 (later same day): per direct request, the Factory's SM79 identity is
      rebranded to the Bomber specifically, resolving the earlier Bomber-vs-Torpedo
-     ambiguity — renamed throughout to WW2-Factory-Gray-SM79Bomber /
+     ambiguity  - renamed throughout to WW2-Factory-Gray-SM79Bomber /
      WW2-Behavior-Factory-Plane-SM79Bomber / NPC-WW2-SM79Bomber (SpawnGroups-Planes-
      Attackers.sbc, now correctly pointing at the real NPC-WW2-SM79_Bomber prefab) /
      WW2-Store-Profile-SM79Bomber (already bomber-named). Torpedo remains available via

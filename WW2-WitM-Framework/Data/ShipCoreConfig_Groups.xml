@@ -1,550 +1,726 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ArrayOfBlockGroup>
 
-  <!-- Production -->
   <BlockGroup>
-    <Name>Production</Name>
+    <Name>Armor</Name>
     <BlockTypes>
-      <TypeId>Assembler</TypeId>
-      <SubtypeId>BasicAssembler</SubtypeId>
-      <CountWeight>1</CountWeight>
-    </BlockTypes>
-    <BlockTypes>
-      <TypeId>Assembler</TypeId>
-      <SubtypeId>LargeAssembler</SubtypeId>
-      <CountWeight>2</CountWeight>
-    </BlockTypes>
-	 <BlockTypes>
-      <TypeId>Assembler</TypeId>
-      <SubtypeId>LargeAssemblerIndustrial</SubtypeId>
-      <CountWeight>2</CountWeight>
-    </BlockTypes>
-    <BlockTypes>
-      <TypeId>Refinery</TypeId>
-      <SubtypeId>BasicRefinery</SubtypeId>
-      <CountWeight>1</CountWeight>
-    </BlockTypes>
-    <BlockTypes>
-      <TypeId>Refinery</TypeId>
-      <SubtypeId>LargeRefinery</SubtypeId>
-      <CountWeight>2</CountWeight>
-    </BlockTypes>
-    <BlockTypes>
-      <TypeId>Refinery</TypeId>
-      <SubtypeId>LargeRefineryIndustrial</SubtypeId>
-      <CountWeight>2</CountWeight>
-    </BlockTypes>
-    <BlockTypes>
-      <TypeId>Refinery</TypeId>
-      <SubtypeId>BlastFurnace</SubtypeId>
-      <CountWeight>2</CountWeight>
-    </BlockTypes>
-	<BlockTypes>
-  <TypeId>MyObjectBuilder_Assembler</TypeId>
-  <SubtypeId>LargePrototechAssembler</SubtypeId>
-  <CountWeight>2</CountWeight>
-</BlockTypes>
-  </BlockGroup>
-
-  <!-- PowerRenewables ("collectors"): solar panels, wind turbines -->
-  <BlockGroup>
-    <Name>PowerRenewables</Name>
-    <BlockTypes>
-      <TypeId>SolarPanel</TypeId>
-      <SubtypeId></SubtypeId>
-      <CountWeight>1</CountWeight>
-    </BlockTypes>
-    <BlockTypes>
-      <TypeId>WindTurbine</TypeId>
+      <TypeId></TypeId>
       <SubtypeId></SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
   </BlockGroup>
 
-  <!-- Batteries: caps battery bank size -->
+  <!-- BasicWeapons -->
+  <BlockGroup>
+    <Name>BasicWeapons</Name>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>13mmQuad</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>13mmQuadSmall</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>13mmTwinMain</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>28mmChicagoPianoMT</SubtypeId>
+      <CountWeight>2</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>2cmFlakQuad</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>2cmFlakQuadSmall</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>37mm50MLE</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>37mm70MLE</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>37mmFlakDual</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>37mmFlakDualSmall</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>37mmFlakSingle</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>37mmFlakSingleSmall</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>BoforSingleRemodel</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>BoforSingleRemodelSmall</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>BoforTwinRemodel</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FA_12_7_DSHK_2B</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FA_37mm_46K</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FA_76mm_39K</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FA_85mm_92K</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>Fa57mm60</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FAM2BrowningTurret</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FAM2BrowningTurretSmall</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FL2cm</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FL2cmSmall</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>OerlikonDual</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>OerlikonDualSmall</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>OerlikonMain</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>OerlikonMainSmall</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>PomPomMain</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>4_5Inch45</SubtypeId>
+      <CountWeight>2</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>5Inch38Twin</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>5Inch41Twin</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>5Inch54Main</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>5InchMk30Main</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>5InchSingleMain</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FA90mmOTO</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FA90mmOTOTwin</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>BoforStaticGun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>OerlikonStatic</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+  </BlockGroup>
+
+  <!-- Batteries -->
   <BlockGroup>
     <Name>Batteries</Name>
     <BlockTypes>
-  <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
-  <SubtypeId>LargeBlockBatteryBlock</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
-  <SubtypeId>SmallBlockBatteryBlock</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
-  <SubtypeId>SmallBlockSmallBatteryBlock</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
-  <SubtypeId>LargeBlockBatteryReskin</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
-  <SubtypeId>LargeBlockBatteryReskinOffset</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
-  <SubtypeId>SmallBlockBatteryReskin</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
-  <SubtypeId>LargeBlockPrototechBattery</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
-  <SubtypeId>SmallBlockPrototechBattery</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
-  <SubtypeId>LargeBlockBatteryBlockWarfare2</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
-  <SubtypeId>SmallBlockBatteryBlockWarfare2</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
-  <SubtypeId>TorpedoBattery</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
-  <SubtypeId>ZOMB3ysCarBattery</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
-  <SubtypeId>GBU-6Battery</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
+      <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
+      <SubtypeId>LargeBlockBatteryBlock</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
+      <SubtypeId>SmallBlockBatteryBlock</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
+      <SubtypeId>SmallBlockSmallBatteryBlock</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
+      <SubtypeId>LargeBlockBatteryReskin</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
+      <SubtypeId>LargeBlockBatteryReskinOffset</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
+      <SubtypeId>SmallBlockBatteryReskin</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
+      <SubtypeId>LargeBlockPrototechBattery</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
+      <SubtypeId>SmallBlockPrototechBattery</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
+      <SubtypeId>LargeBlockBatteryBlockWarfare2</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
+      <SubtypeId>SmallBlockBatteryBlockWarfare2</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
+      <SubtypeId>TorpedoBattery</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
+      <SubtypeId>ZOMB3ysCarBattery</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
+      <SubtypeId>GBU-6Battery</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
   </BlockGroup>
 
-<!-- Cockpits -->
-<BlockGroup>
-  <Name>Cockpits</Name>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>LargeBlockModularBridgeCockpit</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>LargeBlockCockpit</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>LargeBlockCockpitSeat</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>SmallBlockCockpit</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>DBSmallBlockFighterCockpit</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>CockpitOpen</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>RoverCockpit</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>OpenCockpitSmall</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>OpenCockpitLarge</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>SmallBlockFlushCockpit</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>LargeBlockSuspendedControlSeat</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>LargeBlockSuspendedControlSeatB</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>SmallBlockSuspendedControlSeat</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>SmallBlockSuspendedControlSeatB</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>SmallBlockCockpitIndustrial</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>LargeBlockCockpitIndustrial</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>SmallBlockCapCockpit</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>SpeederCockpit</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>SpeederCockpitCompact</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>LargeBlockOpenSlopedCockpit</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>LargeBlockClosedSlopedCockpit</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>SmallBlockOpenSlopedCockpit</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>SmallBlockClosedSlopedCockpit</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>BuggyCockpit</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>SmallBlockStandingCockpit</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>LargeBlockStandingCockpit</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>CAPPilotSeat</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>CAPPilotSeatForwardOffset</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>CAPPilotSeatUpwardOffset</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatCushioned</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatCushionedEvenWidth</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatCushionedForwards</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatCushionedHigherEvenWidth</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatCushionedForwardsHigherEvenWidth</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatCushionedForwardsHigher</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatCushionedForwardsEvenWidth</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatCushionedHigher</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatCushionedMid</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatCushionedMidEvenWidth</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatCushionedMidForwards</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatCushionedMidForwardsEvenWidth</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeat</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeat2</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatEvenWidth</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatHigher</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatAngled</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankSeatAngled45</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankStool</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankStoolHigher</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>TankStoolLower</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>StandingSeat</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>StandingSeatEven</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>StandingSeatEvenSide</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>StandingSeatMinimal</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>StandingSeatMinimalEven</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Cockpit</TypeId>
-    <SubtypeId>StandingSeatMinimalEvenSide</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-</BlockGroup>
+  <!-- Cockpits -->
+  <BlockGroup>
+    <Name>Cockpits</Name>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>LargeBlockModularBridgeCockpit</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>LargeBlockCockpit</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>LargeBlockCockpitSeat</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>SmallBlockCockpit</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>DBSmallBlockFighterCockpit</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>CockpitOpen</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>RoverCockpit</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>OpenCockpitSmall</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>OpenCockpitLarge</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>SmallBlockFlushCockpit</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>LargeBlockSuspendedControlSeat</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>LargeBlockSuspendedControlSeatB</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>SmallBlockSuspendedControlSeat</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>SmallBlockSuspendedControlSeatB</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>SmallBlockCockpitIndustrial</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>LargeBlockCockpitIndustrial</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>SmallBlockCapCockpit</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>SpeederCockpit</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>SpeederCockpitCompact</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>LargeBlockOpenSlopedCockpit</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>LargeBlockClosedSlopedCockpit</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>SmallBlockOpenSlopedCockpit</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>SmallBlockClosedSlopedCockpit</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>BuggyCockpit</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>SmallBlockStandingCockpit</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>LargeBlockStandingCockpit</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>CAPPilotSeat</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>CAPPilotSeatForwardOffset</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>CAPPilotSeatUpwardOffset</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatCushioned</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatCushionedEvenWidth</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatCushionedForwards</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatCushionedHigherEvenWidth</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatCushionedForwardsHigherEvenWidth</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatCushionedForwardsHigher</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatCushionedForwardsEvenWidth</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatCushionedHigher</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatCushionedMid</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatCushionedMidEvenWidth</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatCushionedMidForwards</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatCushionedMidForwardsEvenWidth</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeat</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeat2</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatEvenWidth</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatHigher</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatAngled</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankSeatAngled45</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankStool</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankStoolHigher</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>TankStoolLower</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>StandingSeat</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>StandingSeatEven</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>StandingSeatEvenSide</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>StandingSeatMinimal</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>StandingSeatMinimalEven</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>StandingSeatMinimalEvenSide</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+  </BlockGroup>
+
+  <!-- Countermeasures: new group, not present when the 9 core files were
+       originally built  - no core currently has a BlockLimits entry
+       referencing this group. See chat follow-up. Flat CountWeight 1. -->
+  <BlockGroup>
+    <Name>Countermeasures</Name>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>CAP_SmokeLauncher</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>CAP_SmokeLauncherCentered</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>CAP_FlareDispenser</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>CAP_FlareDispenserEmbedded</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+  </BlockGroup>
 
   <!-- Engines -->
   <BlockGroup>
     <Name>Engines</Name>
     <BlockTypes>
-  <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
-  <SubtypeId>LargeHydrogenEngineReskin</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
-  <SubtypeId>SmallHydrogenEngineReskin</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
-  <SubtypeId>LargeHydrogenEngine</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
-  <SubtypeId>SmallHydrogenEngine</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
-  <SubtypeId>LargePrototechReactor</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
-  <SubtypeId>IAP_1x1_Alternater_Engine</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
-  <SubtypeId>Karston_Singlebank</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-  <BlockTypes>
+      <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
+      <SubtypeId>LargeHydrogenEngineReskin</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
+      <SubtypeId>SmallHydrogenEngineReskin</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
+      <SubtypeId>LargeHydrogenEngine</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
+      <SubtypeId>SmallHydrogenEngine</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
+      <SubtypeId>LargePrototechReactor</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
+      <SubtypeId>IAP_1x1_Alternater_Engine</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
+      <SubtypeId>Karston_Singlebank</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
       <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
       <SubtypeId>CAP_InlineEngine</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
-	<BlockTypes>
+    <BlockTypes>
       <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
       <SubtypeId>CAP_Radial_Engine</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
-	<BlockTypes>
+    <BlockTypes>
       <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
       <SubtypeId>AWGMediumHydro</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
   </BlockGroup>
 
-<!-- Gyroscopes -->
+  <!-- Gyroscopes -->
   <BlockGroup>
     <Name>Gyros</Name>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_Gyro</TypeId>
-  <SubtypeId>ProprietaryLargeBlockGyro</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_Gyro</TypeId>
-  <SubtypeId>LargeBlockPrototechGyro</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_Gyro</TypeId>
-  <SubtypeId>SmallBlockPrototechGyro</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_Gyro</TypeId>
-  <SubtypeId>TorpedoGyro</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_Gyro</TypeId>
-  <SubtypeId>TTNavigationcpushiprudder</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_Gyro</TypeId>
-  <SubtypeId>TTNavigationcpu1x3shiprudder</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_Gyro</TypeId>
-  <SubtypeId>TTRudder1shiprudder</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_Gyro</TypeId>
-  <SubtypeId>TTsubnavigationcpu</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_Gyro</TypeId>
-  <SubtypeId>TTsubnavigationcpu1x3</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_Gyro</TypeId>
-  <SubtypeId>GBU-6Gyro</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_Gyro</TypeId>
-  <SubtypeId>Carden-Loyd_Transmission</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_Gyro</TypeId>
-  <SubtypeId>IAP_Small_Transmission_Gyroscope</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_Gyro</TypeId>
-  <SubtypeId>T-34_Transmission</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_Gyro</TypeId>
-  <SubtypeId>TE-80_Transmission</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-</BlockGroup>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Gyro</TypeId>
+      <SubtypeId>ProprietaryLargeBlockGyro</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Gyro</TypeId>
+      <SubtypeId>LargeBlockPrototechGyro</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Gyro</TypeId>
+      <SubtypeId>SmallBlockPrototechGyro</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Gyro</TypeId>
+      <SubtypeId>TorpedoGyro</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Gyro</TypeId>
+      <SubtypeId>TTNavigationcpushiprudder</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Gyro</TypeId>
+      <SubtypeId>TTNavigationcpu1x3shiprudder</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Gyro</TypeId>
+      <SubtypeId>TTRudder1shiprudder</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Gyro</TypeId>
+      <SubtypeId>TTsubnavigationcpu</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Gyro</TypeId>
+      <SubtypeId>TTsubnavigationcpu1x3</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Gyro</TypeId>
+      <SubtypeId>GBU-6Gyro</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Gyro</TypeId>
+      <SubtypeId>Carden-Loyd_Transmission</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Gyro</TypeId>
+      <SubtypeId>IAP_Small_Transmission_Gyroscope</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Gyro</TypeId>
+      <SubtypeId>T-34_Transmission</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Gyro</TypeId>
+      <SubtypeId>TE-80_Transmission</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+  </BlockGroup>
 
   <!-- Hydrogen Tanks -->
   <BlockGroup>
@@ -571,6 +747,26 @@
     </BlockTypes>
   </BlockGroup>
 
+  <!-- large cargo -->
+  <BlockGroup>
+    <Name>LargeCargoContainers</Name>
+    <BlockTypes>
+      <TypeId>CargoContainer</TypeId>
+      <SubtypeId>SmallBlockLargeContainer</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>CargoContainer</TypeId>
+      <SubtypeId>LargeBlockLargeContainer</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>CargoContainer</TypeId>
+      <SubtypeId>LargeBlockLargeIndustrialContainer</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+  </BlockGroup>
+
   <!-- MedicalBlocks: Survival Kits and Medical Rooms, flat-limited across every core -->
   <BlockGroup>
     <Name>MedicalBlocks</Name>
@@ -586,1209 +782,489 @@
     </BlockTypes>
   </BlockGroup>
 
-<!-- Tools -->
-<BlockGroup>
-  <Name>Tools</Name>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Drill</TypeId>
-    <SubtypeId>LargeBlockDrillReskin</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Drill</TypeId>
-    <SubtypeId>SmallBlockDrillReskin</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Drill</TypeId>
-    <SubtypeId>LargeBlockPrototechDrill</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Drill</TypeId>
-    <SubtypeId>SmallBlockDrill</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_Drill</TypeId>
-    <SubtypeId>LargeBlockDrill</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-</BlockGroup>
-
-<!-- Wheels -->
-<BlockGroup>
-  <Name>Wheels</Name>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>3x3HalfSuspension</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>3x3HalfSuspensionMirror</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>3x3HalfSuspensionThick</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>2x2HalfSuspension</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>2x2ThickSuspension</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>2x2HalfSuspensionMirror</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>25x25HalfSuspension</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>15x15HalfSuspension</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>15x15HalfSuspensionCentred</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>1x1HalfSuspensionAlternate</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>1x1HalfSuspension</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>1x5SprocketSuspension</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>1x5SprocketSuspensionCentred</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>2x2DiscWheelSuspension</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>2x2DiscWheelSuspensionOffset</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>2x2DiscWheelSuspensionOffsetCentred</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>2x2DiscWheelSuspensionCentred</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>AWGSprocketSuspension15x15</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>AWGSprocketSuspension2x2</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>AWGSprocketSuspension25x25</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>AWGSprocketSuspension3x3Thick</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>AWGRoadWheelSuspension15x15</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>AWGRoadWheelSuspension15x15Even</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>AWGRoadWheelSuspension2x2</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>AWGRoadWheelSuspension2x2Thick</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>AWGRoadWheelSuspension2x2Even</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>AWGRoadWheelSuspension2x2ThickEven</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>AWGRoadWheelSuspension3x3Thick</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>AWGTyreSuspension2x2Thin</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-  <BlockTypes>
-    <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
-    <SubtypeId>AWGTyreSuspension25x25Thin</SubtypeId>
-    <CountWeight>1</CountWeight>
-  </BlockTypes>
-</BlockGroup>
-
-  <!-- BasicWeapons -->
+  <!-- medium cargo -->
   <BlockGroup>
-    <Name>BasicWeapons</Name>
+    <Name>MediumCargoContainers</Name>
     <BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>ZOM_CN105_F1_Gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>BAR_60mm_HVMS_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC54-38_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC77-42_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC84-42_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC84-42b_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC84-55_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC90-43_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC90-51_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC90-49_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC122-45_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_NC228-60_Naval_Gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TT16INCHMK6</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TT16INCHMK6R</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TT28CMSKC28</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TT28CMSKC28R</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TT28CMSKL50</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TT28CMSKL50R</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TTTYPE94</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TTTYPE94R</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TT40MMBOFORSQUAD</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>100mm55Main</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>100mmSingleMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>100mmTwinMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>13mmQuad</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>13mmQuadSmall</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>13mmTwinMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>28mmChicagoPianoMT</SubtypeId>
-  <CountWeight>2</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>2cmFlakQuad</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>2cmFlakQuadSmall</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>37mm50MLE</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>37mm70MLE</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>37mmFlakDual</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>37mmFlakDualSmall</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>37mmFlakSingle</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>37mmFlakSingleSmall</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>3Inch50Mark22</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>BoforSingleRemodel</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>BoforSingleRemodelSmall</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>BoforTwinRemodel</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA_12_7_DSHK_2B</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA_37mm_46K</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA_76mm_39K</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA_85mm_92K</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>Fa57mm60</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FAM2BrowningTurret</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FAM2BrowningTurretSmall</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FL2cm</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FL2cmSmall</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>OerlikonDual</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>OerlikonDualSmall</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>OerlikonMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>OerlikonMainSmall</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>PomPomMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>QuadBofor</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>Type96Single</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>12Inch45Mark5</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>12Inch45MarkX</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>12Inch50Mark8</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>12InchMark7</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>14Inch45</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>16Inch45Mark8</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>16Inch50Mark7</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>16Inch50Mark7NRF</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>16InchGun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>18Inch48</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>380mm45MLE</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>38cmSk34</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>38cmSk34_Grey</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>38cmSk34_Grey_NRF</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>38cmSk34NR</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA_254mm_45</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA12Inch35</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA30_5CM_Main</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FAGer14Inch</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>OTO381mm</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>UK16Inch45Mark1</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>15cm45Casemate</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>15Cm55TwinCasemate</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>6Inch50Casemate</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>6InchMark13Casemate</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>152mm55NRF</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>152mm55RF</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>152mmMLE1936</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>15cmSk28</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>15cmSk28NRF</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>203mm50MLE</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>203mm50NRF</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>6InchMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>8Inch55Main</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>8Inch55RF</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA6Inch53Mark18</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA6InchDPMark16</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>Ger203mm</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>OTO152mm55</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>OTO203mm53Model1929</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>Spainish203mmTwin</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>105mmTwin</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>127mm54MLE1948</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>128C34Main</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>128mmL45Main</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>12cm45Mark8</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>138mmMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>15cmKCMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>15cmTwinMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>4_5Inch45</SubtypeId>
-  <CountWeight>2</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>4_7InchMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>5Inch38Twin</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>5Inch41Twin</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>5Inch54Main</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>5InchMk30Main</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>5InchSingleMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA90mmOTO</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA90mmOTOTwin</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>127HvarMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>BoforStaticGun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>OerlikonStatic</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>CAP_40mmAircraftCannon</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>CAP_57AircraftCannon</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>CAP_75AircraftCannon</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>SmallBlockMediumContainer</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>SmallBlockModularContainer</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
   </BlockGroup>
 
-  <!-- Weapons -->
+  <!-- PowerPassive -->
   <BlockGroup>
-    <Name>Weapons</Name>
+    <Name>PowerPassive</Name>
     <BlockTypes>
-      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-      <SubtypeId>CAP_40mmAircraftCannon</SubtypeId>
+      <TypeId>SolarPanel</TypeId>
+      <SubtypeId></SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
     <BlockTypes>
-      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-      <SubtypeId>CAP_57AircraftCannon</SubtypeId>
+      <TypeId>WindTurbine</TypeId>
+      <SubtypeId></SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+  </BlockGroup>
+
+  <!-- Production -->
+  <BlockGroup>
+    <Name>Production</Name>
+    <BlockTypes>
+      <TypeId>Assembler</TypeId>
+      <SubtypeId>BasicAssembler</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
     <BlockTypes>
-      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-      <SubtypeId>CAP_75AircraftCannon</SubtypeId>
+      <TypeId>Assembler</TypeId>
+      <SubtypeId>LargeAssembler</SubtypeId>
+      <CountWeight>2</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Assembler</TypeId>
+      <SubtypeId>LargeAssemblerIndustrial</SubtypeId>
+      <CountWeight>2</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Refinery</TypeId>
+      <SubtypeId>BasicRefinery</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
-	<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>ZOM_CN105_F1_Gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>BAR_60mm_HVMS_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_SC75-40_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC54-38_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC77-42_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC84-42_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC84-42b_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC84-55_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC90-43_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC90-51_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC90-49_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_CC122-45_gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_NC228-60_Naval_Gun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TT16INCHMK6</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TT16INCHMK6R</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TT28CMSKC28</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TT28CMSKC28R</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TT28CMSKL50</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TT28CMSKL50R</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TTTYPE94</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TTTYPE94R</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TT40MMBOFORSQUAD</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>100mm55Main</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>100mmSingleMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>100mmTwinMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>3Inch50Mark22</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>QuadBofor</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>Type96Single</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>12Inch45Mark5</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>12Inch45MarkX</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>12Inch50Mark8</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>12InchMark7</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>14Inch45</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>16Inch45Mark8</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>16Inch50Mark7</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>16Inch50Mark7NRF</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>16InchGun</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>18Inch48</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>380mm45MLE</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>38cmSk34</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>38cmSk34_Grey</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>38cmSk34_Grey_NRF</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>38cmSk34NR</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA_254mm_45</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA12Inch35</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA30_5CM_Main</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FAGer14Inch</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>OTO381mm</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>UK16Inch45Mark1</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>15cm45Casemate</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>15Cm55TwinCasemate</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>6Inch50Casemate</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>6InchMark13Casemate</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>152mm55NRF</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>152mm55RF</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>152mmMLE1936</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>15cmSk28</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>15cmSk28NRF</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>203mm50MLE</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>203mm50NRF</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>6InchMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>8Inch55Main</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>8Inch55RF</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA6Inch53Mark18</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>FA6InchDPMark16</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>Ger203mm</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>OTO152mm55</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>OTO203mm53Model1929</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>Spainish203mmTwin</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>105mmTwin</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>127mm54MLE1948</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>128C34Main</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>128mmL45Main</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>12cm45Mark8</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>138mmMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>15cmKCMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>15cmTwinMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>4_7InchMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>127HvarMain</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
+    <BlockTypes>
+      <TypeId>Refinery</TypeId>
+      <SubtypeId>LargeRefinery</SubtypeId>
+      <CountWeight>2</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Refinery</TypeId>
+      <SubtypeId>LargeRefineryIndustrial</SubtypeId>
+      <CountWeight>2</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Refinery</TypeId>
+      <SubtypeId>BlastFurnace</SubtypeId>
+      <CountWeight>2</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Assembler</TypeId>
+      <SubtypeId>LargePrototechAssembler</SubtypeId>
+      <CountWeight>2</CountWeight>
+    </BlockTypes>
+  </BlockGroup>
+
+  <!-- propulsion -->
+  <BlockGroup>
+    <Name>Propulsion</Name>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>CAP_Propeller_2BladeHalf</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>CAP_Propeller_3BladeHalf</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>CAP_Propeller_4BladeHalf</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>CAP_Propeller_5BladeHalf</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>CAP_Propeller_2Blade</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>CAP_Propeller_3Blade</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>CAP_Propeller_4Blade</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>CAP_Propeller_5Blade</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>CAP_HeavyProp_3_Blade</SubtypeId>
+      <CountWeight>2</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>CAP_HeavyProp_4_Blade</SubtypeId>
+      <CountWeight>2</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>3BladePlanePropellerDouble</SubtypeId>
+      <CountWeight>2</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>4BladePlanePropellerDouble</SubtypeId>
+      <CountWeight>2</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>6BladePlanePropellerDouble</SubtypeId>
+      <CountWeight>2</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>3BladePlanePropellerHalf</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>4BladePlanePropellerHalf</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>Thrust</TypeId>
+      <SubtypeId>6BladePlanePropellerHalf</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+  </BlockGroup>
+
+  <!-- small cargo -->
+  <BlockGroup>
+    <Name>SmallCargoContainers</Name>
+    <BlockTypes>
+      <TypeId>CargoContainer</TypeId>
+      <SubtypeId>SmallBlockSmallContainer</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>CargoContainer</TypeId>
+      <SubtypeId>LargeBlockSmallContainer</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>SmallBlockModularContainer</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>LargeBlockLockerRoom</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>LargeBlockLockerRoomCorner</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>LargeBlockLockers</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>LargeBlockInsetBookshelf</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>LargeBlockBulkContainerA</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>LargeBlockBulkContainerB</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>LargeBlockBulkContainerC</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>LargeBlockCargoTerminal</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>LargeBlockCargoTerminalHalf</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>LargeBlockLabCornerDesk</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>LargeBlockLabCabinet</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>SmallBlockMediumContainer</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>LargeBlockWeaponRack</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>SmallBlockWeaponRack</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>Stowage4</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>Stowage5</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>183mmRackLeft</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>183mmRackRight</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>EmbeddedStowage</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>MGStowage1</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>MGStowage3</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmoRackHalf1x1Left</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmoRackHalf1x1Right</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmoRackHalf1x2Left</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmoRackHalf1x2Right</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>BarrelStorage</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>CAP_Ammo_Drum</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeII</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIIa</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII-2</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII-3</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII-3a</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII-4</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII-5</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII-5a</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII-5b</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII-6a</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII-6b</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII-7</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII-7a</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII-7b</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII-7c</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII-7d</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIII-7e</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIV</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackTypeIV-2</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>AmmorackAdvanced-1</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>IAP_Drum_Loader</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>IAP_Cassette_Ammo_F1</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>IAP_1x1_Half_Ammo_Rack_HE</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>IAP_1x1_Half_Ammo_Rack_HESH</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>IAP_1x2_T-Stowage_Container</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>IAP_1x1_Half_Stowage_Crate</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>IAP_1x1_Quarter_Stowage_Crate</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>IAP_1x1_Slope_Stowage_Crate</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>IAP_1x1_Stowage_Crate</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>IAP_1x2_Ammo_Rack_88</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>IAP_1x2_Half_Ammo_Rack_88</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>IAP_1x2_Half_Stowage_Crate</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_CargoContainer</TypeId>
+      <SubtypeId>IAP_1x2_Slope_Stowage_Crate</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
   </BlockGroup>
 
   <!-- SpecialWeapons: Consty's Aircraft Pack - Ordnance bomb and torpedo mounts.
@@ -1820,547 +1296,666 @@
       <SubtypeId>CAP_AirDropTorpedo</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>ZOM_100mm_Mortar</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_L9A2_howitzer</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_SC140-31_howitzer</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>YtD_SC228-42_Heavy_Mortar</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TTPYLONMK13</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TTMK15</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TTMK15Triple</SubtypeId>
-  <CountWeight>3</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TTMK15Square</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TTMK15Sloped</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TTMK15Sloped1x2</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TTMK6ChargeRack</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>TTPYLONMKVIIDCAIR</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-  </BlockGroup>
-
-  <!-- Countermeasures: new group, not present when the 9 core files were
-       originally built — no core currently has a BlockLimits entry
-       referencing this group. See chat follow-up. Flat CountWeight 1. -->
-  <BlockGroup>
-    <Name>Countermeasures</Name>
     <BlockTypes>
       <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-      <SubtypeId>CAP_SmokeLauncher</SubtypeId>
+      <SubtypeId>ZOM_100mm_Mortar</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
     <BlockTypes>
       <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-      <SubtypeId>CAP_SmokeLauncherCentered</SubtypeId>
-      <CountWeight>1</CountWeight>
-    </BlockTypes>
-	<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>CAP_FlareDispenser</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
-  <SubtypeId>CAP_FlareDispenserEmbedded</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-  </BlockGroup>
-
-  <BlockGroup>
-    <Name>Armor</Name>
-    <BlockTypes>
-      <TypeId></TypeId>
-      <SubtypeId></SubtypeId>
-      <CountWeight>1</CountWeight>
-    </BlockTypes>
-  </BlockGroup>
-
-<!--small cargo-->
-  <BlockGroup>
-    <Name>SmallCargoContainers</Name>
-    <BlockTypes>
-      <TypeId>CargoContainer</TypeId>
-      <SubtypeId>SmallBlockSmallContainer</SubtypeId>
+      <SubtypeId>YtD_L9A2_howitzer</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
     <BlockTypes>
-      <TypeId>CargoContainer</TypeId>
-      <SubtypeId>LargeBlockSmallContainer</SubtypeId>
-      <CountWeight>1</CountWeight>
-    </BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>SmallBlockModularContainer</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>LargeBlockLockerRoom</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>LargeBlockLockerRoomCorner</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>LargeBlockLockers</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>LargeBlockInsetBookshelf</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>LargeBlockBulkContainerA</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>LargeBlockBulkContainerB</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>LargeBlockBulkContainerC</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>LargeBlockCargoTerminal</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>LargeBlockCargoTerminalHalf</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>LargeBlockLabCornerDesk</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>LargeBlockLabCabinet</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>SmallBlockMediumContainer</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>LargeBlockWeaponRack</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>SmallBlockWeaponRack</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>Stowage4</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>Stowage5</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>183mmRackLeft</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>183mmRackRight</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>EmbeddedStowage</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>MGStowage1</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>MGStowage3</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmoRackHalf1x1Left</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmoRackHalf1x1Right</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmoRackHalf1x2Left</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmoRackHalf1x2Right</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>BarrelStorage</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>CAP_Ammo_Drum</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeII</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIIa</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII-2</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII-3</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII-3a</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII-4</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII-5</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII-5a</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII-5b</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII-6a</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII-6b</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII-7</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII-7a</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII-7b</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII-7c</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII-7d</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIII-7e</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIV</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackTypeIV-2</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>AmmorackAdvanced-1</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>IAP_Drum_Loader</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>IAP_Cassette_Ammo_F1</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>IAP_1x1_Half_Ammo_Rack_HE</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>IAP_1x1_Half_Ammo_Rack_HESH</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>IAP_1x2_T-Stowage_Container</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>IAP_1x1_Half_Stowage_Crate</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>IAP_1x1_Quarter_Stowage_Crate</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>IAP_1x1_Slope_Stowage_Crate</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>IAP_1x1_Stowage_Crate</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-<BlockTypes>
-  <TypeId>MyObjectBuilder_CargoContainer</TypeId>
-  <SubtypeId>IAP_1x2_Ammo_Rack_88</SubtypeId>
-  <CountWeight>1</CountWeight>
-</BlockTypes>
-	<BlockTypes>
-		<TypeId>MyObjectBuilder_CargoContainer</TypeId>
-		<SubtypeId>IAP_1x2_Half_Ammo_Rack_88</SubtypeId>
-		<CountWeight>1</CountWeight>
-	</BlockTypes>
-	<BlockTypes>
-		<TypeId>MyObjectBuilder_CargoContainer</TypeId>
-		<SubtypeId>IAP_1x2_Half_Stowage_Crate</SubtypeId>
-		<CountWeight>1</CountWeight>
-	</BlockTypes>
-	<BlockTypes>
-		<TypeId>MyObjectBuilder_CargoContainer</TypeId>
-		<SubtypeId>IAP_1x2_Slope_Stowage_Crate</SubtypeId>
-		<CountWeight>1</CountWeight>
-	</BlockTypes>
-  </BlockGroup>
-  
-  <!--medium cargo-->
-  <BlockGroup>
-    <Name>MediumCargoContainers</Name>
-    <BlockTypes>
-		<TypeId>MyObjectBuilder_CargoContainer</TypeId>
-		<SubtypeId>SmallBlockMediumContainer</SubtypeId>
-		<CountWeight>1</CountWeight>
-    </BlockTypes>
-	<BlockTypes>
-		<TypeId>MyObjectBuilder_CargoContainer</TypeId>
-		<SubtypeId>SmallBlockModularContainer</SubtypeId>
-		<CountWeight>1</CountWeight>
-	</BlockTypes> 
-  </BlockGroup>
-  
-  <!--large cargo-->
-  <BlockGroup>
-    <Name>LargeCargoContainers</Name>
-    <BlockTypes>
-      <TypeId>CargoContainer</TypeId>
-      <SubtypeId>SmallBlockLargeContainer</SubtypeId>
-      <CountWeight>1</CountWeight>
-    </BlockTypes>  
-   <BlockTypes>
-      <TypeId>CargoContainer</TypeId>
-      <SubtypeId>LargeBlockLargeContainer</SubtypeId>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>YtD_SC140-31_howitzer</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
     <BlockTypes>
-      <TypeId>CargoContainer</TypeId>
-      <SubtypeId>LargeBlockLargeIndustrialContainer</SubtypeId>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>YtD_SC228-42_Heavy_Mortar</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TTPYLONMK13</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TTMK15</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TTMK15Triple</SubtypeId>
+      <CountWeight>3</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TTMK15Square</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TTMK15Sloped</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TTMK15Sloped1x2</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TTMK6ChargeRack</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TTPYLONMKVIIDCAIR</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
   </BlockGroup>
 
-  <!--propulsion-->
+  <!-- Tools -->
   <BlockGroup>
-    <Name>Propulsion</Name>
+    <Name>Tools</Name>
     <BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>CAP_Propeller_2BladeHalf</SubtypeId>
-      <CountWeight>1</CountWeight>
-    </BlockTypes>
-    <BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>CAP_Propeller_3BladeHalf</SubtypeId>
-      <CountWeight>1</CountWeight>
-    </BlockTypes>
-	<BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>CAP_Propeller_4BladeHalf</SubtypeId>
-      <CountWeight>1</CountWeight>
-    </BlockTypes>
-	<BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>CAP_Propeller_5BladeHalf</SubtypeId>
-      <CountWeight>1</CountWeight>
-    </BlockTypes>
-	<BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>CAP_Propeller_2Blade</SubtypeId>
+      <TypeId>MyObjectBuilder_Drill</TypeId>
+      <SubtypeId>LargeBlockDrillReskin</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
     <BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>CAP_Propeller_3Blade</SubtypeId>
+      <TypeId>MyObjectBuilder_Drill</TypeId>
+      <SubtypeId>SmallBlockDrillReskin</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
-	<BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>CAP_Propeller_4Blade</SubtypeId>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Drill</TypeId>
+      <SubtypeId>LargeBlockPrototechDrill</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
-	<BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>CAP_Propeller_5Blade</SubtypeId>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Drill</TypeId>
+      <SubtypeId>SmallBlockDrill</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
-	<BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>CAP_HeavyProp_3_Blade</SubtypeId>
-      <CountWeight>2</CountWeight>
-    </BlockTypes>
-	<BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>CAP_HeavyProp_4_Blade</SubtypeId>
-      <CountWeight>2</CountWeight>
-    </BlockTypes>
-	<BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>3BladePlanePropellerDouble</SubtypeId>
-      <CountWeight>2</CountWeight>
-    </BlockTypes>
-	<BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>4BladePlanePropellerDouble</SubtypeId>
-      <CountWeight>2</CountWeight>
-    </BlockTypes>
-	<BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>6BladePlanePropellerDouble</SubtypeId>
-      <CountWeight>2</CountWeight>
-    </BlockTypes>
-	<BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>3BladePlanePropellerHalf</SubtypeId>
-      <CountWeight>1</CountWeight>
-    </BlockTypes>
-	<BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>4BladePlanePropellerHalf</SubtypeId>
-      <CountWeight>1</CountWeight>
-    </BlockTypes>
-	<BlockTypes>
-      <TypeId>Thrust</TypeId>
-      <SubtypeId>6BladePlanePropellerHalf</SubtypeId>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Drill</TypeId>
+      <SubtypeId>LargeBlockDrill</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
   </BlockGroup>
-  
+
+  <!-- Weapons -->
+  <BlockGroup>
+    <Name>Weapons</Name>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>CAP_40mmAircraftCannon</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>CAP_57AircraftCannon</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>CAP_75AircraftCannon</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>ZOM_CN105_F1_Gun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>BAR_60mm_HVMS_gun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>YtD_SC75-40_gun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>YtD_CC54-38_gun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>YtD_CC77-42_gun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>YtD_CC84-42_gun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>YtD_CC84-42b_gun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>YtD_CC84-55_gun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>YtD_CC90-43_gun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>YtD_CC90-51_gun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>YtD_CC90-49_gun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>YtD_CC122-45_gun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>YtD_NC228-60_Naval_Gun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TT16INCHMK6</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TT16INCHMK6R</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TT28CMSKC28</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TT28CMSKC28R</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TT28CMSKL50</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TT28CMSKL50R</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TTTYPE94</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TTTYPE94R</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>TT40MMBOFORSQUAD</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>100mm55Main</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>100mmSingleMain</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>100mmTwinMain</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>3Inch50Mark22</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>QuadBofor</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>Type96Single</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>12Inch45Mark5</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>12Inch45MarkX</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>12Inch50Mark8</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>12InchMark7</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>14Inch45</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>16Inch45Mark8</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>16Inch50Mark7</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>16Inch50Mark7NRF</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>16InchGun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>18Inch48</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>380mm45MLE</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>38cmSk34</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>38cmSk34_Grey</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>38cmSk34_Grey_NRF</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>38cmSk34NR</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FA_254mm_45</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FA12Inch35</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FA30_5CM_Main</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FAGer14Inch</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>OTO381mm</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>UK16Inch45Mark1</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>15cm45Casemate</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>15Cm55TwinCasemate</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>6Inch50Casemate</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>6InchMark13Casemate</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>152mm55NRF</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>152mm55RF</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>152mmMLE1936</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>15cmSk28</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>15cmSk28NRF</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>203mm50MLE</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>203mm50NRF</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>6InchMain</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>8Inch55Main</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>8Inch55RF</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FA6Inch53Mark18</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FA6InchDPMark16</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>Ger203mm</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>OTO152mm55</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>OTO203mm53Model1929</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>Spainish203mmTwin</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>105mmTwin</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>127mm54MLE1948</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>128C34Main</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>128mmL45Main</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>12cm45Mark8</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>138mmMain</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>15cmKCMain</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>15cmTwinMain</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>4_7InchMain</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>127HvarMain</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+  </BlockGroup>
+
+  <!-- Wheels -->
+  <BlockGroup>
+    <Name>Wheels</Name>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>3x3HalfSuspension</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>3x3HalfSuspensionMirror</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>3x3HalfSuspensionThick</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>2x2HalfSuspension</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>2x2ThickSuspension</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>2x2HalfSuspensionMirror</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>25x25HalfSuspension</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>15x15HalfSuspension</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>15x15HalfSuspensionCentred</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>1x1HalfSuspensionAlternate</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>1x1HalfSuspension</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>1x5SprocketSuspension</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>1x5SprocketSuspensionCentred</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>2x2DiscWheelSuspension</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>2x2DiscWheelSuspensionOffset</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>2x2DiscWheelSuspensionOffsetCentred</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>2x2DiscWheelSuspensionCentred</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>AWGSprocketSuspension15x15</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>AWGSprocketSuspension2x2</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>AWGSprocketSuspension25x25</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>AWGSprocketSuspension3x3Thick</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>AWGRoadWheelSuspension15x15</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>AWGRoadWheelSuspension15x15Even</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>AWGRoadWheelSuspension2x2</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>AWGRoadWheelSuspension2x2Thick</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>AWGRoadWheelSuspension2x2Even</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>AWGRoadWheelSuspension2x2ThickEven</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>AWGRoadWheelSuspension3x3Thick</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>AWGTyreSuspension2x2Thin</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
+      <SubtypeId>AWGTyreSuspension25x25Thin</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+  </BlockGroup>
+
 </ArrayOfBlockGroup>

@@ -5,7 +5,7 @@
      own StoreItemId). Pattern confirmed against GVK-Derelicts' own MES Store profiles
      (Workshop ID 2653133286, Data/Encounters/Store/GVK-Store-StoreProfiles.sbc). Applied to
      an actual Store block via WW2-Store-Behavior-FactoryPlaneSales.sbc, referenced from each
-     Factory's own existing Behavior — see that file's own note for how the two connect. -->
+     Factory's own existing Behavior  - see that file's own note for how the two connect. -->
 	<EntityComponents>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>

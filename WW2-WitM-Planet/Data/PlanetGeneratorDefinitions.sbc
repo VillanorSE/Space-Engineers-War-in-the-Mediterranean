@@ -17,7 +17,7 @@
            south hemisphere split) has been generated and projected using
            the confirmed cube-face geometry, alongside the ore map (blue
            channel) from before. Biome (environment item placement, green
-           channel) was also built, 2026-08-19 -- see the EnvironmentItems
+           channel) was also built, 2026-08-19; see the EnvironmentItems
            section below for the full Biome=1/2/3/4 legend. This comment
            previously said Biome was "still not built"; that was stale,
            corrected 2026-08-24. -->
@@ -544,17 +544,17 @@
              artificial uniform ribbon rather than following the real terrain. These two
              groups are identical to MediterraneanSouth/MediterraneanPlainsSouth except the
              lowland band uses OrcusGrass2 (a muted, dry/patchy grass texture, visually
-             confirmed against the source Orcus mod — genuinely between vibrant green and
+             confirmed against the source Orcus mod  - genuinely between vibrant green and
              desert, already copied into this project's VoxelMaterials_Orcus.sbc with its
              textures) instead of CrackedSoil. Region is now painted as the WHOLE real-
-             climate box, not a coastal distance band — the actual shape read now comes
+             climate box, not a coastal distance band  - the actual shape read now comes
              entirely from these height rules (green only where truly low, arid rock above
              that), so it naturally follows real lowland terrain instead of a painted
              ribbon width. Beach,
              highland, and peaks bands are untouched, so the transition stays visibly
              semi-arid away from the immediate lowland. Painted by real elevation (which
              lowland areas actually exist), not a fixed coastal distance, so width follows
-             the real terrain instead of reading as a painted stripe — same philosophy as
+             the real terrain instead of reading as a painted stripe  - same philosophy as
              the Plains/Coastal split used for the Milan lowland. -->
         <MaterialGroup Name="MediterraneanTransition" Value="6">
 
@@ -753,7 +753,7 @@
       <!-- AtmosphereSettings/CloudLayers RESTORED 2026-08-21 to the Orcus-styled
            values (RayleighHeight/RayleighHeightSpace/Intensity/etc. as Orcus
            actually has them, not the scaled-down guess from the prior
-           revision) — the earlier "no blue sky" bug turned out to be
+           revision)  - the earlier "no blue sky" bug turned out to be
            HasAtmosphere=false cached in the SAVE FILE itself (a planet's
            HasAtmosphere/AtmosphereRadius/Radius are baked into the entity at
            first spawn, not re-read from this definition on later loads; see
@@ -766,12 +766,12 @@
            ~60km-radius planets, where 1.1 gives ~6km of altitude above the
            surface before the atmosphere fades ((1.1-1) x 60,000m). Our
            planet's actual radius is 30,101.5m (confirmed from the live save
-           entity, not the theoretical 30,000m) — at 1.1 that's only ~3km,
+           entity, not the theoretical 30,000m)  - at 1.1 that's only ~3km,
            half the altitude Orcus/EarthLike give. 1.25 restores the same
            ~6km+ of usable flight altitude the user wants ((1.25-1) x
-           30,101.5 ≈ 7.5km, deliberately padded past the 6km target rather
+           30,101.5 approx 7.5km, deliberately padded past the 6km target rather
            than landing exactly on it). This value must be kept in sync with
-           AtmosphereRadius in the save file's planet entity by hand — see
+           AtmosphereRadius in the save file's planet entity by hand  - see
            MOD_FILE_DEBUG for the exact save-file fix, since editing this
            definition alone does not update an already-spawned planet. -->
       <AtmosphereSettings>

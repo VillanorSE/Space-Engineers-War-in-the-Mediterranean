@@ -135,31 +135,31 @@
   <BlockLimits>
     <Name>Engines</Name>
     <BlockGroups>Engines</BlockGroups>
-    <MaxCount>2</MaxCount>
+    <MaxCount>1</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
     <IsCriticalLimit>false</IsCriticalLimit>
     <PunishmentType>ShutOff</PunishmentType>
-    <AllowedDirections>Any</AllowedDirections>
-  </BlockLimits>
-   <BlockLimits>
-    <Name>Production</Name>
-    <BlockGroups>Production</BlockGroups>
-    <MaxCount>2</MaxCount>
-    <CrossConnectorPunishment>false</CrossConnectorPunishment>
-    <PunishByNoFlyZone>true</PunishByNoFlyZone>
-    <IsCriticalLimit>false</IsCriticalLimit>
-    <PunishmentType>ShutOff</PunishmentType>
-    <AllowedDirections>Any</AllowedDirections>
+    <AllowedDirections>Forward</AllowedDirections>
+    <AllowedDirections>Backward</AllowedDirections>
+    <AllowedDirections>Left</AllowedDirections>
+    <AllowedDirections>Right</AllowedDirections>
+    <AllowedDirections>Up</AllowedDirections>
+    <AllowedDirections>Down</AllowedDirections>
   </BlockLimits>
   <BlockLimits>
     <Name>MedicalBlocks</Name>
     <BlockGroups>MedicalBlocks</BlockGroups>
-    <MaxCount>2</MaxCount>
+    <MaxCount>5</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
     <IsCriticalLimit>false</IsCriticalLimit>
     <PunishmentType>ShutOff</PunishmentType>
-    <AllowedDirections>Any</AllowedDirections>
+    <AllowedDirections>Forward</AllowedDirections>
+    <AllowedDirections>Backward</AllowedDirections>
+    <AllowedDirections>Left</AllowedDirections>
+    <AllowedDirections>Right</AllowedDirections>
+    <AllowedDirections>Up</AllowedDirections>
+    <AllowedDirections>Down</AllowedDirections>
   </BlockLimits>
 </ShipCore>

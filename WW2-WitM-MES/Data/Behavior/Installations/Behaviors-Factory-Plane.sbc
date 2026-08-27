@@ -4,10 +4,10 @@
 
 <!-- 2026-08-23: earlier this session, [Triggers:WW2-Trigger-ProjectorBuild-Factory] was
      wrongly removed from every Behavior below on the claim that no Projector block exists in
-     either Factory shell — that search was wrong (searched for the literal string
+     either Factory shell  - that search was wrong (searched for the literal string
      "ProjectorBase" instead of the real xsi:type MyObjectBuilder_Projector; both shells do
      have a LargeProjector, "Factory - Projector"). Restored per direct correction: this
-     trigger is intentional — it builds valuable large blocks from the projector after a
+     trigger is intentional  - it builds valuable large blocks from the projector after a
      cargo plane's delivery succeeds. Do not remove it again. -->
 
 <!-- Gray Factory Behaviors -->

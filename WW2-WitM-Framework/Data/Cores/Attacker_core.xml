@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ShipCore>
   <SubtypeId>WW2-Core-Air-Attacker</SubtypeId>
-  <UniqueName>Attacker Grid Class</UniqueName>
+  <UniqueName>Attacker</UniqueName>
   <ForceBroadCast>true</ForceBroadCast>
   <ForceBroadCastRange>4000</ForceBroadCastRange>
   <MobilityType>Mobile</MobilityType>
@@ -72,7 +72,6 @@
     <Energy>1</Energy>
     <Kinetic>1</Kinetic>
   </ActiveDefenseModifiers>
-
   <BlockLimits>
     <Name>Propellers</Name>
     <BlockGroups>Propulsion</BlockGroups>
@@ -83,7 +82,6 @@
     <PunishmentType>ShutOff</PunishmentType>
     <AllowedDirections>Forward</AllowedDirections>
   </BlockLimits>
-
   <BlockLimits>
     <Name>Engines</Name>
     <BlockGroups>Engines</BlockGroups>
@@ -94,7 +92,6 @@
     <PunishmentType>ShutOff</PunishmentType>
     <AllowedDirections>Any</AllowedDirections>
   </BlockLimits>
-
   <BlockLimits>
     <Name>Batteries</Name>
     <BlockGroups>Batteries</BlockGroups>
@@ -105,7 +102,6 @@
     <PunishmentType>ShutOff</PunishmentType>
     <AllowedDirections>Any</AllowedDirections>
   </BlockLimits>
-
   <BlockLimits>
     <Name>NoProduction</Name>
     <BlockGroups>Production</BlockGroups>
@@ -115,7 +111,6 @@
     <IsCriticalLimit>false</IsCriticalLimit>
     <PunishmentType>ShutOff</PunishmentType>
   </BlockLimits>
-
   <BlockLimits>
     <Name>Gyroscopes</Name>
     <BlockGroups>Gyros</BlockGroups>
@@ -126,10 +121,10 @@
     <PunishmentType>ShutOff</PunishmentType>
     <AllowedDirections>Any</AllowedDirections>
   </BlockLimits>
-  
   <BlockLimits>
     <Name>BasicWeapons</Name>
     <BlockGroups>BasicWeapons</BlockGroups>
+    <BlockGroups>Weapons</BlockGroups>
     <MaxCount>6</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
@@ -138,7 +133,6 @@
     <AllowedDirections>Forward</AllowedDirections>
     <AllowedDirections>Backward</AllowedDirections>
   </BlockLimits>
-  
   <BlockLimits>
     <Name>Weapons</Name>
     <BlockGroups>Weapons</BlockGroups>
@@ -150,7 +144,6 @@
     <AllowedDirections>Forward</AllowedDirections>
     <AllowedDirections>Backward</AllowedDirections>
   </BlockLimits>
-  
   <BlockLimits>
     <Name>SpecialWeapons</Name>
     <BlockGroups>SpecialWeapons</BlockGroups>
@@ -161,7 +154,6 @@
     <PunishmentType>ShutOff</PunishmentType>
     <AllowedDirections>Any</AllowedDirections>
   </BlockLimits>
-  
   <BlockLimits>
     <Name>Countermeasures</Name>
     <BlockGroups>Countermeasures</BlockGroups>
@@ -172,7 +164,6 @@
     <PunishmentType>ShutOff</PunishmentType>
     <AllowedDirections>Any</AllowedDirections>
   </BlockLimits>
-  
   <BlockLimits>
     <Name>MedicalBlocks</Name>
     <BlockGroups>MedicalBlocks</BlockGroups>
@@ -182,6 +173,29 @@
     <IsCriticalLimit>false</IsCriticalLimit>
     <PunishmentType>ShutOff</PunishmentType>
     <AllowedDirections>Any</AllowedDirections>
-
+  </BlockLimits>
+  <BlockLimits>
+    <Name>NoTools</Name>
+    <BlockGroups>Tools</BlockGroups>
+    <MaxCount>0</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Forward</AllowedDirections>
+    <AllowedDirections>Backward</AllowedDirections>
+    <AllowedDirections>Up</AllowedDirections>
+    <AllowedDirections>Down</AllowedDirections>
+    <AllowedDirections>Left</AllowedDirections>
+    <AllowedDirections>Right</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>Cockpits</Name>
+    <MaxCount>3</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
   </BlockLimits>
 </ShipCore>

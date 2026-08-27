@@ -3,7 +3,7 @@
 	<EntityComponents>
 
 <!-- Conditions for basic installations.
-     2026-08-21: removed [ReplenishSystems:true] per user request — prefabs
+     2026-08-21: removed [ReplenishSystems:true] per user request  - prefabs
      are built with full fuel tanks already, Hangar has its own wind turbine,
      so replenishing on spawn isn't needed. This was also the likely cause of
      FC20's engine re-enabling despite being saved Enabled=false in its
@@ -13,9 +13,9 @@
      terrain from inside airtight interiors (e.g. the Hangar bay) so
      grass/ground doesn't spawn inside the building. Per MES wiki, this tag
      is explicitly flagged experimental/"not completely functional in some
-     cases" — shared across all installations using this profile (Hangar,
+     cases"  - shared across all installations using this profile (Hangar,
      Factory), so a fix here benefits both.
-     IMPORTANT: MES reads Description as a plain string (ReadElementString) —
+     IMPORTANT: MES reads Description as a plain string (ReadElementString)  -
      it cannot contain embedded XML comments/nodes, only [Key:Value] lines
      and blank lines. Put explanatory comments here, outside the
      EntityComponent, not inside <Description>. -->

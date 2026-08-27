@@ -72,7 +72,6 @@
     <Energy>1</Energy>
     <Kinetic>1</Kinetic>
   </ActiveDefenseModifiers>
-
   <BlockLimits>
     <Name>Propellers</Name>
     <BlockGroups>Propulsion</BlockGroups>
@@ -86,7 +85,6 @@
     <AllowedDirections>Left</AllowedDirections>
     <AllowedDirections>Right</AllowedDirections>
   </BlockLimits>
-
   <BlockLimits>
     <Name>Engines</Name>
     <BlockGroups>Engines</BlockGroups>
@@ -97,7 +95,6 @@
     <PunishmentType>ShutOff</PunishmentType>
     <AllowedDirections>Any</AllowedDirections>
   </BlockLimits>
-
   <BlockLimits>
     <Name>Batteries</Name>
     <BlockGroups>Batteries</BlockGroups>
@@ -108,9 +105,8 @@
     <PunishmentType>ShutOff</PunishmentType>
     <AllowedDirections>Any</AllowedDirections>
   </BlockLimits>
-
   <BlockLimits>
-    <Name>NoProduction</Name>
+    <Name>Production</Name>
     <BlockGroups>Production</BlockGroups>
     <MaxCount>0</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
@@ -118,7 +114,6 @@
     <IsCriticalLimit>false</IsCriticalLimit>
     <PunishmentType>ShutOff</PunishmentType>
   </BlockLimits>
-
   <BlockLimits>
     <Name>Gyroscopes</Name>
     <BlockGroups>Gyros</BlockGroups>
@@ -129,7 +124,6 @@
     <PunishmentType>ShutOff</PunishmentType>
     <AllowedDirections>Any</AllowedDirections>
   </BlockLimits>
-
   <BlockLimits>
     <Name>BasicWeapons</Name>
     <BlockGroups>BasicWeapons</BlockGroups>
@@ -140,7 +134,6 @@
     <PunishmentType>ShutOff</PunishmentType>
     <AllowedDirections>Forward</AllowedDirections>
   </BlockLimits>
-  
   <BlockLimits>
     <Name>Weapons</Name>
     <BlockGroups>Weapons</BlockGroups>
@@ -151,7 +144,6 @@
     <PunishmentType>ShutOff</PunishmentType>
     <AllowedDirections>Forward</AllowedDirections>
   </BlockLimits>
-  
   <BlockLimits>
     <Name>SpecialWeapons</Name>
     <BlockGroups>SpecialWeapons</BlockGroups>
@@ -161,7 +153,6 @@
     <IsCriticalLimit>false</IsCriticalLimit>
     <PunishmentType>ShutOff</PunishmentType>
   </BlockLimits>
-  
   <BlockLimits>
     <Name>Countermeasures</Name>
     <BlockGroups>Countermeasures</BlockGroups>
@@ -172,7 +163,6 @@
     <PunishmentType>ShutOff</PunishmentType>
     <AllowedDirections>Any</AllowedDirections>
   </BlockLimits>
-  
   <BlockLimits>
     <Name>MedicalBlocks</Name>
     <BlockGroups>MedicalBlocks</BlockGroups>

@@ -3,17 +3,17 @@
     <EntityComponents>
 
 <!-- Hangar Plane Behaviors: applied to the Player-WW2-* prefab parked inside a
-     Hangar shell, not the Hangar building itself. Passive — no AI piloting,
+     Hangar shell, not the Hangar building itself. Passive  - no AI piloting,
      just post-spawn cleanup (unstick from static).
 
-     2026-08-22: recreated after being deleted earlier the same session — static
+     2026-08-22: recreated after being deleted earlier the same session  - static
      spawning was tried instead (no Behaviour at all) to rule out SetGridToDynamic
      as the source of spawn-time collision damage, but that made the facing go
      backwards again (the working facing was previously only ever seen together
      with dynamic conversion + the 7.5m SpawnGroup position shift, so dynamic
      conversion itself, not just the position, appears to matter for facing).
      Root cause of the collision damage turned out to be height, not physics
-     drop as first assumed — the plane was spawning low enough to launch up into
+     drop as first assumed  - the plane was spawning low enough to launch up into
      the hangar ceiling on becoming dynamic, then falling and taking damage from
      that impact. Fixed by raising FC20 1.25m in the SpawnGroup, not by removing
      this behavior. The engine/propeller disable attempt is still gone; not
@@ -34,7 +34,7 @@
         </EntityComponent>
 
 <!-- 2026-08-22: same pattern extended to the rest of the Hangar roster (Re2001/MS406/
-     Potez630). Each is just the shared UnStatic trigger, identical to FC20's — no
+     Potez630). Each is just the shared UnStatic trigger, identical to FC20's  - no
      per-plane engine/propeller disable, matching the decision made for FC20. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
@@ -81,7 +81,7 @@
 			</Description>
         </EntityComponent>
 
-<!-- 2026-08-23: roster extension — Re2000, SM79 Bomber/Torpedo, V-156-F. Same pattern. -->
+<!-- 2026-08-23: roster extension  - Re2000, SM79 Bomber/Torpedo, V-156-F. Same pattern. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>

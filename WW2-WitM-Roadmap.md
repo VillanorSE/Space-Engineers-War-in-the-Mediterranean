@@ -97,9 +97,9 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 
 | Category | Civilian track | Military track |
 |---|---|---|
-| Naval | **Civilian** (Golo-scale) | **Corvette** → Destroyer → Cruiser → Heavy Cruiser → Battleship → Carrier |
+| Naval | **Cargo Ship** (Golo-scale) | **Corvette** → Destroyer → Cruiser → Heavy Cruiser → Battleship → Carrier |
 | Air | **Cargo Plane** (Ju52/F222-scale) | **Fighter** → Attacker/Bomber → Heavy Bomber |
-| Wheeled | **Transport** (new) | **Armored Car** (new) → Light Tank → Medium Tank → Heavy Tank |
+| Wheeled | **Truck** (Fiat 626, ANH) | **Armored Car** (new) → Light Tank → Medium Tank → Heavy Tank |
 | Base | *(no civilian/military split)* | **Base** (few per faction, HQ-scale) and **Outpost** (more per faction, smaller) — both available from the start, not sequential |
 
 **Stage 1 scope specifically:** only the starting rung of each track, plus Base and Outpost (both needed since they're parallel, not sequential). That's Civilian Naval, Corvette Naval, Cargo Plane, Fighter, Transport, Armored Car, Base, Outpost — eight core definitions — plus the unlock-gate system working end-to-end for exactly one proof-of-concept upgrade (Corvette → Destroyer). Everything past that first rung on each ladder belongs to Stage 5.
@@ -359,9 +359,13 @@ Built on the territory and War Level system defined above — no separate tracki
 
 **Three location tiers, each a different point on the permanent/capturable/dynamic spectrum — and each maps directly onto the two-category ownership model above:**
 
-- **Domain anchors** — one Airport and one Port per faction (four total: Gray Airport, Gray Port, Green Airport, Green Port). Permanent, faction-fixed forever, never capturable — these are fixed-location installations whose *ownership* never changes, though their functionality/stock still scales with War Level per the mechanism above. Airport and Port stay deliberately separate, not combined into one mixed hub. Ground vehicles are available at both, since Ground doesn't get its own dedicated anchor (not ruled out forever, just not yet — the Ground roster is the newest and thinnest of the three domains right now). Each anchor sells its faction's complete current catalog, gated by War Level rather than by regional stock.
+- **Domain anchors** — three locations per faction, La Spezia, Rome, Tripoli, Toulon, Oran, Alexandria. Permanent, faction-fixed forever, never capturable — these are fixed-location installations whose *ownership* never changes, though their functionality/stock still scales with War Level per the mechanism above. Ground and naval vehicles are available for purchase. Each anchor sells its faction's complete current catalog, gated by War Level rather than by regional stock. Airports will come and include aircraft stock to purchase. Locations not yet determined but definitely Gibraltar.
+Gray Airports: Foggia, Tripoli-Castel Benito, Benina (Benghazi)
+Green Airports: Gibraltar, La Senia, Tunis/Bizerte, Cairo West, Casablanca
 
-  **Port anchor design, confirmed:** not intended as historically accurate reconstructions of real places — real installations are used as loose inspiration only, for layout logic and proportion, not as a build target to replicate. **Gray Port is loosely inspired by La Spezia** (Italy's largest naval dockyard, construction + fitting-out role); **Green Port is loosely inspired by Toulon** (France's main Mediterranean naval arsenal, zoned basin layout — repair basin / submarine basin / fleet mooring / stores). **Design philosophy, confirmed: full (1:1) scale buildings and mooring/construction structures, but far fewer of them than the historical installations had.** No excavated dry dock — each Port anchor gets one **docking spot** (a pier/bulkhead for mooring alongside, surface-level, not a caisson-gated graving dock) and one **construction slip**, rather than the five-plus dry docks a real yard like La Spezia or Toulon's multi-basin arsenal had. **Confirmed footprint targets**, sized to comfortably fit the largest current hull (Vittorio Veneto, 237.76m × 32.82m) with realistic clearance: **~275m × ~45m for the docking pier/bulkhead, ~285m × ~50m for the construction slip.** The goal is an installation that reads as genuinely full-scale next to a 1:1 Aquila or Vittorio Veneto, not a compressed miniature — the compression happens in *count* of repeated facilities, not in the scale of any individual structure.
+Airports can change ownership.
+
+  **Port anchor design, confirmed:** not intended as historically accurate reconstructions of real places — real installations are used as loose inspiration only, for layout logic and proportion, not as a build target to replicate. **Gray Port is loosely inspired by La Spezia** (Italy's largest naval dockyard); **Green Port is loosely inspired by Toulon** (France's main Mediterranean naval arsenal). **Design philosophy, confirmed: full (1:1) scale buildings and mooring/construction structures, but far fewer of them than the historical installations had.** The goal is an installation that reads as genuinely full-scale next to a 1:1 Aquila or Vittorio Veneto, not a compressed miniature — the compression happens in *count* of repeated facilities, not in the scale of any individual structure.
 
   **Terrain fitting, confirmed technique:** MES's voxel-spawning capability will be used to carve/scoop the correct berth/slip shapes and level the surrounding ground so the Port anchor's pier, construction slip, and quay structures sit correctly into planet terrain, rather than requiring hand-sculpted terrain to already exist at the anchor's fixed coordinates before the installation is placed.
 
@@ -386,15 +390,22 @@ Built on the territory and War Level system defined above — no separate tracki
 **SDX2's mission system — no longer pursuable as a reference.** SDX2's GitHub isn't public and no MES-related files could be located on the Steam Workshop (likely unlisted). Flagged as interesting in an earlier session but there's nothing concrete to evaluate against MES's actual Event system, and no further avenue to get one — dropped as a reference source rather than left open.
 
 **To-do (blocked on the territory-growth to-dos above; Custom Planet dependency removed):**
-- [ ] Build/place the four domain anchors (Gray/Green × Airport/Port).
+- [x] Build the first two domain anchors (Toulon, La Spezia).
+- [x] Build the second two domain anchors (Oran, Tripoli).
+- [ ] Build the third two domain anchors (Rome, Alexandria).
+- [ ] Build Gibraltar airfield
+- [ ] Build Gray airfield (Sicily?)
 - [ ] Design the "complete catalog" concept — which hulls are sellable at all, and how War Level gates the list.
-- [ ] Build cored/sellable versions of the general per-faction hangar/garage prefabs (a cored variant alongside the stealable one).
+- [x] Build cored/purchasable versions of the planes per faction.
+- [ ] Build cored/purchasable versions of the ground vehicles per faction.
+- [ ] Build cored/purchasable versions of some of the ships (Gabbiano, La Malouine, at least one destroyer each also)
 - [ ] Wire buy-capability into existing hangar/garage locations alongside the existing steal mechanic.
-- [ ] Design and place maintenance yards as a new prefab tier, distinct from both anchors and hangars.
+- [ ] Design and place maintenance yards as a new prefab tier, distinct from both anchors and hangars (Ideally make these able to repair player grids for credits).
+- [ ] Create trade posts to place as neutral installations that change ownership with territory. (Buy all items and ores, sell modest quantities of lootable components and large quantities of ammo.)
+- [ ] Create refinery installations to serve as neutral installations that change ownership with territory.
 - [ ] Prototype restocking on an open-air supply yard before attempting interior-bay spawning.
 - [ ] Add "reroll stock" as an action in the capture trigger chain for maintenance yards.
 - [ ] Verify whether per-player dynamic hostility gating (threat score/reputation-based) is actually achievable in MES, before committing the "big stuff exists but isn't aggressive unless provoked" design to it.
-- [x] Docking pier/bulkhead and construction slip footprint confirmed for the Gray and Green Port anchors — no excavated dry dock; ~275m × ~45m for the docking pier/bulkhead, ~285m × ~50m for the construction slip, sized to comfortably fit the largest hull in the current Naval roster (Vittorio Veneto, 237.76m × 32.82m) with realistic clearance.
 
 ---
 
@@ -403,15 +414,17 @@ Built on the territory and War Level system defined above — no separate tracki
 New grid design finally becomes necessary. Deliberately small:
 - Naval: one small patrol boat per faction, sized to Corvette Core.
 - Wheeled: one Armored Car per faction — this is also where land combat gets its first real content instead of just installations.
+- Civilian: one truck per faction to serve as a respawn vehicle. Include survival kit, basic refinery, basic assembler, cargo.
 
 Air can wait — the existing Fighter roster already covers the starting tier.
 
 **To-do:**
-- [ ] Design Gray Armored Car.
-- [ ] Design Green Armored Car.
-- [ ] Design Gray naval patrol boat (Corvette-tier).
-- [ ] Design Green naval patrol boat (Corvette-tier).
+- [ ] Create 150% scale Fiat 626 truck.
+- [ ] Create 150% scale AHN truck.
+- [ ] Design Gray Armored Car (AB 41).
+- [ ] Design Green Armored Car (Panhard).
 - [ ] Wire all four into SpawnGroups/Behaviors/Loot per existing pipeline.
+- [ ] Create respawn mod with the trucks.
 
 ---
 
@@ -472,12 +485,12 @@ Doesn't block or get blocked by the numbered stages themselves — new terrain d
 **Known open items:**
 - [ ] Biome GREEN channel (foliage/environment items) not built yet.
 - [ ] `Uraninite_01` (used for Uranium ore) confirmed real only against an asteroid materials reference, not a planet one — watch the load log for this specific line.
-- [ ] Water Mod's working radius for this planet is empirically `/wradius 1.029`, not the ~1.0 the HillParams math would suggest — noted as an open, unexplained discrepancy rather than resolved.
+- [ ] Water Mod's working radius for this planet is empirically `/wradius 1.02862`, not the ~1.0 the HillParams math would suggest — result of wradius 1.0 being based on the lowest point of the surface, not "sea level".
 - [ ] Ore distribution is random-within-budget; revisit if specific historical/gameplay-driven placement becomes worth the effort.
 - [ ] Spawn in a fresh test world and confirm WeaponCore/MES don't exhibit raycast issues (the ≤2048px constraint was respected throughout, but hasn't been explicitly re-verified against live NPC/weapon behavior).
 - [ ] Once terrain is fully settled: place port locations (existing Base/Outpost/Hangar prefabs) and plan convoy GPS routes using the existing SpawnGroup/patrol pipeline.
-- [ ] Sky doesn't render blue correctly (2026-08-21) — atmosphere/sky settings need investigation, root cause not yet identified.
-- [ ] Pull tree density and grass distribution parameters from vanilla Orcus into this planet's environment-item definitions (2026-08-21) — Orcus already used as a voxel-material reference on this project (`VoxelMaterials_Orcus.sbc`), now also wanted for its foliage density/placement, not just its materials.
+- [x] Sky doesn't render blue correctly (2026-08-21) — atmosphere/sky settings need investigation, root cause confirmed that planet was first spawned with atmosphere=false and does not re-check. Fixed by placing new planet.
+- [x] Pull tree density and grass distribution parameters from vanilla Orcus into this planet's environment-item definitions (2026-08-21) — Orcus already used as a voxel-material reference on this project (`VoxelMaterials_Orcus.sbc`), now also wanted for its foliage density/placement, not just its materials.
 
 ---
 

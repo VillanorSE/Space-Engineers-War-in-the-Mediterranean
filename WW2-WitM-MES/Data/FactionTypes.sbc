@@ -2,12 +2,12 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <!-- 2026-08-23: added for the Factory Store-sells-the-plane feature. This is a vanilla SE
      mechanic, separate from Factions.sbc's own GRAY/GREEN MyObjectBuilder_FactionDefinition
-     tags — grids are only sellable via a Store block if they're listed here under Subtype
-     "Builder" (a fixed economy-role subtype, confirmed against a real working example —
-     GVK-Derelicts, Workshop ID 2653133286, Data/FactionTypes_Economy.sbc — not per-faction,
+     tags  - grids are only sellable via a Store block if they're listed here under Subtype
+     "Builder" (a fixed economy-role subtype, confirmed against a real working example  -
+     GVK-Derelicts, Workshop ID 2653133286, Data/FactionTypes_Economy.sbc  - not per-faction,
      just one shared list). Which SPECIFIC plane a given Factory's Store actually offers is
      controlled separately, per-Factory, by the MES Store Profile system (see
-     Data/Encounters/Store/) — this list only makes each plane sellable AT ALL, it doesn't
+     Data/Encounters/Store/)  - this list only makes each plane sellable AT ALL, it doesn't
      decide who sells what. -->
 	<Definition xsi:type="MyObjectBuilder_FactionTypeDefinition">
 		<Id Type="MyObjectBuilder_FactionTypeDefinition" Subtype="Builder" />
