@@ -29,12 +29,22 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 - **Dependency additions:** WeaponCore itself, plus whichever specific weapon-pack mods end up used. Worth checking MES's documented WeaponCore compatibility notes once rebuild work starts, since combining MES/RivalAI-driven NPCs with WeaponCore weapons is a well-trodden combination but has its own configuration quirks (weapon targeting profiles, ammo replenishment behavior).
 
 **To-do:**
-- [x] Pull KONTAKT Ground Systems' block SubtypeIds and TypeId the same way Consty's Ordnance was handled.
-- [x] Confirm whether SETB Community Tank Parts includes large grid rotors — determines if it's a full or partial AWG CWP replacement.
-- [x] Cross-check Yakobe's Machinations' gun roster against KONTAKT's for overlapping/colliding SubtypeIds before using both.
-- [ ] Decide final ground vehicle scale factors within the confirmed 110–120% (military) / up to 150% (civilian) ranges, and rescale the existing Fiat 626 and Renault builds if the civilian figure ends up above 100%.
-- [ ] Pull the full Consty Ordnance block list and sort into "period, keep" vs. "modern, gate or exclude" — AIM-7/54/120 and the modern small arms are confirmed non-period from the changelog alone, but the full list needs a proper pass.
-- [ ] Rebuild each existing hull's weapon fit onto Fletcher Armaments / Consty's Ordnance, replacing custom rotor/hinge turret rigs with general WeaponCore turrets. Broken out per-prefab below so each is a single sitting's work — check the box when that prefab's weapons are rebuilt and it loads clean with the old mod removed. Naval uses Fletcher Armaments; Air uses Consty's Ordnance (WW2-appropriate blocks only, per the lockdown scope above); Installations may need either or neither depending on what defenses they actually carry.
+- [ ] Rebuild all existing vehicles and installations to the current mod set.
+- [ ] Configure BlockRestrictions to disable all blocks that are not to be available to players.
+- [ ] Configure ShipCores for block limits
+- [ ] Update G menu to not show empty groups or blank spaces
+- [x] Test all Factory spawns for placement
+- [x] Resolve naval spawns not moving along paths after spawn
+- [ ] Resolve CrashAir not working as intended
+- [ ] Create Fiat 626 player respawn truck (150% scale)
+- [ ] Create ANH player respawn truck (150% scale)
+- [ ] Configure basic features on port installations
+  - [x] Selling grids of that faction
+  - [ ] Spawning cargo ships that travel to the other port
+  - [ ] Defensive spawn
+- [ ] Adjust threat level and similar spawn controls on Bearn and Aquila, spawning when not expected
+- [ ] Connect basic war level and territory aspects to ports
+- [ ] Create GPS Routes for travel between existing port locations
 
   **Naval:**
   - [x] NPC-WW2-Golo_Italian (Cargo Ship, Gray)
@@ -54,7 +64,7 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 
   **Air:**
   - [x] NPC-WW2-Re2001 (Fighter, Gray) - Replace conveyors, engines, glass, and side MG covers once KONTAKT is fixed.
-  - [ ] NPC-WW2-Re2000 (Fighter, Gray)
+  - [x] NPC-WW2-Re2000 (Fighter, Gray)
   - [x] NPC-WW2-FC20 (Attacker, Gray)
   - [x] NPC-WW2-SM79_Bomber (Attacker, Gray)
   - [x] NPC-WW2-SM79_Torpedo (Attacker, Gray)
@@ -74,16 +84,14 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 
   Prefab names below follow the naming convention above and are inferred from the existing pattern, not yet confirmed against actual file names — flag if these don't match:
   - [ ] NPC-WW2-Ammo-Depot-1
-  - [ ] NPC-WW2-Hangar
-  - [x] NPC-WW2-Factory-Plane-Gray
-  - [x] NPC-WW2-Factory-Plane-Green
-  - [ ] NPC-WW2-Garage-Gray
-  - [ ] NPC-WW2-Garage-Green
+  - [x] NPC-WW2-Hangar
+  - [x] NPC-WW2-Factory-Plane
+  - [ ] NPC-WW2-Garage
 - [ ] Re-verify SpawnGroups/Behaviors/Loot still reference correct ammo/weapon subtype IDs after rebuild (loot container definitions currently reference old ammo names like `FiddyShellWC`, `HispanoDrumAP` — these will need updating).
 - [ ] Once rebuilt, re-run the same cross-reference audit process used earlier in this project (defined-vs-referenced SubtypeId sweep) to catch anything broken by the swap.
 - [ ] Audit the full MES mod's installation prefabs and replace the retired per-plane Hangar/Factory model with the confirmed one-Hangar/one-Factory-per-faction design (see the Installations note above); wire Factory/Hangar interior spawns to select from the `Player-WW2-*` prefab family per the naming convention.
 - [ ] Remove F4F from the mod (spawn groups, prefabs, any references) — pulled from the roster, see Air roster note.
-- [ ] Confirm SM.79 (Bomber and Torpedo, NPC and Player) is fully wired into SpawnGroups/Behaviors/Loot now that the prefab rebuild is done.
+- [x] Confirm SM.79 (Bomber and Torpedo, NPC and Player) is fully wired into SpawnGroups/Behaviors/Loot now that the prefab rebuild is done.
 - [ ] Test all MES components end-to-end to confirm baseline features (spawning, behaviors, triggers) work after the recent rebuild work.
 - [ ] Build BlockRestrictions definitions removing non-period-correct blocks (anachronistic weapons, reactors, thrusters, etc.) from the G-menu across vanilla and dependency mods — new tool decision, see Modlist entry #26; full block audit not yet done.
 
@@ -130,10 +138,6 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 
 **Correction on record (confirmed via research):** Trento, Zara, and Algérie are all officially classed Heavy Cruisers (Washington Treaty tonnage), not plain Cruisers — Emile Bertin alone is a genuine light Cruiser, and Bartolomeo Colleoni fills the Gray Cruiser-tier slot that opened up as a result.
 
-**Spica placement confirmed:** Spica (Torpedo Boat, Gray) is now placed in the Destroyer tier alongside Francesco Crispi and Comandante Margottini — resolves the earlier open item about it not mapping cleanly onto the ladder.
-
-**Known build issue affecting two hulls:** Algérie and Emile Bertin both carry the AWG piston/hinge catapult-floatplane assembly responsible for the grid-loading bug identified during the mod audit (root cause confirmed on Emile Bertin, same mechanism present on Algérie, absent on Trento). Factor the catapult rebuild into both hulls' timelines.
-
 ---
 
 ### Naval roster — Submarines (confirmed, new category outside the Civilian–Carrier ladder)
@@ -169,9 +173,9 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 
 **Recon tier (confirmed, prior session).** IMAM Ro.43 (Gray) and Loire 130 (Green), both real catapult-launched shipborne reconnaissance floatplanes. Mechanics deferred to a separate thread.
 
-**Open item: Gray Civilian-tier air.** Ju52 is German-built, not Italian — unresolved, revisit later.
+**Open item: Gray Civilian-tier air.** Ju52 is German-built, not Italian was used substantially by Italians, supplement with additional cargo plane variant eventually.
 
-**SM.79** ("il Gobbo Maledetto," the damned hunchback) is one of the most famous Italian aircraft of the war, especially in its torpedo-bomber ("Silurante") role — a dedicated torpedo variant is planned specifically to threaten player ships. **Ba.88** fills the lighter attack role — genuinely real and well-documented, but its actual historical reputation is "notoriously one of WW2's worst operational aircraft," which fits an entry-tier plane thematically rather well.
+**Ba.88** fills the lighter attack role — genuinely real and well-documented, but its actual historical reputation is "notoriously one of WW2's worst operational aircraft," which fits an entry-tier plane thematically rather well.
 
 **P.108** is Italy's only operational four-engine heavy bomber. Existing impressive model already built, needs rebuild onto the new weapon systems.
 

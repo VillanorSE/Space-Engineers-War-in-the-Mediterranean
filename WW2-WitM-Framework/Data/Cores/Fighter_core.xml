@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ShipCore>
   <SubtypeId>WW2-Core-Air-Fighter</SubtypeId>
-  <UniqueName>Fighter Grid Class</UniqueName>
+  <UniqueName>Fighter</UniqueName>
   <ForceBroadCast>true</ForceBroadCast>
   <ForceBroadCastRange>2000</ForceBroadCastRange>
   <MobilityType>Mobile</MobilityType>
@@ -34,10 +34,10 @@
     <RefineEfficiency>1</RefineEfficiency>
     <RefineSpeed>1</RefineSpeed>
     <ThrusterEfficiency>1</ThrusterEfficiency>
-    <ThrusterForce>1.15</ThrusterForce>
+    <ThrusterForce>1.0</ThrusterForce>
   </Modifiers>
   <SpeedModifiers>
-    <MaxSpeed>0.8</MaxSpeed>
+    <MaxSpeed>0.966667</MaxSpeed>
     <MaxAngularVelocity>0</MaxAngularVelocity>
     <MaxBoost>0.5</MaxBoost>
     <BoostDuration>10</BoostDuration>

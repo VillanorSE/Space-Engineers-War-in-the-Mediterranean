@@ -3,14 +3,20 @@
 	<SpawnGroups>
 
 <!-- Plane Factory Spawns -->
-<!-- 2026-08-23: rebuilt per direct request. Each factory now combines the generic shell
+<!-- 2026-08-27: switched the 66%/33% assembly-line stages from baked Player-WW2-<Plane>_66pct/
+     _33pct prefab files to Manipulation Profiles (Manipulations-FactoryBuildStates.sbc) per
+     direct request - fewer files to maintain, one shared pair of profiles instead of two extra
+     baked prefabs per plane. The 12 old _66pct/_33pct prefab files are deleted; the 3rd/4th
+     <Prefab> entry in each SpawnGroup below now references the same clean Player-WW2-<Plane>
+     prefab as the 100% one, with build state reduced at spawn time via
+     [ManipulationAllowedPrefabIndexes]. Every X/Y/Z value below is UNCHANGED from before this
+     swap - the user has been tuning these by hand (Gray factory height in particular), so none
+     of the position numbers here should be treated as a first-pass guess needing correction.
+
+     2026-08-23: rebuilt per direct request. Each factory now combines the generic shell
      (NPC-WW2-Factory-Plane-Gray/Green, unchanged) with THREE copies of its Player-tier
      plane in a line, evenly spaced, at decreasing build progress (100%/66%/33%)  - an
-     assembly-line read instead of the old single fully-built plane. The 66%/33% copies
-     are new prefab files (Player-WW2-<Plane>_66pct.sbc / _33pct.sbc) generated
-     programmatically from the clean 100% Player-tier blueprint by setting every block's
-     IntegrityPercent/BuildPercent  - same technique already used elsewhere this session,
-     not new in-game builds. Positions are a first-pass guess from the shell's own
+     assembly-line read instead of the old single fully-built plane. Positions are a first-pass guess from the shell's own
      interior bounding box (Gray: X[-13,9] Y[-1,9] Z[-22,17] blocks; Green: X[-36,-16]
      Y[-1,14] Z[-18,13] blocks, both x2.5m/block)  - NOT visually confirmed, expect the
      same kind of position tuning the Hangar roster needed. Behaviour references are
@@ -51,6 +57,8 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-33pct]
 
 		[FactionOverride:GRAY]
 		[SpawnRandomCargo:true]
@@ -69,7 +77,7 @@
 			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Gray">
 				<Position>
 					<X>0.0</X>
-					<Y>0.0</Y>
+					<Y>-24.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Factory-Plane-Re2000</Behaviour>
@@ -77,25 +85,25 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-Re2000">
 				<Position>
-					<X>-5.0</X>
-					<Y>3.0</Y>
-					<Z>-20.0</Z>
+					<X>6.5</X>
+					<Y>4.5</Y>
+					<Z>10.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="Player-WW2-Re2000_66pct">
+			<Prefab SubtypeId="Player-WW2-Re2000">
 				<Position>
-					<X>-5.0</X>
-					<Y>3.0</Y>
-					<Z>0.0</Z>
+					<X>6.5</X>
+					<Y>4.5</Y>
+					<Z>30.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="Player-WW2-Re2000_33pct">
+			<Prefab SubtypeId="Player-WW2-Re2000">
 				<Position>
-					<X>-5.0</X>
-					<Y>3.0</Y>
-					<Z>20.0</Z>
+					<X>6.5</X>
+					<Y>4.5</Y>
+					<Z>50.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
@@ -116,6 +124,8 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-33pct]
 
 		[FactionOverride:GRAY]
 		[SpawnRandomCargo:true]
@@ -134,7 +144,7 @@
 			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Gray">
 				<Position>
 					<X>0.0</X>
-					<Y>0.0</Y>
+					<Y>-24.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Factory-Plane-Re2001</Behaviour>
@@ -142,25 +152,25 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-Re2001">
 				<Position>
-					<X>-5.0</X>
+					<X>2.5</X>
 					<Y>3.0</Y>
-					<Z>-20.0</Z>
+					<Z>2.5</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="Player-WW2-Re2001_66pct">
+			<Prefab SubtypeId="Player-WW2-Re2001">
 				<Position>
-					<X>-5.0</X>
+					<X>2.5</X>
 					<Y>3.0</Y>
-					<Z>0.0</Z>
+					<Z>22.5</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="Player-WW2-Re2001_33pct">
+			<Prefab SubtypeId="Player-WW2-Re2001">
 				<Position>
-					<X>-5.0</X>
+					<X>2.5</X>
 					<Y>3.0</Y>
-					<Z>20.0</Z>
+					<Z>42.5</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
@@ -181,6 +191,8 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-33pct]
 
 		[FactionOverride:GRAY]
 		[SpawnRandomCargo:true]
@@ -198,8 +210,8 @@
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Gray">
 				<Position>
-					<X>0.0</X>
-					<Y>0.0</Y>
+					<X>-10.0</X>
+					<Y>-24.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Factory-Plane-FC20</Behaviour>
@@ -208,24 +220,24 @@
 			<Prefab SubtypeId="Player-WW2-FC20">
 				<Position>
 					<X>-5.0</X>
-					<Y>3.0</Y>
-					<Z>-20.0</Z>
-				</Position>
-				<Speed>0.0</Speed>
-			</Prefab>
-			<Prefab SubtypeId="Player-WW2-FC20_66pct">
-				<Position>
-					<X>-5.0</X>
-					<Y>3.0</Y>
+					<Y>4.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="Player-WW2-FC20_33pct">
+			<Prefab SubtypeId="Player-WW2-FC20">
 				<Position>
 					<X>-5.0</X>
-					<Y>3.0</Y>
+					<Y>4.0</Y>
 					<Z>20.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-FC20">
+				<Position>
+					<X>-5.0</X>
+					<Y>4.0</Y>
+					<Z>40.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
@@ -246,6 +258,8 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-33pct]
 
 		[FactionOverride:GRAY]
 		[SpawnRandomCargo:true]
@@ -264,7 +278,7 @@
 			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Gray">
 				<Position>
 					<X>0.0</X>
-					<Y>0.0</Y>
+					<Y>-24.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Factory-Plane-SM79Bomber</Behaviour>
@@ -272,25 +286,25 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-SM79_Bomber">
 				<Position>
-					<X>-5.0</X>
-					<Y>3.0</Y>
-					<Z>-20.0</Z>
-				</Position>
-				<Speed>0.0</Speed>
-			</Prefab>
-			<Prefab SubtypeId="Player-WW2-SM79_Bomber_66pct">
-				<Position>
-					<X>-5.0</X>
-					<Y>3.0</Y>
+					<X>-2.0</X>
+					<Y>4.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="Player-WW2-SM79_Bomber_33pct">
+			<Prefab SubtypeId="Player-WW2-SM79_Bomber">
 				<Position>
-					<X>-5.0</X>
-					<Y>3.0</Y>
+					<X>-2.0</X>
+					<Y>4.0</Y>
 					<Z>20.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-SM79_Bomber">
+				<Position>
+					<X>-2.0</X>
+					<Y>4.0</Y>
+					<Z>40.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
@@ -311,6 +325,8 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-33pct]
 
 		[FactionOverride:GREEN]
 		[SpawnRandomCargo:true]
@@ -328,8 +344,8 @@
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Green">
 				<Position>
-					<X>-26.0</X>
-					<Y>0.0</Y>
+					<X>0.0</X>
+					<Y>-26.5</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Factory-Plane-MS406</Behaviour>
@@ -337,25 +353,25 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-MS406">
 				<Position>
-					<X>-31.0</X>
-					<Y>3.0</Y>
-					<Z>-20.0</Z>
+					<X>-2.5</X>
+					<Y>3.5</Y>
+					<Z>-25.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="Player-WW2-MS406_66pct">
+			<Prefab SubtypeId="Player-WW2-MS406">
 				<Position>
-					<X>-31.0</X>
-					<Y>3.0</Y>
+					<X>-2.5</X>
+					<Y>3.5</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="Player-WW2-MS406_33pct">
+			<Prefab SubtypeId="Player-WW2-MS406">
 				<Position>
-					<X>-31.0</X>
-					<Y>3.0</Y>
-					<Z>20.0</Z>
+					<X>-2.5</X>
+					<Y>3.5</Y>
+					<Z>10.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
@@ -376,6 +392,8 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-33pct]
 
 		[FactionOverride:GREEN]
 		[SpawnRandomCargo:true]
@@ -393,8 +411,8 @@
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Green">
 				<Position>
-					<X>-26.0</X>
-					<Y>0.0</Y>
+					<X>0.0</X>
+					<Y>-26.5</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Factory-Plane-Potez630</Behaviour>
@@ -402,25 +420,25 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-Potez630">
 				<Position>
-					<X>-31.0</X>
-					<Y>3.0</Y>
-					<Z>-20.0</Z>
+					<X>-5.0</X>
+					<Y>2.5</Y>
+					<Z>-27.5</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="Player-WW2-Potez630_66pct">
+			<Prefab SubtypeId="Player-WW2-Potez630">
 				<Position>
-					<X>-31.0</X>
-					<Y>3.0</Y>
-					<Z>0.0</Z>
+					<X>-5.0</X>
+					<Y>2.5</Y>
+					<Z>-7.5</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="Player-WW2-Potez630_33pct">
+			<Prefab SubtypeId="Player-WW2-Potez630">
 				<Position>
-					<X>-31.0</X>
-					<Y>3.0</Y>
-					<Z>20.0</Z>
+					<X>-5.0</X>
+					<Y>2.5</Y>
+					<Z>12.5</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+
+<!-- 2026-08-27: Port installations are static, invulnerable, uneditable buildings (see
+     SpawnGroups-Ports.sbc)  - they don't patrol or produce anything, so unlike the Factory
+     behaviors these only run the Store-sales trigger plus (2026-08-28) a defensive plane
+     scramble, same pattern as the Factories'. One shared Behavior per faction (not per port)
+     since all Gray ports sell the same Gray roster/scramble the same Gray planes, same for
+     Green  - see WW2-Store-Behavior-PortSales.sbc and Triggers-DefensiveSpawn-Port.sbc for the
+     trigger/action pairs. -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Port-Gray</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			[Triggers:WW2-Store-Trigger-UpdateSales-Port-Gray]
+			[Triggers:WW2-Trigger-DefenseSpawn-Port-Gray]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Port-Green</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			[Triggers:WW2-Store-Trigger-UpdateSales-Port-Green]
+			[Triggers:WW2-Trigger-DefenseSpawn-Port-Green]
+
+			</Description>
+        </EntityComponent>
+
+	</EntityComponents>
+</Definitions>

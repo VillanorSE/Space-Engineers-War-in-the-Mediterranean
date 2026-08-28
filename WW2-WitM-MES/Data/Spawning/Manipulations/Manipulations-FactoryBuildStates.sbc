@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!-- 2026-08-27: replaces the baked Player-WW2-<Plane>_66pct/_33pct prefab files used by
+     SpawnGroups-Factories.sbc's assembly-line display. Instead of a separate blueprint per
+     build stage, the clean 100% Player-tier prefab is referenced three times in each Factory
+     SpawnGroup, and these two shared Manipulation Profiles reduce build state on the 3rd/4th
+     <Prefab> entry only, via [ManipulationAllowedPrefabIndexes] (0=shell, 1=100% plane,
+     2=66% target, 3=33% target - matches every Factory SpawnGroup's existing Prefab ordering).
+
+     FIXED 2026-08-27 (was a real bug, not a wiring issue - confirmed by reading MES's own
+     source, PrefabManipulation.cs/BlockStates.cs): the manipulation function has a guard clause
+     that silently no-ops the entire manipulation if MinimumBlocksPercent>=MaximumBlocksPercent
+     OR MinimumBuildPercent>=MaximumBuildPercent. The original version of this file set Min=Max
+     on both pairs to try to force a deterministic value, which hit that guard every time and
+     did nothing. Since the game picks via C#'s Rnd.Next(min, max), which EXCLUDES max, adjacent
+     bounds still give a deterministic single result: Next(100,101) always returns 100,
+     Next(66,67) always returns 66, Next(33,34) always returns 33. That's what's used below.
+
+     CAVEAT (confirmed from source, not just docs): ReduceBlockBuildStates only touches blocks
+     on a hardcoded whitelist in BlockStates.PartialBuiltAllowedBlocks - mostly armor block
+     variants, windows, catwalks, stairs, railings, and interior walls. Functional blocks
+     (thrusters, cockpit, conveyors, weapons) are never touched and will show fully built even
+     on the "33%" copy. This is a real visual difference from the old baked prefabs, which had
+     every block (functional included) uniformly at the target percentage. Confirm in-game this
+     reads as "under construction" rather than "finished plane with some armor missing" - if it
+     doesn't, the baked-prefab approach may need to come back for this specific use case. -->
+	<EntityComponents>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-FactoryBuildState-66pct</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+
+			[ManipulationAllowedPrefabIndexes:2]
+
+			[ReduceBlockBuildStates:true]
+			[MinimumBlocksPercent:100]
+			[MaximumBlocksPercent:101]
+			[MinimumBuildPercent:66]
+			[MaximumBuildPercent:67]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-FactoryBuildState-33pct</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+
+			[ManipulationAllowedPrefabIndexes:3]
+
+			[ReduceBlockBuildStates:true]
+			[MinimumBlocksPercent:100]
+			[MaximumBlocksPercent:101]
+			[MinimumBuildPercent:33]
+			[MaximumBuildPercent:34]
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

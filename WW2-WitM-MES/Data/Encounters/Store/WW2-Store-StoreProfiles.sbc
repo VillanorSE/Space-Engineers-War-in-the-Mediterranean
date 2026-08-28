@@ -91,5 +91,45 @@
 			[RequiredOffers:WW2-Potez630]
 			</Description>
 		</EntityComponent>
+
+<!-- 2026-08-27: Port sell-all-faction-grids profiles. Same [MES Store] mechanism as the
+     per-plane Factory profiles above, but RequiredOffers lists every Player-WW2 prefab for the
+     faction instead of just one, and MinOfferItems=MaxOfferItems=the full roster count so
+     nothing gets rotated out. Applied via WW2-Store-Behavior-PortSales.sbc, referenced from
+     each port's Behaviors-Port.sbc entry. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-Port-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-FactoryPlanes.xml]
+			[MinOfferItems:5]
+			[MaxOfferItems:5]
+			[ItemsRequireInventory:false]
+			[RequiredOffers:WW2-Re2000]
+			[RequiredOffers:WW2-Re2001]
+			[RequiredOffers:WW2-FC20]
+			[RequiredOffers:WW2-SM79Bomber]
+			[RequiredOffers:WW2-SM79Torpedo]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-Port-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-FactoryPlanes.xml]
+			[MinOfferItems:3]
+			[MaxOfferItems:3]
+			[ItemsRequireInventory:false]
+			[RequiredOffers:WW2-MS406]
+			[RequiredOffers:WW2-Potez630]
+			[RequiredOffers:WW2-V156F]
+			</Description>
+		</EntityComponent>
 	</EntityComponents>
 </Definitions>
