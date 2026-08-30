@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<!-- 2026-08-28: Loot Profiles for the Stage 1 unlock-currency components. MinBlocks/MaxBlocks
+     both set to 1 - each only needs to claim ONE container, not compete for a large chunk of a
+     grid's cargo slots the way WW2-Loot-BasicContainers does. Same ContainerBlockTypes list as
+     WW2-Loot-BasicContainers (Loot.sbc), so these can land in whatever cargo containers a grid
+     actually has, regardless of ship/plane size.
+
+     Wired into SpawnGroups via dedicated Manipulation Profiles, not here directly - see
+     Manipulations-TechComponents.sbc for the actual rarity/likelihood tuning
+     ([ManipulationChance]). These Loot Profiles are just "what to place if chosen," same
+     separation of concerns as the rest of this file's siblings. -->
+
+	<EntityComponents>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Loot-Industrial</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Loot]
+
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/SmallBlockMediumContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/SmallBlockLargeContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockSmallContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeIndustrialContainer]
+
+			[ContainerTypes:WW2-ContainerTypes-Industrial]
+
+			[MinBlocks:1]
+			[MaxBlocks:1]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Loot-MilitaryComp</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Loot]
+
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/SmallBlockMediumContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/SmallBlockLargeContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockSmallContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeIndustrialContainer]
+
+			[ContainerTypes:WW2-ContainerTypes-MilitaryComp]
+
+			[MinBlocks:1]
+			[MaxBlocks:1]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Loot-AdvancedMilitary</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Loot]
+
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/SmallBlockMediumContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/SmallBlockLargeContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockSmallContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeIndustrialContainer]
+
+			[ContainerTypes:WW2-ContainerTypes-AdvancedMilitary]
+
+			[MinBlocks:1]
+			[MaxBlocks:1]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Loot-AdvancedMilitary-Plane</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Loot]
+
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/SmallBlockMediumContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/SmallBlockLargeContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockSmallContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeIndustrialContainer]
+
+			[ContainerTypes:WW2-ContainerTypes-AdvancedMilitary-Plane]
+
+			[MinBlocks:1]
+			[MaxBlocks:1]
+
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

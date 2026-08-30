@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<!-- 2026-08-28: container pools for the three Stage 1 unlock-currency components (see
+     WW2-WitM-Framework/Data/Components.sbc  - relabeled vanilla Prototech items, deliberately
+     uncraftable, loot-only). CountMin/CountMax:1 on every entry  - each is meant to add exactly
+     one small stack of its one component to a container, not compete against a big pool of
+     other items the way BasicAmmo does. Rarity/likelihood is controlled at the Manipulation
+     Profile layer (Manipulations-TechComponents.sbc), not here - these are just "what quantity
+     when it does show up." -->
+
+	<ContainerTypes>
+
+	<!-- Industrial Components: small stacks, 1-3 -->
+		<ContainerType CountMin="1" CountMax="1">
+			<Id>
+				<TypeId>ContainerTypeDefinition</TypeId>
+				<SubtypeId>WW2-ContainerTypes-Industrial</SubtypeId>
+			</Id>
+			<Items>
+				<Item AmountMin="1" AmountMax="3">
+					<Frequency>1.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>PrototechMachinery</SubtypeId>
+					</Id>
+				</Item>
+			</Items>
+		</ContainerType>
+
+	<!-- Military Components: small stacks, 1-3 -->
+		<ContainerType CountMin="1" CountMax="1">
+			<Id>
+				<TypeId>ContainerTypeDefinition</TypeId>
+				<SubtypeId>WW2-ContainerTypes-MilitaryComp</SubtypeId>
+			</Id>
+			<Items>
+				<Item AmountMin="1" AmountMax="3">
+					<Frequency>1.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>PrototechFrame</SubtypeId>
+					</Id>
+				</Item>
+			</Items>
+		</ContainerType>
+
+	<!-- Advanced Military Components, general (naval/cargo): very small stacks, 1-2 -->
+		<ContainerType CountMin="1" CountMax="1">
+			<Id>
+				<TypeId>ContainerTypeDefinition</TypeId>
+				<SubtypeId>WW2-ContainerTypes-AdvancedMilitary</SubtypeId>
+			</Id>
+			<Items>
+				<Item AmountMin="1" AmountMax="2">
+					<Frequency>1.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>PrototechCircuitry</SubtypeId>
+					</Id>
+				</Item>
+			</Items>
+		</ContainerType>
+
+	<!-- Advanced Military Components, elite plane spawns specifically: 1-3 per direct request -->
+		<ContainerType CountMin="1" CountMax="1">
+			<Id>
+				<TypeId>ContainerTypeDefinition</TypeId>
+				<SubtypeId>WW2-ContainerTypes-AdvancedMilitary-Plane</SubtypeId>
+			</Id>
+			<Items>
+				<Item AmountMin="1" AmountMax="3">
+					<Frequency>1.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>PrototechCircuitry</SubtypeId>
+					</Id>
+				</Item>
+			</Items>
+		</ContainerType>
+
+	</ContainerTypes>
+</Definitions>

@@ -3,17 +3,7 @@
 	<SpawnGroups>
 
 <!-- Plane Factory Spawns -->
-<!-- 2026-08-27: switched the 66%/33% assembly-line stages from baked Player-WW2-<Plane>_66pct/
-     _33pct prefab files to Manipulation Profiles (Manipulations-FactoryBuildStates.sbc) per
-     direct request - fewer files to maintain, one shared pair of profiles instead of two extra
-     baked prefabs per plane. The 12 old _66pct/_33pct prefab files are deleted; the 3rd/4th
-     <Prefab> entry in each SpawnGroup below now references the same clean Player-WW2-<Plane>
-     prefab as the 100% one, with build state reduced at spawn time via
-     [ManipulationAllowedPrefabIndexes]. Every X/Y/Z value below is UNCHANGED from before this
-     swap - the user has been tuning these by hand (Gray factory height in particular), so none
-     of the position numbers here should be treated as a first-pass guess needing correction.
-
-     2026-08-23: rebuilt per direct request. Each factory now combines the generic shell
+<!-- 2026-08-23: rebuilt per direct request. Each factory now combines the generic shell
      (NPC-WW2-Factory-Plane-Gray/Green, unchanged) with THREE copies of its Player-tier
      plane in a line, evenly spaced, at decreasing build progress (100%/66%/33%)  - an
      assembly-line read instead of the old single fully-built plane. Positions are a first-pass guess from the shell's own
@@ -210,7 +200,7 @@
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Gray">
 				<Position>
-					<X>-10.0</X>
+					<X>0.0</X>
 					<Y>-24.0</Y>
 					<Z>0.0</Z>
 				</Position>
@@ -219,25 +209,25 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-FC20">
 				<Position>
-					<X>-5.0</X>
-					<Y>4.0</Y>
+					<X>5.0</X>
+					<Y>5.5</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-FC20">
 				<Position>
-					<X>-5.0</X>
-					<Y>4.0</Y>
-					<Z>20.0</Z>
+					<X>5.0</X>
+					<Y>5.5</Y>
+					<Z>22.5</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-FC20">
 				<Position>
-					<X>-5.0</X>
-					<Y>4.0</Y>
-					<Z>40.0</Z>
+					<X>5.0</X>
+					<Y>5.5</Y>
+					<Z>45.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
@@ -287,24 +277,24 @@
 			<Prefab SubtypeId="Player-WW2-SM79_Bomber">
 				<Position>
 					<X>-2.0</X>
-					<Y>4.0</Y>
-					<Z>0.0</Z>
+					<Y>5.7</Y>
+					<Z>5.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-SM79_Bomber">
 				<Position>
 					<X>-2.0</X>
-					<Y>4.0</Y>
-					<Z>20.0</Z>
+					<Y>5.7</Y>
+					<Z>25.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-SM79_Bomber">
 				<Position>
 					<X>-2.0</X>
-					<Y>4.0</Y>
-					<Z>40.0</Z>
+					<Y>5.7</Y>
+					<Z>45.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
@@ -355,7 +345,7 @@
 				<Position>
 					<X>-2.5</X>
 					<Y>3.5</Y>
-					<Z>-25.0</Z>
+					<Z>-20.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
@@ -363,7 +353,7 @@
 				<Position>
 					<X>-2.5</X>
 					<Y>3.5</Y>
-					<Z>0.0</Z>
+					<Z>-5.0</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
@@ -420,24 +410,91 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-Potez630">
 				<Position>
-					<X>-5.0</X>
-					<Y>2.5</Y>
+					<X>-2.5</X>
+					<Y>5.0</Y>
+					<Z>-32.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Potez630">
+				<Position>
+					<X>-2.5</X>
+					<Y>5.0</Y>
+					<Z>-12.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Potez630">
+				<Position>
+					<X>-2.5</X>
+					<Y>5.0</Y>
+					<Z>8.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Green V-156-F Factory -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Factory-Green-V156FBomber</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Medium]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-33pct]
+
+		[FactionOverride:GREEN]
+		[SpawnRandomCargo:true]
+
+		[UseContainerTypeAssignment:true]
+		[ContainerTypeAssignBlockName:Small Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
+
+		[ContainerTypeAssignBlockName:Medium Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Green">
+				<Position>
+					<X>7.5</X>
+					<Y>-26.5</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Factory-Plane-V156FBomber</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-V-156-F_Bomber">
+				<Position>
+					<X>4.0</X>
+					<Y>3.0</Y>
 					<Z>-27.5</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="Player-WW2-Potez630">
+			<Prefab SubtypeId="Player-WW2-V-156-F_Bomber">
 				<Position>
-					<X>-5.0</X>
-					<Y>2.5</Y>
+					<X>4.0</X>
+					<Y>3.0</Y>
 					<Z>-7.5</Z>
 				</Position>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="Player-WW2-Potez630">
+			<Prefab SubtypeId="Player-WW2-V-156-F_Bomber">
 				<Position>
-					<X>-5.0</X>
-					<Y>2.5</Y>
+					<X>4.0</X>
+					<Y>3.0</Y>
 					<Z>12.5</Z>
 				</Position>
 				<Speed>0.0</Speed>

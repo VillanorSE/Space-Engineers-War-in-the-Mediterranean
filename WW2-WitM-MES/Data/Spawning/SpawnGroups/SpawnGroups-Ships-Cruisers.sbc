@@ -13,9 +13,11 @@
 	
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Tech-Military-VeryReliable]
+		[ManipulationProfiles:WW2-Manipulation-Tech-AdvancedMilitary-EliteNaval]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
 		[FactionOverride:GREEN]
-	
+
 		</Description>
 		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
 		<Frequency>10.0</Frequency>
@@ -33,6 +35,82 @@
 		</Prefabs>
 	</SpawnGroup>
 <!-- End Green Emile Bertin Cruiser -->
+
+<!-- 2026-08-28: added - Trento and Algerie prefabs existed (roadmap marks both done) but had
+     no SpawnGroup at all, so neither could ever actually spawn. Added now since the user named
+     both as "advanced military spawns" that need Advanced Military Components wired in, which
+     requires a real SpawnGroup to attach loot to in the first place. Reuses the existing
+     WW2-Behavior-Cruiser-Gray/Green Behaviors (Emile Bertin's own Green one, plus the Gray
+     counterpart, both already built). -->
+<!-- Gray Trento Heavy Cruiser -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Trento</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Tech-Military-VeryReliable]
+		[ManipulationProfiles:WW2-Manipulation-Tech-AdvancedMilitary-EliteNaval]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Trento">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Cruiser-Gray</Behaviour>
+				<Speed>12.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+<!-- End Gray Trento Heavy Cruiser -->
+
+<!-- Green Algerie Heavy Cruiser -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Algerie</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Tech-Military-VeryReliable]
+		[ManipulationProfiles:WW2-Manipulation-Tech-AdvancedMilitary-EliteNaval]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Algerie">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Cruiser-Green</Behaviour>
+				<Speed>12.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+<!-- End Green Algerie Heavy Cruiser -->
 
 	</SpawnGroups>
 </Definitions>

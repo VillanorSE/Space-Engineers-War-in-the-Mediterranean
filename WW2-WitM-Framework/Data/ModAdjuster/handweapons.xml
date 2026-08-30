@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<PhysicalItems>
+
+		<!-- Vanilla hand weapons - restricted in favor of the SETB WW2 weapon set -->
+		<PhysicalItem xsi:type="PhysicalItemDefinition">
+			<Id Type="MyObjectBuilder_PhysicalGunObject" Subtype="SemiAutoPistolItem" />
+			<Public>false</Public>
+		</PhysicalItem>
+		<PhysicalItem xsi:type="PhysicalItemDefinition">
+			<Id Type="MyObjectBuilder_PhysicalGunObject" Subtype="FullAutoPistolItem" />
+			<Public>false</Public>
+		</PhysicalItem>
+		<PhysicalItem xsi:type="PhysicalItemDefinition">
+			<Id Type="MyObjectBuilder_PhysicalGunObject" Subtype="ElitePistolItem" />
+			<Public>false</Public>
+		</PhysicalItem>
+		<PhysicalItem xsi:type="PhysicalItemDefinition">
+			<Id Type="MyObjectBuilder_PhysicalGunObject" Subtype="AutomaticRifleItem" />
+			<Public>false</Public>
+		</PhysicalItem>
+		<PhysicalItem xsi:type="PhysicalItemDefinition">
+			<Id Type="MyObjectBuilder_PhysicalGunObject" Subtype="PreciseAutomaticRifleItem" />
+			<Public>false</Public>
+		</PhysicalItem>
+		<PhysicalItem xsi:type="PhysicalItemDefinition">
+			<Id Type="MyObjectBuilder_PhysicalGunObject" Subtype="RapidFireAutomaticRifleItem" />
+			<Public>false</Public>
+		</PhysicalItem>
+		<PhysicalItem xsi:type="PhysicalItemDefinition">
+			<Id Type="MyObjectBuilder_PhysicalGunObject" Subtype="UltimateAutomaticRifleItem" />
+			<Public>false</Public>
+		</PhysicalItem>
+		<PhysicalItem xsi:type="PhysicalItemDefinition">
+			<Id Type="MyObjectBuilder_PhysicalGunObject" Subtype="BasicHandHeldLauncherItem" />
+			<Public>false</Public>
+		</PhysicalItem>
+		<PhysicalItem xsi:type="PhysicalItemDefinition">
+			<Id Type="MyObjectBuilder_PhysicalGunObject" Subtype="AdvancedHandHeldLauncherItem" />
+			<Public>false</Public>
+		</PhysicalItem>
+
+		<!-- SETB WW2 Weapons (Workshop 3579180401) - Lunge Mine excluded, all others kept -->
+		<PhysicalItem xsi:type="PhysicalItemDefinition">
+			<Id Type="MyObjectBuilder_PhysicalGunObject" Subtype="LungeGun" />
+			<Public>false</Public>
+		</PhysicalItem>
+
+	</PhysicalItems>
+</Definitions>

@@ -2,18 +2,25 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
 
-<!-- Defensive Gray Factory Spawn sequence -->	
+<!-- 2026-08-28: Port defensive spawn, same pattern as Triggers-DefensiveSpawn.sbc (Factory_Planes)
+     - hostile player near, low cooldown-gated plane scramble. Separate Trigger/Action/Spawner
+     SubtypeIds from the Factory versions (kept per-installation-type for clarity in debug logs)
+     but reuses the same shared WW2-Chat-DefenseSpawn-Factory-Plane chat profile - the message
+     itself ("Scrambling air support") isn't Factory-specific. Green spawner list drops F4F
+     (pulled from the roster per Roadmap, 2026-08-21) unlike the Factory version, which still
+     references it. -->
 
-	<!-- Triggers when a hostile player is within 1500m with a 10-30 minute cooldown -->
+<!-- Defensive Gray Port Spawn sequence -->
+	<!-- Triggers when a hostile player is within 1200m with a 10-30 minute cooldown -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-DefenseSpawn-Factory-Plane-Gray</SubtypeId>
+                <SubtypeId>WW2-Trigger-DefenseSpawn-Port-Gray</SubtypeId>
             </Id>
             <Description>
-			
+
 			[RivalAI Trigger]
-			
+
 			[UseTrigger:true]
 			[Type:PlayerNear]
 			[TargetDistance:1200]
@@ -21,10 +28,10 @@
 			[MinCooldownMs:600000]
 			[MaxCooldownMs:1800000]
 			[StartsReady:true]
-			
+
 			[MaxPlayerReputation:-500]
-			
-            [Actions:WW2-Action-DefenseSpawn-Factory-Plane-Gray]
+
+            [Actions:WW2-Action-DefenseSpawn-Port-Gray]
 
 			</Description>
         </EntityComponent>
@@ -33,18 +40,18 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-DefenseSpawn-Factory-Plane-Gray</SubtypeId>
+                <SubtypeId>WW2-Action-DefenseSpawn-Port-Gray</SubtypeId>
             </Id>
             <Description>
 
 			[RivalAI Action]
-			
+
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Chat-DefenseSpawn-Factory-Plane]
-			
+
 			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-DefenseSpawn-Factory-Plane-Gray]
-			
+			[Spawner:WW2-Spawn-DefenseSpawn-Port-Gray]
+
 			</Description>
         </EntityComponent>
 
@@ -52,12 +59,12 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-DefenseSpawn-Factory-Plane-Gray</SubtypeId>
+                <SubtypeId>WW2-Spawn-DefenseSpawn-Port-Gray</SubtypeId>
             </Id>
             <Description>
 
 			[RivalAI Spawn]
-			
+
 			[UseSpawn:true]
 			[SpawningType:CustomSpawn]
 			[StartsReady:true]
@@ -65,7 +72,7 @@
 			[SpawnGroups:NPC-WW2-Re2000]
 			[SpawnGroups:NPC-WW2-Re2001]
 			[SpawnGroups:NPC-WW2-FC20]
-			
+
 			[MinDistance:800]
 			[MaxDistance:2000]
 			[MinAltitude:200]
@@ -75,19 +82,19 @@
 
 			</Description>
         </EntityComponent>
-<!-- End Defensive Gray Factory Spawn sequence -->
+<!-- End Defensive Gray Port Spawn sequence -->
 
-<!-- Defensive Green Factory Spawn sequence -->
-	<!-- Triggers when a hostile player is within 1500m with a 10-30 minute cooldown -->
+<!-- Defensive Green Port Spawn sequence -->
+	<!-- Triggers when a hostile player is within 1200m with a 10-30 minute cooldown -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-DefenseSpawn-Factory-Plane-Green</SubtypeId>
+                <SubtypeId>WW2-Trigger-DefenseSpawn-Port-Green</SubtypeId>
             </Id>
             <Description>
-			
+
 			[RivalAI Trigger]
-			
+
 			[UseTrigger:true]
 			[Type:PlayerNear]
 			[TargetDistance:1200]
@@ -95,10 +102,10 @@
 			[MinCooldownMs:600000]
 			[MaxCooldownMs:1800000]
 			[StartsReady:true]
-			
+
 			[MaxPlayerReputation:-500]
-			
-            [Actions:WW2-Action-DefenseSpawn-Factory-Plane-Green]
+
+            [Actions:WW2-Action-DefenseSpawn-Port-Green]
 
 			</Description>
         </EntityComponent>
@@ -107,18 +114,18 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-DefenseSpawn-Factory-Plane-Green</SubtypeId>
+                <SubtypeId>WW2-Action-DefenseSpawn-Port-Green</SubtypeId>
             </Id>
             <Description>
-						
+
 			[RivalAI Action]
-			
+
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Chat-DefenseSpawn-Factory-Plane]
-			
+
 			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-DefenseSpawn-Factory-Plane-Green]
-			
+			[Spawner:WW2-Spawn-DefenseSpawn-Port-Green]
+
 			</Description>
         </EntityComponent>
 
@@ -126,19 +133,19 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-DefenseSpawn-Factory-Plane-Green</SubtypeId>
+                <SubtypeId>WW2-Spawn-DefenseSpawn-Port-Green</SubtypeId>
             </Id>
             <Description>
-			
+
 			[RivalAI Spawn]
-			
+
 			[UseSpawn:true]
 			[SpawningType:CustomSpawn]
 			[StartsReady:true]
 
 			[SpawnGroups:NPC-WW2-MS406]
 			[SpawnGroups:NPC-WW2-Potez630]
-			
+
 			[MinDistance:800]
 			[MaxDistance:2000]
 			[MinAltitude:200]
@@ -148,46 +155,7 @@
 
 			</Description>
         </EntityComponent>
-<!-- End Defensive Green Factory Spawn sequence -->
-
-<!-- Shared Chat messages -->
-	<!-- Broadcasts a random chat notice to 2,500m range -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Chat-DefenseSpawn-Factory-Plane</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Chat]
-			
-			[UseChat:true]
-            [StartsReady:true]
-            [BroadcastRandomly:true]
-			[Author:Dispatch]
-			[Color:Red]
-			[IgnoreAntennaRequirement:true]
-			[IgnoredAntennaRangeOverride:2500]
-
-            [ChatMessages:Scrambling air support.]
-            [ChatAudio:ArcHudGPSNotification2]
-            [BroadcastChatType:Both]
-			
-			[ChatMessages:Reinforcements on their way.]
-            [ChatAudio:ArcHudGPSNotification2]
-            [BroadcastChatType:Both]
-			
-			[ChatMessages:Hostile contact detected.]
-            [ChatAudio:ArcHudGPSNotification2]
-            [BroadcastChatType:Both]
-			
-			[ChatMessages:Coming in hot!]
-            [ChatAudio:ArcHudGPSNotification2]
-            [BroadcastChatType:Both]
-			
-			</Description>
-        </EntityComponent>
-<!-- End Shared Chat Messages-->
+<!-- End Defensive Green Port Spawn sequence -->
 
 	</EntityComponents>
 </Definitions>

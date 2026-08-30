@@ -272,6 +272,73 @@
 
 			</Description>
         </EntityComponent>
+
+<!-- Offense Factory V-156-F Spawn sequence -->
+	<!--Triggers every 30-45 minutes once a player has first come in range of the factory-->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-OffenseSpawn-Factory-Plane-V156FBomber</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:false]
+			[Type:Timer]
+
+			[MinCooldownMs:1800000]
+			[MaxCooldownMs:2700000]
+			[StartsReady:false]
+
+			[MaxActions:-1]
+            [Actions:WW2-Action-OffenseSpawn-Factory-Plane-V156F]
+
+			</Description>
+        </EntityComponent>
+
+	<!-- Calls an attacker spawner -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-OffenseSpawn-Factory-Plane-V156F</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-OffenseSpawn-Factory-Plane-V156F]
+
+			</Description>
+        </EntityComponent>
+
+	<!-- Spawns a V-156-F Attacker -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-OffenseSpawn-Factory-Plane-V156F</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-V-156-F_Bomber]
+
+			[MinDistance:400]
+			[MaxDistance:1000]
+			[MinAltitude:200]
+			[MaxAltitude:800]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:false]
+
+			</Description>
+        </EntityComponent>
 <!-- End Offense Factory SM79 Bomber Spawn sequence -->
 
 <!-- Offense Factory MS406 Spawn sequence -->

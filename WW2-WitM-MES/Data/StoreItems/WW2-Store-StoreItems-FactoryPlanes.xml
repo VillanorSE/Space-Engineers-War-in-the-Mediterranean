@@ -100,9 +100,21 @@
 			</Offer>
 		</StoreItem>
 		<StoreItem>
-			<StoreItemId>WW2-V156F</StoreItemId>
+			<StoreItemId>WW2-V156FBomber</StoreItemId>
 			<ItemType>Prefab</ItemType>
-			<ItemSubtypeId>Player-WW2-V-156-F</ItemSubtypeId>
+			<ItemSubtypeId>Player-WW2-V-156-F_Bomber</ItemSubtypeId>
+			<Offer>
+				<CustomPrice>145000</CustomPrice>
+				<MinPriceMultiplier>100</MinPriceMultiplier>
+				<MaxPriceMultiplier>100</MaxPriceMultiplier>
+				<MinAmount>1</MinAmount>
+				<MaxAmount>1</MaxAmount>
+			</Offer>
+		</StoreItem>
+		<StoreItem>
+			<StoreItemId>WW2-V156FTorpedo</StoreItemId>
+			<ItemType>Prefab</ItemType>
+			<ItemSubtypeId>Player-WW2-V-156-F_Torpedo</ItemSubtypeId>
 			<Offer>
 				<CustomPrice>145000</CustomPrice>
 				<MinPriceMultiplier>100</MinPriceMultiplier>

@@ -9,11 +9,14 @@
 		<SubtypeId>NPC-WW2-Potez630</SubtypeId>
 	</Id>
 	<Description>
-	  
+
 	[Modular Encounters SpawnGroup]
 
 	[SpawnConditionsProfiles:WW2-SpawnConditions-Fighters]
 	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Tech-Military-VeryReliable]
+	[ManipulationProfiles:WW2-Manipulation-Tech-AdvancedMilitary-ElitePlane]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
 	[FactionOverride:GREEN]
 	  
 	</Description>
@@ -32,24 +35,60 @@
 	</Prefabs>
 </SpawnGroup>
 
+<!-- 2026-08-28: split into Bomber/Torpedo variants - the bare NPC-WW2-V-156-F prefab (and its
+     SpawnGroup) is retired in favor of the two real variant prefabs, same split already done
+     for SM79. -->
 <SpawnGroup>
 	<Id>
 		<TypeId>SpawnGroupDefinition</TypeId>
-		<SubtypeId>NPC-WW2-V-156-F</SubtypeId>
+		<SubtypeId>NPC-WW2-V-156-F_Bomber</SubtypeId>
 	</Id>
 	<Description>
-	  
+
 	[Modular Encounters SpawnGroup]
 
 	[SpawnConditionsProfiles:WW2-SpawnConditions-Fighters]
 	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Tech-Military-VeryReliable]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
 	[FactionOverride:GREEN]
-	  
+
 	</Description>
 	<Frequency>1.0</Frequency>
 	<IsPirate>true</IsPirate>
 	<Prefabs>
-		<Prefab SubtypeId="NPC-WW2-V-156-F">
+		<Prefab SubtypeId="NPC-WW2-V-156-F_Bomber">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-V-156-F_Torpedo</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-Fighters]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Tech-Military-VeryReliable]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GREEN]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-V-156-F_Torpedo">
 			<Position>
 				<X>0.0</X>
 				<Y>0.0</Y>
@@ -74,6 +113,9 @@
 
 	[SpawnConditionsProfiles:WW2-SpawnConditions-Fighters]
 	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Tech-Military-VeryReliable]
+	[ManipulationProfiles:WW2-Manipulation-Tech-AdvancedMilitary-ElitePlane]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
 	[FactionOverride:GRAY]
 	  
 	</Description>
@@ -103,6 +145,9 @@
 
 	[SpawnConditionsProfiles:WW2-SpawnConditions-Fighters]
 	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Tech-Military-VeryReliable]
+	[ManipulationProfiles:WW2-Manipulation-Tech-AdvancedMilitary-ElitePlane]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
 	[FactionOverride:GRAY]
 
 	</Description>
@@ -110,6 +155,40 @@
 	<IsPirate>true</IsPirate>
 	<Prefabs>
 		<Prefab SubtypeId="NPC-WW2-SM79_Bomber">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- 2026-08-28: added - NPC-WW2-SM79_Torpedo existed as a prefab (Hangar roster, Store,
+     GridsForSale) but had no combat encounter SpawnGroup at all, unlike SM79_Bomber. -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-SM79Torpedo</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-Fighters]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Tech-Military-VeryReliable]
+	[ManipulationProfiles:WW2-Manipulation-Tech-AdvancedMilitary-ElitePlane]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-SM79_Torpedo">
 			<Position>
 				<X>0.0</X>
 				<Y>0.0</Y>

@@ -66,6 +66,48 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-SM79Torpedo</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-FactoryPlanes.xml]
+			[MinOfferItems:1]
+			[MaxOfferItems:1]
+			[ItemsRequireInventory:false]
+			[RequiredOffers:WW2-SM79Torpedo]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-V156FBomber</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-FactoryPlanes.xml]
+			[MinOfferItems:1]
+			[MaxOfferItems:1]
+			[ItemsRequireInventory:false]
+			[RequiredOffers:WW2-V156FBomber]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-V156FTorpedo</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-FactoryPlanes.xml]
+			[MinOfferItems:1]
+			[MaxOfferItems:1]
+			[ItemsRequireInventory:false]
+			[RequiredOffers:WW2-V156FTorpedo]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
 				<SubtypeId>WW2-Store-Profile-MS406</SubtypeId>
 			</Id>
 			<Description>
@@ -123,12 +165,13 @@
 			<Description>
 			[MES Store]
 			[FileSource:WW2-Store-StoreItems-FactoryPlanes.xml]
-			[MinOfferItems:3]
-			[MaxOfferItems:3]
+			[MinOfferItems:4]
+			[MaxOfferItems:4]
 			[ItemsRequireInventory:false]
 			[RequiredOffers:WW2-MS406]
 			[RequiredOffers:WW2-Potez630]
-			[RequiredOffers:WW2-V156F]
+			[RequiredOffers:WW2-V156FBomber]
+			[RequiredOffers:WW2-V156FTorpedo]
 			</Description>
 		</EntityComponent>
 	</EntityComponents>

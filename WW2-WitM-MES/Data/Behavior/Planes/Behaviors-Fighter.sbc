@@ -23,7 +23,8 @@
 			
 			[WeaponSystem:WW2-Weapons-Fighter]
 			
-			[Triggers:WW2-Trigger-ReputationDamage-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Gray]
 			[Triggers:WW2-Trigger-UnStatic]
 			
 			[Triggers:WW2-Trigger-PatrolSwitch-Fighter]
@@ -58,7 +59,8 @@
 			
 			[WeaponSystem:WW2-Weapons-Fighter]
 			
-			[Triggers:WW2-Trigger-ReputationDamage-Green]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Green]
 			[Triggers:WW2-Trigger-UnStatic]
 			
 			[Triggers:WW2-Trigger-PatrolSwitch-Fighter]
@@ -95,10 +97,17 @@
 			[MatchAllFilters:Relation]
 			[MatchAllFilters:Powered]
 
+			[MatchNoneFilters:Name]
+			[UsePartialNameMatching:false]
+			[Names:La Spezia]
+			[Names:Port of Toulon]
+			[Names:Port of Oran]
+			[Names:Port of Tripoli]
+
 			[Owners:Player]
 			[Owners:NPC]
 			[Relations:Enemy]
-			
+
 			[GetTargetBy:ClosestDistance]
 			
 			</Description>

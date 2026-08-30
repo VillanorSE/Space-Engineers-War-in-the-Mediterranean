@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+
+<!-- 2026-08-28: Heavy-tier reputation, fired once per grid on kill/disable rather than per-hit.
+     Two amount tiers, reused across whichever detection mechanism actually fits the hull:
+       - Civilian tier (-100 primary / +50 opposite): planes, ground vehicles (once built),
+         civilian cargo ships.
+       - Military tier (-250 primary / +125 opposite): Destroyer/Corvette/Cruiser/Carrier/
+         TorpedoBoat.
+
+     Two detection mechanisms, NOT one:
+       - Planes use a dedicated [Type:HealthPercentage] check at the same 94% threshold as
+         Triggers-Crash-Air.sbc's own crash trigger, instead of hooking into Crash-Air's
+         action chain directly. Per direct instruction: [Type:Compromised] (remote control
+         disabled) is unreliable for planes specifically, since Crash-Air itself deliberately
+         flips the plane to Passive and kills its thrust/rotation - by the time the plane is
+         actually "compromised," RivalAI may have already stopped tracking it. Watching the
+         same health threshold independently sidesteps that without needing to modify the
+         already-tested crash mechanic itself.
+       - Ships (civilian and military) don't have this problem - nothing intentionally shuts
+         them down early - so they use [Type:Compromised] directly, same as the existing
+         Crash-Air pattern for air.
+
+     MaxActions:1 on every trigger below - each grid can only pay out its Heavy reputation hit
+     once, matching "destroying a plane/ground vehicle/cargo ship/military ship" reading as a
+     one-time event, not a repeating one like the Light tier. -->
+
+<!-- Heavy Reputation Actions - Civilian tier (-100 / +50) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ReputationDamageHeavy-Civilian-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[ChangeAttackerReputation:true]
+			[ChangeAttackerReputationFaction:GRAY]
+			[ChangeAttackerReputationAmount:-100]
+			[ChangeAttackerReputationFaction:GREEN]
+			[ChangeAttackerReputationAmount:50]
+			[ReputationChangesForAllAttackPlayerFactionMembers:true]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ReputationDamageHeavy-Civilian-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[ChangeAttackerReputation:true]
+			[ChangeAttackerReputationFaction:GREEN]
+			[ChangeAttackerReputationAmount:-100]
+			[ChangeAttackerReputationFaction:GRAY]
+			[ChangeAttackerReputationAmount:50]
+			[ReputationChangesForAllAttackPlayerFactionMembers:true]
+
+			</Description>
+        </EntityComponent>
+<!-- End Heavy Reputation Actions - Civilian tier -->
+
+<!-- Heavy Reputation Actions - Military tier (-250 / +125) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ReputationDamageHeavy-Military-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[ChangeAttackerReputation:true]
+			[ChangeAttackerReputationFaction:GRAY]
+			[ChangeAttackerReputationAmount:-250]
+			[ChangeAttackerReputationFaction:GREEN]
+			[ChangeAttackerReputationAmount:125]
+			[ReputationChangesForAllAttackPlayerFactionMembers:true]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ReputationDamageHeavy-Military-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[ChangeAttackerReputation:true]
+			[ChangeAttackerReputationFaction:GREEN]
+			[ChangeAttackerReputationAmount:-250]
+			[ChangeAttackerReputationFaction:GRAY]
+			[ChangeAttackerReputationAmount:125]
+			[ReputationChangesForAllAttackPlayerFactionMembers:true]
+
+			</Description>
+        </EntityComponent>
+<!-- End Heavy Reputation Actions - Military tier -->
+
+<!-- Plane detection - health-threshold based, same 94% used by Crash-Air, independent trigger -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ReputationDamageHeavy-Plane-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:HealthPercentage]
+
+			[MinCooldownMs:250]
+			[MaxCooldownMs:500]
+
+			[PercentageOfHealthRemaining:94]
+			[UseFailCondition:true]
+
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Action-ReputationDamageHeavy-Civilian-Gray]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ReputationDamageHeavy-Plane-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:HealthPercentage]
+
+			[MinCooldownMs:250]
+			[MaxCooldownMs:500]
+
+			[PercentageOfHealthRemaining:94]
+			[UseFailCondition:true]
+
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Action-ReputationDamageHeavy-Civilian-Green]
+
+			</Description>
+        </EntityComponent>
+<!-- End Plane detection -->
+
+<!-- Civilian ship detection - Compromised, for WW2-Behavior-CargoShip-Gray/Green only -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ReputationDamageHeavy-Ship-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Compromised]
+
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Action-ReputationDamageHeavy-Civilian-Gray]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ReputationDamageHeavy-Ship-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Compromised]
+
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Action-ReputationDamageHeavy-Civilian-Green]
+
+			</Description>
+        </EntityComponent>
+<!-- End Civilian ship detection -->
+
+<!-- Military ship detection - Compromised, for Destroyer/Corvette/Cruiser/Carrier/TorpedoBoat -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ReputationDamageHeavy-MilitaryShip-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Compromised]
+
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Action-ReputationDamageHeavy-Military-Gray]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ReputationDamageHeavy-MilitaryShip-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Compromised]
+
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Action-ReputationDamageHeavy-Military-Green]
+
+			</Description>
+        </EntityComponent>
+<!-- End Military ship detection -->
+
+	</EntityComponents>
+</Definitions>

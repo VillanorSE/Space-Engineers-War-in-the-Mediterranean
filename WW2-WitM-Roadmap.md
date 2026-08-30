@@ -30,8 +30,8 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 
 **To-do:**
 - [ ] Rebuild all existing vehicles and installations to the current mod set.
-- [ ] Configure BlockRestrictions to disable all blocks that are not to be available to players.
-- [ ] Configure ShipCores for block limits
+- [x] Configure BlockRestrictions to disable all blocks that are not to be available to players.
+- [x] Configure ShipCores for block limits
 - [ ] Update G menu to not show empty groups or blank spaces
 - [x] Test all Factory spawns for placement
 - [x] Resolve naval spawns not moving along paths after spawn
@@ -41,7 +41,7 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 - [ ] Configure basic features on port installations
   - [x] Selling grids of that faction
   - [ ] Spawning cargo ships that travel to the other port
-  - [ ] Defensive spawn
+  - [x] Defensive spawn
 - [ ] Adjust threat level and similar spawn controls on Bearn and Aquila, spawning when not expected
 - [ ] Connect basic war level and territory aspects to ports
 - [ ] Create GPS Routes for travel between existing port locations
@@ -57,13 +57,13 @@ Not a stage so much as a foundation everything else sits on. The current naval w
   - [x] NPC-WW2-Bougainville (Aviso/Destroyer-behavior, Green)
   - [x] NPC-WW2-Le_Triomphant (Destroyer, Green)
   - [x] NPC-WW2-Algerie (Cruiser, Green)
-  - [x] NPC-WW2-Emile_Bertin (Cruiser, Green) — **confirmed root cause found:** the AWG piston/hinge-based catapult+floatplane assembly (Loire 130) silently breaks grid loading — no exception, no error, just fails to register as an entity. Reproduced and fixed by surgical removal in a build-world test; same mechanism confirmed present on Algerie (Green Heavy Cruiser) and absent on Trento (Gray Heavy Cruiser, which has never shown the failure — clean independent confirmation). Rebuild the catapult using non-AWG piston/hinge parts (or the general WeaponCore turret approach already planned for weapons) before this hull is usable in a SpawnGroup.
-  - [x] NPC-WW2-Aquila (Carrier, Gray) - Fix tower and cranes once KONTAKT mod is fixed.
+  - [x] NPC-WW2-Emile_Bertin (Cruiser, Green)
+  - [x] NPC-WW2-Aquila (Carrier, Gray)
   - [x] NPC-WW2-Bearn (Carrier, Green)
   - [x] Rebuild Loire 130 on the Emile Bertin and Algier and re-export/replace.
 
   **Air:**
-  - [x] NPC-WW2-Re2001 (Fighter, Gray) - Replace conveyors, engines, glass, and side MG covers once KONTAKT is fixed.
+  - [x] NPC-WW2-Re2001 (Fighter, Gray)
   - [x] NPC-WW2-Re2000 (Fighter, Gray)
   - [x] NPC-WW2-FC20 (Attacker, Gray)
   - [x] NPC-WW2-SM79_Bomber (Attacker, Gray)
@@ -90,7 +90,7 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 - [ ] Re-verify SpawnGroups/Behaviors/Loot still reference correct ammo/weapon subtype IDs after rebuild (loot container definitions currently reference old ammo names like `FiddyShellWC`, `HispanoDrumAP` — these will need updating).
 - [ ] Once rebuilt, re-run the same cross-reference audit process used earlier in this project (defined-vs-referenced SubtypeId sweep) to catch anything broken by the swap.
 - [ ] Audit the full MES mod's installation prefabs and replace the retired per-plane Hangar/Factory model with the confirmed one-Hangar/one-Factory-per-faction design (see the Installations note above); wire Factory/Hangar interior spawns to select from the `Player-WW2-*` prefab family per the naming convention.
-- [ ] Remove F4F from the mod (spawn groups, prefabs, any references) — pulled from the roster, see Air roster note.
+- [x] Remove F4F from the mod (spawn groups, prefabs, any references) — pulled from the roster, see Air roster note.
 - [x] Confirm SM.79 (Bomber and Torpedo, NPC and Player) is fully wired into SpawnGroups/Behaviors/Loot now that the prefab rebuild is done.
 - [ ] Test all MES components end-to-end to confirm baseline features (spawning, behaviors, triggers) work after the recent rebuild work.
 - [ ] Build BlockRestrictions definitions removing non-period-correct blocks (anachronistic weapons, reactors, thrusters, etc.) from the G-menu across vanilla and dependency mods — new tool decision, see Modlist entry #26; full block audit not yet done.
@@ -168,8 +168,6 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 **Bomber tier corrections (confirmed).** V-156-F reclassified from Attacker to Bomber — confirmed as the French export version of the Vought SB2U Vindicator dive-bomber, ordered for carrier air groups, not an attack aircraft. MB.210 confirmed as a medium bomber, not attacker — twin-engine, ~257 built, entered service 1936. Caproni Ca.311 added as Gray's light-bomber entry — 335 built, twin-engine light bomber/reconnaissance hybrid, entered service 1939; notably it also replaced Ba.65 in some ground-attack roles historically, a mild irony worth knowing but not a real conflict since the two filled different jobs (recon-bomber vs. ground-attack).
 
 **Macchi C.202 Folgore and Dewoitine D.520 added to Fighter tier (confirmed, prior session).** Both are stronger historical picks than the existing entries in their tiers — C.202 widely regarded as Italy's best fighter of the war, D.520 the only French fighter able to meet the Bf 109E on roughly equal terms. Neither has an existing build; both are next up in the build queue.
-
-**F4F pulled from the Green Fighter tier (confirmed, 2026-08-21).** Not a good thematic fit for the mod — dropped at least for now rather than rebuilt onto the new weapon system. No replacement chosen yet; Green's Fighter tier runs on MS406 and Dewoitine D.520 alone until/unless this is revisited. Don't resurface F4F as an assumed roster member in future sessions.
 
 **Recon tier (confirmed, prior session).** IMAM Ro.43 (Gray) and Loire 130 (Green), both real catapult-launched shipborne reconnaissance floatplanes. Mechanics deferred to a separate thread.
 

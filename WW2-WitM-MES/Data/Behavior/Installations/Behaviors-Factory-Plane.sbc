@@ -20,7 +20,7 @@
 			[RivalAI Behavior]
 			[BehaviorName:Passive]
 
-			[Triggers:WW2-Trigger-ReputationDamage-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			[Triggers:WW2-Trigger-Announcement-Factory]
 
 			[Triggers:WW2-Trigger-DeliverySpawn-Factory-Plane-Gray]
@@ -46,7 +46,7 @@
 			[RivalAI Behavior]
 			[BehaviorName:Passive]
 
-			[Triggers:WW2-Trigger-ReputationDamage-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			[Triggers:WW2-Trigger-Announcement-Factory]
 
 			[Triggers:WW2-Trigger-DeliverySpawn-Factory-Plane-Gray]
@@ -72,7 +72,7 @@
 			[RivalAI Behavior]
 			[BehaviorName:Passive]
 
-			[Triggers:WW2-Trigger-ReputationDamage-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			[Triggers:WW2-Trigger-Announcement-Factory]
 
 			[Triggers:WW2-Trigger-DeliverySpawn-Factory-Plane-Gray]
@@ -98,7 +98,7 @@
 			[RivalAI Behavior]
 			[BehaviorName:Passive]
 
-			[Triggers:WW2-Trigger-ReputationDamage-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			[Triggers:WW2-Trigger-Announcement-Factory]
 
 			[Triggers:WW2-Trigger-DeliverySpawn-Factory-Plane-Gray]
@@ -111,6 +111,7 @@
 			[Triggers:WW2-Trigger-DefenseSpawn-Factory-Plane-Gray]
 			[Triggers:WW2-Trigger-OffenseSpawn-Factory-Plane-SM79Bomber]
 			[Triggers:WW2-Store-Trigger-UpdateSales-SM79Bomber]
+			[Triggers:WW2-Store-Trigger-UpdateSales-SM79Torpedo]
 
 			</Description>
         </EntityComponent>
@@ -126,7 +127,7 @@
 			[RivalAI Behavior]
 			[BehaviorName:Passive]
 
-			[Triggers:WW2-Trigger-ReputationDamage-Green]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[Triggers:WW2-Trigger-Announcement-Factory]
 			
 			[Triggers:WW2-Trigger-DeliverySpawn-Factory-Plane-Green]
@@ -152,7 +153,7 @@
 			[RivalAI Behavior]
 			[BehaviorName:Passive]
 
-			[Triggers:WW2-Trigger-ReputationDamage-Green]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[Triggers:WW2-Trigger-Announcement-Factory]
 			
 			[Triggers:WW2-Trigger-DeliverySpawn-Factory-Plane-Green]
@@ -165,6 +166,33 @@
 			[Triggers:WW2-Trigger-DefenseSpawn-Factory-Plane-Green]
 			[Triggers:WW2-Trigger-OffenseSpawn-Factory-Plane-Potez630]
 			[Triggers:WW2-Store-Trigger-UpdateSales-Potez630]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Factory-Plane-V156FBomber</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-Announcement-Factory]
+
+			[Triggers:WW2-Trigger-DeliverySpawn-Factory-Plane-Green]
+			[Triggers:WW2-Trigger-CallCargoPlane]
+			[Triggers:WW2-Trigger-Recirculate-Factory-Plane]
+			[Triggers:WW2-Trigger-ProjectorBuild-Factory]
+
+			[Triggers:WW2-Trigger-Activation-Factory-Plane-Green]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-DefenseSpawn-Factory-Plane-Green]
+			[Triggers:WW2-Trigger-OffenseSpawn-Factory-Plane-V156FBomber]
+			[Triggers:WW2-Store-Trigger-UpdateSales-V156FBomber]
+			[Triggers:WW2-Store-Trigger-UpdateSales-V156FTorpedo]
 
 			</Description>
         </EntityComponent>
