@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+<!-- 2026-08-27: Static Encounter conditions for the 4 existing port installations. Unlike
+     Installations (SpawnConditions-Installations.sbc), these are fixed real-world builds, not
+     randomly-placed-on-dry-land spawns  - [StaticEncounter:true] plus explicit
+     [StaticEncounterCoords/Forward/Up] pins each one to its exact current in-game position/
+     orientation (captured directly from each port's own StaticEncounterCoords/Forward/Up
+     values, matching the PositionAndOrientation baked into each port's own prefab export).
+     [ForceExactPositionAndOrientation:true] per MES docs: use when an encounter isn't landing
+     in the right spot/facing at spawn. One profile per port since each has a distinct
+     position. -->
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Port-LaSpezia</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:true]
+			[StaticEncounterCoords:{X:7277.49680620387 Y:-27151.7607935309 Z:10737.6366042811}]
+			[StaticEncounterForward:{X:-0.578436374664307 Y:-0.427853167057037 Z:-0.69451642036438}]
+			[StaticEncounterUp:{X:0.780267298221588 Y:-0.0419028103351593 Z:-0.624041020870209}]
+			[ForceExactPositionAndOrientation:true]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Port-Toulon</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:true]
+			[StaticEncounterCoords:{X:16857.5732222195 Y:-24017.4580133795 Z:6713.24988553111}]
+			[StaticEncounterForward:{X:-0.587436378002167 Y:-0.570655167102814 Z:-0.573821663856506}]
+			[StaticEncounterUp:{X:0.558144748210907 Y:-0.799124240875244 Z:0.223326981067657}]
+			[ForceExactPositionAndOrientation:true]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Port-Oran</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:true]
+			[StaticEncounterCoords:{X:22024.3929729438 Y:8401.85350373178 Z:-18719.2686334653}]
+			[StaticEncounterForward:{X:-0.640026569366455 Y:-0.0285182595252991 Z:-0.767823338508606}]
+			[StaticEncounterUp:{X:0.732669949531555 Y:0.278345704078674 Z:-0.621062338352203}]
+			[ForceExactPositionAndOrientation:true]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Port-Tripoli</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:true]
+			[StaticEncounterCoords:{X:-2920.12069853403 Y:20718.6259644754 Z:21640.7460227948}]
+			[StaticEncounterForward:{X:-0.270681202411652 Y:0.67645400762558 Z:-0.68493914604187}]
+			[StaticEncounterUp:{X:-0.0965815708041191 Y:0.688827693462372 Z:0.718462526798248}]
+			[ForceExactPositionAndOrientation:true]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+		</Description>
+	</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<RespawnShips>
+
+	<!-- WW2-WitM Respawn Vehicles
+	     Ground-vehicle respawn pods for the Mediterranean setting - low-altitude drop
+	     (no parachute on these prefabs), planet-only. Add more <Ship> entries here as
+	     more nation/faction respawn vehicles are built (e.g. the planned French ANH). -->
+
+		<Ship> <!-- Fiat 626 (Italian) -->
+			<Id>
+				<TypeId>RespawnShipDefinition</TypeId>
+				<SubtypeId>WW2-RespawnVehicle-Fiat626</SubtypeId>
+			</Id>
+			<DisplayName>Fiat 626</DisplayName>
+			<Icon>Textures\GUI\Icons\RespawnShips\RespawnRover.png</Icon>
+			<CooldownSeconds>900</CooldownSeconds>
+			<Prefab>Player-WW2-Fiat626</Prefab>
+
+			<UseForSpace>false</UseForSpace>
+			<UseForPlanetsWithAtmosphere>true</UseForPlanetsWithAtmosphere>
+			<UseForPlanetsWithoutAtmosphere>false</UseForPlanetsWithoutAtmosphere>
+			<PlanetDeployAltitude>10</PlanetDeployAltitude>
+			<MinimalAirDensity>0.5</MinimalAirDensity>
+
+			<SpawnWithDefaultItems>true</SpawnWithDefaultItems>
+			<HelpTextLocalizationId>Description_RespawnRover</HelpTextLocalizationId>
+		</Ship>
+
+	</RespawnShips>
+</Definitions>

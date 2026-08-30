@@ -16,8 +16,11 @@
       <!-- Material now enabled: a real material map (red channel, north/
            south hemisphere split) has been generated and projected using
            the confirmed cube-face geometry, alongside the ore map (blue
-           channel) from before. Biome (environment item placement) still
-           not built. -->
+           channel) from before. Biome (environment item placement, green
+           channel) was also built, 2026-08-19; see the EnvironmentItems
+           section below for the full Biome=1/2/3/4 legend. This comment
+           previously said Biome was "still not built"; that was stale,
+           corrected 2026-08-24. -->
       <PlanetMaps Material="true" Biome="true" Ores="true" />
 
       <!-- CONFIRMED CUBE-FACE GEOMETRY MAPPING (keep this exact for any
@@ -59,10 +62,18 @@
              poles aren't barren), plus an extra ~8-9x enrichment within
              ~15km (compressed) of the full 23-site road network's
              locations MINUS the 6 confirmed territory hubs (La Spezia,
-             Rome, Tunis, Toulon, Oran, Alexandria); those are excluded
+             Rome, Tripoli, Toulon, Oran, Alexandria); those are excluded
              deliberately per direct request, since they'll carry permanent
              NPC bases and shouldn't incentivize players to build nearby.
-             The 17 remaining hotspots: Bizerte, Tripoli, Benghazi, Tobruk,
+             UPDATED 2026-08-23 per direct request: Gray's African anchor
+             moved from Tunis to Tripoli, swapping their roles in this
+             exclusion list (Tripoli now excluded, Tunis now a regular
+             hotspot below). NOTE: this comment reflects the current
+             design intent, but ore_value_strip.npy itself was generated
+             under the OLD Tunis/Tripoli assignment and has not yet been
+             regenerated to match; flagged as a known follow-up, not
+             done silently.
+             The 17 remaining hotspots: Bizerte, Tunis, Benghazi, Tobruk,
              Taranto, Genoa, Marseille, Sidi_Barrani, Bardia, Bir_Hakeim,
              Kairouan, Gabes, El_Alamein, Augusta, Palermo, Algiers, Sirte.
              Same weighting ratios as the original pass (coast_floor=0.6,
@@ -525,6 +536,164 @@
           </Rule>
 
         </MaterialGroup>
+
+        <!-- Transition groups, 2026-08-23, per direct request: the Oran-Tunis and Nile
+             Delta real-climate overrides were reclassifying South(1/5) straight to the
+             full vibrant North palette (OrcusGrass), which reads too intense next to the
+             arid South and, since it was painted as a fixed-width band, showed as an
+             artificial uniform ribbon rather than following the real terrain. These two
+             groups are identical to MediterraneanSouth/MediterraneanPlainsSouth except the
+             lowland band uses OrcusGrass2 (a muted, dry/patchy grass texture, visually
+             confirmed against the source Orcus mod  - genuinely between vibrant green and
+             desert, already copied into this project's VoxelMaterials_Orcus.sbc with its
+             textures) instead of CrackedSoil. Region is now painted as the WHOLE real-
+             climate box, not a coastal distance band  - the actual shape read now comes
+             entirely from these height rules (green only where truly low, arid rock above
+             that), so it naturally follows real lowland terrain instead of a painted
+             ribbon width. Beach,
+             highland, and peaks bands are untouched, so the transition stays visibly
+             semi-arid away from the immediate lowland. Painted by real elevation (which
+             lowland areas actually exist), not a fixed coastal distance, so width follows
+             the real terrain instead of reading as a painted stripe  - same philosophy as
+             the Plains/Coastal split used for the Milan lowland. -->
+        <MaterialGroup Name="MediterraneanTransition" Value="6">
+
+          <Rule>
+            <Layers>
+              <Layer Material="AquaticSand" Depth="20"/>
+            </Layers>
+            <Height Min="0.0" Max="0.5755"/>
+            <Slope Min="0" Max="90"/>
+          </Rule>
+
+          <Rule>
+            <Layers>
+              <Layer Material="AquaticSand" Depth="20"/>
+            </Layers>
+            <Height Min="0.5755" Max="0.5790"/>
+            <Slope Min="0" Max="90"/>
+          </Rule>
+
+          <Rule>
+            <Layers>
+              <Layer Material="PertamSand" Depth="15"/>
+            </Layers>
+            <Height Min="0.5790" Max="0.5960"/>
+            <Slope Min="0" Max="20"/>
+          </Rule>
+
+          <Rule>
+            <Layers>
+              <Layer Material="DesertRocks" Depth="5"/>
+            </Layers>
+            <Height Min="0.5790" Max="0.5960"/>
+            <Slope Min="20" Max="90"/>
+          </Rule>
+
+          <!-- The actual change: OrcusGrass2 instead of CrackedSoil -->
+          <Rule>
+            <Layers>
+              <Layer Material="OrcusGrass2" Depth="10"/>
+            </Layers>
+            <Height Min="0.5960" Max="0.6331"/>
+            <Slope Min="0" Max="25"/>
+          </Rule>
+
+          <Rule>
+            <Layers>
+              <Layer Material="DesertRocks" Depth="5"/>
+            </Layers>
+            <Height Min="0.5960" Max="0.6331"/>
+            <Slope Min="25" Max="90"/>
+          </Rule>
+
+          <Rule>
+            <Layers>
+              <Layer Material="DustyRocks" Depth="5"/>
+            </Layers>
+            <Height Min="0.6331" Max="0.6972"/>
+            <Slope Min="0" Max="30"/>
+          </Rule>
+
+          <Rule>
+            <Layers>
+              <Layer Material="Stone" Depth="30"/>
+            </Layers>
+            <Height Min="0.6331" Max="0.6972"/>
+            <Slope Min="30" Max="90"/>
+          </Rule>
+
+          <Rule>
+            <Layers>
+              <Layer Material="Stone" Depth="50"/>
+            </Layers>
+            <Height Min="0.6972" Max="1.0"/>
+            <Slope Min="0" Max="90"/>
+          </Rule>
+
+        </MaterialGroup>
+
+        <MaterialGroup Name="MediterraneanPlainsTransition" Value="7">
+
+          <Rule>
+            <Layers>
+              <Layer Material="AquaticSand" Depth="20"/>
+            </Layers>
+            <Height Min="0.0" Max="0.5755"/>
+            <Slope Min="0" Max="90"/>
+          </Rule>
+
+          <Rule>
+            <Layers>
+              <Layer Material="AquaticSand" Depth="20"/>
+            </Layers>
+            <Height Min="0.5755" Max="0.5790"/>
+            <Slope Min="0" Max="90"/>
+          </Rule>
+
+          <!-- No beach step, matching MediterraneanPlainsSouth's own convention;
+               OrcusGrass2 instead of CrackedSoil is the actual change -->
+          <Rule>
+            <Layers>
+              <Layer Material="OrcusGrass2" Depth="10"/>
+            </Layers>
+            <Height Min="0.5790" Max="0.6331"/>
+            <Slope Min="0" Max="25"/>
+          </Rule>
+
+          <Rule>
+            <Layers>
+              <Layer Material="DesertRocks" Depth="5"/>
+            </Layers>
+            <Height Min="0.5790" Max="0.6331"/>
+            <Slope Min="25" Max="90"/>
+          </Rule>
+
+          <Rule>
+            <Layers>
+              <Layer Material="DustyRocks" Depth="5"/>
+            </Layers>
+            <Height Min="0.6331" Max="0.6972"/>
+            <Slope Min="0" Max="30"/>
+          </Rule>
+
+          <Rule>
+            <Layers>
+              <Layer Material="Stone" Depth="30"/>
+            </Layers>
+            <Height Min="0.6331" Max="0.6972"/>
+            <Slope Min="30" Max="90"/>
+          </Rule>
+
+          <Rule>
+            <Layers>
+              <Layer Material="Stone" Depth="50"/>
+            </Layers>
+            <Height Min="0.6972" Max="1.0"/>
+            <Slope Min="0" Max="90"/>
+          </Rule>
+
+        </MaterialGroup>
       </ComplexMaterials>
 
       <!-- Hemisphere/region split for the four land MaterialGroups above:
@@ -584,7 +753,7 @@
       <!-- AtmosphereSettings/CloudLayers RESTORED 2026-08-21 to the Orcus-styled
            values (RayleighHeight/RayleighHeightSpace/Intensity/etc. as Orcus
            actually has them, not the scaled-down guess from the prior
-           revision) — the earlier "no blue sky" bug turned out to be
+           revision)  - the earlier "no blue sky" bug turned out to be
            HasAtmosphere=false cached in the SAVE FILE itself (a planet's
            HasAtmosphere/AtmosphereRadius/Radius are baked into the entity at
            first spawn, not re-read from this definition on later loads; see
@@ -597,12 +766,12 @@
            ~60km-radius planets, where 1.1 gives ~6km of altitude above the
            surface before the atmosphere fades ((1.1-1) x 60,000m). Our
            planet's actual radius is 30,101.5m (confirmed from the live save
-           entity, not the theoretical 30,000m) — at 1.1 that's only ~3km,
+           entity, not the theoretical 30,000m)  - at 1.1 that's only ~3km,
            half the altitude Orcus/EarthLike give. 1.25 restores the same
            ~6km+ of usable flight altitude the user wants ((1.25-1) x
-           30,101.5 ≈ 7.5km, deliberately padded past the 6km target rather
+           30,101.5 approx 7.5km, deliberately padded past the 6km target rather
            than landing exactly on it). This value must be kept in sync with
-           AtmosphereRadius in the save file's planet entity by hand — see
+           AtmosphereRadius in the save file's planet entity by hand  - see
            MOD_FILE_DEBUG for the exact save-file fix, since editing this
            definition alone does not update an already-spawned planet. -->
       <AtmosphereSettings>

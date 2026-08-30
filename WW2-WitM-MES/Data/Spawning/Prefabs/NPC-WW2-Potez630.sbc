@@ -2,22 +2,22 @@
 <Definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Prefabs>
     <Prefab xsi:type="MyObjectBuilder_PrefabDefinition">
-      <Id Type="MyObjectBuilder_PrefabDefinition" Subtype="NPC-WW2-Potez630" />
+      <Id Type="MyObjectBuilder_PrefabDefinition" Subtype="Player-WW2-Potez630" />
       <CubeGrids>
         <CubeGrid>
           <SubtypeName />
-          <EntityId>107568778196833805</EntityId>
+          <EntityId>124150066224686669</EntityId>
           <PersistentFlags>CastShadows InScene</PersistentFlags>
-          <Name>107568778196833805</Name>
+          <Name>124150066224686669</Name>
           <PositionAndOrientation>
             <Position x="0" y="0" z="0" />
-            <Forward x="-0.8896857" y="-0.247737139" z="-0.383517265" />
-            <Up x="0.231601477" y="0.479020655" z="-0.846699357" />
+            <Forward x="0.008391783" y="0.0540913679" z="-0.9985007" />
+            <Up x="-0.258159041" y="-0.964568257" z="-0.05442283" />
             <Orientation>
-              <X>-0.364325941</X>
-              <Y>0.41893667</Y>
-              <Z>-0.357430041</Z>
-              <W>0.751000941</W>
+              <X>-0.000636174</X>
+              <Y>-0.0273721013</Y>
+              <Z>0.9911023</Z>
+              <W>0.130255938</W>
             </Orientation>
           </PositionAndOrientation>
           <LocalPositionAndOrientation xsi:nil="true" />
@@ -50,7 +50,7 @@
           <CubeBlocks>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Conveyor">
               <SubtypeName>SlimWingFillConveyorOffset</SubtypeName>
-              <EntityId>137638108848610742</EntityId>
+              <EntityId>78958332604379196</EntityId>
               <Min x="0" y="6" z="-2" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -84,7 +84,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x4Slope_1</SubtypeName>
-              <EntityId>141787717887274023</EntityId>
+              <EntityId>92406030835344731</EntityId>
               <Min x="0" y="7" z="3" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -99,7 +99,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x4HalfSlopeInvCorner_4</SubtypeName>
-              <EntityId>135150287967412200</EntityId>
+              <EntityId>106530989177991916</EntityId>
               <Min x="1" y="7" z="2" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -107,7 +107,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x4HalfSlopeInvCorner_3</SubtypeName>
-              <EntityId>74309023737497010</EntityId>
+              <EntityId>92432531256232757</EntityId>
               <Min x="1" y="7" z="1" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -128,7 +128,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>AWGGlass1x1HalfSlope</SubtypeName>
-              <EntityId>109004435706375505</EntityId>
+              <EntityId>128636501759250200</EntityId>
               <Min x="1" y="9" z="2" />
               <BlockOrientation Forward="Up" Up="Backward" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -136,7 +136,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>AWGGlass1x1HalfSlope</SubtypeName>
-              <EntityId>101067451802921165</EntityId>
+              <EntityId>142646339899940411</EntityId>
               <Min x="-1" y="9" z="2" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -144,7 +144,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SmallWindow1x1Slope</SubtypeName>
-              <EntityId>95407455885083231</EntityId>
+              <EntityId>75982345368773789</EntityId>
               <Min x="0" y="9" z="2" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -166,7 +166,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Beacon">
               <SubtypeName>SmallBlockBeacon</SubtypeName>
-              <EntityId>132034314212192893</EntityId>
+              <EntityId>82007402839289974</EntityId>
               <Min x="0" y="8" z="-4" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
@@ -178,12 +178,12 @@
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>2</NumberInGrid>
               <Enabled>true</Enabled>
-              <BroadcastRadius>20000</BroadcastRadius>
+              <BroadcastRadius>15000</BroadcastRadius>
               <HudText>Potez 630</HudText>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_5</SubtypeName>
-              <EntityId>81356725429306660</EntityId>
+              <EntityId>129979628160455709</EntityId>
               <Min x="1" y="8" z="-9" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -191,7 +191,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_4</SubtypeName>
-              <EntityId>105839076526730076</EntityId>
+              <EntityId>119722778173432745</EntityId>
               <Min x="1" y="8" z="-8" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -206,7 +206,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_6</SubtypeName>
-              <EntityId>78718480147556189</EntityId>
+              <EntityId>138740202953848017</EntityId>
               <Min x="0" y="7" z="-13" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -214,7 +214,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_5</SubtypeName>
-              <EntityId>137120624478824475</EntityId>
+              <EntityId>96657865452470082</EntityId>
               <Min x="0" y="7" z="-12" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -222,7 +222,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_2</SubtypeName>
-              <EntityId>130789948066883923</EntityId>
+              <EntityId>88802320791717306</EntityId>
               <Min x="0" y="7" z="-9" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -230,7 +230,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_3</SubtypeName>
-              <EntityId>106681457442836256</EntityId>
+              <EntityId>110212183638933079</EntityId>
               <Min x="0" y="7" z="-10" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -238,7 +238,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x4Slope_1</SubtypeName>
-              <EntityId>80342003379807546</EntityId>
+              <EntityId>107349954901754759</EntityId>
               <Min x="0" y="8" z="3" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -246,23 +246,15 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x4Slope_2</SubtypeName>
-              <EntityId>84126494462636141</EntityId>
+              <EntityId>78748934179742632</EntityId>
               <Min x="0" y="8" z="4" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-              <SubtypeName>4Slope4mm3</SubtypeName>
-              <EntityId>134455210364633667</EntityId>
-              <Min x="0" y="7" z="4" />
-              <BlockOrientation Forward="Backward" Up="Down" />
-              <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
-              <SkinSubtypeId>Weldless</SkinSubtypeId>
-            </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_BatteryBlock">
               <SubtypeName>SmallBlockSmallBatteryBlock</SubtypeName>
-              <EntityId>82102366043971159</EntityId>
+              <EntityId>85329055695874444</EntityId>
               <Min x="0" y="8" z="2" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -319,7 +311,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>AWGGlass1x2SingleInverse</SubtypeName>
-              <EntityId>78967089742149420</EntityId>
+              <EntityId>126739814051105785</EntityId>
               <Min x="-1" y="9" z="1" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -327,7 +319,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>AWGGlass1x2SingleInverse</SubtypeName>
-              <EntityId>125245385950903756</EntityId>
+              <EntityId>119978515792718903</EntityId>
               <Min x="-1" y="9" z="0" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -335,7 +327,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>AWGGlass1x2SingleInverse</SubtypeName>
-              <EntityId>84249005644892709</EntityId>
+              <EntityId>78868264789921735</EntityId>
               <Min x="-1" y="9" z="-1" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -350,7 +342,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>AWGGlass1x2SingleInverse</SubtypeName>
-              <EntityId>130429745119840839</EntityId>
+              <EntityId>129358400845411302</EntityId>
               <Min x="-1" y="9" z="-3" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -358,7 +350,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>AWGGlass1x2SingleInverse</SubtypeName>
-              <EntityId>76232274914151373</EntityId>
+              <EntityId>73468237058031251</EntityId>
               <Min x="-1" y="9" z="-4" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -401,28 +393,28 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>AWGGlass1x2SingleInverse</SubtypeName>
-              <EntityId>121890008182233321</EntityId>
+              <EntityId>103592986890241185</EntityId>
               <Min x="1" y="9" z="1" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>AWGGlass1x2SingleInverse</SubtypeName>
-              <EntityId>77384229114479969</EntityId>
+              <EntityId>76373505778478334</EntityId>
               <Min x="1" y="9" z="0" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>AWGGlass1x2SingleInverse</SubtypeName>
-              <EntityId>124858929234410187</EntityId>
+              <EntityId>138773944140617778</EntityId>
               <Min x="1" y="9" z="-1" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>PlaneCanopy3Small</SubtypeName>
-              <EntityId>101078419470982509</EntityId>
+              <EntityId>99006763964702496</EntityId>
               <Min x="0" y="9" z="-2" />
               <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -430,21 +422,21 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>AWGGlass1x2SingleInverse</SubtypeName>
-              <EntityId>88413868569488571</EntityId>
+              <EntityId>93246702453552842</EntityId>
               <Min x="1" y="9" z="-3" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>AWGGlass1x2SingleInverse</SubtypeName>
-              <EntityId>86677568830349976</EntityId>
+              <EntityId>77485214451748099</EntityId>
               <Min x="1" y="9" z="-4" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_4</SubtypeName>
-              <EntityId>85061270542667897</EntityId>
+              <EntityId>87899830549633071</EntityId>
               <Min x="0" y="7" z="-11" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -489,7 +481,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_6</SubtypeName>
-              <EntityId>78876785346999389</EntityId>
+              <EntityId>84685000383933334</EntityId>
               <Min x="1" y="8" z="-10" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -497,7 +489,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SmallWindow1x1Flat</SubtypeName>
-              <EntityId>138244479388960158</EntityId>
+              <EntityId>100573551949014797</EntityId>
               <Min x="0" y="10" z="0" />
               <BlockOrientation Forward="Right" Up="Backward" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -505,7 +497,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ShipConnector">
               <SubtypeName>SmallBlockInsetConnector</SubtypeName>
-              <EntityId>116978652260061248</EntityId>
+              <EntityId>90232832038385549</EntityId>
               <Min x="0" y="7" z="-5" />
               <BlockOrientation Forward="Down" Up="Backward" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -537,7 +529,7 @@
                       <TimerEnabled>true</TimerEnabled>
                       <RemoveEntityOnTimer>false</RemoveEntityOnTimer>
                       <TimerType>Frame10</TimerType>
-                      <FramesFromLastTrigger>50</FramesFromLastTrigger>
+                      <FramesFromLastTrigger>60</FramesFromLastTrigger>
                       <TimerTickInFrames>80</TimerTickInFrames>
                       <IsSessionUpdateEnabled>false</IsSessionUpdateEnabled>
                     </Component>
@@ -569,7 +561,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CargoContainer">
               <SubtypeName>SmallBlockSmallContainer</SubtypeName>
-              <EntityId>110628751733040490</EntityId>
+              <EntityId>96616302002846732</EntityId>
               <Min x="0" y="7" z="-3" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
@@ -609,7 +601,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>87968055515216446</EntityId>
+              <EntityId>93772498623635006</EntityId>
               <Min x="-1" y="7" z="-1" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -645,7 +637,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Conveyor">
               <SubtypeName>SlimWingFillConveyorOffset</SubtypeName>
-              <EntityId>90094861193435274</EntityId>
+              <EntityId>81132486210190752</EntityId>
               <Min x="-1" y="6" z="-2" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -659,7 +651,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_1</SubtypeName>
-              <EntityId>134062280082859748</EntityId>
+              <EntityId>95099572657967091</EntityId>
               <Min x="0" y="7" z="-8" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -667,7 +659,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_6</SubtypeName>
-              <EntityId>73077098465993812</EntityId>
+              <EntityId>89056556298656234</EntityId>
               <Min x="-1" y="8" z="-10" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -675,7 +667,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_5</SubtypeName>
-              <EntityId>87238085714156219</EntityId>
+              <EntityId>95470755677419280</EntityId>
               <Min x="-1" y="8" z="-9" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -683,7 +675,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_4</SubtypeName>
-              <EntityId>121625852895880344</EntityId>
+              <EntityId>92117379650916970</EntityId>
               <Min x="-1" y="8" z="-8" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -733,7 +725,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_6</SubtypeName>
-              <EntityId>115567369884314085</EntityId>
+              <EntityId>140632683449713691</EntityId>
               <Min x="1" y="7" z="-10" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -741,7 +733,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_5</SubtypeName>
-              <EntityId>82007338187803165</EntityId>
+              <EntityId>121589548073035340</EntityId>
               <Min x="1" y="7" z="-9" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -749,7 +741,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_4</SubtypeName>
-              <EntityId>126270338547445972</EntityId>
+              <EntityId>124872245744795968</EntityId>
               <Min x="1" y="7" z="-8" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -757,7 +749,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_4</SubtypeName>
-              <EntityId>122793372847793648</EntityId>
+              <EntityId>125684216331250300</EntityId>
               <Min x="-1" y="7" z="-8" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -765,7 +757,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_5</SubtypeName>
-              <EntityId>120724227417043571</EntityId>
+              <EntityId>80229782716369553</EntityId>
               <Min x="-1" y="7" z="-9" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -773,7 +765,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_6</SubtypeName>
-              <EntityId>106925606511897088</EntityId>
+              <EntityId>97836623373415747</EntityId>
               <Min x="-1" y="7" z="-10" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -781,14 +773,14 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>WingRootSlimSlopeTip2x1OffsetMirrored</SubtypeName>
-              <EntityId>81485155193680321</EntityId>
+              <EntityId>83578653816618978</EntityId>
               <Min x="1" y="7" z="-7" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>WingRootSlimSlopeTip2x1Offset</SubtypeName>
-              <EntityId>74749432648539880</EntityId>
+              <EntityId>90624310388396232</EntityId>
               <Min x="-1" y="7" z="-7" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -803,7 +795,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x4HalfSlopeCorner_2</SubtypeName>
-              <EntityId>134985252813762325</EntityId>
+              <EntityId>120678834682701159</EntityId>
               <Min x="1" y="7" z="4" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -811,7 +803,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>aero-wing_1x1x1_rounded_edge_Small</SubtypeName>
-              <EntityId>121587372888596804</EntityId>
+              <EntityId>135315175628962915</EntityId>
               <Min x="-2" y="7" z="0" />
               <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -819,7 +811,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>aero-wing_1x1x1_rounded_edge_Small</SubtypeName>
-              <EntityId>137521921406737898</EntityId>
+              <EntityId>94289696084581327</EntityId>
               <Min x="2" y="7" z="0" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -827,7 +819,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>WingFillFuel1x1Offset</SubtypeName>
-              <EntityId>140218215747399120</EntityId>
+              <EntityId>79544514425568801</EntityId>
               <Min x="4" y="7" z="-1" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -863,7 +855,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>aero-wing_1x1x1_rounded_edge_Small</SubtypeName>
-              <EntityId>134879285414701536</EntityId>
+              <EntityId>121202917269531892</EntityId>
               <Min x="-3" y="7" z="0" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -871,7 +863,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ConveyorConnector">
               <SubtypeName>ConveyorTubeDuctSmall</SubtypeName>
-              <EntityId>88338392095251090</EntityId>
+              <EntityId>75075585337938898</EntityId>
               <Min x="-4" y="7" z="0" />
               <BlockOrientation Forward="Backward" Up="Left" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -907,7 +899,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>SlimWingRound2x5OffsetMirror</SubtypeName>
-              <EntityId>101487431917378798</EntityId>
+              <EntityId>129372783576993839</EntityId>
               <Min x="-10" y="7" z="-1" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -920,7 +912,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>SlimWingRound2x5Offset</SubtypeName>
-              <EntityId>86820632267517063</EntityId>
+              <EntityId>137128418807416919</EntityId>
               <Min x="6" y="7" z="-1" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -933,7 +925,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>SlimWingRound2x5OffsetMirror</SubtypeName>
-              <EntityId>77081552179806895</EntityId>
+              <EntityId>107421345477544034</EntityId>
               <Min x="-15" y="7" z="-2" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -946,7 +938,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>SlimWingRound2x5Offset</SubtypeName>
-              <EntityId>119688122541282877</EntityId>
+              <EntityId>129042651705963565</EntityId>
               <Min x="11" y="7" z="-2" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -959,7 +951,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>SlimWing5x2ControlSurfaceOffsetMirror</SubtypeName>
-              <EntityId>83274320368809844</EntityId>
+              <EntityId>103760794190028468</EntityId>
               <Min x="-15" y="7" z="-4" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
@@ -1002,7 +994,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>SlimWing5x2ControlSurfaceOffset</SubtypeName>
-              <EntityId>92656622568943937</EntityId>
+              <EntityId>113340926556253088</EntityId>
               <Min x="11" y="7" z="-4" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -1046,7 +1038,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset</SubtypeName>
-              <EntityId>120983037684072614</EntityId>
+              <EntityId>136804797532116587</EntityId>
               <Min x="-10" y="7" z="-2" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -1054,7 +1046,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset</SubtypeName>
-              <EntityId>129141653018173195</EntityId>
+              <EntityId>130644873157771091</EntityId>
               <Min x="10" y="7" z="-2" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -1062,7 +1054,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset</SubtypeName>
-              <EntityId>112195210967876163</EntityId>
+              <EntityId>136629568836417469</EntityId>
               <Min x="-9" y="7" z="-2" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -1070,7 +1062,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset</SubtypeName>
-              <EntityId>73744833589942171</EntityId>
+              <EntityId>89118428109088343</EntityId>
               <Min x="-8" y="7" z="-2" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -1078,7 +1070,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ConveyorSorter">
               <SubtypeName>CAP_50Cal</SubtypeName>
-              <EntityId>110935461739153613</EntityId>
+              <EntityId>84366601028839521</EntityId>
               <Min x="7" y="7" z="-3" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -1116,7 +1108,7 @@
                         <dictionary>
                           <item>
                             <Key>75bbb4f5-4fb9-4230-beef-bb79c9811501</Key>
-                            <Value>+nzbAQoKCAAQrgEdAAAAABLMAQgAEkAtAAD6RDI5CAAQABgAIAAoADAASABQAHgAgAEAkAEAoAEAsAEAwAEA0AF42AEA6AEA8AEA+AEBsAIA0AIA4AIAGkUSCg0AAAAAEAAg1wEYACCXgICAgICAgAIwADgAQABIAFIjGhsJAAAAAAAAAAAhAAAAAAAAAAA5AAAAAAAAAAAgACgAMAAiLQgAEAAgACoGINn2//8HMhsJAAAAAAAAAAAhAAAAAAAAAAA5AAAAAAAAAAA4ACoQCAAgASgAMAA4AkABSABQAAgi</Value>
+                            <Value>+nzaAQoKCAAQrgEdAAAAABLLAQgAEkAtAAD6RDI5CAAQABgAIAAoADAASABQAHgAgAEAkAEAoAEAsAEAwAEA0AF42AEA6AEA8AEA+AEBsAIA0AIA4AIAGkQSCQ0AAAAAEAAgNRgAIJeAgICAgICAAjAAOABAAEgAUiMaGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAACAAKAAwACItCAAQACAAKgYg8f3//wcyGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAADgAKhAIACABKAAwADgCQAFIAFAACCI=</Value>
                           </item>
                         </dictionary>
                       </Storage>
@@ -1145,7 +1137,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset</SubtypeName>
-              <EntityId>120460293532837898</EntityId>
+              <EntityId>109079621121393207</EntityId>
               <Min x="9" y="7" z="-2" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -1153,7 +1145,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset</SubtypeName>
-              <EntityId>84471016760278886</EntityId>
+              <EntityId>128104493834568282</EntityId>
               <Min x="8" y="7" z="-2" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -1161,7 +1153,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ConveyorSorter">
               <SubtypeName>CAP_50Cal</SubtypeName>
-              <EntityId>111353771722681138</EntityId>
+              <EntityId>130583103717030064</EntityId>
               <Min x="-7" y="7" z="-3" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -1199,7 +1191,7 @@
                         <dictionary>
                           <item>
                             <Key>75bbb4f5-4fb9-4230-beef-bb79c9811501</Key>
-                            <Value>+nzbAQoKCAAQrgEdAAAAABLMAQgAEkAtAAD6RDI5CAAQABgAIAAoADAASABQAHgAgAEAkAEAoAEAsAEAwAEA0AF42AEA6AEA8AEA+AEBsAIA0AIA4AIAGkUSCg0AAAAAEAAg2AEYACCXgICAgICAgAIwADgAQABIAFIjGhsJAAAAAAAAAAAhAAAAAAAAAAA5AAAAAAAAAAAgACgAMAAiLQgAEAAgACoGINT2//8HMhsJAAAAAAAAAAAhAAAAAAAAAAA5AAAAAAAAAAA4ACoQCAAgASgAMAA4AkABSABQAAgi</Value>
+                            <Value>+nzaAQoKCAAQrgEdAAAAABLLAQgAEkAtAAD6RDI5CAAQABgAIAAoADAASABQAHgAgAEAkAEAoAEAsAEAwAEA0AF42AEA6AEA8AEA+AEBsAIA0AIA4AIAGkQSCQ0AAAAAEAAgNhgAIJeAgICAgICAAjAAOABAAEgAUiMaGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAACAAKAAwACItCAAQACAAKgYg7P3//wcyGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAADgAKhAIACABKAAwADgCQAFIAFAACCI=</Value>
                           </item>
                         </dictionary>
                       </Storage>
@@ -1221,7 +1213,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>SlimWing2x3OffsetMirror</SubtypeName>
-              <EntityId>79048120899717850</EntityId>
+              <EntityId>137865468026734658</EntityId>
               <Min x="-10" y="7" z="-5" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -1234,7 +1226,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset</SubtypeName>
-              <EntityId>132258087064410616</EntityId>
+              <EntityId>101753457957773836</EntityId>
               <Min x="-10" y="7" z="-3" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -1242,7 +1234,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset</SubtypeName>
-              <EntityId>80732944971051628</EntityId>
+              <EntityId>83170876570199715</EntityId>
               <Min x="10" y="7" z="-3" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -1250,7 +1242,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset</SubtypeName>
-              <EntityId>141918570199377819</EntityId>
+              <EntityId>74331389475174241</EntityId>
               <Min x="-9" y="7" z="-3" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -1258,7 +1250,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset</SubtypeName>
-              <EntityId>115911139456680925</EntityId>
+              <EntityId>113392640835351794</EntityId>
               <Min x="9" y="7" z="-3" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -1266,7 +1258,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset</SubtypeName>
-              <EntityId>73643035434068967</EntityId>
+              <EntityId>128540475840012313</EntityId>
               <Min x="-8" y="7" z="-3" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -1274,7 +1266,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset</SubtypeName>
-              <EntityId>134265698370865493</EntityId>
+              <EntityId>89813941222565966</EntityId>
               <Min x="8" y="7" z="-3" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -1282,7 +1274,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>140470384091901867</EntityId>
+              <EntityId>72523197253567393</EntityId>
               <Min x="-5" y="7" z="-3" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -1318,7 +1310,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>77582698028054433</EntityId>
+              <EntityId>130283734571807385</EntityId>
               <Min x="5" y="7" z="-3" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -1354,7 +1346,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_InteriorLight">
               <SubtypeName>SlimWingtipRoundLightOffsetMirror</SubtypeName>
-              <EntityId>126320243128801558</EntityId>
+              <EntityId>99762844691599187</EntityId>
               <Min x="-16" y="7" z="-2" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -1379,12 +1371,29 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_AdvancedDoor">
               <SubtypeName>CAP_AirbrakeSlimWingOffset</SubtypeName>
-              <EntityId>107804129693626849</EntityId>
+              <EntityId>143351723697841007</EntityId>
               <Min x="2" y="7" z="-5" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
               <ShareMode>Faction</ShareMode>
+              <ComponentContainer>
+                <Components>
+                  <ComponentData>
+                    <TypeId>MyModStorageComponentBase</TypeId>
+                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
+                      <Storage>
+                        <dictionary>
+                          <item>
+                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
+                            <Value>dont_change_this_please  : |AutoCloseDelay:0|</Value>
+                          </item>
+                        </dictionary>
+                      </Storage>
+                    </Component>
+                  </ComponentData>
+                </Components>
+              </ComponentContainer>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>false</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
@@ -1395,7 +1404,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>108273904523004581</EntityId>
+              <EntityId>79059922925149237</EntityId>
               <Min x="-5" y="7" z="-4" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -1431,7 +1440,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillEdgeOffset</SubtypeName>
-              <EntityId>91622249126589880</EntityId>
+              <EntityId>131450471681342751</EntityId>
               <Min x="5" y="7" z="-5" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -1446,7 +1455,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>103963629784746549</EntityId>
+              <EntityId>144088203826735641</EntityId>
               <Min x="-6" y="7" z="-4" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -1482,7 +1491,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_5</SubtypeName>
-              <EntityId>106972966420433135</EntityId>
+              <EntityId>96239923446910945</EntityId>
               <Min x="5" y="6" z="-2" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -1490,7 +1499,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>78023644036387128</EntityId>
+              <EntityId>86714015343004916</EntityId>
               <Min x="6" y="7" z="-4" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -1540,12 +1549,29 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_AdvancedDoor">
               <SubtypeName>CAP_AirbrakeSlimWingOffset</SubtypeName>
-              <EntityId>73890553502878105</EntityId>
+              <EntityId>87102542507880183</EntityId>
               <Min x="-4" y="7" z="-5" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
               <ShareMode>Faction</ShareMode>
+              <ComponentContainer>
+                <Components>
+                  <ComponentData>
+                    <TypeId>MyModStorageComponentBase</TypeId>
+                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
+                      <Storage>
+                        <dictionary>
+                          <item>
+                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
+                            <Value>dont_change_this_please  : |AutoCloseDelay:0|</Value>
+                          </item>
+                        </dictionary>
+                      </Storage>
+                    </Component>
+                  </ComponentData>
+                </Components>
+              </ComponentContainer>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>false</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
@@ -1577,7 +1603,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ConveyorSorter">
               <SubtypeName>CAP_50Cal</SubtypeName>
-              <EntityId>107425717673918507</EntityId>
+              <EntityId>101261584826794064</EntityId>
               <Min x="-6" y="7" z="-3" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -1615,7 +1641,7 @@
                         <dictionary>
                           <item>
                             <Key>75bbb4f5-4fb9-4230-beef-bb79c9811501</Key>
-                            <Value>+nzbAQoKCAAQrgEdAAAAABLMAQgAEkAtAAD6RDI5CAAQABgAIAAoADAASABQAHgAgAEAkAEAoAEAsAEAwAEA0AF42AEA6AEA8AEA+AEBsAIA0AIA4AIAGkUSCg0AAAAAEAAg2QEYACCXgICAgICAgAIwADgAQABIAFIjGhsJAAAAAAAAAAAhAAAAAAAAAAA5AAAAAAAAAAAgACgAMAAiLQgAEAAgACoGIM/2//8HMhsJAAAAAAAAAAAhAAAAAAAAAAA5AAAAAAAAAAA4ACoQCAAgASgAMAA4AkABSABQAAgi</Value>
+                            <Value>+nzaAQoKCAAQrgEdAAAAABLLAQgAEkAtAAD6RDI5CAAQABgAIAAoADAASABQAHgAgAEAkAEAoAEAsAEAwAEA0AF42AEA6AEA8AEA+AEBsAIA0AIA4AIAGkQSCQ0AAAAAEAAgNxgAIJeAgICAgICAAjAAOABAAEgAUiMaGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAACAAKAAwACItCAAQACAAKgYg5/3//wcyGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAADgAKhAIACABKAAwADgCQAFIAFAACCI=</Value>
                           </item>
                         </dictionary>
                       </Storage>
@@ -1637,7 +1663,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ConveyorSorter">
               <SubtypeName>CAP_50Cal</SubtypeName>
-              <EntityId>108613719674758488</EntityId>
+              <EntityId>125755117795063900</EntityId>
               <Min x="6" y="7" z="-3" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -1675,7 +1701,7 @@
                         <dictionary>
                           <item>
                             <Key>75bbb4f5-4fb9-4230-beef-bb79c9811501</Key>
-                            <Value>+nzbAQoKCAAQrgEdAAAAABLMAQgAEkAtAAD6RDI5CAAQABgAIAAoADAASABQAHgAgAEAkAEAoAEAsAEAwAEA0AF42AEA6AEA8AEA+AEBsAIA0AIA4AIAGkUSCg0AAAAAEAAg2gEYACCXgICAgICAgAIwADgAQABIAFIjGhsJAAAAAAAAAAAhAAAAAAAAAAA5AAAAAAAAAAAgACgAMAAiLQgAEAAgACoGIMr2//8HMhsJAAAAAAAAAAAhAAAAAAAAAAA5AAAAAAAAAAA4ACoQCAAgASgAMAA4AkABSABQAAgi</Value>
+                            <Value>+nzaAQoKCAAQrgEdAAAAABLLAQgAEkAtAAD6RDI5CAAQABgAIAAoADAASABQAHgAgAEAkAEAoAEAsAEAwAEA0AF42AEA6AEA8AEA+AEBsAIA0AIA4AIAGkQSCQ0AAAAAEAAgOBgAIJeAgICAgICAAjAAOABAAEgAUiMaGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAACAAKAAwACItCAAQACAAKgYg4v3//wcyGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAADgAKhAIACABKAAwADgCQAFIAFAACCI=</Value>
                           </item>
                         </dictionary>
                       </Storage>
@@ -1697,7 +1723,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>115970585783440633</EntityId>
+              <EntityId>108879616570675304</EntityId>
               <Min x="7" y="7" z="-4" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -1733,7 +1759,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>131255912466576692</EntityId>
+              <EntityId>137066976140260981</EntityId>
               <Min x="-7" y="7" z="-4" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -1769,7 +1795,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset_M</SubtypeName>
-              <EntityId>109069738171477825</EntityId>
+              <EntityId>103686051872298074</EntityId>
               <Min x="-5" y="7" z="2" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -1777,7 +1803,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset_M</SubtypeName>
-              <EntityId>131118133634765395</EntityId>
+              <EntityId>132346244178920421</EntityId>
               <Min x="5" y="7" z="2" />
               <BlockOrientation Forward="Up" Up="Right" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -1785,7 +1811,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Conveyor">
               <SubtypeName>CAP_SlimWingConveyorPylonFrontOffset</SubtypeName>
-              <EntityId>125506503467081543</EntityId>
+              <EntityId>143553859432808815</EntityId>
               <Min x="-1" y="7" z="-2" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -1793,7 +1819,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror_F</SubtypeName>
-              <EntityId>125511909432209251</EntityId>
+              <EntityId>116283778128868862</EntityId>
               <Min x="-2" y="7" z="1" />
               <BlockOrientation Forward="Backward" Up="Right" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -1801,7 +1827,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>WingFillFuel1x1Offset</SubtypeName>
-              <EntityId>95184081314154194</EntityId>
+              <EntityId>93321890292723409</EntityId>
               <Min x="-4" y="7" z="-1" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -1837,7 +1863,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Conveyor">
               <SubtypeName>CAP_SlimWingConveyorPylonFrontOffset</SubtypeName>
-              <EntityId>126990397817713553</EntityId>
+              <EntityId>131530371984442720</EntityId>
               <Min x="1" y="7" z="-2" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -1845,14 +1871,14 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_5</SubtypeName>
-              <EntityId>138438578912723620</EntityId>
+              <EntityId>140852196980233247</EntityId>
               <Min x="4" y="8" z="-1" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>82712641968229106</EntityId>
+              <EntityId>124561314175812822</EntityId>
               <Min x="-2" y="7" z="-3" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -1894,7 +1920,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>WingRootEdgeTipDoubleOffset</SubtypeName>
-              <EntityId>94546814713258197</EntityId>
+              <EntityId>103035813493095845</EntityId>
               <Min x="-1" y="7" z="-5" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -1902,7 +1928,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>WingRootEdgeTipDoubleOffset</SubtypeName>
-              <EntityId>77032970261343692</EntityId>
+              <EntityId>94807257142630070</EntityId>
               <Min x="1" y="7" z="-5" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -1910,7 +1936,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>WingRootSlimSlopeBase2x1Offset</SubtypeName>
-              <EntityId>135475891022293228</EntityId>
+              <EntityId>77668712819801634</EntityId>
               <Min x="-1" y="7" z="-6" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -1918,14 +1944,14 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>WingRootSlimSlopeBase2x1OffsetMirrored</SubtypeName>
-              <EntityId>127411639891370906</EntityId>
+              <EntityId>85663325654962554</EntityId>
               <Min x="1" y="7" z="-6" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Conveyor">
               <SubtypeName>SmallBlockConveyor</SubtypeName>
-              <EntityId>111757150207435854</EntityId>
+              <EntityId>125552017040377866</EntityId>
               <Min x="0" y="7" z="-2" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -1933,7 +1959,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>92569440761294643</EntityId>
+              <EntityId>118852034714137510</EntityId>
               <Min x="1" y="7" z="-1" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -1983,7 +2009,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>130390909148641593</EntityId>
+              <EntityId>107335143761542963</EntityId>
               <Min x="3" y="7" z="-1" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -2019,7 +2045,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>137131005107414271</EntityId>
+              <EntityId>111514789465619753</EntityId>
               <Min x="2" y="7" z="-1" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -2055,7 +2081,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>121836280831980776</EntityId>
+              <EntityId>130710269443261541</EntityId>
               <Min x="2" y="7" z="-3" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -2091,7 +2117,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x4HalfSlopeCorner_1_Mirror</SubtypeName>
-              <EntityId>112985451605018074</EntityId>
+              <EntityId>80315992936265600</EntityId>
               <Min x="1" y="8" z="3" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2099,7 +2125,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x4HalfSlopeCorner_1</SubtypeName>
-              <EntityId>134958362845885530</EntityId>
+              <EntityId>79539241696947882</EntityId>
               <Min x="-1" y="8" z="3" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2107,7 +2133,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x4HalfSlopeCorner_2_Mirror</SubtypeName>
-              <EntityId>130990231426412948</EntityId>
+              <EntityId>140887846147247882</EntityId>
               <Min x="1" y="8" z="4" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2115,7 +2141,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x4HalfSlopeCorner_2</SubtypeName>
-              <EntityId>130772759269637704</EntityId>
+              <EntityId>123703394762725222</EntityId>
               <Min x="-1" y="8" z="4" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2123,7 +2149,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x4HalfSlopeCorner_1</SubtypeName>
-              <EntityId>134092626632825865</EntityId>
+              <EntityId>125582460130671791</EntityId>
               <Min x="1" y="7" z="3" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2131,7 +2157,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x4HalfSlopeCorner_1_Mirror</SubtypeName>
-              <EntityId>88219629923951378</EntityId>
+              <EntityId>133899772351877599</EntityId>
               <Min x="-1" y="7" z="3" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2139,7 +2165,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x4HalfSlopeCorner_2_Mirror</SubtypeName>
-              <EntityId>141242858921962965</EntityId>
+              <EntityId>96239812480070441</EntityId>
               <Min x="-1" y="7" z="4" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2147,7 +2173,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x4HalfSlopeInvCorner_4_Mirror</SubtypeName>
-              <EntityId>115364978401390707</EntityId>
+              <EntityId>118526246998919107</EntityId>
               <Min x="-1" y="7" z="2" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2155,7 +2181,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x4HalfSlopeInvCorner_3_Mirror</SubtypeName>
-              <EntityId>110141395711460835</EntityId>
+              <EntityId>81087306574346550</EntityId>
               <Min x="-1" y="7" z="1" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2163,7 +2189,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>aero-wing_inside_curved_1x1x1_rounded_Small</SubtypeName>
-              <EntityId>124581850907844565</EntityId>
+              <EntityId>96200660395422481</EntityId>
               <Min x="-1" y="7" z="0" />
               <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -2171,7 +2197,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>aero-wing_inside_curved_1x1x1_rounded_Small</SubtypeName>
-              <EntityId>125554875414093636</EntityId>
+              <EntityId>87884362260776636</EntityId>
               <Min x="1" y="7" z="0" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -2179,7 +2205,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset</SubtypeName>
-              <EntityId>126856436853438182</EntityId>
+              <EntityId>131832794103030630</EntityId>
               <Min x="-1" y="6" z="-3" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2194,7 +2220,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ConveyorSorter">
               <SubtypeName>CAP_50CalOffset</SubtypeName>
-              <EntityId>102505238968341706</EntityId>
+              <EntityId>96567417248373612</EntityId>
               <Min x="0" y="6" z="-1" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2232,7 +2258,7 @@
                         <dictionary>
                           <item>
                             <Key>75bbb4f5-4fb9-4230-beef-bb79c9811501</Key>
-                            <Value>+nzbAQoKCAAQrgEdAAAAABLMAQgAEkAtAAD6RDI5CAAQABgAIAAoADAASABQAHgAgAEAkAEAoAEAsAEAwAEA0AF42AEA6AEA8AEA+AEBsAIA0AIA4AIAGkUSCg0AAAAAEAAg2wEYACCXgICAgICAgAIwADgAQABIAFIjGhsJAAAAAAAAAAAhAAAAAAAAAAA5AAAAAAAAAAAgACgAMAAiLQgAEAAgACoGIMX2//8HMhsJAAAAAAAAAAAhAAAAAAAAAAA5AAAAAAAAAAA4ACoQCAAgASgAMAA4BUABSABQAAgi</Value>
+                            <Value>+nzaAQoKCAAQrgEdAAAAABLLAQgAEkAtAAD6RDI5CAAQABgAIAAoADAASABQAHgAgAEAkAEAoAEAsAEAwAEA0AF42AEA6AEA8AEA+AEBsAIA0AIA4AIAGkQSCQ0AAAAAEAAgORgAIJeAgICAgICAAjAAOABAAEgAUiMaGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAACAAKAAwACItCAAQACAAKgYg3f3//wcyGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAADgAKhAIACABKAAwADgFQAFIAFAACCI=</Value>
                           </item>
                         </dictionary>
                       </Storage>
@@ -2261,28 +2287,28 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_6</SubtypeName>
-              <EntityId>140576925346949669</EntityId>
+              <EntityId>142329455135374802</EntityId>
               <Min x="4" y="8" z="-2" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_4</SubtypeName>
-              <EntityId>90675601729930998</EntityId>
+              <EntityId>131170884519214322</EntityId>
               <Min x="4" y="8" z="0" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_5</SubtypeName>
-              <EntityId>139241255130838214</EntityId>
+              <EntityId>119295711671050752</EntityId>
               <Min x="-4" y="8" z="-1" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_4</SubtypeName>
-              <EntityId>136504671194749917</EntityId>
+              <EntityId>82310323645857054</EntityId>
               <Min x="-4" y="8" z="0" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
@@ -2296,14 +2322,14 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_6</SubtypeName>
-              <EntityId>91686228412225971</EntityId>
+              <EntityId>136113827745876014</EntityId>
               <Min x="-4" y="8" z="-2" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ConveyorConnector">
               <SubtypeName>ConveyorTubeDuctSmall</SubtypeName>
-              <EntityId>88959041897841922</EntityId>
+              <EntityId>112691944573650218</EntityId>
               <Min x="4" y="7" z="0" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -2311,7 +2337,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset_M</SubtypeName>
-              <EntityId>96930762254548945</EntityId>
+              <EntityId>90919377446697865</EntityId>
               <Min x="5" y="7" z="0" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -2319,7 +2345,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset_M</SubtypeName>
-              <EntityId>113293327501411836</EntityId>
+              <EntityId>85383012023777174</EntityId>
               <Min x="-5" y="7" z="0" />
               <BlockOrientation Forward="Down" Up="Left" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -2327,7 +2353,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_4</SubtypeName>
-              <EntityId>122070901763329889</EntityId>
+              <EntityId>84921005793475352</EntityId>
               <Min x="5" y="6" z="-1" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2335,7 +2361,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_4</SubtypeName>
-              <EntityId>99346157994225391</EntityId>
+              <EntityId>142612664838496894</EntityId>
               <Min x="-5" y="6" z="-1" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2343,7 +2369,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>SlimWing2x3Offset</SubtypeName>
-              <EntityId>78004821422119007</EntityId>
+              <EntityId>141574782869625260</EntityId>
               <Min x="8" y="7" z="-5" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2356,7 +2382,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_5</SubtypeName>
-              <EntityId>129171280436385537</EntityId>
+              <EntityId>97175984814018437</EntityId>
               <Min x="-5" y="6" z="-2" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2378,7 +2404,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_4</SubtypeName>
-              <EntityId>130211902056489394</EntityId>
+              <EntityId>86728458199488021</EntityId>
               <Min x="-3" y="6" z="-1" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2386,7 +2412,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_4</SubtypeName>
-              <EntityId>119748165008422093</EntityId>
+              <EntityId>110820700644473549</EntityId>
               <Min x="3" y="6" z="-1" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2394,7 +2420,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_5</SubtypeName>
-              <EntityId>74533546433074021</EntityId>
+              <EntityId>72723067209041085</EntityId>
               <Min x="-3" y="6" z="-2" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2402,7 +2428,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_5</SubtypeName>
-              <EntityId>103955624632561337</EntityId>
+              <EntityId>99666513093139716</EntityId>
               <Min x="3" y="6" z="-2" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2410,7 +2436,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_6</SubtypeName>
-              <EntityId>128748795469465828</EntityId>
+              <EntityId>121662905630742600</EntityId>
               <Min x="-3" y="6" z="-3" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2418,7 +2444,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_6</SubtypeName>
-              <EntityId>72831976724856650</EntityId>
+              <EntityId>96237280813138597</EntityId>
               <Min x="3" y="6" z="-3" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2426,7 +2452,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CargoContainer">
               <SubtypeName>SmallBlockSmallContainer</SubtypeName>
-              <EntityId>118559141684350510</EntityId>
+              <EntityId>113661212559514694</EntityId>
               <Min x="-1" y="7" z="-3" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -2467,7 +2493,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_6</SubtypeName>
-              <EntityId>75663967921265113</EntityId>
+              <EntityId>120699116400002515</EntityId>
               <Min x="4" y="6" z="-3" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2475,7 +2501,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CargoContainer">
               <SubtypeName>SmallBlockSmallContainer</SubtypeName>
-              <EntityId>121805232944565378</EntityId>
+              <EntityId>83290481832127255</EntityId>
               <Min x="1" y="7" z="-3" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -2516,7 +2542,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ConveyorSorter">
               <SubtypeName>CAP_50CalOffset</SubtypeName>
-              <EntityId>140742785632057994</EntityId>
+              <EntityId>131440400230869780</EntityId>
               <Min x="1" y="6" z="-1" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -2554,7 +2580,7 @@
                         <dictionary>
                           <item>
                             <Key>75bbb4f5-4fb9-4230-beef-bb79c9811501</Key>
-                            <Value>+nzbAQoKCAAQrgEdAAAAABLMAQgAEkAtAAD6RDI5CAAQABgAIAAoADAASABQAHgAgAEAkAEAoAEAsAEAwAEA0AF42AEA6AEA8AEA+AEBsAIA0AIA4AIAGkUSCg0AAAAAEAAg3AEYACCXgICAgICAgAIwADgAQABIAFIjGhsJAAAAAAAAAAAhAAAAAAAAAAA5AAAAAAAAAAAgACgAMAAiLQgAEAAgACoGIMD2//8HMhsJAAAAAAAAAAAhAAAAAAAAAAA5AAAAAAAAAAA4ACoQCAAgASgAMAA4BUABSABQAAgi</Value>
+                            <Value>+nzaAQoKCAAQrgEdAAAAABLLAQgAEkAtAAD6RDI5CAAQABgAIAAoADAASABQAHgAgAEAkAEAoAEAsAEAwAEA0AF42AEA6AEA8AEA+AEBsAIA0AIA4AIAGkQSCQ0AAAAAEAAgOhgAIJeAgICAgICAAjAAOABAAEgAUiMaGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAACAAKAAwACItCAAQACAAKgYg2P3//wcyGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAADgAKhAIACABKAAwADgFQAFIAFAACCI=</Value>
                           </item>
                         </dictionary>
                       </Storage>
@@ -2576,7 +2602,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ConveyorSorter">
               <SubtypeName>CAP_50CalOffset</SubtypeName>
-              <EntityId>80269135716552108</EntityId>
+              <EntityId>142738309827665095</EntityId>
               <Min x="-1" y="6" z="-1" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -2614,7 +2640,7 @@
                         <dictionary>
                           <item>
                             <Key>75bbb4f5-4fb9-4230-beef-bb79c9811501</Key>
-                            <Value>+nzbAQoKCAAQrgEdAAAAABLMAQgAEkAtAAD6RDI5CAAQABgAIAAoADAASABQAHgAgAEAkAEAoAEAsAEAwAEA0AF42AEA6AEA8AEA+AEBsAIA0AIA4AIAGkUSCg0AAAAAEAAg3QEYACCXgICAgICAgAIwADgAQABIAFIjGhsJAAAAAAAAAAAhAAAAAAAAAAA5AAAAAAAAAAAgACgAMAAiLQgAEAAgACoGILv2//8HMhsJAAAAAAAAAAAhAAAAAAAAAAA5AAAAAAAAAAA4ACoQCAAgASgAMAA4BUABSABQAAgi</Value>
+                            <Value>+nzaAQoKCAAQrgEdAAAAABLLAQgAEkAtAAD6RDI5CAAQABgAIAAoADAASABQAHgAgAEAkAEAoAEAsAEAwAEA0AF42AEA6AEA8AEA+AEBsAIA0AIA4AIAGkQSCQ0AAAAAEAAgOxgAIJeAgICAgICAAjAAOABAAEgAUiMaGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAACAAKAAwACItCAAQACAAKgYg0/3//wcyGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAADgAKhAIACABKAAwADgFQAFIAFAACCI=</Value>
                           </item>
                         </dictionary>
                       </Storage>
@@ -2636,7 +2662,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>128474819838759139</EntityId>
+              <EntityId>97032463771811524</EntityId>
               <Min x="2" y="7" z="-2" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -2672,14 +2698,14 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_6</SubtypeName>
-              <EntityId>98015206004850547</EntityId>
+              <EntityId>112262481743793302</EntityId>
               <Min x="5" y="8" z="-2" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_6</SubtypeName>
-              <EntityId>78046533743475934</EntityId>
+              <EntityId>98964743174412404</EntityId>
               <Min x="-5" y="8" z="-2" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -2687,14 +2713,14 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_6</SubtypeName>
-              <EntityId>80928453543478629</EntityId>
+              <EntityId>142741559139212787</EntityId>
               <Min x="-3" y="8" z="-2" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_6</SubtypeName>
-              <EntityId>131080116530233774</EntityId>
+              <EntityId>143878915511372656</EntityId>
               <Min x="3" y="8" z="-2" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -2702,14 +2728,14 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_4</SubtypeName>
-              <EntityId>119472393699447153</EntityId>
+              <EntityId>142972821472415506</EntityId>
               <Min x="5" y="8" z="0" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_4</SubtypeName>
-              <EntityId>128192547585089457</EntityId>
+              <EntityId>112907650292301966</EntityId>
               <Min x="-5" y="8" z="0" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -2717,14 +2743,14 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_5</SubtypeName>
-              <EntityId>106639162712144954</EntityId>
+              <EntityId>82544241570214238</EntityId>
               <Min x="-3" y="8" z="-1" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_5</SubtypeName>
-              <EntityId>127637161893767775</EntityId>
+              <EntityId>90366789798655313</EntityId>
               <Min x="3" y="8" z="-1" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -2732,14 +2758,14 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_5</SubtypeName>
-              <EntityId>95353338110779179</EntityId>
+              <EntityId>131821762672908760</EntityId>
               <Min x="5" y="8" z="-1" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_5</SubtypeName>
-              <EntityId>136447029168323229</EntityId>
+              <EntityId>77430932873231521</EntityId>
               <Min x="-5" y="8" z="-1" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -2747,14 +2773,14 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_4</SubtypeName>
-              <EntityId>97649923032041978</EntityId>
+              <EntityId>129788681121860538</EntityId>
               <Min x="-3" y="8" z="0" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_4</SubtypeName>
-              <EntityId>81375552831945815</EntityId>
+              <EntityId>131491149913976554</EntityId>
               <Min x="3" y="8" z="0" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -2762,7 +2788,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffset</SubtypeName>
-              <EntityId>90547191238786201</EntityId>
+              <EntityId>143190877006449790</EntityId>
               <Min x="-2" y="6" z="-2" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2770,7 +2796,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Conveyor">
               <SubtypeName>SlimWingFillConveyorOffset</SubtypeName>
-              <EntityId>78208942941383146</EntityId>
+              <EntityId>103922232614652189</EntityId>
               <Min x="1" y="6" z="-2" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -2778,7 +2804,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>aero-wing_1x1x1_rounded_edge_Small</SubtypeName>
-              <EntityId>78628039446204742</EntityId>
+              <EntityId>84749164702474466</EntityId>
               <Min x="3" y="7" z="0" />
               <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -2786,7 +2812,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>94288415087830853</EntityId>
+              <EntityId>108301449782359819</EntityId>
               <Min x="3" y="7" z="-2" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -2822,7 +2848,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>76300125638885400</EntityId>
+              <EntityId>141585260011980649</EntityId>
               <Min x="-3" y="7" z="-2" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -2858,7 +2884,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>141814620745905160</EntityId>
+              <EntityId>78951356203603855</EntityId>
               <Min x="4" y="7" z="-3" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -2894,7 +2920,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmor2x1SlopedSideBasePanelLightInv</SubtypeName>
-              <EntityId>104173804985603302</EntityId>
+              <EntityId>114632932146970748</EntityId>
               <Min x="-4" y="9" z="-16" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -2902,7 +2928,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>119030867666203749</EntityId>
+              <EntityId>104351106871807391</EntityId>
               <Min x="3" y="7" z="-3" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -2938,7 +2964,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>76200367530820698</EntityId>
+              <EntityId>85067851809343368</EntityId>
               <Min x="-3" y="7" z="-1" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -2974,7 +3000,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>115028512422709889</EntityId>
+              <EntityId>136823269155215400</EntityId>
               <Min x="-4" y="7" z="-3" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -3010,7 +3036,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>143057356898976176</EntityId>
+              <EntityId>103618611872414174</EntityId>
               <Min x="0" y="5" z="-1" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -3018,7 +3044,7 @@
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_MyProgrammableBlock">
               <SubtypeName>SmallProgrammableBlockReskin</SubtypeName>
-              <EntityId>96694929207116686</EntityId>
+              <EntityId>88830642805606767</EntityId>
               <Min x="0" y="7" z="1" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -3083,7 +3109,7 @@
                           <Sprites>
                             <Length>0</Length>
                           </Sprites>
-                          <UpdateStartOfFirstTexture>1664097992</UpdateStartOfFirstTexture>
+                          <UpdateStartOfFirstTexture>254269560</UpdateStartOfFirstTexture>
                         </MySerializedTextPanelData>
                         <MySerializedTextPanelData>
                           <ChangeInterval>0</ChangeInterval>
@@ -3136,7 +3162,7 @@
                           <Sprites>
                             <Length>0</Length>
                           </Sprites>
-                          <UpdateStartOfFirstTexture>1664097992</UpdateStartOfFirstTexture>
+                          <UpdateStartOfFirstTexture>254269560</UpdateStartOfFirstTexture>
                         </MySerializedTextPanelData>
                       </TextPanelsContents>
                     </Component>
@@ -4132,7 +4158,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_BatteryBlock">
               <SubtypeName>SmallBlockSmallBatteryBlock</SubtypeName>
-              <EntityId>119443684211201165</EntityId>
+              <EntityId>140569911877219236</EntityId>
               <Min x="0" y="7" z="0" />
               <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -4153,7 +4179,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>103544416896081477</EntityId>
+              <EntityId>98732025069457233</EntityId>
               <Min x="1" y="5" z="-1" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -4161,7 +4187,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_5</SubtypeName>
-              <EntityId>73793077325011547</EntityId>
+              <EntityId>127608166547617382</EntityId>
               <Min x="-4" y="6" z="-2" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -4169,7 +4195,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>120881128965893832</EntityId>
+              <EntityId>134668870161055831</EntityId>
               <Min x="-3" y="7" z="-3" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4205,7 +4231,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffset</SubtypeName>
-              <EntityId>75356778502019315</EntityId>
+              <EntityId>141537431755042013</EntityId>
               <Min x="2" y="6" z="-3" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -4213,7 +4239,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffset</SubtypeName>
-              <EntityId>136727208842971545</EntityId>
+              <EntityId>136653795949445702</EntityId>
               <Min x="-2" y="6" z="-3" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -4228,7 +4254,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_6</SubtypeName>
-              <EntityId>125440736496598099</EntityId>
+              <EntityId>135579767512961450</EntityId>
               <Min x="-4" y="6" z="-3" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -4236,7 +4262,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>103467660386825357</EntityId>
+              <EntityId>118284528215663853</EntityId>
               <Min x="0" y="5" z="0" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -4244,7 +4270,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_5</SubtypeName>
-              <EntityId>81964010199094833</EntityId>
+              <EntityId>142998724549125745</EntityId>
               <Min x="4" y="6" z="-2" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -4252,7 +4278,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillEdgeOffset</SubtypeName>
-              <EntityId>103860908263440398</EntityId>
+              <EntityId>108227761805921151</EntityId>
               <Min x="-6" y="7" z="-5" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -4260,7 +4286,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>92958440413814408</EntityId>
+              <EntityId>107335534355781083</EntityId>
               <Min x="-2" y="7" z="-2" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4303,7 +4329,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_HydrogenEngine">
               <SubtypeName>Karston_Singlebank</SubtypeName>
-              <EntityId>75739448891974426</EntityId>
+              <EntityId>94328336920667467</EntityId>
               <Min x="-4" y="6" z="1" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -4316,11 +4342,11 @@ static class BlueScreenOfDeath
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>3</NumberInGrid>
               <Enabled>true</Enabled>
-              <Capacity>1500.61389</Capacity>
+              <Capacity>1500</Capacity>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset_M</SubtypeName>
-              <EntityId>133882544840599001</EntityId>
+              <EntityId>78479185430177502</EntityId>
               <Min x="3" y="7" z="1" />
               <BlockOrientation Forward="Down" Up="Left" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -4328,7 +4354,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset_M</SubtypeName>
-              <EntityId>103757133519887128</EntityId>
+              <EntityId>123409619028199189</EntityId>
               <Min x="-3" y="7" z="1" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -4336,7 +4362,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>PanelWingEdge1x1</SubtypeName>
-              <EntityId>115946640408252291</EntityId>
+              <EntityId>127814028700147364</EntityId>
               <Min x="0" y="9" z="-14" />
               <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4344,28 +4370,28 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>PanelWingFill1x1</SubtypeName>
-              <EntityId>73044410860239948</EntityId>
+              <EntityId>103748408334476840</EntityId>
               <Min x="0" y="9" z="-15" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>PanelWingFill1x1</SubtypeName>
-              <EntityId>112689099407955314</EntityId>
+              <EntityId>104214657028472251</EntityId>
               <Min x="0" y="9" z="-17" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>PanelWingFill1x1</SubtypeName>
-              <EntityId>124724083339991683</EntityId>
+              <EntityId>129044501405133694</EntityId>
               <Min x="0" y="9" z="-16" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>PanelWingEdge1x1</SubtypeName>
-              <EntityId>82791733340806706</EntityId>
+              <EntityId>134191151828826926</EntityId>
               <Min x="-1" y="9" z="-14" />
               <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4373,7 +4399,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>PanelWingEdge1x1</SubtypeName>
-              <EntityId>117560326484519370</EntityId>
+              <EntityId>72451251431323423</EntityId>
               <Min x="1" y="9" z="-14" />
               <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4381,7 +4407,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>PanelWing2x3Reverse</SubtypeName>
-              <EntityId>103269810631893655</EntityId>
+              <EntityId>125830160058198615</EntityId>
               <Min x="2" y="9" z="-15" />
               <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4394,7 +4420,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>PanelWing2x3</SubtypeName>
-              <EntityId>75155477702872191</EntityId>
+              <EntityId>130732614403420524</EntityId>
               <Min x="-4" y="9" z="-15" />
               <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -4407,7 +4433,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>PanelWingFill1x1</SubtypeName>
-              <EntityId>96109833463245120</EntityId>
+              <EntityId>88717208003407388</EntityId>
               <Min x="1" y="9" z="-15" />
               <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -4415,7 +4441,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>PanelWingFill1x1</SubtypeName>
-              <EntityId>100228805192472815</EntityId>
+              <EntityId>72884594110483040</EntityId>
               <Min x="-1" y="9" z="-15" />
               <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4423,7 +4449,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>ThinSurface2x3FlatMirrored</SubtypeName>
-              <EntityId>81981092369978361</EntityId>
+              <EntityId>143447959017289834</EntityId>
               <Min x="1" y="9" z="-17" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
@@ -4466,7 +4492,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>ThinSurface2x3Flat</SubtypeName>
-              <EntityId>102429107783005616</EntityId>
+              <EntityId>83626291165944636</EntityId>
               <Min x="-3" y="9" z="-17" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
@@ -4509,23 +4535,15 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmor2x1SlopedSideBasePanelLight</SubtypeName>
-              <EntityId>86764291486292189</EntityId>
+              <EntityId>120291949803824614</EntityId>
               <Min x="-4" y="8" z="-16" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-              <SubtypeName>4Plate30SlopeBasePanelReverse</SubtypeName>
-              <EntityId>114899111123840013</EntityId>
-              <Min x="4" y="9" z="-16" />
-              <BlockOrientation Forward="Forward" Up="Right" />
-              <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
-              <SkinSubtypeId>Weldless</SkinSubtypeId>
-            </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmorPanelLight</SubtypeName>
-              <EntityId>131320165597351208</EntityId>
+              <EntityId>90012052315655790</EntityId>
               <Min x="-5" y="8" z="-15" />
               <BlockOrientation Forward="Up" Up="Backward" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4533,7 +4551,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmorPanelLight</SubtypeName>
-              <EntityId>113783383547555973</EntityId>
+              <EntityId>110954444142213871</EntityId>
               <Min x="5" y="9" z="-15" />
               <BlockOrientation Forward="Down" Up="Backward" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -4541,7 +4559,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmorPanelLight</SubtypeName>
-              <EntityId>86006943312509421</EntityId>
+              <EntityId>95148826300013809</EntityId>
               <Min x="-5" y="9" z="-15" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -4549,7 +4567,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmorPanelLight</SubtypeName>
-              <EntityId>84764336160235166</EntityId>
+              <EntityId>86949979764023712</EntityId>
               <Min x="5" y="8" z="-15" />
               <BlockOrientation Forward="Down" Up="Backward" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -4557,7 +4575,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SmallArmor2x1SlopedSideTipPanelLight</SubtypeName>
-              <EntityId>129122935501792861</EntityId>
+              <EntityId>119602512003191117</EntityId>
               <Min x="-1" y="8" z="-17" />
               <BlockOrientation Forward="Down" Up="Forward" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4565,7 +4583,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmor2x1SlopedSideBasePanelLightInv</SubtypeName>
-              <EntityId>126883152090053574</EntityId>
+              <EntityId>85995835334285340</EntityId>
               <Min x="1" y="8" z="-16" />
               <BlockOrientation Forward="Down" Up="Forward" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4573,7 +4591,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmorHalfPanelLight</SubtypeName>
-              <EntityId>112202791448117976</EntityId>
+              <EntityId>129815985789660122</EntityId>
               <Min x="-5" y="9" z="-14" />
               <BlockOrientation Forward="Up" Up="Backward" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -4581,7 +4599,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmorHalfPanelLight</SubtypeName>
-              <EntityId>92569078481324891</EntityId>
+              <EntityId>139750928368763132</EntityId>
               <Min x="5" y="9" z="-14" />
               <BlockOrientation Forward="Down" Up="Backward" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -4589,7 +4607,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmor2x1SlopedSideTipPanelLight</SubtypeName>
-              <EntityId>101443475652687235</EntityId>
+              <EntityId>117288202399140805</EntityId>
               <Min x="-5" y="8" z="-14" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4597,7 +4615,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmor2x1SlopedSideTipPanelLightInv</SubtypeName>
-              <EntityId>84505438446553135</EntityId>
+              <EntityId>109671633460721076</EntityId>
               <Min x="-5" y="10" z="-14" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4605,7 +4623,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>ThinSurface1x3Flat</SubtypeName>
-              <EntityId>117944686183293980</EntityId>
+              <EntityId>79284407493876144</EntityId>
               <Min x="-5" y="8" z="-16" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4649,7 +4667,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SmallArmor2x1SlopedSideBasePanelLight</SubtypeName>
-              <EntityId>89414124166075927</EntityId>
+              <EntityId>124145266694474500</EntityId>
               <Min x="-1" y="8" z="-16" />
               <BlockOrientation Forward="Down" Up="Forward" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4657,7 +4675,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmorPanelLight</SubtypeName>
-              <EntityId>108656725543153138</EntityId>
+              <EntityId>123436859570994279</EntityId>
               <Min x="5" y="10" z="-15" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4665,14 +4683,14 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmorPanelLight</SubtypeName>
-              <EntityId>97371022389928218</EntityId>
+              <EntityId>117317710275354954</EntityId>
               <Min x="-5" y="10" z="-15" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmor2x1SlopedSideTipPanelLightInv</SubtypeName>
-              <EntityId>94599534235367519</EntityId>
+              <EntityId>92130928480638715</EntityId>
               <Min x="1" y="8" z="-17" />
               <BlockOrientation Forward="Down" Up="Forward" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4680,7 +4698,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>ThinSurface1x3Flat</SubtypeName>
-              <EntityId>109585660903641746</EntityId>
+              <EntityId>112668958819302705</EntityId>
               <Min x="5" y="8" z="-16" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4724,7 +4742,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmor2x1SlopedSideTipPanelLightInv</SubtypeName>
-              <EntityId>81017257964948427</EntityId>
+              <EntityId>139628860820602428</EntityId>
               <Min x="5" y="8" z="-14" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -4732,7 +4750,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmor2x1SlopedSideTipPanelLight</SubtypeName>
-              <EntityId>94806550553143073</EntityId>
+              <EntityId>91509984614268066</EntityId>
               <Min x="5" y="10" z="-14" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4740,7 +4758,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>PanelWing1x3</SubtypeName>
-              <EntityId>81288700468965628</EntityId>
+              <EntityId>73843351771513387</EntityId>
               <Min x="1" y="8" z="-15" />
               <BlockOrientation Forward="Backward" Up="Right" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4753,7 +4771,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
               <SubtypeName>PanelWing1x3</SubtypeName>
-              <EntityId>134698297893255069</EntityId>
+              <EntityId>96689841068364533</EntityId>
               <Min x="-1" y="8" z="-15" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4773,7 +4791,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingtipRoundToEdgeOffsetMirror</SubtypeName>
-              <EntityId>98242738885325148</EntityId>
+              <EntityId>118526460519591312</EntityId>
               <Min x="-16" y="7" z="-3" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -4781,7 +4799,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingtipRoundToEdgeOffset</SubtypeName>
-              <EntityId>103336479858683673</EntityId>
+              <EntityId>90257792207536997</EntityId>
               <Min x="16" y="7" z="-3" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4789,7 +4807,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_InteriorLight">
               <SubtypeName>SlimWingtipRoundLightOffset</SubtypeName>
-              <EntityId>135408837925108225</EntityId>
+              <EntityId>108773488365955832</EntityId>
               <Min x="16" y="7" z="-2" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4814,7 +4832,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>122082133852606763</EntityId>
+              <EntityId>90356537948865463</EntityId>
               <Min x="5" y="7" z="-4" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -4850,7 +4868,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillEdgeOffset</SubtypeName>
-              <EntityId>137411249269134281</EntityId>
+              <EntityId>74359256996729189</EntityId>
               <Min x="-5" y="7" z="-5" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0" y="-0.49" z="-0.12" />
@@ -4858,7 +4876,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CargoContainer">
               <SubtypeName>SmallBlockSmallContainer</SubtypeName>
-              <EntityId>135391090337982803</EntityId>
+              <EntityId>79987934945243869</EntityId>
               <Min x="0" y="7" z="-4" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
@@ -4905,7 +4923,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Cockpit">
               <SubtypeName>TankSeatAngled45</SubtypeName>
-              <EntityId>83311726529021831</EntityId>
+              <EntityId>79103790614392721</EntityId>
               <Min x="0" y="8" z="-1" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -4927,7 +4945,7 @@ static class BlueScreenOfDeath
                     <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalGroup">
                       <Action>OnOff</Action>
                       <GridEntityId>0</GridEntityId>
-                      <BlockEntityId>83311726529021831</BlockEntityId>
+                      <BlockEntityId>79103790614392721</BlockEntityId>
                       <GroupName>Potez 630 - Propellers</GroupName>
                     </Data>
                   </Slot>
@@ -4937,7 +4955,7 @@ static class BlueScreenOfDeath
                     <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalGroup">
                       <Action>DecreaseOverride</Action>
                       <GridEntityId>0</GridEntityId>
-                      <BlockEntityId>83311726529021831</BlockEntityId>
+                      <BlockEntityId>79103790614392721</BlockEntityId>
                       <GroupName>Potez 630 - Propellers</GroupName>
                     </Data>
                   </Slot>
@@ -4947,7 +4965,7 @@ static class BlueScreenOfDeath
                     <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalGroup">
                       <Action>IncreaseOverride</Action>
                       <GridEntityId>0</GridEntityId>
-                      <BlockEntityId>83311726529021831</BlockEntityId>
+                      <BlockEntityId>79103790614392721</BlockEntityId>
                       <GroupName>Potez 630 - Propellers</GroupName>
                     </Data>
                   </Slot>
@@ -4957,7 +4975,7 @@ static class BlueScreenOfDeath
                     <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalGroup">
                       <Action>WCMouseToggle</Action>
                       <GridEntityId>0</GridEntityId>
-                      <BlockEntityId>83311726529021831</BlockEntityId>
+                      <BlockEntityId>79103790614392721</BlockEntityId>
                       <GroupName>Potez 630 - MGs</GroupName>
                     </Data>
                   </Slot>
@@ -4967,7 +4985,7 @@ static class BlueScreenOfDeath
                     <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalGroup">
                       <Action>Open</Action>
                       <GridEntityId>0</GridEntityId>
-                      <BlockEntityId>83311726529021831</BlockEntityId>
+                      <BlockEntityId>79103790614392721</BlockEntityId>
                       <GroupName>Potez 630 - Airbrakes</GroupName>
                     </Data>
                   </Slot>
@@ -4977,7 +4995,7 @@ static class BlueScreenOfDeath
                     <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalGroup">
                       <Action>OnOff</Action>
                       <GridEntityId>0</GridEntityId>
-                      <BlockEntityId>83311726529021831</BlockEntityId>
+                      <BlockEntityId>79103790614392721</BlockEntityId>
                       <GroupName>Potez 630 - Nav Lights</GroupName>
                     </Data>
                   </Slot>
@@ -4987,7 +5005,7 @@ static class BlueScreenOfDeath
                     <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalGroup">
                       <Action>Stockpile</Action>
                       <GridEntityId>0</GridEntityId>
-                      <BlockEntityId>83311726529021831</BlockEntityId>
+                      <BlockEntityId>79103790614392721</BlockEntityId>
                       <GroupName>Potez 630 - Fuel Hydrogen Tanks</GroupName>
                     </Data>
                   </Slot>
@@ -4997,7 +5015,7 @@ static class BlueScreenOfDeath
                     <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalGroup">
                       <Action>OnOff</Action>
                       <GridEntityId>0</GridEntityId>
-                      <BlockEntityId>83311726529021831</BlockEntityId>
+                      <BlockEntityId>79103790614392721</BlockEntityId>
                       <GroupName>Potez 630 - Engines</GroupName>
                     </Data>
                   </Slot>
@@ -5009,7 +5027,7 @@ static class BlueScreenOfDeath
                     <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalGroup">
                       <Action>DecreaseOverride</Action>
                       <GridEntityId>0</GridEntityId>
-                      <BlockEntityId>83311726529021831</BlockEntityId>
+                      <BlockEntityId>79103790614392721</BlockEntityId>
                       <GroupName>Potez 630 - Propellers</GroupName>
                     </Data>
                   </Slot>
@@ -5019,7 +5037,7 @@ static class BlueScreenOfDeath
                     <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalGroup">
                       <Action>IncreaseOverride</Action>
                       <GridEntityId>0</GridEntityId>
-                      <BlockEntityId>83311726529021831</BlockEntityId>
+                      <BlockEntityId>79103790614392721</BlockEntityId>
                       <GroupName>Potez 630 - Propellers</GroupName>
                     </Data>
                   </Slot>
@@ -5029,7 +5047,7 @@ static class BlueScreenOfDeath
                     <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalGroup">
                       <Action>OnOff</Action>
                       <GridEntityId>0</GridEntityId>
-                      <BlockEntityId>83311726529021831</BlockEntityId>
+                      <BlockEntityId>79103790614392721</BlockEntityId>
                       <GroupName>Potez 630 - Propellers</GroupName>
                     </Data>
                   </Slot>
@@ -5050,17 +5068,17 @@ static class BlueScreenOfDeath
                 <SlotsGamepad />
               </OnLockedToolbar>
               <PilotRelativeWorld>
-                <Position x="-1.6803947687149048" y="0.80511832237243652" z="1.9018383026123047" />
-                <Forward x="0.198970348" y="-0.889128566" z="-0.4121421" />
-                <Up x="0.721738756" y="0.417439133" z="-0.55212146" />
+                <Position x="-1.7305747270584106" y="-0.36980500817298889" z="2.1295363903045654" />
+                <Forward x="0.332934678" y="-0.5371015" z="-0.7750328" />
+                <Up x="0.5750209" y="0.767056763" z="-0.284559637" />
                 <Orientation>
-                  <X>-0.456445515</X>
-                  <Y>-0.292551666</Y>
-                  <Z>-0.287989557</Z>
-                  <W>0.789387763</W>
+                  <X>-0.226518169</X>
+                  <Y>-0.247331753</Y>
+                  <Z>-0.2552665</Z>
+                  <W>0.906838238</W>
                 </Orientation>
               </PilotRelativeWorld>
-              <PilotGunDefinition Type="MyObjectBuilder_Welder" Subtype="Welder4" />
+              <PilotGunDefinition xsi:nil="true" />
               <IsInFirstPersonView>true</IsInFirstPersonView>
               <OxygenLevel>0</OxygenLevel>
               <PilotJetpackEnabled xsi:nil="true" />
@@ -5069,11 +5087,11 @@ static class BlueScreenOfDeath
                 <IsTargetLocked>false</IsTargetLocked>
                 <LockingProgress>0</LockingProgress>
               </TargetData>
-              <SitAnimation>798260</SitAnimation>
+              <SitAnimation>39786</SitAnimation>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SmallWindow1x1FlatInv</SubtypeName>
-              <EntityId>107399554650211728</EntityId>
+              <EntityId>81278664097914282</EntityId>
               <Min x="0" y="9" z="1" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -5081,7 +5099,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_RemoteControl">
               <SubtypeName>SmallBlockRemoteControl</SubtypeName>
-              <EntityId>140406860302105149</EntityId>
+              <EntityId>125139381160091265</EntityId>
               <Min x="0" y="8" z="-2" />
               <BlockOrientation Forward="Backward" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -5165,7 +5183,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Cockpit">
               <SubtypeName>TankStoolLower</SubtypeName>
-              <EntityId>109541837186794642</EntityId>
+              <EntityId>92643434421220449</EntityId>
               <Min x="0" y="8" z="-5" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
@@ -5188,25 +5206,7 @@ static class BlueScreenOfDeath
                     <Item />
                     <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalBlock">
                       <Action>Control</Action>
-                      <BlockEntityId>73403765742712559</BlockEntityId>
-                    </Data>
-                  </Slot>
-                  <Slot>
-                    <Index>1</Index>
-                    <Item />
-                    <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalBlock">
-                      <Action>View</Action>
-                      <BlockEntityId>117507246246299947</BlockEntityId>
-                    </Data>
-                  </Slot>
-                  <Slot>
-                    <Index>3</Index>
-                    <Item />
-                    <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalGroup">
-                      <Action>Reverse</Action>
-                      <GridEntityId>0</GridEntityId>
-                      <BlockEntityId>109541837186794642</BlockEntityId>
-                      <GroupName>Landing Gear - Hinges</GroupName>
+                      <BlockEntityId>118717623131260518</BlockEntityId>
                     </Data>
                   </Slot>
                 </Slots>
@@ -5216,7 +5216,7 @@ static class BlueScreenOfDeath
                     <Item />
                     <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalBlock">
                       <Action>View</Action>
-                      <BlockEntityId>86194756999707308</BlockEntityId>
+                      <BlockEntityId>112689833557683768</BlockEntityId>
                     </Data>
                   </Slot>
                 </SlotsGamepad>
@@ -5235,17 +5235,17 @@ static class BlueScreenOfDeath
                 <SlotsGamepad />
               </OnLockedToolbar>
               <PilotRelativeWorld>
-                <Position x="-1.7082804441452026" y="0.35136395692825317" z="-0.54599940776824951" />
-                <Forward x="0.186447948" y="-0.87956953" z="0.437715232" />
-                <Up x="0.9738297" y="0.224393845" z="0.0360998176" />
+                <Position x="2.0478062629699707" y="0.4692319929599762" z="-0.14020158350467682" />
+                <Forward x="-0.324080467" y="-0.9288572" z="0.179432914" />
+                <Up x="-0.945411146" y="0.3248468" z="-0.0259310585" />
                 <Orientation>
-                  <X>0.520420134</X>
-                  <Y>0.669343352</Y>
-                  <Z>0.342002839</Z>
-                  <W>-0.4051869</W>
+                  <X>-0.452875257</X>
+                  <Y>0.6201777</Y>
+                  <Z>0.363978744</Z>
+                  <W>0.5270702</W>
                 </Orientation>
               </PilotRelativeWorld>
-              <PilotGunDefinition Type="MyObjectBuilder_Welder" Subtype="Welder4" />
+              <PilotGunDefinition xsi:nil="true" />
               <IsInFirstPersonView>true</IsInFirstPersonView>
               <OxygenLevel>0</OxygenLevel>
               <PilotJetpackEnabled xsi:nil="true" />
@@ -5254,7 +5254,7 @@ static class BlueScreenOfDeath
                 <IsTargetLocked>false</IsTargetLocked>
                 <LockingProgress>0</LockingProgress>
               </TargetData>
-              <SitAnimation>0</SitAnimation>
+              <SitAnimation>72431</SitAnimation>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorSlope2Base</SubtypeName>
@@ -5277,7 +5277,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>113349115640188949</EntityId>
+              <EntityId>122286274439435857</EntityId>
               <Min x="4" y="5" z="1" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -5292,7 +5292,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SmallWindow1x1Flat</SubtypeName>
-              <EntityId>74720929522961536</EntityId>
+              <EntityId>101509758977649522</EntityId>
               <Min x="0" y="10" z="1" />
               <BlockOrientation Forward="Backward" Up="Left" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -5300,7 +5300,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SmallWindow1x1FlatInv</SubtypeName>
-              <EntityId>115733252861102006</EntityId>
+              <EntityId>96411159129150612</EntityId>
               <Min x="0" y="9" z="-4" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -5308,7 +5308,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Gyro">
               <SubtypeName>CAPOMissileGyro</SubtypeName>
-              <EntityId>107177871235730531</EntityId>
+              <EntityId>142778824779700472</EntityId>
               <Min x="0" y="8" z="1" />
               <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -5329,7 +5329,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror_F</SubtypeName>
-              <EntityId>99772372796674051</EntityId>
+              <EntityId>131815245149984355</EntityId>
               <Min x="2" y="7" z="1" />
               <BlockOrientation Forward="Backward" Up="Left" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -5337,7 +5337,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ReflectorLight">
               <SubtypeName>ArmouredLightOffset</SubtypeName>
-              <EntityId>106261164883159031</EntityId>
+              <EntityId>127824462504088980</EntityId>
               <Min x="0" y="6" z="4" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5361,7 +5361,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SmallWindow1x1Flat</SubtypeName>
-              <EntityId>138892220702458608</EntityId>
+              <EntityId>119999689652664197</EntityId>
               <Min x="0" y="10" z="-1" />
               <BlockOrientation Forward="Right" Up="Backward" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -5369,7 +5369,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffset</SubtypeName>
-              <EntityId>121830190273346804</EntityId>
+              <EntityId>101055021143237120</EntityId>
               <Min x="2" y="6" z="-2" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5377,7 +5377,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>72694785606601296</EntityId>
+              <EntityId>91207222182351663</EntityId>
               <Min x="-1" y="5" z="-1" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5385,7 +5385,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_4</SubtypeName>
-              <EntityId>81682590528504356</EntityId>
+              <EntityId>76690232126755328</EntityId>
               <Min x="4" y="6" z="-1" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5393,7 +5393,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6Slope_4</SubtypeName>
-              <EntityId>142241326892421971</EntityId>
+              <EntityId>140176020654775122</EntityId>
               <Min x="-4" y="6" z="-1" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5401,7 +5401,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffset</SubtypeName>
-              <EntityId>112805822283712163</EntityId>
+              <EntityId>140233126610688428</EntityId>
               <Min x="2" y="6" z="-1" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5409,7 +5409,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffset</SubtypeName>
-              <EntityId>121526169116511478</EntityId>
+              <EntityId>78961421520599021</EntityId>
               <Min x="-2" y="6" z="-1" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5417,7 +5417,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset_M</SubtypeName>
-              <EntityId>74535518410427135</EntityId>
+              <EntityId>103739659774500659</EntityId>
               <Min x="5" y="7" z="1" />
               <BlockOrientation Forward="Up" Up="Right" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -5425,7 +5425,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset_M</SubtypeName>
-              <EntityId>72336897192184090</EntityId>
+              <EntityId>132938506993150738</EntityId>
               <Min x="-5" y="7" z="1" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -5559,7 +5559,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Thrust">
               <SubtypeName>3BladePlanePropeller</SubtypeName>
-              <EntityId>140400425732311248</EntityId>
+              <EntityId>143590347964027168</EntityId>
               <Min x="-4" y="7" z="3" />
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0.25" y="-0.8" z="-0.45" />
@@ -5592,7 +5592,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>105821493038523762</EntityId>
+              <EntityId>133550820060633440</EntityId>
               <Min x="4" y="5" z="2" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -5600,7 +5600,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillEdgeOffset</SubtypeName>
-              <EntityId>137709806737760228</EntityId>
+              <EntityId>100259000962624194</EntityId>
               <Min x="6" y="7" z="-5" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5608,7 +5608,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillEdgeOffset</SubtypeName>
-              <EntityId>80284655485128446</EntityId>
+              <EntityId>121821387719431401</EntityId>
               <Min x="-7" y="7" z="-5" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5616,7 +5616,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillEdgeOffset</SubtypeName>
-              <EntityId>88999598795530892</EntityId>
+              <EntityId>131719246412022302</EntityId>
               <Min x="7" y="7" z="-5" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5624,7 +5624,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>120666603708260567</EntityId>
+              <EntityId>128083623787114401</EntityId>
               <Min x="-6" y="6" z="-2" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -5632,7 +5632,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>117391892558231505</EntityId>
+              <EntityId>83068516657496401</EntityId>
               <Min x="6" y="6" z="-2" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -5640,7 +5640,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>137340763582250910</EntityId>
+              <EntityId>135917310249104813</EntityId>
               <Min x="-6" y="6" z="-3" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -5648,7 +5648,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>137807942514258567</EntityId>
+              <EntityId>132837494109932137</EntityId>
               <Min x="6" y="6" z="-3" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -5656,7 +5656,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>86667864653201379</EntityId>
+              <EntityId>125206684063226327</EntityId>
               <Min x="-7" y="6" z="-2" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -5664,7 +5664,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>119968580236342626</EntityId>
+              <EntityId>91053201042470157</EntityId>
               <Min x="7" y="6" z="-2" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -5672,7 +5672,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>108044267783572096</EntityId>
+              <EntityId>143550848671058011</EntityId>
               <Min x="-7" y="6" z="-3" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5680,7 +5680,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>112230344894845368</EntityId>
+              <EntityId>115834395392789325</EntityId>
               <Min x="7" y="6" z="-3" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5688,7 +5688,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>116227135638847181</EntityId>
+              <EntityId>80588732798572458</EntityId>
               <Min x="-4" y="5" z="1" />
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -5696,7 +5696,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Thrust">
               <SubtypeName>3BladePlanePropeller</SubtypeName>
-              <EntityId>102780962860970764</EntityId>
+              <EntityId>84858192659962808</EntityId>
               <Min x="4" y="7" z="3" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0.25" y="-0.8" z="-0.45" />
@@ -5729,7 +5729,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>72761654293777799</EntityId>
+              <EntityId>76658704302556487</EntityId>
               <Min x="-4" y="5" z="2" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -5737,7 +5737,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_HydrogenEngine">
               <SubtypeName>Karston_Singlebank</SubtypeName>
-              <EntityId>100700339656536319</EntityId>
+              <EntityId>79348086350698203</EntityId>
               <Min x="4" y="6" z="1" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -5750,7 +5750,7 @@ static class BlueScreenOfDeath
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>3</NumberInGrid>
               <Enabled>true</Enabled>
-              <Capacity>1500.61389</Capacity>
+              <Capacity>1500</Capacity>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_HalfArmorBlock</SubtypeName>
@@ -5761,7 +5761,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
               <SubtypeName>SlimWingFillFuel1x1Offset</SubtypeName>
-              <EntityId>110017348424169575</EntityId>
+              <EntityId>142350612854303193</EntityId>
               <Min x="-2" y="7" z="-1" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -5797,21 +5797,21 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>PropellerCone</SubtypeName>
-              <EntityId>84375257403394350</EntityId>
+              <EntityId>120858555988730985</EntityId>
               <Min x="4" y="8" z="3" />
               <ColorMaskHSV x="0.25" y="-0.8" z="-0.45" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>PropellerCone</SubtypeName>
-              <EntityId>136164914152155555</EntityId>
+              <EntityId>122481886622530718</EntityId>
               <Min x="-4" y="8" z="3" />
               <ColorMaskHSV x="0.25" y="-0.8" z="-0.45" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SmallWindow1x1FlatInv</SubtypeName>
-              <EntityId>93369349650184636</EntityId>
+              <EntityId>85597824999981702</EntityId>
               <Min x="0" y="9" z="-3" />
               <BlockOrientation Forward="Right" Up="Forward" />
               <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
@@ -5819,7 +5819,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Conveyor">
               <SubtypeName>SlimWingFillConveyorOffset</SubtypeName>
-              <EntityId>80609813537904333</EntityId>
+              <EntityId>129298983993687873</EntityId>
               <Min x="4" y="7" z="-2" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -5827,7 +5827,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Conveyor">
               <SubtypeName>SlimWingFillConveyorOffset</SubtypeName>
-              <EntityId>85713682228502215</EntityId>
+              <EntityId>117849578829305932</EntityId>
               <Min x="-4" y="7" z="-2" />
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0" y="-0.59" z="-0.12" />
@@ -5835,7 +5835,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_6</SubtypeName>
-              <EntityId>100428126194068228</EntityId>
+              <EntityId>136966543281338280</EntityId>
               <Min x="-5" y="6" z="-3" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5843,7 +5843,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x6SlopeCorner_6</SubtypeName>
-              <EntityId>119273982943798804</EntityId>
+              <EntityId>92403024278416310</EntityId>
               <Min x="5" y="6" z="-3" />
               <BlockOrientation Forward="Forward" Up="Right" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5851,21 +5851,21 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>98910333060452926</EntityId>
+              <EntityId>77972541244699699</EntityId>
               <Min x="-3" y="8" z="-3" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror</SubtypeName>
-              <EntityId>83903880069594378</EntityId>
+              <EntityId>126214141407068784</EntityId>
               <Min x="3" y="8" z="-3" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror_F</SubtypeName>
-              <EntityId>103872463397621961</EntityId>
+              <EntityId>106330144771682784</EntityId>
               <Min x="2" y="8" z="-2" />
               <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5873,7 +5873,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror_F</SubtypeName>
-              <EntityId>116502137020657905</EntityId>
+              <EntityId>106728572880883289</EntityId>
               <Min x="-2" y="8" z="-2" />
               <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5881,7 +5881,7 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror_F</SubtypeName>
-              <EntityId>131076990509655862</EntityId>
+              <EntityId>134733672155168144</EntityId>
               <Min x="2" y="8" z="-1" />
               <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
@@ -5889,11 +5889,104 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillCollisionlessOffsetMirror_F</SubtypeName>
-              <EntityId>109211155401605387</EntityId>
+              <EntityId>116282594554618786</EntityId>
               <Min x="-2" y="8" z="-1" />
               <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.06944445" y="-0.8" z="-0.06" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
+            </MyObjectBuilder_CubeBlock>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_LargeGatlingTurret">
+              <SubtypeName>YtD_6mm_Lmg_2_mounted</SubtypeName>
+              <EntityId>118717623131260518</EntityId>
+              <Min x="0" y="9" z="-6" />
+              <ColorMaskHSV x="0.3361111" y="-0.61" z="-0.02" />
+              <SkinSubtypeId>Weldless</SkinSubtypeId>
+              <ComponentContainer>
+                <Components>
+                  <ComponentData>
+                    <TypeId>MyInventoryBase</TypeId>
+                    <Component xsi:type="MyObjectBuilder_Inventory">
+                      <CanPutItems>true</CanPutItems>
+                      <Items>
+                        <MyObjectBuilder_InventoryItem>
+                          <Amount>15</Amount>
+                          <PhysicalContent xsi:type="MyObjectBuilder_AmmoMagazine">
+                            <SubtypeName>YtD_light_basic_ammo</SubtypeName>
+                            <ProjectilesCount>0</ProjectilesCount>
+                          </PhysicalContent>
+                          <ItemId>0</ItemId>
+                        </MyObjectBuilder_InventoryItem>
+                      </Items>
+                      <nextItemId>1</nextItemId>
+                      <Volume>0.18</Volume>
+                      <Mass>9223372036854.775807</Mass>
+                      <MaxItemCount>2147483647</MaxItemCount>
+                      <Size xsi:nil="true" />
+                      <InventoryFlags>CanReceive</InventoryFlags>
+                      <RemoveEntityOnEmpty>false</RemoveEntityOnEmpty>
+                    </Component>
+                  </ComponentData>
+                  <ComponentData>
+                    <TypeId>MyTimerComponent</TypeId>
+                    <Component xsi:type="MyObjectBuilder_TimerComponent">
+                      <Repeat>true</Repeat>
+                      <TimeToEvent>0</TimeToEvent>
+                      <SetTimeMinutes>0</SetTimeMinutes>
+                      <TimerEnabled>true</TimerEnabled>
+                      <RemoveEntityOnTimer>false</RemoveEntityOnTimer>
+                      <TimerType>Frame10</TimerType>
+                      <FramesFromLastTrigger>0</FramesFromLastTrigger>
+                      <TimerTickInFrames>10</TimerTickInFrames>
+                      <IsSessionUpdateEnabled>false</IsSessionUpdateEnabled>
+                    </Component>
+                  </ComponentData>
+                  <ComponentData>
+                    <TypeId>MyModStorageComponentBase</TypeId>
+                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
+                      <Storage>
+                        <dictionary>
+                          <item>
+                            <Key>75bbb4f5-4fb9-4230-beef-bb79c9811501</Key>
+                            <Value>+nzcAQoJCAAQGR0AAAAAEs4BCAASQy0AAEhDMjwIABAAGAAgACgAMABIAFgAeACAAQCQAQCgAQCwAQDAAQDQAQDYAQDoAQDwAQD4AQGAAgCwAgDQAgDgAgAaRBIJDQAAAAAQACA8GAAgl4CAgICAgIACMAA4AEAASABSIxobCQAAAAAAAAAAIQAAAAAAAAAAOQAAAAAAAAAAIAAoADAAIi0IABAAIAAqBiDO/f//BzIbCQAAAAAAAAAAIQAAAAAAAAAAOQAAAAAAAAAAOAAqEAgAIAEoADAAOABAAUgBUAEIIg==</Value>
+                          </item>
+                        </dictionary>
+                      </Storage>
+                    </Component>
+                  </ComponentData>
+                </Components>
+              </ComponentContainer>
+              <CustomName>Light Machine Gun - Tail</CustomName>
+              <ShowOnHUD>false</ShowOnHUD>
+              <ShowInTerminal>true</ShowInTerminal>
+              <ShowInToolbarConfig>true</ShowInToolbarConfig>
+              <ShowInInventory>true</ShowInInventory>
+              <NumberInGrid>1</NumberInGrid>
+              <Enabled>true</Enabled>
+              <IsShooting>false</IsShooting>
+              <IsShootingFromTerminal>false</IsShootingFromTerminal>
+              <IsLargeTurret>true</IsLargeTurret>
+              <MinFov>0.1</MinFov>
+              <MaxFov>1.04719758</MaxFov>
+              <Range>0.1</Range>
+              <RemainingAmmo>1</RemainingAmmo>
+              <Target>0</Target>
+              <IsPotentialTarget>true</IsPotentialTarget>
+              <PreviousControlledEntityId xsi:nil="true" />
+              <Rotation>0</Rotation>
+              <Elevation>0</Elevation>
+              <GunBase>
+                <RemainingAmmo>1</RemainingAmmo>
+                <CurrentAmmoMagazineName>YtD_mid_medium_ammo</CurrentAmmoMagazineName>
+                <RemainingAmmosList />
+                <LastShootTime>0</LastShootTime>
+              </GunBase>
+              <EnableIdleRotation>false</EnableIdleRotation>
+              <PreviousIdleRotationState>true</PreviousIdleRotationState>
+              <TargetCharacters>true</TargetCharacters>
+              <TargetingGroup />
+              <Flags>
+                <TargetCharacters>true</TargetCharacters>
+              </Flags>
             </MyObjectBuilder_CubeBlock>
           </CubeBlocks>
           <XMirroxPlane x="0" y="8" z="4" />
@@ -6654,6 +6747,7 @@ static class BlueScreenOfDeath
           <IsRespawnGrid>false</IsRespawnGrid>
           <LocalCoordSys>0</LocalCoordSys>
           <TargetingTargets />
+          <GridPresenceTier>Tier1</GridPresenceTier>
           <NPCGridClaimElapsed xsi:nil="true" />
         </CubeGrid>
       </CubeGrids>

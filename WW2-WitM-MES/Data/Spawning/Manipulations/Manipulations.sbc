@@ -26,6 +26,27 @@
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-Manipulation-CombatPlanes</SubtypeId>
+		</Id>
+		<Description>
+
+			[MES Manipulation]
+			[ManipulationChance:100]
+
+			[UseLootProfiles:true]
+			[LootProfiles:WW2-Loot-BasicContainers]
+			[LootProfiles:WW2-Loot-WeaponRacks]
+			[LootProfiles:WW2-Loot-Lockers]
+
+			[RandomizeWeapons:false]
+			[IgnoreWeaponRandomizerMod:true]
+
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
 			<SubtypeId>WW2-Manipulation-AmmoDepots</SubtypeId>
 		</Id>
 		<Description>

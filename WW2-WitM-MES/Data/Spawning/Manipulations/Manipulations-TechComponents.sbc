@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<!-- 2026-08-28: rarity/likelihood tiers for the three unlock-currency components, per direct
+     request. [ManipulationChance] is the actual knob - it gates whether the whole profile (and
+     its one loot container) applies to a given spawn at all. Word -> percent mapping used
+     throughout this file:
+       "pretty reliably"  -> 80
+       "very reliably"    -> 95
+       "reliably" (elite naval, still described as smaller-scale than "very")  -> 90
+       "pretty infrequently" / "rarely" -> 15 / 10 (infrequently a bit higher than rarely)
+
+     IMPORTANT ORDERING NOTE for whoever wires these into a SpawnGroup: list these Tech
+     ManipulationProfiles tags BEFORE the SpawnGroup's existing base loot profile
+     (WW2-Manipulation-ShipsBasicLoot / -CargoPlanes / -CombatPlanes). Manipulation Profiles
+     process in the order they're listed, and MES Loot Profiles skip any cargo block that
+     already has a ContainerType assigned - if the base loot profile (which claims up to 8-12
+     containers) runs first, a grid with few actual containers (most planes) could have nothing
+     left for these to claim, silently failing to ever place the component. Listing these first
+     guarantees each gets first pick of one container before the general loot claims the rest. -->
+
+	<EntityComponents>
+
+	<!-- Industrial Components -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Tech-Industrial-Reliable</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Manipulation]
+			[ManipulationChance:80]
+
+			[UseLootProfiles:true]
+			[LootProfiles:WW2-Loot-Industrial]
+
+			</Description>
+		</EntityComponent>
+
+	<!-- Military Components -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Tech-Military-Reliable</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Manipulation]
+			[ManipulationChance:80]
+
+			[UseLootProfiles:true]
+			[LootProfiles:WW2-Loot-MilitaryComp]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Tech-Military-VeryReliable</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Manipulation]
+			[ManipulationChance:95]
+
+			[UseLootProfiles:true]
+			[LootProfiles:WW2-Loot-MilitaryComp]
+
+			</Description>
+		</EntityComponent>
+
+	<!-- Advanced Military Components -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Tech-AdvancedMilitary-CargoRare</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Manipulation]
+			[ManipulationChance:15]
+
+			[UseLootProfiles:true]
+			[LootProfiles:WW2-Loot-AdvancedMilitary]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Tech-AdvancedMilitary-EliteNaval</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Manipulation]
+			[ManipulationChance:90]
+
+			[UseLootProfiles:true]
+			[LootProfiles:WW2-Loot-AdvancedMilitary]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Tech-AdvancedMilitary-OtherNaval</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Manipulation]
+			[ManipulationChance:10]
+
+			[UseLootProfiles:true]
+			[LootProfiles:WW2-Loot-AdvancedMilitary]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Tech-AdvancedMilitary-ElitePlane</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Manipulation]
+			[ManipulationChance:10]
+
+			[UseLootProfiles:true]
+			[LootProfiles:WW2-Loot-AdvancedMilitary-Plane]
+
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

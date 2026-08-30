@@ -3,209 +3,308 @@
 	<SpawnGroups>
 
 <!-- Hangar Spawns -->
-	<!-- Gray Re. 2001 Factory -->
+
+<!-- Green MS406 Hangar -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Hangar-Re2001</SubtypeId>
+			<SubtypeId>WW2-Hangar-Green-MS406</SubtypeId>
 		</Id>
 		<Description>
-		
+
 		[Modular Encounters SpawnGroup]
-	
+
 		[PlanetaryInstallationType:Medium]
-		
+
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
-		
-		[FactionOverride:GRAY]
-		[SpawnRandomCargo:true]
-	
-		[UseContainerTypeAssignment:true]
-		[ContainerTypeAssignBlockName:Small Cargo Container]
-		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
 
-		[ContainerTypeAssignBlockName:Medium Cargo Container]
-		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
-
-		</Description>
-		<Frequency>1.0</Frequency>
-		<IsPirate>true</IsPirate>
-		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Hangar-Re2001">
- 				<Position>
-					<X>0.0</X>
-					<Y>5.5</Y>
-					<Z>0.0</Z>
-				</Position>
-				<Behaviour>WW2-Behavior-Hangar-Gray</Behaviour>
-				<Speed>0.0</Speed>
-			</Prefab>
-		</Prefabs>
-	</SpawnGroup>
-
-	<!-- Gray FC 20 Factory -->
-	<SpawnGroup>
-		<Id>
-			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Hangar-FC20</SubtypeId>
-		</Id>
-		<Description>
-		
-		[Modular Encounters SpawnGroup]
-	
-		[PlanetaryInstallationType:Medium]
-		
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
-		[ManipulationProfiles:MES-Manipulation-RivalAi]
-		
-		[FactionOverride:GRAY]
-		[SpawnRandomCargo:true]
-	
-		[UseContainerTypeAssignment:true]
-		[ContainerTypeAssignBlockName:Small Cargo Container]
-		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
-
-		[ContainerTypeAssignBlockName:Medium Cargo Container]
-		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
-
-		</Description>
-		<Frequency>1.0</Frequency>
-		<IsPirate>true</IsPirate>
-		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Hangar-FC20">
- 				<Position>
-					<X>0.0</X>
-					<Y>5.5</Y>
-					<Z>0.0</Z>
-				</Position>
-				<Behaviour>WW2-Behavior-Hangar-Gray</Behaviour>
-				<Speed>0.0</Speed>
-			</Prefab>
-		</Prefabs>
-	</SpawnGroup>
-	
-	<!-- Green MS406 Factory -->
-	<SpawnGroup>
-		<Id>
-			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Hangar-MS406</SubtypeId>
-		</Id>
-		<Description>
-		
-		[Modular Encounters SpawnGroup]
-	
-		[PlanetaryInstallationType:Medium]
-		
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
-		[ManipulationProfiles:MES-Manipulation-RivalAi]
-		
-		
 		[FactionOverride:GREEN]
 		[SpawnRandomCargo:true]
-	
+
 		[UseContainerTypeAssignment:true]
 		[ContainerTypeAssignBlockName:Small Cargo Container]
 		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
 
 		[ContainerTypeAssignBlockName:Medium Cargo Container]
 		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
-		
+
 		</Description>
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Hangar-MS406">
- 				<Position>
-					<X>0.0</X>
-					<Y>5.5</Y>
+			<Prefab SubtypeId="NPC-WW2-Hangar">
+				<Position>
+					<X>-5.0</X>
+					<Y>3.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Hangar-Green</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
+			<Prefab SubtypeId="Player-WW2-MS406">
+				<Position>
+					<X>-7.5</X>
+					<Y>5.0</Y>
+					<Z>10.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarPlane-MS406</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
-	
-	<!-- Green Potez 630 Factory -->
+
+<!-- Green Potez 630 Hangar -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Hangar-Potez630</SubtypeId>
+			<SubtypeId>WW2-Hangar-Green-Potez630</SubtypeId>
 		</Id>
 		<Description>
-		
+
 		[Modular Encounters SpawnGroup]
-	
+
 		[PlanetaryInstallationType:Medium]
-		
+
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
-		
-		
+
 		[FactionOverride:GREEN]
 		[SpawnRandomCargo:true]
-	
+
 		[UseContainerTypeAssignment:true]
 		[ContainerTypeAssignBlockName:Small Cargo Container]
 		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
 
 		[ContainerTypeAssignBlockName:Medium Cargo Container]
 		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
-		
+
 		</Description>
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Hangar-Potez630">
- 				<Position>
+			<Prefab SubtypeId="NPC-WW2-Hangar">
+				<Position>
 					<X>0.0</X>
-					<Y>5.5</Y>
+					<Y>3.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Hangar-Green</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Potez630">
+				<Position>
+					<X>-2.0</X>
+					<Y>4.8</Y>
+					<Z>5.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarPlane-Potez630</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
 
-<!-- TEST 2026-08-21: consolidated single-shell Hangar, random-plane-via-SpawnGroup-selection mechanism.
-     Untested in this project — no prior SpawnGroup here combines two independent prefabs.
-     Position offset pulled from the old combined NPC-WW2-Hangar-FC20.sbc's baked plane-grid
-     position relative to the hangar grid's own (0,0,0) origin. Orientation is NOT set here —
-     the schema only exposes Position per sub-prefab, so the plane will spawn in its own
-     Player-WW2-FC20 blueprint's default facing, which may not match the hangar's interior
-     rotation. Expect this to need correction after an in-game look.
-     Once confirmed working, this replaces all four per-plane Hangar SpawnGroups above and the
-     old combined per-plane Hangar-*.sbc prefabs become unused.
+<!-- Green V-156-F Bomber Hangar -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Hangar-Green-V156FBomber</SubtypeId>
+		</Id>
+		<Description>
 
-     CORRECTION PASS 2026-08-21, after first in-game test: user reported the Hangar shell itself
-     spawned 1.2 large blocks too low (floor under the ground) and FC20 spawned 8 large blocks too
-     low, 13 too far forward, and 9.5 too far right (relative to the hangar, looking at the doors
-     from outside). Converted at 2.5m per large block: Hangar Y +3.0m. FC20 Y +20.0m.
-     Horizontal axes assumed per SE's standard convention — Right=+X, Forward=-Z, Up=+Y — since
-     this can't be verified from the XML alone: "too far right" corrected as X -23.75m (9.5 blocks
-     toward -X/left), "too far forward" corrected as Z +32.5m (13 blocks toward +Z/backward). If
-     either comes out backwards on the next test, it's a single sign flip on that axis, not a
-     re-derivation.
+		[Modular Encounters SpawnGroup]
 
-     CORRECTION PASS 2, 2026-08-21: X was backwards — moving X negative moved FC20 further right,
-     not left. Confirmed mapping is actually Right=-X (opposite of the standard-convention guess).
-     Flipped the sign of the X correction only: went from -43.964599609375 back past the original
-     -20.214599609375 to +3.535400390625 (original + 23.75 instead of original - 23.75). Y (height)
-     and the plane's default orientation were both confirmed correct as-is — no changes there.
-     Z (forward/back) was not flagged as wrong, so the Forward=-Z assumption stands unless a later
-     test says otherwise.
+		[PlanetaryInstallationType:Medium]
 
-     CORRECTION PASS 3, 2026-08-21: further tuning from the pass-2 result — Y +2.5m (up, confirmed
-     direction), X -3.75m (right, per the pass-2-confirmed mapping that decreasing X moves right).
-     Z left unchanged. User also reports FC20 now faces backwards relative to how it looked before
-     the pass-2 X flip — NOT fixable via this SpawnGroup: vanilla's own documented SpawnGroup
-     schema (SpawnGroups_CargoShips.sbc's header comment) confirms <Prefab> only supports
-     Position/BeaconText/Speed, no per-prefab orientation field. The plane always spawns in its
-     blueprint's own saved default facing; fixing this requires re-exporting Player-WW2-FC20's
-     blueprint rotated correctly in-game, not a further position tweak here. Hold off on that
-     until position is fully dialed in, to avoid re-exporting more than once. -->
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GREEN]
+		[SpawnRandomCargo:true]
+
+		[UseContainerTypeAssignment:true]
+		[ContainerTypeAssignBlockName:Small Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
+
+		[ContainerTypeAssignBlockName:Medium Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Hangar">
+				<Position>
+					<X>0.0</X>
+					<Y>3.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Hangar-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-V-156-F_Bomber">
+				<Position>
+					<X>-2.5</X>
+					<Y>5.5</Y>
+					<Z>5.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarPlane-V156FBomber</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- Green V-156-F Torpedo Hangar -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Hangar-Green-V156FTorpedo</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Medium]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GREEN]
+		[SpawnRandomCargo:true]
+
+		[UseContainerTypeAssignment:true]
+		[ContainerTypeAssignBlockName:Small Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
+
+		[ContainerTypeAssignBlockName:Medium Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Hangar">
+				<Position>
+					<X>0.0</X>
+					<Y>3.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Hangar-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-V-156-F_Torpedo">
+				<Position>
+					<X>-2.0</X>
+					<Y>5.5</Y>
+					<Z>5.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarPlane-V156FTorpedo</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- Gray Re. 2000 Hangar -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Hangar-Gray-Re2000</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Medium]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GRAY]
+		[SpawnRandomCargo:true]
+
+		[UseContainerTypeAssignment:true]
+		[ContainerTypeAssignBlockName:Small Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
+
+		[ContainerTypeAssignBlockName:Medium Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Hangar">
+				<Position>
+					<X>0.0</X>
+					<Y>3.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Hangar-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Re2000">
+				<Position>
+					<X>-2.5</X>
+					<Y>5.3</Y>
+					<Z>10.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarPlane-Re2000</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- Gray Re. 2001 Hangar -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Hangar-Gray-Re2001</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Medium]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GRAY]
+		[SpawnRandomCargo:true]
+
+		[UseContainerTypeAssignment:true]
+		[ContainerTypeAssignBlockName:Small Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
+
+		[ContainerTypeAssignBlockName:Medium Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Hangar">
+				<Position>
+					<X>0.0</X>
+					<Y>3.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Hangar-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Re2001">
+				<Position>
+					<X>-2.5</X>
+					<Y>5.3</Y>
+					<Z>10.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarPlane-Re2001</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- Gray FC 20 Hangar -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
@@ -245,16 +344,115 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-FC20">
 				<Position>
-					<X>-0.214599609375</X>
-					<Y>3.635345458984375</Y>
-					<Z>10.076156616210938</Z>
+					<X>2.0</X>
+					<Y>5.5</Y>
+					<Z>6.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-HangarPlane-FC20</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
-<!-- End test spawn group -->
+
+<!-- Gray SM79 Bomber Hangar -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Hangar-Gray-SM79Bomber</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Medium]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GRAY]
+		[SpawnRandomCargo:true]
+
+		[UseContainerTypeAssignment:true]
+		[ContainerTypeAssignBlockName:Small Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
+
+		[ContainerTypeAssignBlockName:Medium Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Hangar">
+				<Position>
+					<X>0.0</X>
+					<Y>3.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Hangar-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-SM79_Bomber">
+				<Position>
+					<X>-5.0</X>
+					<Y>6.2</Y>
+					<Z>10.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarPlane-SM79Bomber</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- Gray SM79 Torpedo Hangar -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Hangar-Gray-SM79Torpedo</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Medium]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GRAY]
+		[SpawnRandomCargo:true]
+
+		[UseContainerTypeAssignment:true]
+		[ContainerTypeAssignBlockName:Small Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
+
+		[ContainerTypeAssignBlockName:Medium Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Hangar">
+				<Position>
+					<X>0.0</X>
+					<Y>3.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Hangar-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-SM79_Torpedo">
+				<Position>
+					<X>-4.0</X>
+					<Y>6.0</Y>
+					<Z>10.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarPlane-SM79Torpedo</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
 
 <!-- End Hangar Spawns -->
 

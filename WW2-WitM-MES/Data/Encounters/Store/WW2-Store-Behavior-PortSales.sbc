@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!-- 2026-08-27: Port Store-sells-everything feature. Same Trigger/Action mechanism as
+     WW2-Store-Behavior-FactoryPlaneSales.sbc, but each faction's profile offers its whole
+     Player-WW2 roster instead of one plane  - see WW2-Store-StoreProfiles.sbc for
+     WW2-Store-Profile-Port-Gray/Green. Referenced from Behaviors-Port.sbc.
+
+     REQUIRES A STORE BLOCK NAMED "Store-Port"  - same requirement as the Factory pattern: each
+     port's Store block (not the ATM block, which is a separate MyObjectBuilder_StoreBlock
+     instance) needs its in-game CustomName set to exactly "Store-Port", then all 4 port
+     prefabs (NPC-WW2-Port_LaSpezia/Toulon/Oran/Tripoli.sbc) re-exported. One shared name across
+     all 4 ports is fine  - each spawned instance runs its own independent Behavior/Trigger, so
+     a Gray port only ever applies the Gray profile to its own Store block. Until the block is
+     named, this trigger is a harmless no-op. -->
+	<EntityComponents>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Port-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Store-Action-UpdateSales-Port-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Port-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Action]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-Port]
+			[StoreProfiles:WW2-Store-Profile-Port-Gray]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Port-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Store-Action-UpdateSales-Port-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Port-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Action]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-Port]
+			[StoreProfiles:WW2-Store-Profile-Port-Green]
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

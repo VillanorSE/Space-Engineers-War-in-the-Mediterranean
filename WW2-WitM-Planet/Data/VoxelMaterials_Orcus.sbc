@@ -16,7 +16,7 @@
          Textures/Models/Environment/Grass/, resolving that dependency.
          Grass_05_*.dds is CONFIRMED vanilla base-game content (present at
          [SE]\Content\Textures\Models\Environment\Grass\Grass_05_{cm,ng}.dds)
-         — referenced by path without bundling is correct here, not a gap. -->
+         referenced by path without bundling is correct here, not a gap. -->
 
     <VoxelMaterial xsi:type="MyObjectBuilder_Dx11VoxelMaterialDefinition">
       <Id>
@@ -62,7 +62,7 @@
       <!-- Foliage removed 2026-08-21: Orcus's "Grass_Aquatic1" foliage was
            reading as an unwanted wall of red along the coastline in testing.
            No structural bug found (textures present, Far3Color above is
-           dark blue not red) — this appears to be Orcus's real, intended
+           dark blue not red); this appears to be Orcus's real, intended
            foliage color, just not wanted here. Base sand texture above is
            untouched. -->
 

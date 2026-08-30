@@ -29,12 +29,22 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 - **Dependency additions:** WeaponCore itself, plus whichever specific weapon-pack mods end up used. Worth checking MES's documented WeaponCore compatibility notes once rebuild work starts, since combining MES/RivalAI-driven NPCs with WeaponCore weapons is a well-trodden combination but has its own configuration quirks (weapon targeting profiles, ammo replenishment behavior).
 
 **To-do:**
-- [x] Pull KONTAKT Ground Systems' block SubtypeIds and TypeId the same way Consty's Ordnance was handled.
-- [x] Confirm whether SETB Community Tank Parts includes large grid rotors — determines if it's a full or partial AWG CWP replacement.
-- [x] Cross-check Yakobe's Machinations' gun roster against KONTAKT's for overlapping/colliding SubtypeIds before using both.
-- [ ] Decide final ground vehicle scale factors within the confirmed 110–120% (military) / up to 150% (civilian) ranges, and rescale the existing Fiat 626 and Renault builds if the civilian figure ends up above 100%.
-- [ ] Pull the full Consty Ordnance block list and sort into "period, keep" vs. "modern, gate or exclude" — AIM-7/54/120 and the modern small arms are confirmed non-period from the changelog alone, but the full list needs a proper pass.
-- [ ] Rebuild each existing hull's weapon fit onto Fletcher Armaments / Consty's Ordnance, replacing custom rotor/hinge turret rigs with general WeaponCore turrets. Broken out per-prefab below so each is a single sitting's work — check the box when that prefab's weapons are rebuilt and it loads clean with the old mod removed. Naval uses Fletcher Armaments; Air uses Consty's Ordnance (WW2-appropriate blocks only, per the lockdown scope above); Installations may need either or neither depending on what defenses they actually carry.
+- [ ] Rebuild all existing vehicles and installations to the current mod set.
+- [x] Configure BlockRestrictions to disable all blocks that are not to be available to players.
+- [x] Configure ShipCores for block limits
+- [ ] Update G menu to not show empty groups or blank spaces
+- [x] Test all Factory spawns for placement
+- [x] Resolve naval spawns not moving along paths after spawn
+- [ ] Resolve CrashAir not working as intended
+- [ ] Create Fiat 626 player respawn truck (150% scale)
+- [ ] Create ANH player respawn truck (150% scale)
+- [ ] Configure basic features on port installations
+  - [x] Selling grids of that faction
+  - [ ] Spawning cargo ships that travel to the other port
+  - [x] Defensive spawn
+- [ ] Adjust threat level and similar spawn controls on Bearn and Aquila, spawning when not expected
+- [ ] Connect basic war level and territory aspects to ports
+- [ ] Create GPS Routes for travel between existing port locations
 
   **Naval:**
   - [x] NPC-WW2-Golo_Italian (Cargo Ship, Gray)
@@ -47,14 +57,14 @@ Not a stage so much as a foundation everything else sits on. The current naval w
   - [x] NPC-WW2-Bougainville (Aviso/Destroyer-behavior, Green)
   - [x] NPC-WW2-Le_Triomphant (Destroyer, Green)
   - [x] NPC-WW2-Algerie (Cruiser, Green)
-  - [x] NPC-WW2-Emile_Bertin (Cruiser, Green) — **confirmed root cause found:** the AWG piston/hinge-based catapult+floatplane assembly (Loire 130) silently breaks grid loading — no exception, no error, just fails to register as an entity. Reproduced and fixed by surgical removal in a build-world test; same mechanism confirmed present on Algerie (Green Heavy Cruiser) and absent on Trento (Gray Heavy Cruiser, which has never shown the failure — clean independent confirmation). Rebuild the catapult using non-AWG piston/hinge parts (or the general WeaponCore turret approach already planned for weapons) before this hull is usable in a SpawnGroup.
-  - [x] NPC-WW2-Aquila (Carrier, Gray) - Fix tower and cranes once KONTAKT mod is fixed.
+  - [x] NPC-WW2-Emile_Bertin (Cruiser, Green)
+  - [x] NPC-WW2-Aquila (Carrier, Gray)
   - [x] NPC-WW2-Bearn (Carrier, Green)
   - [x] Rebuild Loire 130 on the Emile Bertin and Algier and re-export/replace.
 
   **Air:**
-  - [x] NPC-WW2-Re2001 (Fighter, Gray) - Replace conveyors, engines, glass, and side MG covers once KONTAKT is fixed.
-  - [ ] NPC-WW2-Re2000 (Fighter, Gray)
+  - [x] NPC-WW2-Re2001 (Fighter, Gray)
+  - [x] NPC-WW2-Re2000 (Fighter, Gray)
   - [x] NPC-WW2-FC20 (Attacker, Gray)
   - [x] NPC-WW2-SM79_Bomber (Attacker, Gray)
   - [x] NPC-WW2-SM79_Torpedo (Attacker, Gray)
@@ -74,16 +84,14 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 
   Prefab names below follow the naming convention above and are inferred from the existing pattern, not yet confirmed against actual file names — flag if these don't match:
   - [ ] NPC-WW2-Ammo-Depot-1
-  - [ ] NPC-WW2-Hangar
-  - [x] NPC-WW2-Factory-Plane-Gray
-  - [x] NPC-WW2-Factory-Plane-Green
-  - [ ] NPC-WW2-Garage-Gray
-  - [ ] NPC-WW2-Garage-Green
+  - [x] NPC-WW2-Hangar
+  - [x] NPC-WW2-Factory-Plane
+  - [ ] NPC-WW2-Garage
 - [ ] Re-verify SpawnGroups/Behaviors/Loot still reference correct ammo/weapon subtype IDs after rebuild (loot container definitions currently reference old ammo names like `FiddyShellWC`, `HispanoDrumAP` — these will need updating).
 - [ ] Once rebuilt, re-run the same cross-reference audit process used earlier in this project (defined-vs-referenced SubtypeId sweep) to catch anything broken by the swap.
 - [ ] Audit the full MES mod's installation prefabs and replace the retired per-plane Hangar/Factory model with the confirmed one-Hangar/one-Factory-per-faction design (see the Installations note above); wire Factory/Hangar interior spawns to select from the `Player-WW2-*` prefab family per the naming convention.
-- [ ] Remove F4F from the mod (spawn groups, prefabs, any references) — pulled from the roster, see Air roster note.
-- [ ] Confirm SM.79 (Bomber and Torpedo, NPC and Player) is fully wired into SpawnGroups/Behaviors/Loot now that the prefab rebuild is done.
+- [x] Remove F4F from the mod (spawn groups, prefabs, any references) — pulled from the roster, see Air roster note.
+- [x] Confirm SM.79 (Bomber and Torpedo, NPC and Player) is fully wired into SpawnGroups/Behaviors/Loot now that the prefab rebuild is done.
 - [ ] Test all MES components end-to-end to confirm baseline features (spawning, behaviors, triggers) work after the recent rebuild work.
 - [ ] Build BlockRestrictions definitions removing non-period-correct blocks (anachronistic weapons, reactors, thrusters, etc.) from the G-menu across vanilla and dependency mods — new tool decision, see Modlist entry #26; full block audit not yet done.
 
@@ -97,9 +105,9 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 
 | Category | Civilian track | Military track |
 |---|---|---|
-| Naval | **Civilian** (Golo-scale) | **Corvette** → Destroyer → Cruiser → Heavy Cruiser → Battleship → Carrier |
+| Naval | **Cargo Ship** (Golo-scale) | **Corvette** → Destroyer → Cruiser → Heavy Cruiser → Battleship → Carrier |
 | Air | **Cargo Plane** (Ju52/F222-scale) | **Fighter** → Attacker/Bomber → Heavy Bomber |
-| Wheeled | **Transport** (new) | **Armored Car** (new) → Light Tank → Medium Tank → Heavy Tank |
+| Wheeled | **Truck** (Fiat 626, ANH) | **Armored Car** (new) → Light Tank → Medium Tank → Heavy Tank |
 | Base | *(no civilian/military split)* | **Base** (few per faction, HQ-scale) and **Outpost** (more per faction, smaller) — both available from the start, not sequential |
 
 **Stage 1 scope specifically:** only the starting rung of each track, plus Base and Outpost (both needed since they're parallel, not sequential). That's Civilian Naval, Corvette Naval, Cargo Plane, Fighter, Transport, Armored Car, Base, Outpost — eight core definitions — plus the unlock-gate system working end-to-end for exactly one proof-of-concept upgrade (Corvette → Destroyer). Everything past that first rung on each ladder belongs to Stage 5.
@@ -129,10 +137,6 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 | **Carrier** | Aquila | Bearn |
 
 **Correction on record (confirmed via research):** Trento, Zara, and Algérie are all officially classed Heavy Cruisers (Washington Treaty tonnage), not plain Cruisers — Emile Bertin alone is a genuine light Cruiser, and Bartolomeo Colleoni fills the Gray Cruiser-tier slot that opened up as a result.
-
-**Spica placement confirmed:** Spica (Torpedo Boat, Gray) is now placed in the Destroyer tier alongside Francesco Crispi and Comandante Margottini — resolves the earlier open item about it not mapping cleanly onto the ladder.
-
-**Known build issue affecting two hulls:** Algérie and Emile Bertin both carry the AWG piston/hinge catapult-floatplane assembly responsible for the grid-loading bug identified during the mod audit (root cause confirmed on Emile Bertin, same mechanism present on Algérie, absent on Trento). Factor the catapult rebuild into both hulls' timelines.
 
 ---
 
@@ -165,13 +169,11 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 
 **Macchi C.202 Folgore and Dewoitine D.520 added to Fighter tier (confirmed, prior session).** Both are stronger historical picks than the existing entries in their tiers — C.202 widely regarded as Italy's best fighter of the war, D.520 the only French fighter able to meet the Bf 109E on roughly equal terms. Neither has an existing build; both are next up in the build queue.
 
-**F4F pulled from the Green Fighter tier (confirmed, 2026-08-21).** Not a good thematic fit for the mod — dropped at least for now rather than rebuilt onto the new weapon system. No replacement chosen yet; Green's Fighter tier runs on MS406 and Dewoitine D.520 alone until/unless this is revisited. Don't resurface F4F as an assumed roster member in future sessions.
-
 **Recon tier (confirmed, prior session).** IMAM Ro.43 (Gray) and Loire 130 (Green), both real catapult-launched shipborne reconnaissance floatplanes. Mechanics deferred to a separate thread.
 
-**Open item: Gray Civilian-tier air.** Ju52 is German-built, not Italian — unresolved, revisit later.
+**Open item: Gray Civilian-tier air.** Ju52 is German-built, not Italian was used substantially by Italians, supplement with additional cargo plane variant eventually.
 
-**SM.79** ("il Gobbo Maledetto," the damned hunchback) is one of the most famous Italian aircraft of the war, especially in its torpedo-bomber ("Silurante") role — a dedicated torpedo variant is planned specifically to threaten player ships. **Ba.88** fills the lighter attack role — genuinely real and well-documented, but its actual historical reputation is "notoriously one of WW2's worst operational aircraft," which fits an entry-tier plane thematically rather well.
+**Ba.88** fills the lighter attack role — genuinely real and well-documented, but its actual historical reputation is "notoriously one of WW2's worst operational aircraft," which fits an entry-tier plane thematically rather well.
 
 **P.108** is Italy's only operational four-engine heavy bomber. Existing impressive model already built, needs rebuild onto the new weapon systems.
 
@@ -309,15 +311,15 @@ No new grids required, and no Custom Planet dependency for this base version (se
 **Superseded again: multi-anchor per-faction zones, not one zone per faction.** A single circle per faction (Rome for Gray, Toulon for Green) produced awkward overlap and didn't read as a real frontline once mapped against the actual custom planet's geography. Confirmed replacement: **each faction gets several independent anchor points**, each running its own full copy of the GVK mechanism (own nested radius tiers, own counter, own growth/shrink triggers) — not one shared faction-wide zone, and not a "nearest anchor" computation either (see below, that turned out to be unnecessary).
 
 **Confirmed anchors:**
-- **Gray:** La Spezia, Rome, Tunis
+- **Gray:** La Spezia, Rome, Tripoli — **updated 2026-08-23 per direct request:** Gray's African anchor moved from Tunis to Tripoli.
 - **Green:** Toulon, Oran, Alexandria — Green stands in as a broader Allied Mediterranean presence for now (French-themed first, per the project's existing "France is under-covered for this period" framing), not literally France alone. This resolves the Alexandria/Oran historical-ownership question: not an error, an intentional placeholder ahead of the confirmed later UK/Green sub-faction split.
-- **Likely contested, no fixed lean:** Algiers, Tripoli, Benghazi, Sardinia/Corsica — Benghazi in particular is historically apt here, since it changed hands repeatedly in the real desert campaign.
+- **Likely contested, no fixed lean:** Algiers, Tunis, Benghazi, Sardinia/Corsica — Benghazi in particular is historically apt here, since it changed hands repeatedly in the real desert campaign. Tunis moved into this list from the confirmed-Gray list above (see 2026-08-23 update).
 - **Thematically leaning Gray, not mechanically anchored:** Yugoslavia, Greece — matches Italy's real occupation zones in the period, but no anchor is placed there; this is a narrative note for future content, not a to-do.
-- **Not a coincidence: La Spezia and Toulon do double duty.** Both are already confirmed as the Gray and Green **domain-anchor Port locations** respectively (see the buyable/stealable section below — Gray Port loosely inspired by La Spezia, Green Port loosely inspired by Toulon). The same two points serve as both a permanent buyable/sellable location and a territory-growth anchor. Rome, Tunis, Oran, and Alexandria are territory-growth anchors only, with no domain-anchor building tied to them.
+- **Not a coincidence: La Spezia and Toulon do double duty.** Both are already confirmed as the Gray and Green **domain-anchor Port locations** respectively (see the buyable/stealable section below — Gray Port loosely inspired by La Spezia, Green Port loosely inspired by Toulon). The same two points serve as both a permanent buyable/sellable location and a territory-growth anchor. Rome, Tripoli, Oran, and Alexandria are territory-growth anchors only, with no domain-anchor building tied to them.
 
 **Radius tiers: 5 tiers per anchor, 8/13/19/26/34 km.** Checked against the now-confirmed planet size (60km diameter / 30km radius, corrected below in the Custom Planet section from an earlier session's wrong 60km-*radius* assumption): well inside the proven-working range, since GVK's own outer zone tier reaches 55km on the identical-sized Pertam-based planet (55km is a great-circle surface distance, not a straight-line diameter measurement — see the Custom Planet section's full reasoning, which also corrects an internal error of its own on this exact point). In-game measurement of actual anchor-to-anchor distances on this planet is still an open to-do, since the tier numbers above are a reasonable starting scale rather than something derived from measured distances yet.
 
-**Point award mechanism: ring-weighted, no nearest-anchor logic needed.** Originally scoped as requiring some approximation of "nearest anchor" (since true distance-comparison-across-anchors isn't something static triggers do well), but the confirmed design sidesteps that entirely: **every anchor evaluates every relevant event against its own rings independently**, and awards its own counter based on where the event falls relative to *that anchor specifically* — event within that anchor's rings 1-3 = 4x base value to that anchor's counter; within rings 4-5 = 2x; outside ring 5 = 1x (flat, faction-wide baseline). An event near La Spezia naturally scores high on La Spezia's counter (falls in La Spezia's inner rings), and only baseline on Rome's or Tunis's counters (falls outside their rings), purely because each anchor is checking its own distance bands — no cross-anchor comparison is computed anywhere. Every event good for a faction nudges every anchor of that faction, weighted by that event's proximity to each one individually.
+**Point award mechanism: ring-weighted, no nearest-anchor logic needed.** Originally scoped as requiring some approximation of "nearest anchor" (since true distance-comparison-across-anchors isn't something static triggers do well), but the confirmed design sidesteps that entirely: **every anchor evaluates every relevant event against its own rings independently**, and awards its own counter based on where the event falls relative to *that anchor specifically* — event within that anchor's rings 1-3 = 4x base value to that anchor's counter; within rings 4-5 = 2x; outside ring 5 = 1x (flat, faction-wide baseline). An event near La Spezia naturally scores high on La Spezia's counter (falls in La Spezia's inner rings), and only baseline on Rome's or Tripoli's counters (falls outside their rings), purely because each anchor is checking its own distance bands — no cross-anchor comparison is computed anywhere. Every event good for a faction nudges every anchor of that faction, weighted by that event's proximity to each one individually.
 
 **Overlap handling — two different scopes, not one blanket rule:**
 - **Regular dynamic spawns/combat encounters:** no special handling needed. Each faction's own-zone `ZoneConditions` check passes independently in an overlap band, so both factions naturally spawn and act normally there — this is what actually produces the "frontline" feel, not a rule that has to be separately authored.
@@ -359,9 +361,13 @@ Built on the territory and War Level system defined above — no separate tracki
 
 **Three location tiers, each a different point on the permanent/capturable/dynamic spectrum — and each maps directly onto the two-category ownership model above:**
 
-- **Domain anchors** — one Airport and one Port per faction (four total: Gray Airport, Gray Port, Green Airport, Green Port). Permanent, faction-fixed forever, never capturable — these are fixed-location installations whose *ownership* never changes, though their functionality/stock still scales with War Level per the mechanism above. Airport and Port stay deliberately separate, not combined into one mixed hub. Ground vehicles are available at both, since Ground doesn't get its own dedicated anchor (not ruled out forever, just not yet — the Ground roster is the newest and thinnest of the three domains right now). Each anchor sells its faction's complete current catalog, gated by War Level rather than by regional stock.
+- **Domain anchors** — three locations per faction, La Spezia, Rome, Tripoli, Toulon, Oran, Alexandria. Permanent, faction-fixed forever, never capturable — these are fixed-location installations whose *ownership* never changes, though their functionality/stock still scales with War Level per the mechanism above. Ground and naval vehicles are available for purchase. Each anchor sells its faction's complete current catalog, gated by War Level rather than by regional stock. Airports will come and include aircraft stock to purchase. Locations not yet determined but definitely Gibraltar.
+Gray Airports: Foggia, Tripoli-Castel Benito, Benina (Benghazi)
+Green Airports: Gibraltar, La Senia, Tunis/Bizerte, Cairo West, Casablanca
 
-  **Port anchor design, confirmed:** not intended as historically accurate reconstructions of real places — real installations are used as loose inspiration only, for layout logic and proportion, not as a build target to replicate. **Gray Port is loosely inspired by La Spezia** (Italy's largest naval dockyard, construction + fitting-out role); **Green Port is loosely inspired by Toulon** (France's main Mediterranean naval arsenal, zoned basin layout — repair basin / submarine basin / fleet mooring / stores). **Design philosophy, confirmed: full (1:1) scale buildings and mooring/construction structures, but far fewer of them than the historical installations had.** No excavated dry dock — each Port anchor gets one **docking spot** (a pier/bulkhead for mooring alongside, surface-level, not a caisson-gated graving dock) and one **construction slip**, rather than the five-plus dry docks a real yard like La Spezia or Toulon's multi-basin arsenal had. **Confirmed footprint targets**, sized to comfortably fit the largest current hull (Vittorio Veneto, 237.76m × 32.82m) with realistic clearance: **~275m × ~45m for the docking pier/bulkhead, ~285m × ~50m for the construction slip.** The goal is an installation that reads as genuinely full-scale next to a 1:1 Aquila or Vittorio Veneto, not a compressed miniature — the compression happens in *count* of repeated facilities, not in the scale of any individual structure.
+Airports can change ownership.
+
+  **Port anchor design, confirmed:** not intended as historically accurate reconstructions of real places — real installations are used as loose inspiration only, for layout logic and proportion, not as a build target to replicate. **Gray Port is loosely inspired by La Spezia** (Italy's largest naval dockyard); **Green Port is loosely inspired by Toulon** (France's main Mediterranean naval arsenal). **Design philosophy, confirmed: full (1:1) scale buildings and mooring/construction structures, but far fewer of them than the historical installations had.** The goal is an installation that reads as genuinely full-scale next to a 1:1 Aquila or Vittorio Veneto, not a compressed miniature — the compression happens in *count* of repeated facilities, not in the scale of any individual structure.
 
   **Terrain fitting, confirmed technique:** MES's voxel-spawning capability will be used to carve/scoop the correct berth/slip shapes and level the surrounding ground so the Port anchor's pier, construction slip, and quay structures sit correctly into planet terrain, rather than requiring hand-sculpted terrain to already exist at the anchor's fixed coordinates before the installation is placed.
 
@@ -386,15 +392,22 @@ Built on the territory and War Level system defined above — no separate tracki
 **SDX2's mission system — no longer pursuable as a reference.** SDX2's GitHub isn't public and no MES-related files could be located on the Steam Workshop (likely unlisted). Flagged as interesting in an earlier session but there's nothing concrete to evaluate against MES's actual Event system, and no further avenue to get one — dropped as a reference source rather than left open.
 
 **To-do (blocked on the territory-growth to-dos above; Custom Planet dependency removed):**
-- [ ] Build/place the four domain anchors (Gray/Green × Airport/Port).
+- [x] Build the first two domain anchors (Toulon, La Spezia).
+- [x] Build the second two domain anchors (Oran, Tripoli).
+- [ ] Build the third two domain anchors (Rome, Alexandria).
+- [ ] Build Gibraltar airfield
+- [ ] Build Gray airfield (Sicily?)
 - [ ] Design the "complete catalog" concept — which hulls are sellable at all, and how War Level gates the list.
-- [ ] Build cored/sellable versions of the general per-faction hangar/garage prefabs (a cored variant alongside the stealable one).
+- [x] Build cored/purchasable versions of the planes per faction.
+- [ ] Build cored/purchasable versions of the ground vehicles per faction.
+- [ ] Build cored/purchasable versions of some of the ships (Gabbiano, La Malouine, at least one destroyer each also)
 - [ ] Wire buy-capability into existing hangar/garage locations alongside the existing steal mechanic.
-- [ ] Design and place maintenance yards as a new prefab tier, distinct from both anchors and hangars.
+- [ ] Design and place maintenance yards as a new prefab tier, distinct from both anchors and hangars (Ideally make these able to repair player grids for credits).
+- [ ] Create trade posts to place as neutral installations that change ownership with territory. (Buy all items and ores, sell modest quantities of lootable components and large quantities of ammo.)
+- [ ] Create refinery installations to serve as neutral installations that change ownership with territory.
 - [ ] Prototype restocking on an open-air supply yard before attempting interior-bay spawning.
 - [ ] Add "reroll stock" as an action in the capture trigger chain for maintenance yards.
 - [ ] Verify whether per-player dynamic hostility gating (threat score/reputation-based) is actually achievable in MES, before committing the "big stuff exists but isn't aggressive unless provoked" design to it.
-- [x] Docking pier/bulkhead and construction slip footprint confirmed for the Gray and Green Port anchors — no excavated dry dock; ~275m × ~45m for the docking pier/bulkhead, ~285m × ~50m for the construction slip, sized to comfortably fit the largest hull in the current Naval roster (Vittorio Veneto, 237.76m × 32.82m) with realistic clearance.
 
 ---
 
@@ -403,15 +416,17 @@ Built on the territory and War Level system defined above — no separate tracki
 New grid design finally becomes necessary. Deliberately small:
 - Naval: one small patrol boat per faction, sized to Corvette Core.
 - Wheeled: one Armored Car per faction — this is also where land combat gets its first real content instead of just installations.
+- Civilian: one truck per faction to serve as a respawn vehicle. Include survival kit, basic refinery, basic assembler, cargo.
 
 Air can wait — the existing Fighter roster already covers the starting tier.
 
 **To-do:**
-- [ ] Design Gray Armored Car.
-- [ ] Design Green Armored Car.
-- [ ] Design Gray naval patrol boat (Corvette-tier).
-- [ ] Design Green naval patrol boat (Corvette-tier).
+- [ ] Create 150% scale Fiat 626 truck.
+- [ ] Create 150% scale AHN truck.
+- [ ] Design Gray Armored Car (AB 41).
+- [ ] Design Green Armored Car (Panhard).
 - [ ] Wire all four into SpawnGroups/Behaviors/Loot per existing pipeline.
+- [ ] Create respawn mod with the trucks.
 
 ---
 
@@ -472,12 +487,12 @@ Doesn't block or get blocked by the numbered stages themselves — new terrain d
 **Known open items:**
 - [ ] Biome GREEN channel (foliage/environment items) not built yet.
 - [ ] `Uraninite_01` (used for Uranium ore) confirmed real only against an asteroid materials reference, not a planet one — watch the load log for this specific line.
-- [ ] Water Mod's working radius for this planet is empirically `/wradius 1.029`, not the ~1.0 the HillParams math would suggest — noted as an open, unexplained discrepancy rather than resolved.
+- [ ] Water Mod's working radius for this planet is empirically `/wradius 1.02862`, not the ~1.0 the HillParams math would suggest — result of wradius 1.0 being based on the lowest point of the surface, not "sea level".
 - [ ] Ore distribution is random-within-budget; revisit if specific historical/gameplay-driven placement becomes worth the effort.
 - [ ] Spawn in a fresh test world and confirm WeaponCore/MES don't exhibit raycast issues (the ≤2048px constraint was respected throughout, but hasn't been explicitly re-verified against live NPC/weapon behavior).
 - [ ] Once terrain is fully settled: place port locations (existing Base/Outpost/Hangar prefabs) and plan convoy GPS routes using the existing SpawnGroup/patrol pipeline.
-- [ ] Sky doesn't render blue correctly (2026-08-21) — atmosphere/sky settings need investigation, root cause not yet identified.
-- [ ] Pull tree density and grass distribution parameters from vanilla Orcus into this planet's environment-item definitions (2026-08-21) — Orcus already used as a voxel-material reference on this project (`VoxelMaterials_Orcus.sbc`), now also wanted for its foliage density/placement, not just its materials.
+- [x] Sky doesn't render blue correctly (2026-08-21) — atmosphere/sky settings need investigation, root cause confirmed that planet was first spawned with atmosphere=false and does not re-check. Fixed by placing new planet.
+- [x] Pull tree density and grass distribution parameters from vanilla Orcus into this planet's environment-item definitions (2026-08-21) — Orcus already used as a voxel-material reference on this project (`VoxelMaterials_Orcus.sbc`), now also wanted for its foliage density/placement, not just its materials.
 
 ---
 

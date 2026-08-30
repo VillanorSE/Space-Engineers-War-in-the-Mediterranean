@@ -2,105 +2,117 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
 
-<!-- Gray Damage Reputation Response -->
-	<!-- Damage excluding; environment and deformation cooldown 0.3s -->
+<!-- 2026-08-28: renamed from WW2-Trigger/Action-ReputationDamage-Gray/Green to ...Light...,
+     part of splitting reputation into a "Light" (first/ongoing damage) tier and a "Heavy"
+     (kill/disable) tier - see Triggers-ReputationDamageHeavy.sbc for the Heavy side.
+     Cooldown raised from 333ms to a flat 15 minutes (900000ms) - the old cooldown was the
+     actual bug behind "faster-firing weapons earn more reputation": every ~third of a second
+     of ongoing damage re-fired this, so a machine gun racked up far more reputation swings per
+     second of combat than a single slow, heavy shot doing the same total damage. A flat 15-
+     minute window means one hit (of any kind) is worth the same as sustained fire, and repeat
+     aggression against the same permanent installation only re-applies every 15 minutes instead
+     of constantly. Amounts also changed: -1/+1 flat -> -10 primary faction / +5 opposite
+     faction (half as much, opposite sign) per the confirmed design. -->
+
+<!-- Gray Light Damage Reputation Response -->
+	<!-- Damage excluding; environment and deformation. 15 minute cooldown. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-ReputationDamage-Gray</SubtypeId>
+                <SubtypeId>WW2-Trigger-ReputationDamageLight-Gray</SubtypeId>
             </Id>
             <Description>
-			
+
 			[RivalAI Trigger]
-			
+
 			[UseTrigger:true]
 			[Type:Damage]
-			
+
 			[DamageTypes:Any]
 			[ExcludedDamageTypes:Environment]
 			[ExcludedDamageTypes:Deformation]
 
 			[Conditions:WW2-Condition-ReputationDamage]
 
-			[MinCooldownMs:333]
-			[MaxCooldownMs:334]
+			[MinCooldownMs:900000]
+			[MaxCooldownMs:900000]
 			[StartsReady:true]
 			[MaxActions:-1]
-            [Actions:WW2-Action-ReputationDamage-Gray]
-			
+            [Actions:WW2-Action-ReputationDamageLight-Gray]
+
 			</Description>
         </EntityComponent>
 
-	<!-- Reputation Gray -1, Reputation Green +1 -->
+	<!-- Reputation Gray -10, Reputation Green +5 -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-ReputationDamage-Gray</SubtypeId>
+                <SubtypeId>WW2-Action-ReputationDamageLight-Gray</SubtypeId>
             </Id>
             <Description>
-			
+
 			[RivalAI Action]
-			
+
 			[ChangeAttackerReputation:true]
 			[ChangeAttackerReputationFaction:GRAY]
-			[ChangeAttackerReputationAmount:-1]
+			[ChangeAttackerReputationAmount:-10]
 			[ChangeAttackerReputationFaction:GREEN]
-			[ChangeAttackerReputationAmount:1]
+			[ChangeAttackerReputationAmount:5]
 			[ReputationChangesForAllAttackPlayerFactionMembers:true]
-			
+
 			</Description>
         </EntityComponent>
-<!-- End Gray Damage Reputation Response -->
-	
-<!-- Green Damage Reputation Response -->
+<!-- End Gray Light Damage Reputation Response -->
+
+<!-- Green Light Damage Reputation Response -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-ReputationDamage-Green</SubtypeId>
+                <SubtypeId>WW2-Trigger-ReputationDamageLight-Green</SubtypeId>
             </Id>
-			<!-- Damage excluding; environment and deformation cooldown 0.3s -->
+			<!-- Damage excluding; environment and deformation. 15 minute cooldown. -->
             <Description>
-			
+
 			[RivalAI Trigger]
-			
+
 			[UseTrigger:true]
 			[Type:Damage]
-			
+
 			[DamageTypes:Any]
 			[ExcludedDamageTypes:Environment]
 			[ExcludedDamageTypes:Deformation]
 
 			[Conditions:WW2-Condition-ReputationDamage]
 
-			[MinCooldownMs:333]
-			[MaxCooldownMs:334]
+			[MinCooldownMs:900000]
+			[MaxCooldownMs:900000]
 			[StartsReady:true]
 			[MaxActions:-1]
-            [Actions:WW2-Action-ReputationDamage-Green]
-			
+            [Actions:WW2-Action-ReputationDamageLight-Green]
+
 			</Description>
         </EntityComponent>
 
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-ReputationDamage-Green</SubtypeId>
+                <SubtypeId>WW2-Action-ReputationDamageLight-Green</SubtypeId>
             </Id>
-			<!--Reputation Green -1, Reputation Gray +1-->
+			<!--Reputation Green -10, Reputation Gray +5-->
             <Description>
-			
+
 			[RivalAI Action]
-			
+
 			[ChangeAttackerReputation:true]
 			[ChangeAttackerReputationFaction:GREEN]
-			[ChangeAttackerReputationAmount:-1]
+			[ChangeAttackerReputationAmount:-10]
 			[ChangeAttackerReputationFaction:GRAY]
-			[ChangeAttackerReputationAmount:1]
+			[ChangeAttackerReputationAmount:5]
 			[ReputationChangesForAllAttackPlayerFactionMembers:true]
-			
+
 			</Description>
         </EntityComponent>
-<!-- End Green Damage Response -->
+<!-- End Green Light Damage Reputation Response -->
 
 <!-- Condition Shared, checks if damage is from player -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -109,11 +121,11 @@
                 <SubtypeId>WW2-Condition-ReputationDamage</SubtypeId>
             </Id>
             <Description>
-			
+
 			[RivalAI Condition]
-			
+
 			[CheckIfDamagerIsPlayer:true]
-			
+
 			</Description>
         </EntityComponent>
 <!-- End Condition -->

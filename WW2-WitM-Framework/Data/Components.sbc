@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!-- 2026-08-28: Stage 1's unlock-currency components (Industrial/Military/Advanced Military
+     Components), built the same way GVK (Deserts of Kharak) builds its own "[Tech]" component
+     tier - same vanilla Prototech SubtypeIds, only DisplayName changed. Size/Mass/Volume/Model/
+     Icon/MaxIntegrity/Health all left exactly as vanilla (and as GVK's own copy of vanilla) -
+     this is a relabel, not a new item, so those values need to stay consistent with the
+     underlying vanilla definition.
+
+     Confirmed (2026-08-28) via GVK's own actual files that this relabel-only approach is
+     exactly what GVK does too, for all 7 of its own "[Tech]" items - no custom models/icons
+     anywhere in their component roster, including their two GVK-original items, which also
+     just repoint at other vanilla item models. Nothing here needed anyone's permission.
+
+     No Blueprint is defined for any of these three - deliberately uncraftable at any
+     Assembler. The only way to acquire them is exactly what the user wanted: NPC wreck loot
+     (see WW2-WitM-MES's Loot.sbc/ContainerTypes files once wired), matching vanilla
+     Prototech's own existing scarcity/acquisition rules. -->
+
+	<Components>
+
+		<Component>
+			<Id>
+				<TypeId>Component</TypeId>
+				<SubtypeId>PrototechMachinery</SubtypeId>
+			</Id>
+			<DisplayName>Industrial Components</DisplayName>
+			<Icon>Textures\GUI\Icons\component\PrototechMachinery_Icon.dds</Icon>
+			<IconSymbol>S.Cal</IconSymbol>
+			<Size>
+				<X>1.0</X>
+				<Y>1.0</Y>
+				<Z>0.03</Z>
+			</Size>
+			<Mass>80</Mass>
+			<Volume>3.5</Volume>
+			<Model>Models\Components\PrototechMachinery_Component.mwm</Model>
+			<PhysicalMaterial>Metal</PhysicalMaterial>
+			<MaxIntegrity>1</MaxIntegrity>
+			<Health>20</Health>
+			<CanPlayerOrder>true</CanPlayerOrder>
+		</Component>
+
+		<Component>
+			<Id>
+				<TypeId>Component</TypeId>
+				<SubtypeId>PrototechFrame</SubtypeId>
+			</Id>
+			<DisplayName>Military Components</DisplayName>
+			<Icon>Textures\GUI\Icons\component\PrototechFrame.dds</Icon>
+			<IconSymbol>L.Cal</IconSymbol>
+			<Size>
+				<X>1.0</X>
+				<Y>1.0</Y>
+				<Z>0.03</Z>
+			</Size>
+			<Mass>100</Mass>
+			<Volume>5.0</Volume>
+			<Model>Models\Components\PrototechFrame.mwm</Model>
+			<PhysicalMaterial>Metal</PhysicalMaterial>
+			<MaxIntegrity>1</MaxIntegrity>
+			<Health>20</Health>
+			<CanPlayerOrder>true</CanPlayerOrder>
+		</Component>
+
+		<Component>
+			<Id>
+				<TypeId>Component</TypeId>
+				<SubtypeId>PrototechCircuitry</SubtypeId>
+			</Id>
+			<DisplayName>Advanced Military Components</DisplayName>
+			<Icon>Textures\GUI\Icons\component\prototech_circuitry_component.dds</Icon>
+			<IconSymbol>Data</IconSymbol>
+			<Size>
+				<X>1.0</X>
+				<Y>1.0</Y>
+				<Z>0.03</Z>
+			</Size>
+			<Mass>60</Mass>
+			<Volume>2.0</Volume>
+			<Model>Models\Components\prototech_circuitry_component.mwm</Model>
+			<PhysicalMaterial>Metal</PhysicalMaterial>
+			<MaxIntegrity>1</MaxIntegrity>
+			<Health>50</Health>
+			<CanPlayerOrder>true</CanPlayerOrder>
+		</Component>
+
+	</Components>
+</Definitions>

@@ -27,8 +27,9 @@
 			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
 			[Triggers:WW2-Trigger-HostileNear-Cargo]
 			[Triggers:WW2-Trigger-BotCrew-3]
-			[Triggers:WW2-Trigger-ReputationDamage-Gray]
-			
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Gray]
+
 			</Description>
         </EntityComponent>
 
@@ -55,8 +56,9 @@
 			[Triggers:WW2-Trigger-CargoShip-DestinationReached]
 			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
 			[Triggers:WW2-Trigger-BotCrew-3]
-			[Triggers:WW2-Trigger-ReputationDamage-Green]
-			
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Green]
+
 			</Description>
         </EntityComponent>
 	<!-- End Cargo Ship Behaviors -->

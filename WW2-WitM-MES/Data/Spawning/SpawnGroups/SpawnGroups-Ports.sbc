@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SpawnGroups>
+
+<!-- Port Installations (Static Encounters)
+     2026-08-27: the 4 existing, already-built port installations, set up to spawn once at
+     their exact current in-game position/orientation and never again  - see
+     SpawnConditions-Ports.sbc for the [StaticEncounter] tags. [GridsAreEditable:false] and
+     [GridsAreDestructable:false] are MES Manipulation tags placed directly in the SpawnGroup
+     (per MES docs, Manipulation tags are valid inline in SpawnGroup Description, no separate
+     Manipulation Profile needed) - makes each port immune to weapon/collision damage and to
+     welding/grinding/block edits, on top of MES-Manipulation-RivalAi's usual AI setup.
+     Behaviour references WW2-Behavior-Port-Gray/Green (Behaviors-Port.sbc), which only runs
+     the Store-sales trigger  - these are static buildings, not combat-relevant NPC grids, so
+     no weapon/reputation/spawn triggers are attached. -->
+
+	<!-- Gray La Spezia Port -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Port-LaSpezia</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Port-LaSpezia]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[GridsAreEditable:false]
+		[GridsAreDestructable:false]
+
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Port_LaSpezia">
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Port-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Green Port of Toulon -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Port-Toulon</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Port-Toulon]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[GridsAreEditable:false]
+		[GridsAreDestructable:false]
+
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Port_Toulon">
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Port-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Green Port of Oran -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Port-Oran</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Port-Oran]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[GridsAreEditable:false]
+		[GridsAreDestructable:false]
+
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Port_Oran">
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Port-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Gray Port of Tripoli -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Port-Tripoli</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Port-Tripoli]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[GridsAreEditable:false]
+		[GridsAreDestructable:false]
+
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Port_Tripoli">
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Port-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- End Port Installations -->
+
+	</SpawnGroups>
+</Definitions>
