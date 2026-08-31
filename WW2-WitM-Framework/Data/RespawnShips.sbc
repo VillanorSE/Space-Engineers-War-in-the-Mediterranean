@@ -2,15 +2,80 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<RespawnShips>
 
+	<!-- Vanilla's own respawn ships are ADDITIVE, not overridden by this file just
+	     because the path matches Content\Data\RespawnShips.sbc - RespawnShipDefinition
+	     is merged across the base game and all mods by SubtypeId. Without this,
+	     vanilla's RespawnRover/RespawnMoonRover/RespawnSpace stay active alongside
+	     ours and the game groups every eligible ship under one location tile,
+	     picking randomly between them on spawn - which is why a vanilla rover was
+	     turning up in the mix. Redeclaring the same SubtypeId with Enabled="false"
+	     is the supported way to disable a specific base-game entry (same pattern
+	     the Workshop mod 3034634539 comparison used). -->
+		<Ship Enabled="false">
+			<Id>
+				<TypeId>RespawnShipDefinition</TypeId>
+				<SubtypeId>RespawnRover</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_PlanetaryLander</DisplayName>
+			<Icon>Textures\GUI\Icons\RespawnShips\RespawnRover.png</Icon>
+			<CooldownSeconds>900</CooldownSeconds>
+			<Prefab>RespawnRover</Prefab>
+
+			<UseForSpace>false</UseForSpace>
+			<UseForPlanetsWithAtmosphere>true</UseForPlanetsWithAtmosphere>
+			<UseForPlanetsWithoutAtmosphere>false</UseForPlanetsWithoutAtmosphere>
+			<PlanetDeployAltitude>1500</PlanetDeployAltitude>
+			<MinimalAirDensity>0.9</MinimalAirDensity>
+
+			<InitialLinearVelocity x="0" y="-95" z="0" />
+			<InitialAngularVelocity x="0" y="0.4" z="0" />
+
+			<HelpTextLocalizationId>Description_RespawnRover</HelpTextLocalizationId>
+		</Ship>
+		<Ship Enabled="false">
+			<Id>
+				<TypeId>RespawnShipDefinition</TypeId>
+				<SubtypeId>RespawnMoonRover</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_PlanetaryLander</DisplayName>
+			<Icon>Textures\GUI\Icons\RespawnShips\RespawnRover.png</Icon>
+			<CooldownSeconds>900</CooldownSeconds>
+			<Prefab>RespawnRover</Prefab>
+
+			<UseForSpace>false</UseForSpace>
+			<UseForPlanetsWithAtmosphere>false</UseForPlanetsWithAtmosphere>
+			<UseForPlanetsWithoutAtmosphere>true</UseForPlanetsWithoutAtmosphere>
+			<PlanetDeployAltitude>15</PlanetDeployAltitude>
+
+			<HelpTextLocalizationId>Description_RespawnRover</HelpTextLocalizationId>
+		</Ship>
+		<Ship Enabled="false">
+			<Id>
+				<TypeId>RespawnShipDefinition</TypeId>
+				<SubtypeId>RespawnSpace</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_RespawnPodSpace</DisplayName>
+			<Icon>Textures\GUI\Icons\RespawnShips\RespawnSpace.png</Icon>
+			<CooldownSeconds>900</CooldownSeconds>
+			<Prefab>RespawnSpace</Prefab>
+
+			<UseForSpace>true</UseForSpace>
+			<SpawnNearProceduralAsteroids>true</SpawnNearProceduralAsteroids>
+
+			<HelpTextLocalizationId>Description_SpacePod</HelpTextLocalizationId>
+		</Ship>
+
 	<!-- WW2-WitM Respawn Vehicles
 	     Ground-vehicle respawn pods for the Mediterranean setting - planet-only, no
-	     parachute on these prefabs. PlanetDeployAltitude raised from 10 to 50 on
-	     2026-08-30 (was too low for the engine's placement search to reliably find
-	     clear terrain near a survival kit/medical room, causing both ships to be
-	     silently omitted from the respawn screen - see chat history); paired with a
-	     light braking InitialLinearVelocity since there's still no parachute to
-	     arrest the fall. Add more <Ship> entries here as more nation/faction
-	     respawn vehicles are built. -->
+	     parachute on these prefabs. PlanetDeployAltitude raised to 30 on both ships
+	     (was 10) - both were clipping/glitching on spawn at low altitude, not just
+	     one, so this isn't prefab-geometry-specific. Still far below vanilla's
+	     1500m since Water Mod's WaterConfig.xml entries for these SubtypeIds
+	     re-teleport the ship to just above found ground with velocity zeroed right
+	     after spawn anyway - keep InitialLinearVelocity unset so that brief window
+	     before the reposition doesn't add a high-speed impact (this previously
+	     caused a truck to tunnel through terrain at 50m+velocity). Add more
+	     <Ship> entries here as more nation/faction respawn vehicles are built. -->
 <!-- Fiat 626 (Italian) -->
 		<Ship>
 			<Id>
@@ -20,22 +85,20 @@
 			<DisplayName>Fiat 626</DisplayName>
 			<Icon>Textures\GUI\Icons\RespawnShips\Fiat626.png</Icon>
 			<CooldownSeconds>900</CooldownSeconds>
-			<Prefab>Player-WW2-Fiat626</Prefab>
+			<Prefab>Respawn-WW2-Fiat626</Prefab>
 
 			<UseForSpace>false</UseForSpace>
 			<UseForPlanetsWithAtmosphere>true</UseForPlanetsWithAtmosphere>
 			<UseForPlanetsWithoutAtmosphere>false</UseForPlanetsWithoutAtmosphere>
-			<PlanetDeployAltitude>50</PlanetDeployAltitude>
+			<PlanetDeployAltitude>20</PlanetDeployAltitude>
 			<MinimalAirDensity>0.5</MinimalAirDensity>
-
-			<InitialLinearVelocity x="0" y="-5" z="0" />
 
 			<SpawnWithDefaultItems>true</SpawnWithDefaultItems>
 			<HelpTextLocalizationId>A rugged Italian Army supply truck. Stocked with some basic supplies to get started.</HelpTextLocalizationId>
 		</Ship>
 
 <!-- Renault AHN (French but mostly used by Germany) -->
-		<Ship> 
+		<Ship>
 			<Id>
 				<TypeId>RespawnShipDefinition</TypeId>
 				<SubtypeId>WW2-RespawnVehicle-RenaultAHN</SubtypeId>
@@ -43,15 +106,13 @@
 			<DisplayName>Renault AHN</DisplayName>
 			<Icon>Textures\GUI\Icons\RespawnShips\RenaultAHN.png</Icon>
 			<CooldownSeconds>900</CooldownSeconds>
-			<Prefab>Player-WW2-RenaultAHN</Prefab>
+			<Prefab>Respawn-WW2-RenaultAHN</Prefab>
 
 			<UseForSpace>false</UseForSpace>
 			<UseForPlanetsWithAtmosphere>true</UseForPlanetsWithAtmosphere>
 			<UseForPlanetsWithoutAtmosphere>false</UseForPlanetsWithoutAtmosphere>
-			<PlanetDeployAltitude>50</PlanetDeployAltitude>
+			<PlanetDeployAltitude>20</PlanetDeployAltitude>
 			<MinimalAirDensity>0.5</MinimalAirDensity>
-
-			<InitialLinearVelocity x="0" y="-5" z="0" />
 
 			<SpawnWithDefaultItems>true</SpawnWithDefaultItems>
 			<HelpTextLocalizationId>A captured French supply truck pressed into German service. Stocked with some basic supplies to get started.</HelpTextLocalizationId>

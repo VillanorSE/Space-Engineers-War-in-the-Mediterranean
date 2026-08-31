@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<WaterConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Water Mod scans every loaded mod for Data\WaterConfig.xml and merges it in
+       (see WaterConfigComponent.cs). Without an entry here, Water Mod's respawn
+       pod placement logic doesn't know these are land vehicles and can place them
+       over open water. SpawnOnLand/SpawnOnWater mirror vanilla's own
+       "RespawnPlanetPod" entry (land-only); SpawnAltitude is kept small since
+       these ships get teleported to rest at this height above the found ground
+       point with velocity zeroed, not dropped in from altitude. -->
+  <RespawnPodConfigs>
+    <!-- Keyed on the RespawnShipDefinition SubtypeId. -->
+    <RespawnPodConfig TypeId="RespawnShipDefinition" SubtypeId="WW2-RespawnVehicle-Fiat626">
+      <SpawnAltitude>5</SpawnAltitude>
+      <SpawnOnWater>false</SpawnOnWater>
+      <SpawnOnLand>true</SpawnOnLand>
+    </RespawnPodConfig>
+    <RespawnPodConfig TypeId="RespawnShipDefinition" SubtypeId="WW2-RespawnVehicle-RenaultAHN">
+      <SpawnAltitude>5</SpawnAltitude>
+      <SpawnOnWater>false</SpawnOnWater>
+      <SpawnOnLand>true</SpawnOnLand>
+    </RespawnPodConfig>
+    <!-- Also keyed on the Prefab name, in case that's what
+         MyVisualScriptLogicProvider.RespawnShipSpawned actually reports (vanilla's
+         own examples always use matching Definition SubtypeId/Prefab names, so
+         which one Water Mod keys on is ambiguous from its source alone). -->
+    <RespawnPodConfig TypeId="RespawnShipDefinition" SubtypeId="Player-WW2-Fiat626">
+      <SpawnAltitude>5</SpawnAltitude>
+      <SpawnOnWater>false</SpawnOnWater>
+      <SpawnOnLand>true</SpawnOnLand>
+    </RespawnPodConfig>
+    <RespawnPodConfig TypeId="RespawnShipDefinition" SubtypeId="Player-WW2-RenaultAHN">
+      <SpawnAltitude>5</SpawnAltitude>
+      <SpawnOnWater>false</SpawnOnWater>
+      <SpawnOnLand>true</SpawnOnLand>
+    </RespawnPodConfig>
+  </RespawnPodConfigs>
+</WaterConfig>
