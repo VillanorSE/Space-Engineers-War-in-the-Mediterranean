@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+
+<!-- Port Cargo Ship Spawns
+     One Timer Trigger -> Action -> Spawn chain per port, each spawning that port's own
+     direction-specific cargo ship (see Paths-Nautical.sbc / SpawnGroups-CargoShips-Nautical.sbc).
+     60-90 min per port x 2 ports per faction = ~1 cargo ship per faction every ~37.5 min average.
+     Always-on timer (not gated behind player proximity) - ports run continuous background
+     shipping traffic regardless of whether a player has visited.
+     Alexandria has no port built yet, so no spawn trigger exists for the Toulon-Alexandria leg. -->
+
+<!-- La Spezia Cargo Spawn (-> Tripoli) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-CargoSpawn-Port-LaSpezia</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Timer]
+
+			[MinCooldownMs:3600000]
+			[MaxCooldownMs:5400000]
+			[StartsReady:true]
+
+			[MaxActions:-1]
+            [Actions:WW2-Action-CargoSpawn-Port-LaSpezia]
+
+			</Description>
+        </EntityComponent>
+
+			<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-CargoSpawn-Port-LaSpezia</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-CargoSpawn-Port-LaSpezia]
+
+			</Description>
+        </EntityComponent>
+
+			<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-CargoSpawn-Port-LaSpezia</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:WW2-CargoShip-LaSpezia-Tripoli]
+
+			[MinDistance:100]
+			[MaxDistance:300]
+			[MinAltitude:0]
+			[MaxAltitude:2]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:true]
+
+			</Description>
+        </EntityComponent>
+<!-- End La Spezia Cargo Spawn -->
+
+<!-- Tripoli Cargo Spawn (-> La Spezia) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-CargoSpawn-Port-Tripoli</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Timer]
+
+			[MinCooldownMs:3600000]
+			[MaxCooldownMs:5400000]
+			[StartsReady:true]
+
+			[MaxActions:-1]
+            [Actions:WW2-Action-CargoSpawn-Port-Tripoli]
+
+			</Description>
+        </EntityComponent>
+
+			<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-CargoSpawn-Port-Tripoli</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-CargoSpawn-Port-Tripoli]
+
+			</Description>
+        </EntityComponent>
+
+			<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-CargoSpawn-Port-Tripoli</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:WW2-CargoShip-Tripoli-LaSpezia]
+
+			[MinDistance:100]
+			[MaxDistance:300]
+			[MinAltitude:0]
+			[MaxAltitude:2]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:true]
+
+			</Description>
+        </EntityComponent>
+<!-- End Tripoli Cargo Spawn -->
+
+<!-- Oran Cargo Spawn (-> Toulon) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-CargoSpawn-Port-Oran</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Timer]
+
+			[MinCooldownMs:3600000]
+			[MaxCooldownMs:5400000]
+			[StartsReady:true]
+
+			[MaxActions:-1]
+            [Actions:WW2-Action-CargoSpawn-Port-Oran]
+
+			</Description>
+        </EntityComponent>
+
+			<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-CargoSpawn-Port-Oran</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-CargoSpawn-Port-Oran]
+
+			</Description>
+        </EntityComponent>
+
+			<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-CargoSpawn-Port-Oran</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:WW2-CargoShip-Oran-Toulon]
+
+			[MinDistance:100]
+			[MaxDistance:300]
+			[MinAltitude:0]
+			[MaxAltitude:2]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:true]
+
+			</Description>
+        </EntityComponent>
+<!-- End Oran Cargo Spawn -->
+
+<!-- Toulon Cargo Spawn (-> Oran) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-CargoSpawn-Port-Toulon</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Timer]
+
+			[MinCooldownMs:3600000]
+			[MaxCooldownMs:5400000]
+			[StartsReady:true]
+
+			[MaxActions:-1]
+            [Actions:WW2-Action-CargoSpawn-Port-Toulon]
+
+			</Description>
+        </EntityComponent>
+
+			<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-CargoSpawn-Port-Toulon</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-CargoSpawn-Port-Toulon]
+
+			</Description>
+        </EntityComponent>
+
+			<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-CargoSpawn-Port-Toulon</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:WW2-CargoShip-Toulon-Oran]
+
+			[MinDistance:100]
+			[MaxDistance:300]
+			[MinAltitude:0]
+			[MaxAltitude:2]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:true]
+
+			</Description>
+        </EntityComponent>
+<!-- End Toulon Cargo Spawn -->
+
+	</EntityComponents>
+</Definitions>

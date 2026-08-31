@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SpawnGroups>
+
+<!-- Nautical Path Cargo Ships
+     One SpawnGroup per direction, each pairing the Golo prefab (Italian=Gray, French=Green)
+     with its matching direction-specific Behavior from Paths-Nautical.sbc. These are spawned
+     exclusively via [RivalAI Spawn] CustomSpawn calls from each Port's own Behavior (see
+     Behaviors-Port.sbc / Triggers-CargoSpawn-Port.sbc) - not through MES's normal ambient
+     ship-spawning system - so no [SpawnConditionsProfiles] tag is needed here. -->
+
+<!-- La Spezia -> Tripoli -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-CargoShip-LaSpezia-Tripoli</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Tech-Industrial-Reliable]
+		[ManipulationProfiles:WW2-Manipulation-Tech-Military-Reliable]
+		[ManipulationProfiles:WW2-Manipulation-Tech-AdvancedMilitary-CargoRare]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Golo_Italian">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-CargoShip-Gray-LaSpezia-Tripoli</Behaviour>
+				<Speed>5.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- Tripoli -> La Spezia -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-CargoShip-Tripoli-LaSpezia</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Tech-Industrial-Reliable]
+		[ManipulationProfiles:WW2-Manipulation-Tech-Military-Reliable]
+		[ManipulationProfiles:WW2-Manipulation-Tech-AdvancedMilitary-CargoRare]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Golo_Italian">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-CargoShip-Gray-Tripoli-LaSpezia</Behaviour>
+				<Speed>5.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- Oran -> Toulon -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-CargoShip-Oran-Toulon</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Tech-Industrial-Reliable]
+		[ManipulationProfiles:WW2-Manipulation-Tech-Military-Reliable]
+		[ManipulationProfiles:WW2-Manipulation-Tech-AdvancedMilitary-CargoRare]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Golo_French">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-CargoShip-Green-Oran-Toulon</Behaviour>
+				<Speed>5.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- Toulon -> Oran -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-CargoShip-Toulon-Oran</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Tech-Industrial-Reliable]
+		[ManipulationProfiles:WW2-Manipulation-Tech-Military-Reliable]
+		[ManipulationProfiles:WW2-Manipulation-Tech-AdvancedMilitary-CargoRare]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Golo_French">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-CargoShip-Green-Toulon-Oran</Behaviour>
+				<Speed>5.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	</SpawnGroups>
+</Definitions>

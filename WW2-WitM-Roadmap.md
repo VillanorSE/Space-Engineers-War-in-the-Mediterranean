@@ -29,22 +29,28 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 - **Dependency additions:** WeaponCore itself, plus whichever specific weapon-pack mods end up used. Worth checking MES's documented WeaponCore compatibility notes once rebuild work starts, since combining MES/RivalAI-driven NPCs with WeaponCore weapons is a well-trodden combination but has its own configuration quirks (weapon targeting profiles, ammo replenishment behavior).
 
 **To-do:**
-- [ ] Rebuild all existing vehicles and installations to the current mod set.
 - [x] Configure BlockRestrictions to disable all blocks that are not to be available to players.
 - [x] Configure ShipCores for block limits
 - [ ] Update G menu to not show empty groups or blank spaces
 - [x] Test all Factory spawns for placement
 - [x] Resolve naval spawns not moving along paths after spawn
 - [ ] Resolve CrashAir not working as intended
-- [ ] Create Fiat 626 player respawn truck (150% scale)
-- [ ] Create ANH player respawn truck (150% scale)
+- [x] Create Fiat 626 player respawn truck (150% scale)
+- [x] Create AHN player respawn truck (150% scale)
 - [ ] Configure basic features on port installations
   - [x] Selling grids of that faction
-  - [ ] Spawning cargo ships that travel to the other port
+  - [x] Spawning cargo ships that travel to the other port
   - [x] Defensive spawn
 - [ ] Adjust threat level and similar spawn controls on Bearn and Aquila, spawning when not expected
 - [ ] Connect basic war level and territory aspects to ports
-- [ ] Create GPS Routes for travel between existing port locations
+- [x] Create GPS Routes for travel between existing port locations
+- [ ] Assign component costs to cores
+- [ ] Assign component costs to prototech non-military
+- [ ] Assign component costs to weapons
+- [ ] Figure out store block problems
+- [ ] Get respawn rovers to show up in respawn menu
+- [ ] Add industrial component cost to the upgrade modules for production blocks
+- [ ] Check Aquila for old guns
 
   **Naval:**
   - [x] NPC-WW2-Golo_Italian (Cargo Ship, Gray)

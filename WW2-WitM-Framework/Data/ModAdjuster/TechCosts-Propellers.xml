@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tech-component costs for propeller blocks from various Workshop mods (WeaponCore-adjacent
+     boat/plane propeller packs, Terran Titans maneuvering props). Original <Components> lists
+     are reproduced in full (verified against each mod's own source .sbc) with the new tech
+     component appended at the END of the array, after the original CriticalComponent entry -
+     this keeps the block's functional threshold unchanged while adding a late-game cost gate. -->
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CubeBlocks>
+
+    <!-- Water propellers (Ship Core "Propellers - Water" group) - +8 Industrial Components each -->
+    <!-- Source: workshop 2685161727, Data/CubeBlocks/Blocks_ThrustBoatLarge.sbc -->
+    <Definition xsi:type="ThrustDefinition">
+      <Id Type="MyObjectBuilder_Thrust" Subtype="BoatPropellor3x3Huge" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="Construction" Count="75" />
+        <Component Subtype="LargeTube" Count="10" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="Motor" Count="175" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="PrototechMachinery" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="ThrustDefinition">
+      <Id Type="MyObjectBuilder_Thrust" Subtype="BoatPropellor3x3HugeDualEven" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="Construction" Count="75" />
+        <Component Subtype="LargeTube" Count="10" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="Motor" Count="175" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="PrototechMachinery" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2685161727, Data/CubeBlocks/Blocks_ThrustBoatYellow.sbc -->
+    <Definition xsi:type="ThrustDefinition">
+      <Id Type="MyObjectBuilder_Thrust" Subtype="BoatProp3BladeYellowPower" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="45" />
+        <Component Subtype="Construction" Count="60" />
+        <Component Subtype="LargeTube" Count="16" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="Motor" Count="210" />
+        <Component Subtype="Construction" Count="40" />
+        <Component Subtype="SteelPlate" Count="20" />
+        <Component Subtype="PrototechMachinery" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2899106264, Data/CubeBlocks/TTManeuveringProps.sbc -->
+    <Definition xsi:type="ThrustDefinition">
+      <Id Type="MyObjectBuilder_Thrust" Subtype="TT1x1slope2x1baseprop" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="15" />
+        <Component Subtype="Construction" Count="30" />
+        <Component Subtype="LargeTube" Count="8" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="Motor" Count="20" />
+        <Component Subtype="Construction" Count="10" />
+        <Component Subtype="SteelPlate" Count="20" />
+        <Component Subtype="PrototechMachinery" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="ThrustDefinition">
+      <Id Type="MyObjectBuilder_Thrust" Subtype="TTfullblockprop" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="20" />
+        <Component Subtype="Construction" Count="30" />
+        <Component Subtype="LargeTube" Count="8" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="Motor" Count="20" />
+        <Component Subtype="Construction" Count="15" />
+        <Component Subtype="SteelPlate" Count="25" />
+        <Component Subtype="PrototechMachinery" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="ThrustDefinition">
+      <Id Type="MyObjectBuilder_Thrust" Subtype="TThalfblockprop" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="Construction" Count="15" />
+        <Component Subtype="LargeTube" Count="8" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="Motor" Count="15" />
+        <Component Subtype="Construction" Count="5" />
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="PrototechMachinery" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Air propellers (Ship Core "Propellers-Air" group) - +1 Industrial Component each -->
+    <!-- Source: workshop 2612368868, Data/CubeBlocks/Blocks_PropsDouble.sbc -->
+    <Definition xsi:type="ThrustDefinition">
+      <Id Type="MyObjectBuilder_Thrust" Subtype="3BladePlanePropellerDouble" />
+      <Components>
+        <Component Subtype="Construction" Count="7" />
+        <Component Subtype="Motor" Count="20" />
+        <Component Subtype="SteelPlate" Count="5" />
+        <Component Subtype="PrototechMachinery" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="ThrustDefinition">
+      <Id Type="MyObjectBuilder_Thrust" Subtype="4BladePlanePropellerDouble" />
+      <Components>
+        <Component Subtype="Construction" Count="7" />
+        <Component Subtype="Motor" Count="20" />
+        <Component Subtype="SteelPlate" Count="5" />
+        <Component Subtype="PrototechMachinery" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="ThrustDefinition">
+      <Id Type="MyObjectBuilder_Thrust" Subtype="6BladePlanePropellerDouble" />
+      <Components>
+        <Component Subtype="Construction" Count="7" />
+        <Component Subtype="Motor" Count="20" />
+        <Component Subtype="SteelPlate" Count="5" />
+        <Component Subtype="PrototechMachinery" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2758773086, Data/CubeBlocks/CAP_HeavyProp_3_Blade.sbc & CAP_HeavyProp_4_Blade.sbc -->
+    <Definition xsi:type="ThrustDefinition">
+      <Id Type="MyObjectBuilder_Thrust" Subtype="CAP_HeavyProp_3_Blade" />
+      <Components>
+        <Component Subtype="Construction" Count="9" />
+        <Component Subtype="Motor" Count="9" />
+        <Component Subtype="InteriorPlate" Count="18" />
+        <Component Subtype="PrototechMachinery" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="ThrustDefinition">
+      <Id Type="MyObjectBuilder_Thrust" Subtype="CAP_HeavyProp_4_Blade" />
+      <Components>
+        <Component Subtype="Construction" Count="12" />
+        <Component Subtype="Motor" Count="12" />
+        <Component Subtype="InteriorPlate" Count="24" />
+        <Component Subtype="PrototechMachinery" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+  </CubeBlocks>
+</Definitions>

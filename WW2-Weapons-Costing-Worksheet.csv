@@ -1,0 +1,100 @@
+SubtypeId,DisplayName,MaxRangeMeters,DPS,SourceWorkshopID,Notes
+SHA_Sh37_gun,Sh.37mm Tank Gun,,103.2,3431829641,"Range: MaxTargetDistance not set in weapon def (no cap specified, WC default applies). Primary ammo YtD_Sh37_APHE (BaseDamage 43*8=344)."
+YtD_LATIR_20-40,LATIR 20-40,,75,3431829641,"TypeId is SmallGatlingGun, not ConveyorSorter. Block has no own WeaponDefinition; uses WeaponDefinitionId Subtype=""YtD_Lmg"" (shared MG6-35 LMG weapon/ammo def, BaseDamage 10). Range not set in weapon def."
+YtD_SC45-40_ac,SC45-40 Autocannon,,1178.67,3431829641,Range not set in weapon def. Primary ammo YtD_SC45_AP (BaseDamage 52*8=416).
+YtD_HIW70-44_rw,HIW70-44 Recoilless Weapon,,0.9,3431829641,Range not set in weapon def. Primary ammo HIW70_Heat has an unusually low BaseDamage (6) vs sibling AP rounds (which use *8 penetration scaling) - may rely on additional shaped-charge mechanics not captured by this formula.
+YtD_CC30-34_gun,CC30-34 Tank Gun,,132,3431829641,Range not set in weapon def. Primary ammo YtD_CC30_AP (BaseDamage 55*8=440).
+YtD_CC54-38_gun,CC54-39 Tank Gun,,154,3431829641,"DisplayName says ""CC54-39"" but SubtypeId is CC54-38 (mod's own naming inconsistency). Range not set in weapon def. Primary ammo YtD_CC54_AP (BaseDamage 105*8=840)."
+YtD_CC77-42_gun,CC77-42 Tank Gun,,190.67,3431829641,Range not set in weapon def. Primary ammo YtD_CC77_AP (BaseDamage 143*8=1144).
+YtD_CC84-42_gun,CC84-42 Tank Gun,,181.33,3431829641,Range not set in weapon def. Primary ammo YtD_CC84_AP (BaseDamage 170*8=1360).
+YtD_CC84-42b_gun,CC84-42[B] Tank Gun,,181.33,3431829641,"Shares weapon/ammo definition with YtD_CC84-42_gun (same file, same RoF/ammo). Range not set in weapon def."
+YtD_CC90-43_gun,CC90-43 Tank Gun,,160,3431829641,Range not set in weapon def. Primary ammo YtD_CC90_APHE (BaseDamage 150*8=1200).
+YtD_CC90-49_gun,CC90-49 Tank Gun,,306,3431829641,Range not set in weapon def. Primary ammo YtD_CC9049_APCBC (BaseDamage 255*8=2040).
+YtD_SC140-31_howitzer,SC140-31 Howitzer,,1.25,3431829641,"Range not set in weapon def. Primary/first-listed ammo is YtD_SC140_HE (BaseDamage 25, HE round listed before the APHE round) - DPS may not reflect true anti-armor performance since this is an HE-first pattern list."
+YtD_CC122-45_gun,CC122-45 Tank Gun,,146.67,3431829641,Range not set in weapon def. Primary ammo YtD_CC122_APHE (BaseDamage 220*8=1760).
+YtD_CC127-44_gun,CC127-44 Tank Gun,,188,3431829641,Range not set in weapon def. Primary ammo YtD_CC127_AP (BaseDamage 282*8=2256).
+YtD_CC127-55_gun,CC127-55 Tank Gun,,245.33,3431829641,Range not set in weapon def. Primary ammo YtD_CC127_APDS (BaseDamage 460*8=3680).
+TT16INCHMK6,16-inch/45-caliber Mark 6 gun,7500,60000,3043566172,Primary ammo TT16INCH_round (BaseDamage 12000).
+TT16INCHMK6R,16-inch/45-caliber Mark 6 gun Raised,7500,60000,3043566172,Same weapon def file/stats as TT16INCHMK6 (raised mount variant).
+TT28CMSKC28,28 cm SK C/34 naval gun,5000,40000,3043566172,Filename is TT28CMSKC34.sbc/_Part.cs but internal SubtypeId is TT28CMSKC28 (mod naming inconsistency). Primary ammo TT283MM_round (BaseDamage 6000).
+TT28CMSKC28R,28 cm SK C/34 naval gun Raised,5000,40000,3043566172,Same weapon def file/stats as TT28CMSKC28 (raised mount variant).
+TT28CMSKL50,28 cm SK L/50 naval gun,4000,30000,3043566172,Primary ammo TT283MM_round (BaseDamage 6000).
+TT28CMSKL50R,28 cm SK L/50 naval gun,4000,30000,3043566172,Same weapon def file/stats as TT28CMSKL50 (raised mount variant).
+TTTYPE94,46 cm/45 Type 94 naval gun,8000,60000,3043566172,Primary ammo TT46CM_round (BaseDamage 12000).
+TTTYPE94R,46 cm/45 Type 94 naval gun Raised,8000,60000,3043566172,Same weapon def file/stats as TTTYPE94 (raised mount variant).
+100mm55Main,100mm/55 MLE 1945,3800,1500,2844434226,"twin, 2 barrels"
+100mmSingleMain,100 mm/45 Single,3800,750,2844434226,
+100mmTwinMain,100 mm/45 Twin,3800,1125,2844434226,"Named ""Twin"" but weapon def has BarrelsPerShot=1 - only 100mmSingleMain-style single-muzzle fire per event, compensated with higher RateOfFire."
+13mmQuadSmall,13.2mm/76 Hotchkiss Quad Mount,4000,133.33,2844434226,"quad mount, weapon def BarrelsPerShot=2"
+2cmFlakQuadSmall,2 cm/65 Quad Mount,3000,4000,2844434226,quad mount but weapon def BarrelsPerShot=1
+37mmFlakDualSmall,3.7 cm/69 M42 Twin Mount,3500,3000,2844434226,"twin, 2 barrels"
+37mmFlakSingleSmall,3.7 cm/69 M42 Single Mount,3500,1500,2844434226,
+BoforSingleRemodelSmall,40 mm/56 Bofors Single Mount,4000,1333.33,2844434226,
+FA_76mm_39K,76.2 mm /55 34-K Pattern 1935,3800,500,2844434226,weapon def BarrelsPerShot=2 despite single-barrel gun name; low RateOfFire=20
+FA_85mm_92K,85mm/52 Model 1939 92-K,3800,500,2844434226,weapon def BarrelsPerShot=2 despite single-barrel gun name; low RateOfFire=20
+Fa57mm60,57 mm/60 SAK Model 1950,3800,2400,2844434226,"twin, 2 barrels"
+FL2cmSmall,2 Cm/65 Single Mount,2500,2333.33,2844434226,
+PomPomMain,2-pdr QF Mark VII,4000,862.5,2844434226,"twin, 2 barrels"
+Type96Single,25 mm/60 Type 96 Single,2500,130,2844434226,
+12Inch45Mark5,"12"" /45 Mark 5",6000,20000,2844434226,Primary ammo FA12InchUsShell
+12Inch45MarkX,"12""/45 Mark X",6000,20000,2844434226,Primary ammo FA12InchUKShell
+12Inch50Mark8,"12""/50 Mark 8",6000,20000,2844434226,Primary ammo FA12InchUsShell
+12InchMark7,"12""/50 Mark 7",6000,20000,2844434226,SubtypeId defined inside 12InchTwinBase.sbc (filename differs from SubtypeId). Primary ammo FA12InchUsShellMk16
+14Inch45,"14""/45 Mark 12",6000,666.67,2844434226,"Only ammo type available is FA14InchAPShell (BaseDamage 100) - no separate HE round exists for this gun in the mod, unlike its 16in/18in siblings, so DPS is much lower than comparable calibers."
+16Inch45Mark8,"16""/45 Mark 8",6000,20000,2844434226,Primary ammo FA16InchUsShell
+16Inch50Mark7,"16""/50 Mark 7",6000,20000,2844434226,Primary ammo FA16InchUsShell
+16Inch50Mark7NRF,"16""/50 Mark 7",6000,20000,2844434226,"No-recoil-flash variant, same stats as 16Inch50Mark7"
+16InchGun,"16""/50 Mark 6",6000,20000,2844434226,Primary ammo FA16InchUsShell
+18Inch48,"18""/48 Mark 1",6000,5000,2844434226,Primary ammo FA18InchUsShell; lowest RateOfFire of the BB guns
+380mm45MLE,380mm/45 Model 1935,6000,20000,2844434226,Primary ammo FA380mmShell
+38cmSk34,38 cm/52 SK C/34,6000,10000,2844434226,Primary ammo FA381mmShell
+38cmSk34_Grey,38 cm/52 SK C/34 (Grey),6000,10000,2844434226,"Texture variant of 38cmSk34, same weapon stats"
+38cmSk34_Grey_NRF,38 cm/52 SK C/34 Alt (Grey),6000,10000,2844434226,"Texture/no-recoil-flash variant, same weapon stats as 38cmSk34"
+38cmSk34NR,38 cm/52 SK C/34 Alt,6000,10000,2844434226,"No-recoil-flash variant, same weapon stats as 38cmSk34"
+FA_254mm_45,254 mm/45 Bofors,6000,666.67,2844434226,Only ammo FA254mmShellBofor has a low BaseDamage (100) relative to its RateOfFire; comparable to 14Inch45's outlier low-damage round.
+FA12Inch35,"12""/35 Mark 3",6000,20000,2844434226,Primary ammo FA12InchUsShell (secondary FA12InchAPShell not traced - primary used per methodology)
+FA30_5CM_Main,30.5cm /50 SK L/50,6000,20000,2844434226,Primary ammo FA305mmShell
+FAGer14Inch,38 cm/45 SK /L45,6000,10000,2844434226,"SubtypeId defined inside FAGer16Inch.sbc (filename differs from SubtypeId, despite the 14Inch subtype name this is actually a 38cm/380mm-class gun sharing FA381mmShell ammo)"
+OTO381mm,381 mm/50 Model 1939,6000,20000,2844434226,Primary ammo FA381mmSAPShell
+UK16Inch45Mark1,"BL 16"" /45 Mark 1",6000,20000,2844434226,Primary ammo FA16InchShell_HE_UK
+15cm45Casemate,15 Cm/45 SK L/45 Casemate,4500,5000,2844434226,Primary ammo FA15CmShell
+15Cm55TwinCasemate,15 cm/55 SK C/28 Casemate,4500,10000,2844434226,"twin, 2 barrels"
+6Inch50Casemate,"6""/50 Mark 10 Casemate",4500,6250,2844434226,Primary ammo FA6InchAPShell
+6InchMark13Casemate,"6""/53 Mark 13 Casemate",4500,6250,2844434226,Primary ammo FA6InchAPShell
+152mm55NRF,152 mm/55 Model 1930,4500,12366.67,2844434226,Primary ammo FA152mmShell
+152mm55RF,152 mm/55 Model 1930 RF,4500,12366.67,2844434226,Primary ammo FA152mmShell
+152mmMLE1936,152 mm/55 Model 1936,4500,12366.67,2844434226,Primary ammo FA152mmShell
+15cmSk28,15 cm/55 SK C/28 RF,4000,4000,2844434226,Primary ammo FA15CmCaShell
+15cmSk28NRF,15 cm/55 SK C/28,4000,4000,2844434226,Primary ammo FA15CmCaShell
+203mm50MLE,203 mm/55 Model 1931 RF,5000,8480,2844434226,Primary ammo FA203mmShell
+203mm50NRF,203 mm/55 Model 1931,5000,8480,2844434226,Primary ammo FA203mmShell
+6InchMain,"6""/47 MK 16",4000,16666.67,2844434226,Primary ammo FA6InchShell
+8Inch55Main,"8""/55 Mark 9",4000,16666.67,2844434226,Primary ammo FA8InchShell
+8Inch55RF,"8""/55 RF Mark 16",4000,16666.67,2844434226,Primary ammo FA8InchShell
+FA6Inch53Mark18,"6""/53 Mark 16",4000,33333.33,2844434226,"twin, 2 barrels"
+FA6InchDPMark16,"6""/47 DP Mark 16",4000,33333.33,2844434226,"twin, 2 barrels"
+Ger203mm,20.3 cm/60 C/34,5000,8480,2844434226,Primary ammo FA203mmShellGer
+OTO152mm55,OTO 152 mm/55 model 1936,4500,14133.33,2844434226,Primary ammo FA152mmShellOTO
+OTO203mm53Model1929,203mm /53 Model 1929,5000,20000,2844434226,"twin, 2 barrels; primary ammo FA203mmShell_IT"
+Spainish203mmTwin,"8""/50 BL Model 1942",4000,33333.33,2844434226,"twin, 2 barrels; primary ammo FA8InchShell"
+105mmTwin,10.5 cm SK C/33,3800,2000,2844434226,"twin, 2 barrels"
+127mm54MLE1948,127mm /54 Model 1948,4000,2500,2844434226,"twin, 2 barrels; primary ammo FA_FR_5InchShell"
+128C34Main,12.7Cm SK C/34,4000,2083.33,2844434226,"twin, 2 barrels"
+128mmL45Main,12.7Cm L/45,4000,1250,2844434226,
+12cm45Mark8,12 Cm /45 Mark 8,4000,500,2844434226,"twin, 2 barrels; low BaseDamage (100) ammo relative to caliber"
+138mmMain,138.6mm/40 MLE 1927,4000,1500,2844434226,
+15cmKCMain,15 cm/48 Tbts KC/36,4000,5000,2844434226,Primary ammo FA15CmShell
+15cmTwinMain,15 cm/48 Tbts KC/36 Twin,4000,9333.33,2844434226,"twin, 2 barrels; primary ammo FA15CmShell"
+4_5Inch45,"4.5""/45 QF Mark II",4000,2500,2844434226,"twin, 2 barrels"
+4_7InchMain,4.7 Inch Mk XII,4000,2500,2844434226,"twin, 2 barrels"
+5Inch38Twin,"5""/38 Mark 32",4000,2500,2844434226,"twin, 2 barrels; primary ammo FA5InchShell"
+5Inch41Twin,"5""/54 Mark 41",4000,2500,2844434226,"twin, 2 barrels; primary ammo FA5InchShell"
+5Inch54Main,"5""/54 Mark 16",4000,1250,2844434226,Primary ammo FA5InchShell
+5InchMk30Main,"5""/38 Mark 30",4000,1250,2844434226,Primary ammo FA5InchShell
+5InchSingleMain,"5""/38 Mark 12",4000,1250,2844434226,Primary ammo FA5InchShell
+FA90mmOTO,90 mm/50 OTO Model 1939 Single Mount,3800,750,2844434226,
+FA90mmOTOTwin,90 mm/50 OTO Model 1939 Twin Mount,3800,1500,2844434226,"twin, 2 barrels"
+BoforStaticGun,40 mm/56 Bofors Static,4000,1333.33,2844434226,
+CAP_40mmAircraftCannon,40mm Aircraft Cannon,Unlimited (MaxTargetDistance=0),375,2881339118,"MaxTargetDistance=0 in weapon def (0 = unlimited per WC convention). Primary ammo CAP_40mmAPRound (BaseDamage 150), RateOfFire 150, BarrelsPerShot 1."
+CAP_57AircraftCannon,57mm Aircraft Cannon,Unlimited (MaxTargetDistance=0),30,2881339118,"MaxTargetDistance=0 in weapon def (0 = unlimited per WC convention). Primary ammo CAP_57mmHERound (BaseDamage 15), RateOfFire 120, BarrelsPerShot 1."
+CAP_75AircraftCannon,75mm Aircraft Cannon PLACEHOLDER,Unlimited (MaxTargetDistance=0),5,2881339118,"DisplayName still says PLACEHOLDER in the mod's own data. MaxTargetDistance=0 (unlimited). Primary ammo CAP_75mmHERound (BaseDamage 15), RateOfFire 20, BarrelsPerShot 1."

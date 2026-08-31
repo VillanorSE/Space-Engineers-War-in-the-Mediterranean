@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+
+	<!-- Nautical Paths - CargoShip
+	     Fixed point-to-point routes for CargoShip ("Nautical") behavior NPCs, using MES's
+	     native [CustomWaypoints:X:Y:Z,X:Y:Z,...] Behavior tag (RivalAI CargoShip subclass).
+	     This seeds the ship's full ordered waypoint queue at spawn - it flies each point in
+	     order, then despawns after the last one. It replaces (does not add to) the default
+	     "AddWaypoints on DestinationReached" random-destination pattern used by the plain
+	     WW2-Behavior-CargoShip-Gray/Green behaviors, so a ship using one of these Behaviors
+	     is committed to this route only.
+
+	     Bi-directional = two separate Behaviors, one per direction (the waypoint list simply
+	     reversed) - CustomWaypoints has no native "loop back" once the queue is emptied. -->
+
+	<!-- La Spezia -> Tripoli -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-CargoShip-Gray-LaSpezia-Tripoli</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Nautical]
+
+			[AutopilotData:WW2-Autopilot-CargoShip]
+			[TargetData:WW2-Targeting-ShipMain]
+
+			[WeaponSystem:WW2-Weapons-CargoShip]
+
+			[CustomWaypoints:7219.22:-27130.26:10854.68,9243.59:-23021.01:17047.34,9335.38:-20832.01:19618.71,3347.94:-1599.76:29871.67,3562.77:8725.65:28586.94,-3660.24:20482.92:21751.4,-3313.06:20680.14:21624.19]
+
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-CargoDamage]
+			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
+			[Triggers:WW2-Trigger-HostileNear-Cargo]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Gray]
+
+			</Description>
+        </EntityComponent>
+
+	<!-- Tripoli -> La Spezia -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-CargoShip-Gray-Tripoli-LaSpezia</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Nautical]
+
+			[AutopilotData:WW2-Autopilot-CargoShip]
+			[TargetData:WW2-Targeting-ShipMain]
+
+			[WeaponSystem:WW2-Weapons-CargoShip]
+
+			[CustomWaypoints:-3313.06:20680.14:21624.19,-3660.24:20482.92:21751.4,3562.77:8725.65:28586.94,3347.94:-1599.76:29871.67,9335.38:-20832.01:19618.71,9243.59:-23021.01:17047.34,7219.22:-27130.26:10854.68]
+
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-CargoDamage]
+			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
+			[Triggers:WW2-Trigger-HostileNear-Cargo]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Gray]
+
+			</Description>
+        </EntityComponent>
+	<!-- End La Spezia <-> Tripoli -->
+
+	<!-- Oran -> Toulon -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-CargoShip-Green-Oran-Toulon</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Nautical]
+
+			[AutopilotData:WW2-Autopilot-CargoShip]
+			[TargetData:WW2-Targeting-ShipMain]
+
+			[WeaponSystem:WW2-Weapons-CargoShip]
+
+			[CustomWaypoints:21959.52:8012.84:-18957.84,25022.38:-7770.26:-14811.06,25572.66:-14988.84:-5213.51,17643.8:-23429.4:6762.48,16818.41:-23976.79:6939.93]
+
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-CargoDamage]
+			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
+			[Triggers:WW2-Trigger-HostileNear-Cargo]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Green]
+
+			</Description>
+        </EntityComponent>
+
+	<!-- Toulon -> Oran -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-CargoShip-Green-Toulon-Oran</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Nautical]
+
+			[AutopilotData:WW2-Autopilot-CargoShip]
+			[TargetData:WW2-Targeting-ShipMain]
+
+			[WeaponSystem:WW2-Weapons-CargoShip]
+
+			[CustomWaypoints:16818.41:-23976.79:6939.93,17643.8:-23429.4:6762.48,25572.66:-14988.84:-5213.51,25022.38:-7770.26:-14811.06,21959.52:8012.84:-18957.84]
+
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-CargoDamage]
+			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
+			[Triggers:WW2-Trigger-HostileNear-Cargo]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Green]
+
+			</Description>
+        </EntityComponent>
+	<!-- End Oran <-> Toulon -->
+
+	<!-- Toulon -> Alexandria -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-CargoShip-Green-Toulon-Alexandria</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Nautical]
+
+			[AutopilotData:WW2-Autopilot-CargoShip]
+			[TargetData:WW2-Targeting-ShipMain]
+
+			[WeaponSystem:WW2-Weapons-CargoShip]
+
+			[CustomWaypoints:16818.41:-23976.79:6939.93,17450.09:-23219.82:7887.05,21422.12:-6790.95:20020.47,6747.3:-3130.82:29163.38,2819.58:6347.49:29285.04,-23414.39:18515.49:-3859.76,-7142.42:25873.42:-13622.89]
+
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-CargoDamage]
+			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
+			[Triggers:WW2-Trigger-HostileNear-Cargo]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Green]
+
+			</Description>
+        </EntityComponent>
+
+	<!-- Alexandria -> Toulon -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-CargoShip-Green-Alexandria-Toulon</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Nautical]
+
+			[AutopilotData:WW2-Autopilot-CargoShip]
+			[TargetData:WW2-Targeting-ShipMain]
+
+			[WeaponSystem:WW2-Weapons-CargoShip]
+
+			[CustomWaypoints:-7142.42:25873.42:-13622.89,-23414.39:18515.49:-3859.76,2819.58:6347.49:29285.04,6747.3:-3130.82:29163.38,21422.12:-6790.95:20020.47,17450.09:-23219.82:7887.05,16818.41:-23976.79:6939.93]
+
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-CargoDamage]
+			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
+			[Triggers:WW2-Trigger-HostileNear-Cargo]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Green]
+
+			</Description>
+        </EntityComponent>
+	<!-- End Toulon <-> Alexandria -->
+
+	</EntityComponents>
+</Definitions>

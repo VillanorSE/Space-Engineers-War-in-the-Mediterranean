@@ -10,9 +10,10 @@
      (per MES docs, Manipulation tags are valid inline in SpawnGroup Description, no separate
      Manipulation Profile needed) - makes each port immune to weapon/collision damage and to
      welding/grinding/block edits, on top of MES-Manipulation-RivalAi's usual AI setup.
-     Behaviour references WW2-Behavior-Port-Gray/Green (Behaviors-Port.sbc), which only runs
-     the Store-sales trigger  - these are static buildings, not combat-relevant NPC grids, so
-     no weapon/reputation/spawn triggers are attached. -->
+     Behaviour references one Behavior per port (Behaviors-Port.sbc, e.g. WW2-Behavior-Port-Gray-
+     LaSpezia) - split from a single shared per-faction Behavior on 2026-08-30 so each port can
+     run its own direction-specific cargo spawn (see Triggers-CargoSpawn-Port.sbc) alongside the
+     shared Store-sales and defensive-scramble triggers. -->
 
 	<!-- Gray La Spezia Port -->
 	<SpawnGroup>
@@ -42,7 +43,7 @@
 					<Y>0</Y>
 					<Z>0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-Port-Gray</Behaviour>
+				<Behaviour>WW2-Behavior-Port-Gray-LaSpezia</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -76,7 +77,7 @@
 					<Y>0</Y>
 					<Z>0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-Port-Green</Behaviour>
+				<Behaviour>WW2-Behavior-Port-Green-Toulon</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -110,7 +111,7 @@
 					<Y>0</Y>
 					<Z>0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-Port-Green</Behaviour>
+				<Behaviour>WW2-Behavior-Port-Green-Oran</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -144,7 +145,7 @@
 					<Y>0</Y>
 					<Z>0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-Port-Gray</Behaviour>
+				<Behaviour>WW2-Behavior-Port-Gray-Tripoli</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>

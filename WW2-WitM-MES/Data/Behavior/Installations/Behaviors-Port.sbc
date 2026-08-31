@@ -5,15 +5,21 @@
 <!-- 2026-08-27: Port installations are static, invulnerable, uneditable buildings (see
      SpawnGroups-Ports.sbc)  - they don't patrol or produce anything, so unlike the Factory
      behaviors these only run the Store-sales trigger plus (2026-08-28) a defensive plane
-     scramble, same pattern as the Factories'. One shared Behavior per faction (not per port)
-     since all Gray ports sell the same Gray roster/scramble the same Gray planes, same for
-     Green  - see WW2-Store-Behavior-PortSales.sbc and Triggers-DefensiveSpawn-Port.sbc for the
-     trigger/action pairs. -->
+     scramble, same pattern as the Factories'. See WW2-Store-Behavior-PortSales.sbc and
+     Triggers-DefensiveSpawn-Port.sbc for the trigger/action pairs.
 
+     2026-08-30: split from one shared Behavior per faction into one Behavior per port. Store
+     sales and defensive scramble are still identical per faction (faction-only, no per-port
+     logic), but each port now also runs its own Triggers-CargoSpawn-Port.sbc trigger, and La
+     Spezia/Tripoli (and Oran/Toulon) each need a DIFFERENT one - a shared Behavior can't hold
+     two different one-directional cargo routes. SpawnGroups-Ports.sbc <Behaviour> tags updated
+     to match. -->
+
+<!-- Gray -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Behavior-Port-Gray</SubtypeId>
+                <SubtypeId>WW2-Behavior-Port-Gray-LaSpezia</SubtypeId>
             </Id>
             <Description>
 			[RivalAI Behavior]
@@ -21,6 +27,7 @@
 
 			[Triggers:WW2-Store-Trigger-UpdateSales-Port-Gray]
 			[Triggers:WW2-Trigger-DefenseSpawn-Port-Gray]
+			[Triggers:WW2-Trigger-CargoSpawn-Port-LaSpezia]
 
 			</Description>
         </EntityComponent>
@@ -28,7 +35,24 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Behavior-Port-Green</SubtypeId>
+                <SubtypeId>WW2-Behavior-Port-Gray-Tripoli</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			[Triggers:WW2-Store-Trigger-UpdateSales-Port-Gray]
+			[Triggers:WW2-Trigger-DefenseSpawn-Port-Gray]
+			[Triggers:WW2-Trigger-CargoSpawn-Port-Tripoli]
+
+			</Description>
+        </EntityComponent>
+
+<!-- Green -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Port-Green-Oran</SubtypeId>
             </Id>
             <Description>
 			[RivalAI Behavior]
@@ -36,6 +60,23 @@
 
 			[Triggers:WW2-Store-Trigger-UpdateSales-Port-Green]
 			[Triggers:WW2-Trigger-DefenseSpawn-Port-Green]
+			[Triggers:WW2-Trigger-CargoSpawn-Port-Oran]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Port-Green-Toulon</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			[Triggers:WW2-Store-Trigger-UpdateSales-Port-Green]
+			[Triggers:WW2-Trigger-DefenseSpawn-Port-Green]
+			[Triggers:WW2-Trigger-CargoSpawn-Port-Toulon]
 
 			</Description>
         </EntityComponent>

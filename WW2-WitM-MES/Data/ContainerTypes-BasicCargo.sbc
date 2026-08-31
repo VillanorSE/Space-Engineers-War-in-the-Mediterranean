@@ -1,101 +1,267 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-	
+
 	<ContainerTypes>
 
-	<!-- Small Cargo Container contents, used via ContainerTypeAssignSubtypeId on Cargo Planes, Hangars, and Factories -->
-		<ContainerType CountMin="1" CountMax="3">
+	<!-- Small Cargo Container contents, used via ContainerTypeAssignSubtypeId on Cargo Planes, Hangars, and Factories.
+	     Large-grid only - primarily the cargo containers found on cargo ships, will also cover ammo bunkers, supply
+	     depots, etc. going forward. Placeholder AmountMin/AmountMax/Frequency values below on the added Component
+	     entries - counts/amounts/frequencies to be tuned later. -->
+		<ContainerType CountMin="10" CountMax="20">
 			<Id>
 				<TypeId>ContainerTypeDefinition</TypeId>
 				<SubtypeId>WW2-SmallCargo</SubtypeId>
 			</Id>
 			<Items>
-				<Item AmountMin="5" AmountMax="20">
-					<Frequency>1.0</Frequency>
+				<Item AmountMin="50" AmountMax="200">
+					<Frequency>5.0</Frequency>
 					<Id>
 						<TypeId>Component</TypeId>
 						<SubtypeId>SteelPlate</SubtypeId>
 					</Id>
 				</Item>
-				<Item AmountMin="5" AmountMax="15">
-					<Frequency>1.0</Frequency>
+				<Item AmountMin="25" AmountMax="100">
+					<Frequency>5.0</Frequency>
 					<Id>
 						<TypeId>Component</TypeId>
 						<SubtypeId>Construction</SubtypeId>
 					</Id>
 				</Item>
-				<Item AmountMin="10" AmountMax="30">
-					<Frequency>1.0</Frequency>
+				<Item AmountMin="10" AmountMax="40">
+					<Frequency>4.0</Frequency>
 					<Id>
-						<TypeId>Ingot</TypeId>
-						<SubtypeId>Iron</SubtypeId>
+						<TypeId>Component</TypeId>
+						<SubtypeId>MetalGrid</SubtypeId>
 					</Id>
 				</Item>
-				<Item AmountMin="10" AmountMax="30">
+				<Item AmountMin="25" AmountMax="100">
+					<Frequency>4.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>InteriorPlate</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="10" AmountMax="40">
+					<Frequency>3.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>SmallTube</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="10" AmountMax="40">
+					<Frequency>2.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>LargeTube</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="25" AmountMax="100">
+					<Frequency>4.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>Motor</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="10" AmountMax="40">
+					<Frequency>3.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>Display</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="25" AmountMax="100">
+					<Frequency>3.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>BulletproofGlass</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="10" AmountMax="40">
+					<Frequency>2.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>Girder</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="25" AmountMax="100">
+					<Frequency>2.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>Computer</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="2" AmountMax="10">
 					<Frequency>1.0</Frequency>
 					<Id>
-						<TypeId>AmmoMagazine</TypeId>
-						<SubtypeId>HispanoDrumAP</SubtypeId>
+						<TypeId>Component</TypeId>
+						<SubtypeId>Medical</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="5" AmountMax="20">
+					<Frequency>1.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>RadioCommunication</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="5" AmountMax="20">
+					<Frequency>1.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>Detector</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="25" AmountMax="100">
+					<Frequency>1.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>SolarCell</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="25" AmountMax="100">
+					<Frequency>3.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>PowerCell</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="10" AmountMax="40">
+					<Frequency>1.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>Superconductor</SubtypeId>
 					</Id>
 				</Item>
 			</Items>
 		</ContainerType>
 	<!-- End Small Cargo Container -->
 
-	<!-- Medium Cargo Container contents, used via ContainerTypeAssignSubtypeId on Cargo Planes, Hangars, and Factories -->
-		<ContainerType CountMin="2" CountMax="4">
+	<!-- Medium Cargo Container contents, used via ContainerTypeAssignSubtypeId on Cargo Planes, Hangars, and Factories.
+	     Placeholder AmountMin/AmountMax/Frequency values below on the added Component entries - counts/amounts/
+	     frequencies to be tuned later. -->
+		<ContainerType CountMin="10" CountMax="20">
 			<Id>
 				<TypeId>ContainerTypeDefinition</TypeId>
 				<SubtypeId>WW2-MediumCargo</SubtypeId>
 			</Id>
 			<Items>
-				<Item AmountMin="15" AmountMax="40">
-					<Frequency>1.0</Frequency>
+				<Item AmountMin="15" AmountMax="60">
+					<Frequency>5.0</Frequency>
 					<Id>
 						<TypeId>Component</TypeId>
 						<SubtypeId>SteelPlate</SubtypeId>
 					</Id>
 				</Item>
-				<Item AmountMin="15" AmountMax="35">
-					<Frequency>1.0</Frequency>
+				<Item AmountMin="10" AmountMax="40">
+					<Frequency>5.0</Frequency>
 					<Id>
 						<TypeId>Component</TypeId>
 						<SubtypeId>Construction</SubtypeId>
 					</Id>
 				</Item>
 				<Item AmountMin="5" AmountMax="15">
-					<Frequency>1.0</Frequency>
+					<Frequency>4.0</Frequency>
 					<Id>
 						<TypeId>Component</TypeId>
 						<SubtypeId>InteriorPlate</SubtypeId>
 					</Id>
 				</Item>
-				<Item AmountMin="25" AmountMax="60">
-					<Frequency>1.0</Frequency>
+				<Item AmountMin="5" AmountMax="20">
+					<Frequency>4.0</Frequency>
 					<Id>
-						<TypeId>Ingot</TypeId>
-						<SubtypeId>Iron</SubtypeId>
+						<TypeId>Component</TypeId>
+						<SubtypeId>MetalGrid</SubtypeId>
 					</Id>
 				</Item>
-				<Item AmountMin="10" AmountMax="25">
-					<Frequency>1.0</Frequency>
+				<Item AmountMin="5" AmountMax="20">
+					<Frequency>3.0</Frequency>
 					<Id>
-						<TypeId>Ingot</TypeId>
-						<SubtypeId>Nickel</SubtypeId>
+						<TypeId>Component</TypeId>
+						<SubtypeId>SmallTube</SubtypeId>
 					</Id>
 				</Item>
-				<Item AmountMin="25" AmountMax="75">
-					<Frequency>1.0</Frequency>
+				<Item AmountMin="5" AmountMax="20">
+					<Frequency>2.0</Frequency>
 					<Id>
-						<TypeId>AmmoMagazine</TypeId>
-						<SubtypeId>Class1APMagazine</SubtypeId>
+						<TypeId>Component</TypeId>
+						<SubtypeId>LargeTube</SubtypeId>
 					</Id>
 				</Item>
-				<Item AmountMin="25" AmountMax="75">
+				<Item AmountMin="10" AmountMax="40">
+					<Frequency>4.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>Motor</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="5" AmountMax="20">
+					<Frequency>3.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>Display</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="10" AmountMax="40">
+					<Frequency>3.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>BulletproofGlass</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="5" AmountMax="20">
+					<Frequency>2.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>Girder</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="10" AmountMax="40">
 					<Frequency>1.0</Frequency>
 					<Id>
-						<TypeId>AmmoMagazine</TypeId>
-						<SubtypeId>BoforsGunAPMagazine</SubtypeId>
+						<TypeId>Component</TypeId>
+						<SubtypeId>Computer</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="1" AmountMax="5">
+					<Frequency>1.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>Medical</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="2" AmountMax="8">
+					<Frequency>1.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>RadioCommunication</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="2" AmountMax="8">
+					<Frequency>1.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>Detector</SubtypeId>
+					</Id>
+				</Item>>
+				<Item AmountMin="10" AmountMax="40">
+					<Frequency>1.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>SolarCell</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="10" AmountMax="40">
+					<Frequency>3.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>PowerCell</SubtypeId>
+					</Id>
+				</Item>
+				<Item AmountMin="5" AmountMax="20">
+					<Frequency>1.0</Frequency>
+					<Id>
+						<TypeId>Component</TypeId>
+						<SubtypeId>Superconductor</SubtypeId>
 					</Id>
 				</Item>
 			</Items>

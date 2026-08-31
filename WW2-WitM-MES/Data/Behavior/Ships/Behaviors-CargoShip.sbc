@@ -14,8 +14,7 @@
 			[RivalAI Behavior]
 			[BehaviorName:Nautical]
 			
-			[AutopilotData:WW2-Autopilot-CargoShip-Cruising]
-			[SecondaryAutopilotData:WW2-Autopilot-CargoShip-Destination]
+			[AutopilotData:WW2-Autopilot-CargoShip]
 			[TargetData:WW2-Targeting-ShipMain]
 			
 			[WeaponSystem:WW2-Weapons-CargoShip]
@@ -44,8 +43,7 @@
 			[RivalAI Behavior]
 			[BehaviorName:Nautical]
 			
-			[AutopilotData:WW2-Autopilot-CargoShip-Cruising]
-			[SecondaryAutopilotData:WW2-Autopilot-CargoShip-Destination]
+			[AutopilotData:WW2-Autopilot-CargoShip]
 			[TargetData:WW2-Targeting-ShipMain]
 			
 			[WeaponSystem:WW2-Weapons-CargoShip]
@@ -55,6 +53,7 @@
 			[Triggers:WW2-Trigger-CargoShip-Destination]
 			[Triggers:WW2-Trigger-CargoShip-DestinationReached]
 			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
+			[Triggers:WW2-Trigger-HostileNear-Cargo]
 			[Triggers:WW2-Trigger-BotCrew-3]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Green]
@@ -63,14 +62,14 @@
         </EntityComponent>
 	<!-- End Cargo Ship Behaviors -->
 
-	<!-- Cargo Ship Autopilots -->
+	<!-- Cargo Ship Autopilot -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Autopilot-CargoShip-Cruising</SubtypeId>
+				<SubtypeId>WW2-Autopilot-CargoShip</SubtypeId>
 			</Id>
 			<Description>
-			
+
 			[RivalAI Autopilot]
 
 			[DisableInertiaDampeners:false]
@@ -79,47 +78,19 @@
 			[FlyLevelWithGravity:true]
 			[AllowStrafing:false]
 			[WaypointTolerance:50]
-			[IdealMinSpeed:5]
-			[IdealMaxSpeed:8]
-			
+			[IdealMinSpeed:10]
+			[IdealMaxSpeed:10]
+
 			[RotationMultiplier:0.3]
 			[AngleAllowedForForwardThrust:180]
-			
+
 			[UseVelocityCollisionEvasion:true]
 			[CollisionEvasionWaypointDistance:100]
 			[WaypointWaitTimeTrigger:15]
-			
+
 			</Description>
 		</EntityComponent>
-
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Autopilot-CargoShip-Destination</SubtypeId>
-			</Id>
-			<Description>
-			
-			[RivalAI Autopilot]
-
-			[DisableInertiaDampeners:false]
-			[SlowDownOnWaypointApproach:false]
-			[ExtraSlowDownDistance:0]
-			[FlyLevelWithGravity:true]
-			[AllowStrafing:false]
-			[WaypointTolerance:50]
-			[IdealMinSpeed:8]
-			[IdealMaxSpeed:12]
-			
-			[RotationMultiplier:0.3]
-			[AngleAllowedForForwardThrust:180]
-			
-			[UseVelocityCollisionEvasion:true]
-			[CollisionEvasionWaypointDistance:100]
-			[WaypointWaitTimeTrigger:15]
-			
-			</Description>
-		</EntityComponent>	
-	<!-- End Cargo Ship Autopilots -->
+	<!-- End Cargo Ship Autopilot -->
 
 	<!-- Weapon Profile, CargoShip -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">

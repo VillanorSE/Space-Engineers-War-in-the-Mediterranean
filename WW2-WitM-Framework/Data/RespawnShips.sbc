@@ -3,28 +3,58 @@
 	<RespawnShips>
 
 	<!-- WW2-WitM Respawn Vehicles
-	     Ground-vehicle respawn pods for the Mediterranean setting - low-altitude drop
-	     (no parachute on these prefabs), planet-only. Add more <Ship> entries here as
-	     more nation/faction respawn vehicles are built (e.g. the planned French ANH). -->
-
-		<Ship> <!-- Fiat 626 (Italian) -->
+	     Ground-vehicle respawn pods for the Mediterranean setting - planet-only, no
+	     parachute on these prefabs. PlanetDeployAltitude raised from 10 to 50 on
+	     2026-08-30 (was too low for the engine's placement search to reliably find
+	     clear terrain near a survival kit/medical room, causing both ships to be
+	     silently omitted from the respawn screen - see chat history); paired with a
+	     light braking InitialLinearVelocity since there's still no parachute to
+	     arrest the fall. Add more <Ship> entries here as more nation/faction
+	     respawn vehicles are built. -->
+<!-- Fiat 626 (Italian) -->
+		<Ship>
 			<Id>
 				<TypeId>RespawnShipDefinition</TypeId>
 				<SubtypeId>WW2-RespawnVehicle-Fiat626</SubtypeId>
 			</Id>
 			<DisplayName>Fiat 626</DisplayName>
-			<Icon>Textures\GUI\Icons\RespawnShips\RespawnRover.png</Icon>
+			<Icon>Textures\GUI\Icons\RespawnShips\Fiat626.png</Icon>
 			<CooldownSeconds>900</CooldownSeconds>
 			<Prefab>Player-WW2-Fiat626</Prefab>
 
 			<UseForSpace>false</UseForSpace>
 			<UseForPlanetsWithAtmosphere>true</UseForPlanetsWithAtmosphere>
 			<UseForPlanetsWithoutAtmosphere>false</UseForPlanetsWithoutAtmosphere>
-			<PlanetDeployAltitude>10</PlanetDeployAltitude>
+			<PlanetDeployAltitude>50</PlanetDeployAltitude>
 			<MinimalAirDensity>0.5</MinimalAirDensity>
 
+			<InitialLinearVelocity x="0" y="-5" z="0" />
+
 			<SpawnWithDefaultItems>true</SpawnWithDefaultItems>
-			<HelpTextLocalizationId>Description_RespawnRover</HelpTextLocalizationId>
+			<HelpTextLocalizationId>A rugged Italian Army supply truck. Stocked with some basic supplies to get started.</HelpTextLocalizationId>
+		</Ship>
+
+<!-- Renault AHN (French but mostly used by Germany) -->
+		<Ship> 
+			<Id>
+				<TypeId>RespawnShipDefinition</TypeId>
+				<SubtypeId>WW2-RespawnVehicle-RenaultAHN</SubtypeId>
+			</Id>
+			<DisplayName>Renault AHN</DisplayName>
+			<Icon>Textures\GUI\Icons\RespawnShips\RenaultAHN.png</Icon>
+			<CooldownSeconds>900</CooldownSeconds>
+			<Prefab>Player-WW2-RenaultAHN</Prefab>
+
+			<UseForSpace>false</UseForSpace>
+			<UseForPlanetsWithAtmosphere>true</UseForPlanetsWithAtmosphere>
+			<UseForPlanetsWithoutAtmosphere>false</UseForPlanetsWithoutAtmosphere>
+			<PlanetDeployAltitude>50</PlanetDeployAltitude>
+			<MinimalAirDensity>0.5</MinimalAirDensity>
+
+			<InitialLinearVelocity x="0" y="-5" z="0" />
+
+			<SpawnWithDefaultItems>true</SpawnWithDefaultItems>
+			<HelpTextLocalizationId>A captured French supply truck pressed into German service. Stocked with some basic supplies to get started.</HelpTextLocalizationId>
 		</Ship>
 
 	</RespawnShips>
