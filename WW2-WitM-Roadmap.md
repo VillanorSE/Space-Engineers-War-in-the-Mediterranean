@@ -54,8 +54,10 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 - [x] Check Aquila for old guns (had blueprint in console block)
 - [x] Remove old ammo from prefab cargoes
 - [ ] Merge in Gibraltar Topography
-- [ ] Make mountains, especially in Italy and Greece less "spire"like
-- [ ] Get Static spawns to properly spawn
+- [x] Make mountains, especially in Italy and Greece less "spire"like
+- [ ] Get Static spawns to properly spawn, figure out why they are despawning.
+
+**Rebuilds:**
 
   **Naval:**
   - [x] NPC-WW2-Golo_Italian (Cargo Ship, Gray)
@@ -82,25 +84,20 @@ Not a stage so much as a foundation everything else sits on. The current naval w
   - [x] Player-WW2-SM79_Bomber (Attacker, Gray)
   - [x] Player-WW2-SM79_Torpedo (Attacker, Gray)
   - [x] NPC-WW2-Loire130 (Recon, Green)
-  - [ ] NPC-WW2-F4F (Fighter, Green) — **on hold, 2026-08-21: being pulled from the mod (at least for now), not a good thematic fit.** Not a rebuild task until/unless it's reinstated — see Air roster note below.
   - [x] NPC-WW2-MS406 (Fighter, Green)
   - [x] NPC-WW2-Potez630 (Attacker, Green)
   - [x] NPC-WW2-V-156-F-Bomber (Attacker, Green)
   - [x] NPC-WW2-V-156-F-Torpedo (Attacker, Green)
   - [x] NPC-WW2-Ju52 (Cargo Plane, Gray)
   - [x] NPC-WW2-F222 (Cargo Plane, Green)
-  - [ ] NPC-WW2-C47 — **not a rebuild task.** Already orphaned/unused, superseded by F222. Decide retire-vs-rebuild first; don't spend a session rebuilding a hull you've already said you don't want.
 
-  **Installations (architecture superseded, confirmed):** the old one-hangar/one-factory-per-plane-type model is retired. No more rebuilding a separate Hangar or Factory prefab for every plane variant that gets added — one general Hangar, one general Factory, and one general Garage per faction instead, with MES handling which vehicle variant spawns inside via SpawnGroup selection rather than the installation itself being hardcoded to one plane. This is the direct generalization of the Factory rework architecture (one factory shell per faction per class, spawning independent small-grid planes into fixed interior points, proven by the existing `OffenseSpawn-Factory-Plane`/`DeliverySpawn-Factory-Plane` mechanism) taken one step further: one shell per faction *per installation type*, not per class either.
-
-  Prefab names below follow the naming convention above and are inferred from the existing pattern, not yet confirmed against actual file names — flag if these don't match:
+ **Installations:**
   - [ ] NPC-WW2-Ammo-Depot-1
   - [x] NPC-WW2-Hangar
   - [x] NPC-WW2-Factory-Plane
-  - [ ] NPC-WW2-Garage
-- [ ] Re-verify SpawnGroups/Behaviors/Loot still reference correct ammo/weapon subtype IDs after rebuild (loot container definitions currently reference old ammo names like `FiddyShellWC`, `HispanoDrumAP` — these will need updating).
-- [ ] Once rebuilt, re-run the same cross-reference audit process used earlier in this project (defined-vs-referenced SubtypeId sweep) to catch anything broken by the swap.
-- [ ] Audit the full MES mod's installation prefabs and replace the retired per-plane Hangar/Factory model with the confirmed one-Hangar/one-Factory-per-faction design (see the Installations note above); wire Factory/Hangar interior spawns to select from the `Player-WW2-*` prefab family per the naming convention.
+  - [ ] NPC-WW2-Garage (create, never actually made)
+
+
 - [x] Remove F4F from the mod (spawn groups, prefabs, any references) — pulled from the roster, see Air roster note.
 - [x] Confirm SM.79 (Bomber and Torpedo, NPC and Player) is fully wired into SpawnGroups/Behaviors/Loot now that the prefab rebuild is done.
 - [ ] Test all MES components end-to-end to confirm baseline features (spawning, behaviors, triggers) work after the recent rebuild work.
