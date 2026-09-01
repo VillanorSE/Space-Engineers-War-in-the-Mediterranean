@@ -37,20 +37,25 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 - [ ] Resolve CrashAir not working as intended
 - [x] Create Fiat 626 player respawn truck (150% scale)
 - [x] Create AHN player respawn truck (150% scale)
-- [ ] Configure basic features on port installations
+- [x] Configure basic features on port installations
   - [x] Selling grids of that faction
   - [x] Spawning cargo ships that travel to the other port
   - [x] Defensive spawn
-- [ ] Adjust threat level and similar spawn controls on Bearn and Aquila, spawning when not expected
+- [x] Adjust threat level and similar spawn controls on Bearn and Aquila, spawning when not expected
 - [ ] Connect basic war level and territory aspects to ports
 - [x] Create GPS Routes for travel between existing port locations
-- [ ] Assign component costs to cores
-- [ ] Assign component costs to prototech non-military
-- [ ] Assign component costs to weapons
+- [x] Assign component costs to cores (does not include advanced Naval or Ground cores yet)
+- [x] Assign component costs to advanced propellers
+- [ ] Assign component costs to advanced wheels (5x5)
+- [x] Assign component costs to weapons
 - [ ] Figure out store block problems
-- [ ] Get respawn rovers to show up in respawn menu
+- [x] Get respawn rovers to show up in respawn menu
 - [ ] Add industrial component cost to the upgrade modules for production blocks
-- [ ] Check Aquila for old guns
+- [x] Check Aquila for old guns (had blueprint in console block)
+- [x] Remove old ammo from prefab cargoes
+- [ ] Merge in Gibraltar Topography
+- [ ] Make mountains, especially in Italy and Greece less "spire"like
+- [ ] Get Static spawns to properly spawn
 
   **Naval:**
   - [x] NPC-WW2-Golo_Italian (Cargo Ship, Gray)
@@ -99,7 +104,7 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 - [x] Remove F4F from the mod (spawn groups, prefabs, any references) — pulled from the roster, see Air roster note.
 - [x] Confirm SM.79 (Bomber and Torpedo, NPC and Player) is fully wired into SpawnGroups/Behaviors/Loot now that the prefab rebuild is done.
 - [ ] Test all MES components end-to-end to confirm baseline features (spawning, behaviors, triggers) work after the recent rebuild work.
-- [ ] Build BlockRestrictions definitions removing non-period-correct blocks (anachronistic weapons, reactors, thrusters, etc.) from the G-menu across vanilla and dependency mods — new tool decision, see Modlist entry #26; full block audit not yet done.
+- [x] Build BlockRestrictions definitions removing non-period-correct blocks (anachronistic weapons, reactors, thrusters, etc.) from the G-menu across vanilla and dependency mods — new tool decision, see Modlist entry #26; full block audit not yet done.
 
 ---
 
@@ -256,22 +261,20 @@ Non-hostile, pre-damaged versions of existing hulls (a hulked Francesco Crispi, 
 **Working answer: no.** Ship Core Framework's `MaxPerFaction`/`MaxPerPlayer` design is oriented around limiting player-built grids — an MES-spawned NPC ship isn't "progressing," it's pre-built encounter content, same as today. This matches the broader ecosystem convention (Block Restrictions explicitly differentiates `AllowedForNPC`/`AllowedForPlayer`/`AllowedForUnowned`) of exempting NPC ownership from player-progression systems by default. Not fully settled, though — found a real, unresolved forum comment from someone hitting this exact ambiguity in practice with a different but related core mod ("tried spawning ships with the core[s] on them there was no level set to them"). Treat as a real to-do, not an assumption. (Note: your own correction — SDX2 runs MES underneath, with AI Enabled/Crew Enabled as supplementary systems rather than a replacement — makes SDX2 more relevant evidence here than originally credited, not less, since it's a real MES-based server coexisting with a core-progression mod.)
 
 **To-do:**
-- [ ] Once Ship Core Framework is actually integrated, test spawning an NPC ship with no core at all — confirm it isn't rejected, capped, or otherwise affected before assuming NPCs can stay core-free..
+- [x] Once Ship Core Framework is actually integrated, test spawning an NPC ship with no core at all — confirm it isn't rejected, capped, or otherwise affected before assuming NPCs can stay core-free..
 - [ ] Add type-appropriate ammo to NPC cargo loot — naval gun ammo on ships, aircraft gun ammo on planes — extending the existing `WW2-Loot-*` profiles per ship class. Blocked on confirmed ammo magazine SubtypeIds from Fletcher Armaments/Consty's Ordnance (separate from the weapon *block* IDs already gathered — ammo magazine IDs are typically distinct strings, need their own lookup pass once the weapon rebuild settles).
 
 **To-do:**
 - [ ] Add Industrial/Military/Advanced Military Components to existing `WW2-Loot-*` container profiles at tuned drop frequencies, per the military/civilian sourcing split confirmed above.
-- [ ] Sub-classify the existing `WeaponBlocks` `BlockGroup` split (Guns/Bombs/Torpedoes/Smoke) into basic vs. advanced, to support vanilla-vs-Military-Component weapon costing.
-- [ ] Test subgrid pitch-down behavior on an actual plane incrementally from 150 up toward 250 m/s before committing to the world speed increase.
+- [x] Sub-classify the existing `WeaponBlocks` `BlockGroup` split (Guns/Bombs/Torpedoes/Smoke) into basic vs. advanced, to support vanilla-vs-Military-Component weapon costing.
+- [x] Test subgrid pitch-down behavior on an actual plane incrementally from 150 up toward 250 m/s before committing to the world speed increase. World speed set to 150. Nose down became problematic at 150m/s.
 - [ ] Write `ShipCoreConfig_World.xml` (confirm `MaxPossibleSpeedMetersPerSecond` — 150 or 250 pending the physics test above — plus `MassTypeMode`, `FrictionSpeedValueMode`).
-- [ ] Write `BlockGroup` definitions: `ProductionBlocks`, `CargoBlocks`, `ToolBlocks` (can start now, vanilla types) and `WeaponBlocks` (blocked on weapon rebuild).
-- [ ] Add Ship Core Framework as a mod dependency to the world/mod list.
-- [ ] Smoke test before committing further: write one minimal `ShipCore` definition (no component cost, just a block limit or two) and place it on a throwaway test grid. Confirm the block limit actually enforces, `/core` commands respond as documented, and the correct `MaxPossibleSpeedMetersPerSecond` value is taking effect — before writing any of the real definitions below on top of an unverified foundation.
-- [ ] Write the eight Stage 1 `ShipCore` XML definitions (Civilian Naval, Corvette Naval, Cargo Plane, Fighter, Transport, Armored Car, Base, Outpost) — vanilla-component cost.
-- [ ] Write the Destroyer `ShipCore` definition — low Military Components cost — as the Stage 1 proof-of-concept unlock tier.
-- [ ] Design and build the Corvette → Destroyer unlock trigger chain as the proof-of-concept for the whole gating system.
+- [x] Write `BlockGroup` definitions: `ProductionBlocks`, `CargoBlocks`, `ToolBlocks` (can start now, vanilla types) and `WeaponBlocks` (blocked on weapon rebuild).
+- [x] Add Ship Core Framework as a mod dependency to the world/mod list.
+- [x] Smoke test before committing further: write one minimal `ShipCore` definition (no component cost, just a block limit or two) and place it on a throwaway test grid. Confirm the block limit actually enforces, `/core` commands respond as documented, and the correct `MaxPossibleSpeedMetersPerSecond` value is taking effect — before writing any of the real definitions below on top of an unverified foundation.
+- [x] Write the eight Stage 1 `ShipCore` XML definitions (Civilian Naval, Corvette Naval, Cargo Plane, Fighter, Transport, Armored Car, Base, Outpost) — vanilla-component cost.
+- [x] Write the Destroyer `ShipCore` definition — low Military Components cost — as the Stage 1 proof-of-concept unlock tier.
 - [ ] Spawn-condition a small number of salvageable wreck variants of existing hulls, covering both military and civilian spawn themes.
-- [ ] Playtest: start on vanilla-cost everything, fight/salvage using existing assets, confirm the Destroyer unlock actually fires once enough Military Components are banked.
 
 ---
 
@@ -427,12 +430,12 @@ New grid design finally becomes necessary. Deliberately small:
 Air can wait — the existing Fighter roster already covers the starting tier.
 
 **To-do:**
-- [ ] Create 150% scale Fiat 626 truck.
-- [ ] Create 150% scale AHN truck.
+- [x] Create 150% scale Fiat 626 truck.
+- [x] Create 150% scale AHN truck.
 - [ ] Design Gray Armored Car (AB 41).
 - [ ] Design Green Armored Car (Panhard).
 - [ ] Wire all four into SpawnGroups/Behaviors/Loot per existing pipeline.
-- [ ] Create respawn mod with the trucks.
+- [x] Create respawn mod with the trucks.
 
 ---
 
@@ -493,10 +496,10 @@ Doesn't block or get blocked by the numbered stages themselves — new terrain d
 **Known open items:**
 - [ ] Biome GREEN channel (foliage/environment items) not built yet.
 - [ ] `Uraninite_01` (used for Uranium ore) confirmed real only against an asteroid materials reference, not a planet one — watch the load log for this specific line.
-- [ ] Water Mod's working radius for this planet is empirically `/wradius 1.02862`, not the ~1.0 the HillParams math would suggest — result of wradius 1.0 being based on the lowest point of the surface, not "sea level".
+- [x] Water Mod's working radius for this planet is empirically `/wradius 1.02862`, not the ~1.0 the HillParams math would suggest — result of wradius 1.0 being based on the lowest point of the surface, not "sea level".
 - [ ] Ore distribution is random-within-budget; revisit if specific historical/gameplay-driven placement becomes worth the effort.
 - [ ] Spawn in a fresh test world and confirm WeaponCore/MES don't exhibit raycast issues (the ≤2048px constraint was respected throughout, but hasn't been explicitly re-verified against live NPC/weapon behavior).
-- [ ] Once terrain is fully settled: place port locations (existing Base/Outpost/Hangar prefabs) and plan convoy GPS routes using the existing SpawnGroup/patrol pipeline.
+- [x] Once terrain is fully settled: place port locations (existing Base/Outpost/Hangar prefabs) and plan convoy GPS routes using the existing SpawnGroup/patrol pipeline.
 - [x] Sky doesn't render blue correctly (2026-08-21) — atmosphere/sky settings need investigation, root cause confirmed that planet was first spawned with atmosphere=false and does not re-check. Fixed by placing new planet.
 - [x] Pull tree density and grass distribution parameters from vanilla Orcus into this planet's environment-item definitions (2026-08-21) — Orcus already used as a voxel-material reference on this project (`VoxelMaterials_Orcus.sbc`), now also wanted for its foliage density/placement, not just its materials.
 

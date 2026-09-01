@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Tech-component costs for "Weapons" ShipCore group blocks (Terran Titans battleship guns +
-     various WW2-naval-gun Workshop mods). Original <Components> lists reproduced in full
-     (verified against each mod's own source .sbc) with the new Advanced Military Components
-     (PrototechCircuitry) appended at the END of the array, after the original CriticalComponent
-     entry - original CriticalComponent Subtype/Index values (including this modder's own
-     non-standard Index conventions, e.g. Index="10"/"30" on some FA/BB guns) are reproduced
-     verbatim and untouched. -->
+<!-- Tech-component costs for the "Weapons" ShipCore group (Terran Titans battleship guns,
+     Yakobe's Machinations vehicle/naval guns, CAP aircraft cannons, and the various WW2-naval-gun
+     Workshop mods). Original <Components> lists reproduced in full (verified against each mod's
+     own source .sbc) with the new tech component - Military Components (PrototechFrame) or
+     Advanced Military Components (PrototechCircuitry), per block - appended at the END of the
+     array, after the original CriticalComponent entry. Original CriticalComponent Subtype/Index
+     values (including non-standard Index conventions used by some source mods, e.g. Index="10"/
+     "20"/"30" on some FA/BB/DD/CL guns, and a couple of malformed source files noted inline) are
+     reproduced verbatim and untouched. -->
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <CubeBlocks>
 
@@ -22,11 +24,12 @@
         <Component Subtype="Computer" Count="20" />
         <Component Subtype="MetalGrid" Count="50" />
         <Component Subtype="SteelPlate" Count="2400" />
-        <Component Subtype="PrototechCircuitry" Count="12" />
+        <Component Subtype="PrototechCircuitry" Count="40" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
 
+    <!-- Source: workshop 3043566172, Data/Battleship/TT16INCHMK6R.sbc -->
     <Definition xsi:type="ConveyorSorterDefinition">
       <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="TT16INCHMK6R" />
       <Components>
@@ -39,7 +42,7 @@
         <Component Subtype="Computer" Count="20" />
         <Component Subtype="MetalGrid" Count="50" />
         <Component Subtype="SteelPlate" Count="1500" />
-        <Component Subtype="PrototechCircuitry" Count="12" />
+        <Component Subtype="PrototechCircuitry" Count="40" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
@@ -57,7 +60,7 @@
         <Component Subtype="Computer" Count="20" />
         <Component Subtype="MetalGrid" Count="50" />
         <Component Subtype="SteelPlate" Count="1600" />
-        <Component Subtype="PrototechCircuitry" Count="10" />
+        <Component Subtype="PrototechCircuitry" Count="24" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
@@ -75,7 +78,7 @@
         <Component Subtype="Computer" Count="20" />
         <Component Subtype="MetalGrid" Count="50" />
         <Component Subtype="SteelPlate" Count="1800" />
-        <Component Subtype="PrototechCircuitry" Count="10" />
+        <Component Subtype="PrototechCircuitry" Count="24" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
@@ -93,7 +96,7 @@
         <Component Subtype="Computer" Count="20" />
         <Component Subtype="MetalGrid" Count="50" />
         <Component Subtype="SteelPlate" Count="1500" />
-        <Component Subtype="PrototechCircuitry" Count="10" />
+        <Component Subtype="PrototechCircuitry" Count="16" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
@@ -111,7 +114,43 @@
         <Component Subtype="Computer" Count="20" />
         <Component Subtype="MetalGrid" Count="50" />
         <Component Subtype="SteelPlate" Count="1700" />
-        <Component Subtype="PrototechCircuitry" Count="10" />
+        <Component Subtype="PrototechCircuitry" Count="16" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 3043566172, Data/Battleship/TTTYPE94.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="TTTYPE94" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="2400" />
+        <Component Subtype="Construction" Count="260" />
+        <Component Subtype="MetalGrid" Count="75" />
+        <Component Subtype="SmallTube" Count="30" />
+        <Component Subtype="LargeTube" Count="50" />
+        <Component Subtype="Motor" Count="60" />
+        <Component Subtype="Computer" Count="20" />
+        <Component Subtype="MetalGrid" Count="50" />
+        <Component Subtype="SteelPlate" Count="2400" />
+        <Component Subtype="PrototechCircuitry" Count="60" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 3043566172, Data/Battleship/TTTYPE94.sbc (SubtypeId TTTYPE94R) -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="TTTYPE94R" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="2400" />
+        <Component Subtype="Construction" Count="260" />
+        <Component Subtype="MetalGrid" Count="75" />
+        <Component Subtype="SmallTube" Count="30" />
+        <Component Subtype="LargeTube" Count="50" />
+        <Component Subtype="Motor" Count="60" />
+        <Component Subtype="Computer" Count="20" />
+        <Component Subtype="MetalGrid" Count="50" />
+        <Component Subtype="SteelPlate" Count="2400" />
+        <Component Subtype="PrototechCircuitry" Count="60" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
@@ -128,7 +167,7 @@
         <Component Subtype="Construction" Count="5" />
         <Component Subtype="MetalGrid" Count="15" />
         <Component Subtype="SteelPlate" Count="25" />
-        <Component Subtype="PrototechCircuitry" Count="2" />
+        <Component Subtype="PrototechFrame" Count="6" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
     </Definition>
@@ -145,7 +184,7 @@
         <Component Subtype="Construction" Count="12" />
         <Component Subtype="MetalGrid" Count="15" />
         <Component Subtype="SteelPlate" Count="45" />
-        <Component Subtype="PrototechCircuitry" Count="2" />
+        <Component Subtype="PrototechCircuitry" Count="4" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
     </Definition>
@@ -162,7 +201,7 @@
         <Component Subtype="Construction" Count="20" />
         <Component Subtype="MetalGrid" Count="10" />
         <Component Subtype="SteelPlate" Count="25" />
-        <Component Subtype="PrototechCircuitry" Count="2" />
+        <Component Subtype="PrototechFrame" Count="4" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
     </Definition>
@@ -179,7 +218,177 @@
         <Component Subtype="Construction" Count="15" />
         <Component Subtype="MetalGrid" Count="5" />
         <Component Subtype="SteelPlate" Count="15" />
-        <Component Subtype="PrototechCircuitry" Count="2" />
+        <Component Subtype="PrototechCircuitry" Count="4" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/AA/100mm55Main.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="100mm55Main" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="5" />
+        <Component Subtype="Computer" Count="15" />
+        <Component Subtype="Construction" Count="10" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="SteelPlate" Count="75" />
+        <Component Subtype="PrototechFrame" Count="20" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/AA/100mmSingleMain.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="100mmSingleMain" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="5" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="10" />
+        <Component Subtype="MetalGrid" Count="15" />
+        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="PrototechFrame" Count="6" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/AA/100mmTwinMain.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="100mmTwinMain" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="5" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="10" />
+        <Component Subtype="MetalGrid" Count="15" />
+        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="PrototechFrame" Count="12" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/AA/37mmFlakSingleSmall.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="37mmFlakSingleSmall" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="5" />
+        <Component Subtype="LargeTube" Count="6" />
+        <Component Subtype="Motor" Count="5" />
+        <Component Subtype="Computer" Count="2" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="SteelPlate" Count="25" />
+        <Component Subtype="PrototechFrame" Count="2" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/AA/FA_76mm_39K.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="FA_76mm_39K" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="5" />
+        <Component Subtype="LargeTube" Count="6" />
+        <Component Subtype="Motor" Count="5" />
+        <Component Subtype="Computer" Count="2" />
+        <Component Subtype="Construction" Count="15" />
+        <Component Subtype="MetalGrid" Count="25" />
+        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="PrototechCircuitry" Count="6" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/AA/FA_85mm_92K.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="FA_85mm_92K" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="5" />
+        <Component Subtype="LargeTube" Count="6" />
+        <Component Subtype="Motor" Count="5" />
+        <Component Subtype="Computer" Count="2" />
+        <Component Subtype="Construction" Count="15" />
+        <Component Subtype="MetalGrid" Count="25" />
+        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="PrototechCircuitry" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/AA/Fa57mm60.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="Fa57mm60" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="5" />
+        <Component Subtype="LargeTube" Count="6" />
+        <Component Subtype="Motor" Count="5" />
+        <Component Subtype="Computer" Count="2" />
+        <Component Subtype="Construction" Count="15" />
+        <Component Subtype="MetalGrid" Count="25" />
+        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="PrototechCircuitry" Count="16" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/AA/FL2cmSmall.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="FL2cmSmall" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="12" />
+        <Component Subtype="Motor" Count="8" />
+        <Component Subtype="Computer" Count="4" />
+        <Component Subtype="Construction" Count="12" />
+        <Component Subtype="MetalGrid" Count="15" />
+        <Component Subtype="SteelPlate" Count="45" />
+        <Component Subtype="PrototechFrame" Count="2" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/AA/PomPomMain.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="PomPomMain" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="15" />
+        <Component Subtype="MetalGrid" Count="6" />
+        <Component Subtype="LargeTube" Count="7" />
+        <Component Subtype="Motor" Count="6" />
+        <Component Subtype="Computer" Count="2" />
+        <Component Subtype="Construction" Count="18" />
+        <Component Subtype="MetalGrid" Count="7" />
+        <Component Subtype="SteelPlate" Count="20" />
+        <Component Subtype="PrototechCircuitry" Count="12" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/AA/Type96Single.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="Type96Single" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="5" />
+        <Component Subtype="LargeTube" Count="6" />
+        <Component Subtype="Motor" Count="5" />
+        <Component Subtype="Computer" Count="2" />
+        <Component Subtype="Construction" Count="5" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="SteelPlate" Count="20" />
+        <Component Subtype="PrototechFrame" Count="2" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
     </Definition>
@@ -196,7 +405,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="4" />
+        <Component Subtype="PrototechCircuitry" Count="18" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -213,7 +422,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="4" />
+        <Component Subtype="PrototechCircuitry" Count="18" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -230,7 +439,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="4" />
+        <Component Subtype="PrototechCircuitry" Count="24" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -247,7 +456,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="4" />
+        <Component Subtype="PrototechCircuitry" Count="18" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -264,7 +473,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="5" />
+        <Component Subtype="PrototechCircuitry" Count="32" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -281,7 +490,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="5" />
+        <Component Subtype="PrototechCircuitry" Count="32" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -298,7 +507,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="5" />
+        <Component Subtype="PrototechCircuitry" Count="40" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -315,7 +524,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="5" />
+        <Component Subtype="PrototechCircuitry" Count="40" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -332,7 +541,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="5" />
+        <Component Subtype="PrototechCircuitry" Count="40" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -349,7 +558,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="700" />
-        <Component Subtype="PrototechCircuitry" Count="6" />
+        <Component Subtype="PrototechCircuitry" Count="40" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -366,7 +575,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="6" />
+        <Component Subtype="PrototechCircuitry" Count="40" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -383,7 +592,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="6" />
+        <Component Subtype="PrototechCircuitry" Count="24" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -400,7 +609,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="6" />
+        <Component Subtype="PrototechCircuitry" Count="24" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -417,7 +626,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="6" />
+        <Component Subtype="PrototechCircuitry" Count="24" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -434,7 +643,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="6" />
+        <Component Subtype="PrototechCircuitry" Count="24" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -451,7 +660,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="300" />
-        <Component Subtype="PrototechCircuitry" Count="7" />
+        <Component Subtype="PrototechCircuitry" Count="16" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="30" />
     </Definition>
@@ -468,7 +677,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="300" />
-        <Component Subtype="PrototechCircuitry" Count="4" />
+        <Component Subtype="PrototechCircuitry" Count="16" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="30" />
     </Definition>
@@ -485,7 +694,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="5" />
+        <Component Subtype="PrototechCircuitry" Count="16" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -502,7 +711,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="6" />
+        <Component Subtype="PrototechCircuitry" Count="32" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -519,7 +728,24 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="60" />
         <Component Subtype="SteelPlate" Count="650" />
-        <Component Subtype="PrototechCircuitry" Count="5" />
+        <Component Subtype="PrototechCircuitry" Count="32" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="10" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/BB/FA30_5CM_Main.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="FA30_5CM_Main" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="70" />
+        <Component Subtype="MetalGrid" Count="30" />
+        <Component Subtype="LargeTube" Count="25" />
+        <Component Subtype="Motor" Count="40" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="30" />
+        <Component Subtype="MetalGrid" Count="60" />
+        <Component Subtype="SteelPlate" Count="650" />
+        <Component Subtype="PrototechCircuitry" Count="16" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
     </Definition>
@@ -536,9 +762,343 @@
         <Component Subtype="Construction" Count="20" />
         <Component Subtype="MetalGrid" Count="20" />
         <Component Subtype="SteelPlate" Count="160" />
-        <Component Subtype="PrototechCircuitry" Count="2" />
+        <Component Subtype="PrototechFrame" Count="18" />
       </Components>
       <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/Casemate/15cm45Casemate.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="15cm45Casemate" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="10" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="SteelPlate" Count="160" />
+        <Component Subtype="PrototechFrame" Count="12" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/Casemate/6Inch50Casemate.sbc
+         NOTE: source file has a malformed stray <Component Subtype="SteelPlate" Count="10" />
+         sitting OUTSIDE the <Components> array (after </Components> and CriticalComponent), and
+         CriticalComponent Index="10" does not correspond to any real array position (only 8
+         entries, indices 0-7) - both are quirks/bugs in the source mod, preserved verbatim; the
+         stray out-of-array Component is not part of the real Components list and is omitted. -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="6Inch50Casemate" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="10" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="SteelPlate" Count="160" />
+        <Component Subtype="PrototechFrame" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="10" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/Casemate/6InchMark13Casemate.sbc
+         NOTE: same source-mod quirk as 6Inch50Casemate above (stray out-of-array Component,
+         CriticalComponent Index="10" with only 8 real array entries) - preserved verbatim. -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="6InchMark13Casemate" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="10" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="SteelPlate" Count="160" />
+        <Component Subtype="PrototechFrame" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="10" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/152mm55NRF.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="152mm55NRF" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="15" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="30" />
+        <Component Subtype="SteelPlate" Count="150" />
+        <Component Subtype="PrototechFrame" Count="40" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/152mm55RF.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="152mm55RF" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="15" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="30" />
+        <Component Subtype="SteelPlate" Count="150" />
+        <Component Subtype="PrototechFrame" Count="40" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/152mmMLE1936.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="152mmMLE1936" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="15" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="30" />
+        <Component Subtype="SteelPlate" Count="150" />
+        <Component Subtype="PrototechFrame" Count="40" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/15cmSk28.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="15cmSk28" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="15" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="30" />
+        <Component Subtype="SteelPlate" Count="150" />
+        <Component Subtype="PrototechFrame" Count="24" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/15cmSk28NRF.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="15cmSk28NRF" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="15" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="30" />
+        <Component Subtype="SteelPlate" Count="150" />
+        <Component Subtype="PrototechFrame" Count="24" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/203mm50MLE.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="203mm50MLE" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="LargeTube" Count="30" />
+        <Component Subtype="Motor" Count="30" />
+        <Component Subtype="Computer" Count="15" />
+        <Component Subtype="Construction" Count="30" />
+        <Component Subtype="MetalGrid" Count="35" />
+        <Component Subtype="SteelPlate" Count="200" />
+        <Component Subtype="PrototechFrame" Count="28" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/203mm50NRF.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="203mm50NRF" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="LargeTube" Count="30" />
+        <Component Subtype="Motor" Count="30" />
+        <Component Subtype="Computer" Count="15" />
+        <Component Subtype="Construction" Count="30" />
+        <Component Subtype="MetalGrid" Count="35" />
+        <Component Subtype="SteelPlate" Count="200" />
+        <Component Subtype="PrototechFrame" Count="28" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/6InchMain.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="6InchMain" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="15" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="30" />
+        <Component Subtype="SteelPlate" Count="200" />
+        <Component Subtype="PrototechCircuitry" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/8Inch55Main.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="8Inch55Main" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="50" />
+        <Component Subtype="Motor" Count="15" />
+        <Component Subtype="Computer" Count="20" />
+        <Component Subtype="Construction" Count="50" />
+        <Component Subtype="MetalGrid" Count="30" />
+        <Component Subtype="SteelPlate" Count="300" />
+        <Component Subtype="PrototechCircuitry" Count="12" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/8Inch55RF.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="8Inch55RF" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="50" />
+        <Component Subtype="Motor" Count="15" />
+        <Component Subtype="Computer" Count="20" />
+        <Component Subtype="Construction" Count="50" />
+        <Component Subtype="MetalGrid" Count="30" />
+        <Component Subtype="SteelPlate" Count="300" />
+        <Component Subtype="PrototechCircuitry" Count="12" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/FA6Inch53Mark18.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="FA6Inch53Mark18" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="15" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="30" />
+        <Component Subtype="SteelPlate" Count="200" />
+        <Component Subtype="PrototechFrame" Count="24" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/FA6InchDPMark16.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="FA6InchDPMark16" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="15" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="30" />
+        <Component Subtype="SteelPlate" Count="200" />
+        <Component Subtype="PrototechFrame" Count="24" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/Ger203mm.sbc
+         NOTE: source file's <Components> array only has 6 real entries; the last two intended
+         entries were mistyped as <CriticalComponent Subtype="MetalGrid" Count="30" /> and
+         <CriticalComponent Subtype="SteelPlate" Count="300" /> OUTSIDE the array (using Count
+         instead of Index, and the wrong element name), followed by the real
+         <CriticalComponent Subtype="SteelPlate" Index="0" />. This is a bug in the source mod -
+         reproduced verbatim; the 6-entry array is this block's true Components list. -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="Ger203mm" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="50" />
+        <Component Subtype="Motor" Count="15" />
+        <Component Subtype="Computer" Count="20" />
+        <Component Subtype="Construction" Count="50" />
+        <Component Subtype="PrototechFrame" Count="32" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/OTO152mm55.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="OTO152mm55" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="10" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="SteelPlate" Count="160" />
+        <Component Subtype="PrototechFrame" Count="40" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/OTO203mm53Model1929.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="OTO203mm53Model1929" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="10" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="SteelPlate" Count="160" />
+        <Component Subtype="PrototechCircuitry" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/CL/Spainish203mmTwin.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="Spainish203mmTwin" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="50" />
+        <Component Subtype="Motor" Count="15" />
+        <Component Subtype="Computer" Count="20" />
+        <Component Subtype="Construction" Count="50" />
+        <Component Subtype="MetalGrid" Count="30" />
+        <Component Subtype="SteelPlate" Count="300" />
+        <Component Subtype="PrototechCircuitry" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
     </Definition>
 
     <!-- Source: workshop 2844434226, Data/CubeBlocks/DD/105mmTwin.sbc -->
@@ -553,7 +1113,7 @@
         <Component Subtype="Construction" Count="15" />
         <Component Subtype="MetalGrid" Count="15" />
         <Component Subtype="SteelPlate" Count="80" />
-        <Component Subtype="PrototechCircuitry" Count="2" />
+        <Component Subtype="PrototechCircuitry" Count="6" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
     </Definition>
@@ -570,7 +1130,7 @@
         <Component Subtype="Construction" Count="30" />
         <Component Subtype="MetalGrid" Count="30" />
         <Component Subtype="SteelPlate" Count="150" />
-        <Component Subtype="PrototechCircuitry" Count="2" />
+        <Component Subtype="PrototechCircuitry" Count="8" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
     </Definition>
@@ -587,7 +1147,7 @@
         <Component Subtype="Construction" Count="20" />
         <Component Subtype="MetalGrid" Count="20" />
         <Component Subtype="SteelPlate" Count="200" />
-        <Component Subtype="PrototechCircuitry" Count="2" />
+        <Component Subtype="PrototechCircuitry" Count="8" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
     </Definition>
@@ -604,7 +1164,7 @@
         <Component Subtype="Construction" Count="20" />
         <Component Subtype="MetalGrid" Count="20" />
         <Component Subtype="SteelPlate" Count="150" />
-        <Component Subtype="PrototechCircuitry" Count="2" />
+        <Component Subtype="PrototechCircuitry" Count="8" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
     </Definition>
@@ -621,9 +1181,443 @@
         <Component Subtype="Construction" Count="20" />
         <Component Subtype="MetalGrid" Count="30" />
         <Component Subtype="SteelPlate" Count="200" />
-        <Component Subtype="PrototechCircuitry" Count="2" />
+        <Component Subtype="PrototechFrame" Count="12" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="10" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/DD/127mm54MLE1948.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="127mm54MLE1948" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="MetalGrid" Count="8" />
+        <Component Subtype="LargeTube" Count="15" />
+        <Component Subtype="Motor" Count="8" />
+        <Component Subtype="Computer" Count="5" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="SteelPlate" Count="150" />
+        <Component Subtype="PrototechCircuitry" Count="6" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/DD/128C34Main.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="128C34Main" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="50" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="30" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="SteelPlate" Count="140" />
+        <Component Subtype="PrototechCircuitry" Count="6" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="10" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/DD/128mmL45Main.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="128mmL45Main" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="10" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="15" />
+        <Component Subtype="SteelPlate" Count="200" />
+        <Component Subtype="PrototechFrame" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="20" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/DD/12cm45Mark8.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="12cm45Mark8" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="MetalGrid" Count="8" />
+        <Component Subtype="LargeTube" Count="15" />
+        <Component Subtype="Motor" Count="8" />
+        <Component Subtype="Computer" Count="5" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="SteelPlate" Count="150" />
+        <Component Subtype="PrototechFrame" Count="16" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/DD/138mmMain.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="138mmMain" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="10" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="SteelPlate" Count="60" />
+        <Component Subtype="PrototechFrame" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="20" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/DD/15cmKCMain.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="15cmKCMain" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="10" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="SteelPlate" Count="160" />
+        <Component Subtype="PrototechFrame" Count="12" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="30" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/DD/4_5Inch45.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="4_5Inch45" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="MetalGrid" Count="8" />
+        <Component Subtype="LargeTube" Count="15" />
+        <Component Subtype="Motor" Count="8" />
+        <Component Subtype="Computer" Count="5" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="SteelPlate" Count="150" />
+        <Component Subtype="PrototechCircuitry" Count="12" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/DD/4_7InchMain.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="4_7InchMain" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="8" />
+        <Component Subtype="MetalGrid" Count="8" />
+        <Component Subtype="LargeTube" Count="15" />
+        <Component Subtype="Motor" Count="8" />
+        <Component Subtype="Computer" Count="5" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="PrototechFrame" Count="16" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="20" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/DD/5Inch54Main.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="5Inch54Main" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="15" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="30" />
+        <Component Subtype="SteelPlate" Count="200" />
+        <Component Subtype="PrototechFrame" Count="12" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="10" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/DD/5InchMk30Main.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="5InchMk30Main" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="MetalGrid" Count="8" />
+        <Component Subtype="LargeTube" Count="15" />
+        <Component Subtype="Motor" Count="8" />
+        <Component Subtype="Computer" Count="5" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="SteelPlate" Count="150" />
+        <Component Subtype="PrototechFrame" Count="12" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/DD/5InchSingleMain.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="5InchSingleMain" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="10" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="20" />
+        <Component Subtype="SteelPlate" Count="140" />
+        <Component Subtype="PrototechFrame" Count="12" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/DD/FA90mmOTO.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="FA90mmOTO" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="Motor" Count="15" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="MetalGrid" Count="30" />
+        <Component Subtype="SteelPlate" Count="200" />
+        <Component Subtype="PrototechFrame" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="10" />
+    </Definition>
+
+    <!-- Source: workshop 2844434226, Data/CubeBlocks/Static AA/BoforStaticGun.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="BoforStaticGun" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="MetalGrid" Count="5" />
+        <Component Subtype="LargeTube" Count="6" />
+        <Component Subtype="Motor" Count="5" />
+        <Component Subtype="Computer" Count="2" />
+        <Component Subtype="Construction" Count="15" />
+        <Component Subtype="MetalGrid" Count="5" />
+        <Component Subtype="SteelPlate" Count="15" />
+        <Component Subtype="PrototechCircuitry" Count="4" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 3431829641 (Yakobe's Machinations), Data/CubeBlocks/YM_Contributed_Guns.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="SHA_Sh37_gun" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="Construction" Count="2" />
+        <Component Subtype="MetalGrid" Count="1" />
+        <Component Subtype="SmallTube" Count="4" />
+        <Component Subtype="Motor" Count="1" />
+        <Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="PrototechFrame" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 3431829641 (Yakobe's Machinations), Data/CubeBlocks/YtD_Guns.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="YtD_SC45-40_ac" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="3" />
+        <Component Subtype="Construction" Count="3" />
+        <Component Subtype="MetalGrid" Count="2" />
+        <Component Subtype="Motor" Count="1" />
+        <Component Subtype="SmallTube" Count="4" />
+        <Component Subtype="SteelPlate" Count="6" />
+        <Component Subtype="PrototechCircuitry" Count="4" />
+      </Components>
+      <CriticalComponent Subtype="MetalGrid" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="YtD_CC30-34_gun" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="3" />
+        <Component Subtype="Construction" Count="2" />
+        <Component Subtype="MetalGrid" Count="1" />
+        <Component Subtype="SmallTube" Count="4" />
+        <Component Subtype="Motor" Count="1" />
+        <Component Subtype="LargeTube" Count="1" />
+        <Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="PrototechFrame" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="YtD_CC54-38_gun" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="3" />
+        <Component Subtype="Construction" Count="3" />
+        <Component Subtype="MetalGrid" Count="1" />
+        <Component Subtype="SmallTube" Count="4" />
+        <Component Subtype="Motor" Count="1" />
+        <Component Subtype="LargeTube" Count="1" />
+        <Component Subtype="SteelPlate" Count="3" />
+        <Component Subtype="PrototechFrame" Count="4" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="YtD_CC77-42_gun" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="3" />
+        <Component Subtype="Construction" Count="3" />
+        <Component Subtype="MetalGrid" Count="1" />
+        <Component Subtype="SmallTube" Count="2" />
+        <Component Subtype="Motor" Count="1" />
+        <Component Subtype="LargeTube" Count="3" />
+        <Component Subtype="SteelPlate" Count="4" />
+        <Component Subtype="PrototechFrame" Count="5" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="YtD_CC84-42_gun" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="6" />
+        <Component Subtype="Construction" Count="3" />
+        <Component Subtype="MetalGrid" Count="4" />
+        <Component Subtype="SmallTube" Count="6" />
+        <Component Subtype="Motor" Count="1" />
+        <Component Subtype="LargeTube" Count="8" />
+        <Component Subtype="SteelPlate" Count="6" />
+        <Component Subtype="PrototechCircuitry" Count="2" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="YtD_CC84-42b_gun" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="6" />
+        <Component Subtype="Construction" Count="3" />
+        <Component Subtype="MetalGrid" Count="4" />
+        <Component Subtype="SmallTube" Count="6" />
+        <Component Subtype="Motor" Count="1" />
+        <Component Subtype="LargeTube" Count="8" />
+        <Component Subtype="SteelPlate" Count="6" />
+        <Component Subtype="PrototechCircuitry" Count="2" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="YtD_CC90-43_gun" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="7" />
+        <Component Subtype="Construction" Count="4" />
+        <Component Subtype="MetalGrid" Count="4" />
+        <Component Subtype="SmallTube" Count="6" />
+        <Component Subtype="Motor" Count="1" />
+        <Component Subtype="LargeTube" Count="7" />
+        <Component Subtype="SteelPlate" Count="8" />
+        <Component Subtype="PrototechCircuitry" Count="3" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="YtD_SC140-31_howitzer" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="8" />
+        <Component Subtype="Construction" Count="4" />
+        <Component Subtype="MetalGrid" Count="4" />
+        <Component Subtype="SmallTube" Count="6" />
+        <Component Subtype="Motor" Count="4" />
+        <Component Subtype="LargeTube" Count="5" />
+        <Component Subtype="SteelPlate" Count="7" />
+        <Component Subtype="PrototechFrame" Count="4" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="YtD_CC122-45_gun" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="8" />
+        <Component Subtype="Construction" Count="5" />
+        <Component Subtype="MetalGrid" Count="5" />
+        <Component Subtype="SmallTube" Count="6" />
+        <Component Subtype="Motor" Count="3" />
+        <Component Subtype="LargeTube" Count="9" />
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="PrototechCircuitry" Count="2" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="YtD_CC127-44_gun" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="8" />
+        <Component Subtype="Construction" Count="5" />
+        <Component Subtype="MetalGrid" Count="5" />
+        <Component Subtype="SmallTube" Count="6" />
+        <Component Subtype="Motor" Count="1" />
+        <Component Subtype="LargeTube" Count="10" />
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="PrototechCircuitry" Count="2" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2881339118 (CAP aircraft cannons), Data/CubeBlocks/CAP_40mmAircraftCannon.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="CAP_40mmAircraftCannon" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="4" />
+        <Component Subtype="Construction" Count="3" />
+        <Component Subtype="MetalGrid" Count="1" />
+        <Component Subtype="LargeTube" Count="1" />
+        <Component Subtype="Motor" Count="3" />
+        <Component Subtype="Computer" Count="1" />
+        <Component Subtype="SteelPlate" Count="4" />
+        <Component Subtype="PrototechFrame" Count="6" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2881339118 (CAP aircraft cannons), Data/CubeBlocks/CAP_57AircraftCannon.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="CAP_57AircraftCannon" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="3" />
+        <Component Subtype="Construction" Count="5" />
+        <Component Subtype="MetalGrid" Count="1" />
+        <Component Subtype="LargeTube" Count="1" />
+        <Component Subtype="Motor" Count="2" />
+        <Component Subtype="Computer" Count="1" />
+        <Component Subtype="SteelPlate" Count="3" />
+        <Component Subtype="PrototechFrame" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+    </Definition>
+
+    <!-- Source: workshop 2881339118 (CAP aircraft cannons), Data/CubeBlocks/CAP_75AircraftCannon.sbc -->
+    <Definition xsi:type="ConveyorSorterDefinition">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="CAP_75AircraftCannon" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="5" />
+        <Component Subtype="Construction" Count="7" />
+        <Component Subtype="MetalGrid" Count="2" />
+        <Component Subtype="LargeTube" Count="2" />
+        <Component Subtype="Motor" Count="2" />
+        <Component Subtype="Computer" Count="2" />
+        <Component Subtype="SteelPlate" Count="5" />
+        <Component Subtype="PrototechCircuitry" Count="2" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
 
   </CubeBlocks>

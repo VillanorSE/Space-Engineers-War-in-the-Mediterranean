@@ -26,7 +26,7 @@
             </Id>
             <DisplayName>Civilian Naval Core</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
-            <Description>WW2 Encounters Ship Core: Civilian Naval Core. Placeholder visuals and components reused from vanilla Remote Control pending final art and component-cost tuning.</Description>
+            <Description>WW2 Encounters Ship Core: Civilian Naval Core. For cargo and utility ships.</Description>
             <CubeSize>Large</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -36,9 +36,10 @@
             <Components>
                 <Component Subtype="InteriorPlate" Count="5" />
                 <Component Subtype="Construction" Count="10" />
-                <Component Subtype="Motor" Count="1" />
+                <Component Subtype="Motor" Count="5" />
                 <Component Subtype="Computer" Count="15" />
                 <Component Subtype="InteriorPlate" Count="5" />
+				<Component Subtype="SteelPlate" Count="20" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -74,7 +75,7 @@
             </Id>
             <DisplayName>Corvette Core</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
-            <Description>WW2 Encounters Ship Core: Corvette Core. Placeholder visuals and components reused from vanilla Remote Control pending final art and component-cost tuning.</Description>
+            <Description>WW2 Encounters Ship Core: Corvette Core. The first combat ship core, for small ships but with only basic costs.</Description>
             <CubeSize>Large</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -84,9 +85,10 @@
             <Components>
                 <Component Subtype="InteriorPlate" Count="5" />
                 <Component Subtype="Construction" Count="10" />
-                <Component Subtype="Motor" Count="1" />
+                <Component Subtype="Motor" Count="10" />
                 <Component Subtype="Computer" Count="15" />
                 <Component Subtype="InteriorPlate" Count="5" />
+				<Component Subtype="SteelPlate" Count="25" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -122,7 +124,7 @@
             </Id>
             <DisplayName>Destroyer Core</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
-            <Description>WW2 Encounters Ship Core: Destroyer Core. Placeholder visuals and components reused from vanilla Remote Control pending final art and component-cost tuning.</Description>
+            <Description>WW2 Encounters Ship Core: Destroyer Core. Enables a larger combat ship with more capacity for significant weapons.</Description>
             <CubeSize>Large</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -130,11 +132,13 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\RemoteControl.mwm</Model>
             <Components>
-                <Component Subtype="InteriorPlate" Count="5" />
-                <Component Subtype="Construction" Count="10" />
-                <Component Subtype="Motor" Count="1" />
-                <Component Subtype="Computer" Count="15" />
-                <Component Subtype="InteriorPlate" Count="5" />
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="Motor" Count="10" />
+                <Component Subtype="Computer" Count="25" />
+                <Component Subtype="InteriorPlate" Count="25" />
+				<Component Subtype="SteelPlate" Count="80" />
+				<Component Subtype="PrototechFrame" Count="40" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -170,7 +174,7 @@
             </Id>
             <DisplayName>Base Core</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
-            <Description>WW2 Encounters Ship Core: Base Core. Placeholder visuals and components reused from vanilla Remote Control pending final art and component-cost tuning.</Description>
+            <Description>WW2 Encounters Ship Core: Base Core. For primary bases, static only.</Description>
             <CubeSize>Large</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -180,7 +184,7 @@
             <Components>
                 <Component Subtype="InteriorPlate" Count="5" />
                 <Component Subtype="Construction" Count="10" />
-                <Component Subtype="Motor" Count="1" />
+                <Component Subtype="Motor" Count="5" />
                 <Component Subtype="Computer" Count="15" />
                 <Component Subtype="InteriorPlate" Count="5" />
             </Components>
@@ -218,7 +222,7 @@
             </Id>
             <DisplayName>Outpost Core</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
-            <Description>WW2 Encounters Ship Core: Outpost Core. Placeholder visuals and components reused from vanilla Remote Control pending final art and component-cost tuning.</Description>
+            <Description>WW2 Encounters Ship Core: Outpost Core. For secondary small bases and weapons.</Description>
             <CubeSize>Large</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -228,9 +232,11 @@
             <Components>
                 <Component Subtype="InteriorPlate" Count="5" />
                 <Component Subtype="Construction" Count="10" />
-                <Component Subtype="Motor" Count="1" />
+                <Component Subtype="Motor" Count="5" />
                 <Component Subtype="Computer" Count="15" />
-                <Component Subtype="InteriorPlate" Count="5" />
+                <Component Subtype="InteriorPlate" Count="15" />
+				<Component Subtype="SteelPlate" Count="20" />
+				<Component Subtype="PrototechMachinery" Count="4" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -266,7 +272,7 @@
             </Id>
             <DisplayName>Civilian Air Core</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
-            <Description>WW2 Encounters Ship Core: Civilian Air Core. Placeholder visuals and components reused from vanilla Remote Control pending final art and component-cost tuning.</Description>
+            <Description>WW2 Encounters Ship Core: Civilian Air Core. For cargo and utility planes.</Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -276,9 +282,9 @@
             <Components>
                 <Component Subtype="InteriorPlate" Count="1" />
                 <Component Subtype="Construction" Count="1" />
-                <Component Subtype="Motor" Count="1" />
+                <Component Subtype="Motor" Count="2" />
                 <Component Subtype="Computer" Count="1" />
-                <Component Subtype="InteriorPlate" Count="1" />
+                <Component Subtype="InteriorPlate" Count="5" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -314,7 +320,7 @@
             </Id>
             <DisplayName>Fighter Core</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
-            <Description>WW2 Encounters Ship Core: Fighter Core. Placeholder visuals and components reused from vanilla Remote Control pending final art and component-cost tuning.</Description>
+            <Description>WW2 Encounters Ship Core: Fighter Core. For fast but light planes. The first combat plane core, limited allowances but only basic costs.</Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -324,9 +330,9 @@
             <Components>
                 <Component Subtype="InteriorPlate" Count="1" />
                 <Component Subtype="Construction" Count="1" />
-                <Component Subtype="Motor" Count="1" />
-                <Component Subtype="Computer" Count="1" />
-                <Component Subtype="InteriorPlate" Count="1" />
+                <Component Subtype="Motor" Count="2" />
+                <Component Subtype="Computer" Count="2" />
+                <Component Subtype="InteriorPlate" Count="5" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -362,7 +368,7 @@
             </Id>
             <DisplayName>Attacker Core</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
-            <Description>WW2 Encounters Ship Core: Attacker Core. Placeholder visuals and components reused from vanilla Remote Control pending final art and component-cost tuning.</Description>
+            <Description>WW2 Encounters Ship Core: Attacker Core. For larger planes with heavier armaments. Attackers can pack a real punch but require military components.</Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -372,9 +378,10 @@
             <Components>
                 <Component Subtype="InteriorPlate" Count="1" />
                 <Component Subtype="Construction" Count="1" />
-                <Component Subtype="Motor" Count="1" />
-                <Component Subtype="Computer" Count="1" />
-                <Component Subtype="InteriorPlate" Count="1" />
+                <Component Subtype="Motor" Count="2" />
+                <Component Subtype="Computer" Count="2" />
+                <Component Subtype="InteriorPlate" Count="8" />
+				<Component Subtype="PrototechMachinery" Count="2" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -410,7 +417,7 @@
             </Id>
             <DisplayName>Bomber Core</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
-            <Description>WW2 Encounters Ship Core: Bomber Core. Placeholder visuals and components reused from vanilla Remote Control pending final art and component-cost tuning.</Description>
+            <Description>WW2 Encounters Ship Core: Bomber Core. For larger and slower planes capable of mounting special weapons, including torpedoes and bombs.</Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -420,9 +427,10 @@
             <Components>
                 <Component Subtype="InteriorPlate" Count="1" />
                 <Component Subtype="Construction" Count="1" />
-                <Component Subtype="Motor" Count="1" />
-                <Component Subtype="Computer" Count="1" />
-                <Component Subtype="InteriorPlate" Count="1" />
+                <Component Subtype="Motor" Count="4" />
+                <Component Subtype="Computer" Count="2" />
+                <Component Subtype="InteriorPlate" Count="10" />
+				<Component Subtype="PrototechMachinery" Count="6" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -458,7 +466,7 @@
             </Id>
             <DisplayName>Civilian Ground Core</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
-            <Description>WW2 Encounters Ship Core: Civilian Ground Core. Placeholder visuals and components reused from vanilla Remote Control pending final art and component-cost tuning.</Description>
+            <Description>WW2 Encounters Ship Core: Civilian Ground Core. For cargo and utility trucks.</Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -467,10 +475,10 @@
             <Model>Models\Cubes\Small\RemoteControl.mwm</Model>
             <Components>
                 <Component Subtype="InteriorPlate" Count="1" />
-                <Component Subtype="Construction" Count="1" />
-                <Component Subtype="Motor" Count="1" />
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="Motor" Count="3" />
                 <Component Subtype="Computer" Count="1" />
-                <Component Subtype="InteriorPlate" Count="1" />
+                <Component Subtype="InteriorPlate" Count="5" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -506,7 +514,7 @@
             </Id>
             <DisplayName>Armored Car Core</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
-            <Description>WW2 Encounters Ship Core: Armored Car Core. Placeholder visuals and components reused from vanilla Remote Control pending final art and component-cost tuning.</Description>
+            <Description>WW2 Encounters Ship Core: Armored Car Core. The first combat ground vehicle. Their armaments and block count are limited but they only require basic components.</Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -514,11 +522,11 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Small\RemoteControl.mwm</Model>
             <Components>
-                <Component Subtype="InteriorPlate" Count="1" />
-                <Component Subtype="Construction" Count="1" />
-                <Component Subtype="Motor" Count="1" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="Motor" Count="3" />
                 <Component Subtype="Computer" Count="1" />
-                <Component Subtype="InteriorPlate" Count="1" />
+                <Component Subtype="InteriorPlate" Count="10" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
