@@ -191,29 +191,33 @@
 			[RivalAI Action]
 			
 			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-CarrierSpawn-Bearn-A]
-			
+			[Spawner:WW2-Spawn-CarrierSpawn-Bearn-Torpedo1]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-CarrierSpawn-Bearn-Torpedo2]
+
+			<!-- TODO: add a third [SpawnEncounter:true]/[Spawner:...] pair here once a Green
+			     carrier-capable fighter escort prefab exists. -->
+
 			[SpawnEncounter:true]
 			[Spawner:WW2-Spawn-CarrierSpawn-Bearn-B]
-			
+
 			</Description>
         </EntityComponent>
 
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-CarrierSpawn-Bearn-A</SubtypeId>
+                <SubtypeId>WW2-Spawn-CarrierSpawn-Bearn-Torpedo1</SubtypeId>
             </Id>
             <Description>
 
 			[RivalAI Spawn]
-			
+
 			[UseSpawn:true]
 			[StartsReady:true]
 			[SpawningType:CustomSpawn]
 			[RivalAiSpawn:true]
-
-			[SpawnGroups:NPC-WW2-V-156-F_Bomber]
 
 			[SpawnGroups:NPC-WW2-V-156-F_Torpedo]
 
@@ -226,7 +230,33 @@
 
 			</Description>
         </EntityComponent>
-		
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-CarrierSpawn-Bearn-Torpedo2</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-V-156-F_Torpedo]
+
+			[MinDistance:800]
+			[MaxDistance:2000]
+			[MinAltitude:200]
+			[MaxAltitude:800]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:false]
+
+			</Description>
+        </EntityComponent>
+
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -241,7 +271,7 @@
 			[SpawningType:CustomSpawn]
 			[RivalAiSpawn:true]
 
-			[SpawnGroups:NPC-WW2-Bougainville]
+			[SpawnGroups:NPC-WW2-Bougainville-Escort]
 			
 			[MinDistance:400]
 			[MaxDistance:1000]

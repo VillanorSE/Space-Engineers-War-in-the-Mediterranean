@@ -306,6 +306,41 @@
 		</Prefabs>
 	</SpawnGroup>
 
+<!-- Bougainville variant spawned exclusively via RivalAI CustomSpawn from the Bearn carrier's
+     escort action (Triggers-CarrierSpawn.sbc) - not through MES's normal ambient
+     ship-spawning system - so no [SpawnConditionsProfiles] tag is needed here, same fix
+     applied to Spica-Escort. -->
+	<SpawnGroup>
+		<Id>
+				<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Bougainville-Escort</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Tech-Military-VeryReliable]
+		[ManipulationProfiles:WW2-Manipulation-Tech-AdvancedMilitary-OtherNaval]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Bougainville">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Destroyer-Green</Behaviour>
+				<Speed>15.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
 	<SpawnGroup>
 		<Id>
 				<TypeId>SpawnGroupDefinition</TypeId>

@@ -1,4 +1,4 @@
-# WW2 Encounters — Expansion Roadmap & To-Do List
+# WW2 War in the Mediterranean — Expansion Roadmap & To-Do List
 
 A staged plan for growing the mod from its current state (Naval + Air + Installations, Gray/Green factions) into a fuller PvPvE experience with Ship-Core-driven progression, borrowing proven systems from Ares at War, GV Deserts of Kharak Season 10, and MES Shared Behaviors (MSB — enenra's public MES behavior library). Ordered so small, achievable, playable milestones come first, and grid-design-heavy work comes only once the systems around it are proven. Custom C# scripting is in scope for this project where it's the right tool, but deliberately staged in after simpler XML-only versions are built and playable — see Stage 3's territory section and Stage 5 for where scripting is first introduced.
 
@@ -69,6 +69,7 @@ Not a stage so much as a foundation everything else sits on. The current naval w
   - [x] NPC-WW2-La_Malouine (Corvette, Green)
   - [x] NPC-WW2-Bougainville (Aviso/Destroyer-behavior, Green)
   - [x] NPC-WW2-Le_Triomphant (Destroyer, Green)
+  - [ ] NPC-WW2-Tramontane (Destroyer/Le Fantasque-class, Green)
   - [x] NPC-WW2-Algerie (Cruiser, Green)
   - [x] NPC-WW2-Emile_Bertin (Cruiser, Green)
   - [x] NPC-WW2-Aquila (Carrier, Gray)
@@ -138,7 +139,7 @@ Not a stage so much as a foundation everything else sits on. The current naval w
 |---|---|---|
 | **Civilian** | Golo (Italian variant) | Golo (French variant) |
 | **Corvette** | Gabbiano | La Malouine |
-| **Destroyer** | Francesco Crispi, Comandante Margottini, Spica (Torpedo Boat) | Bougainville (Aviso/Destroyer-behavior), Le Triomphant |
+| **Destroyer** | Francesco Crispi, Comandante Margottini, Spica (Torpedo Boat) | Bougainville (Aviso/Destroyer-behavior), Le Triomphant, Tramontane (Le Fantasque-class) *(planned, not yet built)* |
 | **Cruiser** | Bartolomeo Colleoni (Giussano-class, famously lost at the Battle of Cape Spada) | Emile Bertin (France's only genuine light Cruiser under treaty classification) |
 | **Heavy Cruiser** | Trento, Zara | Algérie (confirmed France's only heavy cruiser under treaty limits — no sister ship, an honest asymmetry to keep rather than fix, same shape as the Italian heavy-tank gap) |
 | **Battleship** | Vittorio Veneto (Littorio-class — picked over sister ships Littorio and Roma for the broadest active-service record: present at both Taranto and Cape Matapan, rather than fame tied to a single event) | Strasbourg (Dunkerque-class; existing blueprint from an established builder, to be adapted) |
@@ -378,6 +379,11 @@ Built on the territory and War Level system defined above — no separate tracki
   - **Green:** Gibraltar, La Senia, Tunis/Bizerte, Cairo West, Casablanca
 
 - **Maintenance yards** — new tier, sitting between the anchors and the hangars/garages: a fixed-location installation, permanent position, but capturable via the territory-ownership-flip mechanism above, with inventory reflecting whoever currently holds it.
+
+- **Grinder Pit (new, confirmed)** — same tier position as Maintenance yards: fixed, permanent position, capturable via the standard ownership-flip mechanism. Players bring a damaged or derelict grid into the pit and grind it down using stationary Grinder blocks lining the structure; recovered components deposit into the yard's cargo containers for pickup. Core grind action is plain vanilla behavior (stationary Grinder blocks work on contact, no scripting needed) — the same category of mechanic as a welder-wall repair setup, just the inverse operation. Supersedes the earlier "Salvage Yard" placeholder name.
+
+- **Garrison Post / camp-barracks (new, confirmed)** — same tier position as Maintenance yards: fixed, permanent position, capturable via the standard ownership-flip mechanism. On capture, spawns a garrison of ground bots for the new owner as part of the same capture trigger chain already used elsewhere (recolor, flip ownership, swap supply triggers — now also: spawn garrison). MES has a named "AiEnabled Bot Spawning" feature confirmed to exist in its own documentation; the exact config needed to fire it specifically off the capture trigger chain (rather than MES's normal spawn conditions) is not yet verified. Also intended as a waypoint anchor for ground convoy patrols running between Garrison Posts — RivalAI/MES autopilot is already confirmed working for NPC ground units generally (see the Wheeled tier note on vanilla AI Flight not supporting wheeled propulsion), but a multi-waypoint patrol chain specifically between two fixed ground installations hasn't been tested and shouldn't be assumed to work identically to the proven air/sea travel-to-waypoint pattern.
+
 - **Hangars/garages/factories** — one general prefab per faction per installation type (not per plane/vehicle variant, see the Prerequisite section's Installations note), functioning as regular dynamic MES spawns: these follow the *dynamic-encounter* half of the ownership model — they stay with their design-time faction and are gated to spawn only within that faction's current territory, rather than changing hands themselves. Which specific vehicle variant appears inside is an MES SpawnGroup selection made at spawn time, not baked into the installation prefab itself.
 
   **Factory production-line build states (confirmed, Fighter tier):** a Factory's interior spawn points fill with sub-spawns representing a production line rather than uniformly finished hulls. Fighter-tier factories use 6 slots: 2 fully built (100%, the untouched blueprint, no manipulation needed), 2 at a randomized 50–75% build state, 2 at a randomized 25–50% build state, using MES's `ReduceBlockBuildStates` manipulation (confirmed to only affect non-essential blocks like armor/glass, not functional blocks) via two reusable Manipulation Profiles (`WW2-Manipulation-BuildState-Stage2`, `WW2-Manipulation-BuildState-Stage1`) applied uniformly across each affected hull rather than to a random subset of its blocks. Applied identically across every Fighter variant rather than authored per-plane. Attacker tier (3–4 slots, exact count and percentage scheme TBD pending checking previous builds for what physically fits) needs its own profile(s) once confirmed.
@@ -414,6 +420,10 @@ Built on the territory and War Level system defined above — no separate tracki
 - [ ] Create refinery installations to serve as neutral installations that change ownership with territory.
 - [ ] Prototype restocking on an open-air supply yard before attempting interior-bay spawning.
 - [ ] Add "reroll stock" as an action in the capture trigger chain for maintenance yards.
+- [ ] Design and place the Grinder Pit prefab (stationary Grinder block layout + cargo container placement for recovered components).
+- [ ] Design and place the Garrison Post / camp-barracks prefab.
+- [ ] Verify MES's AiEnabled Bot Spawning config can be triggered off the capture chain specifically (not just standard spawn conditions), and add "spawn garrison" as an action in that chain.
+- [ ] Test whether RivalAI/MES ground-vehicle autopilot supports a multi-waypoint patrol pattern between two fixed points (Garrison Post to Garrison Post), same proof needed before committing to the convoy concept.
 - [ ] Verify whether per-player dynamic hostility gating (threat score/reputation-based) is actually achievable in MES, before committing the "big stuff exists but isn't aggressive unless provoked" design to it.
 
 ### Stage 3 expansion — Port-based naval patrols (confirmed 2026-08-24)
