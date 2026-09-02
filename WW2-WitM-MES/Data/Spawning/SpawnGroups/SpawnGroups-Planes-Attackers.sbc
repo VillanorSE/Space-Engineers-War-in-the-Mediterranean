@@ -99,6 +99,39 @@
 		</Prefab>
 	</Prefabs>
 </SpawnGroup>
+<!-- 2026-09-02: added - Loire130 prefab existed (French recon floatplane) but had no
+     SpawnGroup at all, so it could never spawn. Treated as a weak Green attacker/scout,
+     same tier as V-156-F, rather than an Elite plane. -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Loire130</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-Fighters]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Tech-Military-VeryReliable]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GREEN]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-Loire130">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
 <!-- End Green Attacker Planes -->
 
 <!-- Gray Attacker Planes -->

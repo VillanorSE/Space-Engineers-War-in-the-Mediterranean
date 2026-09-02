@@ -80,7 +80,7 @@
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
-	
+
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Tech-Military-VeryReliable]
@@ -104,7 +104,42 @@
 			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
-	
+
+<!-- Spica variant spawned exclusively via RivalAI CustomSpawn from the Aquila carrier's
+     escort action (Triggers-CarrierSpawn.sbc) - not through MES's normal ambient
+     ship-spawning system - so no [SpawnConditionsProfiles] tag is needed here, matching
+     the convention used by the Nautical cargo ships. -->
+	<SpawnGroup>
+		<Id>
+				<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Spica-Escort</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Tech-Military-VeryReliable]
+		[ManipulationProfiles:WW2-Manipulation-Tech-AdvancedMilitary-OtherNaval]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Spica">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-TorpedoBoat-Gray</Behaviour>
+				<Speed>15.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
 	<SpawnGroup>
 		<Id>
 				<TypeId>SpawnGroupDefinition</TypeId>

@@ -87,7 +87,7 @@
 			[WaypointWaitTimeTrigger:15]
 			
 			[EngageDistancePlanet:1500]
-			[DisengageDistancePlanet:3000]
+			[DisengageDistancePlanet:2000]
 			
 			</Description>
 		</EntityComponent>
@@ -118,7 +118,7 @@
 			[WaypointWaitTimeTrigger:0]
 			
 			[EngageDistancePlanet:1500]
-			[DisengageDistancePlanet:3000]
+			[DisengageDistancePlanet:2000]
 			
 			</Description>
 		</EntityComponent>
@@ -149,7 +149,7 @@
 			[WaypointWaitTimeTrigger:15]
 			
 			[EngageDistancePlanet:1500]
-			[DisengageDistancePlanet:3000]
+			[DisengageDistancePlanet:2000]
 			
 			</Description>
 		</EntityComponent>
@@ -180,7 +180,7 @@
 			[WaypointWaitTimeTrigger:0]
 			
 			[EngageDistancePlanet:1500]
-			[DisengageDistancePlanet:3000]
+			[DisengageDistancePlanet:2000]
 			
 			</Description>
 		</EntityComponent>
@@ -196,10 +196,8 @@
 			
 			[RivalAI Weapons]
 			
-            [UseStaticGuns:true]
 			[UseTurrets:true]
 			
-			[MaxStaticWeaponRange:4000]
 			[WeaponMaxAngleFromTarget:6]
 			[WeaponMaxBaseDistanceTarget:100]
 			

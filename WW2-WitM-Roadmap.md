@@ -365,17 +365,17 @@ No faction-vs-faction comparison value needed anywhere in this — "first to arr
 
 Built on the territory and War Level system defined above — no separate tracking system, no Custom Planet dependency (that dependency is removed along with the region-based approach it was tied to).
 
-**Three location tiers, each a different point on the permanent/capturable/dynamic spectrum — and each maps directly onto the two-category ownership model above:**
+**Four location tiers, each a different point on the permanent/capturable/dynamic spectrum — and each maps directly onto the two-category ownership model above:**
 
-- **Domain anchors** — three locations per faction, La Spezia, Rome, Tripoli, Toulon, Oran, Alexandria. Permanent, faction-fixed forever, never capturable — these are fixed-location installations whose *ownership* never changes, though their functionality/stock still scales with War Level per the mechanism above. Ground and naval vehicles are available for purchase. Each anchor sells its faction's complete current catalog, gated by War Level rather than by regional stock. Airports will come and include aircraft stock to purchase. Locations not yet determined but definitely Gibraltar.
-Gray Airports: Foggia, Tripoli-Castel Benito, Benina (Benghazi)
-Green Airports: Gibraltar, La Senia, Tunis/Bizerte, Cairo West, Casablanca
+- **Domain anchors (Ports)** — three locations per faction (Gray: La Spezia, Rome, Tripoli; Green: Toulon, Oran, Alexandria). Permanent, faction-fixed forever, never capturable — these are fixed-location installations whose *ownership* never changes, though their functionality/stock still scales with War Level per the mechanism above. Ground and naval vehicles are available for purchase; each anchor sells its faction's complete current ground/naval catalog, gated by War Level rather than by regional stock. **Aircraft are not sold here** — Airports are a separate, decoupled tier (see below), not part of the domain-anchor set.
 
-Airports can change ownership.
-
-  **Port anchor design, confirmed:** not intended as historically accurate reconstructions of real places — real installations are used as loose inspiration only, for layout logic and proportion, not as a build target to replicate. **Gray Port is loosely inspired by La Spezia** (Italy's largest naval dockyard); **Green Port is loosely inspired by Toulon** (France's main Mediterranean naval arsenal). **Design philosophy, confirmed: full (1:1) scale buildings and mooring/construction structures, but far fewer of them than the historical installations had.** The goal is an installation that reads as genuinely full-scale next to a 1:1 Aquila or Vittorio Veneto, not a compressed miniature — the compression happens in *count* of repeated facilities, not in the scale of any individual structure.
+  **Port anchor design, confirmed:** not intended as historically accurate reconstructions of real places — real installations are used as loose inspiration only, for layout logic and proportion, not as a build target to replicate. **Gray Port is loosely inspired by La Spezia** (Italy's largest naval dockyard); **Green Port is loosely inspired by Toulon** (France's main Mediterranean naval arsenal). **Design philosophy, confirmed: full (1:1) scale buildings and mooring/construction structures, but far fewer of them than the historical installations had.** The goal is an installation that reads as genuinely full-scale next to a 1:1 Aquila or Vittorio Veneto, not a compressed miniature — the compression happens in *count* of repeated facilities, not in the scale of any individual structure. (An earlier session's specific footprint figures and a primary-vs-secondary construction-slip distinction were dropped as incorrect — confirmed 2026-08-24. The actually-built La Spezia, Toulon, Tripoli, and Oran Port grids, built to read as similar in scale/layout to their real-world namesakes, are the real reference now, not any prior number.)
 
   **Terrain fitting, confirmed technique:** MES's voxel-spawning capability will be used to carve/scoop the correct berth/slip shapes and level the surrounding ground so the Port anchor's pier, construction slip, and quay structures sit correctly into planet terrain, rather than requiring hand-sculpted terrain to already exist at the anchor's fixed coordinates before the installation is placed.
+
+- **Airports — decoupled from domain anchors, confirmed 2026-08-24.** Unlike Ports, Airports are **not** permanent/faction-fixed — ownership flips via the same territory-ownership sticky zone-containment mechanism already defined above for significant fixed installations, closer in kind to a Maintenance Yard than to a Port. Sells aircraft, gated to whichever faction currently owns that Airport — same "inventory reflecting whoever currently holds it" pattern already established for Maintenance Yards, applied here to aircraft specifically. This resolves the sell-location gap flagged in the prior session: once an Airport is built and placed, its stock is whatever the current owner's aircraft catalog is, not a fixed per-location roster. Candidate locations identified, build order/priority not yet decided:
+  - **Gray:** Foggia, Tripoli-Castel Benito, Benina (Benghazi)
+  - **Green:** Gibraltar, La Senia, Tunis/Bizerte, Cairo West, Casablanca
 
 - **Maintenance yards** — new tier, sitting between the anchors and the hangars/garages: a fixed-location installation, permanent position, but capturable via the territory-ownership-flip mechanism above, with inventory reflecting whoever currently holds it.
 - **Hangars/garages/factories** — one general prefab per faction per installation type (not per plane/vehicle variant, see the Prerequisite section's Installations note), functioning as regular dynamic MES spawns: these follow the *dynamic-encounter* half of the ownership model — they stay with their design-time faction and are gated to spawn only within that faction's current territory, rather than changing hands themselves. Which specific vehicle variant appears inside is an MES SpawnGroup selection made at spawn time, not baked into the installation prefab itself.
@@ -401,19 +401,38 @@ Airports can change ownership.
 - [x] Build the first two domain anchors (Toulon, La Spezia).
 - [x] Build the second two domain anchors (Oran, Tripoli).
 - [ ] Build the third two domain anchors (Rome, Alexandria).
-- [ ] Build Gibraltar airfield
-- [ ] Build Gray airfield (Sicily?)
+- [ ] Build a Gray Airport — candidates: Foggia, Tripoli-Castel Benito, Benina (Benghazi); not yet prioritized/sequenced.
+- [ ] Build a Green Airport — candidates: Gibraltar, La Senia, Tunis/Bizerte, Cairo West, Casablanca; not yet prioritized/sequenced.
 - [ ] Design the "complete catalog" concept — which hulls are sellable at all, and how War Level gates the list.
 - [x] Build cored/purchasable versions of the planes per faction.
 - [ ] Build cored/purchasable versions of the ground vehicles per faction.
 - [ ] Build cored/purchasable versions of some of the ships (Gabbiano, La Malouine, at least one destroyer each also)
 - [ ] Wire buy-capability into existing hangar/garage locations alongside the existing steal mechanic.
+- [ ] **Store blocks are currently broken** (2026-08-24) — needs investigation before any buy-capability wiring (hangars/garages, Ports, or future Airports) can be considered working. Root cause not yet diagnosed.
 - [ ] Design and place maintenance yards as a new prefab tier, distinct from both anchors and hangars (Ideally make these able to repair player grids for credits).
 - [ ] Create trade posts to place as neutral installations that change ownership with territory. (Buy all items and ores, sell modest quantities of lootable components and large quantities of ammo.)
 - [ ] Create refinery installations to serve as neutral installations that change ownership with territory.
 - [ ] Prototype restocking on an open-air supply yard before attempting interior-bay spawning.
 - [ ] Add "reroll stock" as an action in the capture trigger chain for maintenance yards.
 - [ ] Verify whether per-player dynamic hostility gating (threat score/reputation-based) is actually achievable in MES, before committing the "big stuff exists but isn't aggressive unless provoked" design to it.
+
+### Stage 3 expansion — Port-based naval patrols (confirmed 2026-08-24)
+
+**Additive layer, does not replace random dynamic combat spawns.** Combat ships continue spawning via the existing random/stationary mechanism across each faction's territory unchanged (this is what already produces the "frontline" feel per the overlap-handling section above). Patrols are a separate, second source of naval combat encounters layered on top, not a substitute — the coverage risk of relying on patrols alone (large stretches of the map between routes seeing no naval action) was the deciding factor against a full replacement.
+
+- **Route structure: multiple lanes, not a single corner-to-corner line.** Adjacent-anchor legs per faction (Gray: La Spezia–Rome, Rome–Tripoli; Green: Toulon–Oran, Oran–Alexandria) plus at least one long-haul cross-Mediterranean lane per faction (e.g. La Spezia–Tripoli, Toulon–Alexandria), so patrol traffic crosses several different parts of the map rather than one predictable corridor.
+- **Lane selection randomized per spawn cycle** — each patrol spawn rolls which anchor-pair it runs between, so which lanes are active shifts over time rather than being a fixed, learnable shape.
+- **Behavior, distinct from the cargo convoy mechanic:** patrols loop (A→B→A, repeating) rather than making a one-way trip and despawning, and carry normal aggressive combat `SpawnConditions`/engagement behavior rather than the cargo convoy's passive despawn-suspension pattern. Reuses the same fixed-coordinate Waypoint Profile approach confirmed for the cargo convoy, but the patrol/looping/aggressive behavior is a materially different build, not a reskin.
+- **Unverified, needs a real check before implementation:** MES's specific capability for looping fixed-waypoint patrol behavior with hostile engagement en route — believed to exist, but no confirmed trigger/behavior names checked against this project's MES version yet.
+- **War Level tie-in:** patrol frequency/strength scales with War Level, same confirmed pattern as air cargo convoy escorts — more/stronger patrol traffic as the war heats up, not just static route traffic.
+
+**To-do:**
+- [ ] Verify MES's actual capability for looping fixed-waypoint patrol behavior with hostile engagement en route (specific trigger/behavior names, not just general plausibility).
+- [ ] Define the full lane list per faction (adjacent-anchor legs + long-haul lane(s)) once all 6 domain-anchor Ports are actually built and placed.
+- [ ] Build the randomized per-cycle lane-selection logic for patrol spawns.
+- [ ] Build patrol ship combat/engagement behavior distinct from the cargo convoy's passive despawn-suspension pattern.
+- [ ] Wire patrol frequency/strength to War Level, mirroring the air cargo convoy escort scaling.
+- [ ] Playtest: confirm patrols read as an added layer of naval presence without making the existing random-spawn coverage feel redundant or crowded.
 
 ---
 

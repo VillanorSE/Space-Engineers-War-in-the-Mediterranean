@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tech-component costs for vanilla wheel suspension blocks. Original <Components> lists are
+     reproduced in full (verified against Content/Data/CubeBlocks/CubeBlocks_Wheels.sbc) with the
+     new tech component appended at the END of the array, after the original CriticalComponent
+     entry - this keeps the block's functional threshold unchanged while adding a late-game cost
+     gate. Small-grid 5x5 suspension only (SubtypeId contains "Small"), both the base and mirrored
+     variants (both are player-buildable via the block's Left/Right variant switcher). -->
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CubeBlocks>
+
+    <!-- Small-grid 5x5 wheel suspension - +2 Industrial Components each -->
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="SmallSuspension5x5" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="Construction" Count="12" />
+        <Component Subtype="SmallTube" Count="4" />
+        <Component Subtype="Motor" Count="2" />
+        <Component Subtype="SteelPlate" Count="6" />
+        <Component Subtype="PrototechMachinery" Count="2" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="SmallSuspension5x5mirrored" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="Construction" Count="12" />
+        <Component Subtype="SmallTube" Count="4" />
+        <Component Subtype="Motor" Count="2" />
+        <Component Subtype="SteelPlate" Count="6" />
+        <Component Subtype="PrototechMachinery" Count="2" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+  </CubeBlocks>
+</Definitions>

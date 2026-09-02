@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tech-component costs for the vanilla Assembler/Refinery upgrade modules. Original <Components>
+     lists are reproduced in full (verified against Content/Data/CubeBlocks/CubeBlocks_Production.sbc)
+     with the new tech component appended at the END of the array, after the original
+     CriticalComponent entry - this keeps the block's functional threshold unchanged while adding
+     a late-game cost gate. Large-grid only - vanilla has no small-grid variant of either module. -->
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CubeBlocks>
+
+    <!-- Speed Module (UpgradeModule/LargeProductivityModule) - +4 Industrial Components -->
+    <Definition xsi:type="UpgradeModuleDefinition">
+      <Id Type="MyObjectBuilder_UpgradeModule" Subtype="LargeProductivityModule" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="80" />
+        <Component Subtype="Construction" Count="40" />
+        <Component Subtype="SmallTube" Count="20" />
+        <Component Subtype="Computer" Count="60" />
+        <Component Subtype="Motor" Count="4" />
+        <Component Subtype="SteelPlate" Count="20" />
+        <Component Subtype="PrototechMachinery" Count="4" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+    <!-- Yield Module (UpgradeModule/LargeEffectivenessModule) - +4 Industrial Components -->
+    <Definition xsi:type="UpgradeModuleDefinition">
+      <Id Type="MyObjectBuilder_UpgradeModule" Subtype="LargeEffectivenessModule" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="80" />
+        <Component Subtype="Construction" Count="50" />
+        <Component Subtype="SmallTube" Count="15" />
+        <Component Subtype="Superconductor" Count="20" />
+        <Component Subtype="Motor" Count="4" />
+        <Component Subtype="SteelPlate" Count="20" />
+        <Component Subtype="PrototechMachinery" Count="4" />
+      </Components>
+      <CriticalComponent Subtype="Motor" Index="0" />
+    </Definition>
+
+  </CubeBlocks>
+</Definitions>

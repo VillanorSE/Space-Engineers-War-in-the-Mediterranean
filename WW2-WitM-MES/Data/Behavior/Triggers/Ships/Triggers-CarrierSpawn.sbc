@@ -38,10 +38,16 @@
 			
 			[SpawnEncounter:true]
 			[Spawner:WW2-Spawn-CarrierSpawn-Aquila-A]
-			
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-CarrierSpawn-Aquila-C]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-CarrierSpawn-Aquila-D]
+
 			[SpawnEncounter:true]
 			[Spawner:WW2-Spawn-CarrierSpawn-Aquila-B]
-			
+
 			</Description>
         </EntityComponent>
 
@@ -53,18 +59,14 @@
             <Description>
 
 			[RivalAI Spawn]
-			
+
 			[UseSpawn:true]
 			[StartsReady:true]
 			[SpawningType:CustomSpawn]
 			[RivalAiSpawn:true]
 
 			[SpawnGroups:NPC-WW2-Re2001]
-			
-			[SpawnGroups:NPC-WW2-Re2001]
-			
-			[SpawnGroups:NPC-WW2-Re2001]
-			
+
 			[MinDistance:800]
 			[MaxDistance:2000]
 			[MinAltitude:200]
@@ -74,7 +76,59 @@
 
 			</Description>
         </EntityComponent>
-		
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-CarrierSpawn-Aquila-C</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-Re2001]
+
+			[MinDistance:800]
+			[MaxDistance:2000]
+			[MinAltitude:200]
+			[MaxAltitude:800]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:false]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-CarrierSpawn-Aquila-D</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-Re2001]
+
+			[MinDistance:800]
+			[MaxDistance:2000]
+			[MinAltitude:200]
+			[MaxAltitude:800]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:false]
+
+			</Description>
+        </EntityComponent>
+
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -89,7 +143,7 @@
 			[SpawningType:CustomSpawn]
 			[RivalAiSpawn:true]
 
-			[SpawnGroups:NPC-WW2-Spica]
+			[SpawnGroups:NPC-WW2-Spica-Escort]
 			
 			[MinDistance:400]
 			[MaxDistance:1000]
