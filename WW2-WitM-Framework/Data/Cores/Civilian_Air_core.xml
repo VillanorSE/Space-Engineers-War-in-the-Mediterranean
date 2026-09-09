@@ -8,7 +8,7 @@
   <MaxBlocks>2000</MaxBlocks>
   <MinBlocks>-1</MinBlocks>
   <MaxMass>-1</MaxMass>
-  <MaxPCU>6000</MaxPCU>
+  <MaxPCU>7500</MaxPCU>
   <MaxBackupCores>2</MaxBackupCores>
   <MaxPerPlayer>-1</MaxPerPlayer>
   <MaxPerFaction>-1</MaxPerFaction>
@@ -29,7 +29,7 @@
     <AssemblerSpeed>1</AssemblerSpeed>
     <DrillHarvestMultiplier>1</DrillHarvestMultiplier>
     <GyroEfficiency>1</GyroEfficiency>
-    <GyroForce>1</GyroForce>
+    <GyroForce>0.8</GyroForce>
     <PowerProducersOutput>1</PowerProducersOutput>
     <RefineEfficiency>1</RefineEfficiency>
     <RefineSpeed>1</RefineSpeed>
@@ -81,6 +81,9 @@
     <IsCriticalLimit>false</IsCriticalLimit>
     <PunishmentType>ShutOff</PunishmentType>
     <AllowedDirections>Forward</AllowedDirections>
+	<AllowedDirections>Backward</AllowedDirections>
+	<AllowedDirections>Right</AllowedDirections>
+	<AllowedDirections>Left</AllowedDirections>
   </BlockLimits>
   <BlockLimits>
     <Name>Engines</Name>
@@ -235,7 +238,7 @@
   <BlockLimits>
     <Name>Cargo</Name>
     <BlockGroups>CargoContainers</BlockGroups>
-    <MaxCount>12</MaxCount>
+    <MaxCount>15</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
     <IsCriticalLimit>false</IsCriticalLimit>

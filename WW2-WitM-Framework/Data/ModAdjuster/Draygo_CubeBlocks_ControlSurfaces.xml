@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Definitions>
+  <CubeBlocks>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>Small_Flap_Straight</SubtypeId>
+      </Id>
+      <Size x="5" y="1" z="2" />
+    <Components><Component Subtype="InteriorPlate" Count="7" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="2" /><Component Subtype="InteriorPlate" Count="8" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>Small_Flap_Straight_Centered</SubtypeId>
+      </Id>
+      <Size x="5" y="1" z="2" />
+    <Components><Component Subtype="InteriorPlate" Count="7" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="2" /><Component Subtype="InteriorPlate" Count="8" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>Small_Elevator_Straight</SubtypeId>
+      </Id>
+      <Size x="2" y="1" z="2" />
+    <Components><Component Subtype="InteriorPlate" Count="3" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="2" /><Component Subtype="InteriorPlate" Count="3" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>Small_Rudder_Straight</SubtypeId>
+      </Id>
+      <Size x="3" y="1" z="3" />
+    <Components><Component Subtype="InteriorPlate" Count="9" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="2" /><Component Subtype="InteriorPlate" Count="9" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>Small_3x3_Angled_Centered</SubtypeId>
+      </Id>
+      <Size x="3" y="1" z="3" />
+    <Components><Component Subtype="InteriorPlate" Count="9" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="2" /><Component Subtype="InteriorPlate" Count="9" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>Small_3x3_Angled_Flat</SubtypeId>
+      </Id>
+      <Size x="3" y="1" z="3" />
+    <Components><Component Subtype="InteriorPlate" Count="9" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="2" /><Component Subtype="InteriorPlate" Count="9" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>Small_3x3_Angled_Flat_Inv</SubtypeId>
+      </Id>
+      <Size x="3" y="1" z="3" />
+    <Components><Component Subtype="InteriorPlate" Count="9" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="2" /><Component Subtype="InteriorPlate" Count="9" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>Small_Elevator_Straight_Centered</SubtypeId>
+      </Id>
+      <Size x="2" y="1" z="2" />
+    <Components><Component Subtype="InteriorPlate" Count="3" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="2" /><Component Subtype="InteriorPlate" Count="3" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>Small_2x1_Control_Centered</SubtypeId>
+      </Id>
+      <Size x="1" y="1" z="2" />
+    <Components><Component Subtype="InteriorPlate" Count="2" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="1" /><Component Subtype="InteriorPlate" Count="2" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>Small_2x1_Control_Flat</SubtypeId>
+      </Id>
+      <Size x="1" y="1" z="2" />
+    <Components><Component Subtype="InteriorPlate" Count="2" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="1" /><Component Subtype="InteriorPlate" Count="2" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>Small_Rudder_Straight_Flat</SubtypeId>
+      </Id>
+      <Size x="3" y="1" z="3" />
+    <Components><Component Subtype="InteriorPlate" Count="9" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="2" /><Component Subtype="InteriorPlate" Count="9" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>Small_5x3_Angled_Centered</SubtypeId>
+      </Id>
+      <Size x="5" y="1" z="3" />
+    <Components><Component Subtype="InteriorPlate" Count="15" /><Component Subtype="MetalGrid" Count="2" /><Component Subtype="Motor" Count="2" /><Component Subtype="InteriorPlate" Count="15" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>Small_5x3_Angled_Flat</SubtypeId>
+      </Id>
+      <Size x="5" y="1" z="3" />
+    <Components><Component Subtype="InteriorPlate" Count="15" /><Component Subtype="MetalGrid" Count="2" /><Component Subtype="Motor" Count="2" /><Component Subtype="InteriorPlate" Count="15" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>Small_5x3_Angled_Flat_Inv</SubtypeId>
+      </Id>
+      <Size x="5" y="1" z="3" />
+    <Components><Component Subtype="InteriorPlate" Count="15" /><Component Subtype="MetalGrid" Count="2" /><Component Subtype="Motor" Count="2" /><Component Subtype="InteriorPlate" Count="15" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+  </CubeBlocks>
+</Definitions>

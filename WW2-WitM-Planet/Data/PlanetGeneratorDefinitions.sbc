@@ -188,10 +188,13 @@
             <Slope Min="0" Max="20"/>
           </Rule>
 
-          <!-- Beach-height but steep (cliff straight into the water) -->
+          <!-- Beach-height but steep (cliff straight into the water). Limestone
+               (2026-09-02, imported from Planet 26 2.0 - see VoxelMaterials_ME.sbc)
+               instead of Rocks_grass: real Mediterranean shoreline cliffs read as
+               karst, not grass-blended rock. -->
           <Rule>
             <Layers>
-              <Layer Material="Rocks_grass" Depth="5"/>
+              <Layer Material="Limestone" Depth="5"/>
             </Layers>
             <Height Min="0.5790" Max="0.5960"/>
             <Slope Min="20" Max="90"/>
@@ -254,7 +257,23 @@
             <Layers>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.6972" Max="1.0"/>
+            <Height Min="0.6972" Max="0.85"/>
+            <Slope Min="0" Max="90"/>
+          </Rule>
+
+          <!-- Alpine (2026-09-02 addition, first pass - not yet visually
+               validated; tune the 0.85 cutoff after an in-game look, same
+               as the Peaks/Highland thresholds above were tuned. Thin Snow
+               layer over the same Stone base, tallest ~15% of the height
+               range only - snow-capped mountain tips, not a full snow
+               biome. Snow/Stone both confirmed real vanilla VoxelMaterial
+               SubtypeIds. -->
+          <Rule>
+            <Layers>
+              <Layer Material="Snow" Depth="3"/>
+              <Layer Material="Stone" Depth="50"/>
+            </Layers>
+            <Height Min="0.85" Max="1.0"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
@@ -295,10 +314,12 @@
             <Slope Min="0" Max="20"/>
           </Rule>
 
-          <!-- Beach-height but steep, arid: DesertRocks instead of Rocks_grass -->
+          <!-- Beach-height but steep, arid. Limestone (2026-09-02, imported from
+               Planet 26 2.0 - see VoxelMaterials_ME.sbc) instead of DesertRocks:
+               same karst-cliff reasoning as the north group's beach-steep rule. -->
           <Rule>
             <Layers>
-              <Layer Material="DesertRocks" Depth="5"/>
+              <Layer Material="Limestone" Depth="5"/>
             </Layers>
             <Height Min="0.5790" Max="0.5960"/>
             <Slope Min="20" Max="90"/>
@@ -343,7 +364,23 @@
             <Layers>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.6972" Max="1.0"/>
+            <Height Min="0.6972" Max="0.85"/>
+            <Slope Min="0" Max="90"/>
+          </Rule>
+
+          <!-- Alpine (2026-09-02 addition, first pass - not yet visually
+               validated; tune the 0.85 cutoff after an in-game look, same
+               as the Peaks/Highland thresholds above were tuned. Thin Snow
+               layer over the same Stone base, tallest ~15% of the height
+               range only - snow-capped mountain tips, not a full snow
+               biome. Snow/Stone both confirmed real vanilla VoxelMaterial
+               SubtypeIds. -->
+          <Rule>
+            <Layers>
+              <Layer Material="Snow" Depth="3"/>
+              <Layer Material="Stone" Depth="50"/>
+            </Layers>
+            <Height Min="0.85" Max="1.0"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
@@ -469,7 +506,23 @@
             <Layers>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.6972" Max="1.0"/>
+            <Height Min="0.6972" Max="0.85"/>
+            <Slope Min="0" Max="90"/>
+          </Rule>
+
+          <!-- Alpine (2026-09-02 addition, first pass - not yet visually
+               validated; tune the 0.85 cutoff after an in-game look, same
+               as the Peaks/Highland thresholds above were tuned. Thin Snow
+               layer over the same Stone base, tallest ~15% of the height
+               range only - snow-capped mountain tips, not a full snow
+               biome. Snow/Stone both confirmed real vanilla VoxelMaterial
+               SubtypeIds. -->
+          <Rule>
+            <Layers>
+              <Layer Material="Snow" Depth="3"/>
+              <Layer Material="Stone" Depth="50"/>
+            </Layers>
+            <Height Min="0.85" Max="1.0"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
@@ -531,7 +584,23 @@
             <Layers>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.6972" Max="1.0"/>
+            <Height Min="0.6972" Max="0.85"/>
+            <Slope Min="0" Max="90"/>
+          </Rule>
+
+          <!-- Alpine (2026-09-02 addition, first pass - not yet visually
+               validated; tune the 0.85 cutoff after an in-game look, same
+               as the Peaks/Highland thresholds above were tuned. Thin Snow
+               layer over the same Stone base, tallest ~15% of the height
+               range only - snow-capped mountain tips, not a full snow
+               biome. Snow/Stone both confirmed real vanilla VoxelMaterial
+               SubtypeIds. -->
+          <Rule>
+            <Layers>
+              <Layer Material="Snow" Depth="3"/>
+              <Layer Material="Stone" Depth="50"/>
+            </Layers>
+            <Height Min="0.85" Max="1.0"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
@@ -584,7 +653,7 @@
 
           <Rule>
             <Layers>
-              <Layer Material="DesertRocks" Depth="5"/>
+              <Layer Material="Limestone" Depth="5"/>
             </Layers>
             <Height Min="0.5790" Max="0.5960"/>
             <Slope Min="20" Max="90"/>
@@ -627,7 +696,23 @@
             <Layers>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.6972" Max="1.0"/>
+            <Height Min="0.6972" Max="0.85"/>
+            <Slope Min="0" Max="90"/>
+          </Rule>
+
+          <!-- Alpine (2026-09-02 addition, first pass - not yet visually
+               validated; tune the 0.85 cutoff after an in-game look, same
+               as the Peaks/Highland thresholds above were tuned. Thin Snow
+               layer over the same Stone base, tallest ~15% of the height
+               range only - snow-capped mountain tips, not a full snow
+               biome. Snow/Stone both confirmed real vanilla VoxelMaterial
+               SubtypeIds. -->
+          <Rule>
+            <Layers>
+              <Layer Material="Snow" Depth="3"/>
+              <Layer Material="Stone" Depth="50"/>
+            </Layers>
+            <Height Min="0.85" Max="1.0"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
@@ -689,7 +774,23 @@
             <Layers>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.6972" Max="1.0"/>
+            <Height Min="0.6972" Max="0.85"/>
+            <Slope Min="0" Max="90"/>
+          </Rule>
+
+          <!-- Alpine (2026-09-02 addition, first pass - not yet visually
+               validated; tune the 0.85 cutoff after an in-game look, same
+               as the Peaks/Highland thresholds above were tuned. Thin Snow
+               layer over the same Stone base, tallest ~15% of the height
+               range only - snow-capped mountain tips, not a full snow
+               biome. Snow/Stone both confirmed real vanilla VoxelMaterial
+               SubtypeIds. -->
+          <Rule>
+            <Layers>
+              <Layer Material="Snow" Depth="3"/>
+              <Layer Material="Stone" Depth="50"/>
+            </Layers>
+            <Height Min="0.85" Max="1.0"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
@@ -706,7 +807,26 @@
            split in strip space; coastal/inland is the 2026-08-22
            distance-to-coast painted-biome pass (see that pass's own comment
            above for the full method). up.png reads uniformly 1 or 5 (south
-           content, per the confirmed pole swap), down.png uniformly 0 or 4. -->
+           content, per the confirmed pole swap), down.png uniformly 0 or 4.
+
+           HAND-PAINTED EXCEPTION (2026-09-08, front.png only): a patch of
+           MediterraneanTransition/PlainsTransition (6/7, the semi-arid
+           OrcusGrass2 palette; see the Transition MaterialGroup comment
+           above) was hand-painted directly onto front_mat.png at a stretch
+           of Spanish east coastline, via the paint-layer PNG workflow (see
+           [[biome_foliage_system]] memory) - not part of the original
+           2026-08-23 climate-box painting pass, which only covered
+           Oran-Tunis and the Nile Delta. Front.png's own heightmap was
+           separately steepened right at this same coastline stretch
+           (rows ~40-660, cols ~630-1060) the same day, per direct request:
+           the immediate 1-2 land pixels next to the waterline are forced to
+           reach water-level+6m and +10m respectively (revised up from an
+           initial +2.5m/+5m attempt that still flooded - checked
+           Data/WaterConfig.xml afterward and found WaveHeight=2 AND a
+           SEPARATE TideHeight=2 both apply, plus WaveScale=2 scaling the
+           wave on top, so real combined water-surface excursion is well
+           above a single ~2m wave range). Only that bounding box was
+           touched; no other coastline on any face was altered. -->
 
 
 
@@ -1067,11 +1187,36 @@
           </Materials>
           <Items>
             <Item TypeId="MyObjectBuilder_Trees" SubtypeId="GrassForestMedium" Density="0.4"/>
+            <Item TypeId="MyObjectBuilder_VoxelMapStorageDefinition" SubtypeId="stone_mediumstone" Density="0.05"/>
           </Items>
           <Rule>
             <Height Min="0.70" Max="0.80"/>
             <Latitude Min="0" Max="90"/>
             <Slope Min="0" Max="20"/>
+          </Rule>
+        </Item>
+
+        <!-- Temperate forest patches only (Biome=3), low/flat interior: dense
+             "Large" tier (2026-09-02 addition, matching Planet 26 2.0's own
+             GrassForestLarge Density="0.6" convention), sitting below the
+             Edge (boundary, above) and Medium (highland, above) tiers so
+             forest patches read as Edge -> dense interior -> thinning
+             highland instead of just two density steps. GrassForestLarge
+             confirmed real vanilla EnvironmentItems Trees SubtypeId. -->
+        <Item>
+          <Biomes>
+            <Biome>3</Biome>
+          </Biomes>
+          <Materials>
+            <Material>OrcusGrass</Material>
+          </Materials>
+          <Items>
+            <Item TypeId="MyObjectBuilder_Trees" SubtypeId="GrassForestLarge" Density="0.5"/>
+          </Items>
+          <Rule>
+            <Height Min="0.58" Max="0.66"/>
+            <Latitude Min="0" Max="90"/>
+            <Slope Min="0" Max="15"/>
           </Rule>
         </Item>
 
@@ -1130,6 +1275,28 @@
           </Rule>
         </Item>
 
+        <!-- Arid forest patches only (Biome=4), low/flat interior: mid-density
+             "Medium" tier (2026-09-02 addition) between the sparse Edge above
+             (0.06) and the highland desert scrub below, matching the same
+             Edge -> denser interior structure just added to the temperate
+             forest. SandForestMedium confirmed real vanilla SubtypeId. -->
+        <Item>
+          <Biomes>
+            <Biome>4</Biome>
+          </Biomes>
+          <Materials>
+            <Material>CrackedSoil</Material>
+          </Materials>
+          <Items>
+            <Item TypeId="MyObjectBuilder_Trees" SubtypeId="SandForestMedium" Density="0.18"/>
+          </Items>
+          <Rule>
+            <Height Min="0.60" Max="0.66"/>
+            <Latitude Min="0" Max="90"/>
+            <Slope Min="0" Max="15"/>
+          </Rule>
+        </Item>
+
         <!-- Arid forest patches only (Biome=4): coastal palm groves -->
         <Item>
           <Biomes>
@@ -1159,12 +1326,44 @@
           <Items>
             <Item TypeId="MyObjectBuilder_Trees" SubtypeId="DesertTree" Density="0.05"/>
             <Item TypeId="MyObjectBuilder_DestroyableItems" SubtypeId="CactusPatch" Density="0.08"/>
+            <Item TypeId="MyObjectBuilder_VoxelMapStorageDefinition" SubtypeId="desertrocks_largestone" Density="0.05"/>
           </Items>
           <Rule>
             <Height Min="0.65" Max="0.75"/>
             <Latitude Min="0" Max="90"/>
             <Slope Min="0" Max="25"/>
 
+          </Rule>
+        </Item>
+
+        <!-- Savanna (2026-09-02 addition, per direct request). No new biome
+             value: reuses the already-painted semi-arid Transition
+             MaterialGroups' lowland material (OrcusGrass2, MaterialGroup
+             6/7), which already covers the real semi-arid transition
+             regions (Oran-Tunis, Nile Delta) from the 2026-08-23 climate
+             pass - so this is purely a new foliage entry riding on existing
+             painted geography, not a repaint. Sparse tree cover over tall
+             grass, distinct from both the vibrant temperate forest and the
+             bare arid desert scrub. Biomes 2/4 (arid plain/forest) cover
+             both plain and forest-patch land under this material, matching
+             the existing "Arid: ... both plain (2) and forest-patch (4)"
+             convention above. -->
+        <Item>
+          <Biomes>
+            <Biome>2</Biome>
+            <Biome>4</Biome>
+          </Biomes>
+          <Materials>
+            <Material>OrcusGrass2</Material>
+          </Materials>
+          <Items>
+            <Item TypeId="MyObjectBuilder_Trees" SubtypeId="SandForestEdge" Density="0.04"/>
+            <Item TypeId="MyObjectBuilder_DestroyableItems" SubtypeId="GrassFoliage" Density="0.15"/>
+          </Items>
+          <Rule>
+            <Height Min="0.58" Max="0.6331"/>
+            <Latitude Min="0" Max="90"/>
+            <Slope Min="0" Max="25"/>
           </Rule>
         </Item>
 

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!-- 2026-09-08: Overrides vanilla's Stations_Economy.sbc (same 3 Ids: OrbitalStations,
+     Outposts, SpaceStations - confirmed against Content\Data\Stations_Economy.sbc, there is no
+     4th "MiningStations" list; Miner/Trader/Builder/Pirate/Military are FactionTypes WITHIN each
+     list, not separate lists). A mod definition with an identical Id fully replaces the earlier
+     one (standard SE definition-loading behavior, not a merge) - since mods load after base
+     game content, these empty lists mean the world-gen auto-spawn pass has nothing to place.
+
+     Goal: keep <EnableEconomy>true</EnableEconomy> in Sandbox_config.sbc working - the global
+     Economy session (currency, reputation thresholds, the Market Watch view model that Store
+     Blocks need to open without crashing, the Economy Tick that restocks Store Block offers -
+     see the Store-block crash investigation) - WITHOUT vanilla auto-spawning its own random
+     Economy_* Trading Stations across the Mediterranean planet/system. Everything WW2-WitM
+     wants to sell/trade goes through hand-placed installations (the 4 Ports, eventually a
+     neutral trade post) via MES StaticEncounter + [InitializeStoreBlocks:true], not vanilla's
+     own station generator.
+
+     SpawnDistance and GeneratedItemsContainerType are kept (not emptied) since they may not be
+     safely nullable fields on MyObjectBuilder_StationsListDefinition - only the actual prefab
+     lists are emptied, which is the only thing that actually controls whether stations spawn. -->
+
+    <Definition xsi:type="MyObjectBuilder_StationsListDefinition">
+        <Id Type="MyObjectBuilder_StationsListDefinition" Subtype="OrbitalStations" />
+        <StationNames>
+        </StationNames>
+        <SpawnDistance>20000</SpawnDistance>
+        <GeneratedItemsContainerType>
+            <TypeId>ContainerTypeDefinition</TypeId>
+            <SubtypeId>StationContainerType</SubtypeId>
+        </GeneratedItemsContainerType>
+        <StationPrefabsFactionTypes>
+        </StationPrefabsFactionTypes>
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_StationsListDefinition">
+        <Id Type="MyObjectBuilder_StationsListDefinition" Subtype="Outposts" />
+        <StationNames>
+        </StationNames>
+        <SpawnDistance>10000</SpawnDistance>
+        <GeneratedItemsContainerType>
+            <TypeId>ContainerTypeDefinition</TypeId>
+            <SubtypeId>StationContainerType</SubtypeId>
+        </GeneratedItemsContainerType>
+        <StationPrefabsFactionTypes>
+        </StationPrefabsFactionTypes>
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_StationsListDefinition">
+        <Id Type="MyObjectBuilder_StationsListDefinition" Subtype="SpaceStations" />
+        <StationNames>
+        </StationNames>
+        <SpawnDistance>15000</SpawnDistance>
+        <GeneratedItemsContainerType>
+            <TypeId>ContainerTypeDefinition</TypeId>
+            <SubtypeId>StationContainerType</SubtypeId>
+        </GeneratedItemsContainerType>
+        <StationPrefabsFactionTypes>
+        </StationPrefabsFactionTypes>
+    </Definition>
+
+</Definitions>

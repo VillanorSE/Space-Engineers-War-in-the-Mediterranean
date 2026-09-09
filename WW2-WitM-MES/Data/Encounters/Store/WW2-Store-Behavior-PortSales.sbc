@@ -1,5 +1,12 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!-- 2026-09-07: briefly detached from Behaviors-Port.sbc on a wrong diagnosis that this
+     ApplyStoreProfiles action itself was crashing the client - re-confirmed via the actual crash
+     log and GV Deserts of Kharak's own working GVK-Derelicts mod (Workshop 2653133286, uses this
+     identical mechanism successfully) that the real cause is <EnableEconomy>false</EnableEconomy>
+     in this world's Sandbox_config.sbc, unrelated to this file. Re-wired back into
+     Behaviors-Port.sbc; unchanged below. -->
+
 <!-- 2026-08-27: Port Store-sells-everything feature. Same Trigger/Action mechanism as
      WW2-Store-Behavior-FactoryPlaneSales.sbc, but each faction's profile offers its whole
      Player-WW2 roster instead of one plane  - see WW2-Store-StoreProfiles.sbc for

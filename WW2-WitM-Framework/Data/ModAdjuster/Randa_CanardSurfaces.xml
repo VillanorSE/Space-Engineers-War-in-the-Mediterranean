@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Definitions>
+  <CubeBlocks>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>CanardSurface3x2</SubtypeId>
+      </Id>
+      <Size x="1" y="1" z="1" />
+    <Components><Component Subtype="InteriorPlate" Count="1" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="2" /><Component Subtype="InteriorPlate" Count="1" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>CanardSurface3x3</SubtypeId>
+      </Id>
+      <Size x="1" y="1" z="1" />
+    <Components><Component Subtype="InteriorPlate" Count="1" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="3" /><Component Subtype="InteriorPlate" Count="1" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>CanardSurface3x4</SubtypeId>
+      </Id>
+      <Size x="1" y="1" z="1" />
+    <Components><Component Subtype="InteriorPlate" Count="1" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="5" /><Component Subtype="InteriorPlate" Count="1" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>CanardSurface3x4Elevator</SubtypeId>
+      </Id>
+      <Size x="1" y="1" z="1" />
+    <Components><Component Subtype="InteriorPlate" Count="1" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="5" /><Component Subtype="InteriorPlate" Count="1" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>CanardSurface3x2Offset</SubtypeId>
+      </Id>
+      <Size x="1" y="1" z="1" />
+    <Components><Component Subtype="InteriorPlate" Count="1" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="2" /><Component Subtype="InteriorPlate" Count="1" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>CanardSurface3x3Offset</SubtypeId>
+      </Id>
+      <Size x="1" y="1" z="1" />
+    <Components><Component Subtype="InteriorPlate" Count="1" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="3" /><Component Subtype="InteriorPlate" Count="1" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>CanardSurface3x4Offset</SubtypeId>
+      </Id>
+      <Size x="1" y="1" z="1" />
+    <Components><Component Subtype="InteriorPlate" Count="1" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="5" /><Component Subtype="InteriorPlate" Count="1" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>CanardSurface3x4ElevatorOffset</SubtypeId>
+      </Id>
+      <Size x="1" y="1" z="1" />
+    <Components><Component Subtype="InteriorPlate" Count="1" /><Component Subtype="MetalGrid" Count="1" /><Component Subtype="Motor" Count="5" /><Component Subtype="InteriorPlate" Count="1" /></Components><CriticalComponent Subtype="Motor" Index="0" /></Definition>
+  </CubeBlocks>
+</Definitions>

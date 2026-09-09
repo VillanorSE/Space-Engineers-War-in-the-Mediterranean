@@ -13,7 +13,21 @@
      Behaviour references one Behavior per port (Behaviors-Port.sbc, e.g. WW2-Behavior-Port-Gray-
      LaSpezia) - split from a single shared per-faction Behavior on 2026-08-30 so each port can
      run its own direction-specific cargo spawn (see Triggers-CargoSpawn-Port.sbc) alongside the
-     shared Store-sales and defensive-scramble triggers. -->
+     shared Store-sales and defensive-scramble triggers.
+
+     2026-09-07: briefly swapped to [InitializeStoreBlocks:true] on a wrong diagnosis that MES's
+     ApplyStoreProfiles action was itself crashing the client on Store Block interact. Reverted -
+     the real crash (confirmed via log: NullReferenceException in
+     Sandbox.Game.Screens.ViewModels.MyMarketWatchViewModel, thrown the instant any Store Block
+     UI opens) is caused by <EnableEconomy>false</EnableEconomy> in this world's
+     Sandbox_config.sbc, unrelated to MES entirely. Confirmed by reading GV Deserts of Kharak's
+     own GVK-Derelicts mod (Workshop 2653133286): it uses this exact ApplyStoreProfiles/
+     RequiredOffers mechanism successfully on a fully custom, MES-heavy planet with Economy
+     enabled - see WW2-Store-Behavior-PortSales.sbc, restored to its original working form. Real
+     fix in progress: enabling Economy properly on this world needs BOTH <EnableEconomy> in
+     Sandbox_config.sbc AND <GenerateFactionsOnStart> in Sandbox.sbc's SessionComponentEconomy
+     block for an EXISTING save (per the MES Economy-Stations-FAQ) - only the first flag was
+     tested so far and hung on load; untested with both flags set together. -->
 
 	<!-- Gray La Spezia Port -->
 	<SpawnGroup>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <VoxelMaterials>
+
+    <!-- Sourced from the "Planet 26 2.0" Workshop mod (Steam ID 2079185441),
+         its own Data/VoxelME.sbc; not independently verified against that
+         mod's own license/reuse terms, same caveat as the Orcus import in
+         VoxelMaterials_Orcus.sbc. Ported verbatim aside from repointing
+         texture paths to this project's own flat Textures/Voxels/ folder
+         (matching how the Orcus textures were placed, no subfolder) and
+         adding a VoxelHandPreview pointing at Limestone_cm.dds - the
+         original entry omitted this field entirely (the exact same gap
+         found and fixed for the Orcus import previously). No foliage layer
+         on this material in the source file either (bare rock, correct as
+         a cliff-face material, not an oversight). -->
+
+    <VoxelMaterial xsi:type="MyObjectBuilder_Dx11VoxelMaterialDefinition">
+      <Id>
+        <TypeId>VoxelMaterialDefinition</TypeId>
+        <SubtypeId>Limestone</SubtypeId>
+      </Id>
+      <MaterialTypeName>Stone</MaterialTypeName>
+      <MinedOre>Stone</MinedOre>
+      <MinedOreRatio>5</MinedOreRatio>
+      <CanBeHarvested>true</CanBeHarvested>
+      <IsRare>false</IsRare>
+      <SpawnsInAsteroids>false</SpawnsInAsteroids>
+      <AsteroidGeneratorSpawnProbabilityMultiplier>5</AsteroidGeneratorSpawnProbabilityMultiplier>
+
+      <VoxelHandPreview>Textures\Voxels\Limestone_cm.dds</VoxelHandPreview>
+      <ColorMetalXZnY>Textures\Voxels\Limestone_cm.dds</ColorMetalXZnY>
+      <NormalGlossXZnY>Textures\Voxels\Limestone_ng.dds</NormalGlossXZnY>
+      <ExtXZnY>Textures\Voxels\Limestone_add.dds</ExtXZnY>
+
+      <ColorMetalXZnYFar1>Textures\Voxels\Limestone_far_cm.dds</ColorMetalXZnYFar1>
+      <NormalGlossXZnYFar1>Textures\Voxels\Limestone_far_ng.dds</NormalGlossXZnYFar1>
+      <ExtXZnYFar1>Textures\Voxels\Limestone_far_add.dds</ExtXZnYFar1>
+
+      <ColorMetalXZnYFar2>Textures\Voxels\Limestone_far_cm.dds</ColorMetalXZnYFar2>
+      <NormalGlossXZnYFar2>Textures\Voxels\Limestone_far_ng.dds</NormalGlossXZnYFar2>
+      <ExtXZnYFar2>Textures\Voxels\Limestone_far_add.dds</ExtXZnYFar2>
+
+      <InitialScale>5</InitialScale>
+      <ScaleMultiplier>5</ScaleMultiplier>
+      <InitialDistance>5</InitialDistance>
+      <DistanceMultiplier>5.2</DistanceMultiplier>
+
+      <Far1Distance>120</Far1Distance>
+      <Far2Distance>120</Far2Distance>
+      <Far1Scale>50</Far1Scale>
+      <Far2Scale>150</Far2Scale>
+
+      <Friction>0.15</Friction>
+      <Restitution>0.9</Restitution>
+
+      <ColorKey Hex="#E7DC94" />
+    </VoxelMaterial>
+
+  </VoxelMaterials>
+</Definitions>

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Definitions>
+  <CubeBlocks>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>PanelWing3x4</SubtypeId>
+      </Id>
+      <Size x="3" y="1" z="4" />
+    <Components><Component Subtype="InteriorPlate" Count="4" /><Component Subtype="MetalGrid" Count="2" /><Component Subtype="InteriorPlate" Count="5" /></Components><CriticalComponent Subtype="MetalGrid" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>PanelWing3x4Reverse</SubtypeId>
+      </Id>
+      <Size x="3" y="1" z="4" />
+    <Components><Component Subtype="InteriorPlate" Count="4" /><Component Subtype="MetalGrid" Count="2" /><Component Subtype="InteriorPlate" Count="5" /></Components><CriticalComponent Subtype="MetalGrid" Index="0" /></Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>PanelWing3x4Centre</SubtypeId>
+      </Id>
+      <Size x="4" y="1" z="3" />
+    <Components><Component Subtype="InteriorPlate" Count="4" /><Component Subtype="MetalGrid" Count="2" /><Component Subtype="InteriorPlate" Count="5" /></Components><CriticalComponent Subtype="MetalGrid" Index="0" /></Definition>
+  </CubeBlocks>
+</Definitions>

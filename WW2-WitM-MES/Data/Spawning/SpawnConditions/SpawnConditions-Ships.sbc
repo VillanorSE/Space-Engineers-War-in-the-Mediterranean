@@ -14,11 +14,12 @@
 			[RivalAiPlanetaryInstallation:true]
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
-			
+			[MinWaterDepth:15]
+
 			[RotateFirstCockpitToForward:true]
 			[DisableDampeners:false]
 			[ReplenishSystems:true]
-			
+
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]
 			[UsePlayerCountCheck:true]
@@ -34,21 +35,22 @@
 		</Id>
 		<Description>
 			[MES Spawn Conditions]
-			
+
 			[PlanetaryInstallation:true]
 			[RivalAiPlanetaryInstallation:true]
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
-			
+			[MinWaterDepth:25]
+
 			[RotateFirstCockpitToForward:true]
 			[DisableDampeners:false]
 			[ReplenishSystems:true]
-			
+
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]
 			[UsePlayerCountCheck:true]
 			[MinimumPlayers:1]
-			
+
 			[UseThreatLevelCheck:true]
 			[ThreatLevelCheckRange:10000]
 			[ThreatScoreMinimum:350]

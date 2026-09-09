@@ -3,11 +3,11 @@
 	<SpawnGroups>
 
 <!-- Ammo Depo Spawns -->
-	<!-- Gray Ammo Depot 1 -->
+	<!-- Gray Ammo Depot -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Ammo-Depot-1-Gray</SubtypeId>
+			<SubtypeId>NPC-WW2-Ammo-Depot-Gray</SubtypeId>
 		</Id>
 		<Description>
 		
@@ -25,7 +25,7 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Ammo-Depot-1">
+			<Prefab SubtypeId="NPC-WW2-Ammo-Depot">
  				<Position>
 					<X>0.0</X>
 					<Y>7.5</Y>
@@ -38,11 +38,11 @@
 	</SpawnGroup>
 
 	
-	<!-- Green Ammo Depot 1 -->
+	<!-- Green Ammo Depot -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Ammo-Depot-1-Green</SubtypeId>
+			<SubtypeId>NPC-WW2-Ammo-Depot-Green</SubtypeId>
 		</Id>
 		<Description>
 		
@@ -61,7 +61,7 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Ammo-Depot-1">
+			<Prefab SubtypeId="NPC-WW2-Ammo-Depot">
  				<Position>
 					<X>0.0</X>
 					<Y>7.5</Y>

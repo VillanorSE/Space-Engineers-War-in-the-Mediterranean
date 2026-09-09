@@ -13,7 +13,22 @@
      logic), but each port now also runs its own Triggers-CargoSpawn-Port.sbc trigger, and La
      Spezia/Tripoli (and Oran/Toulon) each need a DIFFERENT one - a shared Behavior can't hold
      two different one-directional cargo routes. SpawnGroups-Ports.sbc <Behaviour> tags updated
-     to match. -->
+     to match.
+
+     2026-09-07: briefly removed the WW2-Store-Trigger-UpdateSales-Port-Gray/Green trigger
+     references below, on a wrong diagnosis that ApplyStoreProfiles itself was crashing the
+     client on Store Block interact. Root cause actually confirmed via the real crash log
+     (NullReferenceException in Sandbox.Game.Screens.ViewModels.MyMarketWatchViewModel, thrown
+     the instant any Store Block UI opens) to be <EnableEconomy>false</EnableEconomy> in this
+     world's Sandbox_config.sbc - not anything MES-side. Confirmed by reading GV Deserts of
+     Kharak's own GVK-Derelicts mod (Workshop 2653133286): it uses this exact same
+     ApplyStoreProfiles/RequiredOffers mechanism successfully on a fully custom, MES-heavy planet
+     with Economy enabled. Triggers restored below to the original working pattern - see
+     WW2-Store-Behavior-PortSales.sbc, unchanged. The real fix is enabling Economy properly on
+     this world (both <EnableEconomy> in Sandbox_config.sbc AND <GenerateFactionsOnStart> in
+     Sandbox.sbc's SessionComponentEconomy block are needed for an EXISTING save per the MES
+     Economy-Stations-FAQ - Sandbox_config alone was tested and hung on load, untested with both
+     flags set together). -->
 
 <!-- Gray -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
