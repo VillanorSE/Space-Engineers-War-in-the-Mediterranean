@@ -431,15 +431,16 @@
 			</Offer>
 		</StoreItem>
 
-		<!-- Destroyer tier, Gray/Green Vehicle stores only (not Valencia). Placeholder prices
-		     pending the same raw-material cost calculation used for the other vehicles/planes -
-		     revise once that comes back. -->
+		<!-- Destroyer tier, Gray/Green Vehicle stores only (not Valencia). Prices computed the
+		     same way as the rest of the roster: raw material cost (813,228cr / 735,663cr)
+		     rounded up to the nearest 25,000, then the standing 20% markup applied and rounded
+		     up again. -->
 		<StoreItem>
 			<StoreItemId>WW2-Vehicle-Bougainville</StoreItemId>
 			<ItemType>Prefab</ItemType>
 			<ItemSubtypeId>Player-WW2-Bougainville</ItemSubtypeId>
 			<Offer>
-				<CustomPrice>700000</CustomPrice>
+				<CustomPrice>1000000</CustomPrice>
 				<MinPriceMultiplier>100</MinPriceMultiplier>
 				<MaxPriceMultiplier>100</MaxPriceMultiplier>
 				<MinAmount>1</MinAmount>
@@ -451,7 +452,7 @@
 			<ItemType>Prefab</ItemType>
 			<ItemSubtypeId>Player-WW2-Francesco_Crispi</ItemSubtypeId>
 			<Offer>
-				<CustomPrice>700000</CustomPrice>
+				<CustomPrice>900000</CustomPrice>
 				<MinPriceMultiplier>100</MinPriceMultiplier>
 				<MaxPriceMultiplier>100</MaxPriceMultiplier>
 				<MinAmount>1</MinAmount>
