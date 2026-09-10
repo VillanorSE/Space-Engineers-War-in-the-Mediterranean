@@ -169,6 +169,48 @@
 		</Prefabs>
 	</SpawnGroup>
 
+<!-- Valencia (neutral trade post) -->
+	<!-- 2026-09-10: NPC-WW2-Port_Valencia does NOT exist yet - this is config-only, ready to go
+	     live the moment that prefab is built and placed in-game (same process as the 4 real
+	     Ports: build the installation, name its Store block exactly "Store-Port", export as
+	     NPC-WW2-Port_Valencia). IsPirate:false here (unlike the 4 GRAY/GREEN ports above, which
+	     all use IsPirate:true) since Valencia isn't hostile to anyone by design - see
+	     Factions.sbc's TRADER faction note and Behaviors-Port.sbc's Valencia entry (no
+	     reputation-damage or defensive-scramble triggers). -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Port-Valencia</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Port-Valencia]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[GridsAreEditable:false]
+		[GridsAreDestructable:false]
+		[IgnoreCleanupRules:true]
+
+		[FactionOverride:TRADER]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>false</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Port_Valencia">
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Port-Valencia</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
 <!-- End Port Installations -->
 
 	</SpawnGroups>

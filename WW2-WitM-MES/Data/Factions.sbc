@@ -29,6 +29,27 @@
       <AutoAcceptMember>false</AutoAcceptMember>
 	  
     </Faction>
-	
+
+	<!-- 2026-09-10: Valencia neutral trade post owner. DefaultRelation:Neutral (not Friends) so it
+	     matches vanilla's actual Neutral behavior - no automatic turret hostility toward either
+	     faction, and critically, reputation with this faction is never touched by any
+	     WW2-Trigger-ReputationDamage* trigger anywhere in this mod (those are only ever attached
+	     to Gray/Green assets), so a player's standing here can only ever sit at the vanilla
+	     default (0, Neutral) or better - it can never go Hostile, satisfying "no standing
+	     requirement" without needing a scripted floor. -->
+	<Faction Tag="TRADER" Founder="The Trader">
+      <Id>
+        <TypeId>MyObjectBuilder_FactionDefinition</TypeId>
+        <SubtypeId>WW2-Trader</SubtypeId>
+      </Id>
+      <DisplayName>Traders</DisplayName>
+	  <Description>An independent merchant consortium, unaligned with either Gray or Green, running a neutral trade post open to all comers.</Description>
+      <IsDefault>true</IsDefault>
+	  <DefaultRelation>Neutral</DefaultRelation>
+	  <AcceptHumans>false</AcceptHumans>
+      <AutoAcceptMember>false</AutoAcceptMember>
+
+    </Faction>
+
   </Factions>
 </Definitions>

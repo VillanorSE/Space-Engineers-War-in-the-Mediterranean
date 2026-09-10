@@ -28,7 +28,14 @@
      this world (both <EnableEconomy> in Sandbox_config.sbc AND <GenerateFactionsOnStart> in
      Sandbox.sbc's SessionComponentEconomy block are needed for an EXISTING save per the MES
      Economy-Stations-FAQ - Sandbox_config alone was tested and hung on load, untested with both
-     flags set together). -->
+     flags set together).
+
+     2026-09-10: each port now runs TWO Store-sales triggers instead of one - a shared
+     WW2-Store-Trigger-UpdateSales-PortGoods (identical everywhere, targets the "Store-Port-
+     Goods" block) plus a faction-specific WW2-Store-Trigger-UpdateSales-Vehicles-Gray/Green
+     (targets the "Store-Port-Vehicles" block) - two separate physical Store blocks per
+     location, kept deliberately independent per direct request rather than merged into one
+     block/one profile. See WW2-Store-Behavior-PortSales.sbc for the full writeup. -->
 
 <!-- Gray -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -40,7 +47,8 @@
 			[RivalAI Behavior]
 			[BehaviorName:Passive]
 
-			[Triggers:WW2-Store-Trigger-UpdateSales-Port-Gray]
+			[Triggers:WW2-Store-Trigger-UpdateSales-PortGoods]
+			[Triggers:WW2-Store-Trigger-UpdateSales-Vehicles-Gray]
 			[Triggers:WW2-Trigger-DefenseSpawn-Port-Gray]
 			[Triggers:WW2-Trigger-CargoSpawn-Port-LaSpezia]
 
@@ -56,7 +64,8 @@
 			[RivalAI Behavior]
 			[BehaviorName:Passive]
 
-			[Triggers:WW2-Store-Trigger-UpdateSales-Port-Gray]
+			[Triggers:WW2-Store-Trigger-UpdateSales-PortGoods]
+			[Triggers:WW2-Store-Trigger-UpdateSales-Vehicles-Gray]
 			[Triggers:WW2-Trigger-DefenseSpawn-Port-Gray]
 			[Triggers:WW2-Trigger-CargoSpawn-Port-Tripoli]
 
@@ -73,7 +82,8 @@
 			[RivalAI Behavior]
 			[BehaviorName:Passive]
 
-			[Triggers:WW2-Store-Trigger-UpdateSales-Port-Green]
+			[Triggers:WW2-Store-Trigger-UpdateSales-PortGoods]
+			[Triggers:WW2-Store-Trigger-UpdateSales-Vehicles-Green]
 			[Triggers:WW2-Trigger-DefenseSpawn-Port-Green]
 			[Triggers:WW2-Trigger-CargoSpawn-Port-Oran]
 
@@ -89,9 +99,30 @@
 			[RivalAI Behavior]
 			[BehaviorName:Passive]
 
-			[Triggers:WW2-Store-Trigger-UpdateSales-Port-Green]
+			[Triggers:WW2-Store-Trigger-UpdateSales-PortGoods]
+			[Triggers:WW2-Store-Trigger-UpdateSales-Vehicles-Green]
 			[Triggers:WW2-Trigger-DefenseSpawn-Port-Green]
 			[Triggers:WW2-Trigger-CargoSpawn-Port-Toulon]
+
+			</Description>
+        </EntityComponent>
+
+<!-- Valencia (neutral, TRADER faction) - deliberately NO reputation-damage trigger and NO
+     defensive-scramble trigger, unlike every Gray/Green port above. This is what actually
+     guarantees standing here can never go hostile (see Factions.sbc's own note) and keeps the
+     post genuinely non-combative - it just sells. No cargo-spawn trigger either since Valencia
+     doesn't run a cargo-ship route to another port. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Port-Valencia</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			[Triggers:WW2-Store-Trigger-UpdateSales-PortGoods]
+			[Triggers:WW2-Store-Trigger-UpdateSales-Vehicles-Valencia]
 
 			</Description>
         </EntityComponent>

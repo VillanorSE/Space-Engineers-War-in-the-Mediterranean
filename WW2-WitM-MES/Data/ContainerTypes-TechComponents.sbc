@@ -2,78 +2,103 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
 <!-- 2026-08-28: container pools for the three Stage 1 unlock-currency components (see
-     WW2-WitM-Framework/Data/Components.sbc  - relabeled vanilla Prototech items, deliberately
-     uncraftable, loot-only). CountMin/CountMax:1 on every entry  - each is meant to add exactly
-     one small stack of its one component to a container, not compete against a big pool of
-     other items the way BasicAmmo does. Rarity/likelihood is controlled at the Manipulation
-     Profile layer (Manipulations-TechComponents.sbc), not here - these are just "what quantity
-     when it does show up." -->
+     WW2-WitM-Framework/Data/Components.sbc).
+
+     2026-09-09: changed over to the GVK-inspired salvage system - these no longer drop the
+     finished component directly. Each now drops Battle Wreckage ore instead (refines into
+     Salvage Alloy, the small unlock ingredient the components' own Blueprints need - see
+     Blueprints-Salvage.sbc). SubtypeIds, CountMin/CountMax, and the Manipulation Profile wiring
+     (Manipulations-TechComponents.sbc) are all unchanged - only the item inside each container
+     changed, so rarity/likelihood tuning per tier still applies exactly as before. Amounts
+     bumped up from the old 1-3/1-2 component-stack ranges since ore is a bulkier, less
+     immediately valuable find than the finished item was. -->
 
 	<ContainerTypes>
 
-	<!-- Industrial Components: small stacks, 1-3 -->
+	<!-- Industrial Components tier: small stacks -->
 		<ContainerType CountMin="1" CountMax="1">
 			<Id>
 				<TypeId>ContainerTypeDefinition</TypeId>
 				<SubtypeId>WW2-ContainerTypes-Industrial</SubtypeId>
 			</Id>
 			<Items>
-				<Item AmountMin="1" AmountMax="3">
+				<Item AmountMin="3" AmountMax="8">
 					<Frequency>1.0</Frequency>
 					<Id>
-						<TypeId>Component</TypeId>
-						<SubtypeId>PrototechMachinery</SubtypeId>
+						<TypeId>Ore</TypeId>
+						<SubtypeId>BattleWreckage</SubtypeId>
 					</Id>
 				</Item>
 			</Items>
 		</ContainerType>
 
-	<!-- Military Components: small stacks, 1-3 -->
+	<!-- Military Components tier: small stacks -->
 		<ContainerType CountMin="1" CountMax="1">
 			<Id>
 				<TypeId>ContainerTypeDefinition</TypeId>
 				<SubtypeId>WW2-ContainerTypes-MilitaryComp</SubtypeId>
 			</Id>
 			<Items>
-				<Item AmountMin="1" AmountMax="3">
+				<Item AmountMin="3" AmountMax="8">
 					<Frequency>1.0</Frequency>
 					<Id>
-						<TypeId>Component</TypeId>
-						<SubtypeId>PrototechFrame</SubtypeId>
+						<TypeId>Ore</TypeId>
+						<SubtypeId>BattleWreckage</SubtypeId>
 					</Id>
 				</Item>
 			</Items>
 		</ContainerType>
 
-	<!-- Advanced Military Components, general (naval/cargo): very small stacks, 1-2 -->
+	<!-- Advanced Military Components tier, general (naval/cargo): very small stacks -->
 		<ContainerType CountMin="1" CountMax="1">
 			<Id>
 				<TypeId>ContainerTypeDefinition</TypeId>
 				<SubtypeId>WW2-ContainerTypes-AdvancedMilitary</SubtypeId>
 			</Id>
 			<Items>
-				<Item AmountMin="1" AmountMax="2">
+				<Item AmountMin="2" AmountMax="5">
 					<Frequency>1.0</Frequency>
 					<Id>
-						<TypeId>Component</TypeId>
-						<SubtypeId>PrototechCircuitry</SubtypeId>
+						<TypeId>Ore</TypeId>
+						<SubtypeId>BattleWreckage</SubtypeId>
 					</Id>
 				</Item>
 			</Items>
 		</ContainerType>
 
-	<!-- Advanced Military Components, elite plane spawns specifically: 1-3 per direct request -->
+	<!-- Advanced Military Components tier, elite plane spawns specifically -->
 		<ContainerType CountMin="1" CountMax="1">
 			<Id>
 				<TypeId>ContainerTypeDefinition</TypeId>
 				<SubtypeId>WW2-ContainerTypes-AdvancedMilitary-Plane</SubtypeId>
 			</Id>
 			<Items>
+				<Item AmountMin="3" AmountMax="8">
+					<Frequency>1.0</Frequency>
+					<Id>
+						<TypeId>Ore</TypeId>
+						<SubtypeId>BattleWreckage</SubtypeId>
+					</Id>
+				</Item>
+			</Items>
+		</ContainerType>
+
+	<!-- Salvaged Ordnance: new, bigger-kill-only tier (mirrors GVK's RU being medium/large-wreck-
+	     only). Reuses the same "big naval kill" Manipulation Profiles as Advanced Military
+	     Components above (EliteNaval/OtherNaval), not the Industrial/Military tiers - see
+	     Manipulations-TechComponents.sbc for wiring. No refining step - looted directly as the
+	     finished ingot, same as GVK's own RU. -->
+		<ContainerType CountMin="1" CountMax="1">
+			<Id>
+				<TypeId>ContainerTypeDefinition</TypeId>
+				<SubtypeId>WW2-ContainerTypes-SalvagedOrdnance</SubtypeId>
+			</Id>
+			<Items>
 				<Item AmountMin="1" AmountMax="3">
 					<Frequency>1.0</Frequency>
 					<Id>
-						<TypeId>Component</TypeId>
-						<SubtypeId>PrototechCircuitry</SubtypeId>
+						<TypeId>Ingot</TypeId>
+						<SubtypeId>SalvagedOrdnance</SubtypeId>
 					</Id>
 				</Item>
 			</Items>

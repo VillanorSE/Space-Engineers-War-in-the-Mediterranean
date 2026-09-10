@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <WeatherEffects>
+
+    <!-- 2026-09-10, per direct request ("most of Planet 26 2.0's weather,
+         just without lightning damage"). Planet 26's own WeatherGenerators
+         mostly reference REAL VANILLA WeatherEffectDefinition SubtypeIds
+         directly (FogLight/RainLight/RainHeavy/Hailstorm/SnowLight/
+         SnowHeavy/Dust/SandStormLight/SandStormHeavy - all confirmed
+         present in the actual base-game WeatherEffects.sbc, none of these
+         have any Lightning block at all) rather than defining its own
+         copies. We do the same for those - no entries needed here for them,
+         reference the vanilla SubtypeId directly in WeatherGenerators below.
+
+         Three vanilla weather types DO have Lightning with Damage="80"
+         baked in (FogHeavy, ThunderstormLight, ThunderstormHeavy) - for
+         those, this file defines OUR OWN copies under distinct SubtypeIds
+         (WWM_ prefix) with every field identical to the real vanilla
+         version EXCEPT Damage=0/ExplosionRadius=0, rather than overriding
+         the vanilla SubtypeId directly - an override would silently affect
+         any other planet/mod in the same world still using vanilla
+         Fog/ThunderstormHeavy, which is a bigger blast radius than asked
+         for here. -->
+
+    <WeatherEffect xsi:type="MyObjectBuilder_WeatherEffectDefinition"> <!-- copy of vanilla FogHeavy, Damage zeroed -->
+      <Id>
+        <TypeId>WeatherEffectDefinition</TypeId>
+        <SubtypeId>WWM_FogHeavy</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_TSS_Weather_HeavyFog</DisplayName>
+      <FogColor>
+        <X>0.81</X>
+        <Y>0.81</Y>
+        <Z>0.81</Z>
+      </FogColor>
+      <FogDensity>0.011</FogDensity>
+      <FogMultiplier>1</FogMultiplier>
+      <FogSkyboxMultiplier>1</FogSkyboxMultiplier>
+      <FogAtmoMultiplier>1</FogAtmoMultiplier>
+      <AmbientSound>WM_FogHeavy</AmbientSound>
+      <AmbientVolume>1</AmbientVolume>
+      <EffectName></EffectName>
+      <ParticleRadius>0</ParticleRadius>
+      <ParticleCount>0</ParticleCount>
+      <ParticleScale>0</ParticleScale>
+      <LightningIntervalMin>5</LightningIntervalMin>
+      <LightningIntervalMax>10</LightningIntervalMax>
+      <LightningCharacterHitIntervalMin>1000</LightningCharacterHitIntervalMin>
+      <LightningCharacterHitIntervalMax>3000</LightningCharacterHitIntervalMax>
+      <LightningGridHitIntervalMin>1000</LightningGridHitIntervalMin>
+      <LightningGridHitIntervalMax>2000</LightningGridHitIntervalMax>
+      <LightningRodSafetyRadius>20</LightningRodSafetyRadius>
+      <Lightning>
+        <MaxLife>7</MaxLife>
+        <BoltLength>3500</BoltLength>
+        <BoltParts>50</BoltParts>
+        <BoltVariation>70</BoltVariation>
+        <BoltRadius>40</BoltRadius>
+        <Damage>0</Damage>
+        <Sound>WM_Lightning</Sound>
+        <Color>
+          <X>85</X>
+          <Y>90</Y>
+          <Z>100</Z>
+          <W>1000</W>
+        </Color>
+        <ExplosionRadius>0</ExplosionRadius>
+      </Lightning>
+      <WindOutputModifier>0.1</WindOutputModifier>
+      <SolarOutputModifier>0.15</SolarOutputModifier>
+      <TemperatureModifier>0.3</TemperatureModifier>
+      <OxygenLevelModifier>1</OxygenLevelModifier>
+      <FoliageWindModifier>0.1</FoliageWindModifier>
+      <ParticleAlphaMultiplier>1</ParticleAlphaMultiplier>
+      <SunColor>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </SunColor>
+      <SunSpecularColor>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </SunSpecularColor>
+      <SunIntensity>0.35</SunIntensity>
+      <ShadowFadeout>0.20</ShadowFadeout>
+    </WeatherEffect>
+
+    <WeatherEffect xsi:type="MyObjectBuilder_WeatherEffectDefinition"> <!-- copy of vanilla ThunderstormLight, Damage zeroed -->
+      <Id>
+        <TypeId>WeatherEffectDefinition</TypeId>
+        <SubtypeId>WWM_ThunderstormLight</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_TSS_Weather_Thunderstorm</DisplayName>
+      <Public>true</Public>
+      <FogColor>
+        <X>0.81</X>
+        <Y>0.81</Y>
+        <Z>0.81</Z>
+      </FogColor>
+      <FogDensity>0.0015</FogDensity>
+      <FogMultiplier>1</FogMultiplier>
+      <FogSkyboxMultiplier>1</FogSkyboxMultiplier>
+      <FogAtmoMultiplier>1</FogAtmoMultiplier>
+      <AmbientSound>WM_RainLight</AmbientSound>
+      <AmbientVolume>0.20</AmbientVolume>
+      <EffectName>WM_Rain</EffectName>
+      <ParticleRadius>500</ParticleRadius>
+      <ParticleCount>15</ParticleCount>
+      <ParticleScale>1</ParticleScale>
+      <LightningIntervalMin>5</LightningIntervalMin>
+      <LightningIntervalMax>10</LightningIntervalMax>
+      <LightningCharacterHitIntervalMin>1000</LightningCharacterHitIntervalMin>
+      <LightningCharacterHitIntervalMax>3000</LightningCharacterHitIntervalMax>
+      <LightningGridHitIntervalMin>1000</LightningGridHitIntervalMin>
+      <LightningGridHitIntervalMax>2000</LightningGridHitIntervalMax>
+      <LightningRodSafetyRadius>20</LightningRodSafetyRadius>
+      <Lightning>
+        <MaxLife>7</MaxLife>
+        <BoltLength>3500</BoltLength>
+        <BoltParts>50</BoltParts>
+        <BoltVariation>70</BoltVariation>
+        <BoltRadius>40</BoltRadius>
+        <Damage>0</Damage>
+        <Sound>WM_Lightning</Sound>
+        <Color>
+          <X>85</X>
+          <Y>90</Y>
+          <Z>100</Z>
+          <W>1000</W>
+        </Color>
+        <ExplosionRadius>0</ExplosionRadius>
+      </Lightning>
+      <WindOutputModifier>1.2</WindOutputModifier>
+      <SolarOutputModifier>0.6</SolarOutputModifier>
+      <TemperatureModifier>0.7</TemperatureModifier>
+      <OxygenLevelModifier>1</OxygenLevelModifier>
+      <FoliageWindModifier>1.5</FoliageWindModifier>
+      <ParticleAlphaMultiplier>1</ParticleAlphaMultiplier>
+      <SunColor>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </SunColor>
+      <SunSpecularColor>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </SunSpecularColor>
+      <RadiationHazard>
+        <MinWeatherIntensity>0.5</MinWeatherIntensity>
+        <RadiationGain>-0.6</RadiationGain>
+      </RadiationHazard>
+      <SunIntensity>3</SunIntensity>
+      <ShadowFadeout>0.3</ShadowFadeout>
+    </WeatherEffect>
+
+    <WeatherEffect xsi:type="MyObjectBuilder_WeatherEffectDefinition"> <!-- copy of vanilla ThunderstormHeavy, Damage zeroed -->
+      <Id>
+        <TypeId>WeatherEffectDefinition</TypeId>
+        <SubtypeId>WWM_ThunderstormHeavy</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_TSS_Weather_Thunderstorm</DisplayName>
+      <Public>true</Public>
+      <FogColor>
+        <X>0.81</X>
+        <Y>0.81</Y>
+        <Z>0.81</Z>
+      </FogColor>
+      <FogDensity>0.002</FogDensity>
+      <FogMultiplier>1</FogMultiplier>
+      <FogSkyboxMultiplier>1</FogSkyboxMultiplier>
+      <FogAtmoMultiplier>1</FogAtmoMultiplier>
+      <AmbientSound>WM_RainHeavy</AmbientSound>
+      <AmbientVolume>0.20</AmbientVolume>
+      <EffectName>WM_RainHeavy</EffectName>
+      <ParticleRadius>500</ParticleRadius>
+      <ParticleCount>30</ParticleCount>
+      <ParticleScale>1</ParticleScale>
+      <LightningIntervalMin>1</LightningIntervalMin>
+      <LightningIntervalMax>2</LightningIntervalMax>
+      <LightningCharacterHitIntervalMin>1000</LightningCharacterHitIntervalMin>
+      <LightningCharacterHitIntervalMax>2000</LightningCharacterHitIntervalMax>
+      <LightningGridHitIntervalMin>1000</LightningGridHitIntervalMin>
+      <LightningGridHitIntervalMax>1800</LightningGridHitIntervalMax>
+      <LightningRodSafetyRadius>20</LightningRodSafetyRadius>
+      <Lightning>
+        <MaxLife>7</MaxLife>
+        <BoltLength>4000</BoltLength>
+        <BoltParts>50</BoltParts>
+        <BoltVariation>90</BoltVariation>
+        <BoltRadius>50</BoltRadius>
+        <Damage>0</Damage>
+        <Sound>WM_Lightning</Sound>
+        <Color>
+          <X>85</X>
+          <Y>90</Y>
+          <Z>100</Z>
+          <W>1000</W>
+        </Color>
+        <ExplosionRadius>0</ExplosionRadius>
+      </Lightning>
+      <WindOutputModifier>1.75</WindOutputModifier>
+      <SolarOutputModifier>0.3</SolarOutputModifier>
+      <TemperatureModifier>0.4</TemperatureModifier>
+      <OxygenLevelModifier>1</OxygenLevelModifier>
+      <FoliageWindModifier>2</FoliageWindModifier>
+      <ParticleAlphaMultiplier>1</ParticleAlphaMultiplier>
+      <SunColor>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </SunColor>
+      <SunSpecularColor>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </SunSpecularColor>
+      <RadiationHazard>
+        <MinWeatherIntensity>0.5</MinWeatherIntensity>
+        <RadiationGain>-0.6</RadiationGain>
+      </RadiationHazard>
+      <SunIntensity>3</SunIntensity>
+      <ShadowFadeout>0.1</ShadowFadeout>
+    </WeatherEffect>
+
+  </WeatherEffects>
+</Definitions>

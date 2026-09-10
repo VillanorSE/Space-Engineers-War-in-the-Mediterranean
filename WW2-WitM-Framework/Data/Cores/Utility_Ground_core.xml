@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ShipCore>
-  <SubtypeId>WW2-Core-Air-Civilian</SubtypeId>
-  <UniqueName>Air Civilian</UniqueName>
+  <SubtypeId>WW2-Core-Wheeled-Utility</SubtypeId>
+  <UniqueName>Ground - Utility</UniqueName>
   <ForceBroadCast>true</ForceBroadCast>
-  <ForceBroadCastRange>3000</ForceBroadCastRange>
+  <ForceBroadCastRange>750</ForceBroadCastRange>
   <MobilityType>Mobile</MobilityType>
-  <MaxBlocks>2000</MaxBlocks>
+  <MaxBlocks>750</MaxBlocks>
   <MinBlocks>-1</MinBlocks>
   <MaxMass>-1</MaxMass>
-  <MaxPCU>7500</MaxPCU>
-  <MaxBackupCores>2</MaxBackupCores>
+  <MaxPCU>3000</MaxPCU>
+  <MaxBackupCores>1</MaxBackupCores>
   <MaxPerPlayer>-1</MaxPerPlayer>
   <MaxPerFaction>-1</MaxPerFaction>
   <FactionPlayersNeededPerCore>-1</FactionPlayersNeededPerCore>
@@ -29,7 +29,7 @@
     <AssemblerSpeed>1</AssemblerSpeed>
     <DrillHarvestMultiplier>1</DrillHarvestMultiplier>
     <GyroEfficiency>1</GyroEfficiency>
-    <GyroForce>0.8</GyroForce>
+    <GyroForce>1</GyroForce>
     <PowerProducersOutput>1</PowerProducersOutput>
     <RefineEfficiency>1</RefineEfficiency>
     <RefineSpeed>1</RefineSpeed>
@@ -37,9 +37,9 @@
     <ThrusterForce>1</ThrusterForce>
   </Modifiers>
   <SpeedModifiers>
-    <MaxSpeed>0.766667</MaxSpeed>
+    <MaxSpeed>0.3</MaxSpeed>
     <MaxAngularVelocity>0</MaxAngularVelocity>
-    <MaxBoost>0.6</MaxBoost>
+    <MaxBoost>0.14</MaxBoost>
     <BoostDuration>15</BoostDuration>
     <BoostCoolDown>90</BoostCoolDown>
     <MinimumFrictionSpeedAbsolute>100</MinimumFrictionSpeedAbsolute>
@@ -73,66 +73,19 @@
     <Kinetic>1</Kinetic>
   </ActiveDefenseModifiers>
   <BlockLimits>
-    <Name>Propellers</Name>
-    <BlockGroups>Propellers-Air</BlockGroups>
-    <MaxCount>4</MaxCount>
-    <CrossConnectorPunishment>false</CrossConnectorPunishment>
-    <PunishByNoFlyZone>true</PunishByNoFlyZone>
-    <IsCriticalLimit>false</IsCriticalLimit>
-    <PunishmentType>ShutOff</PunishmentType>
-    <AllowedDirections>Forward</AllowedDirections>
-	<AllowedDirections>Backward</AllowedDirections>
-	<AllowedDirections>Right</AllowedDirections>
-	<AllowedDirections>Left</AllowedDirections>
-  </BlockLimits>
-  <BlockLimits>
-    <Name>Engines</Name>
-    <BlockGroups>Engines</BlockGroups>
-    <MaxCount>6</MaxCount>
-    <CrossConnectorPunishment>false</CrossConnectorPunishment>
-    <PunishByNoFlyZone>true</PunishByNoFlyZone>
-    <IsCriticalLimit>false</IsCriticalLimit>
-    <PunishmentType>ShutOff</PunishmentType>
-    <AllowedDirections>Any</AllowedDirections>
-  </BlockLimits>
-  <BlockLimits>
-    <Name>Batteries</Name>
-    <BlockGroups>Batteries</BlockGroups>
-    <MaxCount>8</MaxCount>
-    <CrossConnectorPunishment>false</CrossConnectorPunishment>
-    <PunishByNoFlyZone>true</PunishByNoFlyZone>
-    <IsCriticalLimit>false</IsCriticalLimit>
-    <PunishmentType>ShutOff</PunishmentType>
-    <AllowedDirections>Any</AllowedDirections>
-  </BlockLimits>
-  <BlockLimits>
-    <Name>Production</Name>
-    <BlockGroups>Production</BlockGroups>
-    <MaxCount>2</MaxCount>
-    <CrossConnectorPunishment>false</CrossConnectorPunishment>
-    <PunishByNoFlyZone>true</PunishByNoFlyZone>
-    <IsCriticalLimit>false</IsCriticalLimit>
-    <PunishmentType>ShutOff</PunishmentType>
-  </BlockLimits>
-  <BlockLimits>
-    <Name>Gyroscopes</Name>
-    <BlockGroups>Gyros</BlockGroups>
+    <Name>BasicWeapons</Name>
+    <BlockGroups>BasicWeapons</BlockGroups>
     <MaxCount>1</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
     <IsCriticalLimit>false</IsCriticalLimit>
     <PunishmentType>ShutOff</PunishmentType>
-    <AllowedDirections>Any</AllowedDirections>
-  </BlockLimits>
-  <BlockLimits>
-    <Name>BasicWeapons</Name>
-    <BlockGroups>BasicWeapons</BlockGroups>
-    <MaxCount>3</MaxCount>
-    <CrossConnectorPunishment>false</CrossConnectorPunishment>
-    <PunishByNoFlyZone>true</PunishByNoFlyZone>
-    <IsCriticalLimit>false</IsCriticalLimit>
-    <PunishmentType>ShutOff</PunishmentType>
-    <AllowedDirections>Any</AllowedDirections>
+    <AllowedDirections>Forward</AllowedDirections>
+    <AllowedDirections>Backward</AllowedDirections>
+    <AllowedDirections>Left</AllowedDirections>
+    <AllowedDirections>Right</AllowedDirections>
+    <AllowedDirections>Up</AllowedDirections>
+    <AllowedDirections>Down</AllowedDirections>
   </BlockLimits>
   <BlockLimits>
     <Name>Weapons</Name>
@@ -142,6 +95,12 @@
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
     <IsCriticalLimit>false</IsCriticalLimit>
     <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Forward</AllowedDirections>
+    <AllowedDirections>Backward</AllowedDirections>
+    <AllowedDirections>Left</AllowedDirections>
+    <AllowedDirections>Right</AllowedDirections>
+    <AllowedDirections>Up</AllowedDirections>
+    <AllowedDirections>Down</AllowedDirections>
   </BlockLimits>
   <BlockLimits>
     <Name>SpecialWeapons</Name>
@@ -151,11 +110,32 @@
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
     <IsCriticalLimit>false</IsCriticalLimit>
     <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Forward</AllowedDirections>
+    <AllowedDirections>Backward</AllowedDirections>
+    <AllowedDirections>Left</AllowedDirections>
+    <AllowedDirections>Right</AllowedDirections>
+    <AllowedDirections>Up</AllowedDirections>
+    <AllowedDirections>Down</AllowedDirections>
   </BlockLimits>
   <BlockLimits>
     <Name>Countermeasures</Name>
     <BlockGroups>Countermeasures</BlockGroups>
     <MaxCount>2</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Forward</AllowedDirections>
+    <AllowedDirections>Backward</AllowedDirections>
+    <AllowedDirections>Left</AllowedDirections>
+    <AllowedDirections>Right</AllowedDirections>
+    <AllowedDirections>Up</AllowedDirections>
+    <AllowedDirections>Down</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>Engines</Name>
+    <BlockGroups>Engines</BlockGroups>
+    <MaxCount>3</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
     <IsCriticalLimit>false</IsCriticalLimit>
@@ -173,9 +153,9 @@
     <AllowedDirections>Any</AllowedDirections>
   </BlockLimits>
   <BlockLimits>
-    <Name>LandingGear</Name>
-    <BlockGroups>Wheels - Plane</BlockGroups>
-    <MaxCount>5</MaxCount>
+    <Name>Batteries</Name>
+    <BlockGroups>Batteries</BlockGroups>
+    <MaxCount>6</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
     <IsCriticalLimit>false</IsCriticalLimit>
@@ -183,8 +163,97 @@
     <AllowedDirections>Any</AllowedDirections>
   </BlockLimits>
   <BlockLimits>
-    <Name>NoWheels</Name>
+    <Name>Cargo</Name>
+    <BlockGroups>CargoContainers</BlockGroups>
+    <MaxCount>18</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>Seats</Name>
+    <BlockGroups>Cockpits</BlockGroups>
+    <MaxCount>12</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>Gyros</Name>
+    <BlockGroups>Gyros</BlockGroups>
+    <MaxCount>2</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>Pistons</Name>
+    <BlockGroups>Pistons</BlockGroups>
+    <MaxCount>3</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>Renewables</Name>
+    <BlockGroups>PowerPassive</BlockGroups>
+    <MaxCount>1</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>Production</Name>
+    <BlockGroups>Production</BlockGroups>
+    <MaxCount>4</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>NoThrust</Name>
+    <BlockGroups>Propellers-Air</BlockGroups>
+    <MaxCount>0</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>Tools</Name>
+    <BlockGroups>Tools</BlockGroups>
+    <MaxCount>2</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>Wheels</Name>
     <BlockGroups>Wheels</BlockGroups>
+    <MaxCount>10</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>NoLandingGear</Name>
+    <BlockGroups>Wheels - Plane</BlockGroups>
     <MaxCount>0</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
@@ -195,50 +264,6 @@
     <Name>Connectors</Name>
     <BlockGroups>Connectors</BlockGroups>
     <MaxCount>2</MaxCount>
-    <CrossConnectorPunishment>false</CrossConnectorPunishment>
-    <PunishByNoFlyZone>true</PunishByNoFlyZone>
-    <IsCriticalLimit>false</IsCriticalLimit>
-    <PunishmentType>ShutOff</PunishmentType>
-    <AllowedDirections>Any</AllowedDirections>
-  </BlockLimits>
-  <BlockLimits>
-    <Name>NoTools</Name>
-    <BlockGroups>Tools</BlockGroups>
-    <MaxCount>0</MaxCount>
-    <CrossConnectorPunishment>false</CrossConnectorPunishment>
-    <PunishByNoFlyZone>true</PunishByNoFlyZone>
-    <IsCriticalLimit>false</IsCriticalLimit>
-    <PunishmentType>ShutOff</PunishmentType>
-  </BlockLimits>
-  <BlockLimits>
-    <Name>Renewables</Name>
-    <BlockGroups>PowerPassive</BlockGroups>
-    <MaxCount>2</MaxCount>
-    <CrossConnectorPunishment>false</CrossConnectorPunishment>
-    <PunishByNoFlyZone>true</PunishByNoFlyZone>
-    <IsCriticalLimit>false</IsCriticalLimit>
-    <PunishmentType>ShutOff</PunishmentType>
-    <AllowedDirections>Forward</AllowedDirections>
-    <AllowedDirections>Backward</AllowedDirections>
-    <AllowedDirections>Up</AllowedDirections>
-    <AllowedDirections>Down</AllowedDirections>
-    <AllowedDirections>Left</AllowedDirections>
-    <AllowedDirections>Right</AllowedDirections>
-  </BlockLimits>
-  <BlockLimits>
-    <Name>Seats</Name>
-    <BlockGroups>Cockpits</BlockGroups>
-    <MaxCount>10</MaxCount>
-    <CrossConnectorPunishment>false</CrossConnectorPunishment>
-    <PunishByNoFlyZone>true</PunishByNoFlyZone>
-    <IsCriticalLimit>false</IsCriticalLimit>
-    <PunishmentType>ShutOff</PunishmentType>
-    <AllowedDirections>Any</AllowedDirections>
-  </BlockLimits>
-  <BlockLimits>
-    <Name>Cargo</Name>
-    <BlockGroups>CargoContainers</BlockGroups>
-    <MaxCount>15</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
     <IsCriticalLimit>false</IsCriticalLimit>

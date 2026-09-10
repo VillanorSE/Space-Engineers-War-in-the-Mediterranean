@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<!-- 2026-09-09: adds Salvaged Ordnance as a small unlock ingredient to every Battleship-caliber
+     shell Blueprint in Fletcher Armaments (Workshop 2844434226), same pattern as GVK's RU being
+     "used in the construction of high end weaponry" (their own wiki's words) - GVK's own actual
+     RU-ammo recipe wasn't available to inspect (lives in a different mod), so the ratio here is
+     WW2-WitM's own extrapolation of the same small-unlock-ingredient shape already confirmed for
+     CU/Salvage Alloy, not a copy of a real GVK number.
+
+     Confirmed via Fletcher Armaments' own Blueprints.sbc that every one of these 11 shells
+     currently shares the exact same Prerequisites (7 Iron / 4 Nickel / 8 Magnesium) - full
+     original list re-specified below plus the new SalvagedOrdnance line, since Mod Adjuster
+     patches a list field as a full replacement, not an append. -->
+	<Blueprints>
+
+		<Blueprint xsi:type="BlueprintDefinition">
+			<Id Type="BlueprintDefinition" Subtype="12InchShellMK18BP" />
+			<Prerequisites>
+				<Item Amount="7" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="4" TypeId="Ingot" SubtypeId="Nickel" />
+				<Item Amount="8" TypeId="Ingot" SubtypeId="Magnesium" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="SalvagedOrdnance" />
+			</Prerequisites>
+		</Blueprint>
+
+		<Blueprint xsi:type="BlueprintDefinition">
+			<Id Type="BlueprintDefinition" Subtype="12InchShellBP" />
+			<Prerequisites>
+				<Item Amount="7" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="4" TypeId="Ingot" SubtypeId="Nickel" />
+				<Item Amount="8" TypeId="Ingot" SubtypeId="Magnesium" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="SalvagedOrdnance" />
+			</Prerequisites>
+		</Blueprint>
+
+		<Blueprint xsi:type="BlueprintDefinition">
+			<Id Type="BlueprintDefinition" Subtype="12InchShellukBP" />
+			<Prerequisites>
+				<Item Amount="7" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="4" TypeId="Ingot" SubtypeId="Nickel" />
+				<Item Amount="8" TypeId="Ingot" SubtypeId="Magnesium" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="SalvagedOrdnance" />
+			</Prerequisites>
+		</Blueprint>
+
+		<Blueprint xsi:type="BlueprintDefinition">
+			<Id Type="BlueprintDefinition" Subtype="14InchShell" />
+			<Prerequisites>
+				<Item Amount="7" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="4" TypeId="Ingot" SubtypeId="Nickel" />
+				<Item Amount="8" TypeId="Ingot" SubtypeId="Magnesium" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="SalvagedOrdnance" />
+			</Prerequisites>
+		</Blueprint>
+
+		<Blueprint xsi:type="BlueprintDefinition">
+			<Id Type="BlueprintDefinition" Subtype="16InchShell" />
+			<Prerequisites>
+				<Item Amount="7" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="4" TypeId="Ingot" SubtypeId="Nickel" />
+				<Item Amount="8" TypeId="Ingot" SubtypeId="Magnesium" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="SalvagedOrdnance" />
+			</Prerequisites>
+		</Blueprint>
+
+		<Blueprint xsi:type="BlueprintDefinition">
+			<Id Type="BlueprintDefinition" Subtype="UK16InchShellBP" />
+			<Prerequisites>
+				<Item Amount="7" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="4" TypeId="Ingot" SubtypeId="Nickel" />
+				<Item Amount="8" TypeId="Ingot" SubtypeId="Magnesium" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="SalvagedOrdnance" />
+			</Prerequisites>
+		</Blueprint>
+
+		<Blueprint xsi:type="BlueprintDefinition">
+			<Id Type="BlueprintDefinition" Subtype="18InchShellBP" />
+			<Prerequisites>
+				<Item Amount="7" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="4" TypeId="Ingot" SubtypeId="Nickel" />
+				<Item Amount="8" TypeId="Ingot" SubtypeId="Magnesium" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="SalvagedOrdnance" />
+			</Prerequisites>
+		</Blueprint>
+
+		<!-- Vittorio Veneto (Littorio-class, Gray battleship) main gun -->
+		<Blueprint xsi:type="BlueprintDefinition">
+			<Id Type="BlueprintDefinition" Subtype="380mmSAPShellBP" />
+			<Prerequisites>
+				<Item Amount="7" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="4" TypeId="Ingot" SubtypeId="Nickel" />
+				<Item Amount="8" TypeId="Ingot" SubtypeId="Magnesium" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="SalvagedOrdnance" />
+			</Prerequisites>
+		</Blueprint>
+
+		<Blueprint xsi:type="BlueprintDefinition">
+			<Id Type="BlueprintDefinition" Subtype="381mmShell" />
+			<Prerequisites>
+				<Item Amount="7" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="4" TypeId="Ingot" SubtypeId="Nickel" />
+				<Item Amount="8" TypeId="Ingot" SubtypeId="Magnesium" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="SalvagedOrdnance" />
+			</Prerequisites>
+		</Blueprint>
+
+		<!-- Strasbourg (Dunkerque-class, Green battleship) main gun -->
+		<Blueprint xsi:type="BlueprintDefinition">
+			<Id Type="BlueprintDefinition" Subtype="380mmHEShell" />
+			<Prerequisites>
+				<Item Amount="7" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="4" TypeId="Ingot" SubtypeId="Nickel" />
+				<Item Amount="8" TypeId="Ingot" SubtypeId="Magnesium" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="SalvagedOrdnance" />
+			</Prerequisites>
+		</Blueprint>
+
+		<Blueprint xsi:type="BlueprintDefinition">
+			<Id Type="BlueprintDefinition" Subtype="305mmShell" />
+			<Prerequisites>
+				<Item Amount="7" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="4" TypeId="Ingot" SubtypeId="Nickel" />
+				<Item Amount="8" TypeId="Ingot" SubtypeId="Magnesium" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="SalvagedOrdnance" />
+			</Prerequisites>
+		</Blueprint>
+
+	</Blueprints>
+</Definitions>

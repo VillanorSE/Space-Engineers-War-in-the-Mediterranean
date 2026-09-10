@@ -120,5 +120,38 @@
 		</Description>
 	</EntityComponent>
 
+	<!-- 2026-09-10: Valencia, neutral trade post (TRADER faction, no combat). Real placement
+	     vectors below, captured via MES's own grid-info chat command once the prefab was built
+	     and placed in-game (StaticEncounterPlanetDirection/Altitude for the dynamic-planet mode,
+	     matching the 4 real ports' own convention; Forward/Up shared with the raw-coords form). -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Port-Valencia</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:true]
+			[StaticEncounterUsePlanetDirectionAndAltitude:true]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterPlanetDirection:{X:0.707906168868626 Y:-0.307714528162304 Z:-0.635752015518312}]
+			[StaticEncounterPlanetAltitude:-2.60071226354557]
+			[StaticEncounterForward:{X:0.646811604499817 Y:-0.0851410627365112 Z:0.757882416248322}]
+			[StaticEncounterUp:{X:0.706640124320984 Y:-0.306892096996307 Z:-0.637555599212646}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:TRADER]
+
+			[TriggerRadius:65000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+		</Description>
+	</EntityComponent>
+
 	</EntityComponents>
 </Definitions>

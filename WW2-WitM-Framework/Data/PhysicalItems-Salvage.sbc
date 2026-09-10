@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<!-- 2026-09-09: the GVK-inspired salvage/CU-RU changeover. Confirmed via GV Deserts of Kharak's
+     own main mod (Workshop 2652206640, not the Derelicts encounter pack) that "Construction
+     Units" (GVK_CUs) are a custom ingot refined from wreck-specific Scrap ore, consumed in small
+     amounts (plus a large pile of ordinary ingots) by the actual component Blueprint - vanilla's
+     own Prototech components already work this way, GVK just swapped vanilla's PrototechScrap
+     ingredient for their own ingot sourced from their own loot. "Resource Units" (GVK_RUs) are a
+     second, separate ingot looted directly (no ore/refining step of its own) and used as a small
+     unlock ingredient for their toughest weapon ammo.
+
+     WW2-WitM equivalents:
+     - Battle Wreckage (Ore) - salvaged from destroyed NPC grids, refines into Salvage Alloy.
+     - Salvage Alloy (Ingot) - the small unlock ingredient for Industrial/Military/Advanced
+       Military Components (see Blueprints-Salvage.sbc). Sourced only via refining Battle
+       Wreckage, or bought at Port stores.
+     - Salvaged Ordnance (Ingot) - looted directly (no ore of its own), from larger NPC kills
+       only. Unlock ingredient for the toughest naval gun ammo (see ModAdjuster patch). Sourced
+       only via loot or Port stores. -->
+
+	<PhysicalItems>
+
+		<PhysicalItem>
+			<Id>
+				<TypeId>Ore</TypeId>
+				<SubtypeId>BattleWreckage</SubtypeId>
+			</Id>
+			<DisplayName>Battle Wreckage</DisplayName>
+			<Icon>Textures\GUI\Icons\ore\Scrap.dds</Icon>
+			<Size>
+				<X>0.37</X>
+				<Y>0.37</Y>
+				<Z>0.37</Z>
+			</Size>
+			<Mass>1</Mass>
+			<Volume>0.37</Volume>
+			<Model>Models\Debris\Scrap\Scrap_1.mwm</Model>
+			<PhysicalMaterial>Metal</PhysicalMaterial>
+			<MaxIntegrity>1</MaxIntegrity>
+			<CanPlayerOrder>true</CanPlayerOrder>
+		</PhysicalItem>
+
+		<PhysicalItem>
+			<Id>
+				<TypeId>Ingot</TypeId>
+				<SubtypeId>SalvageAlloy</SubtypeId>
+			</Id>
+			<DisplayName>Salvage Alloy</DisplayName>
+			<Icon>Textures\GUI\Icons\ingot\ScrapMetal_ingot.dds</Icon>
+			<Size>
+				<X>0.1</X>
+				<Y>0.1</Y>
+				<Z>0.2</Z>
+			</Size>
+			<Mass>1</Mass>
+			<Volume>0.05925</Volume>
+			<Model>Models\Components\IngotIron.mwm</Model>
+			<PhysicalMaterial>Metal</PhysicalMaterial>
+			<MaxIntegrity>1</MaxIntegrity>
+			<CanPlayerOrder>true</CanPlayerOrder>
+		</PhysicalItem>
+
+		<PhysicalItem>
+			<Id>
+				<TypeId>Ingot</TypeId>
+				<SubtypeId>SalvagedOrdnance</SubtypeId>
+			</Id>
+			<DisplayName>Salvaged Ordnance</DisplayName>
+			<Icon>Textures\GUI\Icons\ingot\Uranium.dds</Icon>
+			<Size>
+				<X>0.1</X>
+				<Y>0.1</Y>
+				<Z>0.2</Z>
+			</Size>
+			<Mass>1</Mass>
+			<Volume>0.05925</Volume>
+			<Model>Models\Components\IngotIron.mwm</Model>
+			<PhysicalMaterial>Metal</PhysicalMaterial>
+			<MaxIntegrity>1</MaxIntegrity>
+			<CanPlayerOrder>true</CanPlayerOrder>
+		</PhysicalItem>
+
+	</PhysicalItems>
+</Definitions>

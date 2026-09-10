@@ -23,6 +23,64 @@
            corrected 2026-08-24. -->
       <PlanetMaps Material="true" Biome="true" Ores="true" />
 
+      <!-- Mesher/surface-detail/distortion tuning, added 2026-09-10 per
+           direct request ("terrain looks flat"). Copied verbatim from
+           Planet 26 2.0's own values (confirmed real/in-use there, not
+           guessed) - not independently tuned for this planet yet, a
+           starting point to evaluate in-game before adjusting.
+           MesherPostprocessing: LOD-based mesh decimation tuning (how
+           aggressively the voxel mesher simplifies terrain geometry at
+           each LOD level) - FeatureAngle/EdgeThreshold/PlaneThreshold
+           tightening from LOD0->2 (.02/.04/.06) means less simplification
+           (more geometric detail kept) at closer LODs.
+           SurfaceDetail: blends a real vanilla detail-normal texture
+           (Data/PlanetDataFiles/Extra/material_detail_1, confirmed present
+           in the actual base game install, referenced by path like the
+           existing Grass_05 reference elsewhere in this project - not
+           bundled, doesn't need to be) onto slopes 20-90 degrees, adding
+           fine rock/surface texture without adding new geometry.
+           DistortionTable: a Perlin noise distortion applied directly to
+           the voxel mesh surface at generation time (separate from the
+           heightmap itself) - this is likely the single biggest lever for
+           the "flat" complaint, since it adds small-scale surface
+           roughness the heightmap's own 50m/pixel resolution can't
+           represent. -->
+      <MesherPostprocessing xsi:type="MyObjectBuilder_VoxelMesherComponentDefinition">
+        <PostprocessingSteps>
+          <Step xsi:type="MyObjectBuilder_VoxelPostprocessingDecimate" ForPhysics="true">
+            <LodSettings>
+              <Settings FromLod="0">
+                <FeatureAngle>15</FeatureAngle>
+                <EdgeThreshold>.04</EdgeThreshold>
+                <PlaneThreshold>.02</PlaneThreshold>
+              </Settings>
+              <Settings FromLod="1">
+                <FeatureAngle>15</FeatureAngle>
+                <EdgeThreshold>.04</EdgeThreshold>
+                <PlaneThreshold>.04</PlaneThreshold>
+              </Settings>
+              <Settings FromLod="2">
+                <FeatureAngle>15</FeatureAngle>
+                <EdgeThreshold>.06</EdgeThreshold>
+                <PlaneThreshold>.06</PlaneThreshold>
+              </Settings>
+            </LodSettings>
+          </Step>
+        </PostprocessingSteps>
+      </MesherPostprocessing>
+
+      <SurfaceDetail>
+        <Texture>Data/PlanetDataFiles/Extra/material_detail_1</Texture>
+        <Size>384</Size>
+        <Scale>5</Scale>
+        <Slope Min="20" Max="90" />
+        <Transition>7.5</Transition>
+      </SurfaceDetail>
+
+      <DistortionTable>
+        <Distortion Type="Perlin" Value="92" Frequency="10" Height="4" LayerCount="6"/>
+      </DistortionTable>
+
       <!-- CONFIRMED CUBE-FACE GEOMETRY MAPPING (keep this exact for any
            future texture that must align with the heightmap: ore maps,
            future material/biome maps, anything else):
@@ -113,6 +171,100 @@
            a left-right mirror flip on top of the swap, per direct
            confirmation that east/west (not north/south) needed to invert.
            Range unaffected, so HillParams/material thresholds unchanged. -->
+      <!-- Weather system, added 2026-09-10, revised same day per direct
+           request to mirror MOST of Planet 26 2.0's own weather variety
+           (its WeatherGenerators mostly reference REAL VANILLA
+           WeatherEffectDefinition SubtypeIds directly - FogLight/RainLight/
+           RainHeavy/Hailstorm/SnowLight/SnowHeavy/Dust/SandStormLight/
+           SandStormHeavy, all confirmed present in the actual base-game
+           WeatherEffects.sbc with zero Lightning/Damage on any of them - we
+           do the same, referencing them directly with no local copy
+           needed). The three vanilla types that DO carry Damage="80"
+           (FogHeavy, ThunderstormLight, ThunderstormHeavy) are instead
+           referenced as our own WWM_-prefixed zero-damage copies from
+           WW2-WitM-Planet/Data/WeatherEffects.sbc, replacing the earlier
+           single custom "MediterraneanStorm" entry entirely.
+           WeatherFrequencyMin/Max (600-5400s between rolls) copied from
+           Planet 26's own values, not independently tuned.
+           Six generators below, keyed by VoxelMaterial SubtypeId, adapted
+           from Planet 26's Woods_grass/Grass (temperate) and Egypt/Sand
+           (arid) generators to our own material set, plus a Snow generator
+           for the Alpine peak band added 2026-09-02 (Planet 26's own
+           Iceland/Snow generator, adapted). -->
+      <WeatherFrequencyMin>600</WeatherFrequencyMin>
+      <WeatherFrequencyMax>5400</WeatherFrequencyMax>
+      <WeatherGenerators>
+        <!-- Temperate lowland (coastal + inland N) -->
+        <WeatherGenerator>
+          <Voxel>OrcusGrass</Voxel>
+          <Weathers>
+            <Weather><Name>FogLight</Name><Weight>1</Weight><MinLength>300</MinLength><MaxLength>900</MaxLength><SpawnOffset>2000</SpawnOffset></Weather>
+            <Weather><Name>WWM_FogHeavy</Name><Weight>1</Weight><MinLength>300</MinLength><MaxLength>900</MaxLength><SpawnOffset>2000</SpawnOffset></Weather>
+            <Weather><Name>RainLight</Name><Weight>3</Weight><MinLength>300</MinLength><MaxLength>1200</MaxLength><SpawnOffset>2000</SpawnOffset></Weather>
+            <Weather><Name>RainHeavy</Name><Weight>2</Weight><MinLength>300</MinLength><MaxLength>1200</MaxLength><SpawnOffset>2000</SpawnOffset></Weather>
+            <Weather><Name>WWM_ThunderstormLight</Name><Weight>2</Weight><MinLength>300</MinLength><MaxLength>1200</MaxLength><SpawnOffset>2000</SpawnOffset></Weather>
+            <Weather><Name>WWM_ThunderstormHeavy</Name><Weight>1</Weight><MinLength>600</MinLength><MaxLength>1800</MaxLength><SpawnOffset>2000</SpawnOffset></Weather>
+          </Weathers>
+        </WeatherGenerator>
+
+        <!-- Temperate highland (Rocks_grass, used across the highland/peak
+             bands of the temperate MaterialGroups) - same mix, lighter -->
+        <WeatherGenerator>
+          <Voxel>Rocks_grass</Voxel>
+          <Weathers>
+            <Weather><Name>FogLight</Name><Weight>2</Weight><MinLength>300</MinLength><MaxLength>900</MaxLength><SpawnOffset>2000</SpawnOffset></Weather>
+            <Weather><Name>WWM_FogHeavy</Name><Weight>1</Weight><MinLength>300</MinLength><MaxLength>900</MaxLength><SpawnOffset>2000</SpawnOffset></Weather>
+            <Weather><Name>RainLight</Name><Weight>2</Weight><MinLength>300</MinLength><MaxLength>1200</MaxLength><SpawnOffset>2000</SpawnOffset></Weather>
+            <Weather><Name>WWM_ThunderstormLight</Name><Weight>1</Weight><MinLength>300</MinLength><MaxLength>1200</MaxLength><SpawnOffset>2000</SpawnOffset></Weather>
+          </Weathers>
+        </WeatherGenerator>
+
+        <!-- Arid lowland (coastal + inland S), mirrors Planet 26's Egypt generator -->
+        <WeatherGenerator>
+          <Voxel>CrackedSoil</Voxel>
+          <Weathers>
+            <Weather><Name>FogLight</Name><Weight>3</Weight><MinLength>300</MinLength><MaxLength>600</MaxLength></Weather>
+            <Weather><Name>RainLight</Name><Weight>4</Weight><MinLength>300</MinLength><MaxLength>1200</MaxLength></Weather>
+            <Weather><Name>WWM_FogHeavy</Name><Weight>1</Weight><MinLength>300</MinLength><MaxLength>900</MaxLength></Weather>
+            <Weather><Name>SandStormLight</Name><Weight>3</Weight><MinLength>300</MinLength><MaxLength>1800</MaxLength></Weather>
+            <Weather><Name>SandStormHeavy</Name><Weight>1</Weight><MinLength>300</MinLength><MaxLength>3600</MaxLength></Weather>
+            <Weather><Name>Dust</Name><Weight>5</Weight><MinLength>300</MinLength><MaxLength>1200</MaxLength></Weather>
+          </Weathers>
+        </WeatherGenerator>
+
+        <!-- Arid highland/scrub (DustyRocks), mirrors Planet 26's Sand generator -->
+        <WeatherGenerator>
+          <Voxel>DustyRocks</Voxel>
+          <Weathers>
+            <Weather><Name>SandStormLight</Name><Weight>4</Weight><MinLength>300</MinLength><MaxLength>1800</MaxLength></Weather>
+            <Weather><Name>SandStormHeavy</Name><Weight>1</Weight><MinLength>300</MinLength><MaxLength>3600</MaxLength></Weather>
+            <Weather><Name>Dust</Name><Weight>2</Weight><MinLength>300</MinLength><MaxLength>1200</MaxLength></Weather>
+          </Weathers>
+        </WeatherGenerator>
+
+        <!-- Semi-arid transition lowland (OrcusGrass2) - blend of temperate/arid -->
+        <WeatherGenerator>
+          <Voxel>OrcusGrass2</Voxel>
+          <Weathers>
+            <Weather><Name>FogLight</Name><Weight>2</Weight><MinLength>300</MinLength><MaxLength>900</MaxLength></Weather>
+            <Weather><Name>RainLight</Name><Weight>3</Weight><MinLength>300</MinLength><MaxLength>1200</MaxLength></Weather>
+            <Weather><Name>Dust</Name><Weight>2</Weight><MinLength>300</MinLength><MaxLength>1200</MaxLength></Weather>
+            <Weather><Name>SandStormLight</Name><Weight>1</Weight><MinLength>300</MinLength><MaxLength>1800</MaxLength></Weather>
+          </Weathers>
+        </WeatherGenerator>
+
+        <!-- Alpine peak band (Snow, added 2026-09-02), mirrors Planet 26's Iceland/Snow generator -->
+        <WeatherGenerator>
+          <Voxel>Snow</Voxel>
+          <Weathers>
+            <Weather><Name>SnowLight</Name><Weight>5</Weight><MinLength>600</MinLength><MaxLength>1800</MaxLength></Weather>
+            <Weather><Name>SnowHeavy</Name><Weight>2</Weight><MinLength>600</MinLength><MaxLength>2400</MaxLength></Weather>
+            <Weather><Name>FogLight</Name><Weight>1</Weight><MinLength>300</MinLength><MaxLength>900</MaxLength></Weather>
+            <Weather><Name>WWM_FogHeavy</Name><Weight>1</Weight><MinLength>300</MinLength><MaxLength>900</MaxLength></Weather>
+          </Weathers>
+        </WeatherGenerator>
+      </WeatherGenerators>
+
       <HillParams Min="-0.027858" Max="0.020196" />
 
       <!-- Height-graduated surface materials for basic visual orientation,

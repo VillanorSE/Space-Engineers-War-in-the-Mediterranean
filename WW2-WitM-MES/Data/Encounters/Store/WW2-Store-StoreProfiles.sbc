@@ -134,44 +134,126 @@
 			</Description>
 		</EntityComponent>
 
-<!-- 2026-08-27: Port sell-all-faction-grids profiles. Same [MES Store] mechanism as the
-     per-plane Factory profiles above, but RequiredOffers lists every Player-WW2 prefab for the
-     faction instead of just one, and MinOfferItems=MaxOfferItems=the full roster count so
-     nothing gets rotated out. Applied via WW2-Store-Behavior-PortSales.sbc, referenced from
-     each port's Behaviors-Port.sbc entry. -->
+<!-- 2026-09-10: replaced the old plane-selling Port profiles below (aircraft are explicitly NOT
+     sold at primary anchors per WW2-WitM-Roadmap.md - that was always a mismatch, planes are a
+     Factory-only offer, see WW2-Store-Profile-Port-Re2000 etc. above).
+
+     2026-09-10 (revised same day): split back into two physical Store blocks per location per
+     direct request (crash-risk caution, wanting the two catalogs kept fully separate rather than
+     merged into one profile/one block) - each of the 7 Port locations (4 faction Ports +
+     Valencia) needs TWO Store blocks: one named "Store-Port-Goods" (all 7 locations run the
+     SAME shared profile below, WW2-Store-Profile-PortGoods - goods aren't faction-specific) and
+     one named "Store-Port-Vehicles" (one of 3 faction-specific profiles: -Gray/-Green/-Valencia).
+     The existing 4 Port prefabs currently have a single block named "Store-Port" - it needs to
+     be renamed to "Store-Port-Goods" in-game, plus a NEW second Store block added and named
+     "Store-Port-Vehicles", then the prefab re-exported. Valencia's own in-progress prefab should
+     just build both from the start. FileSource is WW2-Store-StoreItems-PortCatalog.xml for all
+     of these - see that file for the full catalog and pricing notes. MinOfferItems=MaxOfferItems
+     = total RequiredOffers count so nothing rotates out. Applied via
+     WW2-Store-Behavior-PortSales.sbc, referenced from each location's Behaviors-Port.sbc entry. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Store-Profile-Port-Gray</SubtypeId>
+				<SubtypeId>WW2-Store-Profile-PortGoods</SubtypeId>
 			</Id>
 			<Description>
 			[MES Store]
-			[FileSource:WW2-Store-StoreItems-FactoryPlanes.xml]
-			[MinOfferItems:5]
-			[MaxOfferItems:5]
+			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
+			[MinOfferItems:24]
+			[MaxOfferItems:24]
 			[ItemsRequireInventory:false]
-			[RequiredOffers:WW2-Re2000]
-			[RequiredOffers:WW2-Re2001]
-			[RequiredOffers:WW2-FC20]
-			[RequiredOffers:WW2-SM79Bomber]
-			[RequiredOffers:WW2-SM79Torpedo]
+
+			[RequiredOffers:WW2-Goods-Ice]
+			[RequiredOffers:WW2-Goods-Iron]
+			[RequiredOrders:WW2-Goods-Iron]
+			[RequiredOffers:WW2-Goods-Nickel]
+			[RequiredOrders:WW2-Goods-Nickel]
+			[RequiredOffers:WW2-Goods-Silicon]
+			[RequiredOrders:WW2-Goods-Silicon]
+			[RequiredOffers:WW2-Goods-Cobalt]
+			[RequiredOrders:WW2-Goods-Cobalt]
+			[RequiredOffers:WW2-Goods-Silver]
+			[RequiredOrders:WW2-Goods-Silver]
+			[RequiredOffers:WW2-Goods-Gold]
+			[RequiredOrders:WW2-Goods-Gold]
+			[RequiredOffers:WW2-Goods-Platinum]
+			[RequiredOrders:WW2-Goods-Platinum]
+			[RequiredOffers:WW2-Goods-Uranium]
+			[RequiredOrders:WW2-Goods-Uranium]
+			[RequiredOffers:WW2-Goods-SalvageAlloy]
+			[RequiredOrders:WW2-Goods-SalvageAlloy]
+			[RequiredOffers:WW2-Goods-SalvagedOrdnance]
+			[RequiredOrders:WW2-Goods-SalvagedOrdnance]
+			[RequiredOffers:WW2-Goods-Welder2]
+			[RequiredOffers:WW2-Goods-Welder3]
+			[RequiredOffers:WW2-Goods-Grinder2]
+			[RequiredOffers:WW2-Goods-Grinder3]
+			[RequiredOffers:WW2-Goods-Drill2]
+			[RequiredOffers:WW2-Goods-Drill3]
+			[RequiredOffers:WW2-Goods-Medkit]
+			[RequiredOffers:WW2-Goods-Powerkit]
+			[RequiredOffers:WW2-Goods-HydrogenBottle]
+			[RequiredOffers:WW2-Goods-OxygenBottle]
+			[RequiredOffers:WW2-Goods-IndustrialComponents]
+			[RequiredOffers:WW2-Goods-MilitaryComponents]
+			[RequiredOffers:WW2-Goods-AdvancedMilitaryComponents]
 			</Description>
 		</EntityComponent>
+
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Store-Profile-Port-Green</SubtypeId>
+				<SubtypeId>WW2-Store-Profile-Vehicles-Gray</SubtypeId>
 			</Id>
 			<Description>
 			[MES Store]
-			[FileSource:WW2-Store-StoreItems-FactoryPlanes.xml]
-			[MinOfferItems:4]
-			[MaxOfferItems:4]
+			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
+			[MinOfferItems:3]
+			[MaxOfferItems:3]
 			[ItemsRequireInventory:false]
-			[RequiredOffers:WW2-MS406]
-			[RequiredOffers:WW2-Potez630]
-			[RequiredOffers:WW2-V156FBomber]
-			[RequiredOffers:WW2-V156FTorpedo]
+
+			[RequiredOffers:WW2-Vehicle-Fiat626]
+			[RequiredOffers:WW2-Vehicle-Gabbiano]
+			[RequiredOffers:WW2-Vehicle-GoloItalian]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-Vehicles-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
+			[MinOfferItems:3]
+			[MaxOfferItems:3]
+			[ItemsRequireInventory:false]
+
+			[RequiredOffers:WW2-Vehicle-RenaultAHN]
+			[RequiredOffers:WW2-Vehicle-LaMalouine]
+			[RequiredOffers:WW2-Vehicle-GoloFrench]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-Vehicles-Valencia</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
+			[MinOfferItems:6]
+			[MaxOfferItems:6]
+			[ItemsRequireInventory:false]
+
+			[RequiredOffers:WW2-Vehicle-Fiat626]
+			[RequiredOffers:WW2-Vehicle-RenaultAHN]
+			[RequiredOffers:WW2-Vehicle-Gabbiano]
+			[RequiredOffers:WW2-Vehicle-LaMalouine]
+			[RequiredOffers:WW2-Vehicle-GoloItalian]
+			[RequiredOffers:WW2-Vehicle-GoloFrench]
 			</Description>
 		</EntityComponent>
 	</EntityComponents>

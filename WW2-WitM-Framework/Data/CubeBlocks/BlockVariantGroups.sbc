@@ -27,7 +27,7 @@
             <DisplayName>Naval Cores</DisplayName>
             <Description>Ship Cores for Naval hulls: Civilian, Corvette, and Destroyer tier.</Description>
             <Blocks>
-                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Naval-Civilian" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Naval-Utility" />
                 <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Naval-Corvette" />
                 <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Naval-Destroyer" />
             </Blocks>
@@ -39,7 +39,7 @@
             <DisplayName>Air Cores</DisplayName>
             <Description>Ship Cores for aircraft: Civilian, Fighter, Attacker, and Bomber tier.</Description>
             <Blocks>
-                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Air-Civilian" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Air-Utility" />
                 <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Air-Fighter" />
                 <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Air-Attacker" />
                 <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Air-Bomber" />
@@ -52,7 +52,7 @@
             <DisplayName>Ground Cores</DisplayName>
             <Description>Ship Cores for ground vehicles: Civilian and Armored Car tier.</Description>
             <Blocks>
-                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Wheeled-Civilian" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Wheeled-Utility" />
                 <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Wheeled-ArmoredCar" />
             </Blocks>
         </BlockVariantGroup>

@@ -12,10 +12,13 @@
      anywhere in their component roster, including their two GVK-original items, which also
      just repoint at other vanilla item models. Nothing here needed anyone's permission.
 
-     No Blueprint is defined for any of these three - deliberately uncraftable at any
-     Assembler. The only way to acquire them is exactly what the user wanted: NPC wreck loot
-     (see WW2-WitM-MES's Loot.sbc/ContainerTypes files once wired), matching vanilla
-     Prototech's own existing scarcity/acquisition rules. -->
+     2026-09-09: no longer loot-only. See Blueprints-Salvage.sbc/PhysicalItems-Salvage.sbc -
+     each of these three is now craftable via a small amount of Battle Wreckage-derived Salvage
+     Alloy plus ordinary ingots, mirroring how GV Deserts of Kharak's own "[Tech]" components
+     work (a small custom-ingot unlock cost on top of vanilla's normal Prototech recipe shape).
+     Finished components no longer drop directly as loot either - see
+     WW2-WitM-MES/Data/ContainerTypes-TechComponents.sbc, which now drops Battle Wreckage ore
+     instead (same rarity tiers/wiring, just a different item inside). -->
 
 	<Components>
 

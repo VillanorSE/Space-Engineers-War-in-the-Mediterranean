@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<!-- 2026-09-09: see PhysicalItems-Salvage.sbc for the full GVK-sourced design rationale.
+     Refining recipe goes in the "CommonMetals" BlueprintClass (same class vanilla's own
+     ore->ingot recipes use, so it shows up at any Refinery), the three component recipes go in
+     "Components" (same class vanilla's own basic component recipes use, so they show up at any
+     Assembler) - registered via BlueprintClasses-Salvage.sbc, NOT here. Amounts below are a
+     first-pass placeholder, not final balance - revisit after playtesting. -->
+
+	<Blueprints>
+
+		<Blueprint>
+			<Id>
+				<TypeId>BlueprintDefinition</TypeId>
+				<SubtypeId>WW2-Blueprint-BattleWreckageToSalvageAlloy</SubtypeId>
+			</Id>
+			<DisplayName>Salvage Alloy</DisplayName>
+			<Icon>Textures\GUI\Icons\ingot\ScrapMetal_ingot.dds</Icon>
+			<Prerequisites>
+				<Item Amount="1" TypeId="Ore" SubtypeId="BattleWreckage" />
+			</Prerequisites>
+			<Results>
+				<Item Amount="5" TypeId="Ingot" SubtypeId="SalvageAlloy" />
+				<Item Amount="2" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
+			</Results>
+			<BaseProductionTimeInSeconds>3</BaseProductionTimeInSeconds>
+		</Blueprint>
+
+		<Blueprint>
+			<Id>
+				<TypeId>BlueprintDefinition</TypeId>
+				<SubtypeId>WW2-Blueprint-IndustrialComponents</SubtypeId>
+			</Id>
+			<DisplayName>Industrial Components</DisplayName>
+			<Icon>Textures\GUI\Icons\component\PrototechMachinery_Icon.dds</Icon>
+			<Prerequisites>
+				<Item Amount="5" TypeId="Ingot" SubtypeId="SalvageAlloy" />
+				<Item Amount="40" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="10" TypeId="Ingot" SubtypeId="Nickel" />
+				<Item Amount="5" TypeId="Ingot" SubtypeId="Cobalt" />
+				<Item Amount="5" TypeId="Ingot" SubtypeId="Magnesium" />
+			</Prerequisites>
+			<Result Amount="1" TypeId="Component" SubtypeId="PrototechMachinery" />
+			<BaseProductionTimeInSeconds>9</BaseProductionTimeInSeconds>
+		</Blueprint>
+
+		<Blueprint>
+			<Id>
+				<TypeId>BlueprintDefinition</TypeId>
+				<SubtypeId>WW2-Blueprint-MilitaryComponents</SubtypeId>
+			</Id>
+			<DisplayName>Military Components</DisplayName>
+			<Icon>Textures\GUI\Icons\component\PrototechFrame.dds</Icon>
+			<Prerequisites>
+				<Item Amount="10" TypeId="Ingot" SubtypeId="SalvageAlloy" />
+				<Item Amount="8" TypeId="Ingot" SubtypeId="Cobalt" />
+				<Item Amount="3" TypeId="Ingot" SubtypeId="Silver" />
+				<Item Amount="6" TypeId="Ingot" SubtypeId="Magnesium" />
+				<Item Amount="2" TypeId="Ingot" SubtypeId="Uranium" />
+			</Prerequisites>
+			<Result Amount="1" TypeId="Component" SubtypeId="PrototechFrame" />
+			<BaseProductionTimeInSeconds>20</BaseProductionTimeInSeconds>
+		</Blueprint>
+
+		<Blueprint>
+			<Id>
+				<TypeId>BlueprintDefinition</TypeId>
+				<SubtypeId>WW2-Blueprint-AdvancedMilitaryComponents</SubtypeId>
+			</Id>
+			<DisplayName>Advanced Military Components</DisplayName>
+			<Icon>Textures\GUI\Icons\component\prototech_circuitry_component.dds</Icon>
+			<Prerequisites>
+				<Item Amount="20" TypeId="Ingot" SubtypeId="SalvageAlloy" />
+				<Item Amount="8" TypeId="Ingot" SubtypeId="Platinum" />
+				<Item Amount="15" TypeId="Ingot" SubtypeId="Silver" />
+				<Item Amount="30" TypeId="Ingot" SubtypeId="Silicon" />
+				<Item Amount="8" TypeId="Ingot" SubtypeId="Gold" />
+				<Item Amount="15" TypeId="Ingot" SubtypeId="Magnesium" />
+			</Prerequisites>
+			<Result Amount="1" TypeId="Component" SubtypeId="PrototechCircuitry" />
+			<BaseProductionTimeInSeconds>60</BaseProductionTimeInSeconds>
+		</Blueprint>
+
+	</Blueprints>
+</Definitions>

@@ -106,5 +106,31 @@
 			</Description>
 		</EntityComponent>
 
+		<!-- 2026-09-09: Salvaged Ordnance - see ContainerTypes-TechComponents.sbc's own note.
+		     Same big-naval-kill-only scoping as WW2-Loot-AdvancedMilitary, kept as its own Loot
+		     Profile since it's a different ContainerType, not a different rarity tier. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Loot-SalvagedOrdnance</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Loot]
+
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/SmallBlockMediumContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/SmallBlockLargeContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockSmallContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeIndustrialContainer]
+
+			[ContainerTypes:WW2-ContainerTypes-SalvagedOrdnance]
+
+			[MinBlocks:1]
+			[MaxBlocks:1]
+
+			</Description>
+		</EntityComponent>
+
 	</EntityComponents>
 </Definitions>

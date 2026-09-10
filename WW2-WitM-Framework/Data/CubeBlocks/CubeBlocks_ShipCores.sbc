@@ -22,11 +22,11 @@
         <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
             <Id>
                 <TypeId>FunctionalBlock</TypeId>
-                <SubtypeId>WW2-Core-Naval-Civilian</SubtypeId>
+                <SubtypeId>WW2-Core-Naval-Utility</SubtypeId>
             </Id>
-            <DisplayName>Civilian Naval Core</DisplayName>
+            <DisplayName>Naval - Utility</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
-            <Description>WW2 Encounters Ship Core: Civilian Naval Core. For cargo and utility ships.</Description>
+            <Description>WW2 Encounters Ship Core: Naval - Utility. For cargo and utility ships.</Description>
             <CubeSize>Large</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -54,7 +54,7 @@
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\RemoteControlConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\RemoteControlConstruction_2.mwm" />
             </BuildProgressModels>
-            <BlockPairName>WW2-Core-Naval-Civilian</BlockPairName>
+            <BlockPairName>WW2-Core-Naval-Utility</BlockPairName>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>30</BuildTimeSeconds>
             <MirroringY>Z</MirroringY>
@@ -268,11 +268,11 @@
         <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
             <Id>
                 <TypeId>FunctionalBlock</TypeId>
-                <SubtypeId>WW2-Core-Air-Civilian</SubtypeId>
+                <SubtypeId>WW2-Core-Air-Utility</SubtypeId>
             </Id>
-            <DisplayName>Civilian Air Core</DisplayName>
+            <DisplayName>Plane - Utility</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
-            <Description>WW2 Encounters Ship Core: Civilian Air Core. For cargo and utility planes.</Description>
+            <Description>WW2 Encounters Ship Core: Plane - Utility. For cargo and utility planes.</Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -299,7 +299,7 @@
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\RemoteControlConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\RemoteControlConstruction_2.mwm" />
             </BuildProgressModels>
-            <BlockPairName>WW2-Core-Air-Civilian</BlockPairName>
+            <BlockPairName>WW2-Core-Air-Utility</BlockPairName>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>14</BuildTimeSeconds>
             <MirroringY>Z</MirroringY>
@@ -462,11 +462,11 @@
         <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
             <Id>
                 <TypeId>FunctionalBlock</TypeId>
-                <SubtypeId>WW2-Core-Wheeled-Civilian</SubtypeId>
+                <SubtypeId>WW2-Core-Wheeled-Utility</SubtypeId>
             </Id>
-            <DisplayName>Civilian Ground Core</DisplayName>
+            <DisplayName>Ground - Utility</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
-            <Description>WW2 Encounters Ship Core: Civilian Ground Core. For cargo and utility trucks.</Description>
+            <Description>WW2 Encounters Ship Core: Ground - Utility. For cargo and utility trucks.</Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -493,7 +493,7 @@
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\RemoteControlConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\RemoteControlConstruction_2.mwm" />
             </BuildProgressModels>
-            <BlockPairName>WW2-Core-Wheeled-Civilian</BlockPairName>
+            <BlockPairName>WW2-Core-Wheeled-Utility</BlockPairName>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>14</BuildTimeSeconds>
             <MirroringY>Z</MirroringY>
