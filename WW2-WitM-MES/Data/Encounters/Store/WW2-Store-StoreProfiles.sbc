@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<!-- 2026-08-23: one profile per Factory plane, each forcing exactly its own plane as the
-     store's only offer (MinOfferItems=MaxOfferItems=1, RequiredOffers matching that plane's
-     own StoreItemId). Pattern confirmed against GVK-Derelicts' own MES Store profiles
-     (Workshop ID 2653133286, Data/Encounters/Store/GVK-Store-StoreProfiles.sbc). Applied to
-     an actual Store block via WW2-Store-Behavior-FactoryPlaneSales.sbc, referenced from each
-     Factory's own existing Behavior  - see that file's own note for how the two connect. -->
+<!-- One profile per Factory plane, each forcing exactly its own plane as the store's only offer
+     (MinOfferItems=MaxOfferItems=1, RequiredOffers matching that plane's own StoreItemId).
+     Applied to an actual Store block via WW2-Store-Behavior-FactoryPlaneSales.sbc, referenced
+     from each Factory's own existing Behavior. -->
 	<EntityComponents>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -134,23 +132,16 @@
 			</Description>
 		</EntityComponent>
 
-<!-- 2026-09-10: replaced the old plane-selling Port profiles below (aircraft are explicitly NOT
-     sold at primary anchors per WW2-WitM-Roadmap.md - that was always a mismatch, planes are a
-     Factory-only offer, see WW2-Store-Profile-Port-Re2000 etc. above).
-
-     2026-09-10 (revised same day): split back into two physical Store blocks per location per
-     direct request (crash-risk caution, wanting the two catalogs kept fully separate rather than
-     merged into one profile/one block) - each of the 7 Port locations (4 faction Ports +
-     Valencia) needs TWO Store blocks: one named "Store-Port-Goods" (all 7 locations run the
-     SAME shared profile below, WW2-Store-Profile-PortGoods - goods aren't faction-specific) and
-     one named "Store-Port-Vehicles" (one of 3 faction-specific profiles: -Gray/-Green/-Valencia).
-     The existing 4 Port prefabs currently have a single block named "Store-Port" - it needs to
-     be renamed to "Store-Port-Goods" in-game, plus a NEW second Store block added and named
-     "Store-Port-Vehicles", then the prefab re-exported. Valencia's own in-progress prefab should
-     just build both from the start. FileSource is WW2-Store-StoreItems-PortCatalog.xml for all
-     of these - see that file for the full catalog and pricing notes. MinOfferItems=MaxOfferItems
-     = total RequiredOffers count so nothing rotates out. Applied via
-     WW2-Store-Behavior-PortSales.sbc, referenced from each location's Behaviors-Port.sbc entry. -->
+<!-- Each of the 7 Port locations (4 faction Ports + Valencia) runs TWO Store blocks: one named
+     "Store-Port-Goods" (all 7 locations run the SAME shared profile below,
+     WW2-Store-Profile-PortGoods - goods aren't faction-specific) and one named
+     "Store-Port-Vehicles" (one of 3 faction-specific profiles: -Gray/-Green/-Valencia). Aircraft
+     are not sold here - planes are a Factory-only offer, see WW2-Store-Profile-Port-Re2000 etc.
+     above.
+     FileSource is WW2-Store-StoreItems-PortCatalog.xml for all of these - see that file for the
+     full catalog and pricing. MinOfferItems=MaxOfferItems=total RequiredOffers count so nothing
+     rotates out. Applied via WW2-Store-Behavior-PortSales.sbc, referenced from each location's
+     Behaviors-Port.sbc entry. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -159,8 +150,8 @@
 			<Description>
 			[MES Store]
 			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
-			[MinOfferItems:24]
-			[MaxOfferItems:24]
+			[MinOfferItems:21]
+			[MaxOfferItems:21]
 			[ItemsRequireInventory:false]
 
 			[RequiredOffers:WW2-Goods-Ice]
@@ -194,9 +185,6 @@
 			[RequiredOffers:WW2-Goods-Powerkit]
 			[RequiredOffers:WW2-Goods-HydrogenBottle]
 			[RequiredOffers:WW2-Goods-OxygenBottle]
-			[RequiredOffers:WW2-Goods-IndustrialComponents]
-			[RequiredOffers:WW2-Goods-MilitaryComponents]
-			[RequiredOffers:WW2-Goods-AdvancedMilitaryComponents]
 			</Description>
 		</EntityComponent>
 
@@ -208,13 +196,14 @@
 			<Description>
 			[MES Store]
 			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
-			[MinOfferItems:3]
-			[MaxOfferItems:3]
+			[MinOfferItems:4]
+			[MaxOfferItems:4]
 			[ItemsRequireInventory:false]
 
 			[RequiredOffers:WW2-Vehicle-Fiat626]
 			[RequiredOffers:WW2-Vehicle-Gabbiano]
 			[RequiredOffers:WW2-Vehicle-GoloItalian]
+			[RequiredOffers:WW2-Vehicle-FrancescoCrispi]
 			</Description>
 		</EntityComponent>
 
@@ -226,13 +215,14 @@
 			<Description>
 			[MES Store]
 			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
-			[MinOfferItems:3]
-			[MaxOfferItems:3]
+			[MinOfferItems:4]
+			[MaxOfferItems:4]
 			[ItemsRequireInventory:false]
 
 			[RequiredOffers:WW2-Vehicle-RenaultAHN]
 			[RequiredOffers:WW2-Vehicle-LaMalouine]
 			[RequiredOffers:WW2-Vehicle-GoloFrench]
+			[RequiredOffers:WW2-Vehicle-Bougainville]
 			</Description>
 		</EntityComponent>
 
@@ -244,8 +234,8 @@
 			<Description>
 			[MES Store]
 			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
-			[MinOfferItems:6]
-			[MaxOfferItems:6]
+			[MinOfferItems:8]
+			[MaxOfferItems:8]
 			[ItemsRequireInventory:false]
 
 			[RequiredOffers:WW2-Vehicle-Fiat626]
@@ -254,6 +244,8 @@
 			[RequiredOffers:WW2-Vehicle-LaMalouine]
 			[RequiredOffers:WW2-Vehicle-GoloItalian]
 			[RequiredOffers:WW2-Vehicle-GoloFrench]
+			[RequiredOffers:WW2-Vehicle-Ju52]
+			[RequiredOffers:WW2-Vehicle-F222]
 			</Description>
 		</EntityComponent>
 	</EntityComponents>

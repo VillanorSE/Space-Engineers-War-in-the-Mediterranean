@@ -352,44 +352,10 @@
 			</Offer>
 		</StoreItem>
 
-		<!-- ============ GOODS: Progression Components (Offer only, gated quantity per
-		     WW2-WitM-Roadmap.md's "Component availability" section) ============ -->
-		<StoreItem>
-			<StoreItemId>WW2-Goods-IndustrialComponents</StoreItemId>
-			<ItemType>Component</ItemType>
-			<ItemSubtypeId>PrototechMachinery</ItemSubtypeId>
-			<Offer>
-				<CustomPrice>15000</CustomPrice>
-				<MinPriceMultiplier>115</MinPriceMultiplier>
-				<MaxPriceMultiplier>135</MaxPriceMultiplier>
-				<MinAmount>20</MinAmount>
-				<MaxAmount>20</MaxAmount>
-			</Offer>
-		</StoreItem>
-		<StoreItem>
-			<StoreItemId>WW2-Goods-MilitaryComponents</StoreItemId>
-			<ItemType>Component</ItemType>
-			<ItemSubtypeId>PrototechFrame</ItemSubtypeId>
-			<Offer>
-				<CustomPrice>25000</CustomPrice>
-				<MinPriceMultiplier>115</MinPriceMultiplier>
-				<MaxPriceMultiplier>135</MaxPriceMultiplier>
-				<MinAmount>20</MinAmount>
-				<MaxAmount>20</MaxAmount>
-			</Offer>
-		</StoreItem>
-		<StoreItem>
-			<StoreItemId>WW2-Goods-AdvancedMilitaryComponents</StoreItemId>
-			<ItemType>Component</ItemType>
-			<ItemSubtypeId>PrototechCircuitry</ItemSubtypeId>
-			<Offer>
-				<CustomPrice>60000</CustomPrice>
-				<MinPriceMultiplier>115</MinPriceMultiplier>
-				<MaxPriceMultiplier>135</MaxPriceMultiplier>
-				<MinAmount>10</MinAmount>
-				<MaxAmount>10</MaxAmount>
-			</Offer>
-		</StoreItem>
+		<!-- Industrial/Military/Advanced Military Components deliberately NOT sold here, matching
+		     GVK's own design: their equivalent "[Tech]" components and CU/RU ingots are
+		     CanPlayerOrder:true at the item-definition level but never actually listed in any of
+		     their stores - that whole progression tier is loot/craft-only, never purchasable. -->
 
 		<!-- ============ VEHICLES (Offer only - grids aren't sold back) ============ -->
 		<StoreItem>
@@ -397,7 +363,7 @@
 			<ItemType>Prefab</ItemType>
 			<ItemSubtypeId>Respawn-WW2-Fiat626</ItemSubtypeId>
 			<Offer>
-				<CustomPrice>50000</CustomPrice>
+				<CustomPrice>100000</CustomPrice>
 				<MinPriceMultiplier>100</MinPriceMultiplier>
 				<MaxPriceMultiplier>100</MaxPriceMultiplier>
 				<MinAmount>1</MinAmount>
@@ -409,7 +375,7 @@
 			<ItemType>Prefab</ItemType>
 			<ItemSubtypeId>Respawn-WW2-RenaultAHN</ItemSubtypeId>
 			<Offer>
-				<CustomPrice>50000</CustomPrice>
+				<CustomPrice>100000</CustomPrice>
 				<MinPriceMultiplier>100</MinPriceMultiplier>
 				<MaxPriceMultiplier>100</MaxPriceMultiplier>
 				<MinAmount>1</MinAmount>
@@ -421,7 +387,7 @@
 			<ItemType>Prefab</ItemType>
 			<ItemSubtypeId>Player-WW2-Gabbiano</ItemSubtypeId>
 			<Offer>
-				<CustomPrice>300000</CustomPrice>
+				<CustomPrice>500000</CustomPrice>
 				<MinPriceMultiplier>100</MinPriceMultiplier>
 				<MaxPriceMultiplier>100</MaxPriceMultiplier>
 				<MinAmount>1</MinAmount>
@@ -433,7 +399,7 @@
 			<ItemType>Prefab</ItemType>
 			<ItemSubtypeId>Player-WW2-La_Malouine</ItemSubtypeId>
 			<Offer>
-				<CustomPrice>300000</CustomPrice>
+				<CustomPrice>550000</CustomPrice>
 				<MinPriceMultiplier>100</MinPriceMultiplier>
 				<MaxPriceMultiplier>100</MaxPriceMultiplier>
 				<MinAmount>1</MinAmount>
@@ -445,7 +411,7 @@
 			<ItemType>Prefab</ItemType>
 			<ItemSubtypeId>Player-WW2-Golo_Italian</ItemSubtypeId>
 			<Offer>
-				<CustomPrice>80000</CustomPrice>
+				<CustomPrice>825000</CustomPrice>
 				<MinPriceMultiplier>100</MinPriceMultiplier>
 				<MaxPriceMultiplier>100</MaxPriceMultiplier>
 				<MinAmount>1</MinAmount>
@@ -457,11 +423,66 @@
 			<ItemType>Prefab</ItemType>
 			<ItemSubtypeId>Player-WW2-Golo_French</ItemSubtypeId>
 			<Offer>
-				<CustomPrice>80000</CustomPrice>
+				<CustomPrice>825000</CustomPrice>
 				<MinPriceMultiplier>100</MinPriceMultiplier>
 				<MaxPriceMultiplier>100</MaxPriceMultiplier>
 				<MinAmount>1</MinAmount>
 				<MaxAmount>2</MaxAmount>
+			</Offer>
+		</StoreItem>
+
+		<!-- Destroyer tier, Gray/Green Vehicle stores only (not Valencia). Placeholder prices
+		     pending the same raw-material cost calculation used for the other vehicles/planes -
+		     revise once that comes back. -->
+		<StoreItem>
+			<StoreItemId>WW2-Vehicle-Bougainville</StoreItemId>
+			<ItemType>Prefab</ItemType>
+			<ItemSubtypeId>Player-WW2-Bougainville</ItemSubtypeId>
+			<Offer>
+				<CustomPrice>700000</CustomPrice>
+				<MinPriceMultiplier>100</MinPriceMultiplier>
+				<MaxPriceMultiplier>100</MaxPriceMultiplier>
+				<MinAmount>1</MinAmount>
+				<MaxAmount>1</MaxAmount>
+			</Offer>
+		</StoreItem>
+		<StoreItem>
+			<StoreItemId>WW2-Vehicle-FrancescoCrispi</StoreItemId>
+			<ItemType>Prefab</ItemType>
+			<ItemSubtypeId>Player-WW2-Francesco_Crispi</ItemSubtypeId>
+			<Offer>
+				<CustomPrice>700000</CustomPrice>
+				<MinPriceMultiplier>100</MinPriceMultiplier>
+				<MaxPriceMultiplier>100</MaxPriceMultiplier>
+				<MinAmount>1</MinAmount>
+				<MaxAmount>1</MaxAmount>
+			</Offer>
+		</StoreItem>
+
+		<!-- Valencia-only. Prices are the same raw-material component-cost calculation used for
+		     the vehicles/planes above, rounded up to the nearest 5,000. -->
+		<StoreItem>
+			<StoreItemId>WW2-Vehicle-Ju52</StoreItemId>
+			<ItemType>Prefab</ItemType>
+			<ItemSubtypeId>Player-WW2-Ju52</ItemSubtypeId>
+			<Offer>
+				<CustomPrice>80000</CustomPrice>
+				<MinPriceMultiplier>100</MinPriceMultiplier>
+				<MaxPriceMultiplier>100</MaxPriceMultiplier>
+				<MinAmount>1</MinAmount>
+				<MaxAmount>1</MaxAmount>
+			</Offer>
+		</StoreItem>
+		<StoreItem>
+			<StoreItemId>WW2-Vehicle-F222</StoreItemId>
+			<ItemType>Prefab</ItemType>
+			<ItemSubtypeId>Player-WW2-F222</ItemSubtypeId>
+			<Offer>
+				<CustomPrice>150000</CustomPrice>
+				<MinPriceMultiplier>100</MinPriceMultiplier>
+				<MaxPriceMultiplier>100</MaxPriceMultiplier>
+				<MinAmount>1</MinAmount>
+				<MaxAmount>1</MaxAmount>
 			</Offer>
 		</StoreItem>
 

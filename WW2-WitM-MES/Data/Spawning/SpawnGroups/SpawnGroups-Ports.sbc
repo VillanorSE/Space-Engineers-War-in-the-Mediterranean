@@ -3,16 +3,15 @@
 	<SpawnGroups>
 
 <!-- Port Installations (Static Encounters)
-     2026-08-27: the 4 existing, already-built port installations, set up to spawn once at
-     their exact current in-game position/orientation and never again  - see
-     SpawnConditions-Ports.sbc for the [StaticEncounter] tags. [GridsAreEditable:false] and
-     [GridsAreDestructable:false] are MES Manipulation tags placed directly in the SpawnGroup
-     (per MES docs, Manipulation tags are valid inline in SpawnGroup Description, no separate
-     Manipulation Profile needed) - makes each port immune to weapon/collision damage and to
-     welding/grinding/block edits, on top of MES-Manipulation-RivalAi's usual AI setup.
+     The 5 port installations spawn once at their exact current in-game position/orientation and
+     never again - see SpawnConditions-Ports.sbc for the [StaticEncounter] tags.
+     [GridsAreEditable:false] and [GridsAreDestructable:false] are MES Manipulation tags placed
+     directly in the SpawnGroup (Manipulation tags are valid inline in SpawnGroup Description, no
+     separate Manipulation Profile needed) - makes each port immune to weapon/collision damage
+     and to welding/grinding/block edits, on top of MES-Manipulation-RivalAi's usual AI setup.
      Behaviour references one Behavior per port (Behaviors-Port.sbc, e.g. WW2-Behavior-Port-Gray-
-     LaSpezia) - split from a single shared per-faction Behavior on 2026-08-30 so each port can
-     run its own direction-specific cargo spawn (see Triggers-CargoSpawn-Port.sbc) alongside the
+     LaSpezia), not a single shared per-faction Behavior, so each port can run its own
+     direction-specific cargo spawn (see Triggers-CargoSpawn-Port.sbc) alongside the
      shared Store-sales and defensive-scramble triggers.
 
      2026-09-07: briefly swapped to [InitializeStoreBlocks:true] on a wrong diagnosis that MES's
@@ -170,13 +169,10 @@
 	</SpawnGroup>
 
 <!-- Valencia (neutral trade post) -->
-	<!-- 2026-09-10: NPC-WW2-Port_Valencia does NOT exist yet - this is config-only, ready to go
-	     live the moment that prefab is built and placed in-game (same process as the 4 real
-	     Ports: build the installation, name its Store block exactly "Store-Port", export as
-	     NPC-WW2-Port_Valencia). IsPirate:false here (unlike the 4 GRAY/GREEN ports above, which
-	     all use IsPirate:true) since Valencia isn't hostile to anyone by design - see
-	     Factions.sbc's TRADER faction note and Behaviors-Port.sbc's Valencia entry (no
-	     reputation-damage or defensive-scramble triggers). -->
+	<!-- IsPirate:false here (unlike the 4 GRAY/GREEN ports above, which all use IsPirate:true)
+	     since Valencia isn't hostile to anyone by design - see Factions.sbc's TRADER faction and
+	     Behaviors-Port.sbc's Valencia entry (no reputation-damage or defensive-scramble
+	     triggers). -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>

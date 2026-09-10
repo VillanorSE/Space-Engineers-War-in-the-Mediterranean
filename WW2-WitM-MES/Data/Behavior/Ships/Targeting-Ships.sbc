@@ -3,6 +3,11 @@
     <EntityComponents>
 
 	<!-- Ship Targeting -->
+	<!-- Name exclusions below guard against Relation-based targeting alone not being reliably
+	     safe for a Neutral-default faction living alongside Enemies-default factions (GVK's own
+	     combat targeting uses the identical belt-and-suspenders pattern for their neutral
+	     trader). "NPC Trader" is the naming convention for any future roving TRADER-faction
+	     grid - give it that prefix to keep it excluded here too. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -32,11 +37,13 @@
 			[MinUnderWaterDepth:150]
 
 			[MatchNoneFilters:Name]
-			[UsePartialNameMatching:false]
+			[UsePartialNameMatching:true]
 			[Names:La Spezia]
 			[Names:Port of Toulon]
 			[Names:Port of Oran]
 			[Names:Port of Tripoli]
+			[Names:Port of Valencia]
+			[Names:NPC Trader]
 
 			[Owners:Player]
 			[Owners:NPC]

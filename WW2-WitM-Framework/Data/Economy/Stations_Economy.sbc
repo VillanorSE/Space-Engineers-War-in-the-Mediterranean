@@ -1,24 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<!-- 2026-09-08: Overrides vanilla's Stations_Economy.sbc (same 3 Ids: OrbitalStations,
-     Outposts, SpaceStations - confirmed against Content\Data\Stations_Economy.sbc, there is no
-     4th "MiningStations" list; Miner/Trader/Builder/Pirate/Military are FactionTypes WITHIN each
-     list, not separate lists). A mod definition with an identical Id fully replaces the earlier
-     one (standard SE definition-loading behavior, not a merge) - since mods load after base
-     game content, these empty lists mean the world-gen auto-spawn pass has nothing to place.
-
-     Goal: keep <EnableEconomy>true</EnableEconomy> in Sandbox_config.sbc working - the global
-     Economy session (currency, reputation thresholds, the Market Watch view model that Store
-     Blocks need to open without crashing, the Economy Tick that restocks Store Block offers -
-     see the Store-block crash investigation) - WITHOUT vanilla auto-spawning its own random
-     Economy_* Trading Stations across the Mediterranean planet/system. Everything WW2-WitM
-     wants to sell/trade goes through hand-placed installations (the 4 Ports, eventually a
-     neutral trade post) via MES StaticEncounter + [InitializeStoreBlocks:true], not vanilla's
-     own station generator.
-
-     SpawnDistance and GeneratedItemsContainerType are kept (not emptied) since they may not be
-     safely nullable fields on MyObjectBuilder_StationsListDefinition - only the actual prefab
-     lists are emptied, which is the only thing that actually controls whether stations spawn. -->
+<!-- Overrides vanilla's Stations_Economy.sbc (same 3 Ids: OrbitalStations, Outposts,
+     SpaceStations). <StationNames> is emptied so vanilla's world-gen auto-spawn pass has
+     nothing to place - everything WW2-WitM sells/trades goes through hand-placed installations
+     via MES StaticEncounter instead of vanilla's own station generator.
+     <StationPrefabsFactionTypes> is kept at vanilla's own full values (not emptied): this data
+     is used independently of world-gen spawning, and leaving it empty caused every Store Block
+     in the world - including ones with no connection to any WW2-WitM content - to crash on
+     interact (NullReferenceException in MyMarketWatchViewModel). -->
 
     <Definition xsi:type="MyObjectBuilder_StationsListDefinition">
         <Id Type="MyObjectBuilder_StationsListDefinition" Subtype="OrbitalStations" />
@@ -30,6 +19,58 @@
             <SubtypeId>StationContainerType</SubtypeId>
         </GeneratedItemsContainerType>
         <StationPrefabsFactionTypes>
+            <FactionTypePrefabs>
+                <FactionType>Miner</FactionType>
+                <PrefabNames>
+                    <PrefabName>Economy_SpaceStation_10</PrefabName>
+                    <PrefabName>Economy_SpaceStation_11</PrefabName>
+                    <PrefabName>Economy_SpaceStation_12</PrefabName>
+                    <PrefabName>Economy_SpaceStation_13</PrefabName>
+                    <PrefabName>Economy_SpaceStation_14</PrefabName>
+                    <PrefabName>Economy_SpaceStation_15</PrefabName>
+                </PrefabNames>
+            </FactionTypePrefabs>
+            <FactionTypePrefabs>
+                <FactionType>Trader</FactionType>
+                <PrefabNames>
+                    <PrefabName>Economy_SpaceStation_10</PrefabName>
+                    <PrefabName>Economy_SpaceStation_11</PrefabName>
+                    <PrefabName>Economy_SpaceStation_12</PrefabName>
+                    <PrefabName>Economy_SpaceStation_13</PrefabName>
+                    <PrefabName>Economy_SpaceStation_14</PrefabName>
+                    <PrefabName>Economy_SpaceStation_15</PrefabName>
+                </PrefabNames>
+            </FactionTypePrefabs>
+            <FactionTypePrefabs>
+                <FactionType>Builder</FactionType>
+                <PrefabNames>
+                    <PrefabName>Economy_SpaceStation_10</PrefabName>
+                    <PrefabName>Economy_SpaceStation_11</PrefabName>
+                    <PrefabName>Economy_SpaceStation_12</PrefabName>
+                    <PrefabName>Economy_SpaceStation_13</PrefabName>
+                    <PrefabName>Economy_SpaceStation_14</PrefabName>
+                    <PrefabName>Economy_SpaceStation_15</PrefabName>
+                </PrefabNames>
+            </FactionTypePrefabs>
+            <FactionTypePrefabs>
+                <FactionType>Pirate</FactionType>
+                <PrefabNames>
+                    <PrefabName>Economy_SpaceStation_11_Pirate</PrefabName>
+                    <PrefabName>Economy_SpaceStation_14_Pirate</PrefabName>
+                    <PrefabName>Economy_SpaceStation_15_Pirate</PrefabName>
+                </PrefabNames>
+            </FactionTypePrefabs>
+            <FactionTypePrefabs>
+                <FactionType>Military</FactionType>
+                <PrefabNames>
+                    <PrefabName>Economy_SpaceStation_10</PrefabName>
+                    <PrefabName>Economy_SpaceStation_11</PrefabName>
+                    <PrefabName>Economy_SpaceStation_12</PrefabName>
+                    <PrefabName>Economy_SpaceStation_13</PrefabName>
+                    <PrefabName>Economy_SpaceStation_14</PrefabName>
+                    <PrefabName>Economy_SpaceStation_15</PrefabName>
+                </PrefabNames>
+            </FactionTypePrefabs>
         </StationPrefabsFactionTypes>
     </Definition>
 
@@ -43,6 +84,54 @@
             <SubtypeId>StationContainerType</SubtypeId>
         </GeneratedItemsContainerType>
         <StationPrefabsFactionTypes>
+            <FactionTypePrefabs>
+                <FactionType>Miner</FactionType>
+                <PrefabNames>
+                    <PrefabName>Economy_Outpost_10</PrefabName>
+                    <PrefabName>Economy_Outpost_11</PrefabName>
+                    <PrefabName>Economy_Outpost_12</PrefabName>
+                    <PrefabName>Economy_Outpost_13</PrefabName>
+                    <PrefabName>Economy_Outpost_14</PrefabName>
+                </PrefabNames>
+            </FactionTypePrefabs>
+            <FactionTypePrefabs>
+                <FactionType>Trader</FactionType>
+                <PrefabNames>
+                    <PrefabName>Economy_Outpost_10</PrefabName>
+                    <PrefabName>Economy_Outpost_11</PrefabName>
+                    <PrefabName>Economy_Outpost_12</PrefabName>
+                    <PrefabName>Economy_Outpost_13</PrefabName>
+                    <PrefabName>Economy_Outpost_14</PrefabName>
+                </PrefabNames>
+            </FactionTypePrefabs>
+            <FactionTypePrefabs>
+                <FactionType>Builder</FactionType>
+                <PrefabNames>
+                    <PrefabName>Economy_Outpost_10</PrefabName>
+                    <PrefabName>Economy_Outpost_11</PrefabName>
+                    <PrefabName>Economy_Outpost_12</PrefabName>
+                    <PrefabName>Economy_Outpost_13</PrefabName>
+                    <PrefabName>Economy_Outpost_14</PrefabName>
+                </PrefabNames>
+            </FactionTypePrefabs>
+            <FactionTypePrefabs>
+                <FactionType>Pirate</FactionType>
+                <PrefabNames>
+                    <PrefabName>Economy_Outpost_11_Pirate</PrefabName>
+                    <PrefabName>Economy_Outpost_12_Pirate</PrefabName>
+                    <PrefabName>Economy_Outpost_13_Pirate</PrefabName>
+                </PrefabNames>
+            </FactionTypePrefabs>
+            <FactionTypePrefabs>
+                <FactionType>Military</FactionType>
+                <PrefabNames>
+                    <PrefabName>Economy_Outpost_10</PrefabName>
+                    <PrefabName>Economy_Outpost_11</PrefabName>
+                    <PrefabName>Economy_Outpost_12</PrefabName>
+                    <PrefabName>Economy_Outpost_13</PrefabName>
+                    <PrefabName>Economy_Outpost_14</PrefabName>
+                </PrefabNames>
+            </FactionTypePrefabs>
         </StationPrefabsFactionTypes>
     </Definition>
 
@@ -56,6 +145,58 @@
             <SubtypeId>StationContainerType</SubtypeId>
         </GeneratedItemsContainerType>
         <StationPrefabsFactionTypes>
+            <FactionTypePrefabs>
+                <FactionType>Miner</FactionType>
+                <PrefabNames>
+                    <PrefabName>Economy_SpaceStation_10</PrefabName>
+                    <PrefabName>Economy_SpaceStation_11</PrefabName>
+                    <PrefabName>Economy_SpaceStation_12</PrefabName>
+                    <PrefabName>Economy_SpaceStation_13</PrefabName>
+                    <PrefabName>Economy_SpaceStation_14</PrefabName>
+                    <PrefabName>Economy_SpaceStation_15</PrefabName>
+                </PrefabNames>
+            </FactionTypePrefabs>
+            <FactionTypePrefabs>
+                <FactionType>Trader</FactionType>
+                <PrefabNames>
+                    <PrefabName>Economy_SpaceStation_10</PrefabName>
+                    <PrefabName>Economy_SpaceStation_11</PrefabName>
+                    <PrefabName>Economy_SpaceStation_12</PrefabName>
+                    <PrefabName>Economy_SpaceStation_13</PrefabName>
+                    <PrefabName>Economy_SpaceStation_14</PrefabName>
+                    <PrefabName>Economy_SpaceStation_15</PrefabName>
+                </PrefabNames>
+            </FactionTypePrefabs>
+            <FactionTypePrefabs>
+                <FactionType>Builder</FactionType>
+                <PrefabNames>
+                    <PrefabName>Economy_SpaceStation_10</PrefabName>
+                    <PrefabName>Economy_SpaceStation_11</PrefabName>
+                    <PrefabName>Economy_SpaceStation_12</PrefabName>
+                    <PrefabName>Economy_SpaceStation_13</PrefabName>
+                    <PrefabName>Economy_SpaceStation_14</PrefabName>
+                    <PrefabName>Economy_SpaceStation_15</PrefabName>
+                </PrefabNames>
+            </FactionTypePrefabs>
+            <FactionTypePrefabs>
+                <FactionType>Pirate</FactionType>
+                <PrefabNames>
+                    <PrefabName>Economy_SpaceStation_11_Pirate</PrefabName>
+                    <PrefabName>Economy_SpaceStation_14_Pirate</PrefabName>
+                    <PrefabName>Economy_SpaceStation_15_Pirate</PrefabName>
+                </PrefabNames>
+            </FactionTypePrefabs>
+            <FactionTypePrefabs>
+                <FactionType>Military</FactionType>
+                <PrefabNames>
+                    <PrefabName>Economy_SpaceStation_10</PrefabName>
+                    <PrefabName>Economy_SpaceStation_11</PrefabName>
+                    <PrefabName>Economy_SpaceStation_12</PrefabName>
+                    <PrefabName>Economy_SpaceStation_13</PrefabName>
+                    <PrefabName>Economy_SpaceStation_14</PrefabName>
+                    <PrefabName>Economy_SpaceStation_15</PrefabName>
+                </PrefabNames>
+            </FactionTypePrefabs>
         </StationPrefabsFactionTypes>
     </Definition>
 

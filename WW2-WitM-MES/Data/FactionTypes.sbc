@@ -1,17 +1,159 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<!-- 2026-08-23: added for the Factory Store-sells-the-plane feature. This is a vanilla SE
-     mechanic, separate from Factions.sbc's own GRAY/GREEN MyObjectBuilder_FactionDefinition
-     tags  - grids are only sellable via a Store block if they're listed here under Subtype
-     "Builder" (a fixed economy-role subtype, confirmed against a real working example  -
-     GVK-Derelicts, Workshop ID 2653133286, Data/FactionTypes_Economy.sbc  - not per-faction,
-     just one shared list). Which SPECIFIC plane a given Factory's Store actually offers is
-     controlled separately, per-Factory, by the MES Store Profile system (see
-     Data/Encounters/Store/)  - this list only makes each plane sellable AT ALL, it doesn't
-     decide who sells what. -->
+<!-- A mod definition with an identical Id fully REPLACES vanilla's own definition, it doesn't
+     merge with it. This file used to define only GridsForSale under Subtype="Builder", which
+     silently wiped out vanilla's own much larger Builder definition (OffersList, OrdersList,
+     Skins, CanSellOxygen/Hydrogen, gas amounts, Relations, FriendsWith, TypeDescription) for
+     every faction using Type:Builder (both GRAY and GREEN) - a real, confirmed cause of the
+     Store Block MyMarketWatchViewModel crash, since it hit even a plain vanilla Store Block with
+     no connection to any WW2-WitM content. Fixed by copying vanilla's full Builder definition
+     back in and appending our own GridsForSale prefabs to its existing list, instead of
+     replacing the whole definition down to one field.
+     TRADER uses Type:Trader, which this file never overrides, so it already used vanilla's own
+     full Trader definition untouched. -->
 	<Definition xsi:type="MyObjectBuilder_FactionTypeDefinition">
 		<Id Type="MyObjectBuilder_FactionTypeDefinition" Subtype="Builder" />
+
+		<FactionRatio>3</FactionRatio>
+		<Station_Rule_Min_Orbit>1</Station_Rule_Min_Orbit>
+		<Station_Rule_Max_Orbit>3</Station_Rule_Max_Orbit>
+		<Station_Rule_Min_Outpost>1</Station_Rule_Min_Outpost>
+		<Station_Rule_Max_Outpost>3</Station_Rule_Max_Outpost>
+		<Station_Rule_Min_Station>1</Station_Rule_Min_Station>
+		<Station_Rule_Max_Station>3</Station_Rule_Max_Station>
+
+		<TypeDescription>EconomyFaction_Description_Builder</TypeDescription>
+		<TypeDescriptionVariants>5</TypeDescriptionVariants>
+
+		<Relations>
+			<Relation Faction="Builder" Variant="HostileMin_NeutralMid" />
+			<Relation Faction="Military" Variant="Zero" />
+			<Relation Faction="Pirate" Variant="HostileMin_NeutralMid" />
+		</Relations>
+		<FriendsWith>
+			<Faction>Trader</Faction>
+		</FriendsWith>
+
+		<PreferDeep>false</PreferDeep>
+
+		<Skins>
+			<Skin>
+				<!-- Default Skin -->
+			</Skin>
+			<Skin>
+				<Helmet Type="MyObjectBuilder_AssetModifierDefinition" Subtype="Robot_Helmet" />
+			</Skin>
+			<Skin>
+				<Suit Type="MyObjectBuilder_AssetModifierDefinition" Subtype="Racing_Suit" />
+				<Helmet Type="MyObjectBuilder_AssetModifierDefinition" Subtype="Racing_Helmet" />
+			</Skin>
+			<Skin>
+				<Helmet Type="MyObjectBuilder_AssetModifierDefinition" Subtype="EmissiveStripes_Helmet" />
+				<Gloves Type="MyObjectBuilder_AssetModifierDefinition" Subtype="EmissiveStripes_Gloves" />
+			</Skin>
+			<Skin>
+				<Suit Type="MyObjectBuilder_AssetModifierDefinition" Subtype="Retro_Suit" />
+				<Helmet Type="MyObjectBuilder_AssetModifierDefinition" Subtype="Retro_Helmet" />
+				<Boots Type="MyObjectBuilder_AssetModifierDefinition" Subtype="Retro_Boots" />
+			</Skin>
+			<Skin>
+				<Suit Type="MyObjectBuilder_AssetModifierDefinition" Subtype="Proper_Suit" />
+				<Helmet Type="MyObjectBuilder_AssetModifierDefinition" Subtype="Proper_Helmet" />
+				<Gloves Type="MyObjectBuilder_AssetModifierDefinition" Subtype="Proper_Gloves" />
+				<Boots Type="MyObjectBuilder_AssetModifierDefinition" Subtype="Proper_Boots" />
+			</Skin>
+			<Skin>
+				<Suit Type="MyObjectBuilder_AssetModifierDefinition" Subtype="Aviator_Suit" />
+				<Helmet Type="MyObjectBuilder_AssetModifierDefinition" Subtype="Aviator_Helmet" />
+				<Gloves Type="MyObjectBuilder_AssetModifierDefinition" Subtype="Aviator_Gloves" />
+				<Boots Type="MyObjectBuilder_AssetModifierDefinition" Subtype="Aviator_Boots" />
+			</Skin>
+			<Skin>
+				<Suit Type="MyObjectBuilder_AssetModifierDefinition" Subtype="NextGen_Suit" />
+				<Helmet Type="MyObjectBuilder_AssetModifierDefinition" Subtype="NextGen_Helmet" />
+				<Gloves Type="MyObjectBuilder_AssetModifierDefinition" Subtype="NextGen_Gloves" />
+				<Boots Type="MyObjectBuilder_AssetModifierDefinition" Subtype="NextGen_Boots" />
+			</Skin>
+		</Skins>
+
+		<BotLootContainerType>NpcBodyLoot</BotLootContainerType>
+
+		<OffersList>
+			<ItemId Type="MyObjectBuilder_Datapad" Subtype="Datapad" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="ZoneChip" />
+
+			<ItemId Type="MyObjectBuilder_PhysicalGunObject" Subtype="Welder3Item" />
+			<ItemId Type="MyObjectBuilder_PhysicalGunObject" Subtype="Welder4Item" />
+
+			<ItemId Type="MyObjectBuilder_ConsumableItem" Subtype="Medkit" />
+			<ItemId Type="MyObjectBuilder_ConsumableItem" Subtype="Powerkit" />
+
+			<ItemId Type="MyObjectBuilder_ConsumableItem" Subtype="MealPack_Flatbread" />
+			<ItemId Type="MyObjectBuilder_ConsumableItem" Subtype="MealPack_FruitPastry" />
+			<ItemId Type="MyObjectBuilder_ConsumableItem" Subtype="MealPack_Ramen" />
+			<ItemId Type="MyObjectBuilder_ConsumableItem" Subtype="ClangCola" />
+			<ItemId Type="MyObjectBuilder_ConsumableItem" Subtype="CosmicCoffee" />
+		</OffersList>
+
+		<OrdersList>
+			<ItemId Type="MyObjectBuilder_Component" Subtype="Construction" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="MetalGrid" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="InteriorPlate" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="SteelPlate" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="Girder" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="SmallTube" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="LargeTube" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="Motor" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="Display" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="BulletproofGlass" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="Superconductor" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="Computer" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="Reactor" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="Thrust" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="GravityGenerator" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="RadioCommunication" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="Detector" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="Explosives" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="SolarCell" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="PowerCell" />
+			<ItemId Type="MyObjectBuilder_Component" Subtype="Canvas" />
+		</OrdersList>
+
 		<GridsForSale>
+			<PrefabName>Eco_Ship_TIon</PrefabName>
+			<PrefabName>Eco_Ship_MiniMerchant</PrefabName>
+			<PrefabName>Eco_Ship_JClassCourier</PrefabName>
+			<PrefabName>Eco_Ship_B60BulkFreighter</PrefabName>
+			<PrefabName>Eco_Ship_AmbassadorExplorer</PrefabName>
+			<PrefabName>Eco_Ship_H2BulwarkHauler</PrefabName>
+			<PrefabName>Eco_Ship_CR2Shrike</PrefabName>
+			<PrefabName>Eco_Ship_BuddyMiner</PrefabName>
+			<PrefabName>Eco_Ship_WaylineSutler</PrefabName>
+			<PrefabName>Eco_Ship_HF3NarrowframeFreighter</PrefabName>
+			<PrefabName>Eco_Ship_RhinoMiner</PrefabName>
+			<PrefabName>Eco_Ship_RST6Salvador</PrefabName>
+			<PrefabName>Eco_Ship_RookGunship</PrefabName>
+			<PrefabName>Eco_Ship_H01Sapper</PrefabName>
+			<PrefabName>Eco_Rover_LunarScoutMk6</PrefabName>
+			<PrefabName>Eco_Ship_R3StartSkiff</PrefabName>
+			<PrefabName>Eco_Ship_H01Prospector</PrefabName>
+			<PrefabName>Eco_Ship_HullBreaker</PrefabName>
+			<PrefabName>Eco_Rover_LunarScoutMk2</PrefabName>
+			<PrefabName>Eco_Ship_CivicHauler</PrefabName>
+			<PrefabName>Eco_Ship_TurtleMiner</PrefabName>
+			<PrefabName>Eco_Ship_KiteMiner</PrefabName>
+			<PrefabName>Eco_Ship_HeavyModuleFreighter</PrefabName>
+			<PrefabName>Eco_Ship_HorizonForge</PrefabName>
+			<PrefabName>Eco_Ship_HaulFrameC</PrefabName>
+			<PrefabName>Eco_Ship_HaulFrameJ</PrefabName>
+			<PrefabName>Eco_Ship_B980Hauler</PrefabName>
+			<PrefabName>Eco_Ship_WardenStrikeCraft</PrefabName>
+			<PrefabName>Eco_Ship_TwinRailDrone</PrefabName>
+			<PrefabName>Eco_Ship_Jackdaw</PrefabName>
+			<PrefabName>Eco_Ship_SnubShip</PrefabName>
+			<PrefabName>Eco_Rover_OR7Graveler</PrefabName>
+
+			<!-- WW2-WitM additions -->
 			<PrefabName>Player-WW2-Re2000</PrefabName>
 			<PrefabName>Player-WW2-Re2001</PrefabName>
 			<PrefabName>Player-WW2-FC20</PrefabName>
@@ -21,14 +163,25 @@
 			<PrefabName>Player-WW2-Potez630</PrefabName>
 			<PrefabName>Player-WW2-V-156-F_Bomber</PrefabName>
 			<PrefabName>Player-WW2-V-156-F_Torpedo</PrefabName>
-
-			<!-- 2026-09-10: Port ships/ground vehicles - see WW2-Store-StoreItems-PortCatalog.xml -->
+			<!-- Port ships/ground vehicles - see WW2-Store-StoreItems-PortCatalog.xml -->
 			<PrefabName>Player-WW2-Gabbiano</PrefabName>
 			<PrefabName>Player-WW2-La_Malouine</PrefabName>
 			<PrefabName>Player-WW2-Golo_Italian</PrefabName>
 			<PrefabName>Player-WW2-Golo_French</PrefabName>
 			<PrefabName>Respawn-WW2-Fiat626</PrefabName>
 			<PrefabName>Respawn-WW2-RenaultAHN</PrefabName>
+			<PrefabName>Player-WW2-Bougainville</PrefabName>
+			<PrefabName>Player-WW2-Francesco_Crispi</PrefabName>
+			<!-- Valencia additions -->
+			<PrefabName>Player-WW2-Ju52</PrefabName>
+			<PrefabName>Player-WW2-F222</PrefabName>
 		</GridsForSale>
+
+		<MaxContractCount>25</MaxContractCount>
+
+		<CanSellHydrogen>true</CanSellHydrogen>
+		<MinimumOfferGasAmount>5000</MinimumOfferGasAmount>
+		<MaximumOfferGasAmount>45000</MaximumOfferGasAmount>
+
 	</Definition>
 </Definitions>

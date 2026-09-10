@@ -1,23 +1,16 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-<!-- 2026-09-09: routes the 4 new Blueprints (Blueprints-Salvage.sbc) into vanilla's own
-     "CommonMetals" (Refinery) and "Components" (Assembler) BlueprintClasses, so they show up on
-     any Refinery/Assembler players already have - no custom production block needed. This is a
-     plain SBC file, NOT a Mod Adjuster patch: Mod Adjuster's BlueprintClassEntries patch clears
-     a class's entire existing entry list on first write (would wipe every vanilla Components/
-     CommonMetals recipe unless all of them were re-listed here too). A normal SBC <Entry> list
-     merges additively across mods instead, which is what this needs - confirmed against how
-     vanilla's own BlueprintClasses.sbc structures this same <BlueprintClassEntries> list.
-
-     2026-09-10 CRITICAL FIX: <Entry> takes Class/BlueprintSubtypeId as XML ATTRIBUTES, not
-     nested child elements - confirmed against vanilla's own BlueprintClasses.sbc
-     (<Entry Class="Components" BlueprintSubtypeId="ConstructionComponent" />). The nested-
-     element form below originally used left both fields null on the deserialized object,
-     which crashed the ENTIRE mod's definition loading with a NullReferenceException in
-     BlueprintClassEntry.GetHashCode() (game hashes the entry list to dedupe it) - confirmed via
-     the actual MOD_CRITICAL_ERROR in the SE log, "MOD PARTIALLY SKIPPED, LOADED ONLY 2/6
-     PHASES". Attribute form fixes it. -->
+<!-- Routes the 4 Blueprints in Blueprints-Salvage.sbc into vanilla's own "CommonMetals"
+     (Refinery) and "Components" (Assembler) BlueprintClasses, so they show up on any Refinery/
+     Assembler players already have - no custom production block needed.
+     This is a plain SBC file, NOT a Mod Adjuster patch: Mod Adjuster's BlueprintClassEntries
+     patch clears a class's entire existing entry list on first write (would wipe every vanilla
+     recipe in that class). A normal SBC <Entry> list merges additively across mods instead,
+     matching how vanilla's own BlueprintClasses.sbc structures this same list.
+     <Entry> takes Class/BlueprintSubtypeId as XML ATTRIBUTES, not nested child elements - using
+     nested elements leaves both fields null and crashes the whole mod's definition loading
+     (NullReferenceException in BlueprintClassEntry.GetHashCode()). -->
 
 	<BlueprintClassEntries>
 		<Entry Class="CommonMetals" BlueprintSubtypeId="WW2-Blueprint-BattleWreckageToSalvageAlloy" />

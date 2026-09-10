@@ -1,24 +1,18 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<!-- 2026-08-28: Stage 1's unlock-currency components (Industrial/Military/Advanced Military
-     Components), built the same way GVK (Deserts of Kharak) builds its own "[Tech]" component
-     tier - same vanilla Prototech SubtypeIds, only DisplayName changed. Size/Mass/Volume/Model/
-     Icon/MaxIntegrity/Health all left exactly as vanilla (and as GVK's own copy of vanilla) -
-     this is a relabel, not a new item, so those values need to stay consistent with the
-     underlying vanilla definition.
-
-     Confirmed (2026-08-28) via GVK's own actual files that this relabel-only approach is
-     exactly what GVK does too, for all 7 of its own "[Tech]" items - no custom models/icons
-     anywhere in their component roster, including their two GVK-original items, which also
-     just repoint at other vanilla item models. Nothing here needed anyone's permission.
-
-     2026-09-09: no longer loot-only. See Blueprints-Salvage.sbc/PhysicalItems-Salvage.sbc -
-     each of these three is now craftable via a small amount of Battle Wreckage-derived Salvage
-     Alloy plus ordinary ingots, mirroring how GV Deserts of Kharak's own "[Tech]" components
-     work (a small custom-ingot unlock cost on top of vanilla's normal Prototech recipe shape).
-     Finished components no longer drop directly as loot either - see
-     WW2-WitM-MES/Data/ContainerTypes-TechComponents.sbc, which now drops Battle Wreckage ore
-     instead (same rarity tiers/wiring, just a different item inside). -->
+<!-- Industrial/Military/Advanced Military Components: a DisplayName-only relabel of vanilla's
+     PrototechMachinery/Frame/Circuitry, not new items - Size/Mass/Volume/Model/Icon/
+     MaxIntegrity/Health stay identical to the underlying vanilla definition, matching how GVK
+     (Deserts of Kharak) relabels its own "[Tech]" component tier the same way.
+     Craftable via a small amount of Battle Wreckage-derived Salvage Alloy plus ordinary ingots
+     (see Blueprints-Salvage.sbc); no longer drop directly as loot (see
+     WW2-WitM-MES/Data/ContainerTypes-TechComponents.sbc, which drops Battle Wreckage ore
+     instead).
+     Economy fields (MinimumOfferAmount/MaximumOfferAmount/MinimumOrderAmount/MaximumOrderAmount/
+     CanPlayerOffer/MinimumAcquisitionAmount/MaximumAcquisitionAmount, plus MinimalPricePerUnit
+     on PrototechFrame) are the full companion set vanilla requires whenever CanPlayerOrder is
+     true - values copied verbatim from vanilla's own PrototechMachinery/Frame/Circuitry
+     entries; see WW2-Reference-ModFileDebug.md for why this set is mandatory. -->
 
 	<Components>
 
@@ -41,7 +35,14 @@
 			<PhysicalMaterial>Metal</PhysicalMaterial>
 			<MaxIntegrity>1</MaxIntegrity>
 			<Health>20</Health>
+			<MinimumOfferAmount>250</MinimumOfferAmount>
+			<MaximumOfferAmount>2500</MaximumOfferAmount>
+			<MinimumOrderAmount>0</MinimumOrderAmount>
+			<MaximumOrderAmount>0</MaximumOrderAmount>
 			<CanPlayerOrder>true</CanPlayerOrder>
+			<CanPlayerOffer>true</CanPlayerOffer>
+			<MinimumAcquisitionAmount>1</MinimumAcquisitionAmount>
+			<MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
 		</Component>
 
 		<Component>
@@ -63,7 +64,15 @@
 			<PhysicalMaterial>Metal</PhysicalMaterial>
 			<MaxIntegrity>1</MaxIntegrity>
 			<Health>20</Health>
+			<MinimalPricePerUnit>100000</MinimalPricePerUnit>
+			<MinimumOfferAmount>250</MinimumOfferAmount>
+			<MaximumOfferAmount>2500</MaximumOfferAmount>
+			<MinimumOrderAmount>0</MinimumOrderAmount>
+			<MaximumOrderAmount>0</MaximumOrderAmount>
 			<CanPlayerOrder>true</CanPlayerOrder>
+			<CanPlayerOffer>true</CanPlayerOffer>
+			<MinimumAcquisitionAmount>1</MinimumAcquisitionAmount>
+			<MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
 		</Component>
 
 		<Component>
@@ -85,7 +94,14 @@
 			<PhysicalMaterial>Metal</PhysicalMaterial>
 			<MaxIntegrity>1</MaxIntegrity>
 			<Health>50</Health>
+			<MinimumOfferAmount>250</MinimumOfferAmount>
+			<MaximumOfferAmount>2500</MaximumOfferAmount>
+			<MinimumOrderAmount>0</MinimumOrderAmount>
+			<MaximumOrderAmount>0</MaximumOrderAmount>
 			<CanPlayerOrder>true</CanPlayerOrder>
+			<CanPlayerOffer>true</CanPlayerOffer>
+			<MinimumAcquisitionAmount>1</MinimumAcquisitionAmount>
+			<MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
 		</Component>
 
 	</Components>

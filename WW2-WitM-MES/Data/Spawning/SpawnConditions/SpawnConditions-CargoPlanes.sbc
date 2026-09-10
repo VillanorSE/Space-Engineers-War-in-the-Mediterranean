@@ -2,7 +2,16 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<EntityComponents>
 
-	<!-- Conditions to only spawn as a Rival AI atmospheric spawn -->
+	<!-- Conditions to only spawn as a Rival AI atmospheric spawn.
+	     CustomPathStartAltitude is measured from the terrain/seafloor directly below the spawn
+	     point, not from the water surface - MES has no water-surface-relative spawn altitude
+	     option. Left unset before, which let a spawn point over deep water land the plane below
+	     the waterline. Set to 1000 - comfortably above the planet's deepest confirmed water
+	     (~835m at the single deepest trench point, water level -1.06m minus terrain low
+	     -835.75m) - so the spawn point is always above water everywhere on the planet, not just
+	     over typical depths. Higher than this plane's own 500-600 cruise altitude
+	     (IdealPlanetAltitude in Behaviors-CargoPlane.sbc), so it climbs down to cruise after
+	     spawning; accepted as a non-issue. -->
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
@@ -12,7 +21,9 @@
 			[MES Spawn Conditions]
 
 			[RivalAiAtmosphericSpawn:true]
-			
+
+			[CustomPathStartAltitude:1000]
+
 			[IgnoreCleanupRules:true]
 			[RotateFirstCockpitToForward:true]
 			[DisableDampeners:false]

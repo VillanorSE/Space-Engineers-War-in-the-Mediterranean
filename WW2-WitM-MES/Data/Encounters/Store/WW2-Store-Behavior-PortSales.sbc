@@ -1,33 +1,14 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<!-- 2026-09-07: briefly detached from Behaviors-Port.sbc on a wrong diagnosis that this
-     ApplyStoreProfiles action itself was crashing the client - re-confirmed via the actual crash
-     log and GV Deserts of Kharak's own working GVK-Derelicts mod (Workshop 2653133286, uses this
-     identical mechanism successfully) that the real cause is <EnableEconomy>false</EnableEconomy>
-     in this world's Sandbox_config.sbc, unrelated to this file. Re-wired back into
-     Behaviors-Port.sbc; unchanged below. -->
-
-<!-- 2026-08-27: Port Store-sells-everything feature. Same Trigger/Action mechanism as
+<!-- Port Store-sells-everything feature. Same Trigger/Action mechanism as
      WW2-Store-Behavior-FactoryPlaneSales.sbc.
-
-     2026-09-10: replaced the old plane-only Gray/Green triggers with the full goods+vehicles
-     catalog, then (same day, revised per direct request) split that into two independent
-     Trigger/Action pairs per location rather than one combined pair - a deliberate choice to
-     keep the two catalogs on fully separate physical Store blocks, so a problem with one
-     (e.g. a bad StoreProfile edit) can't take out the other on the same block:
-
+     Two independent Trigger/Action pairs per location, targeting two separate physical Store
+     blocks ("Store-Port-Goods" / "Store-Port-Vehicles"), so a problem with one catalog (e.g. a
+     bad StoreProfile edit) can't take out the other on the same block:
      - ONE shared Goods pair (WW2-Store-Trigger/Action-UpdateSales-PortGoods), referenced from
-       ALL 7 locations (4 Ports + Valencia) - the goods catalog is identical everywhere, so no
-       per-faction duplication is needed the way the old plane-sales pattern required.
+       ALL 7 locations (4 Ports + Valencia) - the goods catalog is identical everywhere.
      - THREE Vehicle pairs (-Gray/-Green/-Valencia), each referenced only by the Behaviors that
-       should offer that faction's roster.
-
-     REQUIRES TWO STORE BLOCKS PER LOCATION - "Store-Port-Goods" and "Store-Port-Vehicles". The
-     4 existing Port prefabs currently have ONE block named "Store-Port" (used previously for
-     plane sales) - it needs to be renamed to "Store-Port-Goods" in-game, plus a NEW second Store
-     block added and named "Store-Port-Vehicles", then each prefab re-exported. Valencia's
-     in-progress prefab should just build both from the start. Until a block is named correctly,
-     its trigger is a harmless no-op. -->
+       should offer that faction's roster. -->
 	<EntityComponents>
 
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">

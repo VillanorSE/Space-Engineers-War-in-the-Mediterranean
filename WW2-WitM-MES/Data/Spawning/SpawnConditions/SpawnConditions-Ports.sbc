@@ -2,7 +2,7 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<EntityComponents>
 
-<!-- 2026-09-07: Configured to be relative to the planet. -->
+<!-- Configured to be relative to the planet. -->
 
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
@@ -120,10 +120,9 @@
 		</Description>
 	</EntityComponent>
 
-	<!-- 2026-09-10: Valencia, neutral trade post (TRADER faction, no combat). Real placement
-	     vectors below, captured via MES's own grid-info chat command once the prefab was built
-	     and placed in-game (StaticEncounterPlanetDirection/Altitude for the dynamic-planet mode,
-	     matching the 4 real ports' own convention; Forward/Up shared with the raw-coords form). -->
+	<!-- Valencia, neutral trade post (TRADER faction, no combat). Placement vectors use the
+	     dynamic-planet mode (StaticEncounterPlanetDirection/Altitude), matching the 4 real
+	     ports' own convention. -->
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>

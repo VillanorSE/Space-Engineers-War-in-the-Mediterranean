@@ -2,25 +2,21 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <WeatherEffects>
 
-    <!-- 2026-09-10, per direct request ("most of Planet 26 2.0's weather,
-         just without lightning damage"). Planet 26's own WeatherGenerators
-         mostly reference REAL VANILLA WeatherEffectDefinition SubtypeIds
-         directly (FogLight/RainLight/RainHeavy/Hailstorm/SnowLight/
-         SnowHeavy/Dust/SandStormLight/SandStormHeavy - all confirmed
-         present in the actual base-game WeatherEffects.sbc, none of these
-         have any Lightning block at all) rather than defining its own
-         copies. We do the same for those - no entries needed here for them,
-         reference the vanilla SubtypeId directly in WeatherGenerators below.
+    <!-- Most weather variety references real vanilla WeatherEffectDefinition
+         SubtypeIds directly (FogLight/RainLight/RainHeavy/Hailstorm/
+         SnowLight/SnowHeavy/Dust/SandStormLight/SandStormHeavy - none of
+         these carry a Lightning block at all), so no local copies are
+         needed for those; see WeatherGenerators in
+         PlanetGeneratorDefinitions.sbc.
 
          Three vanilla weather types DO have Lightning with Damage="80"
          baked in (FogHeavy, ThunderstormLight, ThunderstormHeavy) - for
-         those, this file defines OUR OWN copies under distinct SubtypeIds
+         those, this file defines our own copies under distinct SubtypeIds
          (WWM_ prefix) with every field identical to the real vanilla
-         version EXCEPT Damage=0/ExplosionRadius=0, rather than overriding
+         version except Damage=0/ExplosionRadius=0, rather than overriding
          the vanilla SubtypeId directly - an override would silently affect
          any other planet/mod in the same world still using vanilla
-         Fog/ThunderstormHeavy, which is a bigger blast radius than asked
-         for here. -->
+         Fog/ThunderstormHeavy. -->
 
     <WeatherEffect xsi:type="MyObjectBuilder_WeatherEffectDefinition"> <!-- copy of vanilla FogHeavy, Damage zeroed -->
       <Id>

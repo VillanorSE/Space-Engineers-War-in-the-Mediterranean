@@ -1,23 +1,26 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-<!-- 2026-08-28: Loot Profiles for the Stage 1 unlock-currency components. MinBlocks/MaxBlocks
-     both set to 1 - each only needs to claim ONE container, not compete for a large chunk of a
-     grid's cargo slots the way WW2-Loot-BasicContainers does. Same ContainerBlockTypes list as
-     WW2-Loot-BasicContainers (Loot.sbc), so these can land in whatever cargo containers a grid
-     actually has, regardless of ship/plane size.
-
-     Wired into SpawnGroups via dedicated Manipulation Profiles, not here directly - see
-     Manipulations-TechComponents.sbc for the actual rarity/likelihood tuning
-     ([ManipulationChance]). These Loot Profiles are just "what to place if chosen," same
-     separation of concerns as the rest of this file's siblings. -->
+<!-- Loot Profiles for the size-tiered salvage pools (see ContainerTypes-TechComponents.sbc),
+     each paired with a role-appropriate secondary pool: combat tiers (Small/Medium-Combat/
+     Large/Huge) mix in ammo (WW2-ContainerTypes-BasicAmmo-1/2/3, already built for
+     WW2-Loot-BasicContainers/-AmmoDepot but not previously used here), while the cargo variant
+     (Medium-Cargo, for CargoPlanes/CargoShips-Nautical) mixes in general components
+     (WW2-SmallCargo/WW2-MediumCargo, already built for Hangars/Factories but not previously used
+     on actual cargo grids despite ContainerTypes-BasicCargo.sbc's own header comment saying they
+     were meant for Cargo Planes).
+     Each tier's own salvage ContainerType is listed twice against the secondary pool's one
+     listing, so salvage stays the more likely of the two per claimed slot without the secondary
+     pool being vanishingly rare; MinBlocks/MaxBlocks raised to 2-3 (from the old flat 1) so both
+     kinds of content have a real chance of showing up together, not just one or the other.
+     Same additive-layer pattern as before - list before the SpawnGroup's own base loot profile. -->
 
 	<EntityComponents>
 
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Loot-Industrial</SubtypeId>
+				<SubtypeId>WW2-Loot-Small</SubtypeId>
 			</Id>
 			<Description>
 
@@ -29,10 +32,12 @@
 			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeContainer]
 			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeIndustrialContainer]
 
-			[ContainerTypes:WW2-ContainerTypes-Industrial]
+			[ContainerTypes:WW2-ContainerTypes-Loot-Small]
+			[ContainerTypes:WW2-ContainerTypes-Loot-Small]
+			[ContainerTypes:WW2-ContainerTypes-BasicAmmo-1]
 
-			[MinBlocks:1]
-			[MaxBlocks:1]
+			[MinBlocks:2]
+			[MaxBlocks:3]
 
 			</Description>
 		</EntityComponent>
@@ -40,7 +45,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Loot-MilitaryComp</SubtypeId>
+				<SubtypeId>WW2-Loot-Medium</SubtypeId>
 			</Id>
 			<Description>
 
@@ -52,10 +57,41 @@
 			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeContainer]
 			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeIndustrialContainer]
 
-			[ContainerTypes:WW2-ContainerTypes-MilitaryComp]
+			[ContainerTypes:WW2-ContainerTypes-Loot-Medium]
+			[ContainerTypes:WW2-ContainerTypes-Loot-Medium]
+			[ContainerTypes:WW2-ContainerTypes-BasicAmmo-2]
 
-			[MinBlocks:1]
-			[MaxBlocks:1]
+			[MinBlocks:2]
+			[MaxBlocks:3]
+
+			</Description>
+		</EntityComponent>
+
+		<!-- Cargo-flavored Medium tier: same salvage pool as combat Medium, but general
+		     components instead of ammo - CargoPlanes/CargoShips-Nautical use this instead of
+		     the combat WW2-Loot-Medium above. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Loot-Medium-Cargo</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Loot]
+
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/SmallBlockMediumContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/SmallBlockLargeContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockSmallContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeContainer]
+			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeIndustrialContainer]
+
+			[ContainerTypes:WW2-ContainerTypes-Loot-Medium]
+			[ContainerTypes:WW2-ContainerTypes-Loot-Medium]
+			[ContainerTypes:WW2-SmallCargo]
+			[ContainerTypes:WW2-MediumCargo]
+
+			[MinBlocks:2]
+			[MaxBlocks:4]
 
 			</Description>
 		</EntityComponent>
@@ -63,7 +99,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Loot-AdvancedMilitary</SubtypeId>
+				<SubtypeId>WW2-Loot-Large</SubtypeId>
 			</Id>
 			<Description>
 
@@ -75,10 +111,13 @@
 			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeContainer]
 			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeIndustrialContainer]
 
-			[ContainerTypes:WW2-ContainerTypes-AdvancedMilitary]
+			[ContainerTypes:WW2-ContainerTypes-Loot-Large]
+			[ContainerTypes:WW2-ContainerTypes-Loot-Large]
+			[ContainerTypes:WW2-ContainerTypes-BasicAmmo-2]
+			[ContainerTypes:WW2-ContainerTypes-BasicAmmo-3]
 
-			[MinBlocks:1]
-			[MaxBlocks:1]
+			[MinBlocks:2]
+			[MaxBlocks:4]
 
 			</Description>
 		</EntityComponent>
@@ -86,7 +125,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Loot-AdvancedMilitary-Plane</SubtypeId>
+				<SubtypeId>WW2-Loot-Huge</SubtypeId>
 			</Id>
 			<Description>
 
@@ -98,36 +137,13 @@
 			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeContainer]
 			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeIndustrialContainer]
 
-			[ContainerTypes:WW2-ContainerTypes-AdvancedMilitary-Plane]
+			[ContainerTypes:WW2-ContainerTypes-Loot-Huge]
+			[ContainerTypes:WW2-ContainerTypes-Loot-Huge]
+			[ContainerTypes:WW2-ContainerTypes-BasicAmmo-3]
+			[ContainerTypes:WW2-ContainerTypes-BasicAmmo-3]
 
-			[MinBlocks:1]
-			[MaxBlocks:1]
-
-			</Description>
-		</EntityComponent>
-
-		<!-- 2026-09-09: Salvaged Ordnance - see ContainerTypes-TechComponents.sbc's own note.
-		     Same big-naval-kill-only scoping as WW2-Loot-AdvancedMilitary, kept as its own Loot
-		     Profile since it's a different ContainerType, not a different rarity tier. -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Loot-SalvagedOrdnance</SubtypeId>
-			</Id>
-			<Description>
-
-			[MES Loot]
-
-			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/SmallBlockMediumContainer]
-			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/SmallBlockLargeContainer]
-			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockSmallContainer]
-			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeContainer]
-			[ContainerBlockTypes:MyObjectBuilder_CargoContainer/LargeBlockLargeIndustrialContainer]
-
-			[ContainerTypes:WW2-ContainerTypes-SalvagedOrdnance]
-
-			[MinBlocks:1]
-			[MaxBlocks:1]
+			[MinBlocks:3]
+			[MaxBlocks:5]
 
 			</Description>
 		</EntityComponent>

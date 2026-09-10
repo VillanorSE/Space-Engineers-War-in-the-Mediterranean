@@ -13,38 +13,25 @@
            faces (front/back/left/right/up/down) currently live. -->
       <FolderName>WW2Mediterranean</FolderName>
 
-      <!-- Material now enabled: a real material map (red channel, north/
-           south hemisphere split) has been generated and projected using
-           the confirmed cube-face geometry, alongside the ore map (blue
-           channel) from before. Biome (environment item placement, green
-           channel) was also built, 2026-08-19; see the EnvironmentItems
-           section below for the full Biome=1/2/3/4 legend. This comment
-           previously said Biome was "still not built"; that was stale,
-           corrected 2026-08-24. -->
+      <!-- Material = red channel (hemisphere/region split), Biome = green
+           channel (environment item placement, see EnvironmentItems below
+           for the full Biome=1/2/3/4 legend), Ores = blue channel. -->
       <PlanetMaps Material="true" Biome="true" Ores="true" />
 
-      <!-- Mesher/surface-detail/distortion tuning, added 2026-09-10 per
-           direct request ("terrain looks flat"). Copied verbatim from
-           Planet 26 2.0's own values (confirmed real/in-use there, not
-           guessed) - not independently tuned for this planet yet, a
-           starting point to evaluate in-game before adjusting.
-           MesherPostprocessing: LOD-based mesh decimation tuning (how
+      <!-- MesherPostprocessing: LOD-based mesh decimation tuning (how
            aggressively the voxel mesher simplifies terrain geometry at
            each LOD level) - FeatureAngle/EdgeThreshold/PlaneThreshold
-           tightening from LOD0->2 (.02/.04/.06) means less simplification
-           (more geometric detail kept) at closer LODs.
-           SurfaceDetail: blends a real vanilla detail-normal texture
-           (Data/PlanetDataFiles/Extra/material_detail_1, confirmed present
-           in the actual base game install, referenced by path like the
-           existing Grass_05 reference elsewhere in this project - not
-           bundled, doesn't need to be) onto slopes 20-90 degrees, adding
-           fine rock/surface texture without adding new geometry.
+           tightening from LOD0->2 means less simplification (more
+           geometric detail kept) at closer LODs.
+           SurfaceDetail: blends a detail-normal texture
+           (Data/PlanetDataFiles/Extra/material_detail_1, a real base-game
+           asset referenced by path, not bundled) onto slopes 20-90
+           degrees, adding fine rock/surface texture without adding new
+           geometry.
            DistortionTable: a Perlin noise distortion applied directly to
            the voxel mesh surface at generation time (separate from the
-           heightmap itself) - this is likely the single biggest lever for
-           the "flat" complaint, since it adds small-scale surface
-           roughness the heightmap's own 50m/pixel resolution can't
-           represent. -->
+           heightmap itself), adding small-scale surface roughness the
+           heightmap's own resolution can't represent. -->
       <MesherPostprocessing xsi:type="MyObjectBuilder_VoxelMesherComponentDefinition">
         <PostprocessingSteps>
           <Step xsi:type="MyObjectBuilder_VoxelPostprocessingDecimate" ForPhysics="true">
@@ -81,66 +68,29 @@
         <Distortion Type="Perlin" Value="92" Frequency="10" Height="4" LayerCount="6"/>
       </DistortionTable>
 
-      <!-- CONFIRMED CUBE-FACE GEOMETRY MAPPING (keep this exact for any
-           future texture that must align with the heightmap: ore maps,
-           future material/biome maps, anything else):
+      <!-- Cube-face geometry mapping (must stay consistent for any future
+           texture that must align with the heightmap: ore maps, future
+           material/biome maps, anything else):
            Side faces (front/right/back/left): standard gnomonic projection
-           with the Y component negated relative to the naive formula (this
-           was the fix for the "Italy backwards" mirror bug). front=lon 0,
-           right=lon 90, back=lon 180 (~Italy), left=lon 270, going
-           eastward with increasing longitude.
+           with the Y component negated relative to the naive formula.
+           front=lon 0, right=lon 90, back=lon 180 (~Italy), left=lon 270,
+           going eastward with increasing longitude.
            Pole faces: the north-pole-computed data (+Z, geometrically)
            goes into down.png, and the south-pole-computed data (-Z) goes
-           into up.png (i.e. north/south are SWAPPED relative to the
-           naive/expected assignment), and BOTH poles additionally get a
-           left-right mirror flip (np.fliplr) on top of that swap. This
-           combination (swap + flip on both) is empirically confirmed
-           correct via direct in-game content checks (Corsica correctly
-           north of Apulia; Crete correctly attached to Greece). -->
+           into up.png (north/south are SWAPPED relative to the naive
+           assignment), and BOTH poles additionally get a left-right mirror
+           flip (np.fliplr) on top of that swap. -->
       <OreMappings>
-        <!-- Real-data-driven revision. Distribution proportions are from a
-             real citation of EarthLike planet ore breakdown: mineral
-             deposits cover ~3.5% of EarthLike's surface, split Silicon 20%,
-             Magnesium 16%, Iron 15%, Cobalt 14%, Nickel 12%, Gold 9%,
-             Silver 7%, Ice 6% (Platinum/Uranium do not spawn on EarthLike).
-             Per direct request: total raised to 4% of land (not 3.5%), and
-             the 6% Ice slot replaced with 4% Platinum + 2% Uranium (used
-             for a Platinum/Uranium-gated advanced-component crafting design
-             the user is planning separately). Each ore's real proportion of
-             the 9-way split (totaling 99, Silicon/Magnesium/Iron/Cobalt/
-             Nickel/Gold/Silver/Platinum/Uranium = 20/16/15/14/12/9/7/4/2)
-             is applied against that 4% land-coverage target. Uranium uses
-             VoxelMaterial "Uraninite_01" (confirmed real, MinedOre=Uranium)
-            ; confirmed from an ASTEROID materials reference, not a planet
-             one, so this specific line is a slightly higher-risk guess than
-             the others; watch the load log for it specifically.
-             SPATIAL BIAS (revised 2026-08-19): ore is weighted toward the
-             coast and away from the exact poles (gentle exponential
-             falloff with distance from shore, floor at 60% of baseline so
-             poles aren't barren), plus an extra ~8-9x enrichment within
-             ~15km (compressed) of the full 23-site road network's
-             locations MINUS the 6 confirmed territory hubs (La Spezia,
-             Rome, Tripoli, Toulon, Oran, Alexandria); those are excluded
-             deliberately per direct request, since they'll carry permanent
-             NPC bases and shouldn't incentivize players to build nearby.
-             UPDATED 2026-08-23 per direct request: Gray's African anchor
-             moved from Tunis to Tripoli, swapping their roles in this
-             exclusion list (Tripoli now excluded, Tunis now a regular
-             hotspot below). NOTE: this comment reflects the current
-             design intent, but ore_value_strip.npy itself was generated
-             under the OLD Tunis/Tripoli assignment and has not yet been
-             regenerated to match; flagged as a known follow-up, not
-             done silently.
-             The 17 remaining hotspots: Bizerte, Tunis, Benghazi, Tobruk,
-             Taranto, Genoa, Marseille, Sidi_Barrani, Bardia, Bir_Hakeim,
-             Kairouan, Gabes, El_Alamein, Augusta, Palermo, Algiers, Sirte.
-             Same weighting ratios as the original pass (coast_floor=0.6,
-             coast_scale=20km, hotspot_amp=0.3, hotspot_sigma=10km) ;
-             deliberately unchanged per request, only the site list moved.
-             Both weights are applied by multiplying a noise field before
-             percentile thresholding, so each ore's TOTAL land-coverage
-             percentage stays exactly at target; only the spatial
-             distribution within that budget shifts. -->
+        <!-- Value matches the blue channel of *_mat.png. Ore proportions
+             are based on real EarthLike ore-coverage citations (see the
+             reference doc), weighted toward the coast and away from the
+             exact poles, plus extra enrichment near the road network's POI
+             locations except the confirmed territory hubs (excluded so
+             they don't incentivize building near the permanent NPC bases
+             there). Percentile-based thresholding keeps each ore's total
+             land-coverage percentage exactly at target regardless of the
+             spatial weighting; the weighting only reorders where within
+             that budget the ore lands. -->
         <Ore Value="50"  Type="Silicon_01"   Start="4"  Depth="7" TargetColor="#616c83" ColorInfluence="15"/>
         <Ore Value="90"  Type="Magnesium_01" Start="6"  Depth="6" TargetColor="#616c83" ColorInfluence="15"/>
         <Ore Value="130" Type="Iron_02"      Start="3"  Depth="8" TargetColor="#616c83" ColorInfluence="15"/>
@@ -152,45 +102,24 @@
         <Ore Value="250" Type="Uraninite_01" Start="18" Depth="3" TargetColor="#616c83" ColorInfluence="15"/>
       </OreMappings>
 
-      <!-- Derived directly from the final compressed heightmap data:
-           real elevation range -835.75m to +508.38m, planet radius 30,000m.
-           SE's water is a fixed-radius sphere from planet center, not a mesh
-           that follows terrain, so any inland area below 0m would flood
-           regardless of connectivity to the ocean. Found and fixed 758 such
-           disconnected pockets (two large enough to be real closed basins
-           like the Qattara Depression, the rest sub-pixel interpolation
-           noise) by smoothly infilling from surrounding real terrain (an
-           earlier uniform-offset approach created a massive cliff/bullseye
-           artifact at each basin's boundary; this version avoids that).
-           Natural coastlines are deliberately NOT floored to a minimum
-           height above sea level; gentle real slopes through Water Mod's
-           default +/-2m wave range are accepted as more natural-looking
-           than a hard clamp/shelf. -->
-      <!-- POLE ORIENTATION: swap confirmed correct (Corsica now reads
-           north of Apulia, as it should). Both poles now additionally get
-           a left-right mirror flip on top of the swap, per direct
-           confirmation that east/west (not north/south) needed to invert.
-           Range unaffected, so HillParams/material thresholds unchanged. -->
-      <!-- Weather system, added 2026-09-10, revised same day per direct
-           request to mirror MOST of Planet 26 2.0's own weather variety
-           (its WeatherGenerators mostly reference REAL VANILLA
-           WeatherEffectDefinition SubtypeIds directly - FogLight/RainLight/
-           RainHeavy/Hailstorm/SnowLight/SnowHeavy/Dust/SandStormLight/
-           SandStormHeavy, all confirmed present in the actual base-game
-           WeatherEffects.sbc with zero Lightning/Damage on any of them - we
-           do the same, referencing them directly with no local copy
-           needed). The three vanilla types that DO carry Damage="80"
-           (FogHeavy, ThunderstormLight, ThunderstormHeavy) are instead
-           referenced as our own WWM_-prefixed zero-damage copies from
-           WW2-WitM-Planet/Data/WeatherEffects.sbc, replacing the earlier
-           single custom "MediterraneanStorm" entry entirely.
-           WeatherFrequencyMin/Max (600-5400s between rolls) copied from
-           Planet 26's own values, not independently tuned.
-           Six generators below, keyed by VoxelMaterial SubtypeId, adapted
-           from Planet 26's Woods_grass/Grass (temperate) and Egypt/Sand
-           (arid) generators to our own material set, plus a Snow generator
-           for the Alpine peak band added 2026-09-02 (Planet 26's own
-           Iceland/Snow generator, adapted). -->
+      <!-- Real elevation range -835.75m to +508.38m, planet radius 30,000m.
+           SE's water is a fixed-radius sphere from planet center, not a
+           mesh that follows terrain, so any inland area below 0m floods
+           regardless of connectivity to the ocean; disconnected
+           below-sea-level pockets are infilled from surrounding real
+           terrain rather than left as holes. Natural coastlines are
+           deliberately NOT floored to a minimum height above sea level;
+           gentle real slopes through Water Mod's wave range are accepted
+           as more natural-looking than a hard clamp/shelf. -->
+      <!-- Weather generators are keyed by VoxelMaterial SubtypeId. Most
+           reference real vanilla WeatherEffectDefinition SubtypeIds
+           directly (FogLight/RainLight/RainHeavy/Hailstorm/SnowLight/
+           SnowHeavy/Dust/SandStormLight/SandStormHeavy - all zero-damage
+           already, no local copy needed). The three vanilla types that DO
+           carry Lightning Damage="80" (FogHeavy, ThunderstormLight,
+           ThunderstormHeavy) are instead referenced as our own
+           WWM_-prefixed zero-damage copies from
+           WW2-WitM-Planet/Data/WeatherEffects.sbc. -->
       <WeatherFrequencyMin>600</WeatherFrequencyMin>
       <WeatherFrequencyMax>5400</WeatherFrequencyMax>
       <WeatherGenerators>
@@ -253,7 +182,7 @@
           </Weathers>
         </WeatherGenerator>
 
-        <!-- Alpine peak band (Snow, added 2026-09-02), mirrors Planet 26's Iceland/Snow generator -->
+        <!-- Alpine peak band (Snow), mirrors Planet 26's Iceland/Snow generator -->
         <WeatherGenerator>
           <Voxel>Snow</Voxel>
           <Weathers>
@@ -267,49 +196,25 @@
 
       <HillParams Min="-0.027858" Max="0.020196" />
 
-      <!-- Height-graduated surface materials for basic visual orientation,
-           since the full biome/material texture pass hasn't happened yet.
+      <!-- Height-graduated surface materials for basic visual orientation.
            All material SubtypeIds below are copied verbatim from the real
-           vanilla PlanetGeneratorDefinitions.sbc (Pertam/EarthLike blocks),
-           not guessed; confirmed present in that file. Height values are
-           normalized 0-1 against this planet's own HillParams range; sea
-           level (real elevation 0m) sits at normalized height ~0.622 given
-           the Min/Max above. Latitude-based rules are deliberately avoided:
-           our wrap design puts land in the two outer thirds near both poles
-           and water in the middle third, so SE's Latitude filter doesn't
-           correspond to "Europe vs Africa" the way it would on a
-           conventional planet; Height and Slope are what's actually
-           meaningful here. This is a first pass for orientation purposes,
-           not a final biome design. -->
-      <!-- RECALIBRATION NOTE (revised 2026-08-19, second pass): actual
-           exported WaterConfig.xml gives the precise ratio 1.02862 (not
-           the earlier rounded 1.028 estimate); recomputed water level is
-           -1.06m relative to our elevation-0 datum (much closer to the
-           original theoretical assumption than the earlier -19.14m
-           estimate turned out to be). Per direct request, the ice/sand
-           boundary is now set EXPLICITLY at water_level - 5m = -6.06m
-           (not proportionally-shifted like the other bands), so ice stays
-           submerged through normal wave fluctuation. All other thresholds
-           (sand/beach, beach/grass, grass/highland, highland/peak) are
-           shifted by the same method as before, just re-anchored to this
-           new, more precise water level. If /wradius is tuned again (see
+           vanilla PlanetGeneratorDefinitions.sbc (Pertam/EarthLike blocks).
+           Height values are normalized 0-1 against this planet's own
+           HillParams range; sea level (real elevation 0m) sits at
+           normalized height ~0.622 given the Min/Max above. Latitude-based
+           rules are deliberately avoided: our wrap design puts land in the
+           two outer thirds near both poles and water in the middle third,
+           so SE's Latitude filter doesn't correspond to "Europe vs Africa"
+           the way it would on a conventional planet; Height and Slope are
+           what's actually meaningful here. -->
+      <!-- Water level sits at normalized height ~0.622 (see above); the
+           ice/sand boundary is set explicitly at water_level - 5m so ice
+           stays submerged through normal wave fluctuation, while the other
+           thresholds (sand/beach, beach/grass, grass/highland,
+           highland/peak) are shifted proportionally from the same
+           water-level anchor. If /wradius is tuned again (see
            WaterConfig.xml at this mod's top level, not nested in Data/),
-           these thresholds need recalculating the same way; this
-           coupling is inherent, not a one-time fix.
-
-           MATERIAL SWAP (2026-08-19): per direct request to revert from
-           the ice-underwater look back to sand, both the shallow AND deep
-           water bands now use "AquaticSand" (real material sourced from
-           the "Orcus" Workshop mod, see VoxelMaterials_Orcus.sbc) instead
-           of "Mediumice"/"Sand_02"; unified to one consistent sand
-           material through the whole underwater range rather than two
-           different sand variants meeting at a seam. The temperate
-           lowland "Grass" layer is now "OrcusGrass" (also from Orcus),
-           which carries a much higher FoliageDensity (2.5 vs whatever
-           vanilla's plain Grass defaults to) for a visibly lusher blade
-           render; this is a different layer entirely from the
-           EnvironmentItems bush/tree system, a per-material grass-blade
-           shader setting we'd never touched before. -->
+           these thresholds need recalculating the same way. -->
       <ComplexMaterials>
         <MaterialGroup Name="MediterraneanDefault" Value="0">
           <Rule>
@@ -329,9 +234,9 @@
             <Slope Min="0" Max="90"/>
           </Rule>
 
-          <!-- Beach / immediate coastline (real elevation ~0-24m), gentle slope only.
-               2026-08-22: split off the steep case below per direct request - a cliff
-               face right at the shoreline shouldn't read as a sand beach. -->
+          <!-- Beach / immediate coastline (real elevation ~0-24m), gentle
+               slope only - the steep case (cliff into the water) is
+               split off below. -->
           <Rule>
             <Layers>
               <Layer Material="PertamSand" Depth="15"/>
@@ -341,9 +246,9 @@
           </Rule>
 
           <!-- Beach-height but steep (cliff straight into the water). Limestone
-               (2026-09-02, imported from Planet 26 2.0 - see VoxelMaterials_ME.sbc)
-               instead of Rocks_grass: real Mediterranean shoreline cliffs read as
-               karst, not grass-blended rock. -->
+               (see VoxelMaterials_ME.sbc) instead of Rocks_grass: real
+               Mediterranean shoreline cliffs read as karst, not grass-blended
+               rock. -->
           <Rule>
             <Layers>
               <Layer Material="Limestone" Depth="5"/>
@@ -370,22 +275,12 @@
             <Slope Min="25" Max="90"/>
           </Rule>
 
-          <!-- Highland/Peaks thresholds RECALIBRATED 2026-08-22, per direct
-               request ("grass on top of mountains"). Checked the real
-               elevation data before changing anything: at the OLD thresholds
-               (0.6985=252m Highland start, 0.8384=470m Peaks start), 97.7%
-               of all land sat BELOW the Highland band and 99.92% below the
-               Peaks band - true bare-rock terrain almost never actually
-               appeared in-game, so anything that looked like a mountain to
-               the eye was nearly always still grass-blended Rocks_grass
-               regardless of how tall it visually read. New thresholds
-               chosen against real elevation percentiles instead of guessed:
-               Highland now starts at real ~150m (13.4% of land, height
-               0.6331) and Peaks at real ~250m (2.4% of land, height 0.6972)
-               - materials unchanged (still Rocks_grass/Stone), just
-               recalibrated so a meaningfully larger, more visually-honest
-               fraction of tall terrain actually reaches bare rock. Applied
-               identically across all four land MaterialGroups
+          <!-- Highland starts at real ~150m (13.4% of land, height 0.6331);
+               Peaks at real ~250m (2.4% of land, height 0.6972). Thresholds
+               are calibrated against real elevation percentiles so a
+               meaningful fraction of tall terrain actually reaches bare
+               rock, rather than staying grass-blended. Applied identically
+               across all four land MaterialGroups
                (Default/South/PlainsNorth/PlainsSouth). -->
           <Rule>
             <Layers>
@@ -404,7 +299,7 @@
             <Slope Min="30" Max="90"/>
           </Rule>
 
-          <!-- Peaks (real >250m, recalibrated - see Highland comment above) -->
+          <!-- Peaks (real >250m - see Highland comment above) -->
           <Rule>
             <Layers>
               <Layer Material="Stone" Depth="50"/>
@@ -413,13 +308,9 @@
             <Slope Min="0" Max="90"/>
           </Rule>
 
-          <!-- Alpine (2026-09-02 addition, first pass - not yet visually
-               validated; tune the 0.85 cutoff after an in-game look, same
-               as the Peaks/Highland thresholds above were tuned. Thin Snow
-               layer over the same Stone base, tallest ~15% of the height
-               range only - snow-capped mountain tips, not a full snow
-               biome. Snow/Stone both confirmed real vanilla VoxelMaterial
-               SubtypeIds. -->
+          <!-- Alpine: thin Snow layer over the same Stone base, tallest
+               ~15% of the height range only - snow-capped mountain tips,
+               not a full snow biome. -->
           <Rule>
             <Layers>
               <Layer Material="Snow" Depth="3"/>
@@ -457,7 +348,7 @@
             <Slope Min="0" Max="90"/>
           </Rule>
 
-          <!-- Beach, same as north; gentle slope only, see north group's 2026-08-22 note -->
+          <!-- Beach, same as north; gentle slope only -->
           <Rule>
             <Layers>
               <Layer Material="PertamSand" Depth="15"/>
@@ -466,9 +357,9 @@
             <Slope Min="0" Max="20"/>
           </Rule>
 
-          <!-- Beach-height but steep, arid. Limestone (2026-09-02, imported from
-               Planet 26 2.0 - see VoxelMaterials_ME.sbc) instead of DesertRocks:
-               same karst-cliff reasoning as the north group's beach-steep rule. -->
+          <!-- Beach-height but steep, arid. Limestone (see VoxelMaterials_ME.sbc)
+               instead of DesertRocks: same karst-cliff reasoning as the north
+               group's beach-steep rule. -->
           <Rule>
             <Layers>
               <Layer Material="Limestone" Depth="5"/>
@@ -520,13 +411,9 @@
             <Slope Min="0" Max="90"/>
           </Rule>
 
-          <!-- Alpine (2026-09-02 addition, first pass - not yet visually
-               validated; tune the 0.85 cutoff after an in-game look, same
-               as the Peaks/Highland thresholds above were tuned. Thin Snow
-               layer over the same Stone base, tallest ~15% of the height
-               range only - snow-capped mountain tips, not a full snow
-               biome. Snow/Stone both confirmed real vanilla VoxelMaterial
-               SubtypeIds. -->
+          <!-- Alpine: thin Snow layer over the same Stone base, tallest
+               ~15% of the height range only - snow-capped mountain tips,
+               not a full snow biome. -->
           <Rule>
             <Layers>
               <Layer Material="Snow" Depth="3"/>
@@ -538,31 +425,18 @@
 
         </MaterialGroup>
 
-        <!-- FlattenPad material group (Value=2) REMOVED (2026-08-19), per
-             direct feedback that painting the entire ~500-750m graded pad
-             area in Soil looked messy/artificial. Pads are now purely a
-             terrain-grading effect (see flatten_zone(), diameter increased
-             500m->750m per request) with NO separate material tag; they
-             keep their normal hemisphere grass/desert material, same as
-             surrounding terrain. Only the narrow Road stripe (below) is
-             visually distinct, and it already runs directly through each
-             pad's center (roads terminate exactly at each POI position),
-             so roads visibly connect through the flat areas without the
-             whole pad being painted. -->
+        <!-- POI landing pads are purely a terrain-grading effect (see
+             flatten_zone()) with no separate material tag; they keep their
+             normal hemisphere grass/desert material, same as surrounding
+             terrain. Value=2 is deliberately left unused (a retired
+             FlattenPad material group). -->
 
-        <!-- Road material (2026-08-19, narrowed per direct request). The
-             terrain GRADING corridor stays ~150m (carve_road's ROAD_WIDTH_M,
-             unchanged; that's the drivable-grade smoothing, a real
-             physical concern), but the visible material STRIPE is now
-             narrowed to 1 strip pixel (~50m) following the actual routed
-             centerline, not the full grading footprint. Requested target
-             was 40m; 50m is the practical minimum at this heightmap's
-             native 50m/pixel resolution (PX_PER_KM=20); a literal 40m
-             stripe would be sub-pixel, the same problem that made the
-             original 40m GRADING width invisible before it was widened to
-             150m in an earlier pass. Value=3 takes priority over Value=2
-             where a road overlaps a flatten pad (drawn last in the strip
-             data), so the road stays visible through pad centers. -->
+        <!-- Road material: the terrain GRADING corridor (carve_road's
+             ROAD_WIDTH_M) is wider than the visible material STRIPE, which
+             follows the actual routed centerline at 1 strip pixel. Value=3
+             takes priority over Value=2 where a road overlaps a landing
+             pad (drawn last in the strip data), so the road stays visible
+             through pad centers. -->
         <MaterialGroup Name="Road" Value="3">
           <Rule>
             <Layers>
@@ -573,35 +447,17 @@
           </Rule>
         </MaterialGroup>
 
-        <!-- Painted-biome pass, 2026-08-22, per direct request: height/slope
-             rules alone can't tell "immediate beach" apart from "the Po
-             Valley, which is also just really low and flat" - both read as
-             the same low elevation. Real fix: computed actual distance-to-
-             coastline in strip space (scipy distance_transform_edt on the
-             land/sea mask, same technique already used for the water-hazard
-             infill scan; circular column-padding for the wrap seam), and
-             painted a genuine "Plains" region wherever land sits farther
-             than ~1.5km (compressed; COASTAL_THRESHOLD_PX=30 at
-             PX_PER_KM=20) from the nearest coast, splitting the existing
-             red-channel hemisphere groups into 4 total: MediterraneanDefault
-             (0) and MediterraneanSouth (1) now mean "coastal" specifically
-             (unchanged rules/behavior), and these two new groups (4, 5) are
-             their inland "Plains" counterparts. Road (Value=3) pixels were
-             left untouched by the split - already-painted road pixels stay
-             road regardless of coastal/plains classification underneath.
-             Only the dry-land bands differ from the Coastal groups: no
-             separate beach step, AquaticSand -> straight to grass/soil.
-             Peaks/highland bands are identical to the Coastal groups (this
-             is purely a low-elevation/coastal-vs-inland fix, not a general
-             terrain overhaul). Value 2 stays unused (previously the removed
-             FlattenPad group; skipped here to avoid reusing a retired
-             number). Regenerated from `warped_strip_post_roads_flatten.npy`
-             (pre-dune-enhancement elevation data) - safe for this purpose
-             since dune enhancement only added inland relief detail to the
-             southern landmass and didn't change the coastline shape itself,
-             confirmed before starting this pass. Only the R channel of each
-             *_mat.png was touched; G (biome) and B (ore) channels are
-             untouched from whatever was already there. -->
+        <!-- Coastal vs. Plains split: MediterraneanDefault (0) and
+             MediterraneanSouth (1) mean "coastal" (land within a set
+             distance of the nearest coastline); these two groups (4, 5)
+             are their inland "Plains" counterparts, painted via real
+             distance-to-coastline rather than height/slope alone (height
+             can't distinguish immediate beach from any other low, flat
+             inland area). Road (Value=3) pixels are untouched by the
+             split. Only the dry-land bands differ from the Coastal
+             groups: no separate beach step, AquaticSand straight to
+             grass/soil. Peaks/highland bands are identical to the Coastal
+             groups. -->
         <MaterialGroup Name="MediterraneanPlainsNorth" Value="4">
 
           <Rule>
@@ -662,13 +518,9 @@
             <Slope Min="0" Max="90"/>
           </Rule>
 
-          <!-- Alpine (2026-09-02 addition, first pass - not yet visually
-               validated; tune the 0.85 cutoff after an in-game look, same
-               as the Peaks/Highland thresholds above were tuned. Thin Snow
-               layer over the same Stone base, tallest ~15% of the height
-               range only - snow-capped mountain tips, not a full snow
-               biome. Snow/Stone both confirmed real vanilla VoxelMaterial
-               SubtypeIds. -->
+          <!-- Alpine: thin Snow layer over the same Stone base, tallest
+               ~15% of the height range only - snow-capped mountain tips,
+               not a full snow biome. -->
           <Rule>
             <Layers>
               <Layer Material="Snow" Depth="3"/>
@@ -740,13 +592,9 @@
             <Slope Min="0" Max="90"/>
           </Rule>
 
-          <!-- Alpine (2026-09-02 addition, first pass - not yet visually
-               validated; tune the 0.85 cutoff after an in-game look, same
-               as the Peaks/Highland thresholds above were tuned. Thin Snow
-               layer over the same Stone base, tallest ~15% of the height
-               range only - snow-capped mountain tips, not a full snow
-               biome. Snow/Stone both confirmed real vanilla VoxelMaterial
-               SubtypeIds. -->
+          <!-- Alpine: thin Snow layer over the same Stone base, tallest
+               ~15% of the height range only - snow-capped mountain tips,
+               not a full snow biome. -->
           <Rule>
             <Layers>
               <Layer Material="Snow" Depth="3"/>
@@ -758,25 +606,18 @@
 
         </MaterialGroup>
 
-        <!-- Transition groups, 2026-08-23, per direct request: the Oran-Tunis and Nile
-             Delta real-climate overrides were reclassifying South(1/5) straight to the
-             full vibrant North palette (OrcusGrass), which reads too intense next to the
-             arid South and, since it was painted as a fixed-width band, showed as an
-             artificial uniform ribbon rather than following the real terrain. These two
-             groups are identical to MediterraneanSouth/MediterraneanPlainsSouth except the
-             lowland band uses OrcusGrass2 (a muted, dry/patchy grass texture, visually
-             confirmed against the source Orcus mod  - genuinely between vibrant green and
-             desert, already copied into this project's VoxelMaterials_Orcus.sbc with its
-             textures) instead of CrackedSoil. Region is now painted as the WHOLE real-
-             climate box, not a coastal distance band  - the actual shape read now comes
-             entirely from these height rules (green only where truly low, arid rock above
-             that), so it naturally follows real lowland terrain instead of a painted
-             ribbon width. Beach,
-             highland, and peaks bands are untouched, so the transition stays visibly
-             semi-arid away from the immediate lowland. Painted by real elevation (which
-             lowland areas actually exist), not a fixed coastal distance, so width follows
-             the real terrain instead of reading as a painted stripe  - same philosophy as
-             the Plains/Coastal split used for the Milan lowland. -->
+        <!-- Transition groups: identical to MediterraneanSouth/
+             MediterraneanPlainsSouth except the lowland band uses
+             OrcusGrass2 (a muted, dry/patchy grass texture - genuinely
+             between vibrant green and desert) instead of CrackedSoil, for
+             real-climate regions where the full vibrant North palette
+             would read too intense next to the arid South. Painted by real
+             elevation (which lowland areas actually exist), not a fixed
+             coastal distance, so the shape follows real terrain rather
+             than reading as a painted stripe - same philosophy as the
+             Plains/Coastal split above. Beach, highland, and peaks bands
+             are untouched, so the transition stays visibly semi-arid away
+             from the immediate lowland. -->
         <MaterialGroup Name="MediterraneanTransition" Value="6">
 
           <Rule>
@@ -852,13 +693,9 @@
             <Slope Min="0" Max="90"/>
           </Rule>
 
-          <!-- Alpine (2026-09-02 addition, first pass - not yet visually
-               validated; tune the 0.85 cutoff after an in-game look, same
-               as the Peaks/Highland thresholds above were tuned. Thin Snow
-               layer over the same Stone base, tallest ~15% of the height
-               range only - snow-capped mountain tips, not a full snow
-               biome. Snow/Stone both confirmed real vanilla VoxelMaterial
-               SubtypeIds. -->
+          <!-- Alpine: thin Snow layer over the same Stone base, tallest
+               ~15% of the height range only - snow-capped mountain tips,
+               not a full snow biome. -->
           <Rule>
             <Layers>
               <Layer Material="Snow" Depth="3"/>
@@ -930,13 +767,9 @@
             <Slope Min="0" Max="90"/>
           </Rule>
 
-          <!-- Alpine (2026-09-02 addition, first pass - not yet visually
-               validated; tune the 0.85 cutoff after an in-game look, same
-               as the Peaks/Highland thresholds above were tuned. Thin Snow
-               layer over the same Stone base, tallest ~15% of the height
-               range only - snow-capped mountain tips, not a full snow
-               biome. Snow/Stone both confirmed real vanilla VoxelMaterial
-               SubtypeIds. -->
+          <!-- Alpine: thin Snow layer over the same Stone base, tallest
+               ~15% of the height range only - snow-capped mountain tips,
+               not a full snow biome. -->
           <Rule>
             <Layers>
               <Layer Material="Snow" Depth="3"/>
@@ -955,63 +788,33 @@
            real-world source data came from the northern half of our pulled
            strip (Europe-adjacent), and 1 (MediterraneanSouth, coastal) or 5
            (MediterraneanPlainsSouth, inland) for the southern half
-           (Africa-adjacent) - north/south is the original simple midpoint
-           split in strip space; coastal/inland is the 2026-08-22
-           distance-to-coast painted-biome pass (see that pass's own comment
-           above for the full method). up.png reads uniformly 1 or 5 (south
-           content, per the confirmed pole swap), down.png uniformly 0 or 4.
+           (Africa-adjacent). up.png reads uniformly 1 or 5 (south content,
+           per the pole swap above), down.png uniformly 0 or 4.
 
-           HAND-PAINTED EXCEPTION (2026-09-08, front.png only): a patch of
-           MediterraneanTransition/PlainsTransition (6/7, the semi-arid
-           OrcusGrass2 palette; see the Transition MaterialGroup comment
-           above) was hand-painted directly onto front_mat.png at a stretch
-           of Spanish east coastline, via the paint-layer PNG workflow (see
-           [[biome_foliage_system]] memory) - not part of the original
-           2026-08-23 climate-box painting pass, which only covered
-           Oran-Tunis and the Nile Delta. Front.png's own heightmap was
-           separately steepened right at this same coastline stretch
-           (rows ~40-660, cols ~630-1060) the same day, per direct request:
-           the immediate 1-2 land pixels next to the waterline are forced to
-           reach water-level+6m and +10m respectively (revised up from an
-           initial +2.5m/+5m attempt that still flooded - checked
-           Data/WaterConfig.xml afterward and found WaveHeight=2 AND a
-           SEPARATE TideHeight=2 both apply, plus WaveScale=2 scaling the
-           wave on top, so real combined water-surface excursion is well
-           above a single ~2m wave range). Only that bounding box was
-           touched; no other coastline on any face was altered. -->
+           front.png also carries a small hand-painted patch of
+           MediterraneanTransition/PlainsTransition (6/7) on a stretch of
+           Spanish east coastline, via the paint-layer PNG workflow (see
+           [[biome_foliage_system]] memory). That same stretch of front.png's
+           heightmap is locally raised right at the waterline, since Water
+           Mod's real surface excursion there is WaveHeight + TideHeight +
+           WaveScale combined, well above a single wave-height's range. -->
 
 
 
-      <!-- Fallback if no Rule above matches a given point. "Stone" is a
-           confirmed-real vanilla VoxelMaterial SubtypeId (verified from the
-           actual vanilla PlanetGeneratorDefinitions.sbc), replacing the
-           earlier unverified "Rock" placeholder. -->
+      <!-- Fallback material if no Rule above matches a given point. -->
       <DefaultSurfaceMaterial Material="Stone" MaxDepth="10.0" />
       <DefaultSubSurfaceMaterial Material="Stone" />
 
-      <!-- Atmosphere/oxygen/wind/temperature, added per direct request.
-           All fields below confirmed real (not guessed) against vanilla's
-           own PlanetGeneratorDefinitions.sbc schema AND, for LimitAltitude
-           specifically, the actual game source (MyPlanet.cs):
-             AtmosphereAltitude = MaxHillHeight * Atmosphere.LimitAltitude
-           MaxHillHeight for this planet (current HillParams.Max=0.020196)
-           = 0.020196 * 30000 = 605.88m. Originally targeted a gameplay
-           minimum of 2500m (LimitAltitude=5.0); revised upward to 18.0
-           (~10906m) after visual feedback that the sky looked wrong at the
-           smaller altitude; this now prioritizes visual sky/cloud scale
-           over the original narrower gameplay-only target, per direct
-           request to push toward vanilla-like proportions. If HillParams
-           changes again, LimitAltitude may need recalculating to hold this
-           same ~10-12km target (divide the desired altitude by the new
-           MaxHillHeight). OxygenDensity=1.0 for a fully breathable/"full
-           oxygen" atmosphere per request. Density and MaxWindSpeed match
-           vanilla EarthLike's own values (1.0 and 80 respectively) as
-           reasonable, proven defaults; no specific wind speed was
-           requested beyond "add wind", so this is a starting point, not a
-           tuned choice. See the separate comment
-           below on DefaultSurfaceTemperature for why that field's original
-           reasoning here was wrong and had to be corrected after a real
-           crash. -->
+      <!-- LimitAltitude relates to real altitude via the game's own formula
+           (MyPlanet.cs): AtmosphereAltitude = MaxHillHeight *
+           Atmosphere.LimitAltitude. MaxHillHeight for this planet (current
+           HillParams.Max=0.020196) = 0.020196 * 30000 = 605.88m, so
+           LimitAltitude=18.0 gives ~10.9km of breathable altitude. If
+           HillParams changes again, LimitAltitude needs recalculating to
+           hold the same real-altitude target (divide the desired altitude
+           by the new MaxHillHeight). Density and MaxWindSpeed match vanilla
+           EarthLike's own values as reasonable defaults, not independently
+           tuned. -->
       <HasAtmosphere>true</HasAtmosphere>
       <MaximumOxygen>1</MaximumOxygen>
       <Atmosphere>
@@ -1022,30 +825,17 @@
         <MaxWindSpeed>80</MaxWindSpeed>
       </Atmosphere>
 
-      <!-- AtmosphereSettings/CloudLayers RESTORED 2026-08-21 to the Orcus-styled
-           values (RayleighHeight/RayleighHeightSpace/Intensity/etc. as Orcus
-           actually has them, not the scaled-down guess from the prior
-           revision)  - the earlier "no blue sky" bug turned out to be
-           HasAtmosphere=false cached in the SAVE FILE itself (a planet's
-           HasAtmosphere/AtmosphereRadius/Radius are baked into the entity at
-           first spawn, not re-read from this definition on later loads; see
-           MOD_FILE_DEBUG's 2026-08-21 session), fully independent of these
-           values. The diagnostic EarthLike-copy test that was here briefly
-           is no longer needed now that the real cause is known.
-
-           AtmosphereTopModifier changed from Orcus's own 1.1 to 1.25,
-           deliberately NOT matching Orcus here: Orcus/EarthLike are both
-           ~60km-radius planets, where 1.1 gives ~6km of altitude above the
-           surface before the atmosphere fades ((1.1-1) x 60,000m). Our
-           planet's actual radius is 30,101.5m (confirmed from the live save
-           entity, not the theoretical 30,000m)  - at 1.1 that's only ~3km,
-           half the altitude Orcus/EarthLike give. 1.25 restores the same
-           ~6km+ of usable flight altitude the user wants ((1.25-1) x
-           30,101.5 approx 7.5km, deliberately padded past the 6km target rather
-           than landing exactly on it). This value must be kept in sync with
-           AtmosphereRadius in the save file's planet entity by hand  - see
-           MOD_FILE_DEBUG for the exact save-file fix, since editing this
-           definition alone does not update an already-spawned planet. -->
+      <!-- AtmosphereTopModifier is a multiplier of planet radius, so it
+           does not transfer as a raw number between planets of different
+           radius if the goal is a specific real altitude: Orcus/EarthLike
+           are ~60km-radius planets, where their 1.1 gives ~6km of altitude
+           above the surface before the atmosphere fades ((1.1-1) x
+           60,000m). This planet's actual radius is ~30,101.5m (per the
+           live save entity, not the theoretical 30,000m) - at 1.1 that's
+           only ~3km. 1.25 restores ~7.5km of usable flight altitude
+           ((1.25-1) x 30,101.5). Editing this field alone does not update
+           an already-spawned planet - its AtmosphereRadius is cached in
+           the save file's planet entity and needs updating there too. -->
       <AtmosphereSettings>
         <RayleighScattering>
           <X>100</X>
@@ -1237,58 +1027,32 @@
           <ApplyFogRelativeDistance>0.4</ApplyFogRelativeDistance>
         </CloudLayer>
       </CloudLayers>
-      <!-- DefaultSurfaceTemperature is a real field, but is a NAMED ENUM
-           (MyTemperatureLevel), not the free-form 0.0-1.0 float this
-           comment originally assumed from a documentation page describing
-           the underlying calculation, not the XML field's actual type.
-           That assumption caused a real crash: "0.5" failed deserialization
-           entirely (MOD_CRITICAL_ERROR, fatal), confirmed from a real
-           crash log. Fixed using "Cozy"; verified from an EARLIER log
-           showing the game's own default-when-unspecified value is
-           literally Cozy, i.e. this is a real, working value confirmed
-           from actual game output, not another guess. -->
+      <!-- DefaultSurfaceTemperature is a named enum (MyTemperatureLevel),
+           not a free-form 0.0-1.0 float. -->
       <DefaultSurfaceTemperature>Cozy</DefaultSurfaceTemperature>
 
-      <!-- EnvironmentItems (grass/bush/tree foliage), added 2026-08-19.
-           All TypeId/SubtypeId values below are copied verbatim from the
-           real vanilla PlanetGeneratorDefinitions.sbc EnvironmentItems
-           blocks (confirmed real, not guessed); including two SubtypeIds
-           ("PertamSandBushFoliage", "PertamGrassOldBushFoliage") that are
-           specifically Pertam's own foliage, fitting given this planet's
-           lineage. <Biomes> is confirmed REQUIRED on every real vanilla
-           Item entry (checked; zero counterexamples), so Biome=true is now
-           enabled and a green-channel biome map has been built: Biome=1
-           for the temperate zone (north mainland + ALL islands, matching
-           the same landmass-based fix already applied to the red/material
-           channel so Sicily etc. aren't split), Biome=2 for the arid zone
-           (south mainland only). <Materials> filters are ALSO included on
-           each Item, cross-checking against our existing ComplexMaterials
-           surface types for extra precision; <Latitude> is left permissive
-           (0-90) since hemisphere distinction is already handled correctly
-           via the Biome channel, not Latitude (which, as established
-           earlier in this project, can't distinguish north pole from south
-           pole on this planet's wrap design). Height/Slope roughly match
-           the existing "coastal plains through lower highland, gentle
-           slope" material band. Densities are a first pass modeled on
-           vanilla's own values for similar biomes, not independently
-           tuned; adjust after seeing it in-game.
+      <!-- EnvironmentItems (grass/bush/tree foliage). All TypeId/SubtypeId
+           values below are copied verbatim from the real vanilla
+           PlanetGeneratorDefinitions.sbc EnvironmentItems blocks. <Biomes>
+           is required on every Item entry: Biome=1 for the temperate zone
+           (north mainland + all islands), Biome=2 for the arid zone (south
+           mainland only). <Materials> filters are also included on each
+           Item, cross-checking against the ComplexMaterials surface types
+           for extra precision; <Latitude> is left permissive (0-90) since
+           hemisphere distinction is already handled via the Biome channel,
+           not Latitude (which can't distinguish north pole from south pole
+           on this planet's wrap design).
 
-           REVISED 2026-08-19 per direct feedback: trees were too evenly
-           scattered and too numerous, and AlvaniaLeafTree didn't read as
-           earthlike enough for this setting (removed entirely; vanilla
-           GrassForestEdge/Old/Medium kept, they were fine). Fix: biome
-           channel now distinguishes "forest patch" (Biome 3=temperate,
-           4=arid) from plain open land (1=temperate, 2=arid) using the
-           same clustered-noise technique already proven for ore hotspot
-           placement; NOT a per-tree density knob, an actual spatial
-           mask, so trees appear as genuine clumps with real gaps between
-           them rather than a uniform scatter. Forest-patch coverage: 20%
-           of temperate land, 12% of arid land (deliberately sparser,
-           matching a drier climate). Grass/undergrowth/bush foliage
-           still reference BOTH the plain and forest-patch biome values
-           (so ground cover reads continuously, not patchy), while every
-           TREE entry now references ONLY the forest-patch biome, and all
-           tree densities were also reduced on top of the clumping. -->
+           The biome channel further distinguishes "forest patch" (Biome
+           3=temperate, 4=arid) from plain open land (1=temperate,
+           2=arid) via a clustered-noise spatial mask (same technique as
+           ore hotspot placement), so trees appear as genuine clumps with
+           real gaps between them rather than a uniform scatter. Forest-
+           patch coverage: 20% of temperate land, 12% of arid land
+           (deliberately sparser, matching a drier climate).
+           Grass/undergrowth/bush foliage reference BOTH the plain and
+           forest-patch biome values (so ground cover reads continuously),
+           while every TREE entry references ONLY the forest-patch biome. -->
       <EnvironmentItems>
 
         <!-- Temperate: grass foliage, both plain (1) and forest-patch (3) -->
@@ -1349,12 +1113,10 @@
         </Item>
 
         <!-- Temperate forest patches only (Biome=3), low/flat interior: dense
-             "Large" tier (2026-09-02 addition, matching Planet 26 2.0's own
-             GrassForestLarge Density="0.6" convention), sitting below the
-             Edge (boundary, above) and Medium (highland, above) tiers so
-             forest patches read as Edge -> dense interior -> thinning
-             highland instead of just two density steps. GrassForestLarge
-             confirmed real vanilla EnvironmentItems Trees SubtypeId. -->
+             "Large" tier, sitting below the Edge (boundary, above) and
+             Medium (highland, above) tiers so forest patches read as
+             Edge -> dense interior -> thinning highland instead of just
+             two density steps. -->
         <Item>
           <Biomes>
             <Biome>3</Biome>
@@ -1428,10 +1190,9 @@
         </Item>
 
         <!-- Arid forest patches only (Biome=4), low/flat interior: mid-density
-             "Medium" tier (2026-09-02 addition) between the sparse Edge above
-             (0.06) and the highland desert scrub below, matching the same
-             Edge -> denser interior structure just added to the temperate
-             forest. SandForestMedium confirmed real vanilla SubtypeId. -->
+             "Medium" tier between the sparse Edge above (0.06) and the
+             highland desert scrub below, matching the same Edge -> denser
+             interior structure used by the temperate forest. -->
         <Item>
           <Biomes>
             <Biome>4</Biome>
@@ -1488,18 +1249,15 @@
           </Rule>
         </Item>
 
-        <!-- Savanna (2026-09-02 addition, per direct request). No new biome
-             value: reuses the already-painted semi-arid Transition
-             MaterialGroups' lowland material (OrcusGrass2, MaterialGroup
-             6/7), which already covers the real semi-arid transition
-             regions (Oran-Tunis, Nile Delta) from the 2026-08-23 climate
-             pass - so this is purely a new foliage entry riding on existing
-             painted geography, not a repaint. Sparse tree cover over tall
-             grass, distinct from both the vibrant temperate forest and the
-             bare arid desert scrub. Biomes 2/4 (arid plain/forest) cover
-             both plain and forest-patch land under this material, matching
-             the existing "Arid: ... both plain (2) and forest-patch (4)"
-             convention above. -->
+        <!-- Savanna: no new biome value, reuses the already-painted
+             semi-arid Transition MaterialGroups' lowland material
+             (OrcusGrass2, MaterialGroup 6/7) - a foliage entry riding on
+             existing painted geography, not a repaint. Sparse tree cover
+             over tall grass, distinct from both the vibrant temperate
+             forest and the bare arid desert scrub. Biomes 2/4 (arid
+             plain/forest) cover both plain and forest-patch land under
+             this material, matching the "Arid: ... both plain (2) and
+             forest-patch (4)" convention above. -->
         <Item>
           <Biomes>
             <Biome>2</Biome>

@@ -145,6 +145,9 @@ Players can ally with either faction with sufficient reputation. Being allied to
 Sourced from AaW's `_FAC` REPSystem (`FAC-Context-REPAHE.sbc` and per-faction siblings): a hostile unit's death (`Type:Compromised`) checks `CheckCustomCounters:CountPlayerDamage >= 15` before awarding reputation with the beneficiary faction (i.e., killing something a faction also considers hostile improves standing with them, "enemy of my enemy"), radius-shared so nearby faction-mates of the killer get credit too.
 - Radius-share the reputation gain to nearby faction members of the credited player, matching AaW's `ReputationChangesForAllRadiusPlayerFactionMembers`.
 
+**Faction Currency**
+- [ ] Design and wire a currency-reward mechanic tied to successful cargo ship/plane deliveries (or similar), so GRAY/GREEN can meaningfully grow richer through play rather than just sitting at their starting balance.
+
 ## Stage 1 — Baseline Scenario
 
 **Goal:** Get the basic scenario built and functioning. 
@@ -169,8 +172,8 @@ Primary Installations are six permanent, invulnerable, fixed ownership locations
 
 **Store Functions** each of the six primary locations runs a full, vanilla-style Store block that allows players with 500+ reputation with the faction to buy and sell ores, ingots, components, tools, and other physical items there the same way they would at a vanilla NPC Trading Outpost. These use the same underlying pricing mechanism as vanilla (multiplier chains through ore→ingot→component, Economy Tick updates).
 
-**Component availability** 
-Add Industrial, Military, and Advanced Military Components to each primary location's Store listing, refreshed per Economy Tick. Starting quantities (not final, revisit after playtesting): 20 Industrial, 20 Military, 10 Advanced Military per refresh. Pricing intentionally high relative to raw components, especially Advanced Military, exact figures still TBD.
+**Component availability**
+Industrial, Military, and Advanced Military Components are deliberately NOT sold at any Store - that progression tier is loot/craft-only (refine Battle Wreckage into Salvage Alloy, then build the components), never purchasable with credits.
  
 **Neutral trade station**
 There is a neutral installation usable by anyone, with no reputation threshold at all. Owned by a new faction, **Traders** (tag **TRADER**), whose relation to both Gray and Green is set to **Neutral** not allied with either, matching vanilla's Neutral behavior (no automatic turret hostility toward either faction). Located on the east coast of Spain.

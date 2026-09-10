@@ -1,7 +1,14 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Factions>
-  
+
+<!-- GRAY/GREEN deliberately do not set StaticReputation: their reputation moves via this
+     project's own combat-triggered reputation system (see WW2-WitM-Roadmap.md's Reputation
+     section), and StaticReputation:true would lock it. TRADER sets StaticReputation:true +
+     StartingReputation:500 so it stays permanently Friendly/neutral-safe.
+     FactionIcon paths below are vanilla Builder-icon placeholders; swap for the Italian flag
+     (GRAY), French flag (GREEN), and Spanish flag (TRADER) once real art exists. -->
+
     <Faction Tag="GRAY" Founder="The Dictator">
       <Id>
         <TypeId>MyObjectBuilder_FactionDefinition</TypeId>
@@ -11,11 +18,20 @@
 	  <Description>The Gray are an alliance of several entities intent on expanding their territory for the exclusive benefit of their people. Their methods are often violent however not all factions have been drawn into their wars yet.</Description>
       <IsDefault>true</IsDefault>
 	  <DefaultRelation>Enemies</DefaultRelation>
+	  <DefaultRelationToPlayers>Neutral</DefaultRelationToPlayers>
 	  <AcceptHumans>false</AcceptHumans>
       <AutoAcceptMember>false</AutoAcceptMember>
+	  <StartingBalance>100000000</StartingBalance>
+	  <Type>Builder</Type>
+	  <DiscoveredByDefault>true</DiscoveredByDefault>
+	  <EnableFriendlyFire>false</EnableFriendlyFire>
+	  <StartingReputation>0</StartingReputation>
+	  <FactionIcon>Textures\FactionLogo\Builders\BuilderIcon_1.dds</FactionIcon>
+	  <BackgroundColor R="0" G="0" B="0" />
+	  <IconColor R="255" G="255" B="255" />
 
     </Faction>
-	
+
 	<Faction Tag="GREEN" Founder="The Statesman">
       <Id>
         <TypeId>MyObjectBuilder_FactionDefinition</TypeId>
@@ -25,18 +41,28 @@
 	  <Description>The Green are an alliance of numerous entities intent on containing The Gray. They are prepared to fight any who fight them.</Description>
       <IsDefault>true</IsDefault>
 	  <DefaultRelation>Enemies</DefaultRelation>
+	  <DefaultRelationToPlayers>Neutral</DefaultRelationToPlayers>
 	  <AcceptHumans>false</AcceptHumans>
       <AutoAcceptMember>false</AutoAcceptMember>
-	  
+	  <StartingBalance>100000000</StartingBalance>
+	  <Type>Builder</Type>
+	  <DiscoveredByDefault>true</DiscoveredByDefault>
+	  <EnableFriendlyFire>false</EnableFriendlyFire>
+	  <StartingReputation>0</StartingReputation>
+	  <FactionIcon>Textures\FactionLogo\Builders\BuilderIcon_2.dds</FactionIcon>
+	  <BackgroundColor R="0" G="0" B="0" />
+	  <IconColor R="255" G="255" B="255" />
+
     </Faction>
 
 	<!-- 2026-09-10: Valencia neutral trade post owner. DefaultRelation:Neutral (not Friends) so it
 	     matches vanilla's actual Neutral behavior - no automatic turret hostility toward either
 	     faction, and critically, reputation with this faction is never touched by any
 	     WW2-Trigger-ReputationDamage* trigger anywhere in this mod (those are only ever attached
-	     to Gray/Green assets), so a player's standing here can only ever sit at the vanilla
-	     default (0, Neutral) or better - it can never go Hostile, satisfying "no standing
-	     requirement" without needing a scripted floor. -->
+	     to Gray/Green assets). StaticReputation:true + StartingReputation:500 (Friendly tier,
+	     matching GVK's own Coalition trader faction exactly) locks it there permanently as a
+	     second layer of "can never go hostile," on top of simply never being touched by a
+	     reputation-damage trigger. -->
 	<Faction Tag="TRADER" Founder="The Trader">
       <Id>
         <TypeId>MyObjectBuilder_FactionDefinition</TypeId>
@@ -46,8 +72,18 @@
 	  <Description>An independent merchant consortium, unaligned with either Gray or Green, running a neutral trade post open to all comers.</Description>
       <IsDefault>true</IsDefault>
 	  <DefaultRelation>Neutral</DefaultRelation>
+	  <DefaultRelationToPlayers>Neutral</DefaultRelationToPlayers>
 	  <AcceptHumans>false</AcceptHumans>
       <AutoAcceptMember>false</AutoAcceptMember>
+	  <StartingBalance>1000000000000</StartingBalance>
+	  <Type>Trader</Type>
+	  <DiscoveredByDefault>true</DiscoveredByDefault>
+	  <StaticReputation>true</StaticReputation>
+	  <EnableFriendlyFire>false</EnableFriendlyFire>
+	  <StartingReputation>500</StartingReputation>
+	  <FactionIcon>Textures\FactionLogo\Builders\BuilderIcon_3.dds</FactionIcon>
+	  <BackgroundColor R="0" G="0" B="0" />
+	  <IconColor R="255" G="255" B="255" />
 
     </Faction>
 
