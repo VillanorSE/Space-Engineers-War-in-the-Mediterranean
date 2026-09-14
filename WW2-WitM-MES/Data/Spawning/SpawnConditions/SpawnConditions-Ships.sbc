@@ -2,19 +2,52 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<EntityComponents>
 
+<!-- Correction 2026-09-12: MinWaterDepth is NOT dead. An earlier version of this comment claimed
+     it was, based on a commented-out check in SpawnConditions.cs - that check is real but it's a
+     redundant/superseded coarse gate; the actual enforcement for PlanetaryInstallation water
+     spawns lives in PathPlacements.cs (CalculatePlanetaryInstallationCoords /
+     IsPositionSurfaceValid), which DOES actively reject positions shallower than MinWaterDepth.
+     So MinWaterDepth:15/25 below are genuinely doing their job. There is still no MaxWaterDepth
+     anywhere in MES (checked PathPlacements.cs too, not just SpawnConditions.cs) - a PR adding one
+     is in progress with MeridiusIX.
+     MinWaterCoverage is a separate, complementary signal, not a replacement: it samples 8 compass
+     directions x 12 rings spaced 1000m apart (out to 11km) from the spawn point and reports the
+     fraction that's water, so it's a regional open-sea-vs-coastal classifier, not a depth
+     measurement. Note our planet is only ~30km radius (WW2-Reference-PlanetCreation.md), and the
+     sample directions are computed once at the spawn point and offset in a straight line rather
+     than following the sphere, so at that radius the outer rings (8-11km out) likely drift off the
+     intended compass bearing before being reprojected onto the terrain - which may be why MES's own
+     code comment claims true open ocean never exceeds ~0.6 on their test planet. That ceiling is
+     plausibly planet-radius-dependent and shouldn't be trusted as-is here; use the in-game
+     /MES.Info.GetDiagnostics chat command at known open-water and coastal reference points to read
+     the real ratio before tuning further (SpawnConditions-Installations.sbc's wreck profile has
+     real measured readings from this planet: harbor mouth 0.438, good open coast up to 0.59, open
+     ocean 1.0).
+
+     2026-09-13: previously every non-carrier class (utility, corvette, destroyer, cruiser, heavy
+     cruiser) shared a single WW2-SpawnConditions-Ships profile with one MinWaterCoverage value -
+     the likely cause of nautical encounters spawning somewhere wrong for at least some classes.
+     Split into one profile per tier so each can carry its own MinWaterCoverage (heavier/larger
+     hulls biased further from enclosed coastal water toward open sea), while MinWaterDepth stays
+     at its existing per-tier value (15 for everything except carriers at 25) - only the ratio gate
+     is new here, the depth gate is unchanged. Values are the user's design call, not yet measured
+     in-game; treat them as a starting point and retune with /MES.Info.GetDiagnostics once these
+     are live, same as the wreck profile was. -->
+
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
-			<SubtypeId>WW2-SpawnConditions-Ships</SubtypeId>
+			<SubtypeId>WW2-SpawnConditions-Ships-Utility</SubtypeId>
 		</Id>
 		<Description>
 			[MES Spawn Conditions]
-			
+
 			[PlanetaryInstallation:true]
 			[RivalAiPlanetaryInstallation:true]
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:15]
+			[MinWaterCoverage:0.5]
 
 			[RotateFirstCockpitToForward:true]
 			[DisableDampeners:false]
@@ -31,6 +64,91 @@
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Ships-Corvettes</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[RivalAiPlanetaryInstallation:true]
+			[InstallationSpawnsOnWaterSurface:true]
+			[InstallationSpawnsOnDryLand:false]
+			[MinWaterDepth:15]
+			[MinWaterCoverage:0.45]
+
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[ReplenishSystems:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Ships-Destroyers</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[RivalAiPlanetaryInstallation:true]
+			[InstallationSpawnsOnWaterSurface:true]
+			[InstallationSpawnsOnDryLand:false]
+			[MinWaterDepth:15]
+			[MinWaterCoverage:0.5]
+
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[ReplenishSystems:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+
+		</Description>
+	</EntityComponent>
+
+	<!-- Covers both Cruiser and Heavy Cruiser tiers - user specified the same 0.65 MinWaterCoverage
+	     for both, so one shared profile avoids an unused duplicate. -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Ships-Cruisers</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[RivalAiPlanetaryInstallation:true]
+			[InstallationSpawnsOnWaterSurface:true]
+			[InstallationSpawnsOnDryLand:false]
+			[MinWaterDepth:15]
+			[MinWaterCoverage:0.65]
+
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[ReplenishSystems:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+
+		</Description>
+	</EntityComponent>
+
+	<!-- Carriers today; battleships are slated to reuse this same profile once built (user wants the
+	     same 0.85 MinWaterCoverage for both tiers). -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
 			<SubtypeId>WW2-SpawnConditions-Ships-Carriers</SubtypeId>
 		</Id>
 		<Description>
@@ -41,6 +159,7 @@
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:25]
+			[MinWaterCoverage:0.85]
 
 			[RotateFirstCockpitToForward:true]
 			[DisableDampeners:false]
@@ -54,7 +173,7 @@
 			[UseThreatLevelCheck:true]
 			[ThreatLevelCheckRange:10000]
 			[ThreatScoreMinimum:350]
-		
+
 		</Description>
 	</EntityComponent>
 

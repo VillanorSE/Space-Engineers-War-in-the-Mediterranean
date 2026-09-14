@@ -133,5 +133,67 @@
 		</Prefabs>
 	</SpawnGroup>
 
+<!-- Toulon -> Alexandria -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-CargoShip-Toulon-Alexandria</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Golo_French">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-CargoShip-Green-Toulon-Alexandria</Behaviour>
+				<Speed>5.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- Alexandria -> Toulon -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-CargoShip-Alexandria-Toulon</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Golo_French">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-CargoShip-Green-Alexandria-Toulon</Behaviour>
+				<Speed>5.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
 	</SpawnGroups>
 </Definitions>

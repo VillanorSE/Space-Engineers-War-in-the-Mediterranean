@@ -194,6 +194,37 @@
         </WeatherGenerator>
       </WeatherGenerators>
 
+      <!-- Apex Survival compatibility, added 2026-09-12. AnimalSpawnInfo
+           format and Wolf SubtypeId confirmed directly from vanilla
+           EarthLike's own PlanetGeneratorDefinition entry. Wolves are
+           period-plausible for a WW2 Mediterranean/N. African setting,
+           unlike the sci-fi creatures on Pertam/Triton/etc.
+
+           This schema has no per-material/biome density control (checked
+           directly - every real vanilla planet and Orcus all have exactly
+           ONE global AnimalSpawnInfo, nothing like EnvironmentItems' or
+           WeatherGenerators' Material/Biome gating exists on Animal or
+           AnimalSpawnInfo), so wolf density is necessarily uniform across
+           the whole planet - per direct request, scaled to ~65% of
+           EarthLike's overall population. WaveCountMin/Max (pack size, 1-2)
+           kept identical to EarthLike - scaling those instead would have
+           needed rounding 1*0.65=0.65 and 2*0.65=1.3 to integers, losing
+           precision. Scaling SpawnDelayMin/Max by 1/0.65 instead is exact:
+           average wolf population over time = WaveCount / SpawnDelay, so
+           making waves 1/0.65 times LESS frequent at the same WaveCount
+           gives exactly 65% of EarthLike's average population. -->
+      <AnimalSpawnInfo>
+        <Animals>
+          <Animal Type="Wolf"/>
+        </Animals>
+        <SpawnDelayMin>461538</SpawnDelayMin>
+        <SpawnDelayMax>4153846</SpawnDelayMax>
+        <SpawnDistMin>100</SpawnDistMin>
+        <SpawnDistMax>180</SpawnDistMax>
+        <WaveCountMin>1</WaveCountMin>
+        <WaveCountMax>2</WaveCountMax>
+      </AnimalSpawnInfo>
+
       <HillParams Min="-0.027858" Max="0.020196" />
 
       <!-- Height-graduated surface materials for basic visual orientation.
@@ -304,19 +335,21 @@
             <Layers>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.6972" Max="0.85"/>
+            <Height Min="0.6972" Max="0.78"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
-          <!-- Alpine: thin Snow layer over the same Stone base, tallest
-               ~15% of the height range only - snow-capped mountain tips,
-               not a full snow biome. -->
+          <!-- Alpine: thin Snow layer over the same Stone base, tallest ~22%
+               of the height range (raised from the top ~15% - confirmed via
+               the cube-cross map tooling that 0.85 left snow almost invisible,
+               under 1% of a face's land) - snow-capped mountain tips, not a
+               full snow biome. -->
           <Rule>
             <Layers>
               <Layer Material="Snow" Depth="3"/>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.85" Max="1.0"/>
+            <Height Min="0.78" Max="1.0"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
@@ -407,19 +440,21 @@
             <Layers>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.6972" Max="0.85"/>
+            <Height Min="0.6972" Max="0.78"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
-          <!-- Alpine: thin Snow layer over the same Stone base, tallest
-               ~15% of the height range only - snow-capped mountain tips,
-               not a full snow biome. -->
+          <!-- Alpine: thin Snow layer over the same Stone base, tallest ~22%
+               of the height range (raised from the top ~15% - confirmed via
+               the cube-cross map tooling that 0.85 left snow almost invisible,
+               under 1% of a face's land) - snow-capped mountain tips, not a
+               full snow biome. -->
           <Rule>
             <Layers>
               <Layer Material="Snow" Depth="3"/>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.85" Max="1.0"/>
+            <Height Min="0.78" Max="1.0"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
@@ -514,19 +549,21 @@
             <Layers>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.6972" Max="0.85"/>
+            <Height Min="0.6972" Max="0.78"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
-          <!-- Alpine: thin Snow layer over the same Stone base, tallest
-               ~15% of the height range only - snow-capped mountain tips,
-               not a full snow biome. -->
+          <!-- Alpine: thin Snow layer over the same Stone base, tallest ~22%
+               of the height range (raised from the top ~15% - confirmed via
+               the cube-cross map tooling that 0.85 left snow almost invisible,
+               under 1% of a face's land) - snow-capped mountain tips, not a
+               full snow biome. -->
           <Rule>
             <Layers>
               <Layer Material="Snow" Depth="3"/>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.85" Max="1.0"/>
+            <Height Min="0.78" Max="1.0"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
@@ -588,19 +625,21 @@
             <Layers>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.6972" Max="0.85"/>
+            <Height Min="0.6972" Max="0.78"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
-          <!-- Alpine: thin Snow layer over the same Stone base, tallest
-               ~15% of the height range only - snow-capped mountain tips,
-               not a full snow biome. -->
+          <!-- Alpine: thin Snow layer over the same Stone base, tallest ~22%
+               of the height range (raised from the top ~15% - confirmed via
+               the cube-cross map tooling that 0.85 left snow almost invisible,
+               under 1% of a face's land) - snow-capped mountain tips, not a
+               full snow biome. -->
           <Rule>
             <Layers>
               <Layer Material="Snow" Depth="3"/>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.85" Max="1.0"/>
+            <Height Min="0.78" Max="1.0"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
@@ -689,19 +728,21 @@
             <Layers>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.6972" Max="0.85"/>
+            <Height Min="0.6972" Max="0.78"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
-          <!-- Alpine: thin Snow layer over the same Stone base, tallest
-               ~15% of the height range only - snow-capped mountain tips,
-               not a full snow biome. -->
+          <!-- Alpine: thin Snow layer over the same Stone base, tallest ~22%
+               of the height range (raised from the top ~15% - confirmed via
+               the cube-cross map tooling that 0.85 left snow almost invisible,
+               under 1% of a face's land) - snow-capped mountain tips, not a
+               full snow biome. -->
           <Rule>
             <Layers>
               <Layer Material="Snow" Depth="3"/>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.85" Max="1.0"/>
+            <Height Min="0.78" Max="1.0"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
@@ -763,19 +804,21 @@
             <Layers>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.6972" Max="0.85"/>
+            <Height Min="0.6972" Max="0.78"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
-          <!-- Alpine: thin Snow layer over the same Stone base, tallest
-               ~15% of the height range only - snow-capped mountain tips,
-               not a full snow biome. -->
+          <!-- Alpine: thin Snow layer over the same Stone base, tallest ~22%
+               of the height range (raised from the top ~15% - confirmed via
+               the cube-cross map tooling that 0.85 left snow almost invisible,
+               under 1% of a face's land) - snow-capped mountain tips, not a
+               full snow biome. -->
           <Rule>
             <Layers>
               <Layer Material="Snow" Depth="3"/>
               <Layer Material="Stone" Depth="50"/>
             </Layers>
-            <Height Min="0.85" Max="1.0"/>
+            <Height Min="0.78" Max="1.0"/>
             <Slope Min="0" Max="90"/>
           </Rule>
 
@@ -1274,6 +1317,70 @@
             <Height Min="0.58" Max="0.6331"/>
             <Latitude Min="0" Max="90"/>
             <Slope Min="0" Max="25"/>
+          </Rule>
+        </Item>
+
+        <!-- Apex Survival compatibility, added 2026-09-12: forageable wild
+             food, referencing vanilla's own PhysicalModelCollectionDefinition
+             pools directly (EarthForageables/PertamForageables - both
+             confirmed real, defined in the base game's own
+             Environment/PhysicalModelCollections.sbc, no local copy
+             needed), placed via the real MyObjectBuilder_Forageable
+             EnvironmentItems TypeId (confirmed from vanilla EarthLike's own
+             entry). Density 0.004 on EarthForageables matches vanilla
+             EarthLike's own value exactly.
+
+             OrcusGrass2 (the semi-arid Transition material - Nile Delta,
+             coastal Morocco/Casablanca, Oran-Tunis) is grouped with the
+             temperate materials here, not the arid ones below: it
+             represents this planet's real fertile semi-arid coastal
+             strips, not true desert interior, so it gets the richer
+             EarthForageables set. Checked directly against the deployed
+             material map before deciding this: Casablanca's own pixel is
+             OrcusGrass2 and gets the richer set here; Alexandria's own
+             immediate pixel is plain CrackedSoil (the true arid group
+             below) even though Transition-painted patches sit nearby. -->
+        <Item>
+          <Biomes>
+            <Biome>1</Biome>
+            <Biome>3</Biome>
+          </Biomes>
+          <Materials>
+            <Material>OrcusGrass</Material>
+            <Material>Rocks_grass</Material>
+            <Material>OrcusGrass2</Material>
+          </Materials>
+          <Items>
+            <Item TypeId="MyObjectBuilder_Forageable" SubtypeId="EarthForageables" Density="0.004"/>
+          </Items>
+          <Rule>
+            <Height Min="0.58" Max="0.75"/>
+            <Latitude Min="0" Max="90"/>
+            <Slope Min="0" Max="20"/>
+          </Rule>
+        </Item>
+
+        <!-- True arid interior/scrub (CrackedSoil/DustyRocks) - sparser
+             PertamForageables set at half EarthForageables' density (0.002,
+             per direct request), a fitting reuse since our own arid
+             materials (CrackedSoil, DustyRocks, PertamSand) are themselves
+             sourced from Pertam. -->
+        <Item>
+          <Biomes>
+            <Biome>2</Biome>
+            <Biome>4</Biome>
+          </Biomes>
+          <Materials>
+            <Material>CrackedSoil</Material>
+            <Material>DustyRocks</Material>
+          </Materials>
+          <Items>
+            <Item TypeId="MyObjectBuilder_Forageable" SubtypeId="PertamForageables" Density="0.002"/>
+          </Items>
+          <Rule>
+            <Height Min="0.58" Max="0.75"/>
+            <Latitude Min="0" Max="90"/>
+            <Slope Min="0" Max="20"/>
           </Rule>
         </Item>
 

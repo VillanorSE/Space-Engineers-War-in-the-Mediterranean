@@ -28,6 +28,107 @@
 		</Description>
 	</EntityComponent>
 
+	<!-- Shallow-water wrecks (Golo hulks, etc.): spawns in/against water instead of dry land.
+	     Correction 2026-09-12: MinWaterDepth is NOT dead. It parses into a field via
+	     SpawnConditionsProfile.cs, and a coarse gate in SpawnConditions.cs is commented out, but
+	     the real enforcement for PlanetaryInstallation water spawns lives in PathPlacements.cs
+	     (CalculatePlanetaryInstallationCoords / IsPositionSurfaceValid), which actively rejects
+	     positions shallower than MinWaterDepth for UnderWaterStation/WaterSurfaceStation types.
+	     MinWaterDepth:1 below is genuinely working. There is still no MaxWaterDepth anywhere in
+	     MES (checked PathPlacements.cs too, not just SpawnConditions.cs) - a PR adding one is in
+	     progress with MeridiusIX.
+	     MinWaterCoverage/MaxWaterCoverage are a separate, complementary signal, not a substitute
+	     for the (working) depth check: checked against environment.WaterInSurroundingAreaRatio,
+	     the fraction of water found sampling 8 compass directions x 12 rings spaced 1000m apart
+	     (out to 11km) from the spawn point - a regional coastal-vs-open-sea classifier, not depth
+	     at the exact point. MES's own code comment claims true open ocean never exceeds ~0.6 on
+	     their test planet, but that ceiling is plausibly tied to THEIR planet's radius, not a
+	     universal constant - the sample directions are computed once at the spawn point and offset
+	     in a straight line rather than following the sphere, so on a smaller planet (ours is ~30km
+	     radius, see WW2-Reference-PlanetCreation.md) the outer rings drift further off the
+	     intended compass bearing before being reprojected onto the terrain.
+	     Measured 2026-09-12 via /MES.Info.GetDiagnostics: a harbor mouth (Valencia) read 0.438,
+	     good open-coast spots read up to 0.59, and open ocean between the Balearics and Sardinia
+	     read a clean 1.0 - confirms the "never above 0.6" claim above is planet-specific to MES's
+	     own test planet, not universal (this one clearly goes to 1.0). MaxWaterCoverage:0.42 is set
+	     just above the measured harbor-mouth reading and comfortably below the 0.59 good-coast
+	     spots, keeping wrecks in genuinely close-to-shore water without reaching out toward
+	     deeper/further-out spots - though pushing this up toward 0.55-0.6 later could be a
+	     deliberate way to get a second, more "lost at sea" wreck variant instead of just coastal
+	     ones. If wrecks still turn up somewhere wrong once MinWaterDepth's real effect is accounted
+	     for, switch these to hand-placed [StaticEncounter] spots instead, same as the Ports.
+
+	     2026-09-14: the La Malouine wreck test spawn above landed in a spot ~280m deep - exactly the
+	     "no MaxWaterDepth exists" gap called out since 2026-09-12. Per the user, Enenra (MES dev
+	     team) is adding a real [MaxWaterDepth:float] SpawnCondition in an upcoming update. A note for
+	     that value (7.5) is left as plain text right before [MinWaterCoverage:0.15] below, NOT a real
+	     [MaxWaterDepth:7.5] tag and deliberately NOT inside an XML comment either - restore it as a
+	     real tag once Enenra's update ships.
+	     Correction, same day: an earlier version of this fix wrapped that placeholder in an XML
+	     comment tag, nested directly inside the Description element below - that broke mod loading
+	     entirely (confirmed from the real SpaceEngineers.log, not just guessed):
+	     SE's generated XmlSerializer reads Description via ReadElementString(), which throws
+	     System.Xml.XmlException: "Unexpected node type Comment" on ANY child node in that element,
+	     comments included - it's not a "comments are always safely stripped" situation like normal
+	     XML parsing, at least not for this specific reader. The MOD_CRITICAL_ERROR that reported
+	     SpawnGroups-Wrecks.sbc as the failing file was a red herring - the log's actual exception
+	     traced to this file, one file earlier in the load batch; SE's crit-error attribution can name
+	     the file to load work moves to.
+	     7.5m applies to this profile since it currently covers all of the Utility/Corvette/Destroyer
+	     wrecks (Golo, Gabbiano/La Malouine, the four destroyer hulls). The user also specified 12m
+	     for "the rest" (Cruiser/Heavy Cruiser/Carrier/Battleship-tier wrecks) - no such wrecks exist
+	     yet, so there's nothing to attach that value to; when a larger-hull wreck is eventually built,
+	     give it its own SpawnConditions profile (same shallow-water InstallationSpawnsUnderwater
+	     setup as this one) with a real [MaxWaterDepth:12] tag instead of reusing this profile.
+
+	     2026-09-13: added [AlignToSurface:true], a brand-new MES tag (Update 2.74.02 patch notes: "for
+	     planetary installations, overriding the default of aligning to gravity").
+	     Correction, same day: the initial version of this comment claimed it "tilts the spawned grid
+	     to match the local surface normal" - that was inferred from the patch note wording alone and
+	     was wrong to state with confidence. Checked the actual GitHub master source directly:
+	     SpawnGroupManager.cs:907 is the ONLY place AlignToSurface is referenced anywhere in the MES
+	     codebase, and it only COPIES the flag from PlanetaryInstallationSettings into the
+	     SpawnConditionsProfile - nothing anywhere (PathPlacements.cs included) ever reads that field
+	     back out to actually change the spawn orientation. As shipped right now, this tag appears to
+	     be inert - present in the tag parser but not yet wired to real behavior, possibly a stub ahead
+	     of its consuming logic. Left in place since it's harmless and free once MES does wire it up,
+	     but don't rely on it doing anything today, and don't cite it as an explanation for orientation
+	     or embedding behavior seen in-game.
+
+	     2026-09-13: given the above, planetary installations here are still oriented via
+	     PathPlacements.cs's own default (UpAtPosition, i.e. straight radial/gravity-up from planet
+	     center) regardless of this tag - grids sit level, not slope-tilted, same as before. -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Wreck-ShallowWater</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[RivalAiPlanetaryInstallation:true]
+
+			[InstallationSpawnsOnDryLand:false]
+			[InstallationSpawnsUnderwater:true]
+			[MinWaterDepth:1]
+			PLACEHOLDER MaxWaterDepth:7.5 disabled - not live in MES yet, see comment above; restore as a real [MaxWaterDepth:7.5] tag once Enenra's update ships
+			[MinWaterCoverage:0.15]
+			[MaxWaterCoverage:0.42]
+			[AlignToSurface:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+
+		</Description>
+	</EntityComponent>
+
 	</EntityComponents>
 </Definitions>
 

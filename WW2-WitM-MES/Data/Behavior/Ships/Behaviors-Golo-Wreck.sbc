@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+
+<!-- Golo wreck behaviors: Passive, no combat, and deliberately no [Triggers:WW2-Trigger-UnStatic]
+     unlike the live CargoShip behaviors.
+     Correction 2026-09-13: the previous version of this comment claimed this worked because the
+     Golo prefabs "already ship with IsStatic:true baked in (every ship/plane prefab does)" - false
+     on both counts, checked directly: only NPC-WW2-Golo_Italian.sbc has IsStatic:true, not
+     NPC-WW2-Golo_French.sbc, and none of the corvette/destroyer prefabs have it either. The real
+     mechanism is MES's own ForceStaticGrid auto-logic (SpawnConditionsProfile.cs): it force-sets
+     IsStatic=true on the spawned grid whenever [PlanetaryInstallation:true] is set and
+     [InstallationSpawnsOnWaterSurface] is NOT set - which is exactly the case for
+     WW2-SpawnConditions-Wreck-ShallowWater (it sets InstallationSpawnsUnderwater, not
+     OnWaterSurface). So the wreck's own IsStatic bit in the prefab is irrelevant; what actually
+     keeps it fixed in place is the SpawnConditions profile it's paired with, and leaving out
+     UnStatic here is what avoids un-doing that. This applies to the new corvette/destroyer wrecks
+     below too, none of which have IsStatic baked in either. -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Golo-Wreck-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Golo-Wreck-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			</Description>
+        </EntityComponent>
+
+<!-- 2026-09-13: shared Passive behavior for the new corvette/destroyer wrecks. Unlike the Golo
+     wreck above (which keeps separate Gray/Green subtypes for naming-convention consistency with
+     everything else in this mod), there's genuinely no faction-specific content in a Passive
+     wreck behavior - one shared subtype avoids four/six identical duplicates. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Wreck-Passive</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			</Description>
+        </EntityComponent>
+
+	</EntityComponents>
+</Definitions>

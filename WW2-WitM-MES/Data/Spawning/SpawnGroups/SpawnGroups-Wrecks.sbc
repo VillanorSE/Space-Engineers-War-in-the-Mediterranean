@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SpawnGroups>
+
+<!-- Golo Wrecks: reuses the live NPC-WW2-Golo_Italian/French prefabs as-is (no separate wreck
+     prefab needed - see Behaviors-Golo-Wreck.sbc for why) via MES's dynamic PlanetaryInstallation
+     spawner instead of the CargoShip path-spawn system, so these show up scattered in shallow
+     coastal water rather than sailing a route. Low Frequency to keep them rare, per the Roadmap's
+     "a small number of salvageable wreck variants" ask. The negative Y position offset sinks the
+     hull below the terrain-conforming spawn point so it sits partially embedded, like a real
+     beached/grounded wreck, instead of resting on top of the seafloor. -->
+
+	<!-- Gray (Italian hull) -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Golo-Wreck-Gray</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Medium]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Golo-Wreck]
+
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Frequency>0.3</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Golo_Italian">
+				<Position>
+					<X>0.0</X>
+					<Y>-4.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Golo-Wreck-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Green (French hull) -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Golo-Wreck-Green</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Medium]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Golo-Wreck]
+
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Frequency>0.3</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Golo_French">
+				<Position>
+					<X>0.0</X>
+					<Y>-4.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Golo-Wreck-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- End Golo Wrecks -->
+
+<!-- Corvette Wrecks (Gabbiano/La Malouine): same PlanetaryInstallation dynamic-scatter approach as
+     the Golo wrecks, reusing the live prefabs and the new shared WW2-Behavior-Wreck-Passive and
+     WW2-Manipulation-Corvette-Wreck profiles. The -4.0 Y offset is copied from the Golo wrecks as a
+     starting guess, not measured against these specific hulls yet - verify in-game and adjust if
+     the corvette hull sits wrong relative to the terrain once these actually spawn.
+
+     2026-09-14: La Malouine's first test spawn sat ~7.5m deeper in the terrain than intended (also
+     landed in a ~280m-deep spot - a separate MinWaterCoverage/MaxWaterDepth issue, not an offset
+     problem, see the MaxWaterDepth note in SpawnConditions-Installations.sbc). Per the user, raised
+     La Malouine's own Y offset from -4.0 to +2.0 (a +6m correction) to compensate. Gabbiano's -4.0
+     is untouched - not reported as wrong, and the two hulls aren't guaranteed to need the same
+     offset anyway. -->
+
+	<!-- Gray (Gabbiano) -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Gabbiano-Wreck</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Medium]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Corvette-Wreck]
+
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Frequency>0.3</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Gabbiano">
+				<Position>
+					<X>0.0</X>
+					<Y>-4.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Wreck-Passive</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Green (La Malouine) -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-La_Malouine-Wreck</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Medium]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Corvette-Wreck]
+
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Frequency>0.3</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-La_Malouine">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Wreck-Passive</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- End Corvette Wrecks -->
+
+<!-- Destroyer Wrecks (Francesco Crispi, Comandante Margottini, Bougainville, Le Triomphant): same
+     approach, PlanetaryInstallationType bumped to Large given the bigger hulls. Y offset carried
+     over from the Golo wrecks as an unverified starting guess - check in-game per hull. -->
+
+	<!-- Gray (Francesco Crispi) -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Francesco_Crispi-Wreck</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Large]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Destroyer-Wreck]
+
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Frequency>0.3</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Francesco_Crispi">
+				<Position>
+					<X>0.0</X>
+					<Y>-4.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Wreck-Passive</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Gray (Comandante Margottini) -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Comandante_Margottini-Wreck</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Large]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Destroyer-Wreck]
+
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Frequency>0.3</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Comandante_Margottini">
+				<Position>
+					<X>0.0</X>
+					<Y>-4.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Wreck-Passive</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Green (Bougainville) -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Bougainville-Wreck</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Large]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Destroyer-Wreck]
+
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Frequency>0.3</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Bougainville">
+				<Position>
+					<X>0.0</X>
+					<Y>-4.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Wreck-Passive</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Green (Le Triomphant) -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Le_Triomphant-Wreck</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Large]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Destroyer-Wreck]
+
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Frequency>0.3</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Le_Triomphant">
+				<Position>
+					<X>0.0</X>
+					<Y>-4.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Wreck-Passive</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- End Destroyer Wrecks -->
+
+	</SpawnGroups>
+</Definitions>

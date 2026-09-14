@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<!-- Shallow-water wreck manipulation, modeled on GVK-Derelicts' own dereliction pattern
+     (GVK-Universal-Dereliction.sbc / GVK-Other-Recovery-Manipulation-COALITION): guns knocked
+     down, cargo cleared and replaced with a much smaller loot pool than the live ships (reuses the
+     existing WW2-Loot-Small tier rather than inventing a new one), no RivalAI combat wiring since
+     these never fight back.
+
+     2026-09-13: [UseRandomNameGenerator:true] + [RandomGridNamePrefix:Wreck - ] added to each
+     wreck's Manipulation below, so the grid displays as "Wreck - Gabbiano" etc. MES only supports
+     a PREFIX here (ManipulationProfile.cs has RandomGridNamePrefix but no suffix equivalent) - a
+     true "Gabbiano - Wreck" suffix isn't achievable via SpawnGroup/Manipulation tags without either
+     editing the shared prefab's baked-in DisplayName (which would also rename the live ship) or a
+     C# mod, so the user chose the prefix as the closest available option.
+
+     2026-09-14: reworked per user feedback on the first live La Malouine test spawn - only one gun
+     showed any visible damage, and every gun looked fully built (100% BuildPercent, only hidden
+     IntegrityPercent was low, per the note in the previous version of this comment). Two changes:
+
+     1) Corrected/expanded the [Blocks:] lists below. Re-checked every prefab with a stricter
+        xsi:type-to-SubtypeName pairing script (matching each <MyObjectBuilder_CubeBlock xsi:type=...>
+        to the very next <SubtypeName>, rather than eyeballing grep context) and found several real
+        guns missing from the original lists - notably BoforSingleRemodel (present on nearly every
+        hull) and Type96Single/TTMK15Triple on some destroyers. Deliberately excluded ammo/prop
+        blocks that also use ConveyorSorter but aren't guns themselves: 139mmHEShell, 13mmAmmoBox,
+        20mmDrum, 40mmClip, M2BrowningAmmoBox (all ammo storage props), LargeBlockConveyorSorter
+        (plain conveyor sorter, not a weapon at all), and TTMK15Torpedo (the stored torpedo prop, not
+        the TTMK15Triple launcher/tube itself) - all Le Triomphant-only except LargeBlockConveyorSorter,
+        which also appears on Comandante Margottini.
+
+     2026-09-14, second pass: briefly added TTMK15Torpedo to the Destroyer-Guns list, per the user
+     calling it a real gun/launcher rather than an ammo prop - then removed again per the user's own
+     follow-up. Net result: still excluded, same as the original call.
+
+     2) [Chance:100]/[MinBuildPercentage:100]/[MaxBuildPercentage:100] (uniform, invisible-looking
+        damage) initially replaced with [Chance:70] + [MinBuildPercentage:10]-[MaxBuildPercentage:60]
+        (~30% of guns left fully intact). Per the user, that wasn't the intent - no gun should be
+        intact - so this is now [Chance:100] + [MinBuildPercentage:5]-[MaxBuildPercentage:15]: every
+        matched gun gets touched, and always ends up heavily wrecked (low but still randomized, per
+        "a range of derelict effects"). IntegrityPercent stays at 1-15 (already low, and ProcessBlock
+        always clamps Integrity <= Build anyway, so it never reads as inconsistent with the Build
+        roll).
+
+     Also added [SkinRandomBlocks:true] to each wreck's Manipulation, reskinning most of the grid to
+     a mix of Heavy_Rust_Armor and Rusty_Armor (both confirmed as real vanilla skin SubtypeIds in
+     Content/Data/AssetModifiers/ArmorModifiers.sbc). SkinRandomBlocks picks uniformly at random
+     from [SkinRandomBlocksTextures:] per block (CosmeticEffects.cs RandomBlockSkinning) - there's no
+     weighting field, so the requested 60/40 split is faked by listing Heavy_Rust_Armor three times
+     and Rusty_Armor twice in a 5-entry list (3-in-5 = 60%, 2-in-5 = 40%). Coverage range
+     (Min/MaxPercentageSkinRandomBlocks:95/100) wasn't specified by the user - chosen to reskin
+     nearly the whole grid rather than a small patch, since "change the skin on blocks" read as a
+     whole-hull weathering pass, not a partial one; retune if that reads as too uniform in-game.
+     Applied identically to all three wreck tiers (Golo/Corvette/Destroyer) per the user's ask that
+     these manipulations apply to all of these wrecks. -->
+
+	<EntityComponents>
+
+		<!-- Golo wreck guns: Type96Single AA guns, 5InchSingleMain deck gun, and the WeaponCore
+		     turret controller driving them. Re-checked 2026-09-14 with the stricter pairing script -
+		     this list was already complete, no additions needed. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Wreck-Dereliction-Golo-Guns</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Dereliction]
+			[Blocks:MyObjectBuilder_ConveyorSorter/Type96Single]
+			[Blocks:MyObjectBuilder_ConveyorSorter/5InchSingleMain]
+			[Blocks:MyObjectBuilder_TurretControlBlock/LargeTurretControlBlock]
+			[MatchOnlyTypeId:false]
+			[Chance:100]
+			[UseSeparatePercentages:true]
+			[MinIntegrityPercentage:1]
+			[MaxIntegrityPercentage:15]
+			[MinBuildPercentage:5]
+			[MaxBuildPercentage:15]
+
+			</Description>
+		</EntityComponent>
+
+		<!-- Wrapper Manipulation: clears the Golo's normal cargo, applies the dereliction above,
+		     reduces the loot pool to the Small tier, and reskins most of the grid to rust. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Golo-Wreck</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Manipulation]
+			[ManipulationChance:100]
+
+			[ClearGridInventories:true]
+
+			[UseGridDereliction:true]
+			[DerelictionProfiles:WW2-Wreck-Dereliction-Golo-Guns]
+
+			[UseLootProfiles:true]
+			[LootProfiles:WW2-Loot-Small]
+
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePrefix:Wreck - ]
+
+			[SkinRandomBlocks:true]
+			[SkinRandomBlocksTextures:Heavy_Rust_Armor]
+			[SkinRandomBlocksTextures:Heavy_Rust_Armor]
+			[SkinRandomBlocksTextures:Heavy_Rust_Armor]
+			[SkinRandomBlocksTextures:Rusty_Armor]
+			[SkinRandomBlocksTextures:Rusty_Armor]
+			[MinPercentageSkinRandomBlocks:95]
+			[MaxPercentageSkinRandomBlocks:100]
+
+			[GridsAreEditable:true]
+			[GridsAreDestructable:true]
+
+			</Description>
+		</EntityComponent>
+
+		<!-- Corvette wrecks (Gabbiano/La Malouine) gun list, corrected 2026-09-14: added
+		     Type96Single (Gabbiano) and BoforSingleRemodel (La Malouine), both missed by the
+		     original grep-based pass. BlockStates.ProcessDereliction just iterates the grid's own
+		     blocks and checks each one against this list, so a subtype absent from a given hull is
+		     a harmless no-op - safe to share one profile across both hulls. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Wreck-Dereliction-Corvette-Guns</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Dereliction]
+			[Blocks:MyObjectBuilder_ConveyorSorter/13mmTwinMain]
+			[Blocks:MyObjectBuilder_ConveyorSorter/100mmSingleMain]
+			[Blocks:MyObjectBuilder_ConveyorSorter/Type96Single]
+			[Blocks:MyObjectBuilder_ConveyorSorter/5InchSingleMain]
+			[Blocks:MyObjectBuilder_ConveyorSorter/BoforSingleRemodel]
+			[Blocks:MyObjectBuilder_ConveyorSorter/FAM2BrowningTurret]
+			[Blocks:MyObjectBuilder_TurretControlBlock/LargeTurretControlBlock]
+			[MatchOnlyTypeId:false]
+			[Chance:100]
+			[UseSeparatePercentages:true]
+			[MinIntegrityPercentage:1]
+			[MaxIntegrityPercentage:15]
+			[MinBuildPercentage:5]
+			[MaxBuildPercentage:15]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Corvette-Wreck</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Manipulation]
+			[ManipulationChance:100]
+
+			[ClearGridInventories:true]
+
+			[UseGridDereliction:true]
+			[DerelictionProfiles:WW2-Wreck-Dereliction-Corvette-Guns]
+
+			[UseLootProfiles:true]
+			[LootProfiles:WW2-Loot-Small]
+
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePrefix:Wreck - ]
+
+			[SkinRandomBlocks:true]
+			[SkinRandomBlocksTextures:Heavy_Rust_Armor]
+			[SkinRandomBlocksTextures:Heavy_Rust_Armor]
+			[SkinRandomBlocksTextures:Heavy_Rust_Armor]
+			[SkinRandomBlocksTextures:Rusty_Armor]
+			[SkinRandomBlocksTextures:Rusty_Armor]
+			[MinPercentageSkinRandomBlocks:95]
+			[MaxPercentageSkinRandomBlocks:100]
+
+			[GridsAreEditable:true]
+			[GridsAreDestructable:true]
+
+			</Description>
+		</EntityComponent>
+
+		<!-- Destroyer wrecks (Francesco Crispi, Comandante Margottini, Bougainville, Le Triomphant)
+		     gun list, corrected 2026-09-14: added BoforSingleRemodel, TTMK15Triple, and Type96Single,
+		     all missed by the original grep-based pass (present on at least one of the four hulls).
+		     Deliberately excludes 139mmHEShell/13mmAmmoBox/20mmDrum/40mmClip/M2BrowningAmmoBox/
+		     LargeBlockConveyorSorter (ammo-storage props and a plain conveyor sorter, not guns) and
+		     TTMK15Torpedo (the stored torpedo, not the TTMK15Triple launcher - briefly added then
+		     removed again same day, see the file-level comment above). -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Wreck-Dereliction-Destroyer-Guns</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Dereliction]
+			[Blocks:MyObjectBuilder_ConveyorSorter/100mmTwinMain]
+			[Blocks:MyObjectBuilder_ConveyorSorter/138mmMain]
+			[Blocks:MyObjectBuilder_ConveyorSorter/OerlikonMain]
+			[Blocks:MyObjectBuilder_ConveyorSorter/FAM2BrowningTurret]
+			[Blocks:MyObjectBuilder_ConveyorSorter/13mmTwinMain]
+			[Blocks:MyObjectBuilder_ConveyorSorter/BoforSingleRemodel]
+			[Blocks:MyObjectBuilder_ConveyorSorter/TTMK15Triple]
+			[Blocks:MyObjectBuilder_ConveyorSorter/Type96Single]
+			[Blocks:MyObjectBuilder_TurretControlBlock/LargeTurretControlBlock]
+			[MatchOnlyTypeId:false]
+			[Chance:100]
+			[UseSeparatePercentages:true]
+			[MinIntegrityPercentage:1]
+			[MaxIntegrityPercentage:15]
+			[MinBuildPercentage:5]
+			[MaxBuildPercentage:15]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Destroyer-Wreck</SubtypeId>
+			</Id>
+			<Description>
+
+			[MES Manipulation]
+			[ManipulationChance:100]
+
+			[ClearGridInventories:true]
+
+			[UseGridDereliction:true]
+			[DerelictionProfiles:WW2-Wreck-Dereliction-Destroyer-Guns]
+
+			[UseLootProfiles:true]
+			[LootProfiles:WW2-Loot-Small]
+
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePrefix:Wreck - ]
+
+			[SkinRandomBlocks:true]
+			[SkinRandomBlocksTextures:Heavy_Rust_Armor]
+			[SkinRandomBlocksTextures:Heavy_Rust_Armor]
+			[SkinRandomBlocksTextures:Heavy_Rust_Armor]
+			[SkinRandomBlocksTextures:Rusty_Armor]
+			[SkinRandomBlocksTextures:Rusty_Armor]
+			[MinPercentageSkinRandomBlocks:95]
+			[MaxPercentageSkinRandomBlocks:100]
+
+			[GridsAreEditable:true]
+			[GridsAreDestructable:true]
+
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

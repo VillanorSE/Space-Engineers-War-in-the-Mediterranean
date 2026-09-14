@@ -120,6 +120,35 @@
 		</Description>
 	</EntityComponent>
 
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Port-Alexandria</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:true]
+			[StaticEncounterUsePlanetDirectionAndAltitude:true]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterPlanetDirection:{X:-0.192091142579102 Y:0.859672486172863 Z:-0.473354211410465}]
+			[StaticEncounterPlanetAltitude:-1.13989923804911]
+			[StaticEncounterForward:{X:0.103673741221428 Y:-0.463729560375214 Z:-0.879890143871307}]
+			[StaticEncounterUp:{X:-0.191973596811295 Y:0.858692467212677 Z:-0.47517716884613}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:GREEN]
+
+			[TriggerRadius:65000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+		</Description>
+	</EntityComponent>
+
 	<!-- Valencia, neutral trade post (TRADER faction, no combat). Placement vectors use the
 	     dynamic-planet mode (StaticEncounterPlanetDirection/Altitude), matching the 4 real
 	     ports' own convention. -->

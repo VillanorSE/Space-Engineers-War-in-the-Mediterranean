@@ -10534,7 +10534,7 @@
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
               <Enabled>true</Enabled>
-              <AnyoneCanUse>false</AnyoneCanUse>
+              <AnyoneCanUse>true</AnyoneCanUse>
               <Opening>0</Opening>
               <OpenSound>ArcBlockDoorSmallOpen</OpenSound>
               <CloseSound>ArcBlockDoorSmallClose</CloseSound>
@@ -10881,7 +10881,7 @@
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>2</NumberInGrid>
               <Enabled>true</Enabled>
-              <AnyoneCanUse>false</AnyoneCanUse>
+              <AnyoneCanUse>true</AnyoneCanUse>
               <Opening>0</Opening>
               <OpenSound>ArcBlockDoorSmallOpen</OpenSound>
               <CloseSound>ArcBlockDoorSmallClose</CloseSound>
@@ -22066,7 +22066,7 @@
                       <ShowInInventory>true</ShowInInventory>
                       <NumberInGrid>1</NumberInGrid>
                       <Enabled>true</Enabled>
-                      <AnyoneCanUse>false</AnyoneCanUse>
+                      <AnyoneCanUse>true</AnyoneCanUse>
                       <Opening>0</Opening>
                       <OpenSound>ArcBlockDoorSmallOpen</OpenSound>
                       <CloseSound>ArcBlockDoorSmallClose</CloseSound>
@@ -22543,7 +22543,8 @@
                       <ShowInInventory>true</ShowInInventory>
                       <NumberInGrid>1</NumberInGrid>
                       <Enabled>true</Enabled>
-                      <AnyoneCanUse>false</AnyoneCanUse>
+                      <AnyoneCanUse>true</AnyoneCanUse>
+                      <Searchable>true</Searchable>
                     </MyObjectBuilder_CubeBlock>
                     <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Door">
                       <SubtypeName />
@@ -22559,7 +22560,7 @@
                       <ShowInInventory>true</ShowInInventory>
                       <NumberInGrid>2</NumberInGrid>
                       <Enabled>true</Enabled>
-                      <AnyoneCanUse>false</AnyoneCanUse>
+                      <AnyoneCanUse>true</AnyoneCanUse>
                       <Opening>0</Opening>
                       <OpenSound>ArcBlockDoorSmallOpen</OpenSound>
                       <CloseSound>ArcBlockDoorSmallClose</CloseSound>
@@ -33742,7 +33743,7 @@
                               <ShowInInventory>true</ShowInInventory>
                               <NumberInGrid>1</NumberInGrid>
                               <Enabled>true</Enabled>
-                              <AnyoneCanUse>false</AnyoneCanUse>
+                              <AnyoneCanUse>true</AnyoneCanUse>
                               <Opening>0</Opening>
                               <OpenSound>ArcBlockDoorSmallOpen</OpenSound>
                               <CloseSound>ArcBlockDoorSmallClose</CloseSound>
@@ -34219,7 +34220,8 @@
                               <ShowInInventory>true</ShowInInventory>
                               <NumberInGrid>1</NumberInGrid>
                               <Enabled>true</Enabled>
-                              <AnyoneCanUse>false</AnyoneCanUse>
+                              <AnyoneCanUse>true</AnyoneCanUse>
+                              <Searchable>true</Searchable>
                             </MyObjectBuilder_CubeBlock>
                             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Door">
                               <SubtypeName />
@@ -34235,7 +34237,7 @@
                               <ShowInInventory>true</ShowInInventory>
                               <NumberInGrid>2</NumberInGrid>
                               <Enabled>true</Enabled>
-                              <AnyoneCanUse>false</AnyoneCanUse>
+                              <AnyoneCanUse>true</AnyoneCanUse>
                               <Opening>0</Opening>
                               <OpenSound>ArcBlockDoorSmallOpen</OpenSound>
                               <CloseSound>ArcBlockDoorSmallClose</CloseSound>
@@ -40485,7 +40487,8 @@
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
               <Enabled>true</Enabled>
-              <AnyoneCanUse>false</AnyoneCanUse>
+              <AnyoneCanUse>true</AnyoneCanUse>
+              <Searchable>true</Searchable>
             </MyObjectBuilder_CubeBlock>
           </CubeBlocks>
           <IsStatic>true</IsStatic>
