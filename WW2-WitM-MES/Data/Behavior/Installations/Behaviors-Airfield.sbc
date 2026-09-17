@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+
+<!-- Airfield Behaviors - UNIVERSAL, shared by every secondary airfield installation. Three states
+     (Unowned/Gray/Green), switched between via Triggers-AirfieldOwnership.sbc's state machine
+     (SwitchToBehavior). All three run the same 12 zone-detector triggers tracking all
+     3 anchors per faction plus their own state's 2 decision triggers. Gray/Green additionally
+     run: store sales (Store-Airport-Vehicles, selling every plane of the owning faction), the
+     offensive spawn triggers moved here from the plane factories (Triggers-OffensiveSpawn.sbc -
+     each now UseTrigger/StartsReady:true by default since there's no per-airfield activation-
+     gating trigger like factories had), the cargo-plane spawn-request listener
+     (Triggers-AirfieldCargoRequest.sbc), and defensive spawn (reusing the existing Factory-Plane
+     defense triggers, since they're already generic per faction, not Factory-specific in what
+     they spawn).
+
+     A new airfield anywhere just needs its own SpawnGroup + Prefab + SpawnConditions pointing at
+     these SAME 3 Behaviors - no new trigger/condition/behavior authoring per installation. -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Airfield-Unowned</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Gray-LaSpezia]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Gray-LaSpezia]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Gray-Tripoli]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Gray-Tripoli]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Gray-Rome]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Gray-Rome]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Green-Toulon]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Green-Toulon]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Green-Oran]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Green-Oran]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Green-Alexandria]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Green-Alexandria]
+
+			[Triggers:WW2-Trigger-Airfield-Unowned-CheckGreen]
+			[Triggers:WW2-Trigger-Airfield-Unowned-CheckGray]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Airfield-Gray</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Gray-LaSpezia]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Gray-LaSpezia]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Gray-Tripoli]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Gray-Tripoli]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Gray-Rome]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Gray-Rome]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Green-Toulon]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Green-Toulon]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Green-Oran]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Green-Oran]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Green-Alexandria]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Green-Alexandria]
+
+			[Triggers:WW2-Trigger-Airfield-Gray-CheckGreen]
+			[Triggers:WW2-Trigger-Airfield-Gray-CheckUnowned]
+
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-DefenseSpawn-Gray]
+
+			[Triggers:WW2-Trigger-OffenseSpawn-Re2000]
+			[Triggers:WW2-Trigger-OffenseSpawn-Re2001]
+			[Triggers:WW2-Trigger-OffenseSpawn-FC20]
+			[Triggers:WW2-Trigger-OffenseSpawn-SM79Bomber]
+
+			[Triggers:WW2-Trigger-Airfield-RequestCargoPlane-Gray]
+
+			[Triggers:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Gray]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Airfield-Green</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Gray-LaSpezia]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Gray-LaSpezia]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Gray-Tripoli]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Gray-Tripoli]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Gray-Rome]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Gray-Rome]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Green-Toulon]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Green-Toulon]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Green-Oran]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Green-Oran]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Green-Alexandria]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Green-Alexandria]
+
+			[Triggers:WW2-Trigger-Airfield-Green-CheckGray]
+			[Triggers:WW2-Trigger-Airfield-Green-CheckUnowned]
+
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-DefenseSpawn-Green]
+
+			[Triggers:WW2-Trigger-OffenseSpawn-MS406]
+			[Triggers:WW2-Trigger-OffenseSpawn-Potez630]
+			[Triggers:WW2-Trigger-OffenseSpawn-V156FBomber]
+
+			[Triggers:WW2-Trigger-Airfield-RequestCargoPlane-Green]
+
+			[Triggers:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Green]
+
+			</Description>
+        </EntityComponent>
+
+	</EntityComponents>
+</Definitions>

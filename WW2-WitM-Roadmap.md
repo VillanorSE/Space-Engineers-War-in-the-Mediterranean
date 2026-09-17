@@ -51,18 +51,13 @@ There is a full modlist for this project but the primary functional mods are lis
 - [x] Configure ShipCores for block limits
 - [x] Update G menu to not show empty groups or blank spaces
 - [x] Test ammo depot spawn for placement
-- [ ] Resolve CrashAir not working as intended
-- [x] Create Fiat 626 player respawn truck (150% scale)
-- [x] Create AHN player respawn truck (150% scale)
-- [x] Configure basic features on port installations
-  - [x] Selling grids of that faction
-  - [x] Spawning cargo ships that travel to the other port
-  - [x] Defensive spawn
-- [x] Adjust threat level and similar spawn controls on Bearn and Aquila, spawning when not expected
-- [x] Create GPS Routes for travel between existing port locations
-- [x] Make mountains, especially in Italy and Greece less "spire"like
-- [x] Get Static spawns to properly spawn, figure out why they are despawning.
-- [x] Create neutral trade post installation, port at Valencia. 
+- [ ] Test CrashAir for whether it is working properly
+- [ ] Test cargo ship spawns to see if nautical paths are working properly.
+- [ ] Implement MaxWaterDepth once MES updates (for wreck spawns)
+- [ ] Calibrate all wreck spawn height offsets.
+- [ ] Test faction ownership flip behavior by setting territory to proper size and testing installations.
+- [ ] Test cargo planes spawning and flying to factories.
+- [ ] Test plane offensive spawns coming from airfields.
 
 **Rebuilds:**
 
@@ -335,10 +330,11 @@ This is specifically intended to discourage players from building bases too clos
 - [x] Build each anchor's nested radius-tier zone definitions and paired Enable/Disable timer-trigger-condition sets (6 anchors × 6 tiers each).
 - [x] Define what actions will count towards territory growth and against it, and what threshold values each ring is set by — see `WW2-WitM-Territory-Design.md`.
 - [ ] Build the ring-weighted `CustomSandboxCounter` point-award actions per anchor (4x/3x/2x/1x by ring band) for each relevant encounter/event type, per the values locked in `WW2-WitM-Territory-Design.md`.
-- [ ] Build Gibraltar and Foggia airports and place them as static encounters. 
-- [ ] Build a non Gibraltar airport and use it and Foggia for all remaining airport locations. 
+- [x] Build Gibraltar and Foggia airports and place them as static encounters.
+- [x] Place Foggia, Gibraltar, Tripoli, and Tunis airports
+- [ ] Place all remaining airport locations. 
 - [ ] Build a barracks and use it at all relevant locations with behavior as described in the location section.
-- [ ] Build ownership change triggers and actions and add them to behavior for secondary installations.
+- [x] Build ownership change triggers and actions and add them to behavior for secondary installations.
 - [ ] Add MSB's `AreaRestriction` TriggerGroup to all installations, 1,500m radius on primary points and 500m on all other installations.
 - [ ] Playtest: confirm the AreaRestriction warning/reputation-loss cadence feels like a nudge rather than a punishment.
 - [ ] Playtest: confirm control of installation changes appropriately and triggers update to the new owner faction.

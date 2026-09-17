@@ -64,16 +64,33 @@
 
 			[SpawnGroups:WW2-CargoShip-LaSpezia-Tripoli]
 
-			[MinDistance:100]
-			[MaxDistance:300]
-			[MinAltitude:0]
-			[MaxAltitude:2]
-			[IgnoreSafetyChecks:false]
-			[InheritNpcAltitude:true]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:-2.30 Y:-111.61 Z:-19.83}]
+			[IgnoreSafetyChecks:true]
 
 			</Description>
         </EntityComponent>
 <!-- End La Spezia Cargo Spawn -->
+<!-- SWITCHED TO FIXED RELATIVE OFFSET: MinDistance/MaxDistance/MinAltitude/MaxAltitude was a
+     dead end - confirmed via MES source (Helpers/VectorHelper.cs, GetPlanetRandomSpawnMatrix)
+     that altitude there is measured from the TERRAIN/SEAFLOOR voxel surface with zero water
+     awareness anywhere in the call chain, so it was placing the ship underwater/inside terrain
+     near any harbor deeper than a couple meters and failing the safety check silently.
+
+     RelativeSpawnOffset (confirmed via Spawning/BehaviorSpawnHelper.cs) is a direct
+     Vector3D.Transform of {X Y Z} by the spawner's own WorldMatrix - X:Right Y:Up Z:Forward
+     relative to however the port's spawner block is actually facing, no terrain/altitude
+     lookup at all. Fully deterministic single point every time, no randomness.
+
+     This offset was computed from a user-placed GPS point (GPS:Cargo Spawn - La
+     Spezia:7203.84:-27145.87:10823.93) confirmed as a good water spot, projected into La
+     Spezia's local frame using SpawnConditions-Ports.sbc's exact StaticEncounterForward/
+     StaticEncounterUp vectors and the direction*30101.5 position formula (both verified to
+     reproduce this anchor's known Territory-Zones.sbc coordinates exactly). The X (Right)
+     component's sign has a small residual uncertainty since it's a derived cross-product axis,
+     not given directly in the file - the Y/Z components come straight from file data with no
+     such ambiguity. If the ship spawns mirrored to the wrong side, flip X's sign only.
+     IgnoreSafetyChecks left true until this offset is confirmed working. -->
 
 <!-- Tripoli Cargo Spawn (-> La Spezia) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -129,16 +146,18 @@
 
 			[SpawnGroups:WW2-CargoShip-Tripoli-LaSpezia]
 
-			[MinDistance:100]
-			[MaxDistance:300]
-			[MinAltitude:0]
-			[MaxAltitude:2]
-			[IgnoreSafetyChecks:false]
-			[InheritNpcAltitude:true]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:140.82 Y:-2.61 Z:-151.44}]
+			[IgnoreSafetyChecks:true]
 
 			</Description>
         </EntityComponent>
 <!-- End Tripoli Cargo Spawn -->
+<!-- SWITCHED TO FIXED RELATIVE OFFSET (see La Spezia's comment block earlier in this file for
+     the full explanation). Computed from GPS:Cargo Spawn - Tripoli:-3013.74:20577.59:21759.54,
+     projected into Tripoli's local frame using SpawnConditions-Ports.sbc's Forward/Up vectors.
+     StaticEncounterUp is directly aligned with true planetary "up" for this port (standard
+     case, like Alexandria/Toulon/Oran - unlike La Spezia). -->
 
 <!-- Oran Cargo Spawn (-> Toulon) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -194,16 +213,20 @@
 
 			[SpawnGroups:WW2-CargoShip-Oran-Toulon]
 
-			[MinDistance:100]
-			[MaxDistance:300]
-			[MinAltitude:0]
-			[MaxAltitude:2]
-			[IgnoreSafetyChecks:false]
-			[InheritNpcAltitude:true]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:-454.66 Y:-12.17 Z:526.48}]
+			[IgnoreSafetyChecks:true]
 
 			</Description>
         </EntityComponent>
 <!-- End Oran Cargo Spawn -->
+<!-- SWITCHED TO FIXED RELATIVE OFFSET (see La Spezia's comment block earlier in this file for
+     the full explanation). Computed from GPS:Cargo Spawn -
+     Oran:21784.04:7947.05:-19187.67, projected into Oran's local frame using
+     SpawnConditions-Ports.sbc's Forward/Up vectors (standard case, StaticEncounterUp = true
+     up). Offset magnitude here (~696m) is notably larger than the other ports' - worth
+     double-checking in-game that this GPS point was actually meant for Oran's dock and not
+     picked further out in open water than the others. -->
 
 <!-- Toulon Cargo Spawn (-> Oran) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -259,16 +282,19 @@
 
 			[SpawnGroups:WW2-CargoShip-Toulon-Oran]
 
-			[MinDistance:100]
-			[MaxDistance:300]
-			[MinAltitude:0]
-			[MaxAltitude:2]
-			[IgnoreSafetyChecks:false]
-			[InheritNpcAltitude:true]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:-188.11 Y:-4.51 Z:-144.94}]
+			[IgnoreSafetyChecks:true]
 
 			</Description>
         </EntityComponent>
 <!-- End Toulon Cargo Spawn -->
+<!-- SWITCHED TO FIXED RELATIVE OFFSET (see La Spezia's comment block earlier in this file for
+     the full explanation). Computed from GPS:Cargo Spawn -
+     Toulon:16830.12:-23966.93:6943.6, projected into Toulon's local frame using
+     SpawnConditions-Ports.sbc's Forward/Up vectors (standard case, StaticEncounterUp = true
+     up). Same offset reused below for Toulon's other outgoing leg (-> Alexandria), since both
+     depart from the same physical dock. -->
 
 <!-- Toulon Cargo Spawn (-> Alexandria) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -324,16 +350,16 @@
 
 			[SpawnGroups:WW2-CargoShip-Toulon-Alexandria]
 
-			[MinDistance:100]
-			[MaxDistance:300]
-			[MinAltitude:0]
-			[MaxAltitude:2]
-			[IgnoreSafetyChecks:false]
-			[InheritNpcAltitude:true]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:-188.11 Y:-4.51 Z:-144.94}]
+			[IgnoreSafetyChecks:true]
 
 			</Description>
         </EntityComponent>
 <!-- End Toulon Cargo Spawn (-> Alexandria) -->
+<!-- SWITCHED TO FIXED RELATIVE OFFSET - same Toulon dock offset as the -> Oran leg above,
+     since both ships depart from the same physical spot at the port. -->
+
 
 <!-- Alexandria Cargo Spawn (-> Toulon) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -389,16 +415,22 @@
 
 			[SpawnGroups:WW2-CargoShip-Alexandria-Toulon]
 
-			[MinDistance:100]
-			[MaxDistance:300]
-			[MinAltitude:0]
-			[MaxAltitude:2]
-			[IgnoreSafetyChecks:false]
-			[InheritNpcAltitude:true]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:194.41 Y:-0.65 Z:-161.09}]
+			[IgnoreSafetyChecks:true]
 
 			</Description>
         </EntityComponent>
 <!-- End Alexandria Cargo Spawn -->
+<!-- SWITCHED TO FIXED RELATIVE OFFSET (see La Spezia's comment block above for the full
+     explanation of why). Computed from user-placed GPS point (GPS:Cargo Spawn -
+     Alexandria:-5988.31:25908.17:-14106.12), projected into Alexandria's local frame using
+     SpawnConditions-Ports.sbc's StaticEncounterForward/Up vectors. Note: for Alexandria, unlike
+     La Spezia, StaticEncounterUp itself is directly aligned with the planet's true radial "up"
+     (dot product ~1.0, confirmed against the direction vector) - the two prefabs are NOT
+     oriented the same way relative to their own Forward/Up axes, so this can't be assumed
+     universal per anchor and was re-verified per port. IgnoreSafetyChecks left true until
+     confirmed working. -->
 
 <!-- Civitavecchia Cargo Spawn (-> La Spezia) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -454,16 +486,21 @@
 
 			[SpawnGroups:WW2-CargoShip-Civitavecchia-LaSpezia]
 
-			[MinDistance:100]
-			[MaxDistance:300]
-			[MinAltitude:0]
-			[MaxAltitude:2]
-			[IgnoreSafetyChecks:false]
-			[InheritNpcAltitude:true]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:-95.90 Y:-2.26 Z:119.50}]
+			[IgnoreSafetyChecks:true]
 
 			</Description>
         </EntityComponent>
 <!-- End Civitavecchia Cargo Spawn -->
+<!-- SWITCHED TO FIXED RELATIVE OFFSET (see La Spezia's comment block earlier in this file for
+     the full explanation). Computed from GPS:Cargo Spawn -
+     Civitavecchia:3336.74:-21066.03:21239, projected into Civitavecchia's local frame using
+     SpawnConditions-Ports.sbc's Forward/Up vectors (standard case, StaticEncounterUp = true
+     up). Note: Civitavecchia's own anchor position differs from the "Rome" territory anchor
+     used in Territory-Zones.sbc/Territory-Points-LaSpezia.sbc - those are deliberately
+     different points (Rome represents the city broadly; this is the actual port structure) -
+     computed independently here from Civitavecchia's own SpawnConditions entry, not Rome's. -->
 
 <!-- La Spezia Cargo Spawn (-> Civitavecchia) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -519,15 +556,14 @@
 
 			[SpawnGroups:WW2-CargoShip-LaSpezia-Civitavecchia]
 
-			[MinDistance:100]
-			[MaxDistance:300]
-			[MinAltitude:0]
-			[MaxAltitude:2]
-			[IgnoreSafetyChecks:false]
-			[InheritNpcAltitude:true]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:-2.30 Y:-111.61 Z:-19.83}]
+			[IgnoreSafetyChecks:true]
 
 			</Description>
         </EntityComponent>
+<!-- SWITCHED TO FIXED RELATIVE OFFSET - same La Spezia dock offset as the -> Tripoli leg,
+     since both ships depart from the same physical spot at the port. -->
 <!-- End La Spezia Cargo Spawn (-> Civitavecchia) -->
 
 	</EntityComponents>

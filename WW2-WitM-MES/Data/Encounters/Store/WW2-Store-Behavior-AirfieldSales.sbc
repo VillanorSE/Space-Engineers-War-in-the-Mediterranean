@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!-- Airfield Store-sells-planes feature, same Trigger/Action mechanism as
+     WW2-Store-Behavior-PortSales.sbc / WW2-Store-Behavior-FactoryPlaneSales.sbc. One pair per
+     faction, targeting the "Store-Airport-Vehicles" block, stacking every existing per-plane
+     StoreProfile for that faction (reused directly from WW2-Store-StoreProfiles.sbc - no new
+     profiles needed) so the airfield sells its owning faction's ENTIRE plane roster, not just one
+     type like a single Factory does. -->
+	<EntityComponents>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Store-Action-UpdateSales-Airfield-Vehicles-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Airfield-Vehicles-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Action]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-Airport-Vehicles]
+			[StoreProfiles:WW2-Store-Profile-Re2000]
+			[StoreProfiles:WW2-Store-Profile-Re2001]
+			[StoreProfiles:WW2-Store-Profile-FC20]
+			[StoreProfiles:WW2-Store-Profile-SM79Bomber]
+			[StoreProfiles:WW2-Store-Profile-SM79Torpedo]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Store-Action-UpdateSales-Airfield-Vehicles-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Airfield-Vehicles-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Action]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-Airport-Vehicles]
+			[StoreProfiles:WW2-Store-Profile-MS406]
+			[StoreProfiles:WW2-Store-Profile-Potez630]
+			[StoreProfiles:WW2-Store-Profile-V156FBomber]
+			[StoreProfiles:WW2-Store-Profile-V156FTorpedo]
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

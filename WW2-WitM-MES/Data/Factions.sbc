@@ -87,5 +87,34 @@
 
     </Faction>
 
+	<!-- 2026-09-16: Unowned secondary-installation faction. Same neutral/passive pattern as
+	     TRADER (DefaultRelation:Neutral, StaticReputation:true so it can never be dragged into
+	     hostility by a reputation-damage trigger) - used for secondary installations (airfields,
+	     vehicle depots, garrisons) before territory ownership has claimed them. Once ownership
+	     logic reassigns a grid to GRAY or GREEN, its FactionOverride changes away from this. -->
+	<Faction Tag="UNOWNED" Founder="Unclaimed">
+      <Id>
+        <TypeId>MyObjectBuilder_FactionDefinition</TypeId>
+        <SubtypeId>WW2-Unowned</SubtypeId>
+      </Id>
+      <DisplayName>Unowned</DisplayName>
+	  <Description>Secondary installations not yet claimed by either faction's territory. Passive - no reputation stake, no automatic hostility.</Description>
+      <IsDefault>true</IsDefault>
+	  <DefaultRelation>Neutral</DefaultRelation>
+	  <DefaultRelationToPlayers>Neutral</DefaultRelationToPlayers>
+	  <AcceptHumans>false</AcceptHumans>
+      <AutoAcceptMember>false</AutoAcceptMember>
+	  <StartingBalance>1000000000</StartingBalance>
+	  <Type>Builder</Type>
+	  <DiscoveredByDefault>true</DiscoveredByDefault>
+	  <StaticReputation>true</StaticReputation>
+	  <EnableFriendlyFire>false</EnableFriendlyFire>
+	  <StartingReputation>500</StartingReputation>
+	  <FactionIcon>Textures\FactionLogo\Builders\BuilderIcon_1.dds</FactionIcon>
+	  <BackgroundColor R="0" G="0" B="0" />
+	  <IconColor R="255" G="255" B="255" />
+
+    </Faction>
+
   </Factions>
 </Definitions>

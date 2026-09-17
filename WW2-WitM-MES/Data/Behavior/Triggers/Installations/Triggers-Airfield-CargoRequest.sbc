@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+
+<!-- Airfield side of the cargo-plane relocation: a factory broadcasts
+     WW2-Command-RequestCargoPlane-Gray/Green (Triggers-DeliverySpawn.sbc) on its existing
+     30-45 minute timer instead of spawning the plane itself; the nearest same-faction-owned
+     airfield receives it here and spawns the plane near ITSELF. From there the plane's own
+     unchanged Behavior (WW2-Behavior-CargoPlane-Gray/Green) picks up the factory's separate,
+     already-running WW2-Trigger-CallCargoPlane broadcast and flies to the factory exactly as
+     before - nothing about the plane's own navigation changes. -->
+
+<!-- Gray -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-Airfield-RequestCargoPlane-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:RequestCargoPlane-Gray]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:-1]
+
+			[Actions:WW2-Action-Airfield-SpawnCargoPlane-Gray]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-Airfield-SpawnCargoPlane-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-Airfield-CargoPlane-Gray]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-Airfield-CargoPlane-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-Ju52]
+
+			[UseRelativeSpawnPosition:false]
+			[MinDistance:300]
+			[MaxDistance:600]
+			[MinAltitude:100]
+			[MaxAltitude:250]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:false]
+
+			</Description>
+        </EntityComponent>
+<!-- End Gray -->
+
+<!-- Green -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-Airfield-RequestCargoPlane-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:RequestCargoPlane-Green]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:-1]
+
+			[Actions:WW2-Action-Airfield-SpawnCargoPlane-Green]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-Airfield-SpawnCargoPlane-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-Airfield-CargoPlane-Green]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-Airfield-CargoPlane-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-F222]
+
+			[UseRelativeSpawnPosition:false]
+			[MinDistance:300]
+			[MaxDistance:600]
+			[MinAltitude:100]
+			[MaxAltitude:250]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:false]
+
+			</Description>
+        </EntityComponent>
+<!-- End Green -->
+
+	</EntityComponents>
+</Definitions>

@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SpawnGroups>
+
+<!-- Secondary Installations (Airfields) - static, invulnerable, uneditable, ignore cleanup rules,
+     same as primary Ports (see SpawnGroups-Ports.sbc's own header note). Unlike Ports, these spawn
+     UNOWNED and are reassigned to GRAY/GREEN at runtime by territory ownership - see
+     Behaviors-Airfield.sbc's Unowned/Gray/Green state machine. -->
+
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Airfield-Gibraltar</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Airfield-Gibraltar]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[GridsAreEditable:false]
+		[GridsAreDestructable:false]
+		[IgnoreCleanupRules:true]
+
+		[FactionOverride:UNOWNED]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>false</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Airport-Gibraltar">
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Airfield-Unowned</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Airfield-Bizerte</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Airfield-Bizerte]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[GridsAreEditable:false]
+		[GridsAreDestructable:false]
+		[IgnoreCleanupRules:true]
+
+		[FactionOverride:UNOWNED]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>false</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Airport-Generic">
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Airfield-Unowned</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Airfield-Tripoli</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Airfield-Tripoli]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[GridsAreEditable:false]
+		[GridsAreDestructable:false]
+		[IgnoreCleanupRules:true]
+
+		[FactionOverride:UNOWNED]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>false</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Airport-Generic">
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Airfield-Unowned</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Airfield-Foggia</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Airfield-Foggia]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[GridsAreEditable:false]
+		[GridsAreDestructable:false]
+		[IgnoreCleanupRules:true]
+
+		[FactionOverride:UNOWNED]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>false</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Airport-Generic">
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Airfield-Unowned</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	</SpawnGroups>
+</Definitions>

@@ -1,0 +1,674 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+<!-- Airfield ownership state machine - UNIVERSAL, shared by every secondary airfield
+     installation (not per-installation). Checks all 3 anchors per faction (Gray: La Spezia/
+     Tripoli/Rome, Green: Toulon/Oran/Alexandria) via OR ([AllowAnyTrueBoolean:true]) rather
+     than a hand-picked "nearest anchors" subset per airfield - functionally identical for any
+     given airfield (the far anchors just never go true, since a real airfield is never inside
+     a tier-1 zone on the other side of the map), but means a brand new airfield anywhere only
+     needs its own SpawnGroup + Prefab + SpawnConditions pointing at these SAME Behaviors -
+     zero new trigger/condition/behavior authoring per airfield.
+
+     Only ONE boolean per anchor (In<Faction>_<Anchor>), not two - confirmed directly from
+     current MES source (ConditionReferenceProfile.cs) that CheckFalseBooleans/FalseBooleans/
+     AllowAnyFalseBoolean exist alongside the true-boolean equivalents, so "not in territory"
+     is checked by requiring all 3 anchor booleans FALSE rather than needing a second, redundant
+     "Out" boolean per anchor. Two TRIGGERS per anchor (enter/exit) are still required, though
+     - RivalAI has no if/else within a single Trigger, so InsideActiveZone/OutsideActiveZone
+     have to be separate Trigger objects even though they are logical complements.
+
+     Three top-level Behaviors (Unowned/Gray/Green) switched between via [SwitchToBehavior]
+     (confirmed present in current MES source, ActionReferenceProfile.cs, though marked
+     OBSOLETE - no non-obsolete replacement exists for switching an entire named Behavior
+     profile, only [ChangeBehaviorSubclass] which changes a subclass WITHIN one Behavior.
+     Revisit if a future MES version removes SwitchToBehavior.
+
+     Territory check: confirmed via current MES source (TriggerChecks.cs) that
+     [Type:InsideActiveZone]/[OutsideActiveZone] + [ZoneName:...] calls
+     ZoneManager.InsideZoneWithName() - real and working (a GVK reference mod comment calling
+     this buggy appears to be from an older MES version).
+
+     NOTE: only the tier-1 (6km) zone is Active:true by default today (growth/shrink logic is
+     a separate, not-yet-built system - see Territory-Zones.sbc). Checking whichever zone is
+     currently active per anchor across all 6 tiers would be more complete once growth logic
+     exists; for now only tier-1 is ever active, so that is what these triggers check. -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-ZoneCheckIn-Gray-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:InsideActiveZone]
+			[ZoneName:WW2-Territory-Zone-LaSpezia-6000]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:5001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-Airfield-ZoneCheckIn-Gray-LaSpezia]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-ZoneCheckIn-Gray-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetBooleansTrue:true]
+			[SetBooleansTrue:InGray_LaSpezia]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-ZoneCheckOut-Gray-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:OutsideActiveZone]
+			[ZoneName:WW2-Territory-Zone-LaSpezia-6000]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:5001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-Airfield-ZoneCheckOut-Gray-LaSpezia]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-ZoneCheckOut-Gray-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetBooleansFalse:true]
+			[SetBooleansFalse:InGray_LaSpezia]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-ZoneCheckIn-Gray-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:InsideActiveZone]
+			[ZoneName:WW2-Territory-Zone-Tripoli-6000]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:5001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-Airfield-ZoneCheckIn-Gray-Tripoli]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-ZoneCheckIn-Gray-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetBooleansTrue:true]
+			[SetBooleansTrue:InGray_Tripoli]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-ZoneCheckOut-Gray-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:OutsideActiveZone]
+			[ZoneName:WW2-Territory-Zone-Tripoli-6000]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:5001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-Airfield-ZoneCheckOut-Gray-Tripoli]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-ZoneCheckOut-Gray-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetBooleansFalse:true]
+			[SetBooleansFalse:InGray_Tripoli]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-ZoneCheckIn-Gray-Rome</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:InsideActiveZone]
+			[ZoneName:WW2-Territory-Zone-Rome-6000]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:5001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-Airfield-ZoneCheckIn-Gray-Rome]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-ZoneCheckIn-Gray-Rome</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetBooleansTrue:true]
+			[SetBooleansTrue:InGray_Rome]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-ZoneCheckOut-Gray-Rome</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:OutsideActiveZone]
+			[ZoneName:WW2-Territory-Zone-Rome-6000]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:5001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-Airfield-ZoneCheckOut-Gray-Rome]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-ZoneCheckOut-Gray-Rome</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetBooleansFalse:true]
+			[SetBooleansFalse:InGray_Rome]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-ZoneCheckIn-Green-Toulon</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:InsideActiveZone]
+			[ZoneName:WW2-Territory-Zone-Toulon-6000]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:5001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-Airfield-ZoneCheckIn-Green-Toulon]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-ZoneCheckIn-Green-Toulon</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetBooleansTrue:true]
+			[SetBooleansTrue:InGreen_Toulon]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-ZoneCheckOut-Green-Toulon</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:OutsideActiveZone]
+			[ZoneName:WW2-Territory-Zone-Toulon-6000]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:5001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-Airfield-ZoneCheckOut-Green-Toulon]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-ZoneCheckOut-Green-Toulon</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetBooleansFalse:true]
+			[SetBooleansFalse:InGreen_Toulon]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-ZoneCheckIn-Green-Oran</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:InsideActiveZone]
+			[ZoneName:WW2-Territory-Zone-Oran-6000]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:5001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-Airfield-ZoneCheckIn-Green-Oran]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-ZoneCheckIn-Green-Oran</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetBooleansTrue:true]
+			[SetBooleansTrue:InGreen_Oran]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-ZoneCheckOut-Green-Oran</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:OutsideActiveZone]
+			[ZoneName:WW2-Territory-Zone-Oran-6000]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:5001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-Airfield-ZoneCheckOut-Green-Oran]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-ZoneCheckOut-Green-Oran</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetBooleansFalse:true]
+			[SetBooleansFalse:InGreen_Oran]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-ZoneCheckIn-Green-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:InsideActiveZone]
+			[ZoneName:WW2-Territory-Zone-Alexandria-6000]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:5001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-Airfield-ZoneCheckIn-Green-Alexandria]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-ZoneCheckIn-Green-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetBooleansTrue:true]
+			[SetBooleansTrue:InGreen_Alexandria]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-ZoneCheckOut-Green-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:OutsideActiveZone]
+			[ZoneName:WW2-Territory-Zone-Alexandria-6000]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:5001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-Airfield-ZoneCheckOut-Green-Alexandria]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-ZoneCheckOut-Green-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetBooleansFalse:true]
+			[SetBooleansFalse:InGreen_Alexandria]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Condition-Airfield-InGrayTerritory</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckTrueBooleans:true]
+			[TrueBooleans:InGray_LaSpezia]
+			[TrueBooleans:InGray_Tripoli]
+			[TrueBooleans:InGray_Rome]
+			[AllowAnyTrueBoolean:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Condition-Airfield-InGreenTerritory</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckTrueBooleans:true]
+			[TrueBooleans:InGreen_Toulon]
+			[TrueBooleans:InGreen_Oran]
+			[TrueBooleans:InGreen_Alexandria]
+			[AllowAnyTrueBoolean:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Condition-Airfield-NotInGrayTerritory</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckFalseBooleans:true]
+			[FalseBooleans:InGray_LaSpezia]
+			[FalseBooleans:InGray_Tripoli]
+			[FalseBooleans:InGray_Rome]
+			[AllowAnyFalseBoolean:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Condition-Airfield-NotInGreenTerritory</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckFalseBooleans:true]
+			[FalseBooleans:InGreen_Toulon]
+			[FalseBooleans:InGreen_Oran]
+			[FalseBooleans:InGreen_Alexandria]
+			[AllowAnyFalseBoolean:false]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-Unowned-BecomeGray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[RecolorGrid:true]
+			[OldBlockColors:{X:0 Y:0 Z:0.9}]
+			[NewBlockColors:{X:0 Y:-0.75 Z:0}]
+			[ChangeBlockOwnership:true]
+			[OwnershipBlockNames:FlagPole]
+			[OwnershipBlockNames:Store-Airport-Vehicles]
+			[OwnershipBlockFactions:GRAY]
+			[SwitchToBehavior:true]
+			[NewBehavior:WW2-Behavior-Airfield-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-Unowned-BecomeGreen</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[RecolorGrid:true]
+			[OldBlockColors:{X:0 Y:0 Z:0.9}]
+			[NewBlockColors:{X:0.25555557 Y:-0.41 Z:-0.3}]
+			[ChangeBlockOwnership:true]
+			[OwnershipBlockNames:FlagPole]
+			[OwnershipBlockNames:Store-Airport-Vehicles]
+			[OwnershipBlockFactions:GREEN]
+			[SwitchToBehavior:true]
+			[NewBehavior:WW2-Behavior-Airfield-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-Gray-BecomeGreen</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[RecolorGrid:true]
+			[OldBlockColors:{X:0 Y:-0.75 Z:0}]
+			[NewBlockColors:{X:0.25555557 Y:-0.41 Z:-0.3}]
+			[ChangeBlockOwnership:true]
+			[OwnershipBlockNames:FlagPole]
+			[OwnershipBlockNames:Store-Airport-Vehicles]
+			[OwnershipBlockFactions:GREEN]
+			[SwitchToBehavior:true]
+			[NewBehavior:WW2-Behavior-Airfield-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-Gray-BecomeUnowned</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[RecolorGrid:true]
+			[OldBlockColors:{X:0 Y:-0.75 Z:0}]
+			[NewBlockColors:{X:0 Y:0 Z:0.9}]
+			[ChangeBlockOwnership:true]
+			[OwnershipBlockNames:FlagPole]
+			[OwnershipBlockNames:Store-Airport-Vehicles]
+			[OwnershipBlockFactions:UNOWNED]
+			[SwitchToBehavior:true]
+			[NewBehavior:WW2-Behavior-Airfield-Unowned]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-Green-BecomeGray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[RecolorGrid:true]
+			[OldBlockColors:{X:0.25555557 Y:-0.41 Z:-0.3}]
+			[NewBlockColors:{X:0 Y:-0.75 Z:0}]
+			[ChangeBlockOwnership:true]
+			[OwnershipBlockNames:FlagPole]
+			[OwnershipBlockNames:Store-Airport-Vehicles]
+			[OwnershipBlockFactions:GRAY]
+			[SwitchToBehavior:true]
+			[NewBehavior:WW2-Behavior-Airfield-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Airfield-Green-BecomeUnowned</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[RecolorGrid:true]
+			[OldBlockColors:{X:0.25555557 Y:-0.41 Z:-0.3}]
+			[NewBlockColors:{X:0 Y:0 Z:0.9}]
+			[ChangeBlockOwnership:true]
+			[OwnershipBlockNames:FlagPole]
+			[OwnershipBlockNames:Store-Airport-Vehicles]
+			[OwnershipBlockFactions:UNOWNED]
+			[SwitchToBehavior:true]
+			[NewBehavior:WW2-Behavior-Airfield-Unowned]
+			</Description>
+		</EntityComponent>
+
+<!-- Unowned state: check Green first, then Gray -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-Unowned-CheckGreen</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Condition-Airfield-InGreenTerritory]
+			[MatchAnyCondition:false]
+			[Actions:WW2-Action-Airfield-Unowned-BecomeGreen]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-Unowned-CheckGray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Condition-Airfield-InGrayTerritory]
+			[Conditions:WW2-Condition-Airfield-NotInGreenTerritory]
+			[MatchAnyCondition:false]
+			[Actions:WW2-Action-Airfield-Unowned-BecomeGray]
+			</Description>
+		</EntityComponent>
+
+<!-- Gray state: stay if still in gray zone, else check green, else revert to unowned -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-Gray-CheckGreen</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Condition-Airfield-InGreenTerritory]
+			[Conditions:WW2-Condition-Airfield-NotInGrayTerritory]
+			[MatchAnyCondition:false]
+			[Actions:WW2-Action-Airfield-Gray-BecomeGreen]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-Gray-CheckUnowned</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Condition-Airfield-NotInGrayTerritory]
+			[Conditions:WW2-Condition-Airfield-NotInGreenTerritory]
+			[MatchAnyCondition:false]
+			[Actions:WW2-Action-Airfield-Gray-BecomeUnowned]
+			</Description>
+		</EntityComponent>
+
+<!-- Green state: stay if still in green zone, else check gray, else revert to unowned -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-Green-CheckGray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Condition-Airfield-InGrayTerritory]
+			[Conditions:WW2-Condition-Airfield-NotInGreenTerritory]
+			[MatchAnyCondition:false]
+			[Actions:WW2-Action-Airfield-Green-BecomeGray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-Green-CheckUnowned</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Condition-Airfield-NotInGrayTerritory]
+			[Conditions:WW2-Condition-Airfield-NotInGreenTerritory]
+			[MatchAnyCondition:false]
+			[Actions:WW2-Action-Airfield-Green-BecomeUnowned]
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

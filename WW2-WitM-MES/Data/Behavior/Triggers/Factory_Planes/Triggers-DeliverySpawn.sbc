@@ -26,47 +26,22 @@
 			</Description>
         </EntityComponent>
 
-	<!-- Activates a Rival AI spawn -->
+	<!-- Broadcasts a request for the nearest owned airfield to spawn the cargo plane instead
+	     of spawning it here directly (see Triggers-AirfieldCargoRequest.sbc) - the plane then
+	     navigates to this factory exactly as before via the existing WW2-Trigger-CallCargoPlane
+	     broadcast, unchanged. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
                 <SubtypeId>WW2-Action-DeliverySpawn-Factory-Plane-Gray</SubtypeId>
             </Id>
             <Description>
-			
+
 			[RivalAI Action]
-			
-			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-DeliverySpawn-Factory-Plane-Gray]
-			
-			</Description>
-        </EntityComponent>
 
-	<!-- Spawns a cargo plane 30-45km away -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-DeliverySpawn-Factory-Plane-Gray</SubtypeId>
-            </Id>
-            <Description>
+			[BroadcastCommandProfiles:true]
+			[CommandProfileIds:WW2-Command-RequestCargoPlane-Gray]
 
-			[RivalAI Spawn]
-
-			[UseSpawn:true]
-			[StartsReady:true]
-			[SpawningType:CustomSpawn]
-			[RivalAiSpawn:true]
-			
-			[SpawnGroups:NPC-WW2-Ju52]
-			
-			[UseRelativeSpawnPosition:false]
-			[MinDistance:30000]
-			[MaxDistance:45000]
-			[MinAltitude:500]
-			[MaxAltitude:1200]
-			[IgnoreSafetyChecks:false]
-			[InheritNpcAltitude:false]
-			
 			</Description>
         </EntityComponent>
 <!-- End Spawn sequence for a Gray cargo plane -->
@@ -95,50 +70,69 @@
 			</Description>
         </EntityComponent>
 
-	<!-- Activates a Rival AI spawn -->		
+	<!-- Broadcasts a request for the nearest owned airfield to spawn the cargo plane instead
+	     of spawning it here directly (see Triggers-AirfieldCargoRequest.sbc) - the plane then
+	     navigates to this factory exactly as before via the existing WW2-Trigger-CallCargoPlane
+	     broadcast, unchanged. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
                 <SubtypeId>WW2-Action-DeliverySpawn-Factory-Plane-Green</SubtypeId>
             </Id>
             <Description>
-			
+
 			[RivalAI Action]
-			
-			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-DeliverySpawn-Factory-Plane-Green]
-			
-			</Description>
-        </EntityComponent>
 
-	<!-- Spawns a cargo plane 30-45km away -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-DeliverySpawn-Factory-Plane-Green</SubtypeId>
-            </Id>
-            <Description>
+			[BroadcastCommandProfiles:true]
+			[CommandProfileIds:WW2-Command-RequestCargoPlane-Green]
 
-			[RivalAI Spawn]
-
-			[UseSpawn:true]
-			[StartsReady:true]
-			[SpawningType:CustomSpawn]
-			[RivalAiSpawn:true]
-
-			[SpawnGroups:NPC-WW2-F222]
-			
-			[UseRelativeSpawnPosition:false]
-			[MinDistance:30000]
-			[MaxDistance:45000]
-			[MinAltitude:400]
-			[MaxAltitude:1200]
-			[IgnoreSafetyChecks:false]
-			[InheritNpcAltitude:false]
-			
 			</Description>
         </EntityComponent>
 <!-- End Spawn sequence for a Green cargo plane -->
+
+	<!-- Cargo-plane spawn requests, one per faction. [SingleRecipient:true] picks the closest
+	     matching receiver (approximates "nearest airfield" - MES doesn't expose true
+	     nearest-of-N routing, single-recipient proximity selection is the closest confirmed
+	     primitive). [MatchSenderReceiverOwners:true] ensures a Gray factory only ever wakes a
+	     Gray-owned airfield, never a Green or Unowned one - see Triggers-AirfieldCargoRequest.sbc
+	     for the receiving side. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Command-RequestCargoPlane-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Command]
+
+			[CommandCode:RequestCargoPlane-Gray]
+			[SingleRecipient:true]
+			[MatchSenderReceiverOwners:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoreReceiverAntennaRequirement:true]
+			[Radius:50000]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Command-RequestCargoPlane-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Command]
+
+			[CommandCode:RequestCargoPlane-Green]
+			[SingleRecipient:true]
+			[MatchSenderReceiverOwners:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoreReceiverAntennaRequirement:true]
+			[Radius:50000]
+
+			</Description>
+        </EntityComponent>
 
 	</EntityComponents>
 </Definitions>

@@ -7,21 +7,21 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-OffenseSpawn-Factory-Plane-Re2000</SubtypeId>
+                <SubtypeId>WW2-Trigger-OffenseSpawn-Re2000</SubtypeId>
             </Id>
             <Description>
 			
 			[RivalAI Trigger]
 			
-			[UseTrigger:false]
+			[UseTrigger:true]
 			[Type:Timer]
 			
 			[MinCooldownMs:1800000]
 			[MaxCooldownMs:2700000]			
-			[StartsReady:false]
+			[StartsReady:true]
 			
 			[MaxActions:-1]
-            [Actions:WW2-Action-OffenseSpawn-Factory-Plane-Re2000]
+            [Actions:WW2-Action-OffenseSpawn-Re2000]
 			
 			</Description>
         </EntityComponent>
@@ -30,14 +30,14 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-OffenseSpawn-Factory-Plane-Re2000</SubtypeId>
+                <SubtypeId>WW2-Action-OffenseSpawn-Re2000</SubtypeId>
             </Id>
             <Description>
 			
 			[RivalAI Action]
 			
 			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-OffenseSpawn-Factory-Plane-Re2000]
+			[Spawner:WW2-Spawn-OffenseSpawn-Re2000]
 			
 			</Description>
         </EntityComponent>
@@ -46,7 +46,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-OffenseSpawn-Factory-Plane-Re2000</SubtypeId>
+                <SubtypeId>WW2-Spawn-OffenseSpawn-Re2000</SubtypeId>
             </Id>
             <Description>
 			
@@ -75,21 +75,21 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-OffenseSpawn-Factory-Plane-Re2001</SubtypeId>
+                <SubtypeId>WW2-Trigger-OffenseSpawn-Re2001</SubtypeId>
             </Id>
             <Description>
 			
 			[RivalAI Trigger]
 			
-			[UseTrigger:false]
+			[UseTrigger:true]
 			[Type:Timer]
 			
 			[MinCooldownMs:1800000]
 			[MaxCooldownMs:2700000]			
-			[StartsReady:false]
+			[StartsReady:true]
 			
 			[MaxActions:-1]
-            [Actions:WW2-Action-OffenseSpawn-Factory-Plane-Re2001]
+            [Actions:WW2-Action-OffenseSpawn-Re2001]
 			
 			</Description>
         </EntityComponent>
@@ -98,14 +98,14 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-OffenseSpawn-Factory-Plane-Re2001</SubtypeId>
+                <SubtypeId>WW2-Action-OffenseSpawn-Re2001</SubtypeId>
             </Id>
             <Description>
 			
 			[RivalAI Action]
 			
 			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-OffenseSpawn-Factory-Plane-Re2001]
+			[Spawner:WW2-Spawn-OffenseSpawn-Re2001]
 			
 			</Description>
         </EntityComponent>
@@ -114,7 +114,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-OffenseSpawn-Factory-Plane-Re2001</SubtypeId>
+                <SubtypeId>WW2-Spawn-OffenseSpawn-Re2001</SubtypeId>
             </Id>
             <Description>
 			
@@ -143,21 +143,21 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-OffenseSpawn-Factory-Plane-FC20</SubtypeId>
+                <SubtypeId>WW2-Trigger-OffenseSpawn-FC20</SubtypeId>
             </Id>
             <Description>
 			
 			[RivalAI Trigger]
 			
-			[UseTrigger:false]
+			[UseTrigger:true]
 			[Type:Timer]
 			
 			[MinCooldownMs:1800000]
 			[MaxCooldownMs:2700000]			
-			[StartsReady:false]
+			[StartsReady:true]
 			
 			[MaxActions:-1]
-            [Actions:WW2-Action-OffenseSpawn-Factory-Plane-FC20]
+            [Actions:WW2-Action-OffenseSpawn-FC20]
 			
 			</Description>
         </EntityComponent>
@@ -166,14 +166,14 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-OffenseSpawn-Factory-Plane-FC20</SubtypeId>
+                <SubtypeId>WW2-Action-OffenseSpawn-FC20</SubtypeId>
             </Id>
             <Description>
 			
 			[RivalAI Action]
 			
 			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-OffenseSpawn-Factory-Plane-FC20]
+			[Spawner:WW2-Spawn-OffenseSpawn-FC20]
 			
 			</Description>
         </EntityComponent>
@@ -182,7 +182,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-OffenseSpawn-Factory-Plane-FC20</SubtypeId>
+                <SubtypeId>WW2-Spawn-OffenseSpawn-FC20</SubtypeId>
             </Id>
             <Description>
 			
@@ -211,21 +211,21 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-OffenseSpawn-Factory-Plane-SM79Bomber</SubtypeId>
+                <SubtypeId>WW2-Trigger-OffenseSpawn-SM79Bomber</SubtypeId>
             </Id>
             <Description>
 
 			[RivalAI Trigger]
 
-			[UseTrigger:false]
+			[UseTrigger:true]
 			[Type:Timer]
 
 			[MinCooldownMs:1800000]
 			[MaxCooldownMs:2700000]
-			[StartsReady:false]
+			[StartsReady:true]
 
 			[MaxActions:-1]
-            [Actions:WW2-Action-OffenseSpawn-Factory-Plane-SM79Bomber]
+            [Actions:WW2-Action-OffenseSpawn-SM79Bomber]
 
 			</Description>
         </EntityComponent>
@@ -234,14 +234,14 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-OffenseSpawn-Factory-Plane-SM79Bomber</SubtypeId>
+                <SubtypeId>WW2-Action-OffenseSpawn-SM79Bomber</SubtypeId>
             </Id>
             <Description>
 
 			[RivalAI Action]
 
 			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-OffenseSpawn-Factory-Plane-SM79Bomber]
+			[Spawner:WW2-Spawn-OffenseSpawn-SM79Bomber]
 
 			</Description>
         </EntityComponent>
@@ -250,7 +250,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-OffenseSpawn-Factory-Plane-SM79Bomber</SubtypeId>
+                <SubtypeId>WW2-Spawn-OffenseSpawn-SM79Bomber</SubtypeId>
             </Id>
             <Description>
 
@@ -278,21 +278,21 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-OffenseSpawn-Factory-Plane-V156FBomber</SubtypeId>
+                <SubtypeId>WW2-Trigger-OffenseSpawn-V156FBomber</SubtypeId>
             </Id>
             <Description>
 
 			[RivalAI Trigger]
 
-			[UseTrigger:false]
+			[UseTrigger:true]
 			[Type:Timer]
 
 			[MinCooldownMs:1800000]
 			[MaxCooldownMs:2700000]
-			[StartsReady:false]
+			[StartsReady:true]
 
 			[MaxActions:-1]
-            [Actions:WW2-Action-OffenseSpawn-Factory-Plane-V156F]
+            [Actions:WW2-Action-OffenseSpawn-V156F]
 
 			</Description>
         </EntityComponent>
@@ -301,14 +301,14 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-OffenseSpawn-Factory-Plane-V156F</SubtypeId>
+                <SubtypeId>WW2-Action-OffenseSpawn-V156F</SubtypeId>
             </Id>
             <Description>
 
 			[RivalAI Action]
 
 			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-OffenseSpawn-Factory-Plane-V156F]
+			[Spawner:WW2-Spawn-OffenseSpawn-V156F]
 
 			</Description>
         </EntityComponent>
@@ -317,7 +317,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-OffenseSpawn-Factory-Plane-V156F</SubtypeId>
+                <SubtypeId>WW2-Spawn-OffenseSpawn-V156F</SubtypeId>
             </Id>
             <Description>
 
@@ -346,21 +346,21 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-OffenseSpawn-Factory-Plane-MS406</SubtypeId>
+                <SubtypeId>WW2-Trigger-OffenseSpawn-MS406</SubtypeId>
             </Id>
             <Description>
 			
 			[RivalAI Trigger]
 			
-			[UseTrigger:false]
+			[UseTrigger:true]
 			[Type:Timer]
 			
 			[MinCooldownMs:1800000]
 			[MaxCooldownMs:2700000]
-			[StartsReady:false]
+			[StartsReady:true]
 			
 			[MaxActions:-1]
-            [Actions:WW2-Action-OffenseSpawn-Factory-Plane-MS406]
+            [Actions:WW2-Action-OffenseSpawn-MS406]
 			
 			</Description>
         </EntityComponent>
@@ -369,14 +369,14 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-OffenseSpawn-Factory-Plane-MS406</SubtypeId>
+                <SubtypeId>WW2-Action-OffenseSpawn-MS406</SubtypeId>
             </Id>
             <Description>
 						
 			[RivalAI Action]
 			
 			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-OffenseSpawn-Factory-Plane-MS406]
+			[Spawner:WW2-Spawn-OffenseSpawn-MS406]
 			
 			</Description>
         </EntityComponent>
@@ -385,7 +385,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-OffenseSpawn-Factory-Plane-MS406</SubtypeId>
+                <SubtypeId>WW2-Spawn-OffenseSpawn-MS406</SubtypeId>
             </Id>
             <Description>
 			
@@ -413,21 +413,21 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-OffenseSpawn-Factory-Plane-Potez630</SubtypeId>
+                <SubtypeId>WW2-Trigger-OffenseSpawn-Potez630</SubtypeId>
             </Id>
             <Description>
 			
 			[RivalAI Trigger]
 			
-			[UseTrigger:false]
+			[UseTrigger:true]
 			[Type:Timer]
 			
 			[MinCooldownMs:1800000]
 			[MaxCooldownMs:2700000]
-			[StartsReady:false]
+			[StartsReady:true]
 			
 			[MaxActions:-1]
-            [Actions:WW2-Action-OffenseSpawn-Factory-Plane-Potez630]
+            [Actions:WW2-Action-OffenseSpawn-Potez630]
 			
 			</Description>
         </EntityComponent>
@@ -436,14 +436,14 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-OffenseSpawn-Factory-Plane-Potez630</SubtypeId>
+                <SubtypeId>WW2-Action-OffenseSpawn-Potez630</SubtypeId>
             </Id>
             <Description>
 						
 			[RivalAI Action]
 			
 			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-OffenseSpawn-Factory-Plane-Potez630]
+			[Spawner:WW2-Spawn-OffenseSpawn-Potez630]
 			
 			</Description>
         </EntityComponent>
@@ -452,7 +452,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-OffenseSpawn-Factory-Plane-Potez630</SubtypeId>
+                <SubtypeId>WW2-Spawn-OffenseSpawn-Potez630</SubtypeId>
             </Id>
             <Description>
 			

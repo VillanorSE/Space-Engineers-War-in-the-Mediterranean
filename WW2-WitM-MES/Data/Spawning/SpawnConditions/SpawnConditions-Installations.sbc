@@ -29,75 +29,16 @@
 	</EntityComponent>
 
 	<!-- Shallow-water wrecks (Golo hulks, etc.): spawns in/against water instead of dry land.
-	     Correction 2026-09-12: MinWaterDepth is NOT dead. It parses into a field via
-	     SpawnConditionsProfile.cs, and a coarse gate in SpawnConditions.cs is commented out, but
-	     the real enforcement for PlanetaryInstallation water spawns lives in PathPlacements.cs
-	     (CalculatePlanetaryInstallationCoords / IsPositionSurfaceValid), which actively rejects
-	     positions shallower than MinWaterDepth for UnderWaterStation/WaterSurfaceStation types.
-	     MinWaterDepth:1 below is genuinely working. There is still no MaxWaterDepth anywhere in
-	     MES (checked PathPlacements.cs too, not just SpawnConditions.cs) - a PR adding one is in
-	     progress with MeridiusIX.
-	     MinWaterCoverage/MaxWaterCoverage are a separate, complementary signal, not a substitute
-	     for the (working) depth check: checked against environment.WaterInSurroundingAreaRatio,
-	     the fraction of water found sampling 8 compass directions x 12 rings spaced 1000m apart
-	     (out to 11km) from the spawn point - a regional coastal-vs-open-sea classifier, not depth
-	     at the exact point. MES's own code comment claims true open ocean never exceeds ~0.6 on
-	     their test planet, but that ceiling is plausibly tied to THEIR planet's radius, not a
-	     universal constant - the sample directions are computed once at the spawn point and offset
-	     in a straight line rather than following the sphere, so on a smaller planet (ours is ~30km
-	     radius, see WW2-Reference-PlanetCreation.md) the outer rings drift further off the
-	     intended compass bearing before being reprojected onto the terrain.
-	     Measured 2026-09-12 via /MES.Info.GetDiagnostics: a harbor mouth (Valencia) read 0.438,
-	     good open-coast spots read up to 0.59, and open ocean between the Balearics and Sardinia
-	     read a clean 1.0 - confirms the "never above 0.6" claim above is planet-specific to MES's
-	     own test planet, not universal (this one clearly goes to 1.0). MaxWaterCoverage:0.42 is set
-	     just above the measured harbor-mouth reading and comfortably below the 0.59 good-coast
-	     spots, keeping wrecks in genuinely close-to-shore water without reaching out toward
-	     deeper/further-out spots - though pushing this up toward 0.55-0.6 later could be a
-	     deliberate way to get a second, more "lost at sea" wreck variant instead of just coastal
-	     ones. If wrecks still turn up somewhere wrong once MinWaterDepth's real effect is accounted
-	     for, switch these to hand-placed [StaticEncounter] spots instead, same as the Ports.
-
-	     2026-09-14: the La Malouine wreck test spawn above landed in a spot ~280m deep - exactly the
-	     "no MaxWaterDepth exists" gap called out since 2026-09-12. Per the user, Enenra (MES dev
-	     team) is adding a real [MaxWaterDepth:float] SpawnCondition in an upcoming update. A note for
-	     that value (7.5) is left as plain text right before [MinWaterCoverage:0.15] below, NOT a real
-	     [MaxWaterDepth:7.5] tag and deliberately NOT inside an XML comment either - restore it as a
-	     real tag once Enenra's update ships.
-	     Correction, same day: an earlier version of this fix wrapped that placeholder in an XML
-	     comment tag, nested directly inside the Description element below - that broke mod loading
-	     entirely (confirmed from the real SpaceEngineers.log, not just guessed):
-	     SE's generated XmlSerializer reads Description via ReadElementString(), which throws
-	     System.Xml.XmlException: "Unexpected node type Comment" on ANY child node in that element,
-	     comments included - it's not a "comments are always safely stripped" situation like normal
-	     XML parsing, at least not for this specific reader. The MOD_CRITICAL_ERROR that reported
-	     SpawnGroups-Wrecks.sbc as the failing file was a red herring - the log's actual exception
-	     traced to this file, one file earlier in the load batch; SE's crit-error attribution can name
-	     the file to load work moves to.
-	     7.5m applies to this profile since it currently covers all of the Utility/Corvette/Destroyer
-	     wrecks (Golo, Gabbiano/La Malouine, the four destroyer hulls). The user also specified 12m
-	     for "the rest" (Cruiser/Heavy Cruiser/Carrier/Battleship-tier wrecks) - no such wrecks exist
-	     yet, so there's nothing to attach that value to; when a larger-hull wreck is eventually built,
-	     give it its own SpawnConditions profile (same shallow-water InstallationSpawnsUnderwater
-	     setup as this one) with a real [MaxWaterDepth:12] tag instead of reusing this profile.
-
-	     2026-09-13: added [AlignToSurface:true], a brand-new MES tag (Update 2.74.02 patch notes: "for
-	     planetary installations, overriding the default of aligning to gravity").
-	     Correction, same day: the initial version of this comment claimed it "tilts the spawned grid
-	     to match the local surface normal" - that was inferred from the patch note wording alone and
-	     was wrong to state with confidence. Checked the actual GitHub master source directly:
-	     SpawnGroupManager.cs:907 is the ONLY place AlignToSurface is referenced anywhere in the MES
-	     codebase, and it only COPIES the flag from PlanetaryInstallationSettings into the
-	     SpawnConditionsProfile - nothing anywhere (PathPlacements.cs included) ever reads that field
-	     back out to actually change the spawn orientation. As shipped right now, this tag appears to
-	     be inert - present in the tag parser but not yet wired to real behavior, possibly a stub ahead
-	     of its consuming logic. Left in place since it's harmless and free once MES does wire it up,
-	     but don't rely on it doing anything today, and don't cite it as an explanation for orientation
-	     or embedding behavior seen in-game.
-
-	     2026-09-13: given the above, planetary installations here are still oriented via
-	     PathPlacements.cs's own default (UpAtPosition, i.e. straight radial/gravity-up from planet
-	     center) regardless of this tag - grids sit level, not slope-tilted, same as before. -->
+	     MinWaterDepth is confirmed real (enforced in MES's PathPlacements.cs, not the dead/commented
+	     coarse gate in SpawnConditions.cs). There is still no MaxWaterDepth anywhere in MES (a PR
+	     adding one was in progress with MeridiusIX/Enenra as of 2026-09-14) - the placeholder line
+	     below is intentionally plain text, NOT a real [MaxWaterDepth:7.5] tag and NOT wrapped in an
+	     XML comment (an XML comment nested inside Description breaks SE's XmlSerializer entirely -
+	     confirmed from the actual SpaceEngineers.log). Restore it as a real tag once that MES update
+	     ships. MinWaterCoverage/MaxWaterCoverage bias toward close-to-shore water (measured via
+	     /MES.Info.GetDiagnostics: harbor mouth 0.438, good open coast up to 0.59, open ocean 1.0).
+	     7.5m covers the Utility/Corvette/Destroyer-tier wrecks; a future Cruiser+ wreck should get
+	     its own profile with [MaxWaterDepth:12] once that tag is live. -->
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
@@ -129,6 +70,126 @@
 		</Description>
 	</EntityComponent>
 
+<!-- Secondary installations (airfields, vehicle depots, garrisons). Unlike the 6 primary Port
+     anchors, these spawn UNOWNED and their FactionOverride/ownership/flag color is reassigned at
+     runtime by the installation's own Behavior once territory ownership claims it (see
+     Behaviors-Airfield.sbc). 20km TriggerRadius. -->
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Airfield-Gibraltar</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:true]
+			[StaticEncounterUsePlanetDirectionAndAltitude:true]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterPlanetDirection:{X:0.405268480561213 Y:0.29884657438491 Z:-0.863972328053399}]
+			[StaticEncounterPlanetAltitude:2.38300709220857]
+			[StaticEncounterForward:{X:0.00652439688258167 Y:-0.946255479313512 Z:-0.323354295030196}]
+			[StaticEncounterUp:{X:-0.405303655162405 Y:-0.298112118204742 Z:0.864209530201719}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:UNOWNED]
+
+			[TriggerRadius:20000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Airfield-Bizerte</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:true]
+			[StaticEncounterUsePlanetDirectionAndAltitude:true]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterPlanetDirection:{X:0.463732953259739 Y:0.0435520585467395 Z:0.884903930524293}]
+			[StaticEncounterPlanetAltitude:2.92544832559361]
+			[StaticEncounterForward:{X:0.15746637863779 Y:0.978563944788573 Z:-0.132728842225523}]
+			[StaticEncounterUp:{X:0.460555413071061 Y:0.0461217538529932 Z:0.886431889832754}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:UNOWNED]
+
+			[TriggerRadius:20000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Airfield-Tripoli</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:true]
+			[StaticEncounterUsePlanetDirectionAndAltitude:true]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterPlanetDirection:{X:-0.0858730279300504 Y:0.699611068160377 Z:0.709344892405395}]
+			[StaticEncounterPlanetAltitude:0.0645265073144401]
+			[StaticEncounterForward:{X:-0.0873540285911957 Y:0.704461947152884 Z:-0.704345539279164}]
+			[StaticEncounterUp:{X:-0.0866757659188066 Y:0.698992096024586 Z:0.709857282344518}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:UNOWNED]
+
+			[TriggerRadius:20000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Airfield-Foggia</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:true]
+			[StaticEncounterUsePlanetDirectionAndAltitude:true]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterPlanetDirection:{X:-0.433940790701937 Y:-0.615315371008138 Z:0.658089951576603}]
+			[StaticEncounterPlanetAltitude:2.44283087217264]
+			[StaticEncounterForward:{X:0.384907813659725 Y:0.535252633185332 Z:0.751897994179968}]
+			[StaticEncounterUp:{X:-0.4389814220195 Y:-0.610447298932183 Z:0.659279459977436}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:UNOWNED]
+
+			[TriggerRadius:20000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+		</Description>
+	</EntityComponent>
+
 	</EntityComponents>
 </Definitions>
-

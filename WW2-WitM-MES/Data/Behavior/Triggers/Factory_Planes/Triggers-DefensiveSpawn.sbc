@@ -8,7 +8,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-DefenseSpawn-Factory-Plane-Gray</SubtypeId>
+                <SubtypeId>WW2-Trigger-DefenseSpawn-Gray</SubtypeId>
             </Id>
             <Description>
 			
@@ -24,7 +24,7 @@
 			
 			[MaxPlayerReputation:-500]
 			
-            [Actions:WW2-Action-DefenseSpawn-Factory-Plane-Gray]
+            [Actions:WW2-Action-DefenseSpawn-Gray]
 
 			</Description>
         </EntityComponent>
@@ -33,7 +33,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-DefenseSpawn-Factory-Plane-Gray</SubtypeId>
+                <SubtypeId>WW2-Action-DefenseSpawn-Gray</SubtypeId>
             </Id>
             <Description>
 
@@ -43,7 +43,7 @@
 			[ChatData:WW2-Chat-DefenseSpawn-Factory-Plane]
 			
 			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-DefenseSpawn-Factory-Plane-Gray]
+			[Spawner:WW2-Spawn-DefenseSpawn-Gray]
 			
 			</Description>
         </EntityComponent>
@@ -52,7 +52,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-DefenseSpawn-Factory-Plane-Gray</SubtypeId>
+                <SubtypeId>WW2-Spawn-DefenseSpawn-Gray</SubtypeId>
             </Id>
             <Description>
 
@@ -82,7 +82,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-DefenseSpawn-Factory-Plane-Green</SubtypeId>
+                <SubtypeId>WW2-Trigger-DefenseSpawn-Green</SubtypeId>
             </Id>
             <Description>
 			
@@ -98,7 +98,7 @@
 			
 			[MaxPlayerReputation:-500]
 			
-            [Actions:WW2-Action-DefenseSpawn-Factory-Plane-Green]
+            [Actions:WW2-Action-DefenseSpawn-Green]
 
 			</Description>
         </EntityComponent>
@@ -107,7 +107,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-DefenseSpawn-Factory-Plane-Green</SubtypeId>
+                <SubtypeId>WW2-Action-DefenseSpawn-Green</SubtypeId>
             </Id>
             <Description>
 						
@@ -117,7 +117,7 @@
 			[ChatData:WW2-Chat-DefenseSpawn-Factory-Plane]
 			
 			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-DefenseSpawn-Factory-Plane-Green]
+			[Spawner:WW2-Spawn-DefenseSpawn-Green]
 			
 			</Description>
         </EntityComponent>
@@ -126,7 +126,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-DefenseSpawn-Factory-Plane-Green</SubtypeId>
+                <SubtypeId>WW2-Spawn-DefenseSpawn-Green</SubtypeId>
             </Id>
             <Description>
 			

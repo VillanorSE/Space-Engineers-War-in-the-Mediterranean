@@ -2,30 +2,7 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<SpawnGroups>
 
-<!-- Port Installations (Static Encounters)
-     The 7 port installations spawn once at their exact current in-game position/orientation and
-     never again - see SpawnConditions-Ports.sbc for the [StaticEncounter] tags.
-     [GridsAreEditable:false] and [GridsAreDestructable:false] are MES Manipulation tags placed
-     directly in the SpawnGroup (Manipulation tags are valid inline in SpawnGroup Description, no
-     separate Manipulation Profile needed) - makes each port immune to weapon/collision damage
-     and to welding/grinding/block edits, on top of MES-Manipulation-RivalAi's usual AI setup.
-     Behaviour references one Behavior per port (Behaviors-Port.sbc, e.g. WW2-Behavior-Port-Gray-
-     LaSpezia), not a single shared per-faction Behavior, so each port can run its own
-     direction-specific cargo spawn (see Triggers-CargoSpawn-Port.sbc) alongside the
-     shared Store-sales and defensive-scramble triggers.
-
-     2026-09-07: briefly swapped to [InitializeStoreBlocks:true] on a wrong diagnosis that MES's
-     ApplyStoreProfiles action was itself crashing the client on Store Block interact. Reverted -
-     also considered (and ruled out) <EnableEconomy>false</EnableEconomy> as the cause.
-     2026-09-11: real root cause found - WW2-WitM-MES/Data/FactionTypes.sbc defined only
-     GridsForSale under Subtype="Builder", which (since a mod definition with an identical Id
-     fully replaces vanilla's own definition rather than merging) silently wiped out vanilla's
-     much larger Builder FactionTypeDefinition that the Store Block UI depends on, throwing a
-     NullReferenceException in Sandbox.Game.Screens.ViewModels.MyMarketWatchViewModel the instant
-     any Store Block UI opened. Fixed by restoring vanilla's complete Builder definition and
-     appending GridsForSale on top of it - see FactionTypes.sbc. ApplyStoreProfiles/RequiredOffers
-     (confirmed working the same way in GV Deserts of Kharak's GVK-Derelicts mod, Workshop
-     2653133286) was never the problem and needed no changes. -->
+<!-- Port Installations (Static Encounters) -->
 
 	<!-- Gray La Spezia Port -->
 	<SpawnGroup>
