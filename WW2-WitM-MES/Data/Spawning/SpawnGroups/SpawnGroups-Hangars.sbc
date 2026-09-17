@@ -54,7 +54,8 @@
 		</Prefabs>
 	</SpawnGroup>
 
-<!-- Green Potez 630 Hangar -->
+<!-- Green Potez 630 Hangar - Medium hangar: real wingspan ~16.0m exceeds the
+     small hangar's 12.5m door span. -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
@@ -83,11 +84,11 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Hangar">
+			<Prefab SubtypeId="NPC-WW2-Hangar-Medium">
 				<Position>
 					<X>0.0</X>
-					<Y>3.0</Y>
-					<Z>0.0</Z>
+					<Y>-9.0</Y>
+					<Z>7.5</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Hangar-Green</Behaviour>
 				<Speed>0.0</Speed>
@@ -104,7 +105,8 @@
 		</Prefabs>
 	</SpawnGroup>
 
-<!-- Green V-156-F Bomber Hangar -->
+<!-- Green V-156-F Bomber Hangar - Medium hangar: real wingspan ~12.5m exceeds
+     the small hangar's 12.5m door span. -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
@@ -133,11 +135,11 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Hangar">
+			<Prefab SubtypeId="NPC-WW2-Hangar-Medium">
 				<Position>
 					<X>0.0</X>
-					<Y>3.0</Y>
-					<Z>0.0</Z>
+					<Y>-9.0</Y>
+					<Z>7.5</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Hangar-Green</Behaviour>
 				<Speed>0.0</Speed>
@@ -154,7 +156,7 @@
 		</Prefabs>
 	</SpawnGroup>
 
-<!-- Green V-156-F Torpedo Hangar -->
+<!-- Green V-156-F Torpedo Hangar - Medium hangar, see V-156-F Bomber above. -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
@@ -183,11 +185,11 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Hangar">
+			<Prefab SubtypeId="NPC-WW2-Hangar-Medium">
 				<Position>
 					<X>0.0</X>
-					<Y>3.0</Y>
-					<Z>0.0</Z>
+					<Y>-9.0</Y>
+					<Z>7.5</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Hangar-Green</Behaviour>
 				<Speed>0.0</Speed>
@@ -354,7 +356,11 @@
 		</Prefabs>
 	</SpawnGroup>
 
-<!-- Gray SM79 Bomber Hangar -->
+<!-- Gray SM79 Bomber Hangar - Medium hangar (11 large-grid doors, 27.5m) since
+     the SM79's real wingspan (~21.2m) doesn't fit the small hangar's 12.5m
+     door span. Plane offset kept identical to the small-hangar version since
+     the medium prefab's own door-center reference isn't documented - adjust
+     in-game if the SM79 doesn't sit centered. -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
@@ -383,11 +389,11 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Hangar">
+			<Prefab SubtypeId="NPC-WW2-Hangar-Medium">
 				<Position>
 					<X>0.0</X>
-					<Y>3.0</Y>
-					<Z>0.0</Z>
+					<Y>-9.0</Y>
+					<Z>7.5</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Hangar-Gray</Behaviour>
 				<Speed>0.0</Speed>
@@ -404,7 +410,7 @@
 		</Prefabs>
 	</SpawnGroup>
 
-<!-- Gray SM79 Torpedo Hangar -->
+<!-- Gray SM79 Torpedo Hangar - Medium hangar, see SM79 Bomber above. -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
@@ -433,11 +439,11 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Hangar">
+			<Prefab SubtypeId="NPC-WW2-Hangar-Medium">
 				<Position>
 					<X>0.0</X>
-					<Y>3.0</Y>
-					<Z>0.0</Z>
+					<Y>-9.0</Y>
+					<Z>7.5</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Hangar-Gray</Behaviour>
 				<Speed>0.0</Speed>

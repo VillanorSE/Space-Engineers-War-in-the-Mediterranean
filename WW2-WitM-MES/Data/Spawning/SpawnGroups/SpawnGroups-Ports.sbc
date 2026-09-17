@@ -3,7 +3,7 @@
 	<SpawnGroups>
 
 <!-- Port Installations (Static Encounters)
-     The 6 port installations spawn once at their exact current in-game position/orientation and
+     The 7 port installations spawn once at their exact current in-game position/orientation and
      never again - see SpawnConditions-Ports.sbc for the [StaticEncounter] tags.
      [GridsAreEditable:false] and [GridsAreDestructable:false] are MES Manipulation tags placed
      directly in the SpawnGroup (Manipulation tags are valid inline in SpawnGroup Description, no
@@ -236,6 +236,41 @@
 					<Z>0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Port-Valencia</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Gray Port of Civitavecchia -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Port-Civitavecchia</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Port-Civitavecchia]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[GridsAreEditable:false]
+		[GridsAreDestructable:false]
+		[IgnoreCleanupRules:true]
+
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Port_Civitavecchia">
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Port-Gray-Civitavecchia</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>

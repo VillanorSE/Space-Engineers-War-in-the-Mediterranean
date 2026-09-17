@@ -50,7 +50,7 @@ There is a full modlist for this project but the primary functional mods are lis
 - [x] Configure BlockRestrictions to disable all blocks that are not to be available to players.
 - [x] Configure ShipCores for block limits
 - [x] Update G menu to not show empty groups or blank spaces
-- [ ] Test ammo depot spawn for placement
+- [x] Test ammo depot spawn for placement
 - [ ] Resolve CrashAir not working as intended
 - [x] Create Fiat 626 player respawn truck (150% scale)
 - [x] Create AHN player respawn truck (150% scale)
@@ -284,13 +284,13 @@ War Level integration: Higher war levels will increase volume of ammunition, num
 - [x] Spawn-condition a small number of salvageable wreck variants of existing hulls, covering both military and civilian spawn themes. (2026-09-12: Golo wreck done first, both hulls, dynamically scattered in shallow water via MES's PlanetaryInstallation spawner - see SpawnGroups-Wrecks.sbc/Manipulations-Wrecks.sbc/Behaviors-Golo-Wreck.sbc. Guns present but derelict (1% integrity), loot reduced to the Small tier, embedded via a negative Y spawn offset. Checked MES's own source (SpawnConditionsProfile.cs/SpawnConditions.cs, not just the wiki): confirmed there's no MaxWaterDepth field, only MinWaterDepth; used MinWaterCoverage/MaxWaterCoverage (checked against WaterInSurroundingAreaRatio) alongside it to bias toward coastal shallows over open ocean, but depth-in-meters still isn't hard-capped - watch in-game and switch to hand-placed StaticEncounters if wrecks turn up too deep. Other hulls/military+civilian themes still to do.)
 - [ ] Wire contracts to these wrecks so players can recover data pads from them for a reward - MES has a real Datapad system (see the wiki's Datapad page) worth checking before building anything custom.
 - [x] Make plane spawns altitude be relative to water surface. (Didn't find a way for this, increased altitue to 1,000 instead to clear deepest water.)
-- [ ] Make larger hangar variant for large attackers and bombers. 
-- [ ] Build Rome and add it to the static encounters. (Alexandria done 2026-09-13: third Green port, built/exported in-game and wired as a full static encounter - SpawnConditions-Ports.sbc/SpawnGroups-Ports.sbc/Behaviors-Port.sbc/NPC-WW2-Port_Alexandria.sbc.)
-- [ ] Wire in cargo ship paths for Rome.  (Alexandria done 2026-09-13: two-way Toulon<->Alexandria route added - Paths-Nautical.sbc already had the waypoints planned ahead of time, just needed the final approach waypoint off the port plus the SpawnGroups-CargoShips-Nautical.sbc/Triggers-CargoSpawn-Port.sbc wiring. Toulon now runs both its Oran leg and its Alexandria leg.)
+- [x] Make larger hangar variant for large attackers and bombers. 
+- [x] Build Rome port and add it to the static encounters.
+- [x] Wire in cargo ship paths for Rome.
 - [x] Build cored/purchasable versions of the planes per faction.
 - [x] Build cored/purchasable versions of the ground vehicles per faction. (Only the two trucks right now)
 - [x] Build cored/purchasable versions of some of the ships (Gabbiano, La Malouine, at least one destroyer each also)
-- [x] **Store blocks are currently broken** (2026-08-24) — real root cause found and fixed 2026-09-11: `WW2-WitM-MES/Data/FactionTypes.sbc` defined only `GridsForSale` under `Subtype="Builder"`, and since a mod definition with an identical Id fully replaces vanilla's own definition (rather than merging), this silently wiped out vanilla's much larger `Builder` FactionTypeDefinition (`OffersList`, `OrdersList`, `Skins`, gas settings, `Relations`, etc.) that the Store Block UI depends on, causing a `NullReferenceException` in `MyMarketWatchViewModel` the instant any Store Block opened. Both GRAY and GREEN use `Type:Builder`. Fixed by restoring vanilla's complete `Builder` definition and appending `GridsForSale` on top of it. `ApplyStoreProfiles` itself (used by `WW2-Store-Behavior-PortSales.sbc`) was never the problem and needed no changes — confirmed working as-is once the real fix landed. (An earlier, real-but-insufficient fix also restored `Stations_Economy.sbc`'s emptied `StationPrefabsFactionTypes`; a separate earlier `EnableEconomy`/`InitializeStoreBlocks` diagnosis, noted in `SpawnGroups-Ports.sbc`, was a dead end and was reverted.)
+- [x] Fix store blocks
 - [x] **Follow-up confirmed resolved:** the Factory installations' own per-plane sale profiles (`WW2-Store-Behavior-FactoryPlaneSales.sbc`) use the identical `ApplyStoreProfiles` mechanism as the Ports. Since the real crash was `FactionTypes.sbc`, not `ApplyStoreProfiles`, Factory plane sales need no separate fix and should already work now that the root cause is resolved.
 - [x] Confirm each Port's Store block's own cargo inventory actually contains the "normal items" (ores/ingots/components/ammo/tools) intended for sale.
 - [ ] Longer-term (explicitly deferred): missions (vanilla Contract Block — check whether the Port prefabs already have one placed, same as the Store/ATM/Services Terminal) and grid-selling. Vanilla Store Blocks can sell pre-built vehicles too (a different offer type than physical inventory items) — worth its own investigation before assuming `InitNpcStoreBlock` covers it.
@@ -311,7 +311,7 @@ Each primary point runs its own full copy of the GVK territory mechanism (own ne
 - **Gray:** La Spezia, Rome, Tripoli
 - **Green:** Toulon, Oran, Alexandria
 
-**Radius tiers: 6 tiers per anchor, 8/13/19/26/34/43 km.** These are great circle radii, so they are applied along the surface curve of the planet.
+**Radius tiers: 6 tiers per anchor, 6/10/15/21/28/36 km.** These are great circle radii, so they are applied along the surface curve of the planet.
 
 **Territory Growth**
 
@@ -331,11 +331,10 @@ These are general "stay out" zones: MSB's `AreaRestriction` system, adopted for 
 This is specifically intended to discourage players from building bases too close to non-friendly NPC installations.
 
 **To-Do**
-- [ ] Measure actual in-game distances between the confirmed anchor points on the custom planet to sanity-check the 8/13/19/26/34/43 km tier progression against real anchor spacing now that the planet's terrain is essentially finished. (2026-09-12: first real measurement in - La Spezia to Toulon, straight-line GPS distance, is only ~10.6km. That's smaller than the tier-2 radius (13km) alone, meaning these two anchors already sit inside each other's tier-2 ring at baseline before any of the outer rings even come into play. Worth deciding deliberately whether that's acceptable for this specific closest-opposing-anchor pair or whether the radii need rescaling - remaining anchor pairs still need measuring before concluding anything about the tier set as a whole.)
-- [ ] Build each anchor's nested radius-tier zone definitions and paired Enable/Disable timer-trigger-condition sets (6 anchors × 6 tiers each).
-- [ ] Define what actions will count towards territory growth and against it.
-- [ ] Define what threshold values each ring is set by.
-- [ ] Build the ring-weighted `CustomSandboxCounter` point-award actions per anchor (4x/3x/2x/1x by ring band) for each relevant encounter/event type.
+- [x] Measure actual in-game distances between the confirmed anchor points on the custom planet to sanity-check the 6/10/15/21/28/36 km tier progression against real anchor spacing now that the planet's terrain is essentially finished.
+- [x] Build each anchor's nested radius-tier zone definitions and paired Enable/Disable timer-trigger-condition sets (6 anchors × 6 tiers each).
+- [x] Define what actions will count towards territory growth and against it, and what threshold values each ring is set by — see `WW2-WitM-Territory-Design.md`.
+- [ ] Build the ring-weighted `CustomSandboxCounter` point-award actions per anchor (4x/3x/2x/1x by ring band) for each relevant encounter/event type, per the values locked in `WW2-WitM-Territory-Design.md`.
 - [ ] Build Gibraltar and Foggia airports and place them as static encounters. 
 - [ ] Build a non Gibraltar airport and use it and Foggia for all remaining airport locations. 
 - [ ] Build a barracks and use it at all relevant locations with behavior as described in the location section.

@@ -195,5 +195,67 @@
 		</Prefabs>
 	</SpawnGroup>
 
+<!-- Civitavecchia -> La Spezia -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-CargoShip-Civitavecchia-LaSpezia</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Golo_Italian">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-CargoShip-Gray-Civitavecchia-LaSpezia</Behaviour>
+				<Speed>5.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- La Spezia -> Civitavecchia -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-CargoShip-LaSpezia-Civitavecchia</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Golo_Italian">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-CargoShip-Gray-LaSpezia-Civitavecchia</Behaviour>
+				<Speed>5.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
 	</SpawnGroups>
 </Definitions>

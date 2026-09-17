@@ -23,7 +23,7 @@
             <Description>
 
 			[RivalAI Behavior]
-			[BehaviorName:Nautical]
+			[BehaviorName:CargoShip]
 
 			[AutopilotData:WW2-Autopilot-CargoShip]
 			[TargetData:WW2-Targeting-ShipMain]
@@ -39,6 +39,8 @@
 			[Triggers:WW2-Trigger-BotCrew-3]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Gray]
+			[Triggers:WW2-Territory-Trigger-CargoShip-RouteArrived]
+			[Triggers:WW2-Territory-Trigger-CargoShip-UnloadTimer]
 
 			</Description>
         </EntityComponent>
@@ -52,7 +54,7 @@
             <Description>
 
 			[RivalAI Behavior]
-			[BehaviorName:Nautical]
+			[BehaviorName:CargoShip]
 
 			[AutopilotData:WW2-Autopilot-CargoShip]
 			[TargetData:WW2-Targeting-ShipMain]
@@ -68,6 +70,8 @@
 			[Triggers:WW2-Trigger-BotCrew-3]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Gray]
+			[Triggers:WW2-Territory-Trigger-CargoShip-RouteArrived]
+			[Triggers:WW2-Territory-Trigger-CargoShip-UnloadTimer]
 
 			</Description>
         </EntityComponent>
@@ -82,7 +86,7 @@
             <Description>
 
 			[RivalAI Behavior]
-			[BehaviorName:Nautical]
+			[BehaviorName:CargoShip]
 
 			[AutopilotData:WW2-Autopilot-CargoShip]
 			[TargetData:WW2-Targeting-ShipMain]
@@ -98,6 +102,8 @@
 			[Triggers:WW2-Trigger-BotCrew-3]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Green]
+			[Triggers:WW2-Territory-Trigger-CargoShip-RouteArrived]
+			[Triggers:WW2-Territory-Trigger-CargoShip-UnloadTimer]
 
 			</Description>
         </EntityComponent>
@@ -111,7 +117,7 @@
             <Description>
 
 			[RivalAI Behavior]
-			[BehaviorName:Nautical]
+			[BehaviorName:CargoShip]
 
 			[AutopilotData:WW2-Autopilot-CargoShip]
 			[TargetData:WW2-Targeting-ShipMain]
@@ -127,6 +133,8 @@
 			[Triggers:WW2-Trigger-BotCrew-3]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Green]
+			[Triggers:WW2-Territory-Trigger-CargoShip-RouteArrived]
+			[Triggers:WW2-Territory-Trigger-CargoShip-UnloadTimer]
 
 			</Description>
         </EntityComponent>
@@ -141,7 +149,7 @@
             <Description>
 
 			[RivalAI Behavior]
-			[BehaviorName:Nautical]
+			[BehaviorName:CargoShip]
 
 			[AutopilotData:WW2-Autopilot-CargoShip]
 			[TargetData:WW2-Targeting-ShipMain]
@@ -157,6 +165,8 @@
 			[Triggers:WW2-Trigger-BotCrew-3]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Green]
+			[Triggers:WW2-Territory-Trigger-CargoShip-RouteArrived]
+			[Triggers:WW2-Territory-Trigger-CargoShip-UnloadTimer]
 
 			</Description>
         </EntityComponent>
@@ -170,7 +180,7 @@
             <Description>
 
 			[RivalAI Behavior]
-			[BehaviorName:Nautical]
+			[BehaviorName:CargoShip]
 
 			[AutopilotData:WW2-Autopilot-CargoShip]
 			[TargetData:WW2-Targeting-ShipMain]
@@ -186,10 +196,76 @@
 			[Triggers:WW2-Trigger-BotCrew-3]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Green]
+			[Triggers:WW2-Territory-Trigger-CargoShip-RouteArrived]
+			[Triggers:WW2-Territory-Trigger-CargoShip-UnloadTimer]
 
 			</Description>
         </EntityComponent>
 	<!-- End Toulon <-> Alexandria -->
+
+	<!-- La Spezia <-> Civitavecchia -->
+	<!-- La Spezia -> Civitavecchia -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-CargoShip-Gray-LaSpezia-Civitavecchia</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+
+			[AutopilotData:WW2-Autopilot-CargoShip]
+			[TargetData:WW2-Targeting-ShipMain]
+
+			[WeaponSystem:WW2-Weapons-CargoShip]
+
+			[CustomWaypoints:7165.85:-27145.31:10854.32,8371.83:-25246.97:14090.08,7786.58:-24444.34:15741.88,9467.47:-22778.75:17245.51,8217.11:-20449.18:20500.11,3320.96:-21072.99:21232.59]
+
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-CargoDamage]
+			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
+			[Triggers:WW2-Trigger-HostileNear-Cargo]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Gray]
+			[Triggers:WW2-Territory-Trigger-CargoShip-RouteArrived]
+			[Triggers:WW2-Territory-Trigger-CargoShip-UnloadTimer]
+
+			</Description>
+        </EntityComponent>
+
+	<!-- Civitavecchia -> La Spezia -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-CargoShip-Gray-Civitavecchia-LaSpezia</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+
+			[AutopilotData:WW2-Autopilot-CargoShip]
+			[TargetData:WW2-Targeting-ShipMain]
+
+			[WeaponSystem:WW2-Weapons-CargoShip]
+
+			[CustomWaypoints:3320.96:-21072.99:21232.59,8217.11:-20449.18:20500.11,9467.47:-22778.75:17245.51,7786.58:-24444.34:15741.88,8371.83:-25246.97:14090.08,7165.85:-27145.31:10854.32]
+
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-CargoDamage]
+			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
+			[Triggers:WW2-Trigger-HostileNear-Cargo]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Gray]
+			[Triggers:WW2-Territory-Trigger-CargoShip-RouteArrived]
+			[Triggers:WW2-Territory-Trigger-CargoShip-UnloadTimer]
+
+			</Description>
+        </EntityComponent>
+	<!-- End La Spezia <-> Civitavecchia -->
 
 	</EntityComponents>
 </Definitions>

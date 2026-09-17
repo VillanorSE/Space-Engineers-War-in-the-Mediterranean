@@ -6,10 +6,12 @@
      - they don't patrol or produce anything, so unlike the Factory behaviors these only run the
      Store-sales triggers plus a defensive plane scramble.
      One Behavior per port (not one shared Behavior per faction): each port also runs its own
-     Triggers-CargoSpawn-Port.sbc trigger(s), and paired ports (La Spezia/Tripoli, Oran/Toulon,
-     Toulon/Alexandria) need DIFFERENT one-directional cargo routes, which a shared Behavior can't
-     hold. Toulon runs TWO cargo triggers (Oran leg + Alexandria leg) since it's the hub for both
-     Green routes - every other port here only runs one.
+     Triggers-CargoSpawn-Port.sbc trigger(s), and paired ports (La Spezia/Tripoli, La Spezia/
+     Civitavecchia, Oran/Toulon, Toulon/Alexandria) need DIFFERENT one-directional cargo routes,
+     which a shared Behavior can't hold. Toulon runs TWO cargo triggers (Oran leg + Alexandria leg)
+     since it's the hub for both Green routes; La Spezia likewise runs TWO (Tripoli leg +
+     Civitavecchia leg) as the hub for both Gray mainland-Italy routes - every other port here only
+     runs one.
      Each port runs TWO Store-sales triggers targeting two separate physical Store blocks: a
      shared WW2-Store-Trigger-UpdateSales-PortGoods (identical everywhere, targets the
      "Store-Port-Goods" block) plus a faction-specific WW2-Store-Trigger-UpdateSales-Vehicles-
@@ -30,6 +32,8 @@
 			[Triggers:WW2-Store-Trigger-UpdateSales-Vehicles-Gray]
 			[Triggers:WW2-Trigger-DefenseSpawn-Port-Gray]
 			[Triggers:WW2-Trigger-CargoSpawn-Port-LaSpezia]
+			[Triggers:WW2-Trigger-CargoSpawn-Port-LaSpezia-Civitavecchia]
+			[TriggerGroups:WW2-Territory-TriggerGroup-ZoneSize-LaSpezia]
 
 			</Description>
         </EntityComponent>
@@ -47,6 +51,23 @@
 			[Triggers:WW2-Store-Trigger-UpdateSales-Vehicles-Gray]
 			[Triggers:WW2-Trigger-DefenseSpawn-Port-Gray]
 			[Triggers:WW2-Trigger-CargoSpawn-Port-Tripoli]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Port-Gray-Civitavecchia</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			[Triggers:WW2-Store-Trigger-UpdateSales-PortGoods]
+			[Triggers:WW2-Store-Trigger-UpdateSales-Vehicles-Gray]
+			[Triggers:WW2-Trigger-DefenseSpawn-Port-Gray]
+			[Triggers:WW2-Trigger-CargoSpawn-Port-Civitavecchia]
 
 			</Description>
         </EntityComponent>

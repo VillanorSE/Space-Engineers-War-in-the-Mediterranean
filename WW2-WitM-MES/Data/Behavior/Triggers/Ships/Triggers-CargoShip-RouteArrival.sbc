@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+<!-- Cargo Ship Route Arrival - Unload & Despawn
+     For the fixed-route Nautical-path cargo ships in Paths-Nautical.sbc (WW2-Behavior-CargoShip-
+     {Gray/Green}-{Anchor}-{Anchor}), NOT the ambient single-destination ships in
+     Behaviors-CargoShip.sbc (those already have their own DestinationReached flow via
+     Triggers-Destination_Ship.sbc).
+
+     Verified against MES source (Data/Scripts/ModularEncountersSystems/Behavior/CargoShip.cs):
+     [BehaviorName:Nautical] does NOT support [CustomWaypoints:...] at all - that tag only exists
+     on the CargoShip behavior subclass. Paths-Nautical.sbc's 8 route Behaviors were declaring
+     [BehaviorName:Nautical] + [CustomWaypoints:...] together, so the waypoint list was being
+     silently ignored (Nautical is a pure target-seeking combat behavior with no waypoint concept
+     at all). Fixed alongside this file: all 8 legs switched to [BehaviorName:CargoShip].
+
+     Under CargoShip, every waypoint in the list (including the last) briefly pauses the ship in
+     WaitAtWaypoint mode - governed by the ship's own AutopilotData's [WaypointWaitTimeTrigger]
+     (WW2-Autopilot-CargoShip already has this at 15s, unchanged), firing BehaviorTriggerA - then
+     auto-resumes toward the next point with NO trigger action required to advance. Once the
+     CustomWaypoints list is exhausted, the ship fires BehaviorTriggerD exactly once, at the final
+     waypoint's position, immediately before it would otherwise peel off toward an auto-generated
+     despawn coordinate and vanish out at sea. This is the hook used below: freeze the ship in
+     place right there (so it looks like it's sitting at the dock, not drifting off-route), run the
+     5-minute unload wait, then despawn in place instead of letting MES's own silent despawn logic
+     carry it away first.
+
+     Territory delivery point award (+60, WW2-WitM-Territory-Design.md) is NOT wired in yet - that
+     needs the multi-anchor ring-weighted point system, which is still pending. The natural place
+     to add it is WW2-Territory-Action-CargoShip-FinishUnload, right before ForceDespawn.
+
+     Gravity/roll-over note: does NOT use DisableAutopilot on arrival. Per MES source
+     (Behavior/Subsystems/AutoPilot/AutoPilotSystem.cs), DisableAutopilot calls
+     DeactivateAutoPilot(), which stops ALL gyro override including FlyLevelWithGravity leveling -
+     on a boat that relies on active gyro leveling rather than passive keel/buoyancy stability,
+     that would let it drift and roll during the 5-minute parked wait. Instead this only kills
+     current spin (StopAllRotation) and zeroes forward speed (ChangeAutopilotSpeed:0), leaving the
+     autopilot itself engaged so it keeps calling ApplyAutopilot()/ApplyGyroRotation() every tick -
+     FlyLevelWithGravity (already true on WW2-Autopilot-CargoShip) keeps actively leveling the
+     whole time it's parked. Also added [LevelWithGravityWhenIdle:true] to WW2-Autopilot-CargoShip
+     as a defensive second layer, in case the ship is ever fully idle rather than just parked at
+     zero speed. -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-CargoShip-RouteArrived</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerD]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-CargoShip-BeginUnload]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-CargoShip-BeginUnload</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+
+			[StopAllRotation:true]
+			[ChangeAutopilotSpeed:true]
+			[NewAutopilotSpeed:0]
+
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-CargoShip-Arrived]
+
+			[ResetCooldownTimeOfTriggers:true]
+			[ResetTriggerCooldownNames:WW2-Territory-Trigger-CargoShip-UnloadTimer]
+
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Territory-Trigger-CargoShip-UnloadTimer]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Chat-CargoShip-Arrived</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[MaxChats:1]
+			[BroadcastRandomly:true]
+			[Author:Cargo Ship Pilot]
+			[Color:Red]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:3000]
+
+			[ChatMessages:{AntennaName} has arrived and begun unloading cargo.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+
+			[ChatMessages:Dockhands are unloading {AntennaName} now.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+
+			[ChatMessages:{AntennaName} moored, cargo transfer underway.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Fixed 5-minute unload wait, then despawn in place -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-CargoShip-UnloadTimer</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:300000]
+			[MaxCooldownMs:300001]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-CargoShip-FinishUnload]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-CargoShip-FinishUnload</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-CargoShip-Departed]
+
+			[ForceDespawn:true]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Chat-CargoShip-Departed</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[MaxChats:1]
+			[BroadcastRandomly:true]
+			[Author:Cargo Ship Pilot]
+			[Color:Red]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:3000]
+
+			[ChatMessages:{AntennaName} unloading complete, casting off.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+
+			[ChatMessages:Cargo transfer finished. {AntennaName} departing port.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+
+			</Description>
+		</EntityComponent>
+	<!-- End Cargo Ship Route Arrival -->
+
+	</EntityComponents>
+</Definitions>

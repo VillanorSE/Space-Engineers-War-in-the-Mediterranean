@@ -181,5 +181,35 @@
 		</Description>
 	</EntityComponent>
 
+	<!-- Civitavecchia (mainland Italy, GRAY faction - matches La Spezia). -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Port-Civitavecchia</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:true]
+			[StaticEncounterUsePlanetDirectionAndAltitude:true]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterPlanetDirection:{X:0.106072219319843 Y:-0.699055920364547 Z:0.707155926576197}]
+			[StaticEncounterPlanetAltitude:0.174443636846263]
+			[StaticEncounterForward:{X:0.936293601989746 Y:0.309224009513855 Z:0.166538059711456}]
+			[StaticEncounterUp:{X:0.105129182338715 Y:-0.699179768562317 Z:0.70717442035675}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:GRAY]
+
+			[TriggerRadius:65000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+		</Description>
+	</EntityComponent>
+
 	</EntityComponents>
 </Definitions>
