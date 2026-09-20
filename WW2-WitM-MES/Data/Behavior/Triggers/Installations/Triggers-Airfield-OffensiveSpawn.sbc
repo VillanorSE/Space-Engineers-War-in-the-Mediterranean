@@ -2,222 +2,25 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
 
-<!-- Offense Factory Re2000 Spawn sequence -->
-	<!--Triggers every 30-45 minutes once a player has first come in range of the factory-->
+<!-- Airfield offense spawns: ONE trigger per faction, every 30-45 minutes, spawning ONE plane picked at
+     random from that faction's roster (the spawn profile's [SpawnGroups:] list is a pool - MES picks one
+     from it, the same way WW2-Spawn-DefenseSpawn-Gray picks one of its three).
+     An earlier version had a separate trigger/action/spawn per plane type on the Behavior, which made
+     every airfield spawn its whole roster at once (5 planes Gray, 3 Green) every cycle and again on every
+     ownership flip. The triggers start disabled ([UseTrigger:false]) and are enabled/disabled by the
+     ownership flip actions in Triggers-Airfield-Ownership.sbc. -->
+
+<!-- Offense Gray spawn sequence -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-OffenseSpawn-Re2000</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Trigger]
-			
-			[UseTrigger:true]
-			[Type:Timer]
-			
-			[MinCooldownMs:1800000]
-			[MaxCooldownMs:2700000]			
-			[StartsReady:true]
-			
-			[MaxActions:-1]
-            [Actions:WW2-Action-OffenseSpawn-Re2000]
-			
-			</Description>
-        </EntityComponent>
-
-	<!-- Calls a fighter spawner -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-OffenseSpawn-Re2000</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Action]
-			
-			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-OffenseSpawn-Re2000]
-			
-			</Description>
-        </EntityComponent>
-
-	<!-- Spawns an Re2000 fighter -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-OffenseSpawn-Re2000</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Spawn]
-			
-			[UseSpawn:true]
-			[StartsReady:true]
-			[SpawningType:CustomSpawn]
-			[RivalAiSpawn:true]
-
-			[SpawnGroups:NPC-WW2-Re2000]
-			
-			[MinDistance:400]
-			[MaxDistance:1000]
-			[MinAltitude:200]
-			[MaxAltitude:800]
-			[IgnoreSafetyChecks:false]
-			[InheritNpcAltitude:false]
-			
-			</Description>
-        </EntityComponent>
-<!-- End Offense Factory Re2000 Spawn sequence -->
-
-<!-- Offense Factory Re2001 Spawn sequence -->
-	<!--Triggers every 30-45 minutes once a player has first come in range of the factory-->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-OffenseSpawn-Re2001</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Trigger]
-			
-			[UseTrigger:true]
-			[Type:Timer]
-			
-			[MinCooldownMs:1800000]
-			[MaxCooldownMs:2700000]			
-			[StartsReady:true]
-			
-			[MaxActions:-1]
-            [Actions:WW2-Action-OffenseSpawn-Re2001]
-			
-			</Description>
-        </EntityComponent>
-
-	<!-- Calls a fighter spawner -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-OffenseSpawn-Re2001</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Action]
-			
-			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-OffenseSpawn-Re2001]
-			
-			</Description>
-        </EntityComponent>
-
-	<!-- Spawns an Re2001 fighter -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-OffenseSpawn-Re2001</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Spawn]
-			
-			[UseSpawn:true]
-			[StartsReady:true]
-			[SpawningType:CustomSpawn]
-			[RivalAiSpawn:true]
-
-			[SpawnGroups:NPC-WW2-Re2001]
-			
-			[MinDistance:400]
-			[MaxDistance:1000]
-			[MinAltitude:200]
-			[MaxAltitude:800]
-			[IgnoreSafetyChecks:false]
-			[InheritNpcAltitude:false]
-			
-			</Description>
-        </EntityComponent>
-<!-- End Offense Factory Re2001 Spawn sequence -->
-
-<!-- Offense Factory FC20 Spawn sequence -->
-	<!--Triggers every 30-45 minutes once a player has first come in range of the factory-->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-OffenseSpawn-FC20</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Trigger]
-			
-			[UseTrigger:true]
-			[Type:Timer]
-			
-			[MinCooldownMs:1800000]
-			[MaxCooldownMs:2700000]			
-			[StartsReady:true]
-			
-			[MaxActions:-1]
-            [Actions:WW2-Action-OffenseSpawn-FC20]
-			
-			</Description>
-        </EntityComponent>
-
-	<!-- Calls a fighter spawner -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-OffenseSpawn-FC20</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Action]
-			
-			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-OffenseSpawn-FC20]
-			
-			</Description>
-        </EntityComponent>
-
-	<!-- Spawns an FC20 fighter -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-OffenseSpawn-FC20</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Spawn]
-			
-			[UseSpawn:true]
-			[StartsReady:true]
-			[SpawningType:CustomSpawn]
-			[RivalAiSpawn:true]
-
-			[SpawnGroups:NPC-WW2-FC20]
-			
-			[MinDistance:400]
-			[MaxDistance:1000]
-			[MinAltitude:200]
-			[MaxAltitude:800]
-			[IgnoreSafetyChecks:false]
-			[InheritNpcAltitude:false]
-			
-			</Description>
-        </EntityComponent>
-<!-- End Offense Factory FC20 Spawn sequence -->
-
-<!-- Offense Factory SM79 Bomber Spawn sequence -->
-	<!--Triggers every 30-45 minutes once a player has first come in range of the factory-->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-OffenseSpawn-SM79Bomber</SubtypeId>
+                <SubtypeId>WW2-Trigger-OffenseSpawn-Gray</SubtypeId>
             </Id>
             <Description>
 
 			[RivalAI Trigger]
 
-			[UseTrigger:true]
+			[UseTrigger:false]
 			[Type:Timer]
 
 			[MinCooldownMs:1800000]
@@ -225,32 +28,32 @@
 			[StartsReady:true]
 
 			[MaxActions:-1]
-            [Actions:WW2-Action-OffenseSpawn-SM79Bomber]
+            [Actions:WW2-Action-OffenseSpawn-Gray]
 
 			</Description>
         </EntityComponent>
 
-	<!-- Calls an attacker spawner -->
+	<!-- Calls the Gray offense spawner -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-OffenseSpawn-SM79Bomber</SubtypeId>
+                <SubtypeId>WW2-Action-OffenseSpawn-Gray</SubtypeId>
             </Id>
             <Description>
 
 			[RivalAI Action]
 
 			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-OffenseSpawn-SM79Bomber]
+			[Spawner:WW2-Spawn-OffenseSpawn-Gray]
 
 			</Description>
         </EntityComponent>
 
-	<!-- Spawns an SM79 Bomber Attacker -->
+	<!-- Spawns one random Gray plane: Re.2000, Re.2001, FC.20, Ba.65 or SM.79 Bomber -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-OffenseSpawn-SM79Bomber</SubtypeId>
+                <SubtypeId>WW2-Spawn-OffenseSpawn-Gray</SubtypeId>
             </Id>
             <Description>
 
@@ -261,6 +64,10 @@
 			[SpawningType:CustomSpawn]
 			[RivalAiSpawn:true]
 
+			[SpawnGroups:NPC-WW2-Re2000]
+			[SpawnGroups:NPC-WW2-Re2001]
+			[SpawnGroups:NPC-WW2-FC20]
+			[SpawnGroups:NPC-WW2-Ba65]
 			[SpawnGroups:NPC-WW2-SM79Bomber]
 
 			[MinDistance:400]
@@ -272,19 +79,19 @@
 
 			</Description>
         </EntityComponent>
+<!-- End Offense Gray spawn sequence -->
 
-<!-- Offense Factory V-156-F Spawn sequence -->
-	<!--Triggers every 30-45 minutes once a player has first come in range of the factory-->
+<!-- Offense Green spawn sequence -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-OffenseSpawn-V156FBomber</SubtypeId>
+                <SubtypeId>WW2-Trigger-OffenseSpawn-Green</SubtypeId>
             </Id>
             <Description>
 
 			[RivalAI Trigger]
 
-			[UseTrigger:true]
+			[UseTrigger:false]
 			[Type:Timer]
 
 			[MinCooldownMs:1800000]
@@ -292,32 +99,32 @@
 			[StartsReady:true]
 
 			[MaxActions:-1]
-            [Actions:WW2-Action-OffenseSpawn-V156F]
+            [Actions:WW2-Action-OffenseSpawn-Green]
 
 			</Description>
         </EntityComponent>
 
-	<!-- Calls an attacker spawner -->
+	<!-- Calls the Green offense spawner -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-OffenseSpawn-V156F</SubtypeId>
+                <SubtypeId>WW2-Action-OffenseSpawn-Green</SubtypeId>
             </Id>
             <Description>
 
 			[RivalAI Action]
 
 			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-OffenseSpawn-V156F]
+			[Spawner:WW2-Spawn-OffenseSpawn-Green]
 
 			</Description>
         </EntityComponent>
 
-	<!-- Spawns a V-156-F Attacker -->
+	<!-- Spawns one random Green plane: MS.406, Potez 630 or V-156-F Bomber -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-OffenseSpawn-V156F</SubtypeId>
+                <SubtypeId>WW2-Spawn-OffenseSpawn-Green</SubtypeId>
             </Id>
             <Description>
 
@@ -328,6 +135,8 @@
 			[SpawningType:CustomSpawn]
 			[RivalAiSpawn:true]
 
+			[SpawnGroups:NPC-WW2-MS406]
+			[SpawnGroups:NPC-WW2-Potez630]
 			[SpawnGroups:NPC-WW2-V-156-F_Bomber]
 
 			[MinDistance:400]
@@ -339,141 +148,7 @@
 
 			</Description>
         </EntityComponent>
-<!-- End Offense Factory SM79 Bomber Spawn sequence -->
-
-<!-- Offense Factory MS406 Spawn sequence -->
-	<!--Triggers every 30-45 minutes once a player has first come in range of the factory-->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-OffenseSpawn-MS406</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Trigger]
-			
-			[UseTrigger:true]
-			[Type:Timer]
-			
-			[MinCooldownMs:1800000]
-			[MaxCooldownMs:2700000]
-			[StartsReady:true]
-			
-			[MaxActions:-1]
-            [Actions:WW2-Action-OffenseSpawn-MS406]
-			
-			</Description>
-        </EntityComponent>
-
-	<!-- Calls a fighter spawner -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-OffenseSpawn-MS406</SubtypeId>
-            </Id>
-            <Description>
-						
-			[RivalAI Action]
-			
-			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-OffenseSpawn-MS406]
-			
-			</Description>
-        </EntityComponent>
-
-	<!-- Spawns an MS406 fighter -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-OffenseSpawn-MS406</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Spawn]
-			
-			[UseSpawn:true]
-			[StartsReady:true]
-			[ProcessAsAdminSpawn:true]
-
-			[SpawnGroups:NPC-WW2-MS406]
-			
-			[MinDistance:400]
-			[MaxDistance:1000]
-			[MinAltitude:200]
-			[MaxAltitude:800]
-			[IgnoreSafetyChecks:false]
-			[InheritNpcAltitude:false]
-			
-			</Description>
-        </EntityComponent>
-<!-- End Offense Spawn MS406 -->
-
-<!-- Offense Factory Potez630 Spawn sequence -->
-	<!--Triggers every 30-45 minutes once a player has first come in range of the factory-->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-OffenseSpawn-Potez630</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Trigger]
-			
-			[UseTrigger:true]
-			[Type:Timer]
-			
-			[MinCooldownMs:1800000]
-			[MaxCooldownMs:2700000]
-			[StartsReady:true]
-			
-			[MaxActions:-1]
-            [Actions:WW2-Action-OffenseSpawn-Potez630]
-			
-			</Description>
-        </EntityComponent>
-
-	<!-- Calls a fighter spawner -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-OffenseSpawn-Potez630</SubtypeId>
-            </Id>
-            <Description>
-						
-			[RivalAI Action]
-			
-			[SpawnEncounter:true]
-			[Spawner:WW2-Spawn-OffenseSpawn-Potez630]
-			
-			</Description>
-        </EntityComponent>
-
-	<!-- Spawns an Potez630 fighter -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Spawn-OffenseSpawn-Potez630</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Spawn]
-			
-			[UseSpawn:true]
-			[StartsReady:true]
-			[ProcessAsAdminSpawn:true]
-
-			[SpawnGroups:NPC-WW2-Potez630]
-			
-			[MinDistance:400]
-			[MaxDistance:1000]
-			[MinAltitude:200]
-			[MaxAltitude:800]
-			[IgnoreSafetyChecks:false]
-			[InheritNpcAltitude:false]
-			
-			</Description>
-        </EntityComponent>
-<!-- End Offense Spawn Potez630 -->
+<!-- End Offense Green spawn sequence -->
 
 	</EntityComponents>
 </Definitions>

@@ -460,6 +460,58 @@
 		</Prefabs>
 	</SpawnGroup>
 
+<!-- Gray Ba.65 Hangar - Medium hangar: wingspan 12.5m (measured from the grid) is not
+     under the 11m small-hangar threshold. Plane offset copied from the V-156-F Bomber (same
+     span); adjust in-game if the Ba.65 doesn't sit centered. -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Hangar-Gray-Ba65</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Medium]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GRAY]
+		[SpawnRandomCargo:true]
+
+		[UseContainerTypeAssignment:true]
+		[ContainerTypeAssignBlockName:Small Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
+
+		[ContainerTypeAssignBlockName:Medium Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Hangar-Medium">
+				<Position>
+					<X>0.0</X>
+					<Y>-9.0</Y>
+					<Z>7.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Hangar-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Ba65">
+				<Position>
+					<X>-2.5</X>
+					<Y>5.5</Y>
+					<Z>5.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarPlane-Ba65</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
 <!-- End Hangar Spawns -->
 
 	</SpawnGroups>

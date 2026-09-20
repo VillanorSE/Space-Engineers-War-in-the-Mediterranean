@@ -2,6 +2,13 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<SpawnGroups>
 
+<!-- 2026-09-18: both Golo prefabs use a Y offset of 13.75 (was 0.0). Debug log from a chat-command
+     spawn showed MES placing the grid at the water surface (radius about 30,102 from planet centre,
+     matching the roughly 30,100 sea level of the La Spezia GPS anchor), yet the ship sat on the
+     seabed 17m down. Golo blocks span y 0-14 (37.5m tall, so 18.75m to the centre). Inferred, not
+     confirmed: SE places the prefab by bounding-box centre, so the offset is 18.75 minus the draft.
+     13.75 assumes the 5m draft the user gave (first try was 8.75, which assumed 10m). Still a guess to
+     tune in-game, and every other ship still uses 0.0. -->
 <!-- Gray Cargo Ship -->
 	<SpawnGroup>
 		<Id>
@@ -25,7 +32,7 @@
 			<Prefab SubtypeId="NPC-WW2-Golo_Italian">
 				<Position>
 					<X>0.0</X>
-					<Y>0.0</Y>
+					<Y>13.75</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-CargoShip-Gray</Behaviour>
@@ -58,7 +65,7 @@
 			<Prefab SubtypeId="NPC-WW2-Golo_French">
 				<Position>
 					<X>0.0</X>
-					<Y>0.0</Y>
+					<Y>13.75</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-CargoShip-Green</Behaviour>

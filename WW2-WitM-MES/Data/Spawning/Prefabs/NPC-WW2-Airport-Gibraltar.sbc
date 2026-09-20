@@ -14806,7 +14806,7 @@
               <ColorMaskHSV x="0" y="-0.8" z="-0.01" />
               <SkinSubtypeId>Corrugated</SkinSubtypeId>
               <ShareMode>Faction</ShareMode>
-              <CustomName>Wind Turbine 1</CustomName>
+              <CustomName>Airfield Block</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>false</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
@@ -14895,6 +14895,7 @@
               <ColorMaskHSV x="0" y="-0.8" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
               <ShareMode>Faction</ShareMode>
+              <CustomName>Airfield Block</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>false</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
@@ -15102,6 +15103,7 @@
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Airfield Block</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -15237,6 +15239,7 @@
               <BlockOrientation Forward="Backward" Up="Down" />
               <ColorMaskHSV x="0" y="-0.8" z="-0.12" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
+              <CustomName>Airfield Block</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>false</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
@@ -15735,6 +15738,7 @@
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Airfield Block</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -16084,6 +16088,7 @@
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Airfield Block</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -16232,6 +16237,7 @@
               <ColorMaskHSV x="0" y="-0.8" z="0.2" />
               <SkinSubtypeId>Corrugated</SkinSubtypeId>
               <ShareMode>Faction</ShareMode>
+              <CustomName>Airfield Block</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -16249,6 +16255,7 @@
               <ColorMaskHSV x="0" y="-0.8" z="0.2" />
               <SkinSubtypeId>Corrugated</SkinSubtypeId>
               <ShareMode>Faction</ShareMode>
+              <CustomName>Airfield Block</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -16508,6 +16515,7 @@
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Airfield Block</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -16640,6 +16648,7 @@
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Airfield Block</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -18411,6 +18420,7 @@
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Airfield Block</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -18440,6 +18450,90 @@
               <IsPotentialTarget>true</IsPotentialTarget>
               <EnableIdleRotation>false</EnableIdleRotation>
               <PreviousIdleRotationState>true</PreviousIdleRotationState>
+            </MyObjectBuilder_CubeBlock>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_RemoteControl">
+              <SubtypeName>LargeBlockRemoteControl</SubtypeName>
+              <EntityId>124769236722005644</EntityId>
+              <Min x="-2" y="1" z="0" />
+              <BlockOrientation Forward="Left" Up="Down" />
+              <ColorMaskHSV x="0.5638889" y="-0.8" z="-0.05" />
+              <SkinSubtypeId>Weldless</SkinSubtypeId>
+              <ShareMode>Faction</ShareMode>
+              <ComponentContainer>
+                <Components>
+                  <ComponentData>
+                    <TypeId>MyAutopilotComponent</TypeId>
+                    <Component xsi:type="MyObjectBuilder_AutopilotComponent">
+                      <AutoPilotEnabled>false</AutoPilotEnabled>
+                      <FlightMode>0</FlightMode>
+                      <CurrentWaypointIndex>-1</CurrentWaypointIndex>
+                      <Waypoints />
+                      <DockingModeEnabled>false</DockingModeEnabled>
+                      <CollisionAvoidance>false</CollisionAvoidance>
+                      <Direction>0</Direction>
+                      <AutopilotSpeedLimit>100</AutopilotSpeedLimit>
+                      <WaitForFreeWay>false</WaitForFreeWay>
+                      <WaypointThresholdDistance>0</WaypointThresholdDistance>
+                      <Coords />
+                      <Names />
+                      <LookAtPosition xsi:nil="true" />
+                      <FacingDirection>Forward</FacingDirection>
+                      <AlignToGravity>true</AlignToGravity>
+                      <MinHeightAboveTerrain>25</MinHeightAboveTerrain>
+                      <IsWorkAreaReturningToStart>false</IsWorkAreaReturningToStart>
+                      <WorkAreaStartForward>
+                        <X>0</X>
+                        <Y>0</Y>
+                        <Z>0</Z>
+                      </WorkAreaStartForward>
+                      <PitchAngle>0</PitchAngle>
+                      <RollAngle>0</RollAngle>
+                    </Component>
+                  </ComponentData>
+                </Components>
+              </ComponentContainer>
+              <CustomName>Airfield Block</CustomName>
+              <ShowOnHUD>false</ShowOnHUD>
+              <ShowInTerminal>true</ShowInTerminal>
+              <ShowInToolbarConfig>true</ShowInToolbarConfig>
+              <ShowInInventory>true</ShowInInventory>
+              <NumberInGrid>1</NumberInGrid>
+              <UseSingleWeaponMode>false</UseSingleWeaponMode>
+              <Toolbar>
+                <ToolbarType>Character</ToolbarType>
+                <SelectedSlot xsi:nil="true" />
+                <Slots />
+                <SlotsGamepad />
+              </Toolbar>
+              <SelectedGunId xsi:nil="true" />
+              <BuildToolbar>
+                <ToolbarType>Character</ToolbarType>
+                <SelectedSlot xsi:nil="true" />
+                <Slots />
+                <SlotsGamepad />
+              </BuildToolbar>
+              <OnLockedToolbar>
+                <ToolbarType>Character</ToolbarType>
+                <SelectedSlot xsi:nil="true" />
+                <Slots />
+                <SlotsGamepad />
+              </OnLockedToolbar>
+              <IsTargetLockingEnabled>false</IsTargetLockingEnabled>
+              <PreviousControlledEntityId xsi:nil="true" />
+              <AutoPilotEnabled>false</AutoPilotEnabled>
+              <FlightMode>0</FlightMode>
+              <BindedCamera>0</BindedCamera>
+              <CurrentWaypointIndex>-1</CurrentWaypointIndex>
+              <Waypoints />
+              <Direction>0</Direction>
+              <DockingModeEnabled>false</DockingModeEnabled>
+              <CollisionAvoidance>false</CollisionAvoidance>
+              <Coords />
+              <Names />
+              <WaypointThresholdDistance>0</WaypointThresholdDistance>
+              <IsMainRemoteControl>false</IsMainRemoteControl>
+              <WaitForFreeWay>false</WaitForFreeWay>
+              <IsUpdatedSave>true</IsUpdatedSave>
             </MyObjectBuilder_CubeBlock>
           </CubeBlocks>
           <IsStatic>true</IsStatic>

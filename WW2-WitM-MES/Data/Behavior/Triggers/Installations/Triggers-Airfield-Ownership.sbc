@@ -19,21 +19,27 @@
      - RivalAI has no if/else within a single Trigger, so InsideActiveZone/OutsideActiveZone
      have to be separate Trigger objects even though they are logical complements.
 
-     Three top-level Behaviors (Unowned/Gray/Green) switched between via [SwitchToBehavior]
-     (confirmed present in current MES source, ActionReferenceProfile.cs, though marked
-     OBSOLETE - no non-obsolete replacement exists for switching an entire named Behavior
-     profile, only [ChangeBehaviorSubclass] which changes a subclass WITHIN one Behavior.
-     Revisit if a future MES version removes SwitchToBehavior.
+     ONE always-on Behavior (WW2-Behavior-Airfield). MES's [SwitchToBehavior] cannot be used:
+     ChangeBehavior re-registers the Remote Control, but BehaviorManager.RegisterBehaviorFromRemoteControl
+     returns early for any Remote Control already in RegisteredRemoteBlocks (never cleared), so the new
+     Behavior never starts. Instead the state lives in which triggers are enabled: the Gray/Green decision
+     triggers and every feature trigger (store, offense, cargo request, reputation, defence, bots) start
+     [UseTrigger:false], and each flip action enables the new state's set and disables the old one
+     (the GVK Supply Depot pattern).
 
      Territory check: confirmed via current MES source (TriggerChecks.cs) that
      [Type:InsideActiveZone]/[OutsideActiveZone] + [ZoneName:...] calls
      ZoneManager.InsideZoneWithName() - real and working (a GVK reference mod comment calling
      this buggy appears to be from an older MES version).
 
-     NOTE: only the tier-1 (6km) zone is Active:true by default today (growth/shrink logic is
-     a separate, not-yet-built system - see Territory-Zones.sbc). Checking whichever zone is
-     currently active per anchor across all 6 tiers would be more complete once growth logic
-     exists; for now only tier-1 is ever active, so that is what these triggers check. -->
+     ZONE NAMES: ZoneManager.InsideZoneWithName() compares [ZoneName:] against the zone's
+     PublicName (confirmed from MES source), NOT its profile SubtypeId - so these must be
+     {Anchor}_Zone (the PublicName in Territory-Zones.sbc), not WW2-Territory-Zone-{Anchor}.
+     (This file previously used SubtypeId-style names, which could never match.)
+
+     Territory-Zones.sbc now has ONE resizable zone per anchor (5km-35km, grown/shrunk by
+     Triggers-Zone-Change.sbc), so these triggers follow the anchor's CURRENT territory
+     radius automatically - no need to check separate per-tier zones. -->
 
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -44,7 +50,7 @@
 			[RivalAI Trigger]
 			[UseTrigger:true]
 			[Type:InsideActiveZone]
-			[ZoneName:WW2-Territory-Zone-LaSpezia-6000]
+			[ZoneName:LaSpezia_Zone]
 			[MinCooldownMs:5000]
 			[MaxCooldownMs:5001]
 			[StartsReady:true]
@@ -72,7 +78,7 @@
 			[RivalAI Trigger]
 			[UseTrigger:true]
 			[Type:OutsideActiveZone]
-			[ZoneName:WW2-Territory-Zone-LaSpezia-6000]
+			[ZoneName:LaSpezia_Zone]
 			[MinCooldownMs:5000]
 			[MaxCooldownMs:5001]
 			[StartsReady:true]
@@ -101,7 +107,7 @@
 			[RivalAI Trigger]
 			[UseTrigger:true]
 			[Type:InsideActiveZone]
-			[ZoneName:WW2-Territory-Zone-Tripoli-6000]
+			[ZoneName:Tripoli_Zone]
 			[MinCooldownMs:5000]
 			[MaxCooldownMs:5001]
 			[StartsReady:true]
@@ -129,7 +135,7 @@
 			[RivalAI Trigger]
 			[UseTrigger:true]
 			[Type:OutsideActiveZone]
-			[ZoneName:WW2-Territory-Zone-Tripoli-6000]
+			[ZoneName:Tripoli_Zone]
 			[MinCooldownMs:5000]
 			[MaxCooldownMs:5001]
 			[StartsReady:true]
@@ -158,7 +164,7 @@
 			[RivalAI Trigger]
 			[UseTrigger:true]
 			[Type:InsideActiveZone]
-			[ZoneName:WW2-Territory-Zone-Rome-6000]
+			[ZoneName:Rome_Zone]
 			[MinCooldownMs:5000]
 			[MaxCooldownMs:5001]
 			[StartsReady:true]
@@ -186,7 +192,7 @@
 			[RivalAI Trigger]
 			[UseTrigger:true]
 			[Type:OutsideActiveZone]
-			[ZoneName:WW2-Territory-Zone-Rome-6000]
+			[ZoneName:Rome_Zone]
 			[MinCooldownMs:5000]
 			[MaxCooldownMs:5001]
 			[StartsReady:true]
@@ -215,7 +221,7 @@
 			[RivalAI Trigger]
 			[UseTrigger:true]
 			[Type:InsideActiveZone]
-			[ZoneName:WW2-Territory-Zone-Toulon-6000]
+			[ZoneName:Toulon_Zone]
 			[MinCooldownMs:5000]
 			[MaxCooldownMs:5001]
 			[StartsReady:true]
@@ -243,7 +249,7 @@
 			[RivalAI Trigger]
 			[UseTrigger:true]
 			[Type:OutsideActiveZone]
-			[ZoneName:WW2-Territory-Zone-Toulon-6000]
+			[ZoneName:Toulon_Zone]
 			[MinCooldownMs:5000]
 			[MaxCooldownMs:5001]
 			[StartsReady:true]
@@ -272,7 +278,7 @@
 			[RivalAI Trigger]
 			[UseTrigger:true]
 			[Type:InsideActiveZone]
-			[ZoneName:WW2-Territory-Zone-Oran-6000]
+			[ZoneName:Oran_Zone]
 			[MinCooldownMs:5000]
 			[MaxCooldownMs:5001]
 			[StartsReady:true]
@@ -300,7 +306,7 @@
 			[RivalAI Trigger]
 			[UseTrigger:true]
 			[Type:OutsideActiveZone]
-			[ZoneName:WW2-Territory-Zone-Oran-6000]
+			[ZoneName:Oran_Zone]
 			[MinCooldownMs:5000]
 			[MaxCooldownMs:5001]
 			[StartsReady:true]
@@ -329,7 +335,7 @@
 			[RivalAI Trigger]
 			[UseTrigger:true]
 			[Type:InsideActiveZone]
-			[ZoneName:WW2-Territory-Zone-Alexandria-6000]
+			[ZoneName:Alexandria_Zone]
 			[MinCooldownMs:5000]
 			[MaxCooldownMs:5001]
 			[StartsReady:true]
@@ -357,7 +363,7 @@
 			[RivalAI Trigger]
 			[UseTrigger:true]
 			[Type:OutsideActiveZone]
-			[ZoneName:WW2-Territory-Zone-Alexandria-6000]
+			[ZoneName:Alexandria_Zone]
 			[MinCooldownMs:5000]
 			[MaxCooldownMs:5001]
 			[StartsReady:true]
@@ -453,11 +459,26 @@
 			[OldBlockColors:{X:0 Y:0 Z:0.9}]
 			[NewBlockColors:{X:0 Y:-0.75 Z:0}]
 			[ChangeBlockOwnership:true]
-			[OwnershipBlockNames:FlagPole]
+			[OwnershipBlockNames:Airfield Block]
+			[OwnershipBlockFactions:GRAY]
 			[OwnershipBlockNames:Store-Airport-Vehicles]
 			[OwnershipBlockFactions:GRAY]
-			[SwitchToBehavior:true]
-			[NewBehavior:WW2-Behavior-Airfield-Gray]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gray-CheckGreen]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gray-CheckUnowned]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Gray]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-DefenseSpawn-Gray]
+			[EnableTriggerNames:WW2-Trigger-OffenseSpawn-Gray]
+			[EnableTriggerNames:WW2-Trigger-Airfield-RequestCargoPlane-Gray]
+			[EnableTriggerNames:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Gray]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-BotCrew-3]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGreen]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGray]
+			[SetCustomStrings:true]
+			[CustomStrings:NewOwner,The Gray]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-Airfield-Captured]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -471,11 +492,26 @@
 			[OldBlockColors:{X:0 Y:0 Z:0.9}]
 			[NewBlockColors:{X:0.25555557 Y:-0.41 Z:-0.3}]
 			[ChangeBlockOwnership:true]
-			[OwnershipBlockNames:FlagPole]
+			[OwnershipBlockNames:Airfield Block]
+			[OwnershipBlockFactions:GREEN]
 			[OwnershipBlockNames:Store-Airport-Vehicles]
 			[OwnershipBlockFactions:GREEN]
-			[SwitchToBehavior:true]
-			[NewBehavior:WW2-Behavior-Airfield-Green]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Green-CheckGray]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Green-CheckUnowned]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Green]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-DefenseSpawn-Green]
+			[EnableTriggerNames:WW2-Trigger-OffenseSpawn-Green]
+			[EnableTriggerNames:WW2-Trigger-Airfield-RequestCargoPlane-Green]
+			[EnableTriggerNames:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Green]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-BotCrew-3]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGreen]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGray]
+			[SetCustomStrings:true]
+			[CustomStrings:NewOwner,The Green]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-Airfield-Captured]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -489,11 +525,31 @@
 			[OldBlockColors:{X:0 Y:-0.75 Z:0}]
 			[NewBlockColors:{X:0.25555557 Y:-0.41 Z:-0.3}]
 			[ChangeBlockOwnership:true]
-			[OwnershipBlockNames:FlagPole]
+			[OwnershipBlockNames:Airfield Block]
+			[OwnershipBlockFactions:GREEN]
 			[OwnershipBlockNames:Store-Airport-Vehicles]
 			[OwnershipBlockFactions:GREEN]
-			[SwitchToBehavior:true]
-			[NewBehavior:WW2-Behavior-Airfield-Green]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Green-CheckGray]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Green-CheckUnowned]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Green]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-DefenseSpawn-Green]
+			[EnableTriggerNames:WW2-Trigger-OffenseSpawn-Green]
+			[EnableTriggerNames:WW2-Trigger-Airfield-RequestCargoPlane-Green]
+			[EnableTriggerNames:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Green]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-BotCrew-3]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gray-CheckGreen]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gray-CheckUnowned]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Gray]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gated-DefenseSpawn-Gray]
+			[DisableTriggerNames:WW2-Trigger-OffenseSpawn-Gray]
+			[DisableTriggerNames:WW2-Trigger-Airfield-RequestCargoPlane-Gray]
+			[DisableTriggerNames:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Gray]
+			[SetCustomStrings:true]
+			[CustomStrings:NewOwner,The Green]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-Airfield-Captured]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -506,12 +562,30 @@
 			[RecolorGrid:true]
 			[OldBlockColors:{X:0 Y:-0.75 Z:0}]
 			[NewBlockColors:{X:0 Y:0 Z:0.9}]
+			[SetCustomStrings:true]
+			[CustomStrings:OldOwner,The Gray]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-Airfield-Abandoned]
 			[ChangeBlockOwnership:true]
-			[OwnershipBlockNames:FlagPole]
+			[OwnershipBlockNames:Airfield Block]
+			[OwnershipBlockFactions:UNOWNED]
 			[OwnershipBlockNames:Store-Airport-Vehicles]
 			[OwnershipBlockFactions:UNOWNED]
-			[SwitchToBehavior:true]
-			[NewBehavior:WW2-Behavior-Airfield-Unowned]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGreen]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGray]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gray-CheckGreen]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gray-CheckUnowned]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Gray]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gated-DefenseSpawn-Gray]
+			[DisableTriggerNames:WW2-Trigger-OffenseSpawn-Gray]
+			[DisableTriggerNames:WW2-Trigger-Airfield-RequestCargoPlane-Gray]
+			[DisableTriggerNames:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Gray]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-Airport-Vehicles]
+			[StoreProfiles:WW2-Store-Profile-Airfield-Empty]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -525,11 +599,31 @@
 			[OldBlockColors:{X:0.25555557 Y:-0.41 Z:-0.3}]
 			[NewBlockColors:{X:0 Y:-0.75 Z:0}]
 			[ChangeBlockOwnership:true]
-			[OwnershipBlockNames:FlagPole]
+			[OwnershipBlockNames:Airfield Block]
+			[OwnershipBlockFactions:GRAY]
 			[OwnershipBlockNames:Store-Airport-Vehicles]
 			[OwnershipBlockFactions:GRAY]
-			[SwitchToBehavior:true]
-			[NewBehavior:WW2-Behavior-Airfield-Gray]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gray-CheckGreen]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gray-CheckUnowned]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Gray]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-DefenseSpawn-Gray]
+			[EnableTriggerNames:WW2-Trigger-OffenseSpawn-Gray]
+			[EnableTriggerNames:WW2-Trigger-Airfield-RequestCargoPlane-Gray]
+			[EnableTriggerNames:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Gray]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-BotCrew-3]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Green-CheckGray]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Green-CheckUnowned]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Green]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gated-DefenseSpawn-Green]
+			[DisableTriggerNames:WW2-Trigger-OffenseSpawn-Green]
+			[DisableTriggerNames:WW2-Trigger-Airfield-RequestCargoPlane-Green]
+			[DisableTriggerNames:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Green]
+			[SetCustomStrings:true]
+			[CustomStrings:NewOwner,The Gray]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-Airfield-Captured]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -542,12 +636,30 @@
 			[RecolorGrid:true]
 			[OldBlockColors:{X:0.25555557 Y:-0.41 Z:-0.3}]
 			[NewBlockColors:{X:0 Y:0 Z:0.9}]
+			[SetCustomStrings:true]
+			[CustomStrings:OldOwner,The Green]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-Airfield-Abandoned]
 			[ChangeBlockOwnership:true]
-			[OwnershipBlockNames:FlagPole]
+			[OwnershipBlockNames:Airfield Block]
+			[OwnershipBlockFactions:UNOWNED]
 			[OwnershipBlockNames:Store-Airport-Vehicles]
 			[OwnershipBlockFactions:UNOWNED]
-			[SwitchToBehavior:true]
-			[NewBehavior:WW2-Behavior-Airfield-Unowned]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGreen]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGray]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Green-CheckGray]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Green-CheckUnowned]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Green]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gated-DefenseSpawn-Green]
+			[DisableTriggerNames:WW2-Trigger-OffenseSpawn-Green]
+			[DisableTriggerNames:WW2-Trigger-Airfield-RequestCargoPlane-Green]
+			[DisableTriggerNames:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Green]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-Airport-Vehicles]
+			[StoreProfiles:WW2-Store-Profile-Airfield-Empty]
 			</Description>
 		</EntityComponent>
 
@@ -564,7 +676,7 @@
 			[MinCooldownMs:10000]
 			[MaxCooldownMs:10001]
 			[StartsReady:true]
-			[MaxActions:1]
+			[MaxActions:-1]
 			[Conditions:WW2-Condition-Airfield-InGreenTerritory]
 			[MatchAnyCondition:false]
 			[Actions:WW2-Action-Airfield-Unowned-BecomeGreen]
@@ -582,10 +694,8 @@
 			[MinCooldownMs:10000]
 			[MaxCooldownMs:10001]
 			[StartsReady:true]
-			[MaxActions:1]
-			[Conditions:WW2-Condition-Airfield-InGrayTerritory]
-			[Conditions:WW2-Condition-Airfield-NotInGreenTerritory]
-			[MatchAnyCondition:false]
+			[MaxActions:-1]
+			[Conditions:WW2-Condition-Airfield-GrayTerritoryOnly]
 			[Actions:WW2-Action-Airfield-Unowned-BecomeGray]
 			</Description>
 		</EntityComponent>
@@ -598,15 +708,13 @@
 			</Id>
 			<Description>
 			[RivalAI Trigger]
-			[UseTrigger:true]
+			[UseTrigger:false]
 			[Type:Timer]
 			[MinCooldownMs:10000]
 			[MaxCooldownMs:10001]
 			[StartsReady:true]
-			[MaxActions:1]
-			[Conditions:WW2-Condition-Airfield-InGreenTerritory]
-			[Conditions:WW2-Condition-Airfield-NotInGrayTerritory]
-			[MatchAnyCondition:false]
+			[MaxActions:-1]
+			[Conditions:WW2-Condition-Airfield-GreenTerritoryOnly]
 			[Actions:WW2-Action-Airfield-Gray-BecomeGreen]
 			</Description>
 		</EntityComponent>
@@ -617,15 +725,13 @@
 			</Id>
 			<Description>
 			[RivalAI Trigger]
-			[UseTrigger:true]
+			[UseTrigger:false]
 			[Type:Timer]
 			[MinCooldownMs:10000]
 			[MaxCooldownMs:10001]
 			[StartsReady:true]
-			[MaxActions:1]
-			[Conditions:WW2-Condition-Airfield-NotInGrayTerritory]
-			[Conditions:WW2-Condition-Airfield-NotInGreenTerritory]
-			[MatchAnyCondition:false]
+			[MaxActions:-1]
+			[Conditions:WW2-Condition-Airfield-NoTerritory]
 			[Actions:WW2-Action-Airfield-Gray-BecomeUnowned]
 			</Description>
 		</EntityComponent>
@@ -638,15 +744,13 @@
 			</Id>
 			<Description>
 			[RivalAI Trigger]
-			[UseTrigger:true]
+			[UseTrigger:false]
 			[Type:Timer]
 			[MinCooldownMs:10000]
 			[MaxCooldownMs:10001]
 			[StartsReady:true]
-			[MaxActions:1]
-			[Conditions:WW2-Condition-Airfield-InGrayTerritory]
-			[Conditions:WW2-Condition-Airfield-NotInGreenTerritory]
-			[MatchAnyCondition:false]
+			[MaxActions:-1]
+			[Conditions:WW2-Condition-Airfield-GrayTerritoryOnly]
 			[Actions:WW2-Action-Airfield-Green-BecomeGray]
 			</Description>
 		</EntityComponent>
@@ -657,16 +761,258 @@
 			</Id>
 			<Description>
 			[RivalAI Trigger]
-			[UseTrigger:true]
+			[UseTrigger:false]
 			[Type:Timer]
 			[MinCooldownMs:10000]
 			[MaxCooldownMs:10001]
 			[StartsReady:true]
-			[MaxActions:1]
-			[Conditions:WW2-Condition-Airfield-NotInGrayTerritory]
-			[Conditions:WW2-Condition-Airfield-NotInGreenTerritory]
-			[MatchAnyCondition:false]
+			[MaxActions:-1]
+			[Conditions:WW2-Condition-Airfield-NoTerritory]
 			[Actions:WW2-Action-Airfield-Green-BecomeUnowned]
+			</Description>
+		</EntityComponent>
+
+<!-- Combined territory conditions. A Trigger's [Conditions:] field holds exactly ONE condition
+     profile (TriggerProfile.Conditions is a single ConditionProfile, confirmed from MES source) -
+     writing two [Conditions:] lines just makes the LAST one win, and [MatchAnyCondition:] does
+     not exist on triggers at all. The earlier decision triggers listed e.g. InGrayTerritory +
+     NotInGreenTerritory, which silently became just NotInGreenTerritory: that passes for any
+     airfield outside Green territory, so every airfield went Gray the moment it spawned.
+     A single condition profile CAN hold several checks (each check counts toward
+     satisfiedConditions and all must pass when MatchAnyCondition is false), so each combined
+     decision is one profile with a true-check and/or a false-check. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Condition-Airfield-GrayTerritoryOnly</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckTrueBooleans:true]
+			[TrueBooleans:InGray_LaSpezia]
+			[TrueBooleans:InGray_Tripoli]
+			[TrueBooleans:InGray_Rome]
+			[AllowAnyTrueBoolean:true]
+			[CheckFalseBooleans:true]
+			[FalseBooleans:InGreen_Toulon]
+			[FalseBooleans:InGreen_Oran]
+			[FalseBooleans:InGreen_Alexandria]
+			[AllowAnyFalseBoolean:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Condition-Airfield-GreenTerritoryOnly</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckTrueBooleans:true]
+			[TrueBooleans:InGreen_Toulon]
+			[TrueBooleans:InGreen_Oran]
+			[TrueBooleans:InGreen_Alexandria]
+			[AllowAnyTrueBoolean:true]
+			[CheckFalseBooleans:true]
+			[FalseBooleans:InGray_LaSpezia]
+			[FalseBooleans:InGray_Tripoli]
+			[FalseBooleans:InGray_Rome]
+			[AllowAnyFalseBoolean:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Condition-Airfield-NoTerritory</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckFalseBooleans:true]
+			[FalseBooleans:InGray_LaSpezia]
+			[FalseBooleans:InGray_Tripoli]
+			[FalseBooleans:InGray_Rome]
+			[FalseBooleans:InGreen_Toulon]
+			[FalseBooleans:InGreen_Oran]
+			[FalseBooleans:InGreen_Alexandria]
+			[AllowAnyFalseBoolean:false]
+			</Description>
+		</EntityComponent>
+
+<!-- Airfield-owned copies of the shared reputation / bot-crew / defence triggers. They start disabled
+     ([UseTrigger:false]) and are switched on/off by the flip actions below, exactly like the
+     offense, cargo-request and store triggers. Same Actions as the originals, which are left
+     untouched for the factories and ports. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-Airfield-Gated-ReputationDamageLight-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:false]
+			[Type:Damage]
+
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+
+			[Conditions:WW2-Condition-ReputationDamage]
+
+			[MinCooldownMs:900000]
+			[MaxCooldownMs:900000]
+			[StartsReady:true]
+			[MaxActions:-1]
+            [Actions:WW2-Action-ReputationDamageLight-Gray]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-Airfield-Gated-ReputationDamageLight-Green</SubtypeId>
+            </Id>
+			<!-- Damage excluding; environment and deformation. 15 minute cooldown. -->
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:false]
+			[Type:Damage]
+
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+
+			[Conditions:WW2-Condition-ReputationDamage]
+
+			[MinCooldownMs:900000]
+			[MaxCooldownMs:900000]
+			[StartsReady:true]
+			[MaxActions:-1]
+            [Actions:WW2-Action-ReputationDamageLight-Green]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-Airfield-Gated-BotCrew-3</SubtypeId>
+            </Id>
+            <Description>
+			
+			[RivalAI Trigger]
+			
+			[UseTrigger:false]
+			[Type:PlayerNear]
+
+			[TargetDistance:800]
+			
+			[StartsReady:false]
+			[MaxActions:1]
+			
+			[Actions:WW2-Action-BotCrew-3]
+			
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-Airfield-Gated-DefenseSpawn-Gray</SubtypeId>
+            </Id>
+            <Description>
+			
+			[RivalAI Trigger]
+			
+			[UseTrigger:false]
+			[Type:PlayerNear]
+			[TargetDistance:1200]
+
+			[MinCooldownMs:600000]
+			[MaxCooldownMs:1800000]
+			[StartsReady:true]
+			
+			[MaxPlayerReputation:-500]
+			
+            [Actions:WW2-Action-DefenseSpawn-Gray]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-Airfield-Gated-DefenseSpawn-Green</SubtypeId>
+            </Id>
+            <Description>
+			
+			[RivalAI Trigger]
+			
+			[UseTrigger:false]
+			[Type:PlayerNear]
+			[TargetDistance:1200]
+
+			[MinCooldownMs:600000]
+			[MaxCooldownMs:1800000]
+			[StartsReady:true]
+			
+			[MaxPlayerReputation:-500]
+			
+            [Actions:WW2-Action-DefenseSpawn-Green]
+
+			</Description>
+        </EntityComponent>
+
+<!-- Ownership-change announcements. {NewOwner}/{OldOwner} are custom strings set by each state
+     action (SetCustomStrings) - NOT the built-in {Faction} token, which resolves to the NPC's
+     InitialFaction (UNOWNED for every airfield) and would print "UNOWNED" every time. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-Airfield-Captured</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Airfield Command]
+			[Color:Blue]
+			[ChatMessages:{NewOwner} has taken control of an airfield.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-Airfield-Abandoned</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Airfield Command]
+			[Color:Blue]
+			[ChatMessages:{OldOwner} has lost control of an airfield.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
 			</Description>
 		</EntityComponent>
 

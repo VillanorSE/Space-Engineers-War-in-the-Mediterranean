@@ -1,57 +1,48 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
-
-<!-- Trigger to switch to Fighter behavior when target within 6km -->
+<!-- Trigger to switch to combat when a target is within 6km -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
                 <SubtypeId>WW2-Trigger-FighterSwitch-Fighter</SubtypeId>
             </Id>
             <Description>
-			
 			[RivalAI Trigger]
-			
 			[UseTrigger:true]
 			[Type:TargetNear]
 			[TargetDistance:6000]
-			
 			[StartsReady:true]
 			[MaxActions:-1]
 			[Actions:WW2-Action-FighterSwitch-Fighter]
-			
 			</Description>
         </EntityComponent>
-
-	<!-- Action switches behavior to Fighter and secondary autopilot, turns on no target and patrol triggers, turns off fighter switch trigger -->
+	<!-- Switches to the FighterPlane subclass (attack runs with forward thrust, no strafing) and the
+	     Approach autopilot, enables the run/breakaway profile-swap triggers and the patrol switch,
+	     turns off this trigger -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
                 <SubtypeId>WW2-Action-FighterSwitch-Fighter</SubtypeId>
             </Id>
             <Description>
-
 			[RivalAI Action]
-			
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Chat-FighterSwitch-Fighter]
-
 			[ChangeBehaviorSubclass:true]
-			[NewBehaviorSubclass:Fighter]
-
+			[NewBehaviorSubclass:FighterPlane]
 			[ChangeAutopilotProfile:true]
 			[AutopilotProfile:Secondary]
-
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Trigger-FighterSwitch-Fighter]
-
 			[EnableTriggers:true]
 			[EnableTriggerNames:WW2-Trigger-PatrolSwitch-Fighter]
+			[EnableTriggerNames:WW2-Trigger-FighterRunStart]
+			[EnableTriggerNames:WW2-Trigger-FighterRunEnd]
+			[EnableTriggerNames:WW2-Trigger-FighterTargetLost]
 			[EnableTriggerNames:MES-Trigger-NoTargetRetreatInitialCheck]
-
 			</Description>
         </EntityComponent>
-
 	<!-- Broadcasts chat about engaging a target -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -59,27 +50,21 @@
 				<SubtypeId>WW2-Chat-FighterSwitch-Fighter</SubtypeId>
 			</Id>
 			<Description>
-
 			[RivalAI Chat]
-
 			[UseChat:true]
 			[StartsReady:true]
 			[MaxChats:-1]
 			[BroadcastRandomly:true]
 			[Author:Fighter]
 			[Color:Red]
-
 			[ChatMessages: Hostile approaching. Switching to engage.]
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
-
 			[ChatMessages:Deviating from patrol to intercept hostile target.]
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
-
 			</Description>
 		</EntityComponent>
-<!-- End Trigger to switch to Fighter behavior -->
-
+<!-- End Trigger to switch to combat -->
 	</EntityComponents>
 </Definitions>

@@ -1,86 +1,117 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
-
-<!-- Trigger to switch to patrol behavior when target outside of 6km -->
+<!-- Trigger to switch back to patrol when the target is beyond 9km (or lost). Wider than the 6km
+     combat trigger so the plane does not flip between the two near the boundary. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
                 <SubtypeId>WW2-Trigger-PatrolSwitch-Fighter</SubtypeId>
             </Id>
             <Description>
-			
 			[RivalAI Trigger]
-			
 			[UseTrigger:false]
 			[Type:TargetFar]
-			[TargetDistance:6000]
-			
+			[TargetDistance:9000]
 			[StartsReady:true]
 			[MaxActions:-1]
 			[Actions:WW2-Action-PatrolSwitch-Fighter]
-			
 			</Description>
         </EntityComponent>
-
-	<!-- Action switches behavior to Patrol and primary autopilot, turns on combat behavior triggers, turns off patrol trigger -->
+	<!-- Switches to the Patrol subclass and Primary (patrol) autopilot, turns off the run/breakaway
+	     swap triggers and this trigger, turns the combat trigger back on -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
                 <SubtypeId>WW2-Action-PatrolSwitch-Fighter</SubtypeId>
             </Id>
             <Description>
-			
 			[RivalAI Action]
-			
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Chat-PatrolSwitch-Fighter]
-
+			[UseCurrentPositionAsPatrolReference:true]
 			[ChangeBehaviorSubclass:true]
 			[NewBehaviorSubclass:Patrol]
-
 			[ChangeAutopilotProfile:true]
 			[AutopilotProfile:Primary]
-
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Trigger-PatrolSwitch-Fighter]
-
+			[DisableTriggerNames:WW2-Trigger-FighterRunStart]
+			[DisableTriggerNames:WW2-Trigger-FighterRunEnd]
+			[DisableTriggerNames:WW2-Trigger-FighterTargetLost]
 			[EnableTriggers:true]
-			[EnableTriggerNames:WW2-Trigger-LowAltitudeFighting]
-			[EnableTriggerNames:WW2-Trigger-HighAltitudeFighting]
 			[EnableTriggerNames:WW2-Trigger-FighterSwitch-Fighter]
-
 			</Description>
         </EntityComponent>
-	
-	<!-- Broadcasts chats about patrolling -->	
+	<!-- TargetFar needs a live target, so it can never fire once the target is dead or out of range.
+	     In that state the FighterPlane subclass idles with no thrust (level-with-gravity, no
+	     ThrustForward) and glides into the ground. LostTarget sends the plane back to patrol. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-FighterTargetLost</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:LostTarget]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-PatrolSwitch-Fighter]
+			</Description>
+        </EntityComponent>
+	<!-- Broadcasts chats about patrolling -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
 				<SubtypeId>WW2-Chat-PatrolSwitch-Fighter</SubtypeId>
 			</Id>
 			<Description>
-
 			[RivalAI Chat]
-
 			[UseChat:true]
 			[StartsReady:true]
 			[MaxChats:-1]
 			[BroadcastRandomly:true]
 			[Author:Fighter]
 			[Color:Red]
-
 			[ChatMessages: Returning to patrol pattern.]
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
-
 			[ChatMessages:Target lost, beginning patrol.]
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
-
-      </Description>
-    </EntityComponent>
-<!-- End Trigger to switch to patrol behavior -->
-
+			</Description>
+		</EntityComponent>
+	<!-- Patrol waypoints chain from the last waypoint. The Patrol subclass raises BehaviorTriggerA each time
+	     it arrives at a waypoint; this makes the plane's current position the patrol reference, so the
+	     next waypoint (a random 1-5km offset, see WW2-Autopilot-Fighter-Patrol) is measured from where
+	     the plane is instead of from the spawn point. Always enabled. In combat FighterPlane raises
+	     BehaviorTriggerA at each breakaway and this fires too, which is harmless - the patrol reference
+	     only matters to the Patrol subclass, and returning to patrol re-sets it to the current position. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-PatrolNextFromLast</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerA]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-PatrolNextFromLast]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-PatrolNextFromLast</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Action]
+			[UseCurrentPositionAsPatrolReference:true]
+			</Description>
+        </EntityComponent>
+<!-- End Trigger to switch to patrol -->
 	</EntityComponents>
 </Definitions>

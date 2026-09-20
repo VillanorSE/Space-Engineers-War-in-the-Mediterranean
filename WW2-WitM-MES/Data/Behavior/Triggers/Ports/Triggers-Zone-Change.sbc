@@ -1,0 +1,4196 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+<!-- Territory Zone-Change Triggers - all 6 anchors
+     Single resizing zone per anchor (WW2-Territory-Zone-{Anchor}, defined in Territory-Zones.sbc)
+     driven by that anchor's own CustomSandboxCounter ({Anchor}_Points). Every tier transition at an
+     anchor shares the SAME two actions (RadiusGrow/RadiusShrink).
+
+     Per anchor: 6 Grow/Shrink trigger+condition pairs (one per tier boundary, each pair mutually exclusive via
+     ToggleWithTriggerProfile so crossing a threshold is a one-shot +/-5000m radius change, not a
+     repeat-every-10s runaway (RivalAI has no event-driven "counter crossed X" trigger type -
+     confirmed via TriggerChecks.cs - so a polling Timer+Condition is the only mechanism
+     available, and the toggle pair is what makes it one-shot rather than continuous).
+
+     Cumulative thresholds (same for every anchor): 100 / 325 / 725 / 1350 / 2250 / 3475.
+     Floor 0 (reset on underflow), Ceiling ~4170 (20% headroom above tier 7). -->
+
+<!-- ==================== LA SPEZIA (Gray) ==================== -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-TriggerGroup-ZoneSize-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Grow1-LaSpezia]
+			[Triggers:WW2-Territory-Trigger-Shrink1-LaSpezia]
+			[Triggers:WW2-Territory-Trigger-Grow2-LaSpezia]
+			[Triggers:WW2-Territory-Trigger-Shrink2-LaSpezia]
+			[Triggers:WW2-Territory-Trigger-Grow3-LaSpezia]
+			[Triggers:WW2-Territory-Trigger-Shrink3-LaSpezia]
+			[Triggers:WW2-Territory-Trigger-Grow4-LaSpezia]
+			[Triggers:WW2-Territory-Trigger-Shrink4-LaSpezia]
+			[Triggers:WW2-Territory-Trigger-Grow5-LaSpezia]
+			[Triggers:WW2-Territory-Trigger-Shrink5-LaSpezia]
+			[Triggers:WW2-Territory-Trigger-Grow6-LaSpezia]
+			[Triggers:WW2-Territory-Trigger-Shrink6-LaSpezia]
+			[Triggers:WW2-Territory-Trigger-PointsFloor-LaSpezia]
+			[Triggers:WW2-Territory-Trigger-PointsCeiling-LaSpezia]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 1->2 @ 100 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow1-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-LaSpezia]
+			[Conditions:WW2-Territory-Condition-Grow1-LaSpezia]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink1-LaSpezia]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow1-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:LaSpezia_Points]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink1-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-LaSpezia]
+			[Conditions:WW2-Territory-Condition-Shrink1-LaSpezia]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow1-LaSpezia]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink1-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:LaSpezia_Points]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 2->3 @ 325 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow2-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-LaSpezia]
+			[Conditions:WW2-Territory-Condition-Grow2-LaSpezia]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink2-LaSpezia]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow2-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:LaSpezia_Points]
+			[CustomSandboxCountersTargets:325]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink2-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-LaSpezia]
+			[Conditions:WW2-Territory-Condition-Shrink2-LaSpezia]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow2-LaSpezia]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink2-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:LaSpezia_Points]
+			[CustomSandboxCountersTargets:325]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 3->4 @ 725 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow3-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-LaSpezia]
+			[Conditions:WW2-Territory-Condition-Grow3-LaSpezia]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink3-LaSpezia]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow3-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:LaSpezia_Points]
+			[CustomSandboxCountersTargets:725]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink3-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-LaSpezia]
+			[Conditions:WW2-Territory-Condition-Shrink3-LaSpezia]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow3-LaSpezia]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink3-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:LaSpezia_Points]
+			[CustomSandboxCountersTargets:725]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 4->5 @ 1350 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow4-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-LaSpezia]
+			[Conditions:WW2-Territory-Condition-Grow4-LaSpezia]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink4-LaSpezia]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow4-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:LaSpezia_Points]
+			[CustomSandboxCountersTargets:1350]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink4-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-LaSpezia]
+			[Conditions:WW2-Territory-Condition-Shrink4-LaSpezia]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow4-LaSpezia]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink4-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:LaSpezia_Points]
+			[CustomSandboxCountersTargets:1350]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 5->6 @ 2250 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow5-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-LaSpezia]
+			[Conditions:WW2-Territory-Condition-Grow5-LaSpezia]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink5-LaSpezia]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow5-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:LaSpezia_Points]
+			[CustomSandboxCountersTargets:2250]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink5-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-LaSpezia]
+			[Conditions:WW2-Territory-Condition-Shrink5-LaSpezia]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow5-LaSpezia]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink5-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:LaSpezia_Points]
+			[CustomSandboxCountersTargets:2250]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 6->7 @ 3475 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow6-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-LaSpezia]
+			[Conditions:WW2-Territory-Condition-Grow6-LaSpezia]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink6-LaSpezia]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow6-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:LaSpezia_Points]
+			[CustomSandboxCountersTargets:3475]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink6-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-LaSpezia]
+			[Conditions:WW2-Territory-Condition-Shrink6-LaSpezia]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow6-LaSpezia]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink6-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:LaSpezia_Points]
+			[CustomSandboxCountersTargets:3475]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Shared Grow/Shrink actions + chats -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:LaSpezia_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-LaSpezia]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:LaSpezia_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-LaSpezia]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Chat-Grow-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:La Spezia Command]
+			[Color:Blue]
+			[ChatMessages:La Spezia territory has expanded.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Chat-Shrink-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:La Spezia Command]
+			[Color:Blue]
+			[ChatMessages:La Spezia territory has contracted.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Counter floor/ceiling -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-PointsFloor-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-PointsFloor-LaSpezia]
+			[Conditions:WW2-Territory-Condition-PointsFloor-LaSpezia]
+			[ConditionCheckResetsTimer:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-PointsFloor-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:LaSpezia_Points]
+			[CustomSandboxCountersTargets:-1]
+			[SandboxCounterCompareTypes:LessOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-PointsFloor-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ResetSandboxCounters:LaSpezia_Points]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-PointsCeiling-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-PointsCeiling-LaSpezia]
+			[Conditions:WW2-Territory-Condition-PointsCeiling-LaSpezia]
+			[ConditionCheckResetsTimer:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-PointsCeiling-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:LaSpezia_Points]
+			[CustomSandboxCountersTargets:4170]
+			[SandboxCounterCompareTypes:Greater]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-PointsCeiling-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:LaSpezia_Points]
+			[SetSandboxCountersValues:4170]
+
+			</Description>
+		</EntityComponent>
+
+<!-- ==================== TRIPOLI (Gray) ==================== -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-TriggerGroup-ZoneSize-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Grow1-Tripoli]
+			[Triggers:WW2-Territory-Trigger-Shrink1-Tripoli]
+			[Triggers:WW2-Territory-Trigger-Grow2-Tripoli]
+			[Triggers:WW2-Territory-Trigger-Shrink2-Tripoli]
+			[Triggers:WW2-Territory-Trigger-Grow3-Tripoli]
+			[Triggers:WW2-Territory-Trigger-Shrink3-Tripoli]
+			[Triggers:WW2-Territory-Trigger-Grow4-Tripoli]
+			[Triggers:WW2-Territory-Trigger-Shrink4-Tripoli]
+			[Triggers:WW2-Territory-Trigger-Grow5-Tripoli]
+			[Triggers:WW2-Territory-Trigger-Shrink5-Tripoli]
+			[Triggers:WW2-Territory-Trigger-Grow6-Tripoli]
+			[Triggers:WW2-Territory-Trigger-Shrink6-Tripoli]
+			[Triggers:WW2-Territory-Trigger-PointsFloor-Tripoli]
+			[Triggers:WW2-Territory-Trigger-PointsCeiling-Tripoli]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 1->2 @ 100 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow1-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Tripoli]
+			[Conditions:WW2-Territory-Condition-Grow1-Tripoli]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink1-Tripoli]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow1-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Tripoli_Points]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink1-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Tripoli]
+			[Conditions:WW2-Territory-Condition-Shrink1-Tripoli]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow1-Tripoli]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink1-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Tripoli_Points]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 2->3 @ 325 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow2-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Tripoli]
+			[Conditions:WW2-Territory-Condition-Grow2-Tripoli]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink2-Tripoli]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow2-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Tripoli_Points]
+			[CustomSandboxCountersTargets:325]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink2-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Tripoli]
+			[Conditions:WW2-Territory-Condition-Shrink2-Tripoli]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow2-Tripoli]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink2-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Tripoli_Points]
+			[CustomSandboxCountersTargets:325]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 3->4 @ 725 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow3-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Tripoli]
+			[Conditions:WW2-Territory-Condition-Grow3-Tripoli]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink3-Tripoli]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow3-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Tripoli_Points]
+			[CustomSandboxCountersTargets:725]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink3-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Tripoli]
+			[Conditions:WW2-Territory-Condition-Shrink3-Tripoli]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow3-Tripoli]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink3-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Tripoli_Points]
+			[CustomSandboxCountersTargets:725]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 4->5 @ 1350 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow4-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Tripoli]
+			[Conditions:WW2-Territory-Condition-Grow4-Tripoli]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink4-Tripoli]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow4-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Tripoli_Points]
+			[CustomSandboxCountersTargets:1350]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink4-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Tripoli]
+			[Conditions:WW2-Territory-Condition-Shrink4-Tripoli]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow4-Tripoli]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink4-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Tripoli_Points]
+			[CustomSandboxCountersTargets:1350]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 5->6 @ 2250 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow5-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Tripoli]
+			[Conditions:WW2-Territory-Condition-Grow5-Tripoli]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink5-Tripoli]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow5-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Tripoli_Points]
+			[CustomSandboxCountersTargets:2250]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink5-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Tripoli]
+			[Conditions:WW2-Territory-Condition-Shrink5-Tripoli]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow5-Tripoli]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink5-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Tripoli_Points]
+			[CustomSandboxCountersTargets:2250]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 6->7 @ 3475 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow6-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Tripoli]
+			[Conditions:WW2-Territory-Condition-Grow6-Tripoli]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink6-Tripoli]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow6-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Tripoli_Points]
+			[CustomSandboxCountersTargets:3475]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink6-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Tripoli]
+			[Conditions:WW2-Territory-Condition-Shrink6-Tripoli]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow6-Tripoli]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink6-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Tripoli_Points]
+			[CustomSandboxCountersTargets:3475]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Shared Grow/Shrink actions + chats -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Tripoli_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Tripoli]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Tripoli_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Tripoli]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Chat-Grow-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Tripoli Command]
+			[Color:Blue]
+			[ChatMessages:Tripoli territory has expanded.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Chat-Shrink-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Tripoli Command]
+			[Color:Blue]
+			[ChatMessages:Tripoli territory has contracted.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Counter floor/ceiling -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-PointsFloor-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-PointsFloor-Tripoli]
+			[Conditions:WW2-Territory-Condition-PointsFloor-Tripoli]
+			[ConditionCheckResetsTimer:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-PointsFloor-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Tripoli_Points]
+			[CustomSandboxCountersTargets:-1]
+			[SandboxCounterCompareTypes:LessOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-PointsFloor-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ResetSandboxCounters:Tripoli_Points]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-PointsCeiling-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-PointsCeiling-Tripoli]
+			[Conditions:WW2-Territory-Condition-PointsCeiling-Tripoli]
+			[ConditionCheckResetsTimer:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-PointsCeiling-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Tripoli_Points]
+			[CustomSandboxCountersTargets:4170]
+			[SandboxCounterCompareTypes:Greater]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-PointsCeiling-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:Tripoli_Points]
+			[SetSandboxCountersValues:4170]
+
+			</Description>
+		</EntityComponent>
+
+<!-- ==================== ROME (Gray) ==================== -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-TriggerGroup-ZoneSize-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Grow1-Rome]
+			[Triggers:WW2-Territory-Trigger-Shrink1-Rome]
+			[Triggers:WW2-Territory-Trigger-Grow2-Rome]
+			[Triggers:WW2-Territory-Trigger-Shrink2-Rome]
+			[Triggers:WW2-Territory-Trigger-Grow3-Rome]
+			[Triggers:WW2-Territory-Trigger-Shrink3-Rome]
+			[Triggers:WW2-Territory-Trigger-Grow4-Rome]
+			[Triggers:WW2-Territory-Trigger-Shrink4-Rome]
+			[Triggers:WW2-Territory-Trigger-Grow5-Rome]
+			[Triggers:WW2-Territory-Trigger-Shrink5-Rome]
+			[Triggers:WW2-Territory-Trigger-Grow6-Rome]
+			[Triggers:WW2-Territory-Trigger-Shrink6-Rome]
+			[Triggers:WW2-Territory-Trigger-PointsFloor-Rome]
+			[Triggers:WW2-Territory-Trigger-PointsCeiling-Rome]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 1->2 @ 100 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow1-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Rome]
+			[Conditions:WW2-Territory-Condition-Grow1-Rome]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink1-Rome]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow1-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Rome_Points]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink1-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Rome]
+			[Conditions:WW2-Territory-Condition-Shrink1-Rome]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow1-Rome]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink1-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Rome_Points]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 2->3 @ 325 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow2-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Rome]
+			[Conditions:WW2-Territory-Condition-Grow2-Rome]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink2-Rome]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow2-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Rome_Points]
+			[CustomSandboxCountersTargets:325]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink2-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Rome]
+			[Conditions:WW2-Territory-Condition-Shrink2-Rome]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow2-Rome]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink2-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Rome_Points]
+			[CustomSandboxCountersTargets:325]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 3->4 @ 725 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow3-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Rome]
+			[Conditions:WW2-Territory-Condition-Grow3-Rome]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink3-Rome]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow3-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Rome_Points]
+			[CustomSandboxCountersTargets:725]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink3-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Rome]
+			[Conditions:WW2-Territory-Condition-Shrink3-Rome]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow3-Rome]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink3-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Rome_Points]
+			[CustomSandboxCountersTargets:725]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 4->5 @ 1350 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow4-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Rome]
+			[Conditions:WW2-Territory-Condition-Grow4-Rome]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink4-Rome]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow4-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Rome_Points]
+			[CustomSandboxCountersTargets:1350]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink4-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Rome]
+			[Conditions:WW2-Territory-Condition-Shrink4-Rome]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow4-Rome]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink4-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Rome_Points]
+			[CustomSandboxCountersTargets:1350]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 5->6 @ 2250 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow5-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Rome]
+			[Conditions:WW2-Territory-Condition-Grow5-Rome]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink5-Rome]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow5-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Rome_Points]
+			[CustomSandboxCountersTargets:2250]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink5-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Rome]
+			[Conditions:WW2-Territory-Condition-Shrink5-Rome]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow5-Rome]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink5-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Rome_Points]
+			[CustomSandboxCountersTargets:2250]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 6->7 @ 3475 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow6-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Rome]
+			[Conditions:WW2-Territory-Condition-Grow6-Rome]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink6-Rome]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow6-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Rome_Points]
+			[CustomSandboxCountersTargets:3475]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink6-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Rome]
+			[Conditions:WW2-Territory-Condition-Shrink6-Rome]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow6-Rome]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink6-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Rome_Points]
+			[CustomSandboxCountersTargets:3475]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Shared Grow/Shrink actions + chats -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Rome_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Rome]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Rome_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Rome]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Chat-Grow-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Rome Command]
+			[Color:Blue]
+			[ChatMessages:Rome territory has expanded.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Chat-Shrink-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Rome Command]
+			[Color:Blue]
+			[ChatMessages:Rome territory has contracted.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Counter floor/ceiling -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-PointsFloor-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-PointsFloor-Rome]
+			[Conditions:WW2-Territory-Condition-PointsFloor-Rome]
+			[ConditionCheckResetsTimer:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-PointsFloor-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Rome_Points]
+			[CustomSandboxCountersTargets:-1]
+			[SandboxCounterCompareTypes:LessOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-PointsFloor-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ResetSandboxCounters:Rome_Points]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-PointsCeiling-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-PointsCeiling-Rome]
+			[Conditions:WW2-Territory-Condition-PointsCeiling-Rome]
+			[ConditionCheckResetsTimer:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-PointsCeiling-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Rome_Points]
+			[CustomSandboxCountersTargets:4170]
+			[SandboxCounterCompareTypes:Greater]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-PointsCeiling-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:Rome_Points]
+			[SetSandboxCountersValues:4170]
+
+			</Description>
+		</EntityComponent>
+
+<!-- ==================== TOULON (Green) ==================== -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-TriggerGroup-ZoneSize-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Grow1-Toulon]
+			[Triggers:WW2-Territory-Trigger-Shrink1-Toulon]
+			[Triggers:WW2-Territory-Trigger-Grow2-Toulon]
+			[Triggers:WW2-Territory-Trigger-Shrink2-Toulon]
+			[Triggers:WW2-Territory-Trigger-Grow3-Toulon]
+			[Triggers:WW2-Territory-Trigger-Shrink3-Toulon]
+			[Triggers:WW2-Territory-Trigger-Grow4-Toulon]
+			[Triggers:WW2-Territory-Trigger-Shrink4-Toulon]
+			[Triggers:WW2-Territory-Trigger-Grow5-Toulon]
+			[Triggers:WW2-Territory-Trigger-Shrink5-Toulon]
+			[Triggers:WW2-Territory-Trigger-Grow6-Toulon]
+			[Triggers:WW2-Territory-Trigger-Shrink6-Toulon]
+			[Triggers:WW2-Territory-Trigger-PointsFloor-Toulon]
+			[Triggers:WW2-Territory-Trigger-PointsCeiling-Toulon]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 1->2 @ 100 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow1-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Toulon]
+			[Conditions:WW2-Territory-Condition-Grow1-Toulon]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink1-Toulon]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow1-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Toulon_Points]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink1-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Toulon]
+			[Conditions:WW2-Territory-Condition-Shrink1-Toulon]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow1-Toulon]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink1-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Toulon_Points]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 2->3 @ 325 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow2-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Toulon]
+			[Conditions:WW2-Territory-Condition-Grow2-Toulon]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink2-Toulon]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow2-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Toulon_Points]
+			[CustomSandboxCountersTargets:325]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink2-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Toulon]
+			[Conditions:WW2-Territory-Condition-Shrink2-Toulon]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow2-Toulon]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink2-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Toulon_Points]
+			[CustomSandboxCountersTargets:325]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 3->4 @ 725 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow3-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Toulon]
+			[Conditions:WW2-Territory-Condition-Grow3-Toulon]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink3-Toulon]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow3-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Toulon_Points]
+			[CustomSandboxCountersTargets:725]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink3-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Toulon]
+			[Conditions:WW2-Territory-Condition-Shrink3-Toulon]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow3-Toulon]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink3-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Toulon_Points]
+			[CustomSandboxCountersTargets:725]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 4->5 @ 1350 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow4-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Toulon]
+			[Conditions:WW2-Territory-Condition-Grow4-Toulon]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink4-Toulon]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow4-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Toulon_Points]
+			[CustomSandboxCountersTargets:1350]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink4-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Toulon]
+			[Conditions:WW2-Territory-Condition-Shrink4-Toulon]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow4-Toulon]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink4-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Toulon_Points]
+			[CustomSandboxCountersTargets:1350]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 5->6 @ 2250 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow5-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Toulon]
+			[Conditions:WW2-Territory-Condition-Grow5-Toulon]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink5-Toulon]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow5-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Toulon_Points]
+			[CustomSandboxCountersTargets:2250]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink5-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Toulon]
+			[Conditions:WW2-Territory-Condition-Shrink5-Toulon]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow5-Toulon]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink5-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Toulon_Points]
+			[CustomSandboxCountersTargets:2250]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 6->7 @ 3475 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow6-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Toulon]
+			[Conditions:WW2-Territory-Condition-Grow6-Toulon]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink6-Toulon]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow6-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Toulon_Points]
+			[CustomSandboxCountersTargets:3475]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink6-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Toulon]
+			[Conditions:WW2-Territory-Condition-Shrink6-Toulon]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow6-Toulon]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink6-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Toulon_Points]
+			[CustomSandboxCountersTargets:3475]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Shared Grow/Shrink actions + chats -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Toulon_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Toulon]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Toulon_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Toulon]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Chat-Grow-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Toulon Command]
+			[Color:Blue]
+			[ChatMessages:Toulon territory has expanded.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Chat-Shrink-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Toulon Command]
+			[Color:Blue]
+			[ChatMessages:Toulon territory has contracted.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Counter floor/ceiling -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-PointsFloor-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-PointsFloor-Toulon]
+			[Conditions:WW2-Territory-Condition-PointsFloor-Toulon]
+			[ConditionCheckResetsTimer:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-PointsFloor-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Toulon_Points]
+			[CustomSandboxCountersTargets:-1]
+			[SandboxCounterCompareTypes:LessOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-PointsFloor-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ResetSandboxCounters:Toulon_Points]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-PointsCeiling-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-PointsCeiling-Toulon]
+			[Conditions:WW2-Territory-Condition-PointsCeiling-Toulon]
+			[ConditionCheckResetsTimer:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-PointsCeiling-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Toulon_Points]
+			[CustomSandboxCountersTargets:4170]
+			[SandboxCounterCompareTypes:Greater]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-PointsCeiling-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:Toulon_Points]
+			[SetSandboxCountersValues:4170]
+
+			</Description>
+		</EntityComponent>
+
+<!-- ==================== ORAN (Green) ==================== -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-TriggerGroup-ZoneSize-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Grow1-Oran]
+			[Triggers:WW2-Territory-Trigger-Shrink1-Oran]
+			[Triggers:WW2-Territory-Trigger-Grow2-Oran]
+			[Triggers:WW2-Territory-Trigger-Shrink2-Oran]
+			[Triggers:WW2-Territory-Trigger-Grow3-Oran]
+			[Triggers:WW2-Territory-Trigger-Shrink3-Oran]
+			[Triggers:WW2-Territory-Trigger-Grow4-Oran]
+			[Triggers:WW2-Territory-Trigger-Shrink4-Oran]
+			[Triggers:WW2-Territory-Trigger-Grow5-Oran]
+			[Triggers:WW2-Territory-Trigger-Shrink5-Oran]
+			[Triggers:WW2-Territory-Trigger-Grow6-Oran]
+			[Triggers:WW2-Territory-Trigger-Shrink6-Oran]
+			[Triggers:WW2-Territory-Trigger-PointsFloor-Oran]
+			[Triggers:WW2-Territory-Trigger-PointsCeiling-Oran]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 1->2 @ 100 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow1-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Oran]
+			[Conditions:WW2-Territory-Condition-Grow1-Oran]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink1-Oran]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow1-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Oran_Points]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink1-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Oran]
+			[Conditions:WW2-Territory-Condition-Shrink1-Oran]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow1-Oran]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink1-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Oran_Points]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 2->3 @ 325 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow2-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Oran]
+			[Conditions:WW2-Territory-Condition-Grow2-Oran]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink2-Oran]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow2-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Oran_Points]
+			[CustomSandboxCountersTargets:325]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink2-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Oran]
+			[Conditions:WW2-Territory-Condition-Shrink2-Oran]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow2-Oran]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink2-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Oran_Points]
+			[CustomSandboxCountersTargets:325]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 3->4 @ 725 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow3-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Oran]
+			[Conditions:WW2-Territory-Condition-Grow3-Oran]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink3-Oran]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow3-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Oran_Points]
+			[CustomSandboxCountersTargets:725]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink3-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Oran]
+			[Conditions:WW2-Territory-Condition-Shrink3-Oran]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow3-Oran]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink3-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Oran_Points]
+			[CustomSandboxCountersTargets:725]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 4->5 @ 1350 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow4-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Oran]
+			[Conditions:WW2-Territory-Condition-Grow4-Oran]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink4-Oran]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow4-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Oran_Points]
+			[CustomSandboxCountersTargets:1350]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink4-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Oran]
+			[Conditions:WW2-Territory-Condition-Shrink4-Oran]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow4-Oran]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink4-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Oran_Points]
+			[CustomSandboxCountersTargets:1350]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 5->6 @ 2250 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow5-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Oran]
+			[Conditions:WW2-Territory-Condition-Grow5-Oran]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink5-Oran]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow5-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Oran_Points]
+			[CustomSandboxCountersTargets:2250]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink5-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Oran]
+			[Conditions:WW2-Territory-Condition-Shrink5-Oran]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow5-Oran]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink5-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Oran_Points]
+			[CustomSandboxCountersTargets:2250]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 6->7 @ 3475 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow6-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Oran]
+			[Conditions:WW2-Territory-Condition-Grow6-Oran]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink6-Oran]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow6-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Oran_Points]
+			[CustomSandboxCountersTargets:3475]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink6-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Oran]
+			[Conditions:WW2-Territory-Condition-Shrink6-Oran]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow6-Oran]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink6-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Oran_Points]
+			[CustomSandboxCountersTargets:3475]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Shared Grow/Shrink actions + chats -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Oran_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Oran]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Oran_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Oran]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Chat-Grow-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Oran Command]
+			[Color:Blue]
+			[ChatMessages:Oran territory has expanded.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Chat-Shrink-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Oran Command]
+			[Color:Blue]
+			[ChatMessages:Oran territory has contracted.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Counter floor/ceiling -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-PointsFloor-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-PointsFloor-Oran]
+			[Conditions:WW2-Territory-Condition-PointsFloor-Oran]
+			[ConditionCheckResetsTimer:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-PointsFloor-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Oran_Points]
+			[CustomSandboxCountersTargets:-1]
+			[SandboxCounterCompareTypes:LessOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-PointsFloor-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ResetSandboxCounters:Oran_Points]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-PointsCeiling-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-PointsCeiling-Oran]
+			[Conditions:WW2-Territory-Condition-PointsCeiling-Oran]
+			[ConditionCheckResetsTimer:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-PointsCeiling-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Oran_Points]
+			[CustomSandboxCountersTargets:4170]
+			[SandboxCounterCompareTypes:Greater]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-PointsCeiling-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:Oran_Points]
+			[SetSandboxCountersValues:4170]
+
+			</Description>
+		</EntityComponent>
+
+<!-- ==================== ALEXANDRIA (Green) ==================== -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-TriggerGroup-ZoneSize-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Grow1-Alexandria]
+			[Triggers:WW2-Territory-Trigger-Shrink1-Alexandria]
+			[Triggers:WW2-Territory-Trigger-Grow2-Alexandria]
+			[Triggers:WW2-Territory-Trigger-Shrink2-Alexandria]
+			[Triggers:WW2-Territory-Trigger-Grow3-Alexandria]
+			[Triggers:WW2-Territory-Trigger-Shrink3-Alexandria]
+			[Triggers:WW2-Territory-Trigger-Grow4-Alexandria]
+			[Triggers:WW2-Territory-Trigger-Shrink4-Alexandria]
+			[Triggers:WW2-Territory-Trigger-Grow5-Alexandria]
+			[Triggers:WW2-Territory-Trigger-Shrink5-Alexandria]
+			[Triggers:WW2-Territory-Trigger-Grow6-Alexandria]
+			[Triggers:WW2-Territory-Trigger-Shrink6-Alexandria]
+			[Triggers:WW2-Territory-Trigger-PointsFloor-Alexandria]
+			[Triggers:WW2-Territory-Trigger-PointsCeiling-Alexandria]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 1->2 @ 100 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow1-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Alexandria]
+			[Conditions:WW2-Territory-Condition-Grow1-Alexandria]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink1-Alexandria]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow1-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Alexandria_Points]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink1-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Alexandria]
+			[Conditions:WW2-Territory-Condition-Shrink1-Alexandria]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow1-Alexandria]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink1-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Alexandria_Points]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 2->3 @ 325 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow2-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Alexandria]
+			[Conditions:WW2-Territory-Condition-Grow2-Alexandria]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink2-Alexandria]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow2-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Alexandria_Points]
+			[CustomSandboxCountersTargets:325]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink2-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Alexandria]
+			[Conditions:WW2-Territory-Condition-Shrink2-Alexandria]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow2-Alexandria]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink2-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Alexandria_Points]
+			[CustomSandboxCountersTargets:325]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 3->4 @ 725 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow3-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Alexandria]
+			[Conditions:WW2-Territory-Condition-Grow3-Alexandria]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink3-Alexandria]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow3-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Alexandria_Points]
+			[CustomSandboxCountersTargets:725]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink3-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Alexandria]
+			[Conditions:WW2-Territory-Condition-Shrink3-Alexandria]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow3-Alexandria]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink3-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Alexandria_Points]
+			[CustomSandboxCountersTargets:725]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 4->5 @ 1350 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow4-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Alexandria]
+			[Conditions:WW2-Territory-Condition-Grow4-Alexandria]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink4-Alexandria]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow4-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Alexandria_Points]
+			[CustomSandboxCountersTargets:1350]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink4-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Alexandria]
+			[Conditions:WW2-Territory-Condition-Shrink4-Alexandria]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow4-Alexandria]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink4-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Alexandria_Points]
+			[CustomSandboxCountersTargets:1350]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 5->6 @ 2250 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow5-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Alexandria]
+			[Conditions:WW2-Territory-Condition-Grow5-Alexandria]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink5-Alexandria]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow5-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Alexandria_Points]
+			[CustomSandboxCountersTargets:2250]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink5-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Alexandria]
+			[Conditions:WW2-Territory-Condition-Shrink5-Alexandria]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow5-Alexandria]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink5-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Alexandria_Points]
+			[CustomSandboxCountersTargets:2250]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Tier 6->7 @ 3475 -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Grow6-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusGrow-Alexandria]
+			[Conditions:WW2-Territory-Condition-Grow6-Alexandria]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink6-Alexandria]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Grow6-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Alexandria_Points]
+			[CustomSandboxCountersTargets:3475]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Shrink6-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-RadiusShrink-Alexandria]
+			[Conditions:WW2-Territory-Condition-Shrink6-Alexandria]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow6-Alexandria]
+			[ToggledProfileResetsCooldown:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-Shrink6-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Alexandria_Points]
+			[CustomSandboxCountersTargets:3475]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Shared Grow/Shrink actions + chats -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Alexandria_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Alexandria]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Alexandria_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Alexandria]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Chat-Grow-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Alexandria Command]
+			[Color:Blue]
+			[ChatMessages:Alexandria territory has expanded.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Chat-Shrink-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Alexandria Command]
+			[Color:Blue]
+			[ChatMessages:Alexandria territory has contracted.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Counter floor/ceiling -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-PointsFloor-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-PointsFloor-Alexandria]
+			[Conditions:WW2-Territory-Condition-PointsFloor-Alexandria]
+			[ConditionCheckResetsTimer:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-PointsFloor-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Alexandria_Points]
+			[CustomSandboxCountersTargets:-1]
+			[SandboxCounterCompareTypes:LessOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-PointsFloor-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ResetSandboxCounters:Alexandria_Points]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-PointsCeiling-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Territory-Action-PointsCeiling-Alexandria]
+			[Conditions:WW2-Territory-Condition-PointsCeiling-Alexandria]
+			[ConditionCheckResetsTimer:true]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-PointsCeiling-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:Alexandria_Points]
+			[CustomSandboxCountersTargets:4170]
+			[SandboxCounterCompareTypes:Greater]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-PointsCeiling-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:Alexandria_Points]
+			[SetSandboxCountersValues:4170]
+
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

@@ -2,6 +2,19 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
 
+<!-- Fighter behavior, rebuilt around measured flight data (Re2000 NPC variant, gyros 100%, no control
+     surfaces, 140-150 m/s). Findings that drive every number below:
+       - The plane's flight path follows its nose in PITCH (wing lift) but barely in YAW (about 25 deg
+         of path per 180 deg of yaw), and MES keeps planes wings-level in gravity, so horizontal
+         reversals are wide and slow.
+       - Nose rate 0.3 rad/s holds full speed. 0.6 rad/s costs about 35 m/s by a 72 deg path turn.
+         1.0 rad/s and above bleeds most of the speed (drag) and is not safe near the ground.
+       - Pitch up vs down and dive vs level starts behave the same at these rates.
+     Structure: Patrol subclass when there is no target, FighterPlane subclass in combat (no Strafe -
+     the old Fighter subclass strafes, which is meaningless for forward-thrust-only planes).
+     Three autopilot profiles are swapped by triggers: Primary = Patrol, Secondary = Approach (also
+     used after a breakaway), Tertiary = Run (attack run). See Triggers-FighterRun-Fighter.sbc. -->
+
 <!-- Behaviors -->
 	<!-- Gray Fighter Behavior -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -10,35 +23,37 @@
                 <SubtypeId>WW2-Behavior-Fighter-Gray</SubtypeId>
             </Id>
             <Description>
-			
+
 			[RivalAI Behavior]
 			[BehaviorName:Patrol]
-			
+
 			[TargetData:WW2-Targeting-Fighter]
 			[OverrideTargetData:WW2-Targeting-Fighter]
 
-			[AutopilotData:WW2-Autopilot-Fighter-A]
-			[SecondaryAutopilotData:WW2-Autopilot-Fighter-B]
-			[TertiaryAutopilotData:WW2-Autopilot-Fighter-C]
-			
+			[AutopilotData:WW2-Autopilot-Fighter-Patrol]
+			[SecondaryAutopilotData:WW2-Autopilot-Fighter-Approach]
+			[TertiaryAutopilotData:WW2-Autopilot-Fighter-Run]
+
 			[WeaponSystem:WW2-Weapons-Fighter]
-			
+
 			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Gray]
 			[Triggers:WW2-Trigger-UnStatic]
-			
+
 			[Triggers:WW2-Trigger-PatrolSwitch-Fighter]
 			[Triggers:WW2-Trigger-FighterSwitch-Fighter]
-			[Triggers:WW2-Trigger-LowAltitudeFighting]
-			[Triggers:WW2-Trigger-HighAltitudeFighting]
-			
+			[Triggers:WW2-Trigger-FighterRunStart]
+			[Triggers:WW2-Trigger-FighterRunEnd]
+			[Triggers:WW2-Trigger-FighterTargetLost]
+			[Triggers:WW2-Trigger-PatrolNextFromLast]
+
 			[Triggers:WW2-Trigger-Crash-Air]
 			[Triggers:WW2-Trigger-Compromised-Air]
 			[Triggers:WW2-Trigger-StopCrash-Air]
-			
+
 			</Description>
 		</EntityComponent>
-	
+
 	<!-- Green Fighter Behavior -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
@@ -46,34 +61,36 @@
                 <SubtypeId>WW2-Behavior-Fighter-Green</SubtypeId>
             </Id>
             <Description>
-			
+
 			[RivalAI Behavior]
 			[BehaviorName:Patrol]
-			
+
 			[TargetData:WW2-Targeting-Fighter]
 			[OverrideTargetData:WW2-Targeting-Fighter]
-			
-			[AutopilotData:WW2-Autopilot-Fighter-A]
-			[SecondaryAutopilotData:WW2-Autopilot-Fighter-B]
-			[TertiaryAutopilotData:WW2-Autopilot-Fighter-C]
-			
+
+			[AutopilotData:WW2-Autopilot-Fighter-Patrol]
+			[SecondaryAutopilotData:WW2-Autopilot-Fighter-Approach]
+			[TertiaryAutopilotData:WW2-Autopilot-Fighter-Run]
+
 			[WeaponSystem:WW2-Weapons-Fighter]
-			
+
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Green]
 			[Triggers:WW2-Trigger-UnStatic]
-			
+
 			[Triggers:WW2-Trigger-PatrolSwitch-Fighter]
 			[Triggers:WW2-Trigger-FighterSwitch-Fighter]
-			[Triggers:WW2-Trigger-LowAltitudeFighting]
-			[Triggers:WW2-Trigger-HighAltitudeFighting]
-			
+			[Triggers:WW2-Trigger-FighterRunStart]
+			[Triggers:WW2-Trigger-FighterRunEnd]
+			[Triggers:WW2-Trigger-FighterTargetLost]
+			[Triggers:WW2-Trigger-PatrolNextFromLast]
+
 			[Triggers:WW2-Trigger-Crash-Air]
 			[Triggers:WW2-Trigger-Compromised-Air]
 			[Triggers:WW2-Trigger-StopCrash-Air]
-			
+
 			</Description>
-		</EntityComponent>	
+		</EntityComponent>
 <!-- End Behaviors -->
 
 <!-- Targeting -->
@@ -83,12 +100,12 @@
 				<SubtypeId>WW2-Targeting-Fighter</SubtypeId>
 			</Id>
 			<Description>
-			
+
 			[RivalAI Target]
-      
+
 			[UseCustomTargeting:true]
 			[Target:PlayerAndGrid]
-			
+
 			[MaxDistance:10000]
 			[NonBroadcastVisualRange:8000]
 
@@ -109,165 +126,211 @@
 			[Relations:Enemy]
 
 			[GetTargetBy:ClosestDistance]
-			
+
 			</Description>
 		</EntityComponent>
 <!-- End Targeting -->
 
-<!-- Autopilots -->	
-	<!-- Fighter Autopilot for when target is outside of 6km -->
+<!-- Autopilots -->
+	<!-- Patrol (Primary): the original WW2-Autopilot-Fighter-A profile, with only the requested changes:
+	     speed 65 / 100 / 10 (was 50 / 75 / 5) and altitude 600 / 1000 / 50 (was 500 / 1000 / 50).
+	     An earlier rewrite changed six things at once (speed 120, slow-near-waypoint off, tolerance 800,
+	     wait 0, patrol offsets 5-15km, altitude 700/1200) and every patrolling plane then crashed or
+	     circled, so change patrol settings one at a time and test each.
+	     Waypoints chain from the LAST waypoint, not the spawn point: Triggers-PatrolSwitch-Fighter.sbc
+	     sets the patrol reference to the plane's own position each time it arrives at a waypoint
+	     (WW2-Trigger-PatrolNextFromLast), so each new waypoint is 1-5km from the last one and the plane
+	     wanders away from where it spawned.
+	     Known mechanisms worth remembering when editing this profile:
+	       - Curvature: the planet is only about 30km in radius and MES aims along the straight chord to
+	         each waypoint, which dips below the plane's own horizon by leg/(2R). Keep legs short. Chord
+	         sag by leg length: 3km 37m, 5km 104m, 8km 265m, 10km 414m, 15km 930m.
+	       - Orbits: flat turn radius scales with speed squared (about 550m at 140 m/s). Slowing near each
+	         waypoint (SlowDownOnWaypointApproach, down to IdealMinSpeed) shrinks the radius so the plane
+	         can arrive within WaypointTolerance; if IdealMinSpeed is raised, the turn radius can exceed
+	         the WaypointTolerance and the plane can settle into a circle around the waypoint. Tolerance was
+	         raised 100 -> 200 with the 65 m/s minimum speed. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Autopilot-Fighter-A</SubtypeId>
+				<SubtypeId>WW2-Autopilot-Fighter-Patrol</SubtypeId>
 			</Id>
 			<Description>
-			
+
 			[RivalAI Autopilot]
-			
-            [DisableInertiaDampeners:true]
-            [FlyLevelWithGravity:false]
+
+			[DisableInertiaDampeners:true]
+			[FlyLevelWithGravity:false]
 			[LevelWithGravityWhenIdle:true]
 			[UseVelocityCollisionEvasion:true]
-			
+
 			[SlowDownOnWaypointApproach:true]
 			[ExtraSlowDownDistance:100]
-			[WaypointTolerance:100]
-			
-            [IdealMinSpeed:50]
-			[IdealMaxSpeed:75]
-			[MaxSpeedTolerance:5]
-			
-			[MinimumPlanetAltitude:500]
+			[WaypointTolerance:200]
+
+			[IdealMinSpeed:65]
+			[IdealMaxSpeed:100]
+			[MaxSpeedTolerance:10]
+
+			[MinimumPlanetAltitude:600]
 			[IdealPlanetAltitude:1000]
 			[AltitudeTolerance:50]
-			
-			[LimitRotationSpeed:true]            
+
+			[LimitRotationSpeed:true]
 			[MaxRotationMagnitude:0.3]
 			[AngleAllowedForForwardThrust:180]
-			
+
 			[OffsetPlanetMinDistFromTarget:1000]
 			[OffsetPlanetMaxDistFromTarget:5000]
 			[OffsetPlanetMinTargetAltitude:800]
 			[OffsetPlanetMaxTargetAltitude:1200]
-            
-			</Description>
-		</EntityComponent>	
-	
-	<!-- Fighter Autopilot for when above 600m -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Autopilot-Fighter-B</SubtypeId>
-			</Id>
-			<Description>
-			
-			[RivalAI Autopilot]
-			
-            [DisableInertiaDampeners:true]
-            [FlyLevelWithGravity:false]
-			[LevelWithGravityWhenIdle:true]
-			[UseVelocityCollisionEvasion:true]
-			
-			[SlowDownOnWaypointApproach:true]
-			[ExtraSlowDownDistance:100]
-			[WaypointTolerance:100]
-			
-            [IdealMinSpeed:55]
-			[IdealMaxSpeed:100]
-			[MaxSpeedTolerance:5]
-			
-			[MinimumPlanetAltitude:250]
-			[IdealPlanetAltitude:1000]
-			[AltitudeTolerance:20]
-			
-			[LimitRotationSpeed:true]            
-			[MaxRotationMagnitude:0.3]
-			[AngleAllowedForForwardThrust:180]
-			
-			[AllowStrafing:true]
-			[StrafeMinDurationMs:2000]
-			[StrafeMaxDurationMs:4000]
-			
-			[UseProjectileLeadPrediction:true]
-			[EngageDistancePlanet:1000]
-			[DisengageDistancePlanet:150]
-            
+
 			</Description>
 		</EntityComponent>
 
-	<!-- Strike Autopilot for when below 600m -->		
+	<!-- Approach (Secondary): flies to an offset point 1200-1800m from the target and 900-1500m above
+	     terrain, then starts a run. Also the profile used right after a breakaway (FighterPlane picks
+	     the next offset along the plane's current velocity, so it flies through and past the target
+	     before turning).
+	     The AttackRun* values are read from this profile at the moment a run starts:
+	       - run begins within 800m of the offset point (larger than the ~550m orbit radius so the plane
+	         cannot get stuck circling it), or is forced if the plane stays within 2000m of it for 12s
+	       - the run is refused while the target is closer than the breakaway distance (400m)
+	     Old Strike* tag names were silently ignored by MES; AttackRun* are the real profile tags.
+	     2026-09-18 after first playtest (planes flew into the ground): the breakaway pull-out happens
+	     under THIS profile (the run-end trigger swaps back to it at breakaway). The nose cap stays 0.35
+	     because yaw path turning gets WORSE at higher rates (level starts, 140 m/s, thrust on, per 180
+	     deg nose swing: yaw 0.35 turned the path 116 deg, speed 89; yaw 0.6 turned it 54 deg, speed 61).
+	     Yaw does not lose altitude at either rate (-1m at 0.35, -6m at 0.6); an earlier -61m figure was
+	     a tilted-start artifact. At 0.35 the
+	     pull-out radius is about 400m, so the breakaway distance is 400m (about 130m of clearance from a
+	     40 deg dive against a surface target, after about 95m of pull-out drop and gyro spin-up).
+	     MES has no altitude hold for forward-thrust planes: altitude only recovers through the safe
+	     planet pathing climb, which starts below MinimumPlanetAltitude, so Patrol/Approach use 700 min
+	     and 1200 ideal (climb ends within 150m of ideal) for more buffer. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Autopilot-Fighter-C</SubtypeId>
+				<SubtypeId>WW2-Autopilot-Fighter-Approach</SubtypeId>
 			</Id>
 			<Description>
-			
+
 			[RivalAI Autopilot]
 
 			[DisableInertiaDampeners:true]
-            [FlyLevelWithGravity:false]
+			[FlyLevelWithGravity:false]
 			[LevelWithGravityWhenIdle:true]
 			[UseVelocityCollisionEvasion:true]
-			
-			[SlowDownOnWaypointApproach:true]
-			[ExtraSlowDownDistance:100]
+
+			[SlowDownOnWaypointApproach:false]
 			[WaypointTolerance:100]
-			
-            [IdealMinSpeed:55]
-			[IdealMaxSpeed:100]
+
+			[IdealMinSpeed:60]
+			[IdealMaxSpeed:140]
 			[MaxSpeedTolerance:5]
-			
-			[MinimumPlanetAltitude:200]
-			[AltitudeTolerance:20]
-			
-			[LimitRotationSpeed:true]            
-			[MaxRotationMagnitude:0.3]
+
+			[MinimumPlanetAltitude:700]
+			[IdealPlanetAltitude:1200]
+			[AltitudeTolerance:150]
+
+			[LimitRotationSpeed:true]
+			[MaxRotationMagnitude:0.35]
 			[AngleAllowedForForwardThrust:180]
-			
-			[AllowStrafing:true]
-			[StrafeMinDurationMs:2000]
-			[StrafeMaxDurationMs:4000]
-			
+
 			[UseProjectileLeadPrediction:true]
-			[StrikeBeginPlanetAttackRunDistance:600]
-			[StrikeBreakawayDistance:100]
-			[StrikeEngageUseSafePlanetPathing:true]
-			[StrikeEngageUseCollisionEvasion:true]
-			
-			[CollisionEvasionWaypointCalculatedAwayFromEntity:true]
-			
-			[OffsetPlanetMinDistFromTarget:800]
-			[OffsetPlanetMaxDistFromTarget:1000]
-			[OffsetPlanetMinTargetAltitude:550]
-			[OffsetPlanetMaxTargetAltitude:600]
+
+			[OffsetPlanetMinDistFromTarget:1200]
+			[OffsetPlanetMaxDistFromTarget:1800]
+			[OffsetPlanetMinTargetAltitude:900]
+			[OffsetPlanetMaxTargetAltitude:1500]
+
+			[AttackRunDistancePlanet:800]
+			[AttackRunBreakawayDistance:400]
+			[AttackRunOverrideWithDistanceAndTimer:true]
+			[AttackRunOverrideTimerTrigger:12]
+			[AttackRunOverrideDistance:2000]
+			[AttackRunUseSafePlanetPathing:true]
+			[AttackRunUseCollisionEvasionPlanet:false]
+
+			</Description>
+		</EntityComponent>
+
+	<!-- Run (Tertiary): the attack run itself. Nose cap 0.6 rad/s (measured: path radius about 220m,
+	     costs about 35 m/s by a 72 deg path turn) so the guns can track.
+	     Breakaway 400m against surface targets (the pull-out itself runs under the Approach profile at
+	     0.35 rad/s, see its note). Guns keep roughly 600m of firing window (about 4s at 140 m/s) since
+	     MaxStaticWeaponRange is 1000m. Yaw at 0.6 turns the path poorly (see Approach note), so keep
+	     runs mostly pitch-plane; tune this cap down if runs slide sideways past the target.
+	     Safe planet pathing stays on: for a flat low target the waypoint stays on the target, and it
+	     triggers an automatic climb if the plane drops below MinimumPlanetAltitude (200m). Collision
+	     evasion is off in the run because the target itself would count as the collision.
+	     AttackRunMaxTimeTrigger 10s forces a breakaway if a run drags on. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-Fighter-Run</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:true]
+			[FlyLevelWithGravity:false]
+			[LevelWithGravityWhenIdle:true]
+			[UseVelocityCollisionEvasion:true]
+
+			[SlowDownOnWaypointApproach:false]
+			[WaypointTolerance:100]
+
+			[IdealMinSpeed:60]
+			[IdealMaxSpeed:140]
+			[MaxSpeedTolerance:5]
+
+			[MinimumPlanetAltitude:200]
+			[IdealPlanetAltitude:500]
+			[AltitudeTolerance:50]
+
+			[LimitRotationSpeed:true]
+			[MaxRotationMagnitude:0.6]
+			[AngleAllowedForForwardThrust:180]
+
+			[UseProjectileLeadPrediction:true]
+
+			[AttackRunDistancePlanet:300]
+			[AttackRunBreakawayDistance:400]
+			[AttackRunMaxTimeTrigger:10]
+			[AttackRunUseSafePlanetPathing:true]
+			[AttackRunUseCollisionEvasionPlanet:false]
 
 			</Description>
 		</EntityComponent>
 <!-- End Autopilots -->
 
-<!-- Weapon Profile, basic fixed weapons -->
+<!-- Weapon Profile, fixed forward guns.
+     Static guns fire only when the waypoint is the target (or lined up with it) AND both gates pass:
+     angle between gun forward and target <= WeaponMaxAngleFromTarget (degrees), and the lateral miss
+     at target range <= WeaponMaxBaseDistanceTarget (meters). 75m lateral is about 4.3 deg at 1000m;
+     below about 714m the 6 deg gate is the tighter one. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
 				<SubtypeId>WW2-Weapons-Fighter</SubtypeId>
 			</Id>
 			<Description>
-			
+
 			[RivalAI Weapons]
-			
-            [UseStaticGuns:true]
+
+			[UseStaticGuns:true]
 			[UseTurrets:true]
-			
+
 			[MaxStaticWeaponRange:1000]
 			[WeaponMaxAngleFromTarget:6]
-			[WeaponMaxBaseDistanceTarget:25]
-			
+			[WeaponMaxBaseDistanceTarget:75]
+
 			[UseBarrageFire:false]
-			
+
 			[UseAmmoReplenish:true]
-            
+
 			</Description>
 		</EntityComponent>
 <!-- End Weapon Profile -->

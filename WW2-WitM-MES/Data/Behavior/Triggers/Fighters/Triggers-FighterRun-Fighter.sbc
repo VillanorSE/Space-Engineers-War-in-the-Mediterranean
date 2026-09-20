@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+<!-- Swaps autopilot profiles as the FighterPlane subclass moves between approach and attack run.
+     FighterPlane raises BehaviorTriggerB when a run starts and BehaviorTriggerA when it breaks away
+     (also when it re-acquires a target while waiting). Both start disabled and are enabled by
+     WW2-Action-FighterSwitch-Fighter, disabled again by WW2-Action-PatrolSwitch-Fighter. -->
+
+	<!-- Run starts: Tertiary (Run) autopilot - nose cap 0.6 rad/s so the guns can track -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-FighterRunStart</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:BehaviorTriggerB]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-FighterRunStart]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-FighterRunStart</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Action]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Tertiary]
+			</Description>
+        </EntityComponent>
+
+	<!-- Breakaway: Secondary (Approach) autopilot - nose cap 0.35 rad/s to keep speed while turning around -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-FighterRunEnd</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:BehaviorTriggerA]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-FighterRunEnd]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-FighterRunEnd</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Action]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Secondary]
+			</Description>
+        </EntityComponent>
+
+	</EntityComponents>
+</Definitions>

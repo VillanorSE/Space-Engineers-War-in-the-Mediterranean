@@ -50,6 +50,20 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-Ba65</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-FactoryPlanes.xml]
+			[MinOfferItems:1]
+			[MaxOfferItems:1]
+			[ItemsRequireInventory:false]
+			[RequiredOffers:WW2-Ba65]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
 				<SubtypeId>WW2-Store-Profile-SM79Bomber</SubtypeId>
 			</Id>
 			<Description>
@@ -244,6 +258,20 @@
 			[RequiredOffers:WW2-Vehicle-GoloFrench]
 			[RequiredOffers:WW2-Vehicle-Ju52]
 			[RequiredOffers:WW2-Vehicle-F222]
+			</Description>
+		</EntityComponent>
+	<!-- Applied with ClearStoreContentsFirst when an airfield goes back to Unowned, so it stops selling. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-Airfield-Empty</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-FactoryPlanes.xml]
+			[MinOfferItems:0]
+			[MaxOfferItems:0]
+			[ItemsRequireInventory:false]
 			</Description>
 		</EntityComponent>
 	</EntityComponents>

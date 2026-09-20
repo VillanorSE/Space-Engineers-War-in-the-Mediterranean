@@ -2,715 +2,152 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<EntityComponents>
 
-<!-- Territory zones for the 6 primary domain anchors, GVK Deserts of Kharak style
-     (Workshop 2653133286, Data/Encounters/Alliance/GVK-Alliance-Zones.sbc): 6 nested
-     [MES Zone] rings per anchor at the confirmed tier radii (Roadmap.md: 6/10/15/21/28/36km),
-     only the innermost tier Active:true at start. Ownership/growth-shrink trigger logic
-     (the GVK TriggerGroup-ZoneSize / CustomSandboxCounters pattern) is a separate,
-     not-yet-built follow-up - these zones exist and can be queried/toggled but nothing
-     currently drives them.
+<!-- Territory zones for the 6 primary domain anchors.
+     One resizable [MES Zone] per anchor (not 6 nested rings) - confirmed via MES source
+     (Helpers/Enums.cs, ModifierEnum: None/Set/Add/Subtract/Multiply/Divide) that a live zone's
+     radius can be grown/shrunk in place via ZoneRadiusChangeType:Add/Subtract, so a single zone
+     per anchor is sufficient. Starts at tier 1 (5km), grows in 5km steps up to tier 7 (35km) via
+     the Grow/Shrink triggers in Triggers-Zone-Change.sbc (WW2-WitM-MES/Data/Behavior/Triggers/
+     Ports/), driven by each anchor's own CustomSandboxCounter. Math and thresholds locked in
+     WW2-WitM-Territory-WarLevel-Design.md.
 
-     Anchor coordinates: La_Spezia/Toulon/Oran/Tripoli/Alexandria are real GPS, derived from
+     Anchor coordinates: La Spezia/Toulon/Oran/Tripoli/Alexandria are real GPS, derived from
      each port's own SpawnConditions-Ports.sbc StaticEncounterPlanetDirection/Altitude
      (direction * (30101.5 + altitude), matching build_territory_layer.py's confirmed real
-     deployed planet radius). Rome is deliberately NOT Civitavecchia's exact dock coordinate -
-     it uses the same real-world-city lat/lon estimate (41.9028, 12.4964) used throughout the
-     rest of this project's city placements, since the Rome territory anchor represents the
-     city broadly rather than the specific port structure. -->
+     deployed planet radius). Rome's coordinate WAS derived from the same real-world-city
+     lat/lon estimate (41.9028, 12.4964) used throughout the rest of this project's city
+     placements, on the assumption that projection would land it near Civitavecchia (its real
+     port) - it didn't: that math put it ~33.3km from Civitavecchia on a planet only ~60km in
+     diameter, meaning the lat/lon-to-planet-position conversion used for Rome disagrees badly
+     with the StaticEncounterPlanetDirection system the real ports use. Confirmed wrong and
+     replaced with an in-game-verified GPS point (~3.6km from Civitavecchia, matching the real
+     Rome/Civitavecchia relationship) instead of re-deriving from lat/lon. If any other city
+     placement in this project used the same lat/lon conversion as Rome originally did, it's
+     worth spot-checking those too. -->
 
-<!-- LaSpezia Territory Zones -->
+<!-- La Spezia (Gray) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-LaSpezia-6000</SubtypeId>
+				<SubtypeId>WW2-Territory-Zone-LaSpezia</SubtypeId>
 			</Id>
 			<Description>
 			[MES Zone]
-			[PublicName:LaSpezia_Zone_6000]
+			[PublicName:LaSpezia_Zone]
 			[Active:true]
 			[Persistent:true]
 			[Strict:false]
 			[Coordinates:{X:7280.0 Y:-27161.11 Z:10741.33}]
 			[NoSpawnZone:false]
-			[Radius:6000]
+			[Radius:5000]
 			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering LaSpezia Territory (6km)]
-			[ZoneLeaveAnnounce:Leaving LaSpezia Territory (6km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-LaSpezia-10000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:LaSpezia_Zone_10000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:7280.0 Y:-27161.11 Z:10741.33}]
-			[NoSpawnZone:false]
-			[Radius:10000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering LaSpezia Territory (10km)]
-			[ZoneLeaveAnnounce:Leaving LaSpezia Territory (10km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-LaSpezia-15000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:LaSpezia_Zone_15000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:7280.0 Y:-27161.11 Z:10741.33}]
-			[NoSpawnZone:false]
-			[Radius:15000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering LaSpezia Territory (15km)]
-			[ZoneLeaveAnnounce:Leaving LaSpezia Territory (15km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-LaSpezia-21000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:LaSpezia_Zone_21000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:7280.0 Y:-27161.11 Z:10741.33}]
-			[NoSpawnZone:false]
-			[Radius:21000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering LaSpezia Territory (21km)]
-			[ZoneLeaveAnnounce:Leaving LaSpezia Territory (21km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-LaSpezia-28000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:LaSpezia_Zone_28000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:7280.0 Y:-27161.11 Z:10741.33}]
-			[NoSpawnZone:false]
-			[Radius:28000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering LaSpezia Territory (28km)]
-			[ZoneLeaveAnnounce:Leaving LaSpezia Territory (28km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-LaSpezia-36000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:LaSpezia_Zone_36000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:7280.0 Y:-27161.11 Z:10741.33}]
-			[NoSpawnZone:false]
-			[Radius:36000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering LaSpezia Territory (36km)]
-			[ZoneLeaveAnnounce:Leaving LaSpezia Territory (36km)]
+			[ZoneEnterAnnounce:Entering La Spezia Territory]
+			[ZoneLeaveAnnounce:Leaving La Spezia Territory]
 			</Description>
 		</EntityComponent>
 
-<!-- Toulon Territory Zones -->
+<!-- Toulon (Green) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Toulon-6000</SubtypeId>
+				<SubtypeId>WW2-Territory-Zone-Toulon</SubtypeId>
 			</Id>
 			<Description>
 			[MES Zone]
-			[PublicName:Toulon_Zone_6000]
+			[PublicName:Toulon_Zone]
 			[Active:true]
 			[Persistent:true]
 			[Strict:false]
 			[Coordinates:{X:16857.73 Y:-24017.68 Z:6713.31}]
 			[NoSpawnZone:false]
-			[Radius:6000]
+			[Radius:5000]
 			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Toulon Territory (6km)]
-			[ZoneLeaveAnnounce:Leaving Toulon Territory (6km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Toulon-10000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Toulon_Zone_10000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:16857.73 Y:-24017.68 Z:6713.31}]
-			[NoSpawnZone:false]
-			[Radius:10000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Toulon Territory (10km)]
-			[ZoneLeaveAnnounce:Leaving Toulon Territory (10km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Toulon-15000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Toulon_Zone_15000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:16857.73 Y:-24017.68 Z:6713.31}]
-			[NoSpawnZone:false]
-			[Radius:15000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Toulon Territory (15km)]
-			[ZoneLeaveAnnounce:Leaving Toulon Territory (15km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Toulon-21000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Toulon_Zone_21000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:16857.73 Y:-24017.68 Z:6713.31}]
-			[NoSpawnZone:false]
-			[Radius:21000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Toulon Territory (21km)]
-			[ZoneLeaveAnnounce:Leaving Toulon Territory (21km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Toulon-28000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Toulon_Zone_28000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:16857.73 Y:-24017.68 Z:6713.31}]
-			[NoSpawnZone:false]
-			[Radius:28000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Toulon Territory (28km)]
-			[ZoneLeaveAnnounce:Leaving Toulon Territory (28km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Toulon-36000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Toulon_Zone_36000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:16857.73 Y:-24017.68 Z:6713.31}]
-			[NoSpawnZone:false]
-			[Radius:36000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Toulon Territory (36km)]
-			[ZoneLeaveAnnounce:Leaving Toulon Territory (36km)]
+			[ZoneEnterAnnounce:Entering Toulon Territory]
+			[ZoneLeaveAnnounce:Leaving Toulon Territory]
 			</Description>
 		</EntityComponent>
 
-<!-- Oran Territory Zones -->
+<!-- Oran (Green) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Oran-6000</SubtypeId>
+				<SubtypeId>WW2-Territory-Zone-Oran</SubtypeId>
 			</Id>
 			<Description>
 			[MES Zone]
-			[PublicName:Oran_Zone_6000]
+			[PublicName:Oran_Zone]
 			[Active:true]
 			[Persistent:true]
 			[Strict:false]
 			[Coordinates:{X:22024.69 Y:8401.97 Z:-18719.52}]
 			[NoSpawnZone:false]
-			[Radius:6000]
+			[Radius:5000]
 			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Oran Territory (6km)]
-			[ZoneLeaveAnnounce:Leaving Oran Territory (6km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Oran-10000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Oran_Zone_10000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:22024.69 Y:8401.97 Z:-18719.52}]
-			[NoSpawnZone:false]
-			[Radius:10000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Oran Territory (10km)]
-			[ZoneLeaveAnnounce:Leaving Oran Territory (10km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Oran-15000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Oran_Zone_15000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:22024.69 Y:8401.97 Z:-18719.52}]
-			[NoSpawnZone:false]
-			[Radius:15000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Oran Territory (15km)]
-			[ZoneLeaveAnnounce:Leaving Oran Territory (15km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Oran-21000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Oran_Zone_21000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:22024.69 Y:8401.97 Z:-18719.52}]
-			[NoSpawnZone:false]
-			[Radius:21000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Oran Territory (21km)]
-			[ZoneLeaveAnnounce:Leaving Oran Territory (21km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Oran-28000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Oran_Zone_28000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:22024.69 Y:8401.97 Z:-18719.52}]
-			[NoSpawnZone:false]
-			[Radius:28000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Oran Territory (28km)]
-			[ZoneLeaveAnnounce:Leaving Oran Territory (28km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Oran-36000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Oran_Zone_36000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:22024.69 Y:8401.97 Z:-18719.52}]
-			[NoSpawnZone:false]
-			[Radius:36000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Oran Territory (36km)]
-			[ZoneLeaveAnnounce:Leaving Oran Territory (36km)]
+			[ZoneEnterAnnounce:Entering Oran Territory]
+			[ZoneLeaveAnnounce:Leaving Oran Territory]
 			</Description>
 		</EntityComponent>
 
-<!-- Tripoli Territory Zones -->
+<!-- Tripoli (Gray) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Tripoli-6000</SubtypeId>
+				<SubtypeId>WW2-Territory-Zone-Tripoli</SubtypeId>
 			</Id>
 			<Description>
 			[MES Zone]
-			[PublicName:Tripoli_Zone_6000]
+			[PublicName:Tripoli_Zone]
 			[Active:true]
 			[Persistent:true]
 			[Strict:false]
 			[Coordinates:{X:-2920.1 Y:20718.51 Z:21640.62}]
 			[NoSpawnZone:false]
-			[Radius:6000]
+			[Radius:5000]
 			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Tripoli Territory (6km)]
-			[ZoneLeaveAnnounce:Leaving Tripoli Territory (6km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Tripoli-10000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Tripoli_Zone_10000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:-2920.1 Y:20718.51 Z:21640.62}]
-			[NoSpawnZone:false]
-			[Radius:10000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Tripoli Territory (10km)]
-			[ZoneLeaveAnnounce:Leaving Tripoli Territory (10km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Tripoli-15000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Tripoli_Zone_15000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:-2920.1 Y:20718.51 Z:21640.62}]
-			[NoSpawnZone:false]
-			[Radius:15000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Tripoli Territory (15km)]
-			[ZoneLeaveAnnounce:Leaving Tripoli Territory (15km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Tripoli-21000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Tripoli_Zone_21000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:-2920.1 Y:20718.51 Z:21640.62}]
-			[NoSpawnZone:false]
-			[Radius:21000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Tripoli Territory (21km)]
-			[ZoneLeaveAnnounce:Leaving Tripoli Territory (21km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Tripoli-28000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Tripoli_Zone_28000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:-2920.1 Y:20718.51 Z:21640.62}]
-			[NoSpawnZone:false]
-			[Radius:28000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Tripoli Territory (28km)]
-			[ZoneLeaveAnnounce:Leaving Tripoli Territory (28km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Tripoli-36000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Tripoli_Zone_36000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:-2920.1 Y:20718.51 Z:21640.62}]
-			[NoSpawnZone:false]
-			[Radius:36000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Tripoli Territory (36km)]
-			[ZoneLeaveAnnounce:Leaving Tripoli Territory (36km)]
+			[ZoneEnterAnnounce:Entering Tripoli Territory]
+			[ZoneLeaveAnnounce:Leaving Tripoli Territory]
 			</Description>
 		</EntityComponent>
 
-<!-- Alexandria Territory Zones -->
+<!-- Alexandria (Green) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Alexandria-6000</SubtypeId>
+				<SubtypeId>WW2-Territory-Zone-Alexandria</SubtypeId>
 			</Id>
 			<Description>
 			[MES Zone]
-			[PublicName:Alexandria_Zone_6000]
+			[PublicName:Alexandria_Zone]
 			[Active:true]
 			[Persistent:true]
 			[Strict:false]
 			[Coordinates:{X:-5782.01 Y:25876.45 Z:-14248.13}]
 			[NoSpawnZone:false]
-			[Radius:6000]
+			[Radius:5000]
 			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Alexandria Territory (6km)]
-			[ZoneLeaveAnnounce:Leaving Alexandria Territory (6km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Alexandria-10000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Alexandria_Zone_10000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:-5782.01 Y:25876.45 Z:-14248.13}]
-			[NoSpawnZone:false]
-			[Radius:10000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Alexandria Territory (10km)]
-			[ZoneLeaveAnnounce:Leaving Alexandria Territory (10km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Alexandria-15000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Alexandria_Zone_15000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:-5782.01 Y:25876.45 Z:-14248.13}]
-			[NoSpawnZone:false]
-			[Radius:15000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Alexandria Territory (15km)]
-			[ZoneLeaveAnnounce:Leaving Alexandria Territory (15km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Alexandria-21000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Alexandria_Zone_21000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:-5782.01 Y:25876.45 Z:-14248.13}]
-			[NoSpawnZone:false]
-			[Radius:21000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Alexandria Territory (21km)]
-			[ZoneLeaveAnnounce:Leaving Alexandria Territory (21km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Alexandria-28000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Alexandria_Zone_28000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:-5782.01 Y:25876.45 Z:-14248.13}]
-			[NoSpawnZone:false]
-			[Radius:28000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Alexandria Territory (28km)]
-			[ZoneLeaveAnnounce:Leaving Alexandria Territory (28km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Alexandria-36000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Alexandria_Zone_36000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:-5782.01 Y:25876.45 Z:-14248.13}]
-			[NoSpawnZone:false]
-			[Radius:36000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Alexandria Territory (36km)]
-			[ZoneLeaveAnnounce:Leaving Alexandria Territory (36km)]
+			[ZoneEnterAnnounce:Entering Alexandria Territory]
+			[ZoneLeaveAnnounce:Leaving Alexandria Territory]
 			</Description>
 		</EntityComponent>
 
-<!-- Rome Territory Zones -->
+<!-- Rome (Gray) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Rome-6000</SubtypeId>
+				<SubtypeId>WW2-Territory-Zone-Rome</SubtypeId>
 			</Id>
 			<Description>
 			[MES Zone]
-			[PublicName:Rome_Zone_6000]
+			[PublicName:Rome_Zone]
 			[Active:true]
 			[Persistent:true]
 			[Strict:false]
-			[Coordinates:{X:-22471.09 Y:180.18 Z:20027.93}]
+			[Coordinates:{X:26.83 Y:-20030.21 Z:22474.36}]
 			[NoSpawnZone:false]
-			[Radius:6000]
+			[Radius:5000]
 			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Rome Territory (6km)]
-			[ZoneLeaveAnnounce:Leaving Rome Territory (6km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Rome-10000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Rome_Zone_10000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:-22471.09 Y:180.18 Z:20027.93}]
-			[NoSpawnZone:false]
-			[Radius:10000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Rome Territory (10km)]
-			[ZoneLeaveAnnounce:Leaving Rome Territory (10km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Rome-15000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Rome_Zone_15000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:-22471.09 Y:180.18 Z:20027.93}]
-			[NoSpawnZone:false]
-			[Radius:15000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Rome Territory (15km)]
-			[ZoneLeaveAnnounce:Leaving Rome Territory (15km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Rome-21000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Rome_Zone_21000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:-22471.09 Y:180.18 Z:20027.93}]
-			[NoSpawnZone:false]
-			[Radius:21000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Rome Territory (21km)]
-			[ZoneLeaveAnnounce:Leaving Rome Territory (21km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Rome-28000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Rome_Zone_28000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:-22471.09 Y:180.18 Z:20027.93}]
-			[NoSpawnZone:false]
-			[Radius:28000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Rome Territory (28km)]
-			[ZoneLeaveAnnounce:Leaving Rome Territory (28km)]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Zone-Rome-36000</SubtypeId>
-			</Id>
-			<Description>
-			[MES Zone]
-			[PublicName:Rome_Zone_36000]
-			[Active:false]
-			[Persistent:true]
-			[Strict:false]
-			[Coordinates:{X:-22471.09 Y:180.18 Z:20027.93}]
-			[NoSpawnZone:false]
-			[Radius:36000]
-			[UseZoneAnnounce:true]
-			[ZoneEnterAnnounce:Entering Rome Territory (36km)]
-			[ZoneLeaveAnnounce:Leaving Rome Territory (36km)]
+			[ZoneEnterAnnounce:Entering Rome Territory]
+			[ZoneLeaveAnnounce:Leaving Rome Territory]
 			</Description>
 		</EntityComponent>
 

@@ -23,10 +23,6 @@ Two parallel prefab families per hull, distinguished by purpose rather than just
 
 ---
 
-## Prerequisite — Existing Grid Rebuilds
-
-All grids were rebuilt from the older version of this project to update away from legacy mods that are no longer supported.
-
 ## Current Primary Mod Dependencies 
 
 There is a full modlist for this project but the primary functional mods are listed below:
@@ -46,8 +42,7 @@ There is a full modlist for this project but the primary functional mods are lis
 - Ship Core: Workshop 3552595651
 - Mod Adjuster
 
-**To-do:**
-- [x] Configure BlockRestrictions to disable all blocks that are not to be available to players.
+**Action To-do:**
 - [x] Configure ShipCores for block limits
 - [x] Update G menu to not show empty groups or blank spaces
 - [x] Test ammo depot spawn for placement
@@ -58,20 +53,28 @@ There is a full modlist for this project but the primary functional mods are lis
 - [ ] Test faction ownership flip behavior by setting territory to proper size and testing installations.
 - [ ] Test cargo planes spawning and flying to factories.
 - [ ] Test plane offensive spawns coming from airfields.
+- [ ] Create Light Cruiser Ship Core
+- [ ] Create Heavy Cruiser Ship Core
+- [ ] Create Battleship Ship Core
+- [ ] Create Carrier Ship Core
+- [ ] Create Tank Ship Cores
 
-**Rebuilds:**
+**Build To-do List:**
+- [ ] NPC-WW2-Tramontane (Destroyer/Le Fantasque-class, Green)
+- [ ] Armored Car - AB 41
+- [ ] Armored Car - Panhard 178
+- [ ] Light Tank - L6/40
+- [ ] Light Tank - Renault R35
+- [ ] Attacker - Ba 65
+- [ ] Fighter - Dewoitine D.520
+- [ ] Battleship - Strasbourg
+- [ ] Battleship - Vittoria Veneto
 
-  **Naval:**
-  - [ ] NPC-WW2-Tramontane (Destroyer/Le Fantasque-class, Green)
-  
+**Installations:**
+- [ ] NPC-WW2-Garage (Basic garage for ground vehicles)
+- [ ] NPC-WW2-Vehicle-Depot (A vehicle depot that functions the way airports do but for ground vehicles)
+- [ ] NPC-WW2-Barracks (A basic barracks that spawns ground forces, would like more functions eventually)
 
- **Installations:**
-  - [x] NPC-WW2-Ammo-Depot
-  - [x] NPC-WW2-Hangar
-  - [x] NPC-WW2-Factory-Plane
-  - [ ] NPC-WW2-Garage (create, never actually made)
-
-- [ ] Test all MES components end-to-end to confirm baseline features (spawning, behaviors, triggers) work after the recent rebuild work.
 
 ---
 
@@ -280,13 +283,6 @@ War Level integration: Higher war levels will increase volume of ammunition, num
 - [ ] Wire contracts to these wrecks so players can recover data pads from them for a reward - MES has a real Datapad system (see the wiki's Datapad page) worth checking before building anything custom.
 - [x] Make plane spawns altitude be relative to water surface. (Didn't find a way for this, increased altitue to 1,000 instead to clear deepest water.)
 - [x] Make larger hangar variant for large attackers and bombers. 
-- [x] Build Rome port and add it to the static encounters.
-- [x] Wire in cargo ship paths for Rome.
-- [x] Build cored/purchasable versions of the planes per faction.
-- [x] Build cored/purchasable versions of the ground vehicles per faction. (Only the two trucks right now)
-- [x] Build cored/purchasable versions of some of the ships (Gabbiano, La Malouine, at least one destroyer each also)
-- [x] Fix store blocks
-- [x] **Follow-up confirmed resolved:** the Factory installations' own per-plane sale profiles (`WW2-Store-Behavior-FactoryPlaneSales.sbc`) use the identical `ApplyStoreProfiles` mechanism as the Ports. Since the real crash was `FactionTypes.sbc`, not `ApplyStoreProfiles`, Factory plane sales need no separate fix and should already work now that the root cause is resolved.
 - [x] Confirm each Port's Store block's own cargo inventory actually contains the "normal items" (ores/ingots/components/ammo/tools) intended for sale.
 - [ ] Longer-term (explicitly deferred): missions (vanilla Contract Block — check whether the Port prefabs already have one placed, same as the Store/ATM/Services Terminal) and grid-selling. Vanilla Store Blocks can sell pre-built vehicles too (a different offer type than physical inventory items) — worth its own investigation before assuming `InitNpcStoreBlock` covers it.
 - [ ] Each Port prefab already has a vanilla **Services Terminal** block placed (confirmed in La Spezia's prefab) — natively provides Grid Storage, Repair, and Salvage/scrap for any grid the interacting player owns >50% of, all with the same native reputation-scaled bonuses, zero scripting required. This is a real, already-built alternative to the earlier Faction Hangar/Grid Garage research thread, and a native implementation of the Maintenance Yard's "repair for credits" and Grinder Pit's salvage concepts — confirm it's wired/functional and cross-reference those two roadmap items rather than solving them twice.
@@ -306,11 +302,13 @@ Each primary point runs its own full copy of the GVK territory mechanism (own ne
 - **Gray:** La Spezia, Rome, Tripoli
 - **Green:** Toulon, Oran, Alexandria
 
-**Radius tiers: 6 tiers per anchor, 6/10/15/21/28/36 km.** These are great circle radii, so they are applied along the surface curve of the planet.
+**Radius tiers: 7 tiers per anchor, 5/10/15/20/25/30/35 km.** These are great circle radii, so they are applied along the surface curve of the planet.
 
 **Territory Growth**
 
-**Point award mechanism: ring-weighted** every anchor evaluates every relevant event against its own territory rings independently, and awards its own counter based on where the event falls relative to *that anchor specifically* — events within that anchor's rings 1 = 4x base value to that anchor's counter; within ring 2-3 = 3x; within ring 4-5 = 2x outside ring 5 = 1x (flat, faction-wide baseline). An event near La Spezia naturally scores high on La Spezia's counter (falls in La Spezia's inner rings), and only baseline on Rome's or Tripoli's counters (falls outside their rings), purely because each anchor is checking its own distance bands, no cross-anchor comparison is computed anywhere. Every event good for a faction nudges every anchor of that faction, weighted by that event's proximity to each one individually.
+Territory growth and shrink design is detailed in `WW2-WitM-Territory-WarLevel-Design.md`
+
+**Point award mechanism: ring-weighted** every anchor evaluates every relevant event against its own territory rings independently, and awards its own counter based on where the event falls relative to *that anchor specifically* — events within that anchor's rings 1-2 = 4x base value to that anchor's counter; within rings 3-4 = 3x; within rings 5-6 = 2x outside ring 6 = 1x (flat, faction-wide baseline). An event near La Spezia naturally scores high on La Spezia's counter (falls in La Spezia's inner rings), and only baseline on Rome's or Tripoli's counters (falls outside their rings), purely because each anchor is checking its own distance bands, no cross-anchor comparison is computed anywhere. Every event good for a faction nudges every anchor of that faction, weighted by that event's proximity to each one individually.
 
 **Facton Ownership:**
 A simple sticky-ownership system fully in XML with a per-installation `SandboxBoolean` current-owner flag and a zone-containment check against both factions:
@@ -328,8 +326,9 @@ This is specifically intended to discourage players from building bases too clos
 **To-Do**
 - [x] Measure actual in-game distances between the confirmed anchor points on the custom planet to sanity-check the 6/10/15/21/28/36 km tier progression against real anchor spacing now that the planet's terrain is essentially finished.
 - [x] Build each anchor's nested radius-tier zone definitions and paired Enable/Disable timer-trigger-condition sets (6 anchors × 6 tiers each).
-- [x] Define what actions will count towards territory growth and against it, and what threshold values each ring is set by — see `WW2-WitM-Territory-Design.md`.
-- [ ] Build the ring-weighted `CustomSandboxCounter` point-award actions per anchor (4x/3x/2x/1x by ring band) for each relevant encounter/event type, per the values locked in `WW2-WitM-Territory-Design.md`.
+- [x] Define what actions will count towards territory growth and against it, and what threshold values each ring is set by — see `WW2-WitM-Territory-WarLevel-Design.md`.
+- [ ] Rebuild the zone/threshold system to the single-resizing-zone-per-anchor, 7-tier (5/10/15/20/25/30/35km) design in `WW2-WitM-Territory-WarLevel-Design.md` §1 (supersedes the original 6-zones-per-anchor toggle approach; La Spezia's existing implementation still reflects the old design and needs rebuilding first as the template).
+- [ ] Build the ring-weighted `CustomSandboxCounter` point-award actions per anchor (4x/3x/2x/1x by ring band) for each relevant encounter/event type, per the values locked in `WW2-WitM-Territory-WarLevel-Design.md`.
 - [x] Build Gibraltar and Foggia airports and place them as static encounters.
 - [x] Place Foggia, Gibraltar, Tripoli, and Tunis airports
 - [ ] Place all remaining airport locations. 
@@ -355,26 +354,27 @@ War Level 4: 350 war activity
 War Level 5: 650 war activity
 
 War activity come from the destruction of any NPC at the following tentative rates: 
-| Grid Type |  | War Activity change|
+| Grid type | Value |
 |---|---|
-| Utility Ground | +3 |
-| Armored Car | +1 |
-| Light Tank | +2 |
-| Medium Tank | +3 |
-| Heavy Tank | +3 |
-| Utility Air | +5 |
-| Fighter | +3 |
-| Attacker | +4 |
-| Bomber | +5 |
-| Utility Naval | +10 |
-| Corvette | +5 |
-| Destroyer | +10 |
-| Cruiser | +20 |
-| Heavy Cruiser | +25 |
-| Battleship | +40 |
-| Carrier | +50 |
-| Hangar/Garage | +2 |
-| Factory | +10 |
+| Carrier | 100 |
+| Battleship | 80 |
+| Heavy Cruiser | 50 |
+| Cruiser | 40 |
+| Destroyer | 20 |
+| Submarine | 15 |
+| Corvette | 10 |
+| Utility Naval | 10 |
+| Utility Air | 5 |
+| Bomber | 5 |
+| Attacker | 4 |
+| Fighter | 3 |
+| Utility Ground | 3 |
+| Heavy Tank | 2 |
+| Medium Tank | 2 |
+| Light Tank | 1 |
+| Armored Car | 0 |
+| Factory | 10 |
+| Hangar | 2 |
 
 
 **To-Do**

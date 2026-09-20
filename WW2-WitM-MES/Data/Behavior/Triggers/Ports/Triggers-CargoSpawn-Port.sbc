@@ -23,8 +23,8 @@
 			[UseTrigger:true]
 			[Type:Timer]
 
-			[MinCooldownMs:5000]
-			[MaxCooldownMs:5001]
+			[MinCooldownMs:3600000]
+			[MaxCooldownMs:5400000]
 			[StartsReady:true]
 
 			[MaxActions:-1]
@@ -107,7 +107,7 @@
 
 			[MinCooldownMs:3600000]
 			[MaxCooldownMs:5400000]
-			[StartsReady:true]
+			[StartsReady:false]
 
 			[MaxActions:-1]
             [Actions:WW2-Action-CargoSpawn-Port-Tripoli]
@@ -311,7 +311,7 @@
 
 			[MinCooldownMs:3600000]
 			[MaxCooldownMs:5400000]
-			[StartsReady:true]
+			[StartsReady:false]
 
 			[MaxActions:-1]
             [Actions:WW2-Action-CargoSpawn-Port-Toulon-Alexandria]
@@ -376,7 +376,7 @@
 
 			[MinCooldownMs:3600000]
 			[MaxCooldownMs:5400000]
-			[StartsReady:true]
+			[StartsReady:false]
 
 			[MaxActions:-1]
             [Actions:WW2-Action-CargoSpawn-Port-Alexandria]
@@ -517,7 +517,7 @@
 
 			[MinCooldownMs:3600000]
 			[MaxCooldownMs:5400000]
-			[StartsReady:true]
+			[StartsReady:false]
 
 			[MaxActions:-1]
             [Actions:WW2-Action-CargoSpawn-Port-LaSpezia-Civitavecchia]
