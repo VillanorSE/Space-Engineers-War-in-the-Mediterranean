@@ -12,7 +12,7 @@
      a PREFIX here (ManipulationProfile.cs has RandomGridNamePrefix but no suffix equivalent) - a
      true "Gabbiano - Wreck" suffix isn't achievable via SpawnGroup/Manipulation tags without either
      editing the shared prefab's baked-in DisplayName (which would also rename the live ship) or a
-     C# mod, so the user chose the prefix as the closest available option.
+     C# mod, so the user chose the prefix as the closest available option. (Superseded 2026-09-20, see below: the pattern route does allow a suffix.)
 
      2026-09-14: reworked per user feedback on the first live La Malouine test spawn - only one gun
      showed any visible damage, and every gun looked fully built (100% BuildPercent, only hidden
@@ -36,11 +36,33 @@
      2) [Chance:100]/[MinBuildPercentage:100]/[MaxBuildPercentage:100] (uniform, invisible-looking
         damage) initially replaced with [Chance:70] + [MinBuildPercentage:10]-[MaxBuildPercentage:60]
         (~30% of guns left fully intact). Per the user, that wasn't the intent - no gun should be
-        intact - so this is now [Chance:100] + [MinBuildPercentage:5]-[MaxBuildPercentage:15]: every
+        intact - so this is now [Chance:100] + [MinBuildPercentage:15]-[MaxBuildPercentage:20]: every
         matched gun gets touched, and always ends up heavily wrecked (low but still randomized, per
         "a range of derelict effects"). IntegrityPercent stays at 1-15 (already low, and ProcessBlock
         always clamps Integrity <= Build anyway, so it never reads as inconsistent with the Build
         roll).
+
+     2026-09-20: Spica wreck added and reuses the Destroyer wreck manipulation, so 100mmSingleMain and
+     OerlikonDual (Spica's guns, both checked in its prefab) were added to WW2-Wreck-Dereliction-Destroyer-Guns.
+     Spica's 100mmMLE1931Shell and 20mmDrum are ammo props and LargeBlockConveyorSorter is a plain
+     sorter, so those stay excluded like the other hulls.
+
+     2026-09-20, later: guns read below 15 percent in-game because IntegrityPercent was still 1-15 (the
+     HUD shows integrity, not build). Switched to [UseSeparatePercentages:false] with
+     [MinPercentage:15]/[MaxPercentage:20], so ProcessBlock gives each gun the SAME random value for
+     both build and integrity (DerelictionProfile.cs). Inference from the user's report, not yet
+     confirmed in-game.
+
+     2026-09-20: gun build range raised from 5-15 to 15-20 (5-15 looked too stripped). Wreck naming
+     reworked: the old prefix-only route (else-if branch in PrefabManipulation.cs) cannot touch
+     antennas, so each wreck now uses the pattern route: [RandomGridNamePattern:Wreck] makes the
+     new name "Wreck" and it becomes the HUD text of the first antenna and first beacon (matched
+     by a name containing Antenna or Beacon, HUD text instead of block name). The grid name is
+     prefix + "Wreck" with the bare word DefaultGridName swapped for the original name (per
+     RandomNameGenerator.ProcessGridname), so wrecks now read "Gabbiano - Wreck", the suffix
+     wording originally asked for. Not yet confirmed in-game. The Golo antenna has no CustomName in
+     the prefab, so MES falls back to the block definition name (Compact Antenna), which should
+     still contain Antenna.
 
      Also added [SkinRandomBlocks:true] to each wreck's Manipulation, reskinning most of the grid to
      a mix of Heavy_Rust_Armor and Rusty_Armor (both confirmed as real vanilla skin SubtypeIds in
@@ -72,11 +94,9 @@
 			[Blocks:MyObjectBuilder_TurretControlBlock/LargeTurretControlBlock]
 			[MatchOnlyTypeId:false]
 			[Chance:100]
-			[UseSeparatePercentages:true]
-			[MinIntegrityPercentage:1]
-			[MaxIntegrityPercentage:15]
-			[MinBuildPercentage:5]
-			[MaxBuildPercentage:15]
+			[UseSeparatePercentages:false]
+			[MinPercentage:15]
+			[MaxPercentage:20]
 
 			</Description>
 		</EntityComponent>
@@ -102,7 +122,12 @@
 			[LootProfiles:WW2-Loot-Small]
 
 			[UseRandomNameGenerator:true]
-			[RandomGridNamePrefix:Wreck - ]
+			[RandomGridNamePattern:Wreck]
+			[RandomGridNamePrefix:DefaultGridName - ]
+			[ReplaceAntennaNameWithRandomizedName:Antenna]
+			[ReplaceAntennaHudTextInsteadOfName:true]
+			[ReplaceBeaconNameWithRandomizedName:Beacon]
+			[ReplaceBeaconHudTextInsteadOfName:true]
 
 			[SkinRandomBlocks:true]
 			[SkinRandomBlocksTextures:Heavy_Rust_Armor]
@@ -141,11 +166,9 @@
 			[Blocks:MyObjectBuilder_TurretControlBlock/LargeTurretControlBlock]
 			[MatchOnlyTypeId:false]
 			[Chance:100]
-			[UseSeparatePercentages:true]
-			[MinIntegrityPercentage:1]
-			[MaxIntegrityPercentage:15]
-			[MinBuildPercentage:5]
-			[MaxBuildPercentage:15]
+			[UseSeparatePercentages:false]
+			[MinPercentage:15]
+			[MaxPercentage:20]
 
 			</Description>
 		</EntityComponent>
@@ -169,7 +192,12 @@
 			[LootProfiles:WW2-Loot-Small]
 
 			[UseRandomNameGenerator:true]
-			[RandomGridNamePrefix:Wreck - ]
+			[RandomGridNamePattern:Wreck]
+			[RandomGridNamePrefix:DefaultGridName - ]
+			[ReplaceAntennaNameWithRandomizedName:Antenna]
+			[ReplaceAntennaHudTextInsteadOfName:true]
+			[ReplaceBeaconNameWithRandomizedName:Beacon]
+			[ReplaceBeaconHudTextInsteadOfName:true]
 
 			[SkinRandomBlocks:true]
 			[SkinRandomBlocksTextures:Heavy_Rust_Armor]
@@ -209,14 +237,14 @@
 			[Blocks:MyObjectBuilder_ConveyorSorter/BoforSingleRemodel]
 			[Blocks:MyObjectBuilder_ConveyorSorter/TTMK15Triple]
 			[Blocks:MyObjectBuilder_ConveyorSorter/Type96Single]
+			[Blocks:MyObjectBuilder_ConveyorSorter/100mmSingleMain]
+			[Blocks:MyObjectBuilder_ConveyorSorter/OerlikonDual]
 			[Blocks:MyObjectBuilder_TurretControlBlock/LargeTurretControlBlock]
 			[MatchOnlyTypeId:false]
 			[Chance:100]
-			[UseSeparatePercentages:true]
-			[MinIntegrityPercentage:1]
-			[MaxIntegrityPercentage:15]
-			[MinBuildPercentage:5]
-			[MaxBuildPercentage:15]
+			[UseSeparatePercentages:false]
+			[MinPercentage:15]
+			[MaxPercentage:20]
 
 			</Description>
 		</EntityComponent>
@@ -240,7 +268,12 @@
 			[LootProfiles:WW2-Loot-Small]
 
 			[UseRandomNameGenerator:true]
-			[RandomGridNamePrefix:Wreck - ]
+			[RandomGridNamePattern:Wreck]
+			[RandomGridNamePrefix:DefaultGridName - ]
+			[ReplaceAntennaNameWithRandomizedName:Antenna]
+			[ReplaceAntennaHudTextInsteadOfName:true]
+			[ReplaceBeaconNameWithRandomizedName:Beacon]
+			[ReplaceBeaconHudTextInsteadOfName:true]
 
 			[SkinRandomBlocks:true]
 			[SkinRandomBlocksTextures:Heavy_Rust_Armor]

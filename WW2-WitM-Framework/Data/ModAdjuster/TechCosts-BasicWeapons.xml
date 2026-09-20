@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tech-component costs for "BasicWeapons" ShipCore group blocks (WW2 naval AA/light weapon
      mods). Original <Components> lists reproduced in full (verified against each mod's own
-     source .sbc) with the new Military Components (PrototechFrame) appended at the END of the
-     array, after the original CriticalComponent entry. -->
+     source .sbc) with the new Military Components (PrototechFrame) placed immediately BEFORE the
+     Computer component, and CriticalComponent set to that Computer (Index 0), so the Military
+     Components are required for the block to be functional (below the functional line) and the
+     line sits at the Computer. (Changed 2026-09-20. Previously appended at the END, after the
+     source mod's own CriticalComponent, which was usually the first SteelPlate. An intermediate
+     version put it right AFTER the Computer, which the user saw as just above the line.) -->
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <CubeBlocks>
 
@@ -14,11 +18,11 @@
         <Component Subtype="Construction" Count="40" />
         <Component Subtype="LargeTube" Count="20" />
         <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="PrototechFrame" Count="4" />
         <Component Subtype="Computer" Count="30" />
         <Component Subtype="Motor" Count="10" />
         <Component Subtype="Construction" Count="20" />
         <Component Subtype="SteelPlate" Count="60" />
-        <Component Subtype="PrototechFrame" Count="4" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
@@ -31,13 +35,13 @@
         <Component Subtype="MetalGrid" Count="8" />
         <Component Subtype="LargeTube" Count="8" />
         <Component Subtype="Motor" Count="7" />
+        <Component Subtype="PrototechFrame" Count="2" />
         <Component Subtype="Computer" Count="2" />
         <Component Subtype="Construction" Count="5" />
         <Component Subtype="MetalGrid" Count="15" />
         <Component Subtype="SteelPlate" Count="25" />
-        <Component Subtype="PrototechFrame" Count="2" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
 
     <Definition xsi:type="ConveyorSorterDefinition">
@@ -47,13 +51,13 @@
         <Component Subtype="MetalGrid" Count="5" />
         <Component Subtype="LargeTube" Count="6" />
         <Component Subtype="Motor" Count="5" />
+        <Component Subtype="PrototechFrame" Count="1" />
         <Component Subtype="Computer" Count="2" />
         <Component Subtype="Construction" Count="5" />
         <Component Subtype="MetalGrid" Count="10" />
         <Component Subtype="SteelPlate" Count="20" />
-        <Component Subtype="PrototechFrame" Count="1" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
 
     <Definition xsi:type="ConveyorSorterDefinition">
@@ -63,13 +67,13 @@
         <Component Subtype="MetalGrid" Count="8" />
         <Component Subtype="LargeTube" Count="8" />
         <Component Subtype="Motor" Count="7" />
+        <Component Subtype="PrototechFrame" Count="4" />
         <Component Subtype="Computer" Count="2" />
         <Component Subtype="Construction" Count="5" />
         <Component Subtype="MetalGrid" Count="15" />
         <Component Subtype="SteelPlate" Count="25" />
-        <Component Subtype="PrototechFrame" Count="4" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
 
     <Definition xsi:type="ConveyorSorterDefinition">
@@ -79,13 +83,13 @@
         <Component Subtype="MetalGrid" Count="10" />
         <Component Subtype="LargeTube" Count="12" />
         <Component Subtype="Motor" Count="8" />
+        <Component Subtype="PrototechFrame" Count="3" />
         <Component Subtype="Computer" Count="4" />
         <Component Subtype="Construction" Count="12" />
         <Component Subtype="MetalGrid" Count="15" />
         <Component Subtype="SteelPlate" Count="45" />
-        <Component Subtype="PrototechFrame" Count="3" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
 
     <Definition xsi:type="ConveyorSorterDefinition">
@@ -95,13 +99,13 @@
         <Component Subtype="MetalGrid" Count="5" />
         <Component Subtype="LargeTube" Count="6" />
         <Component Subtype="Motor" Count="5" />
+        <Component Subtype="PrototechFrame" Count="2" />
         <Component Subtype="Computer" Count="2" />
         <Component Subtype="Construction" Count="20" />
         <Component Subtype="MetalGrid" Count="10" />
         <Component Subtype="SteelPlate" Count="25" />
-        <Component Subtype="PrototechFrame" Count="2" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
 
     <Definition xsi:type="ConveyorSorterDefinition">
@@ -111,13 +115,13 @@
         <Component Subtype="MetalGrid" Count="10" />
         <Component Subtype="LargeTube" Count="12" />
         <Component Subtype="Motor" Count="8" />
+        <Component Subtype="PrototechFrame" Count="2" />
         <Component Subtype="Computer" Count="4" />
         <Component Subtype="Construction" Count="12" />
         <Component Subtype="MetalGrid" Count="15" />
         <Component Subtype="SteelPlate" Count="45" />
-        <Component Subtype="PrototechFrame" Count="2" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
 
     <Definition xsi:type="ConveyorSorterDefinition">
@@ -127,13 +131,13 @@
         <Component Subtype="MetalGrid" Count="10" />
         <Component Subtype="LargeTube" Count="12" />
         <Component Subtype="Motor" Count="8" />
+        <Component Subtype="PrototechFrame" Count="1" />
         <Component Subtype="Computer" Count="4" />
         <Component Subtype="Construction" Count="12" />
         <Component Subtype="MetalGrid" Count="15" />
         <Component Subtype="SteelPlate" Count="45" />
-        <Component Subtype="PrototechFrame" Count="1" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
 
     <Definition xsi:type="ConveyorSorterDefinition">
@@ -143,13 +147,13 @@
         <Component Subtype="MetalGrid" Count="5" />
         <Component Subtype="LargeTube" Count="6" />
         <Component Subtype="Motor" Count="5" />
+        <Component Subtype="PrototechFrame" Count="1" />
         <Component Subtype="Computer" Count="2" />
         <Component Subtype="Construction" Count="5" />
         <Component Subtype="MetalGrid" Count="10" />
         <Component Subtype="SteelPlate" Count="20" />
-        <Component Subtype="PrototechFrame" Count="1" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
 
     <Definition xsi:type="ConveyorSorterDefinition">
@@ -159,13 +163,13 @@
         <Component Subtype="MetalGrid" Count="5" />
         <Component Subtype="LargeTube" Count="6" />
         <Component Subtype="Motor" Count="5" />
+        <Component Subtype="PrototechFrame" Count="4" />
         <Component Subtype="Computer" Count="2" />
         <Component Subtype="Construction" Count="15" />
         <Component Subtype="MetalGrid" Count="25" />
         <Component Subtype="SteelPlate" Count="50" />
-        <Component Subtype="PrototechFrame" Count="4" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
 
   </CubeBlocks>

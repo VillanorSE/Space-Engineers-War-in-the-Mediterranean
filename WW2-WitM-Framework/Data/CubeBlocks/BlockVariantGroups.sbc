@@ -25,11 +25,15 @@
             <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="WW2-Core-Naval" />
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
             <DisplayName>Naval Cores</DisplayName>
-            <Description>Ship Cores for Naval hulls: Civilian, Corvette, and Destroyer tier.</Description>
+            <Description>Ship Cores for Naval hulls: Civilian, Corvette, Destroyer, Cruiser, Heavy Cruiser, Battleship, and Carrier tier.</Description>
             <Blocks>
                 <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Naval-Utility" />
                 <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Naval-Corvette" />
                 <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Naval-Destroyer" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Naval-Cruiser" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Naval-HeavyCruiser" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Naval-Battleship" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Naval-Carrier" />
             </Blocks>
         </BlockVariantGroup>
 
@@ -47,13 +51,16 @@
         </BlockVariantGroup>
 
         <BlockVariantGroup>
-            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="WW2-Core-Wheeled" />
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="WW2-Core-Ground" />
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
             <DisplayName>Ground Cores</DisplayName>
-            <Description>Ship Cores for ground vehicles: Civilian and Armored Car tier.</Description>
+            <Description>Ship Cores for ground vehicles: Civilian, Armored Car, Light Tank, Medium Tank, and Heavy Tank tier.</Description>
             <Blocks>
-                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Wheeled-Utility" />
-                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Wheeled-ArmoredCar" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Ground-Utility" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Ground-ArmoredCar" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Ground-LightTank" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Ground-MediumTank" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Ground-HeavyTank" />
             </Blocks>
         </BlockVariantGroup>
 
@@ -61,10 +68,11 @@
             <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="WW2-Core-Installations" />
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
             <DisplayName>Installation Cores</DisplayName>
-            <Description>Ship Cores for static installations: Base and Outpost.</Description>
+            <Description>Ship Cores for static installations: Base, Outpost, and Miner.</Description>
             <Blocks>
                 <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Base" />
                 <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Outpost" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="WW2-Core-Miner" />
             </Blocks>
         </BlockVariantGroup>
     </BlockVariantGroups>

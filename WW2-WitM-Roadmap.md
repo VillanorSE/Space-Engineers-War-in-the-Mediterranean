@@ -49,14 +49,14 @@ There is a full modlist for this project but the primary functional mods are lis
 - [ ] Test CrashAir for whether it is working properly
 - [ ] Test cargo ship spawns to see if nautical paths are working properly.
 - [ ] Implement MaxWaterDepth once MES updates (for wreck spawns)
-- [ ] Calibrate all wreck spawn height offsets.
-- [ ] Test faction ownership flip behavior by setting territory to proper size and testing installations.
+- [x] Calibrate all wreck spawn height offsets.
+- [x] Test faction ownership flip behavior by setting territory to proper size and testing installations.
 - [ ] Test cargo planes spawning and flying to factories.
-- [ ] Test plane offensive spawns coming from airfields.
-- [ ] Create Light Cruiser Ship Core
-- [ ] Create Heavy Cruiser Ship Core
-- [ ] Create Battleship Ship Core
-- [ ] Create Carrier Ship Core
+- [x] Test plane offensive spawns coming from airfields. They spawn successfully though at one point I did get a bunch at once. They still fly poorly.
+- [x] Create Cruiser Ship Core
+- [x] Create Heavy Cruiser Ship Core
+- [x] Create Battleship Ship Core
+- [x] Create Carrier Ship Core
 - [ ] Create Tank Ship Cores
 
 **Build To-do List:**
@@ -327,8 +327,7 @@ This is specifically intended to discourage players from building bases too clos
 - [x] Measure actual in-game distances between the confirmed anchor points on the custom planet to sanity-check the 6/10/15/21/28/36 km tier progression against real anchor spacing now that the planet's terrain is essentially finished.
 - [x] Build each anchor's nested radius-tier zone definitions and paired Enable/Disable timer-trigger-condition sets (6 anchors × 6 tiers each).
 - [x] Define what actions will count towards territory growth and against it, and what threshold values each ring is set by — see `WW2-WitM-Territory-WarLevel-Design.md`.
-- [ ] Rebuild the zone/threshold system to the single-resizing-zone-per-anchor, 7-tier (5/10/15/20/25/30/35km) design in `WW2-WitM-Territory-WarLevel-Design.md` §1 (supersedes the original 6-zones-per-anchor toggle approach; La Spezia's existing implementation still reflects the old design and needs rebuilding first as the template).
-- [ ] Build the ring-weighted `CustomSandboxCounter` point-award actions per anchor (4x/3x/2x/1x by ring band) for each relevant encounter/event type, per the values locked in `WW2-WitM-Territory-WarLevel-Design.md`.
+- [x] Rebuild the zone/threshold system to the single-resizing-zone-per-anchor, 7-tier (5/10/15/20/25/30/35km) design in `WW2-WitM-Territory-WarLevel-Design.md` §1 (supersedes the original 6-zones-per-anchor toggle approach; La Spezia's existing implementation still reflects the old design and needs rebuilding first as the template).
 - [x] Build Gibraltar and Foggia airports and place them as static encounters.
 - [x] Place Foggia, Gibraltar, Tripoli, and Tunis airports
 - [ ] Place all remaining airport locations. 
@@ -336,7 +335,7 @@ This is specifically intended to discourage players from building bases too clos
 - [x] Build ownership change triggers and actions and add them to behavior for secondary installations.
 - [ ] Add MSB's `AreaRestriction` TriggerGroup to all installations, 1,500m radius on primary points and 500m on all other installations.
 - [ ] Playtest: confirm the AreaRestriction warning/reputation-loss cadence feels like a nudge rather than a punishment.
-- [ ] Playtest: confirm control of installation changes appropriately and triggers update to the new owner faction.
+- [x] Playtest: confirm control of installation changes appropriately and triggers update to the new owner faction.
 
 ---
 

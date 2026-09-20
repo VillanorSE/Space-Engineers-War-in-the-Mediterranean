@@ -102,7 +102,7 @@
 			<Prefab SubtypeId="NPC-WW2-Gabbiano">
 				<Position>
 					<X>0.0</X>
-					<Y>-4.0</Y>
+					<Y>-1.5</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Wreck-Passive</Behaviour>
@@ -136,7 +136,7 @@
 			<Prefab SubtypeId="NPC-WW2-La_Malouine">
 				<Position>
 					<X>0.0</X>
-					<Y>2.0</Y>
+					<Y>3.5</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Wreck-Passive</Behaviour>
@@ -147,7 +147,7 @@
 
 <!-- End Corvette Wrecks -->
 
-<!-- Destroyer Wrecks (Francesco Crispi, Comandante Margottini, Bougainville, Le Triomphant) -->
+<!-- Destroyer Wrecks (Francesco Crispi, Comandante Margottini, Bougainville, Le Triomphant, Spica) -->
 
 	<!-- Gray (Francesco Crispi) -->
 	<SpawnGroup>
@@ -174,7 +174,7 @@
 			<Prefab SubtypeId="NPC-WW2-Francesco_Crispi">
 				<Position>
 					<X>0.0</X>
-					<Y>-4.0</Y>
+					<Y>-1.5</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Wreck-Passive</Behaviour>
@@ -208,7 +208,7 @@
 			<Prefab SubtypeId="NPC-WW2-Comandante_Margottini">
 				<Position>
 					<X>0.0</X>
-					<Y>-4.0</Y>
+					<Y>-13.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Wreck-Passive</Behaviour>
@@ -242,7 +242,7 @@
 			<Prefab SubtypeId="NPC-WW2-Bougainville">
 				<Position>
 					<X>0.0</X>
-					<Y>-4.0</Y>
+					<Y>-3.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Wreck-Passive</Behaviour>
@@ -276,7 +276,41 @@
 			<Prefab SubtypeId="NPC-WW2-Le_Triomphant">
 				<Position>
 					<X>0.0</X>
-					<Y>-4.0</Y>
+					<Y>-13.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Wreck-Passive</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Gray (Spica torpedo boat, Destroyer tier). -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Spica-Wreck</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Large]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Destroyer-Wreck]
+
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Frequency>0.3</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Spica">
+				<Position>
+					<X>0.0</X>
+					<Y>-3.5</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-Wreck-Passive</Behaviour>

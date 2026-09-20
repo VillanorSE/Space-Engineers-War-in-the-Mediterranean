@@ -53,7 +53,7 @@
 ## Progression / Restriction
 
 25. **Ship Core Framework** `[CORE]` — Stage 1's core progression system; not yet added to the world mod list per the Roadmap's own to-do. Workshop ID: **3552595651**
-26. **Block Restrictions** `[REQUIRED]` `[ID?]` — confirmed by prior use on this project, works well. Scope (2026-08-21): remove non-period-correct blocks from the G-menu across vanilla + dependency mods — anachronistic weapons (overlaps with the WeaponCore lockdown scope in the Prerequisite section, but this is a hard G-menu removal rather than the soft unlock-currency gating used there), reactors, thrusters, and likely other categories TBD. Full audit not yet done.
+26. **Block Restrictions** `[REQUIRED]` — confirmed by prior use on this project, works well. Scope (2026-08-21): remove non-period-correct blocks from the G-menu across vanilla + dependency mods — anachronistic weapons (overlaps with the WeaponCore lockdown scope in the Prerequisite section, but this is a hard G-menu removal rather than the soft unlock-currency gating used there), reactors, thrusters, and likely other categories TBD. Workshop ID: **2053202808**
 
 ## First-Party (this project's own mods, not Workshop dependencies)
 

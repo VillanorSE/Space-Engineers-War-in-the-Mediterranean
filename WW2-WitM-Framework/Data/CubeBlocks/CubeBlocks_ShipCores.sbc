@@ -268,6 +268,55 @@
         <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
             <Id>
                 <TypeId>FunctionalBlock</TypeId>
+                <SubtypeId>WW2-Core-Miner</SubtypeId>
+            </Id>
+            <DisplayName>Miner Core</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
+            <Description>WW2 Encounters Ship Core: Miner Core. For static mining installations.</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\RemoteControl.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="5" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="Motor" Count="5" />
+                <Component Subtype="Computer" Count="15" />
+                <Component Subtype="InteriorPlate" Count="15" />
+                <Component Subtype="SteelPlate" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\RemoteControlConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\RemoteControlConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WW2-Core-Miner</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>30</BuildTimeSeconds>
+            <MirroringY>Z</MirroringY>
+            <Public>true</Public>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+        <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
+            <Id>
+                <TypeId>FunctionalBlock</TypeId>
                 <SubtypeId>WW2-Core-Air-Utility</SubtypeId>
             </Id>
             <DisplayName>Plane - Utility</DisplayName>
@@ -381,7 +430,7 @@
                 <Component Subtype="Motor" Count="2" />
                 <Component Subtype="Computer" Count="2" />
                 <Component Subtype="InteriorPlate" Count="8" />
-				<Component Subtype="PrototechMachinery" Count="2" />
+				<Component Subtype="PrototechFrame" Count="2" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -430,7 +479,7 @@
                 <Component Subtype="Motor" Count="4" />
                 <Component Subtype="Computer" Count="2" />
                 <Component Subtype="InteriorPlate" Count="10" />
-				<Component Subtype="PrototechMachinery" Count="6" />
+				<Component Subtype="PrototechCircuitry" Count="4" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -462,7 +511,7 @@
         <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
             <Id>
                 <TypeId>FunctionalBlock</TypeId>
-                <SubtypeId>WW2-Core-Wheeled-Utility</SubtypeId>
+                <SubtypeId>WW2-Core-Ground-Utility</SubtypeId>
             </Id>
             <DisplayName>Ground - Utility</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
@@ -493,7 +542,7 @@
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\RemoteControlConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\RemoteControlConstruction_2.mwm" />
             </BuildProgressModels>
-            <BlockPairName>WW2-Core-Wheeled-Utility</BlockPairName>
+            <BlockPairName>WW2-Core-Ground-Utility</BlockPairName>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>14</BuildTimeSeconds>
             <MirroringY>Z</MirroringY>
@@ -510,7 +559,7 @@
         <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
             <Id>
                 <TypeId>FunctionalBlock</TypeId>
-                <SubtypeId>WW2-Core-Wheeled-ArmoredCar</SubtypeId>
+                <SubtypeId>WW2-Core-Ground-ArmoredCar</SubtypeId>
             </Id>
             <DisplayName>Armored Car Core</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
@@ -541,7 +590,354 @@
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\RemoteControlConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\RemoteControlConstruction_2.mwm" />
             </BuildProgressModels>
-            <BlockPairName>WW2-Core-Wheeled-ArmoredCar</BlockPairName>
+            <BlockPairName>WW2-Core-Ground-ArmoredCar</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>14</BuildTimeSeconds>
+            <MirroringY>Z</MirroringY>
+            <Public>true</Public>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+        <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
+            <Id>
+                <TypeId>FunctionalBlock</TypeId>
+                <SubtypeId>WW2-Core-Naval-Cruiser</SubtypeId>
+            </Id>
+            <DisplayName>Cruiser Core</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
+            <Description>WW2 Encounters Ship Core: Cruiser Core. A cruiser-class combat ship with heavy armament. Requires advanced military components.</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\RemoteControl.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="Motor" Count="10" />
+                <Component Subtype="Computer" Count="25" />
+                <Component Subtype="InteriorPlate" Count="25" />
+				<Component Subtype="SteelPlate" Count="80" />
+                            <Component Subtype="PrototechCircuitry" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\RemoteControlConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\RemoteControlConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WW2-Core-Naval-Cruiser</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>30</BuildTimeSeconds>
+            <MirroringY>Z</MirroringY>
+            <Public>true</Public>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+        <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
+            <Id>
+                <TypeId>FunctionalBlock</TypeId>
+                <SubtypeId>WW2-Core-Naval-HeavyCruiser</SubtypeId>
+            </Id>
+            <DisplayName>Heavy Cruiser Core</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
+            <Description>WW2 Encounters Ship Core: Heavy Cruiser Core. Larger cruisers with the heaviest secondary armament. Requires advanced military components.</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\RemoteControl.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="Motor" Count="10" />
+                <Component Subtype="Computer" Count="25" />
+                <Component Subtype="InteriorPlate" Count="25" />
+				<Component Subtype="SteelPlate" Count="80" />
+                            <Component Subtype="PrototechCircuitry" Count="30" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\RemoteControlConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\RemoteControlConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WW2-Core-Naval-HeavyCruiser</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>30</BuildTimeSeconds>
+            <MirroringY>Z</MirroringY>
+            <Public>true</Public>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+        <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
+            <Id>
+                <TypeId>FunctionalBlock</TypeId>
+                <SubtypeId>WW2-Core-Naval-Battleship</SubtypeId>
+            </Id>
+            <DisplayName>Battleship Core</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
+            <Description>WW2 Encounters Ship Core: Battleship Core. Capital ship with the heaviest main batteries. Requires advanced military components.</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\RemoteControl.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="Motor" Count="10" />
+                <Component Subtype="Computer" Count="25" />
+                <Component Subtype="InteriorPlate" Count="25" />
+				<Component Subtype="SteelPlate" Count="80" />
+                            <Component Subtype="PrototechCircuitry" Count="40" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\RemoteControlConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\RemoteControlConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WW2-Core-Naval-Battleship</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>30</BuildTimeSeconds>
+            <MirroringY>Z</MirroringY>
+            <Public>true</Public>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+        <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
+            <Id>
+                <TypeId>FunctionalBlock</TypeId>
+                <SubtypeId>WW2-Core-Naval-Carrier</SubtypeId>
+            </Id>
+            <DisplayName>Carrier Core</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
+            <Description>WW2 Encounters Ship Core: Carrier Core. Aircraft carrier with extensive anti-aircraft armament. Requires advanced military components.</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\RemoteControl.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="Motor" Count="10" />
+                <Component Subtype="Computer" Count="25" />
+                <Component Subtype="InteriorPlate" Count="25" />
+				<Component Subtype="SteelPlate" Count="80" />
+                            <Component Subtype="PrototechCircuitry" Count="50" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\RemoteControlConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\RemoteControlConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WW2-Core-Naval-Carrier</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>30</BuildTimeSeconds>
+            <MirroringY>Z</MirroringY>
+            <Public>true</Public>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+        <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
+            <Id>
+                <TypeId>FunctionalBlock</TypeId>
+                <SubtypeId>WW2-Core-Ground-LightTank</SubtypeId>
+            </Id>
+            <DisplayName>Light Tank Core</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
+            <Description>WW2 Encounters Ship Core: Light Tank Core. A light tracked combat vehicle. Requires military components.</Description>
+            <CubeSize>Small</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\RemoteControl.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="Motor" Count="3" />
+                <Component Subtype="Computer" Count="1" />
+                <Component Subtype="InteriorPlate" Count="10" />
+                            <Component Subtype="PrototechFrame" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\RemoteControlConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\RemoteControlConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WW2-Core-Ground-LightTank</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>14</BuildTimeSeconds>
+            <MirroringY>Z</MirroringY>
+            <Public>true</Public>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+        <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
+            <Id>
+                <TypeId>FunctionalBlock</TypeId>
+                <SubtypeId>WW2-Core-Ground-MediumTank</SubtypeId>
+            </Id>
+            <DisplayName>Medium Tank Core</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
+            <Description>WW2 Encounters Ship Core: Medium Tank Core. A medium tracked combat vehicle with a heavier gun. Requires military components.</Description>
+            <CubeSize>Small</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\RemoteControl.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="Motor" Count="3" />
+                <Component Subtype="Computer" Count="1" />
+                <Component Subtype="InteriorPlate" Count="10" />
+                            <Component Subtype="PrototechFrame" Count="4" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\RemoteControlConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\RemoteControlConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WW2-Core-Ground-MediumTank</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>14</BuildTimeSeconds>
+            <MirroringY>Z</MirroringY>
+            <Public>true</Public>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+        <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
+            <Id>
+                <TypeId>FunctionalBlock</TypeId>
+                <SubtypeId>WW2-Core-Ground-HeavyTank</SubtypeId>
+            </Id>
+            <DisplayName>Heavy Tank Core</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
+            <Description>WW2 Encounters Ship Core: Heavy Tank Core. A heavily armored tracked combat vehicle. Requires advanced military components.</Description>
+            <CubeSize>Small</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\RemoteControl.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="Motor" Count="3" />
+                <Component Subtype="Computer" Count="1" />
+                <Component Subtype="InteriorPlate" Count="10" />
+                            <Component Subtype="PrototechCircuitry" Count="4" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\RemoteControlConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\RemoteControlConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WW2-Core-Ground-HeavyTank</BlockPairName>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>14</BuildTimeSeconds>
             <MirroringY>Z</MirroringY>
