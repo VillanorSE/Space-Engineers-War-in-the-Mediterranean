@@ -2,37 +2,9 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
 
-	<!-- Torpedo Boat Behaviors -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Behavior-TorpedoBoat-Gray</SubtypeId>
-            </Id>
-			<!-- Basic Gray Cargo Ship Behavior -->
-            <Description>
-			
-			[RivalAI Behavior]
-			[BehaviorName:Nautical]
-			
-			[AutopilotData:WW2-Autopilot-TorpedoBoat]
-			[SecondaryAutopilotData:WW2-Autopilot-TorpedoBoat-B]
-			[TargetData:WW2-Targeting-ShipMain]
-			
-			[WeaponSystem:WW2-Weapons-TorpedoBoat]
-			
-			[Triggers:WW2-Trigger-UnStatic]
-			[Triggers:WW2-Trigger-AggressionSwitch-Destroyer]
-			[Triggers:WW2-Trigger-PassiveSwitch-Destroyer]
-			[Triggers:WW2-Trigger-PassiveSwitchNoTarget-Destroyer]
-			[Triggers:WW2-Trigger-BotCrew-3]
-			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
-			[Triggers:WW2-Trigger-ReputationDamageHeavy-MilitaryShip-Gray]
-			
-			[TriggerGroups:WW2-TriggerGroup-Broadside]
-			
-			</Description>
-        </EntityComponent>
-	<!-- End Torpedo Boat Behaviors -->
+	<!-- Torpedo Boat: the behavior was merged into Destroyer/Corvette (Spica -> WW2-Behavior-Destroyer-Gray, Gabbiano -> WW2-Behavior-Corvette-Gray). The autopilot/weapons profiles below are currently unreferenced. -->
+
+	
 
 	<!-- Torpedo Boat Autopilots -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">

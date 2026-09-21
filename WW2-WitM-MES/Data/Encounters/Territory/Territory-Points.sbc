@@ -1,0 +1,1352 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+<!-- Territory point awards - all 6 anchors. Companion to Triggers-Zone-Change.sbc (which turns the {Anchor}_Points
+     counters into zone radius changes). GENERATED: values come from the Territory-WarLevel-Design.md event table.
+     Grid types: Carrier 100, Battleship 80, HeavyCruiser 50, Cruiser 40, Destroyer 20, Submarine 15, Corvette 10, UtilityNaval 10, UtilityAir 5, Bomber 5, Attacker 4, Fighter 3, Factory 10, Hangar 2. -->
+
+<!-- ==================== KILLS / LOSSES ====================
+     Losing a grid of type T (value b, Territory-WarLevel-Design.md 1.6/1.7): the victim faction loses b at every
+     one of its 3 anchors and the rival faction gains b at every one of ITS 3 anchors - flat, no distance factor.
+     Fires from a [Type:Compromised] trigger (once, when the grid Remote Control stops working) gated by the
+     per-grid Retired boolean, so a clean despawn / completed delivery is never scored as a kill.
+     One trigger + one action per (faction, grid type); attached to behaviors via WW2-Points-Group-{Faction}-{Type}
+     (Points-TriggerGroups.sbc). Counters floor at 0 / cap at 4170 via Triggers-Zone-Change.sbc. -->
+
+<!-- ========== Gray grid destroyed ========== -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-Carrier</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-Carrier]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-Carrier</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:100]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:100]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-Battleship</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-Battleship]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-Battleship</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:80]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:80]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-HeavyCruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-HeavyCruiser]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-HeavyCruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:50]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:50]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-Cruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-Cruiser]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-Cruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:40]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:40]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-Destroyer</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-Destroyer]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-Destroyer</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:20]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:20]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-Submarine</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-Submarine]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-Submarine</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:15]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:15]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-Corvette</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-Corvette]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-Corvette</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:10]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:10]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-UtilityNaval</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-UtilityNaval]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-UtilityNaval</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:10]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:10]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-UtilityAir</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-UtilityAir]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-UtilityAir</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:5]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:5]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-Bomber</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-Bomber]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-Bomber</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:5]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:5]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-Attacker</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-Attacker]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-Attacker</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:4]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:4]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-Fighter</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-Fighter]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-Fighter</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:3]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:3]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-Factory</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-Factory]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-Factory</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:10]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:10]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-Hangar</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-Hangar]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-Hangar</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:2]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:2]
+
+			</Description>
+		</EntityComponent>
+
+<!-- ========== Green grid destroyed ========== -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-Carrier</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-Carrier]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-Carrier</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:100]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:100]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-Battleship</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-Battleship]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-Battleship</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:80]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:80]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-HeavyCruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-HeavyCruiser]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-HeavyCruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:50]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:50]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-Cruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-Cruiser]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-Cruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:40]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:40]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-Destroyer</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-Destroyer]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-Destroyer</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:20]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:20]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-Submarine</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-Submarine]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-Submarine</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:15]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:15]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-Corvette</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-Corvette]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-Corvette</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:10]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:10]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-UtilityNaval</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-UtilityNaval]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-UtilityNaval</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:10]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:10]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-UtilityAir</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-UtilityAir]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-UtilityAir</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:5]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:5]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-Bomber</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-Bomber]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-Bomber</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:5]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:5]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-Attacker</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-Attacker]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-Attacker</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:4]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:4]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-Fighter</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-Fighter]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-Fighter</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:3]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:3]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-Factory</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-Factory]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-Factory</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:10]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:10]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-Hangar</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-Hangar]
+			[Conditions:WW2-Points-Condition-NotRetired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-Hangar</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:2]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:2]
+
+			</Description>
+		</EntityComponent>
+
+<!-- ==================== CARGO SHIP DELIVERIES ====================
+     Fixed-route ships (Paths-Nautical.sbc): on reaching the final waypoint (BehaviorTriggerD, the same event that starts
+     the unload wait) BOTH endpoint anchors of the route get +100, one-sided (no loss to the rival), and the ship is
+     marked Retired so being sunk while unloading is not scored as a kill. Civitavecchia scores for the Rome anchor. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Delivery-Gray-LaSpezia-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerD]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Delivery-Gray-LaSpezia-Tripoli]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Delivery-Gray-LaSpezia-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCountersAmount:100]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Delivery-Gray-Tripoli-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerD]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Delivery-Gray-Tripoli-LaSpezia]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Delivery-Gray-Tripoli-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCountersAmount:100]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Delivery-Gray-LaSpezia-Civitavecchia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerD]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Delivery-Gray-LaSpezia-Civitavecchia]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Delivery-Gray-LaSpezia-Civitavecchia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:100]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Delivery-Gray-Civitavecchia-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerD]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Delivery-Gray-Civitavecchia-LaSpezia]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Delivery-Gray-Civitavecchia-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCountersAmount:100]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Delivery-Green-Oran-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerD]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Delivery-Green-Oran-Toulon]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Delivery-Green-Oran-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCountersAmount:100]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Delivery-Green-Toulon-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerD]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Delivery-Green-Toulon-Oran]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Delivery-Green-Toulon-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCountersAmount:100]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Delivery-Green-Toulon-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerD]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Delivery-Green-Toulon-Alexandria]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Delivery-Green-Toulon-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:100]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Delivery-Green-Alexandria-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerD]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Delivery-Green-Alexandria-Toulon]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Delivery-Green-Alexandria-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCountersAmount:100]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+<!-- ==================== CARGO PLANE DELIVERIES ====================
+     A cargo plane destination is a factory/hangar/airfield, not an anchor, so the +20 goes to all 3 anchors of the
+     delivering faction (flat, like combat). Enabled by WW2-Action-CargoPlane-Destination when the plane is given its
+     destination; fires on BehaviorTriggerA (arrival), the same event that starts the loiter. One-sided. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Delivery-CargoPlane-Gray</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:BehaviorTriggerA]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Delivery-CargoPlane-Gray]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Delivery-CargoPlane-Gray</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:20]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Delivery-CargoPlane-Green</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:BehaviorTriggerA]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Delivery-CargoPlane-Green]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Delivery-CargoPlane-Green</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:20]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

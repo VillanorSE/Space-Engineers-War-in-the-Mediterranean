@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+<!-- Territory / War Level points trigger groups. GENERATED. -->
+
+<!-- Points trigger groups. Add ONE line to a behavior to make that NPC score:
+       [TriggerGroups:WW2-Points-Group-{Gray|Green}-{Type}]
+     Types: Carrier, Battleship, HeavyCruiser, Cruiser, Destroyer, Submarine, Corvette, UtilityNaval, UtilityAir, Bomber, Attacker, Fighter, Factory, Hangar.
+     Each group = the faction+type territory kill trigger, the type War Activity triggers (first attack, kill,
+     a one-way War Activity increase), and the shared Retire triggers. Cargo ships and
+     planes additionally get their delivery triggers listed directly on their behaviors. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-Carrier</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-Carrier]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Carrier]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Carrier]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-Battleship</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-Battleship]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Battleship]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Battleship]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-HeavyCruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-HeavyCruiser]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-HeavyCruiser]
+			[Triggers:WW2-WarLevel-Trigger-Kill-HeavyCruiser]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-Cruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-Cruiser]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Cruiser]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Cruiser]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-Destroyer</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-Destroyer]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Destroyer]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Destroyer]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-Submarine</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-Submarine]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Submarine]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Submarine]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-Corvette</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-Corvette]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Corvette]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Corvette]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-UtilityNaval</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-UtilityNaval]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-UtilityNaval]
+			[Triggers:WW2-WarLevel-Trigger-Kill-UtilityNaval]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-UtilityAir</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-UtilityAir]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-UtilityAir]
+			[Triggers:WW2-WarLevel-Trigger-Kill-UtilityAir]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-Bomber</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-Bomber]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Bomber]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Bomber]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-Attacker</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-Attacker]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Attacker]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Attacker]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-Fighter</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-Fighter]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Fighter]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Fighter]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-Factory</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-Factory]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Factory]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Factory]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-Hangar</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-Hangar]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Hangar]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Hangar]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-Carrier</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Green-Carrier]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Carrier]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Carrier]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-Battleship</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Green-Battleship]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Battleship]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Battleship]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-HeavyCruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Green-HeavyCruiser]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-HeavyCruiser]
+			[Triggers:WW2-WarLevel-Trigger-Kill-HeavyCruiser]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-Cruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Green-Cruiser]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Cruiser]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Cruiser]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-Destroyer</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Green-Destroyer]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Destroyer]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Destroyer]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-Submarine</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Green-Submarine]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Submarine]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Submarine]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-Corvette</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Green-Corvette]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Corvette]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Corvette]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-UtilityNaval</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Green-UtilityNaval]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-UtilityNaval]
+			[Triggers:WW2-WarLevel-Trigger-Kill-UtilityNaval]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-UtilityAir</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Green-UtilityAir]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-UtilityAir]
+			[Triggers:WW2-WarLevel-Trigger-Kill-UtilityAir]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-Bomber</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Green-Bomber]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Bomber]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Bomber]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-Attacker</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Green-Attacker]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Attacker]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Attacker]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-Fighter</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Green-Fighter]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Fighter]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Fighter]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-Factory</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Green-Factory]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Factory]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Factory]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-Hangar</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Territory-Trigger-Kill-Green-Hangar]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Hangar]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Hangar]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+
+			</Description>
+		</EntityComponent>
+
+<!-- War Level threshold groups - attach to port behaviors (see War-Level-Points.sbc for the Silent/Announce split). -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-TriggerGroup-Thresholds</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-WarLevel-Trigger-Up2]
+			[Triggers:WW2-WarLevel-Trigger-Down2]
+			[Triggers:WW2-WarLevel-Trigger-Up3]
+			[Triggers:WW2-WarLevel-Trigger-Down3]
+			[Triggers:WW2-WarLevel-Trigger-Up4]
+			[Triggers:WW2-WarLevel-Trigger-Down4]
+			[Triggers:WW2-WarLevel-Trigger-Up5]
+			[Triggers:WW2-WarLevel-Trigger-Down5]
+			[Triggers:WW2-WarLevel-Trigger-ActivityFloor]
+			[Triggers:WW2-WarLevel-Trigger-ActivityCeiling]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-TriggerGroup-Thresholds-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-WarLevel-Trigger-Up2-Announce]
+			[Triggers:WW2-WarLevel-Trigger-Down2-Announce]
+			[Triggers:WW2-WarLevel-Trigger-Up3-Announce]
+			[Triggers:WW2-WarLevel-Trigger-Down3-Announce]
+			[Triggers:WW2-WarLevel-Trigger-Up4-Announce]
+			[Triggers:WW2-WarLevel-Trigger-Down4-Announce]
+			[Triggers:WW2-WarLevel-Trigger-Up5-Announce]
+			[Triggers:WW2-WarLevel-Trigger-Down5-Announce]
+			[Triggers:WW2-WarLevel-Trigger-ActivityFloor]
+			[Triggers:WW2-WarLevel-Trigger-ActivityCeiling]
+
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

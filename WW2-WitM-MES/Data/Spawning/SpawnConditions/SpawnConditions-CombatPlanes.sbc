@@ -3,6 +3,7 @@
 	<EntityComponents>
 
 <!-- Spawn Conditions for Fighters to be Rival AI only spawns -->
+<!-- SkipVoxelSpawnChecks: the spawn point is random open air; a non-planet voxel map (wreck, asteroid) bounding box around it would fail OtherNPC placement ("Path/Placement Invalid"). -->
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
@@ -19,6 +20,7 @@
 			
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]
+				[SkipVoxelSpawnChecks:true]
 			[UsePlayerCountCheck:true]
 			[MinimumPlayers:1]
 			

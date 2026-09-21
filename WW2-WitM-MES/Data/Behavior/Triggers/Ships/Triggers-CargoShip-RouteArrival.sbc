@@ -26,9 +26,9 @@
      5-minute unload wait, then despawn in place instead of letting MES's own silent despawn logic
      carry it away first.
 
-     Territory delivery point award (+60, WW2-WitM-Territory-Design.md) is NOT wired in yet - that
-     needs the multi-anchor ring-weighted point system, which is still pending. The natural place
-     to add it is WW2-Territory-Action-CargoShip-FinishUnload, right before ForceDespawn.
+     Delivery scoring: NOT in this file. Each route Behavior in Paths-Nautical.sbc also lists its own
+     WW2-Territory-Trigger-Delivery-{Route} (+100 to both endpoint anchors, Territory-Points.sbc), which fires on
+     this same BehaviorTriggerD arrival event alongside WW2-Territory-Trigger-CargoShip-RouteArrived below.
 
      Gravity/roll-over note: does NOT use DisableAutopilot on arrival. Per MES source
      (Behavior/Subsystems/AutoPilot/AutoPilotSystem.cs), DisableAutopilot calls

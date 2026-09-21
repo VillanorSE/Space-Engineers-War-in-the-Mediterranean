@@ -12,6 +12,7 @@
 			
 			[RivalAI Behavior]
 			[BehaviorName:Nautical]
+			[TriggerGroups:WW2-Points-Group-Gray-HeavyCruiser]
 			
 			[AutopilotData:WW2-Autopilot-Cruiser-Gray]
 			[SecondaryAutopilotData:WW2-Autopilot-Cruiser-GrayB]
@@ -41,6 +42,7 @@
 			
 			[RivalAI Behavior]
 			[BehaviorName:Nautical]
+			[TriggerGroups:WW2-Points-Group-Green-Cruiser]
 			
 			[AutopilotData:WW2-Autopilot-Cruiser-Green]
 			[SecondaryAutopilotData:WW2-Autopilot-Cruiser-GreenB]
@@ -55,6 +57,67 @@
 			[Triggers:WW2-Trigger-BotCrew-5]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[Triggers:WW2-Trigger-ReputationDamageHeavy-MilitaryShip-Green]
+			
+			[TriggerGroups:WW2-TriggerGroup-Broadside]
+			
+			</Description>
+        </EntityComponent>
+
+	<!-- Heavy Cruiser Behaviors: copy of the Cruiser behavior; the only difference so far is the HeavyCruiser points group (Algerie = Heavy Cruiser, 50). -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-HeavyCruiser-Green</SubtypeId>
+            </Id>
+            <Description>
+			
+			[RivalAI Behavior]
+			[BehaviorName:Nautical]
+			[TriggerGroups:WW2-Points-Group-Green-HeavyCruiser]
+			
+			[AutopilotData:WW2-Autopilot-Cruiser-Green]
+			[SecondaryAutopilotData:WW2-Autopilot-Cruiser-GreenB]
+			[TargetData:WW2-Targeting-ShipMain]
+			
+			[WeaponSystem:WW2-Weapons-Cruiser]
+			
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-AggressionSwitch-Cruiser]
+			[Triggers:WW2-Trigger-PassiveSwitch-Cruiser]
+			[Triggers:WW2-Trigger-PassiveSwitchNoTarget-Cruiser]
+			[Triggers:WW2-Trigger-BotCrew-5]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-MilitaryShip-Green]
+			
+			[TriggerGroups:WW2-TriggerGroup-Broadside]
+			
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-HeavyCruiser-Gray</SubtypeId>
+            </Id>
+            <Description>
+			
+			[RivalAI Behavior]
+			[BehaviorName:Nautical]
+			[TriggerGroups:WW2-Points-Group-Gray-HeavyCruiser]
+			
+			[AutopilotData:WW2-Autopilot-Cruiser-Gray]
+			[SecondaryAutopilotData:WW2-Autopilot-Cruiser-GrayB]
+			[TargetData:WW2-Targeting-ShipMain]
+			
+			[WeaponSystem:WW2-Weapons-Cruiser]
+			
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-AggressionSwitch-Cruiser]
+			[Triggers:WW2-Trigger-PassiveSwitch-Cruiser]
+			[Triggers:WW2-Trigger-PassiveSwitchNoTarget-Cruiser]
+			[Triggers:WW2-Trigger-BotCrew-5]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-MilitaryShip-Gray]
 			
 			[TriggerGroups:WW2-TriggerGroup-Broadside]
 			

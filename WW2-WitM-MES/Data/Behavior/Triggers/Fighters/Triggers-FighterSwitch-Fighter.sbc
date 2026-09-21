@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
-<!-- Trigger to switch to combat when a target is within 6km -->
+<!-- Trigger to switch to combat when a target is near. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -17,9 +17,7 @@
 			[Actions:WW2-Action-FighterSwitch-Fighter]
 			</Description>
         </EntityComponent>
-	<!-- Switches to the FighterPlane subclass (attack runs with forward thrust, no strafing) and the
-	     Approach autopilot, enables the run/breakaway profile-swap triggers and the patrol switch,
-	     turns off this trigger -->
+	<!-- Switches to the FighterPlane combat subclass and the Approach autopilot. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>

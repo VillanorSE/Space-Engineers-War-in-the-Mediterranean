@@ -1,0 +1,2085 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+<!-- War Level points - the single global WarActivity counter and the WarLevel (1-5) it drives. GENERATED from Territory-WarLevel-Design.md section 2. -->
+
+<!-- ==================== SHARED CONDITIONS / RETIRE ====================
+     Per-grid booleans (stored on the grid own Remote Control, so every NPC tracks its own):
+       Attacked - set by the first-damage trigger; that grid War Activity has been counted once already.
+       Retired  - the grid left the war cleanly (despawned, delivered, or already counted as killed).
+     Retire triggers exist so a grid that despawns or finishes a delivery is never scored as a kill when its Remote
+     Control closes. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Condition-NotRetired</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckFalseBooleans:true]
+			[FalseBooleans:Retired]
+			[AllowAnyFalseBoolean:false]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Condition-NotRetiredNotAttacked</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckFalseBooleans:true]
+			[FalseBooleans:Retired]
+			[FalseBooleans:Attacked]
+			[AllowAnyFalseBoolean:false]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Action-Retire</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Trigger-Retire-Despawn</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Despawn]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Points-Action-Retire]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Trigger-Retire-DespawnMES</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:DespawnMES]
+			[DespawnTypeFromSpawner:Any]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Points-Action-Retire]
+
+			</Description>
+		</EntityComponent>
+
+<!-- ==================== WAR ACTIVITY BY GRID TYPE ====================
+     WarActivity only goes UP (one-way): when an NPC is FIRST attacked (once per grid) or destroyed without ever
+     having been attacked. Same value table as Territory (design 2.3). Nothing subtracts it (no clean-despawn or
+     delivery decrease); it only drops if the counter is edited by hand for testing. Not per faction - the war is
+     global - so these are shared by both factions groups. Types with value 0 (armored car) are deliberately
+     absent: an Increase amount of 0 would RESET the counter instead of doing nothing. -->
+
+<!-- Carrier (100) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-Carrier</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-Carrier]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-Carrier</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:100]
+			[SetBooleansTrue:Attacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-Carrier</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-Carrier]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-Carrier</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:100]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Battleship (80) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-Battleship</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-Battleship]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-Battleship</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:80]
+			[SetBooleansTrue:Attacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-Battleship</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-Battleship]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-Battleship</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:80]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+<!-- HeavyCruiser (50) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-HeavyCruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-HeavyCruiser]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-HeavyCruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:50]
+			[SetBooleansTrue:Attacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-HeavyCruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-HeavyCruiser]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-HeavyCruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:50]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Cruiser (40) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-Cruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-Cruiser]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-Cruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:40]
+			[SetBooleansTrue:Attacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-Cruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-Cruiser]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-Cruiser</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:40]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Destroyer (20) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-Destroyer</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-Destroyer]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-Destroyer</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:20]
+			[SetBooleansTrue:Attacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-Destroyer</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-Destroyer]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-Destroyer</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:20]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Submarine (15) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-Submarine</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-Submarine]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-Submarine</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:15]
+			[SetBooleansTrue:Attacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-Submarine</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-Submarine]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-Submarine</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:15]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Corvette (10) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-Corvette</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-Corvette]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-Corvette</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:10]
+			[SetBooleansTrue:Attacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-Corvette</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-Corvette]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-Corvette</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:10]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+<!-- UtilityNaval (10) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-UtilityNaval</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-UtilityNaval]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-UtilityNaval</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:10]
+			[SetBooleansTrue:Attacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-UtilityNaval</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-UtilityNaval]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-UtilityNaval</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:10]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+<!-- UtilityAir (5) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-UtilityAir</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-UtilityAir]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-UtilityAir</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:5]
+			[SetBooleansTrue:Attacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-UtilityAir</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-UtilityAir]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-UtilityAir</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:5]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Bomber (5) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-Bomber</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-Bomber]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-Bomber</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:5]
+			[SetBooleansTrue:Attacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-Bomber</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-Bomber]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-Bomber</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:5]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Attacker (4) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-Attacker</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-Attacker]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-Attacker</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:4]
+			[SetBooleansTrue:Attacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-Attacker</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-Attacker]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-Attacker</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:4]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Fighter (3) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-Fighter</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-Fighter]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-Fighter</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:3]
+			[SetBooleansTrue:Attacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-Fighter</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-Fighter]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-Fighter</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:3]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Factory (10) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-Factory</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-Factory]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-Factory</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:10]
+			[SetBooleansTrue:Attacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-Factory</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-Factory]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-Factory</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:10]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Hangar (2) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-Hangar</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-Hangar]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-Hangar</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:2]
+			[SetBooleansTrue:Attacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-Hangar</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-Hangar]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-Hangar</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:2]
+			[SetBooleansTrue:Retired]
+
+			</Description>
+		</EntityComponent>
+
+<!-- ==================== WAR LEVEL THRESHOLDS ====================
+     WarLevel (1-5, unset = 1) follows WarActivity (the Down pairs exist only so a hand-edited counter can lower it): 2 @ 100, 3 @ 200, 4 @ 400, 5 @ 700 (design 2.2). Same Timer +
+     Condition + ToggleWithTriggerProfile pair-per-boundary pattern as the territory zone tiers, so crossing a
+     boundary is a one-shot set, not a repeat. Conditions only ever test WarActivity (never WarLevel itself): MES
+     sandbox-counter conditions FAIL for a counter that has never been set, and WarLevel is unset until the first
+     rise. Level 1 therefore needs no gate anywhere; gate level N with WarLevel >= N (N >= 2).
+     Every port runs the SILENT group (sets WarLevel idempotently), so thresholds are tracked wherever a player
+     is; only the Civitavecchia port also runs the ANNOUNCE group (same pairs + chat), so each change is announced
+     once instead of six times. Floor 0 / ceiling 840 for WarActivity, same idea as the territory counters. -->
+
+<!-- ==== Silent variant ==== -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Up2</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Down2]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelUp2]
+			[Conditions:WW2-WarLevel-Condition-Up2]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Down2</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Up2]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelDown2]
+			[Conditions:WW2-WarLevel-Condition-Down2]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelUp2</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:2]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelDown2</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:1]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Up3</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Down3]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelUp3]
+			[Conditions:WW2-WarLevel-Condition-Up3]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Down3</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Up3]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelDown3]
+			[Conditions:WW2-WarLevel-Condition-Down3]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelUp3</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:3]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelDown3</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:2]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Up4</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Down4]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelUp4]
+			[Conditions:WW2-WarLevel-Condition-Up4]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Down4</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Up4]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelDown4]
+			[Conditions:WW2-WarLevel-Condition-Down4]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelUp4</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:4]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelDown4</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:3]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Up5</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Down5]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelUp5]
+			[Conditions:WW2-WarLevel-Condition-Up5]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Down5</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Up5]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelDown5]
+			[Conditions:WW2-WarLevel-Condition-Down5]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelUp5</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:5]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelDown5</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:4]
+
+			</Description>
+		</EntityComponent>
+
+<!-- ==== Announce variant ==== -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Up2-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Down2-Announce]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelUp2-Announce]
+			[Conditions:WW2-WarLevel-Condition-Up2]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Down2-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Up2-Announce]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelDown2-Announce]
+			[Conditions:WW2-WarLevel-Condition-Down2]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelUp2-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:2]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-WarLevel-Chat-Up2]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelDown2-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:1]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-WarLevel-Chat-Down2]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Up3-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Down3-Announce]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelUp3-Announce]
+			[Conditions:WW2-WarLevel-Condition-Up3]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Down3-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Up3-Announce]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelDown3-Announce]
+			[Conditions:WW2-WarLevel-Condition-Down3]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelUp3-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:3]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-WarLevel-Chat-Up3]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelDown3-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:2]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-WarLevel-Chat-Down3]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Up4-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Down4-Announce]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelUp4-Announce]
+			[Conditions:WW2-WarLevel-Condition-Up4]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Down4-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Up4-Announce]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelDown4-Announce]
+			[Conditions:WW2-WarLevel-Condition-Down4]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelUp4-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:4]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-WarLevel-Chat-Up4]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelDown4-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:3]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-WarLevel-Chat-Down4]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Up5-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Down5-Announce]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelUp5-Announce]
+			[Conditions:WW2-WarLevel-Condition-Up5]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Down5-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Up5-Announce]
+			[ToggledProfileResetsCooldown:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-LevelDown5-Announce]
+			[Conditions:WW2-WarLevel-Condition-Down5]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelUp5-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:5]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-WarLevel-Chat-Up5]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-LevelDown5-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarLevel]
+			[SetSandboxCountersValues:4]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-WarLevel-Chat-Down5]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Up2</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Down2</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Chat-Up2</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:War Ministry]
+			[Color:Red]
+			[ChatMessages:The war has escalated. War Level 2.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:false]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Chat-Down2</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:War Ministry]
+			[Color:Red]
+			[ChatMessages:The fighting has eased. War Level 1.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:false]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Up3</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:200]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Down3</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:200]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Chat-Up3</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:War Ministry]
+			[Color:Red]
+			[ChatMessages:The war has escalated. War Level 3.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:false]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Chat-Down3</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:War Ministry]
+			[Color:Red]
+			[ChatMessages:The fighting has eased. War Level 2.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:false]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Up4</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:400]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Down4</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:400]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Chat-Up4</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:War Ministry]
+			[Color:Red]
+			[ChatMessages:The war has escalated. War Level 4.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:false]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Chat-Down4</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:War Ministry]
+			[Color:Red]
+			[ChatMessages:The fighting has eased. War Level 3.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:false]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Up5</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:700]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Down5</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:700]
+			[SandboxCounterCompareTypes:Less]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Chat-Up5</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:War Ministry]
+			[Color:Red]
+			[ChatMessages:The war has escalated. War Level 5.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:false]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Chat-Down5</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:War Ministry]
+			[Color:Red]
+			[ChatMessages:The fighting has eased. War Level 4.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:false]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+
+<!-- WarActivity floor / ceiling -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-ActivityFloor</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-ActivityFloor]
+			[Conditions:WW2-WarLevel-Condition-ActivityFloor]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-ActivityFloor</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:-1]
+			[SandboxCounterCompareTypes:LessOrEqual]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-ActivityFloor</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ResetSandboxCounters:WarActivity]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-ActivityCeiling</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[ConditionCheckResetsTimer:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-WarLevel-Action-ActivityCeiling]
+			[Conditions:WW2-WarLevel-Condition-ActivityCeiling]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-ActivityCeiling</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:840]
+			[SandboxCounterCompareTypes:Greater]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-ActivityCeiling</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxCounters:WarActivity]
+			[SetSandboxCountersValues:840]
+
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

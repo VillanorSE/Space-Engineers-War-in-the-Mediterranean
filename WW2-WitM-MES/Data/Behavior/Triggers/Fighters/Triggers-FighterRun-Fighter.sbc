@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
-<!-- Swaps autopilot profiles as the FighterPlane subclass moves between approach and attack run.
-     FighterPlane raises BehaviorTriggerB when a run starts and BehaviorTriggerA when it breaks away
-     (also when it re-acquires a target while waiting). Both start disabled and are enabled by
-     WW2-Action-FighterSwitch-Fighter, disabled again by WW2-Action-PatrolSwitch-Fighter. -->
+<!-- Swaps autopilot profiles when a run starts and at breakaway. -->
 
-	<!-- Run starts: Tertiary (Run) autopilot - nose cap 0.6 rad/s so the guns can track -->
+	<!-- Run starts: switch to the Run autopilot. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -33,7 +30,7 @@
 			</Description>
         </EntityComponent>
 
-	<!-- Breakaway: Secondary (Approach) autopilot - nose cap 0.35 rad/s to keep speed while turning around -->
+	<!-- Breakaway: switch back to the Approach autopilot. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
