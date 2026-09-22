@@ -30,6 +30,66 @@
 
 		</Description>
 	</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Fighters-WL3</SubtypeId>
+		</Id>
+		<Description>
+		
+			[MES Spawn Conditions]
+			
+			[RivalAiSpawn:true]
+			
+			[RotateFirstCockpitToForward:true]
+			[ReplenishSystems:true]
+			
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+				[SkipVoxelSpawnChecks:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			
+			[IgnoreCombatPhase:true]
+			[IgnoreShieldProviderMod:true]
+			[IgnoreWeaponRandomizerMod:true]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+</Description>
+	</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Fighters-WL2</SubtypeId>
+		</Id>
+		<Description>
+		
+			[MES Spawn Conditions]
+			
+			[RivalAiSpawn:true]
+			
+			[RotateFirstCockpitToForward:true]
+			[ReplenishSystems:true]
+			
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+				[SkipVoxelSpawnChecks:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			
+			[IgnoreCombatPhase:true]
+			[IgnoreShieldProviderMod:true]
+			[IgnoreWeaponRandomizerMod:true]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+</Description>
+	</EntityComponent>
 
 	</EntityComponents>
 </Definitions>

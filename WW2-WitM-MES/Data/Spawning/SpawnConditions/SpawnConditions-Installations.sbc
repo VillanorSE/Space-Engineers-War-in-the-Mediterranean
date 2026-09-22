@@ -27,6 +27,62 @@
 
 		</Description>
 	</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Installations-WL3</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[RivalAiPlanetaryInstallation:true]
+
+			[InstallationSpawnsOnDryLand:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+</Description>
+	</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Installations-WL2</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[RivalAiPlanetaryInstallation:true]
+
+			[InstallationSpawnsOnDryLand:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+</Description>
+	</EntityComponent>
 
 	<!-- Shallow-water wrecks (Golo hulks, etc.): spawns in/against water instead of dry land.
 	     MinWaterDepth is confirmed real (enforced in MES's PathPlacements.cs, not the dead/commented
@@ -69,6 +125,74 @@
 			[CutVoxelSize:2.7]
 
 		</Description>
+	</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Wreck-ShallowWater-WL3</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[RivalAiPlanetaryInstallation:true]
+
+			[InstallationSpawnsOnDryLand:false]
+			[InstallationSpawnsUnderwater:true]
+			[MinWaterDepth:1]
+			PLACEHOLDER MaxWaterDepth:7.5 disabled - not live in MES yet, see comment above; restore as a real [MaxWaterDepth:7.5] tag once Enenra's update ships
+			[MinWaterCoverage:0.15]
+			[MaxWaterCoverage:0.6]
+			[AlignToSurface:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+</Description>
+	</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Wreck-ShallowWater-WL2</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[RivalAiPlanetaryInstallation:true]
+
+			[InstallationSpawnsOnDryLand:false]
+			[InstallationSpawnsUnderwater:true]
+			[MinWaterDepth:1]
+			PLACEHOLDER MaxWaterDepth:7.5 disabled - not live in MES yet, see comment above; restore as a real [MaxWaterDepth:7.5] tag once Enenra's update ships
+			[MinWaterCoverage:0.15]
+			[MaxWaterCoverage:0.6]
+			[AlignToSurface:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+</Description>
 	</EntityComponent>
 
 <!-- Secondary installations (airfields, vehicle depots, garrisons). Unlike the 6 primary Port

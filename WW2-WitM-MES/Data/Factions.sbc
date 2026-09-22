@@ -2,12 +2,11 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Factions>
 
-<!-- GRAY/GREEN deliberately do not set StaticReputation: their reputation moves via this
-     project's own combat-triggered reputation system (see WW2-WitM-Roadmap.md's Reputation
-     section), and StaticReputation:true would lock it. TRADER sets StaticReputation:true +
-     StartingReputation:500 so it stays permanently Friendly/neutral-safe.
-     FactionIcon paths below are vanilla Builder-icon placeholders; swap for the Italian flag
-     (GRAY), French flag (GREEN), and Spanish flag (TRADER) once real art exists. -->
+<!-- GRAY/GREEN StaticReputation true to prevent basic damaging mechanics from changing reputation.
+	 Reputation should be further changed by combat-triggered reputation system (see WW2-WitM-Roadmap.md's
+	 Reputation section). TRADER sets StaticReputation:true + StartingReputation:500 so it stays 
+	 permanently Friendly/neutral-safe. FactionIcon paths below are vanilla Builder-icon placeholders; 
+	 swap for the Italian flag (GRAY), French flag (GREEN), and Spanish flag (TRADER) once real art exists. -->
 
     <Faction Tag="GRAY" Founder="The Dictator">
       <Id>
@@ -15,7 +14,7 @@
         <SubtypeId>WW2-Gray</SubtypeId>
       </Id>
       <DisplayName>The Gray</DisplayName>
-	  <Description>The Gray are an alliance of several entities intent on expanding their territory for the exclusive benefit of their people. Their methods are often violent however not all factions have been drawn into their wars yet.</Description>
+	  <Description>The Gray are an alliance of several entities intent on expanding their territory even if that means violence.</Description>
       <IsDefault>true</IsDefault>
 	  <DefaultRelation>Enemies</DefaultRelation>
 	  <DefaultRelationToPlayers>Neutral</DefaultRelationToPlayers>
@@ -24,8 +23,9 @@
 	  <StartingBalance>1000000000</StartingBalance>
 	  <Type>Builder</Type>
 	  <DiscoveredByDefault>true</DiscoveredByDefault>
+	  <StaticReputation>true</StaticReputation>
 	  <EnableFriendlyFire>false</EnableFriendlyFire>
-	  <StartingReputation>0</StartingReputation>
+	  <StartingReputation>-600</StartingReputation>
 	  <FactionIcon>Textures\FactionLogo\Builders\BuilderIcon_1.dds</FactionIcon>
 	  <BackgroundColor R="0" G="0" B="0" />
 	  <IconColor R="255" G="255" B="255" />
@@ -47,29 +47,27 @@
 	  <StartingBalance>1000000000</StartingBalance>
 	  <Type>Builder</Type>
 	  <DiscoveredByDefault>true</DiscoveredByDefault>
+	  <StaticReputation>true</StaticReputation>
 	  <EnableFriendlyFire>false</EnableFriendlyFire>
-	  <StartingReputation>0</StartingReputation>
+	  <StartingReputation>-600</StartingReputation>
 	  <FactionIcon>Textures\FactionLogo\Builders\BuilderIcon_2.dds</FactionIcon>
 	  <BackgroundColor R="0" G="0" B="0" />
 	  <IconColor R="255" G="255" B="255" />
 
     </Faction>
 
-	<!-- 2026-09-10: Valencia neutral trade post owner. DefaultRelation:Neutral (not Friends) so it
-	     matches vanilla's actual Neutral behavior - no automatic turret hostility toward either
-	     faction, and critically, reputation with this faction is never touched by any
-	     WW2-Trigger-ReputationDamage* trigger anywhere in this mod (those are only ever attached
-	     to Gray/Green assets). StaticReputation:true + StartingReputation:500 (Friendly tier,
-	     matching GVK's own Coalition trader faction exactly) locks it there permanently as a
-	     second layer of "can never go hostile," on top of simply never being touched by a
-	     reputation-damage trigger. -->
+<!-- Neutral trade post faction, represented by the port of Valencia in game. DefaultRelation:Neutral 
+	 (not Friends) so it matches vanilla's actual Neutral behavior and won't have automatic turret
+	 hostility toward either primary faction, and reputation with this faction is never touched 
+	 by any WW2-Trigger-ReputationDamage* trigger anywhere in this mod (those are only ever attached
+	 to Gray/Green assets). -->
 	<Faction Tag="TRADER" Founder="The Trader">
       <Id>
         <TypeId>MyObjectBuilder_FactionDefinition</TypeId>
         <SubtypeId>WW2-Trader</SubtypeId>
       </Id>
       <DisplayName>Traders</DisplayName>
-	  <Description>An independent merchant consortium, unaligned with either Gray or Green, running a neutral trade post open to all comers.</Description>
+	  <Description>A neutral tred group, not aligned with either Gray or Green, running a neutral trade post open to all comers.</Description>
       <IsDefault>true</IsDefault>
 	  <DefaultRelation>Neutral</DefaultRelation>
 	  <DefaultRelationToPlayers>Neutral</DefaultRelationToPlayers>
@@ -87,18 +85,18 @@
 
     </Faction>
 
-	<!-- 2026-09-16: Unowned secondary-installation faction. Same neutral/passive pattern as
-	     TRADER (DefaultRelation:Neutral, StaticReputation:true so it can never be dragged into
-	     hostility by a reputation-damage trigger) - used for secondary installations (airfields,
-	     vehicle depots, garrisons) before territory ownership has claimed them. Once ownership
-	     logic reassigns a grid to GRAY or GREEN, its FactionOverride changes away from this. -->
+<!-- Unowned secondary-installation faction. Same neutral/passive pattern as TRADER
+	 (DefaultRelation:Neutral, StaticReputation:true so it can never be dragged into
+	 hostility by a reputation-damage trigger.) Used for secondary installations (airfields,
+     vehicle depots, garrisons) before territory ownership has claimed them. Once ownership
+     logic reassigns a grid to GRAY or GREEN, its FactionOverride changes away from this. -->
 	<Faction Tag="UNOWNED" Founder="Unclaimed">
       <Id>
         <TypeId>MyObjectBuilder_FactionDefinition</TypeId>
         <SubtypeId>WW2-Unowned</SubtypeId>
       </Id>
       <DisplayName>Unowned</DisplayName>
-	  <Description>Secondary installations not yet claimed by either faction's territory. Passive - no reputation stake, no automatic hostility.</Description>
+	  <Description>Secondary installations not yet claimed by either faction's territory. Passive, no reputation stake, no automatic hostility.</Description>
       <IsDefault>true</IsDefault>
 	  <DefaultRelation>Neutral</DefaultRelation>
 	  <DefaultRelationToPlayers>Neutral</DefaultRelationToPlayers>
@@ -114,6 +112,66 @@
 	  <BackgroundColor R="0" G="0" B="0" />
 	  <IconColor R="255" G="255" B="255" />
 
+    </Faction>
+
+  
+<!-- Vanilla factions overridden so they are not created in the scenario (IsDefault false, not discovered).
+     Same pattern as the GVK server's factions.sbc. -->
+	<Faction Tag="SPRT" Founder="Space Pirates">
+      <Id>
+        <TypeId>MyObjectBuilder_FactionDefinition</TypeId>
+        <SubtypeId>SpacePirates</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Faction_SpacePirates</DisplayName>
+      <IsDefault>false</IsDefault>
+      <AcceptHumans>false</AcceptHumans>
+      <AutoAcceptMember>false</AutoAcceptMember>
+      <StartingBalance>100000000</StartingBalance>
+      <DiscoveredByDefault>false</DiscoveredByDefault>
+      <Type>Pirate</Type>
+      <FactionIcon>Textures\FactionLogo\PirateIcon.dds</FactionIcon>
+      <Description>Description_Faction_Pirate</Description>
+    </Faction>
+
+	<Faction Tag="FCTM" Founder="The Factorum">
+      <Id>
+        <TypeId>MyObjectBuilder_FactionDefinition</TypeId>
+        <SubtypeId>Factorum</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Faction_Factorum</DisplayName>
+      <IsDefault>false</IsDefault>
+      <AcceptHumans>false</AcceptHumans>
+      <AutoAcceptMember>false</AutoAcceptMember>
+      <StartingBalance>0</StartingBalance>
+      <Type>None</Type>
+      <DiscoveredByDefault>false</DiscoveredByDefault>
+      <FactionIcon>Textures\FactionLogo\Factorum.dds</FactionIcon>
+      <StaticReputation>true</StaticReputation>
+      <StartingReputation>-1500</StartingReputation>
+      <Description>Description_Faction_Factorum</Description>
+      <BackgroundColor R="0" G="0" B="0" />
+      <IconColor R="255" G="255" B="255" />
+    </Faction>
+
+	<!-- Not in Mike's list; added because the scenario should only have GRAY, GREEN, TRADER and UNOWNED. Remove if the game objects. -->
+	<Faction Tag="UNKN" Founder="Unknown">
+      <Id>
+        <TypeId>MyObjectBuilder_FactionDefinition</TypeId>
+        <SubtypeId>Unknown</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Faction_Unknown</DisplayName>
+      <IsDefault>false</IsDefault>
+      <AcceptHumans>false</AcceptHumans>
+      <AutoAcceptMember>false</AutoAcceptMember>
+      <StartingBalance>0</StartingBalance>
+      <Type>None</Type>
+      <DiscoveredByDefault>false</DiscoveredByDefault>
+      <FactionIcon>Textures\FactionLogo\Unknown.dds</FactionIcon>
+      <StaticReputation>true</StaticReputation>
+      <StartingReputation>0</StartingReputation>
+      <Description>Description_Faction_Unknown</Description>
+      <BackgroundColor R="0" G="0" B="0" />
+      <IconColor R="255" G="255" B="255" />
     </Faction>
 
   </Factions>

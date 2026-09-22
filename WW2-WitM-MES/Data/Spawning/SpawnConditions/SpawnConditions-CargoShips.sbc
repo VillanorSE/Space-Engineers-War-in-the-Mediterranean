@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+	<!-- Conditions for the port-to-port nautical cargo ships, which are spawned only by a Port's
+	     RivalAI CustomSpawn (Triggers-CargoSpawn-Port.sbc). 2026-09-21: the log showed every port
+	     trigger firing but each spawn ending in "No Eligible SpawnGroups In Area For Type: OtherNPC".
+	     MES only treats a SpawnGroup as eligible for that spawn type when one of its SpawnConditions
+	     has a RivalAi spawn flag (SpawnConditions.cs), and these groups had no SpawnConditions at all
+	     (the old comment saying none was needed was wrong). The cargo planes use the same pattern with
+	     RivalAiAtmosphericSpawn, and they spawn, so this copies their setup minus the altitude
+	     setting. IgnoreCleanupRules is there because these ships sail long routes far from any
+	     player. Not yet confirmed in-game. -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-CargoShips-Nautical</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[RivalAiAtmosphericSpawn:true]
+
+			[IgnoreCleanupRules:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[ReplenishSystems:true]
+
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+		</Description>
+	</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

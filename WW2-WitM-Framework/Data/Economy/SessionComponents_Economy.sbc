@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!-- Economy session component: identical to the vanilla Default definition except: PirateId points at WW2-Unowned because the vanilla
+         SpacePirates faction is hidden (IsDefault false) in WW2-WitM-MES Factions.sbc, and ReputationDecayPerHour is 0 (vanilla 50) so reputation does not drift back to neutral. -->
+    <Definition xsi:type="MyObjectbuilder_SessionComponentEconomyDefinition">
+        <Id>
+            <TypeId>MyObjectbuilder_SessionComponentEconomyDefinition</TypeId>
+            <SubtypeId>Default</SubtypeId>
+        </Id>
+
+        <PerFactionInitialCurrency>1000000000</PerFactionInitialCurrency>
+        <DeepSpaceStationStoreBonus>0.05</DeepSpaceStationStoreBonus>
+        <DeepSpaceStationContractBonus>1.1</DeepSpaceStationContractBonus>
+
+        <RepMult_Pos_Owner>1</RepMult_Pos_Owner>
+        <RepMult_Pos_Friend>0.25</RepMult_Pos_Friend>
+        <RepMult_Pos_Neutral>0</RepMult_Pos_Neutral>
+        <RepMult_Pos_Enemy>0</RepMult_Pos_Enemy>
+
+        <RepMult_Neg_Owner>1</RepMult_Neg_Owner>
+        <RepMult_Neg_Friend>0.5</RepMult_Neg_Friend>
+        <RepMult_Neg_Neutral>0</RepMult_Neg_Neutral>
+        <RepMult_Neg_Enemy>-0.25</RepMult_Neg_Enemy>
+
+        <ReputationHostileMin>-1500</ReputationHostileMin>
+        <ReputationHostileMid>-1000</ReputationHostileMid>
+        <ReputationNeutralMin>-500</ReputationNeutralMin>
+        <ReputationNeutralMid>0</ReputationNeutralMid>
+        <ReputationFriendlyMin>500</ReputationFriendlyMin>
+        <ReputationFriendlyMid>1000</ReputationFriendlyMid>
+        <ReputationFriendlyMax>1500</ReputationFriendlyMax>
+
+        <ReputationDecayPerHour>0</ReputationDecayPerHour>
+
+        <ReputationLevelValue>1000</ReputationLevelValue>
+        <ReputationPlayerDefault>0</ReputationPlayerDefault>
+        <StoreCreationLimitPerPlayer>50</StoreCreationLimitPerPlayer> <!-- Maximuim number of items that can be listed per store blocks. Accepted value range is between 1-50 -->
+
+        <Station_Distance_MinimalFromOtherStation>10000</Station_Distance_MinimalFromOtherStation>
+
+        <FactionBalanceRecoveryModifier>0.4</FactionBalanceRecoveryModifier> <!-- Simulates a background economy and gradually normalizes the wealth of each faction with each economy update. Formula: New Currency = Current Currency + (PerFactionInitialCurrency - Current Currency) * Recovery modifier -->
+
+        <PirateId>
+            <TypeId>MyObjectBuilder_FactionDefinition</TypeId>
+            <SubtypeId>WW2-Unowned</SubtypeId>
+        </PirateId>
+        <DatapadDefinition>
+            <TypeId>MyObjectBuilder_Datapad</TypeId>
+            <SubtypeId>Datapad</SubtypeId>
+        </DatapadDefinition>
+        <AdvertCycleTime>15</AdvertCycleTime>
+    </Definition>
+</Definitions>

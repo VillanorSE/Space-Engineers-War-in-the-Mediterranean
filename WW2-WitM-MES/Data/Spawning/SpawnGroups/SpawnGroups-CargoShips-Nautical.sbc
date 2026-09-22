@@ -7,7 +7,9 @@
      with its matching direction-specific Behavior from Paths-Nautical.sbc. These are spawned
      exclusively via [RivalAI Spawn] CustomSpawn calls from each Port's own Behavior (see
      Behaviors-Port.sbc / Triggers-CargoSpawn-Port.sbc) - not through MES's normal ambient
-     ship-spawning system - so no [SpawnConditionsProfiles] tag is needed here. -->
+     ship-spawning system. Each group still needs a SpawnConditions profile with a RivalAi spawn
+     flag, or MES reports No Eligible SpawnGroups for type OtherNPC (see
+     SpawnConditions-CargoShips.sbc). -->
 
 <!-- La Spezia -> Tripoli -->
 	<SpawnGroup>
@@ -17,6 +19,8 @@
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
 
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
@@ -31,7 +35,7 @@
 			<Prefab SubtypeId="NPC-WW2-Golo_Italian">
 				<Position>
 					<X>0.0</X>
-					<Y>0.0</Y>
+					<Y>13.75</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-CargoShip-Gray-LaSpezia-Tripoli</Behaviour>
@@ -49,6 +53,8 @@
 		<Description>
 		[Modular Encounters SpawnGroup]
 
+		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
+
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -62,7 +68,7 @@
 			<Prefab SubtypeId="NPC-WW2-Golo_Italian">
 				<Position>
 					<X>0.0</X>
-					<Y>0.0</Y>
+					<Y>13.75</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-CargoShip-Gray-Tripoli-LaSpezia</Behaviour>
@@ -80,6 +86,8 @@
 		<Description>
 		[Modular Encounters SpawnGroup]
 
+		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
+
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -93,7 +101,7 @@
 			<Prefab SubtypeId="NPC-WW2-Golo_French">
 				<Position>
 					<X>0.0</X>
-					<Y>0.0</Y>
+					<Y>13.75</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-CargoShip-Green-Oran-Toulon</Behaviour>
@@ -111,6 +119,8 @@
 		<Description>
 		[Modular Encounters SpawnGroup]
 
+		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
+
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -124,7 +134,7 @@
 			<Prefab SubtypeId="NPC-WW2-Golo_French">
 				<Position>
 					<X>0.0</X>
-					<Y>0.0</Y>
+					<Y>13.75</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-CargoShip-Green-Toulon-Oran</Behaviour>
@@ -142,6 +152,8 @@
 		<Description>
 		[Modular Encounters SpawnGroup]
 
+		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
+
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -155,7 +167,7 @@
 			<Prefab SubtypeId="NPC-WW2-Golo_French">
 				<Position>
 					<X>0.0</X>
-					<Y>0.0</Y>
+					<Y>13.75</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-CargoShip-Green-Toulon-Alexandria</Behaviour>
@@ -173,6 +185,8 @@
 		<Description>
 		[Modular Encounters SpawnGroup]
 
+		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
+
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -186,7 +200,7 @@
 			<Prefab SubtypeId="NPC-WW2-Golo_French">
 				<Position>
 					<X>0.0</X>
-					<Y>0.0</Y>
+					<Y>13.75</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-CargoShip-Green-Alexandria-Toulon</Behaviour>
@@ -204,6 +218,8 @@
 		<Description>
 		[Modular Encounters SpawnGroup]
 
+		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
+
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -217,7 +233,7 @@
 			<Prefab SubtypeId="NPC-WW2-Golo_Italian">
 				<Position>
 					<X>0.0</X>
-					<Y>0.0</Y>
+					<Y>13.75</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-CargoShip-Gray-Civitavecchia-LaSpezia</Behaviour>
@@ -235,6 +251,8 @@
 		<Description>
 		[Modular Encounters SpawnGroup]
 
+		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
+
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -248,7 +266,7 @@
 			<Prefab SubtypeId="NPC-WW2-Golo_Italian">
 				<Position>
 					<X>0.0</X>
-					<Y>0.0</Y>
+					<Y>13.75</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-CargoShip-Gray-LaSpezia-Civitavecchia</Behaviour>

@@ -43,21 +43,17 @@ There is a full modlist for this project but the primary functional mods are lis
 - Mod Adjuster
 
 **Action To-do:**
-- [x] Configure ShipCores for block limits
-- [x] Update G menu to not show empty groups or blank spaces
-- [x] Test ammo depot spawn for placement
 - [ ] Test CrashAir for whether it is working properly
 - [ ] Test cargo ship spawns to see if nautical paths are working properly.
+- [ ] Gate spawns and sales behind war level.
 - [ ] Implement MaxWaterDepth once MES updates (for wreck spawns)
-- [x] Calibrate all wreck spawn height offsets.
-- [x] Test faction ownership flip behavior by setting territory to proper size and testing installations.
 - [ ] Test cargo planes spawning and flying to factories.
-- [x] Test plane offensive spawns coming from airfields. They spawn successfully though at one point I did get a bunch at once. They still fly poorly.
-- [x] Create Cruiser Ship Core
-- [x] Create Heavy Cruiser Ship Core
-- [x] Create Battleship Ship Core
-- [x] Create Carrier Ship Core
-- [ ] Create Tank Ship Cores
+- [x] Test plane offensive spawns coming from airfields. (They now fly well, test further to ensure no odd edge cases and that they align well enough in attack runs to get off substantial shots)
+- [x] Create Cruiser Ship Core (Created but values not checked personally, likely need tuning)
+- [x] Create Heavy Cruiser Ship Core (Created but values not checked personally, likely need tuning)
+- [x] Create Battleship Ship Core (Created but values not checked personally, likely need tuning)
+- [x] Create Carrier Ship Core (Created but values not checked personally, likely need tuning)
+- [x] Create Tank Ship Cores (Created but values not checked personally, likely need tuning)
 
 **Build To-do List:**
 - [ ] NPC-WW2-Tramontane (Destroyer/Le Fantasque-class, Green)
@@ -65,7 +61,7 @@ There is a full modlist for this project but the primary functional mods are lis
 - [ ] Armored Car - Panhard 178
 - [ ] Light Tank - L6/40
 - [ ] Light Tank - Renault R35
-- [ ] Attacker - Ba 65
+- [x] Attacker - Ba 65
 - [ ] Fighter - Dewoitine D.520
 - [ ] Battleship - Strasbourg
 - [ ] Battleship - Vittoria Veneto
@@ -122,7 +118,7 @@ More dangerous NPCs spawn at higher war levels. Cargo ships begin having escorts
 
 Each of the six primary locations is an anchor for territory for its faction. The territory of a faction functions the same everywhere but grows and contracts separately per primary location.
 
-Territory has six different levels that each correspond to a different radius applied along the surface of the planet. The six levels are 8/13/19/26/34/43 km. The first territory to cover an installation controls it. Control changes when a new faction territory covers the installation and the previous owner's territory no longer does. 
+Territory has seven different levels that each correspond to a different radius applied along the surface of the planet. They are 5/10/15/20/25/30/35 km. The first territory to cover an installation controls it. Control changes when a new faction territory covers the installation and the previous owner's territory no longer does. 
 
 ## Reputation
 
@@ -131,9 +127,6 @@ Damaging grids from one faction reduces a player's reputation with that faction 
 Players can ally with either faction with sufficient reputation. Being allied to a faction allows players to buy and sell at their locations, use their functional installations, and eventually take on contracts with that faction.
 Sourced from AaW's `_FAC` REPSystem (`FAC-Context-REPAHE.sbc` and per-faction siblings): a hostile unit's death (`Type:Compromised`) checks `CheckCustomCounters:CountPlayerDamage >= 15` before awarding reputation with the beneficiary faction (i.e., killing something a faction also considers hostile improves standing with them, "enemy of my enemy"), radius-shared so nearby faction-mates of the killer get credit too.
 - Radius-share the reputation gain to nearby faction members of the credited player, matching AaW's `ReputationChangesForAllRadiusPlayerFactionMembers`.
-
-**Faction Currency**
-- [ ] Design and wire a currency-reward mechanic tied to successful cargo ship/plane deliveries (or similar), so GRAY/GREEN can meaningfully grow richer through play rather than just sitting at their starting balance.
 
 ## Stage 1 — Baseline Scenario
 
@@ -278,14 +271,8 @@ War Level integration: Higher war levels will increase volume of ammunition, num
   2. `BlockLimits` — every major type of functional block has an allowance set by the core and the block count and PCU are determined by the replica builds of the same class. For example, the block and PCU limit for the air utility core is determined by the F.222 and giving a small buffer above that.
 
 **To-do:**
-- [x] Convert over to use "Battle Wreckage" (special ore from NPC grids) "Salvage Alloy" (special ingot from Battle Wreckage) and "Salvaged Ordnance" (special ingot looted directly, used in top tier ammo) to make the Industrial, Military, and Advanced military components.
-- [x] Spawn-condition a small number of salvageable wreck variants of existing hulls, covering both military and civilian spawn themes. (2026-09-12: Golo wreck done first, both hulls, dynamically scattered in shallow water via MES's PlanetaryInstallation spawner - see SpawnGroups-Wrecks.sbc/Manipulations-Wrecks.sbc/Behaviors-Golo-Wreck.sbc. Guns present but derelict (1% integrity), loot reduced to the Small tier, embedded via a negative Y spawn offset. Checked MES's own source (SpawnConditionsProfile.cs/SpawnConditions.cs, not just the wiki): confirmed there's no MaxWaterDepth field, only MinWaterDepth; used MinWaterCoverage/MaxWaterCoverage (checked against WaterInSurroundingAreaRatio) alongside it to bias toward coastal shallows over open ocean, but depth-in-meters still isn't hard-capped - watch in-game and switch to hand-placed StaticEncounters if wrecks turn up too deep. Other hulls/military+civilian themes still to do.)
-- [ ] Wire contracts to these wrecks so players can recover data pads from them for a reward - MES has a real Datapad system (see the wiki's Datapad page) worth checking before building anything custom.
-- [x] Make plane spawns altitude be relative to water surface. (Didn't find a way for this, increased altitue to 1,000 instead to clear deepest water.)
-- [x] Make larger hangar variant for large attackers and bombers. 
-- [x] Confirm each Port's Store block's own cargo inventory actually contains the "normal items" (ores/ingots/components/ammo/tools) intended for sale.
-- [ ] Longer-term (explicitly deferred): missions (vanilla Contract Block — check whether the Port prefabs already have one placed, same as the Store/ATM/Services Terminal) and grid-selling. Vanilla Store Blocks can sell pre-built vehicles too (a different offer type than physical inventory items) — worth its own investigation before assuming `InitNpcStoreBlock` covers it.
-- [ ] Each Port prefab already has a vanilla **Services Terminal** block placed (confirmed in La Spezia's prefab) — natively provides Grid Storage, Repair, and Salvage/scrap for any grid the interacting player owns >50% of, all with the same native reputation-scaled bonuses, zero scripting required. This is a real, already-built alternative to the earlier Faction Hangar/Grid Garage research thread, and a native implementation of the Maintenance Yard's "repair for credits" and Grinder Pit's salvage concepts — confirm it's wired/functional and cross-reference those two roadmap items rather than solving them twice.
+- [x] Make plane spawns altitude be relative to water surface. (Plane spawns are relative to water surface when water mod is present.)
+- [ ] Design and wire a currency-reward mechanic tied to successful cargo ship/plane deliveries (or similar), so GRAY/GREEN can meaningfully grow richer through play rather than just sitting at their starting balance.
 
 ---
 
@@ -308,7 +295,9 @@ Each primary point runs its own full copy of the GVK territory mechanism (own ne
 
 Territory growth and shrink design is detailed in `WW2-WitM-Territory-WarLevel-Design.md`
 
-**Point award mechanism: ring-weighted** every anchor evaluates every relevant event against its own territory rings independently, and awards its own counter based on where the event falls relative to *that anchor specifically* — events within that anchor's rings 1-2 = 4x base value to that anchor's counter; within rings 3-4 = 3x; within rings 5-6 = 2x outside ring 6 = 1x (flat, faction-wide baseline). An event near La Spezia naturally scores high on La Spezia's counter (falls in La Spezia's inner rings), and only baseline on Rome's or Tripoli's counters (falls outside their rings), purely because each anchor is checking its own distance bands, no cross-anchor comparison is computed anywhere. Every event good for a faction nudges every anchor of that faction, weighted by that event's proximity to each one individually.
+**Point award mechanism: ring-weighted** There is no ring weighting as I currently have no way to easily evaluate distance from anchor of events since I'm not using 36 unique zones any more. 
+This was the intended weighting that has now been replaced with just even impact everywhere.
+Every anchor evaluates every relevant event against its own territory rings independently, and awards its own counter based on where the event falls relative to *that anchor specifically* — events within that anchor's rings 1-2 = 4x base value to that anchor's counter; within rings 3-4 = 3x; within rings 5-6 = 2x outside ring 6 = 1x (flat, faction-wide baseline). An event near La Spezia naturally scores high on La Spezia's counter (falls in La Spezia's inner rings), and only baseline on Rome's or Tripoli's counters (falls outside their rings), purely because each anchor is checking its own distance bands, no cross-anchor comparison is computed anywhere. Every event good for a faction nudges every anchor of that faction, weighted by that event's proximity to each one individually.
 
 **Facton Ownership:**
 A simple sticky-ownership system fully in XML with a per-installation `SandboxBoolean` current-owner flag and a zone-containment check against both factions:
@@ -324,18 +313,13 @@ These are general "stay out" zones: MSB's `AreaRestriction` system, adopted for 
 This is specifically intended to discourage players from building bases too close to non-friendly NPC installations.
 
 **To-Do**
-- [x] Measure actual in-game distances between the confirmed anchor points on the custom planet to sanity-check the 6/10/15/21/28/36 km tier progression against real anchor spacing now that the planet's terrain is essentially finished.
-- [x] Build each anchor's nested radius-tier zone definitions and paired Enable/Disable timer-trigger-condition sets (6 anchors × 6 tiers each).
 - [x] Define what actions will count towards territory growth and against it, and what threshold values each ring is set by — see `WW2-WitM-Territory-WarLevel-Design.md`.
 - [x] Rebuild the zone/threshold system to the single-resizing-zone-per-anchor, 7-tier (5/10/15/20/25/30/35km) design in `WW2-WitM-Territory-WarLevel-Design.md` §1 (supersedes the original 6-zones-per-anchor toggle approach; La Spezia's existing implementation still reflects the old design and needs rebuilding first as the template).
-- [x] Build Gibraltar and Foggia airports and place them as static encounters.
 - [x] Place Foggia, Gibraltar, Tripoli, and Tunis airports
 - [ ] Place all remaining airport locations. 
 - [ ] Build a barracks and use it at all relevant locations with behavior as described in the location section.
-- [x] Build ownership change triggers and actions and add them to behavior for secondary installations.
 - [ ] Add MSB's `AreaRestriction` TriggerGroup to all installations, 1,500m radius on primary points and 500m on all other installations.
 - [ ] Playtest: confirm the AreaRestriction warning/reputation-loss cadence feels like a nudge rather than a punishment.
-- [x] Playtest: confirm control of installation changes appropriately and triggers update to the new owner faction.
 
 ---
 
@@ -513,7 +497,6 @@ Build starter grids per domain and make them available in ports, airports, vehic
 - [ ] Biome GREEN channel (foliage/environment items) not built yet.
 - [x] Water Mod's working radius for this planet is empirically `/wradius 1.02862`. This is the result of wradius 1.0 being based on the lowest point of the surface, not "sea level".
 - [ ] Ore distribution is random-within-budget; revisit if specific historical/gameplay-driven placement becomes worth the effort.
-- [ ] Spawn in a fresh test world and confirm WeaponCore/MES don't exhibit raycast issues (the ≤2048px constraint was respected throughout, but hasn't been explicitly re-verified against live NPC/weapon behavior).
 
 ---
 

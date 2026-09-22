@@ -84,6 +84,66 @@
 
 		</Description>
 	</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Ships-Destroyers-WL3</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[RivalAiPlanetaryInstallation:true]
+			[InstallationSpawnsOnWaterSurface:true]
+			[InstallationSpawnsOnDryLand:false]
+			[MinWaterDepth:15]
+			[MinWaterCoverage:0.5]
+
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[ReplenishSystems:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+</Description>
+	</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Ships-Destroyers-WL2</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[RivalAiPlanetaryInstallation:true]
+			[InstallationSpawnsOnWaterSurface:true]
+			[InstallationSpawnsOnDryLand:false]
+			[MinWaterDepth:15]
+			[MinWaterCoverage:0.5]
+
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[ReplenishSystems:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+</Description>
+	</EntityComponent>
 
 	<!-- Covers both Cruiser and Heavy Cruiser tiers. -->
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -111,6 +171,36 @@
 			[MinimumPlayers:1]
 
 		</Description>
+	</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Ships-Cruisers-WL4</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[RivalAiPlanetaryInstallation:true]
+			[InstallationSpawnsOnWaterSurface:true]
+			[InstallationSpawnsOnDryLand:false]
+			[MinWaterDepth:15]
+			[MinWaterCoverage:0.65]
+
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[ReplenishSystems:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+</Description>
 	</EntityComponent>
 
 	<!-- Carriers and battleships both use this profile. -->
@@ -143,6 +233,40 @@
 			[ThreatScoreMinimum:350]
 
 		</Description>
+	</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Ships-Carriers-WL5</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[RivalAiPlanetaryInstallation:true]
+			[InstallationSpawnsOnWaterSurface:true]
+			[InstallationSpawnsOnDryLand:false]
+			[MinWaterDepth:25]
+			[MinWaterCoverage:0.85]
+
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[ReplenishSystems:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:10000]
+			[ThreatScoreMinimum:350]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:5]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+</Description>
 	</EntityComponent>
 
 	</EntityComponents>
