@@ -65,6 +65,28 @@
 	<!-- End Cargo Ship Behaviors -->
 
 	<!-- Cargo Ship Autopilot -->
+	<!-- 2026-09-22: UseVelocityCollisionEvasion disabled. A ship on a live route showed its
+	     AutoPilot "Current Waypoint" (204m out, 76 degrees off heading) fighting its real
+	     "Initial Waypoint" (1154m out, 1.2 degrees off heading) - AutoPilotSystem.cs generates that
+	     evasion waypoint whenever Collision.VelocityResult.CollisionImminent() trips within
+	     CollisionEvasionWaypointDistance (100m), independent of the separate CollisionAvoidance
+	     flag (which is already off). Likely cause, not confirmed via a live CollisionType log
+	     capture: the seafloor/water voxel reading as an imminent collision for a surface ship at
+	     ordinary depths, since 100m is a large trigger radius at sea level. These ships already sail
+	     a route we've verified is clear water, so the safety net wasn't earning its keep here.
+	     CollisionEvasionWaypointDistance left in place, inert while the flag above is false, in case
+	     evasion is ever turned back on.
+
+	     Same day, follow-up: disabling evasion did NOT fix the 1 m/s crawl - proved it wasn't the
+	     (sole) cause. Root cause found in ThrustSystem.cs/AutoPilotSystem.cs: MaxSpeed is
+	     IdealMaxSpeed (10 here) unless overridden, and the ONLY branch that commands active forward
+	     thrust is "velocityAmount < MaxSpeed - MaxSpeedTolerance". This profile never set
+	     MaxSpeedTolerance, so it sat at the class default of 15 - making that check
+	     "velocityAmount < 10 - 15", i.e. "< -5", which a non-negative speed can never satisfy. The
+	     ship was NEVER commanded to accelerate; the "Drifting At Desired Speed" label in the earlier
+	     debug dump was misleading, since a 15-wide tolerance calls anything from about -5 to 25 m/s
+	     "close enough". Added [MaxSpeedTolerance:1] below so the accelerate branch actually
+	     triggers below ~9 m/s. Not yet confirmed in-game. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -83,13 +105,14 @@
 			[WaypointTolerance:50]
 			[IdealMinSpeed:10]
 			[IdealMaxSpeed:10]
+			[MaxSpeedTolerance:1]
 
 			[RotationMultiplier:0.3]
 			[AngleAllowedForForwardThrust:180]
 
-			[UseVelocityCollisionEvasion:true]
+			[UseVelocityCollisionEvasion:false]
 			[CollisionEvasionWaypointDistance:100]
-			[WaypointWaitTimeTrigger:15]
+			[WaypointWaitTimeTrigger:0]
 
 			</Description>
 		</EntityComponent>

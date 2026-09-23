@@ -2,6 +2,24 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<EntityComponents>
 
+<!-- ================ RESPAWN-SAFE FIX (2026-09-23) ================
+     Root cause of zones drifting past the 35km tier-7 cap (confirmed via decoding MES-ZoneData
+     from a live save, no duplicate grids involved): the per-tier toggle state (UseTrigger,
+     flipped by ToggleWithTriggerProfile when Grow{k} fires) lives on the port grid's own Remote
+     Control, which does NOT survive this project's normal delete-all/clear/respawn testing
+     workflow - a freshly spawned grid gets brand-new triggers, all re-armed to their SBC-
+     authored defaults, regardless of how far the (globally persistent) {Anchor}_Points counter
+     and zone radius already are. Every respawn therefore re-fires every Grow{k} whose threshold
+     was already crossed, permanently inflating the zone again on top of its already-correct size.
+
+     Fix: each Grow{k}/Shrink{k} condition now ALSO checks a GLOBAL (session-persistent, survives
+     respawns just like the Points counter) sandbox boolean {Anchor}_Tier{k}Grown - Grow{k} only
+     fires if it is still false, Shrink{k} only fires (re-arming it) if it is true. Grow{k}/Shrink{k}
+     now call their own small per-tier action (cloned from the old shared RadiusGrow/RadiusShrink)
+     that flips this boolean alongside the existing radius change. The old UseTrigger/Toggle-
+     WithTriggerProfile mechanism is left in place as a redundant same-session safety net; the
+     boolean is what actually makes each tier idempotent across respawns. -->
+
 <!-- Territory Zone-Change Triggers - all 6 anchors
      Single resizing zone per anchor (WW2-Territory-Zone-{Anchor}, defined in Territory-Zones.sbc)
      driven by that anchor's own CustomSandboxCounter ({Anchor}_Points). Every tier transition at an
@@ -60,7 +78,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-LaSpezia]
+			[Actions:WW2-Territory-Action-RadiusGrow1-LaSpezia]
 			[Conditions:WW2-Territory-Condition-Grow1-LaSpezia]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink1-LaSpezia]
@@ -83,7 +101,10 @@
 			[CustomSandboxCountersTargets:100]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:LaSpezia_Tier1Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -99,7 +120,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-LaSpezia]
+			[Actions:WW2-Territory-Action-RadiusShrink1-LaSpezia]
 			[Conditions:WW2-Territory-Condition-Shrink1-LaSpezia]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow1-LaSpezia]
@@ -122,7 +143,10 @@
 			[CustomSandboxCountersTargets:100]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:LaSpezia_Tier1Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 2->3 @ 325 -->
@@ -140,7 +164,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-LaSpezia]
+			[Actions:WW2-Territory-Action-RadiusGrow2-LaSpezia]
 			[Conditions:WW2-Territory-Condition-Grow2-LaSpezia]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink2-LaSpezia]
@@ -163,7 +187,10 @@
 			[CustomSandboxCountersTargets:325]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:LaSpezia_Tier2Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -179,7 +206,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-LaSpezia]
+			[Actions:WW2-Territory-Action-RadiusShrink2-LaSpezia]
 			[Conditions:WW2-Territory-Condition-Shrink2-LaSpezia]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow2-LaSpezia]
@@ -202,7 +229,10 @@
 			[CustomSandboxCountersTargets:325]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:LaSpezia_Tier2Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 3->4 @ 725 -->
@@ -220,7 +250,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-LaSpezia]
+			[Actions:WW2-Territory-Action-RadiusGrow3-LaSpezia]
 			[Conditions:WW2-Territory-Condition-Grow3-LaSpezia]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink3-LaSpezia]
@@ -243,7 +273,10 @@
 			[CustomSandboxCountersTargets:725]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:LaSpezia_Tier3Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -259,7 +292,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-LaSpezia]
+			[Actions:WW2-Territory-Action-RadiusShrink3-LaSpezia]
 			[Conditions:WW2-Territory-Condition-Shrink3-LaSpezia]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow3-LaSpezia]
@@ -282,7 +315,10 @@
 			[CustomSandboxCountersTargets:725]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:LaSpezia_Tier3Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 4->5 @ 1350 -->
@@ -300,7 +336,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-LaSpezia]
+			[Actions:WW2-Territory-Action-RadiusGrow4-LaSpezia]
 			[Conditions:WW2-Territory-Condition-Grow4-LaSpezia]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink4-LaSpezia]
@@ -323,7 +359,10 @@
 			[CustomSandboxCountersTargets:1350]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:LaSpezia_Tier4Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -339,7 +378,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-LaSpezia]
+			[Actions:WW2-Territory-Action-RadiusShrink4-LaSpezia]
 			[Conditions:WW2-Territory-Condition-Shrink4-LaSpezia]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow4-LaSpezia]
@@ -362,7 +401,10 @@
 			[CustomSandboxCountersTargets:1350]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:LaSpezia_Tier4Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 5->6 @ 2250 -->
@@ -380,7 +422,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-LaSpezia]
+			[Actions:WW2-Territory-Action-RadiusGrow5-LaSpezia]
 			[Conditions:WW2-Territory-Condition-Grow5-LaSpezia]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink5-LaSpezia]
@@ -403,7 +445,10 @@
 			[CustomSandboxCountersTargets:2250]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:LaSpezia_Tier5Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -419,7 +464,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-LaSpezia]
+			[Actions:WW2-Territory-Action-RadiusShrink5-LaSpezia]
 			[Conditions:WW2-Territory-Condition-Shrink5-LaSpezia]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow5-LaSpezia]
@@ -442,7 +487,10 @@
 			[CustomSandboxCountersTargets:2250]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:LaSpezia_Tier5Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 6->7 @ 3475 -->
@@ -460,7 +508,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-LaSpezia]
+			[Actions:WW2-Territory-Action-RadiusGrow6-LaSpezia]
 			[Conditions:WW2-Territory-Condition-Grow6-LaSpezia]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink6-LaSpezia]
@@ -483,7 +531,10 @@
 			[CustomSandboxCountersTargets:3475]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:LaSpezia_Tier6Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -499,7 +550,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-LaSpezia]
+			[Actions:WW2-Territory-Action-RadiusShrink6-LaSpezia]
 			[Conditions:WW2-Territory-Condition-Shrink6-LaSpezia]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow6-LaSpezia]
@@ -522,14 +573,17 @@
 			[CustomSandboxCountersTargets:3475]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:LaSpezia_Tier6Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Shared Grow/Shrink actions + chats -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Action-RadiusGrow-LaSpezia</SubtypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow6-LaSpezia</SubtypeId>
 			</Id>
 			<Description>
 
@@ -542,12 +596,108 @@
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Territory-Chat-Grow-LaSpezia]
 
-			</Description>
+							[SetSandboxBooleansTrue:LaSpezia_Tier6Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow5-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:LaSpezia_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-LaSpezia]
+
+							[SetSandboxBooleansTrue:LaSpezia_Tier5Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow4-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:LaSpezia_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-LaSpezia]
+
+							[SetSandboxBooleansTrue:LaSpezia_Tier4Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow3-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:LaSpezia_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-LaSpezia]
+
+							[SetSandboxBooleansTrue:LaSpezia_Tier3Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow2-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:LaSpezia_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-LaSpezia]
+
+							[SetSandboxBooleansTrue:LaSpezia_Tier2Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow1-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:LaSpezia_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-LaSpezia]
+
+							[SetSandboxBooleansTrue:LaSpezia_Tier1Grown]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Action-RadiusShrink-LaSpezia</SubtypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink6-LaSpezia</SubtypeId>
 			</Id>
 			<Description>
 
@@ -560,7 +710,103 @@
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Territory-Chat-Shrink-LaSpezia]
 
-			</Description>
+							[SetSandboxBooleansFalse:LaSpezia_Tier6Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink5-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:LaSpezia_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-LaSpezia]
+
+							[SetSandboxBooleansFalse:LaSpezia_Tier5Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink4-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:LaSpezia_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-LaSpezia]
+
+							[SetSandboxBooleansFalse:LaSpezia_Tier4Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink3-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:LaSpezia_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-LaSpezia]
+
+							[SetSandboxBooleansFalse:LaSpezia_Tier3Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink2-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:LaSpezia_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-LaSpezia]
+
+							[SetSandboxBooleansFalse:LaSpezia_Tier2Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink1-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:LaSpezia_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-LaSpezia]
+
+							[SetSandboxBooleansFalse:LaSpezia_Tier1Grown]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -756,7 +1002,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Tripoli]
+			[Actions:WW2-Territory-Action-RadiusGrow1-Tripoli]
 			[Conditions:WW2-Territory-Condition-Grow1-Tripoli]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink1-Tripoli]
@@ -779,7 +1025,10 @@
 			[CustomSandboxCountersTargets:100]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Tripoli_Tier1Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -795,7 +1044,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Tripoli]
+			[Actions:WW2-Territory-Action-RadiusShrink1-Tripoli]
 			[Conditions:WW2-Territory-Condition-Shrink1-Tripoli]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow1-Tripoli]
@@ -818,7 +1067,10 @@
 			[CustomSandboxCountersTargets:100]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Tripoli_Tier1Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 2->3 @ 325 -->
@@ -836,7 +1088,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Tripoli]
+			[Actions:WW2-Territory-Action-RadiusGrow2-Tripoli]
 			[Conditions:WW2-Territory-Condition-Grow2-Tripoli]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink2-Tripoli]
@@ -859,7 +1111,10 @@
 			[CustomSandboxCountersTargets:325]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Tripoli_Tier2Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -875,7 +1130,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Tripoli]
+			[Actions:WW2-Territory-Action-RadiusShrink2-Tripoli]
 			[Conditions:WW2-Territory-Condition-Shrink2-Tripoli]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow2-Tripoli]
@@ -898,7 +1153,10 @@
 			[CustomSandboxCountersTargets:325]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Tripoli_Tier2Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 3->4 @ 725 -->
@@ -916,7 +1174,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Tripoli]
+			[Actions:WW2-Territory-Action-RadiusGrow3-Tripoli]
 			[Conditions:WW2-Territory-Condition-Grow3-Tripoli]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink3-Tripoli]
@@ -939,7 +1197,10 @@
 			[CustomSandboxCountersTargets:725]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Tripoli_Tier3Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -955,7 +1216,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Tripoli]
+			[Actions:WW2-Territory-Action-RadiusShrink3-Tripoli]
 			[Conditions:WW2-Territory-Condition-Shrink3-Tripoli]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow3-Tripoli]
@@ -978,7 +1239,10 @@
 			[CustomSandboxCountersTargets:725]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Tripoli_Tier3Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 4->5 @ 1350 -->
@@ -996,7 +1260,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Tripoli]
+			[Actions:WW2-Territory-Action-RadiusGrow4-Tripoli]
 			[Conditions:WW2-Territory-Condition-Grow4-Tripoli]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink4-Tripoli]
@@ -1019,7 +1283,10 @@
 			[CustomSandboxCountersTargets:1350]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Tripoli_Tier4Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -1035,7 +1302,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Tripoli]
+			[Actions:WW2-Territory-Action-RadiusShrink4-Tripoli]
 			[Conditions:WW2-Territory-Condition-Shrink4-Tripoli]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow4-Tripoli]
@@ -1058,7 +1325,10 @@
 			[CustomSandboxCountersTargets:1350]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Tripoli_Tier4Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 5->6 @ 2250 -->
@@ -1076,7 +1346,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Tripoli]
+			[Actions:WW2-Territory-Action-RadiusGrow5-Tripoli]
 			[Conditions:WW2-Territory-Condition-Grow5-Tripoli]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink5-Tripoli]
@@ -1099,7 +1369,10 @@
 			[CustomSandboxCountersTargets:2250]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Tripoli_Tier5Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -1115,7 +1388,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Tripoli]
+			[Actions:WW2-Territory-Action-RadiusShrink5-Tripoli]
 			[Conditions:WW2-Territory-Condition-Shrink5-Tripoli]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow5-Tripoli]
@@ -1138,7 +1411,10 @@
 			[CustomSandboxCountersTargets:2250]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Tripoli_Tier5Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 6->7 @ 3475 -->
@@ -1156,7 +1432,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Tripoli]
+			[Actions:WW2-Territory-Action-RadiusGrow6-Tripoli]
 			[Conditions:WW2-Territory-Condition-Grow6-Tripoli]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink6-Tripoli]
@@ -1179,7 +1455,10 @@
 			[CustomSandboxCountersTargets:3475]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Tripoli_Tier6Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -1195,7 +1474,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Tripoli]
+			[Actions:WW2-Territory-Action-RadiusShrink6-Tripoli]
 			[Conditions:WW2-Territory-Condition-Shrink6-Tripoli]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow6-Tripoli]
@@ -1218,14 +1497,17 @@
 			[CustomSandboxCountersTargets:3475]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Tripoli_Tier6Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Shared Grow/Shrink actions + chats -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Action-RadiusGrow-Tripoli</SubtypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow6-Tripoli</SubtypeId>
 			</Id>
 			<Description>
 
@@ -1238,12 +1520,108 @@
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Territory-Chat-Grow-Tripoli]
 
-			</Description>
+							[SetSandboxBooleansTrue:Tripoli_Tier6Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow5-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Tripoli_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Tripoli]
+
+							[SetSandboxBooleansTrue:Tripoli_Tier5Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow4-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Tripoli_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Tripoli]
+
+							[SetSandboxBooleansTrue:Tripoli_Tier4Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow3-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Tripoli_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Tripoli]
+
+							[SetSandboxBooleansTrue:Tripoli_Tier3Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow2-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Tripoli_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Tripoli]
+
+							[SetSandboxBooleansTrue:Tripoli_Tier2Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow1-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Tripoli_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Tripoli]
+
+							[SetSandboxBooleansTrue:Tripoli_Tier1Grown]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Action-RadiusShrink-Tripoli</SubtypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink6-Tripoli</SubtypeId>
 			</Id>
 			<Description>
 
@@ -1256,7 +1634,103 @@
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Territory-Chat-Shrink-Tripoli]
 
-			</Description>
+							[SetSandboxBooleansFalse:Tripoli_Tier6Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink5-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Tripoli_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Tripoli]
+
+							[SetSandboxBooleansFalse:Tripoli_Tier5Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink4-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Tripoli_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Tripoli]
+
+							[SetSandboxBooleansFalse:Tripoli_Tier4Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink3-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Tripoli_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Tripoli]
+
+							[SetSandboxBooleansFalse:Tripoli_Tier3Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink2-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Tripoli_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Tripoli]
+
+							[SetSandboxBooleansFalse:Tripoli_Tier2Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink1-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Tripoli_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Tripoli]
+
+							[SetSandboxBooleansFalse:Tripoli_Tier1Grown]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -1452,7 +1926,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Rome]
+			[Actions:WW2-Territory-Action-RadiusGrow1-Rome]
 			[Conditions:WW2-Territory-Condition-Grow1-Rome]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink1-Rome]
@@ -1475,7 +1949,10 @@
 			[CustomSandboxCountersTargets:100]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Rome_Tier1Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -1491,7 +1968,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Rome]
+			[Actions:WW2-Territory-Action-RadiusShrink1-Rome]
 			[Conditions:WW2-Territory-Condition-Shrink1-Rome]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow1-Rome]
@@ -1514,7 +1991,10 @@
 			[CustomSandboxCountersTargets:100]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Rome_Tier1Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 2->3 @ 325 -->
@@ -1532,7 +2012,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Rome]
+			[Actions:WW2-Territory-Action-RadiusGrow2-Rome]
 			[Conditions:WW2-Territory-Condition-Grow2-Rome]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink2-Rome]
@@ -1555,7 +2035,10 @@
 			[CustomSandboxCountersTargets:325]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Rome_Tier2Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -1571,7 +2054,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Rome]
+			[Actions:WW2-Territory-Action-RadiusShrink2-Rome]
 			[Conditions:WW2-Territory-Condition-Shrink2-Rome]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow2-Rome]
@@ -1594,7 +2077,10 @@
 			[CustomSandboxCountersTargets:325]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Rome_Tier2Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 3->4 @ 725 -->
@@ -1612,7 +2098,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Rome]
+			[Actions:WW2-Territory-Action-RadiusGrow3-Rome]
 			[Conditions:WW2-Territory-Condition-Grow3-Rome]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink3-Rome]
@@ -1635,7 +2121,10 @@
 			[CustomSandboxCountersTargets:725]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Rome_Tier3Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -1651,7 +2140,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Rome]
+			[Actions:WW2-Territory-Action-RadiusShrink3-Rome]
 			[Conditions:WW2-Territory-Condition-Shrink3-Rome]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow3-Rome]
@@ -1674,7 +2163,10 @@
 			[CustomSandboxCountersTargets:725]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Rome_Tier3Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 4->5 @ 1350 -->
@@ -1692,7 +2184,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Rome]
+			[Actions:WW2-Territory-Action-RadiusGrow4-Rome]
 			[Conditions:WW2-Territory-Condition-Grow4-Rome]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink4-Rome]
@@ -1715,7 +2207,10 @@
 			[CustomSandboxCountersTargets:1350]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Rome_Tier4Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -1731,7 +2226,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Rome]
+			[Actions:WW2-Territory-Action-RadiusShrink4-Rome]
 			[Conditions:WW2-Territory-Condition-Shrink4-Rome]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow4-Rome]
@@ -1754,7 +2249,10 @@
 			[CustomSandboxCountersTargets:1350]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Rome_Tier4Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 5->6 @ 2250 -->
@@ -1772,7 +2270,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Rome]
+			[Actions:WW2-Territory-Action-RadiusGrow5-Rome]
 			[Conditions:WW2-Territory-Condition-Grow5-Rome]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink5-Rome]
@@ -1795,7 +2293,10 @@
 			[CustomSandboxCountersTargets:2250]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Rome_Tier5Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -1811,7 +2312,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Rome]
+			[Actions:WW2-Territory-Action-RadiusShrink5-Rome]
 			[Conditions:WW2-Territory-Condition-Shrink5-Rome]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow5-Rome]
@@ -1834,7 +2335,10 @@
 			[CustomSandboxCountersTargets:2250]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Rome_Tier5Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 6->7 @ 3475 -->
@@ -1852,7 +2356,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Rome]
+			[Actions:WW2-Territory-Action-RadiusGrow6-Rome]
 			[Conditions:WW2-Territory-Condition-Grow6-Rome]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink6-Rome]
@@ -1875,7 +2379,10 @@
 			[CustomSandboxCountersTargets:3475]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Rome_Tier6Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -1891,7 +2398,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Rome]
+			[Actions:WW2-Territory-Action-RadiusShrink6-Rome]
 			[Conditions:WW2-Territory-Condition-Shrink6-Rome]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow6-Rome]
@@ -1914,14 +2421,17 @@
 			[CustomSandboxCountersTargets:3475]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Rome_Tier6Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Shared Grow/Shrink actions + chats -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Action-RadiusGrow-Rome</SubtypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow6-Rome</SubtypeId>
 			</Id>
 			<Description>
 
@@ -1934,12 +2444,108 @@
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Territory-Chat-Grow-Rome]
 
-			</Description>
+							[SetSandboxBooleansTrue:Rome_Tier6Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow5-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Rome_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Rome]
+
+							[SetSandboxBooleansTrue:Rome_Tier5Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow4-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Rome_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Rome]
+
+							[SetSandboxBooleansTrue:Rome_Tier4Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow3-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Rome_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Rome]
+
+							[SetSandboxBooleansTrue:Rome_Tier3Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow2-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Rome_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Rome]
+
+							[SetSandboxBooleansTrue:Rome_Tier2Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow1-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Rome_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Rome]
+
+							[SetSandboxBooleansTrue:Rome_Tier1Grown]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Action-RadiusShrink-Rome</SubtypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink6-Rome</SubtypeId>
 			</Id>
 			<Description>
 
@@ -1952,7 +2558,103 @@
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Territory-Chat-Shrink-Rome]
 
-			</Description>
+							[SetSandboxBooleansFalse:Rome_Tier6Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink5-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Rome_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Rome]
+
+							[SetSandboxBooleansFalse:Rome_Tier5Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink4-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Rome_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Rome]
+
+							[SetSandboxBooleansFalse:Rome_Tier4Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink3-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Rome_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Rome]
+
+							[SetSandboxBooleansFalse:Rome_Tier3Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink2-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Rome_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Rome]
+
+							[SetSandboxBooleansFalse:Rome_Tier2Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink1-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Rome_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Rome]
+
+							[SetSandboxBooleansFalse:Rome_Tier1Grown]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -2148,7 +2850,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Toulon]
+			[Actions:WW2-Territory-Action-RadiusGrow1-Toulon]
 			[Conditions:WW2-Territory-Condition-Grow1-Toulon]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink1-Toulon]
@@ -2171,7 +2873,10 @@
 			[CustomSandboxCountersTargets:100]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Toulon_Tier1Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -2187,7 +2892,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Toulon]
+			[Actions:WW2-Territory-Action-RadiusShrink1-Toulon]
 			[Conditions:WW2-Territory-Condition-Shrink1-Toulon]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow1-Toulon]
@@ -2210,7 +2915,10 @@
 			[CustomSandboxCountersTargets:100]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Toulon_Tier1Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 2->3 @ 325 -->
@@ -2228,7 +2936,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Toulon]
+			[Actions:WW2-Territory-Action-RadiusGrow2-Toulon]
 			[Conditions:WW2-Territory-Condition-Grow2-Toulon]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink2-Toulon]
@@ -2251,7 +2959,10 @@
 			[CustomSandboxCountersTargets:325]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Toulon_Tier2Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -2267,7 +2978,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Toulon]
+			[Actions:WW2-Territory-Action-RadiusShrink2-Toulon]
 			[Conditions:WW2-Territory-Condition-Shrink2-Toulon]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow2-Toulon]
@@ -2290,7 +3001,10 @@
 			[CustomSandboxCountersTargets:325]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Toulon_Tier2Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 3->4 @ 725 -->
@@ -2308,7 +3022,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Toulon]
+			[Actions:WW2-Territory-Action-RadiusGrow3-Toulon]
 			[Conditions:WW2-Territory-Condition-Grow3-Toulon]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink3-Toulon]
@@ -2331,7 +3045,10 @@
 			[CustomSandboxCountersTargets:725]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Toulon_Tier3Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -2347,7 +3064,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Toulon]
+			[Actions:WW2-Territory-Action-RadiusShrink3-Toulon]
 			[Conditions:WW2-Territory-Condition-Shrink3-Toulon]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow3-Toulon]
@@ -2370,7 +3087,10 @@
 			[CustomSandboxCountersTargets:725]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Toulon_Tier3Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 4->5 @ 1350 -->
@@ -2388,7 +3108,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Toulon]
+			[Actions:WW2-Territory-Action-RadiusGrow4-Toulon]
 			[Conditions:WW2-Territory-Condition-Grow4-Toulon]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink4-Toulon]
@@ -2411,7 +3131,10 @@
 			[CustomSandboxCountersTargets:1350]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Toulon_Tier4Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -2427,7 +3150,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Toulon]
+			[Actions:WW2-Territory-Action-RadiusShrink4-Toulon]
 			[Conditions:WW2-Territory-Condition-Shrink4-Toulon]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow4-Toulon]
@@ -2450,7 +3173,10 @@
 			[CustomSandboxCountersTargets:1350]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Toulon_Tier4Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 5->6 @ 2250 -->
@@ -2468,7 +3194,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Toulon]
+			[Actions:WW2-Territory-Action-RadiusGrow5-Toulon]
 			[Conditions:WW2-Territory-Condition-Grow5-Toulon]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink5-Toulon]
@@ -2491,7 +3217,10 @@
 			[CustomSandboxCountersTargets:2250]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Toulon_Tier5Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -2507,7 +3236,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Toulon]
+			[Actions:WW2-Territory-Action-RadiusShrink5-Toulon]
 			[Conditions:WW2-Territory-Condition-Shrink5-Toulon]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow5-Toulon]
@@ -2530,7 +3259,10 @@
 			[CustomSandboxCountersTargets:2250]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Toulon_Tier5Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 6->7 @ 3475 -->
@@ -2548,7 +3280,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Toulon]
+			[Actions:WW2-Territory-Action-RadiusGrow6-Toulon]
 			[Conditions:WW2-Territory-Condition-Grow6-Toulon]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink6-Toulon]
@@ -2571,7 +3303,10 @@
 			[CustomSandboxCountersTargets:3475]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Toulon_Tier6Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -2587,7 +3322,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Toulon]
+			[Actions:WW2-Territory-Action-RadiusShrink6-Toulon]
 			[Conditions:WW2-Territory-Condition-Shrink6-Toulon]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow6-Toulon]
@@ -2610,14 +3345,17 @@
 			[CustomSandboxCountersTargets:3475]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Toulon_Tier6Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Shared Grow/Shrink actions + chats -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Action-RadiusGrow-Toulon</SubtypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow6-Toulon</SubtypeId>
 			</Id>
 			<Description>
 
@@ -2630,12 +3368,108 @@
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Territory-Chat-Grow-Toulon]
 
-			</Description>
+							[SetSandboxBooleansTrue:Toulon_Tier6Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow5-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Toulon_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Toulon]
+
+							[SetSandboxBooleansTrue:Toulon_Tier5Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow4-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Toulon_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Toulon]
+
+							[SetSandboxBooleansTrue:Toulon_Tier4Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow3-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Toulon_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Toulon]
+
+							[SetSandboxBooleansTrue:Toulon_Tier3Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow2-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Toulon_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Toulon]
+
+							[SetSandboxBooleansTrue:Toulon_Tier2Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow1-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Toulon_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Toulon]
+
+							[SetSandboxBooleansTrue:Toulon_Tier1Grown]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Action-RadiusShrink-Toulon</SubtypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink6-Toulon</SubtypeId>
 			</Id>
 			<Description>
 
@@ -2648,7 +3482,103 @@
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Territory-Chat-Shrink-Toulon]
 
-			</Description>
+							[SetSandboxBooleansFalse:Toulon_Tier6Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink5-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Toulon_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Toulon]
+
+							[SetSandboxBooleansFalse:Toulon_Tier5Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink4-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Toulon_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Toulon]
+
+							[SetSandboxBooleansFalse:Toulon_Tier4Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink3-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Toulon_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Toulon]
+
+							[SetSandboxBooleansFalse:Toulon_Tier3Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink2-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Toulon_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Toulon]
+
+							[SetSandboxBooleansFalse:Toulon_Tier2Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink1-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Toulon_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Toulon]
+
+							[SetSandboxBooleansFalse:Toulon_Tier1Grown]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -2844,7 +3774,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Oran]
+			[Actions:WW2-Territory-Action-RadiusGrow1-Oran]
 			[Conditions:WW2-Territory-Condition-Grow1-Oran]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink1-Oran]
@@ -2867,7 +3797,10 @@
 			[CustomSandboxCountersTargets:100]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Oran_Tier1Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -2883,7 +3816,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Oran]
+			[Actions:WW2-Territory-Action-RadiusShrink1-Oran]
 			[Conditions:WW2-Territory-Condition-Shrink1-Oran]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow1-Oran]
@@ -2906,7 +3839,10 @@
 			[CustomSandboxCountersTargets:100]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Oran_Tier1Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 2->3 @ 325 -->
@@ -2924,7 +3860,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Oran]
+			[Actions:WW2-Territory-Action-RadiusGrow2-Oran]
 			[Conditions:WW2-Territory-Condition-Grow2-Oran]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink2-Oran]
@@ -2947,7 +3883,10 @@
 			[CustomSandboxCountersTargets:325]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Oran_Tier2Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -2963,7 +3902,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Oran]
+			[Actions:WW2-Territory-Action-RadiusShrink2-Oran]
 			[Conditions:WW2-Territory-Condition-Shrink2-Oran]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow2-Oran]
@@ -2986,7 +3925,10 @@
 			[CustomSandboxCountersTargets:325]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Oran_Tier2Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 3->4 @ 725 -->
@@ -3004,7 +3946,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Oran]
+			[Actions:WW2-Territory-Action-RadiusGrow3-Oran]
 			[Conditions:WW2-Territory-Condition-Grow3-Oran]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink3-Oran]
@@ -3027,7 +3969,10 @@
 			[CustomSandboxCountersTargets:725]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Oran_Tier3Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -3043,7 +3988,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Oran]
+			[Actions:WW2-Territory-Action-RadiusShrink3-Oran]
 			[Conditions:WW2-Territory-Condition-Shrink3-Oran]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow3-Oran]
@@ -3066,7 +4011,10 @@
 			[CustomSandboxCountersTargets:725]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Oran_Tier3Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 4->5 @ 1350 -->
@@ -3084,7 +4032,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Oran]
+			[Actions:WW2-Territory-Action-RadiusGrow4-Oran]
 			[Conditions:WW2-Territory-Condition-Grow4-Oran]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink4-Oran]
@@ -3107,7 +4055,10 @@
 			[CustomSandboxCountersTargets:1350]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Oran_Tier4Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -3123,7 +4074,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Oran]
+			[Actions:WW2-Territory-Action-RadiusShrink4-Oran]
 			[Conditions:WW2-Territory-Condition-Shrink4-Oran]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow4-Oran]
@@ -3146,7 +4097,10 @@
 			[CustomSandboxCountersTargets:1350]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Oran_Tier4Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 5->6 @ 2250 -->
@@ -3164,7 +4118,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Oran]
+			[Actions:WW2-Territory-Action-RadiusGrow5-Oran]
 			[Conditions:WW2-Territory-Condition-Grow5-Oran]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink5-Oran]
@@ -3187,7 +4141,10 @@
 			[CustomSandboxCountersTargets:2250]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Oran_Tier5Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -3203,7 +4160,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Oran]
+			[Actions:WW2-Territory-Action-RadiusShrink5-Oran]
 			[Conditions:WW2-Territory-Condition-Shrink5-Oran]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow5-Oran]
@@ -3226,7 +4183,10 @@
 			[CustomSandboxCountersTargets:2250]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Oran_Tier5Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 6->7 @ 3475 -->
@@ -3244,7 +4204,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Oran]
+			[Actions:WW2-Territory-Action-RadiusGrow6-Oran]
 			[Conditions:WW2-Territory-Condition-Grow6-Oran]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink6-Oran]
@@ -3267,7 +4227,10 @@
 			[CustomSandboxCountersTargets:3475]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Oran_Tier6Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -3283,7 +4246,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Oran]
+			[Actions:WW2-Territory-Action-RadiusShrink6-Oran]
 			[Conditions:WW2-Territory-Condition-Shrink6-Oran]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow6-Oran]
@@ -3306,14 +4269,17 @@
 			[CustomSandboxCountersTargets:3475]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Oran_Tier6Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Shared Grow/Shrink actions + chats -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Action-RadiusGrow-Oran</SubtypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow6-Oran</SubtypeId>
 			</Id>
 			<Description>
 
@@ -3326,12 +4292,108 @@
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Territory-Chat-Grow-Oran]
 
-			</Description>
+							[SetSandboxBooleansTrue:Oran_Tier6Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow5-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Oran_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Oran]
+
+							[SetSandboxBooleansTrue:Oran_Tier5Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow4-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Oran_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Oran]
+
+							[SetSandboxBooleansTrue:Oran_Tier4Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow3-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Oran_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Oran]
+
+							[SetSandboxBooleansTrue:Oran_Tier3Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow2-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Oran_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Oran]
+
+							[SetSandboxBooleansTrue:Oran_Tier2Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow1-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Oran_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Oran]
+
+							[SetSandboxBooleansTrue:Oran_Tier1Grown]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Action-RadiusShrink-Oran</SubtypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink6-Oran</SubtypeId>
 			</Id>
 			<Description>
 
@@ -3344,7 +4406,103 @@
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Territory-Chat-Shrink-Oran]
 
-			</Description>
+							[SetSandboxBooleansFalse:Oran_Tier6Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink5-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Oran_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Oran]
+
+							[SetSandboxBooleansFalse:Oran_Tier5Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink4-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Oran_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Oran]
+
+							[SetSandboxBooleansFalse:Oran_Tier4Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink3-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Oran_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Oran]
+
+							[SetSandboxBooleansFalse:Oran_Tier3Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink2-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Oran_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Oran]
+
+							[SetSandboxBooleansFalse:Oran_Tier2Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink1-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Oran_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Oran]
+
+							[SetSandboxBooleansFalse:Oran_Tier1Grown]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -3540,7 +4698,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Alexandria]
+			[Actions:WW2-Territory-Action-RadiusGrow1-Alexandria]
 			[Conditions:WW2-Territory-Condition-Grow1-Alexandria]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink1-Alexandria]
@@ -3563,7 +4721,10 @@
 			[CustomSandboxCountersTargets:100]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Alexandria_Tier1Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -3579,7 +4740,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Alexandria]
+			[Actions:WW2-Territory-Action-RadiusShrink1-Alexandria]
 			[Conditions:WW2-Territory-Condition-Shrink1-Alexandria]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow1-Alexandria]
@@ -3602,7 +4763,10 @@
 			[CustomSandboxCountersTargets:100]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Alexandria_Tier1Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 2->3 @ 325 -->
@@ -3620,7 +4784,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Alexandria]
+			[Actions:WW2-Territory-Action-RadiusGrow2-Alexandria]
 			[Conditions:WW2-Territory-Condition-Grow2-Alexandria]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink2-Alexandria]
@@ -3643,7 +4807,10 @@
 			[CustomSandboxCountersTargets:325]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Alexandria_Tier2Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -3659,7 +4826,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Alexandria]
+			[Actions:WW2-Territory-Action-RadiusShrink2-Alexandria]
 			[Conditions:WW2-Territory-Condition-Shrink2-Alexandria]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow2-Alexandria]
@@ -3682,7 +4849,10 @@
 			[CustomSandboxCountersTargets:325]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Alexandria_Tier2Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 3->4 @ 725 -->
@@ -3700,7 +4870,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Alexandria]
+			[Actions:WW2-Territory-Action-RadiusGrow3-Alexandria]
 			[Conditions:WW2-Territory-Condition-Grow3-Alexandria]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink3-Alexandria]
@@ -3723,7 +4893,10 @@
 			[CustomSandboxCountersTargets:725]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Alexandria_Tier3Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -3739,7 +4912,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Alexandria]
+			[Actions:WW2-Territory-Action-RadiusShrink3-Alexandria]
 			[Conditions:WW2-Territory-Condition-Shrink3-Alexandria]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow3-Alexandria]
@@ -3762,7 +4935,10 @@
 			[CustomSandboxCountersTargets:725]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Alexandria_Tier3Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 4->5 @ 1350 -->
@@ -3780,7 +4956,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Alexandria]
+			[Actions:WW2-Territory-Action-RadiusGrow4-Alexandria]
 			[Conditions:WW2-Territory-Condition-Grow4-Alexandria]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink4-Alexandria]
@@ -3803,7 +4979,10 @@
 			[CustomSandboxCountersTargets:1350]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Alexandria_Tier4Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -3819,7 +4998,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Alexandria]
+			[Actions:WW2-Territory-Action-RadiusShrink4-Alexandria]
 			[Conditions:WW2-Territory-Condition-Shrink4-Alexandria]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow4-Alexandria]
@@ -3842,7 +5021,10 @@
 			[CustomSandboxCountersTargets:1350]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Alexandria_Tier4Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 5->6 @ 2250 -->
@@ -3860,7 +5042,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Alexandria]
+			[Actions:WW2-Territory-Action-RadiusGrow5-Alexandria]
 			[Conditions:WW2-Territory-Condition-Grow5-Alexandria]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink5-Alexandria]
@@ -3883,7 +5065,10 @@
 			[CustomSandboxCountersTargets:2250]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Alexandria_Tier5Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -3899,7 +5084,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Alexandria]
+			[Actions:WW2-Territory-Action-RadiusShrink5-Alexandria]
 			[Conditions:WW2-Territory-Condition-Shrink5-Alexandria]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow5-Alexandria]
@@ -3922,7 +5107,10 @@
 			[CustomSandboxCountersTargets:2250]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Alexandria_Tier5Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Tier 6->7 @ 3475 -->
@@ -3940,7 +5128,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusGrow-Alexandria]
+			[Actions:WW2-Territory-Action-RadiusGrow6-Alexandria]
 			[Conditions:WW2-Territory-Condition-Grow6-Alexandria]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Shrink6-Alexandria]
@@ -3963,7 +5151,10 @@
 			[CustomSandboxCountersTargets:3475]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 
-			</Description>
+							[CheckFalseSandboxBooleans:true]
+				[FalseSandboxBooleans:Alexandria_Tier6Grown]
+				[AllowAnyFalseSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -3979,7 +5170,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:false]
 			[MaxActions:-1]
-			[Actions:WW2-Territory-Action-RadiusShrink-Alexandria]
+			[Actions:WW2-Territory-Action-RadiusShrink6-Alexandria]
 			[Conditions:WW2-Territory-Condition-Shrink6-Alexandria]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-Territory-Trigger-Grow6-Alexandria]
@@ -4002,14 +5193,17 @@
 			[CustomSandboxCountersTargets:3475]
 			[SandboxCounterCompareTypes:Less]
 
-			</Description>
+							[CheckTrueSandboxBooleans:true]
+				[TrueSandboxBooleans:Alexandria_Tier6Grown]
+				[AllowAnyTrueSandboxBoolean:false]
+</Description>
 		</EntityComponent>
 
 <!-- Shared Grow/Shrink actions + chats -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Action-RadiusGrow-Alexandria</SubtypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow6-Alexandria</SubtypeId>
 			</Id>
 			<Description>
 
@@ -4022,12 +5216,108 @@
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Territory-Chat-Grow-Alexandria]
 
-			</Description>
+							[SetSandboxBooleansTrue:Alexandria_Tier6Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow5-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Alexandria_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Alexandria]
+
+							[SetSandboxBooleansTrue:Alexandria_Tier5Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow4-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Alexandria_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Alexandria]
+
+							[SetSandboxBooleansTrue:Alexandria_Tier4Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow3-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Alexandria_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Alexandria]
+
+							[SetSandboxBooleansTrue:Alexandria_Tier3Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow2-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Alexandria_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Alexandria]
+
+							[SetSandboxBooleansTrue:Alexandria_Tier2Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusGrow1-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Alexandria_Zone]
+			[ZoneRadiusChangeType:Add]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Grow-Alexandria]
+
+							[SetSandboxBooleansTrue:Alexandria_Tier1Grown]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Action-RadiusShrink-Alexandria</SubtypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink6-Alexandria</SubtypeId>
 			</Id>
 			<Description>
 
@@ -4040,7 +5330,103 @@
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Territory-Chat-Shrink-Alexandria]
 
-			</Description>
+							[SetSandboxBooleansFalse:Alexandria_Tier6Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink5-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Alexandria_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Alexandria]
+
+							[SetSandboxBooleansFalse:Alexandria_Tier5Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink4-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Alexandria_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Alexandria]
+
+							[SetSandboxBooleansFalse:Alexandria_Tier4Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink3-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Alexandria_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Alexandria]
+
+							[SetSandboxBooleansFalse:Alexandria_Tier3Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink2-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Alexandria_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Alexandria]
+
+							[SetSandboxBooleansFalse:Alexandria_Tier2Grown]
+</Description>
+		</EntityComponent>
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-RadiusShrink1-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[ChangeZoneAtPosition:true]
+			[ZoneName:Alexandria_Zone]
+			[ZoneRadiusChangeType:Subtract]
+			[ZoneRadiusChangeAmount:5000]
+			[ChangeZoneOnlyByName:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Territory-Chat-Shrink-Alexandria]
+
+							[SetSandboxBooleansFalse:Alexandria_Tier1Grown]
+</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>

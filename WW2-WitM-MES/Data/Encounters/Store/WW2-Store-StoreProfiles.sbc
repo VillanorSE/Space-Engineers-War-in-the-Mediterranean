@@ -200,40 +200,74 @@
 			</Description>
 		</EntityComponent>
 
+		
+		<!-- War Level 1 (always available): Fiat626/Gabbiano/GoloItalian. FrancescoCrispi (Level 2)
+		     moved to the Tier2 profile below, applied by a separately-gated trigger. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Store-Profile-Vehicles-Gray</SubtypeId>
+				<SubtypeId>WW2-Store-Profile-Vehicles-Gray-Base</SubtypeId>
 			</Id>
 			<Description>
 			[MES Store]
 			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
-			[MinOfferItems:4]
-			[MaxOfferItems:4]
+			[MinOfferItems:3]
+			[MaxOfferItems:3]
 			[ItemsRequireInventory:false]
 
 			[RequiredOffers:WW2-Vehicle-Fiat626]
 			[RequiredOffers:WW2-Vehicle-Gabbiano]
 			[RequiredOffers:WW2-Vehicle-GoloItalian]
-			[RequiredOffers:WW2-Vehicle-FrancescoCrispi]
 			</Description>
 		</EntityComponent>
-
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Store-Profile-Vehicles-Green</SubtypeId>
+				<SubtypeId>WW2-Store-Profile-Vehicles-Gray-Tier2</SubtypeId>
 			</Id>
 			<Description>
 			[MES Store]
 			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
-			[MinOfferItems:4]
-			[MaxOfferItems:4]
+			[MinOfferItems:1]
+			[MaxOfferItems:1]
+			[ItemsRequireInventory:false]
+
+			[RequiredOffers:WW2-Vehicle-FrancescoCrispi]
+			</Description>
+		</EntityComponent>
+
+		
+		<!-- War Level 1 (always available): RenaultAHN/LaMalouine/GoloFrench. Bougainville (Level 2)
+		     moved to the Tier2 profile below, applied by a separately-gated trigger. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-Vehicles-Green-Base</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
+			[MinOfferItems:3]
+			[MaxOfferItems:3]
 			[ItemsRequireInventory:false]
 
 			[RequiredOffers:WW2-Vehicle-RenaultAHN]
 			[RequiredOffers:WW2-Vehicle-LaMalouine]
 			[RequiredOffers:WW2-Vehicle-GoloFrench]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-Vehicles-Green-Tier2</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
+			[MinOfferItems:1]
+			[MaxOfferItems:1]
+			[ItemsRequireInventory:false]
+
 			[RequiredOffers:WW2-Vehicle-Bougainville]
 			</Description>
 		</EntityComponent>

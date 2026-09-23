@@ -273,6 +273,7 @@ War Level integration: Higher war levels will increase volume of ammunition, num
 **To-do:**
 - [x] Make plane spawns altitude be relative to water surface. (Plane spawns are relative to water surface when water mod is present.)
 - [ ] Design and wire a currency-reward mechanic tied to successful cargo ship/plane deliveries (or similar), so GRAY/GREEN can meaningfully grow richer through play rather than just sitting at their starting balance.
+- [ ] Make a cargo ship spawn on a variable timer at airfields that travel a random path that wanders away from the spawn or goes to another friendly airfield if there is one.
 
 ---
 
@@ -317,7 +318,6 @@ This is specifically intended to discourage players from building bases too clos
 - [x] Rebuild the zone/threshold system to the single-resizing-zone-per-anchor, 7-tier (5/10/15/20/25/30/35km) design in `WW2-WitM-Territory-WarLevel-Design.md` §1 (supersedes the original 6-zones-per-anchor toggle approach; La Spezia's existing implementation still reflects the old design and needs rebuilding first as the template).
 - [x] Place Foggia, Gibraltar, Tripoli, and Tunis airports
 - [ ] Place all remaining airport locations. 
-- [ ] Build a barracks and use it at all relevant locations with behavior as described in the location section.
 - [ ] Add MSB's `AreaRestriction` TriggerGroup to all installations, 1,500m radius on primary points and 500m on all other installations.
 - [ ] Playtest: confirm the AreaRestriction warning/reputation-loss cadence feels like a nudge rather than a punishment.
 
@@ -361,15 +361,16 @@ War activity come from the destruction of any NPC at the following tentative rat
 
 
 **To-Do**
-- [ ] Define defensive spawns per war level per installation type.
-- [ ] Define minimum war level per spawn.
-- [ ] Create store listings by war level based on "war level minimum" requirements determination.
-- [ ] Update spawn conditions to include war level checks. 
+- [x] Define defensive spawns per war level per installation type.
+- [x] Define minimum war level per spawn.
+- [x] Create store listings by war level based on "war level minimum" requirements determination.
+- [x] Update spawn conditions to include war level checks. 
 - [ ] Test war level increase rates.
+- [ ] Create multi-vehicle spawn groups for higher war levels, such as 2-3 cargo ship/plane spawns at high war level and multi-plane defensive spawns at high war level.
 
 ---
 
-## Expansion 3 - Vehicle Depots & Garrison Functions
+## Expansion 3 - Vehicle Depots & Early Ground Vehicles
 
 Create vehicle depots, at least two ground vehicles per faction, and implement functionality for vehicle depots to have convoys from the nearest port
 
@@ -377,15 +378,9 @@ Create vehicle depots, at least two ground vehicles per faction, and implement f
 - [ ] Create AB 41 and Panhard armored cars at 150% scale.
 - [ ] Create one light tank per faction at 150% scale. 
 - [ ] Create a basic vehicle depot prefab either per faction or that can be used for both.
-- [ ] Create a basic barracks and command building that can be used for both factions.
 - [ ] Create behavior for vehicle depot that calls for vehicle convoys from the nearest port that scale with war level and includes defensive AI bot spawns and general triggers. Include sale of vehicles at the vehicle depots.
-- [ ] Create behavior for garrisons with general triggers and bot spawns and include sale of utility vehicle.
-- [ ] Look into missions/contracts that could be offered at the garrisons. 
-- [ ] Configure garrisons and vehicle depots as permanent and invulnerable static spawns.
-- [ ] Create refinery/fuel point grids.
-- [ ] Add "reroll stock" as an action in the capture trigger chains.
-- [ ] Add AI enabled spawn sequences to installations.
-- [ ] Test whether RivalAI/MES ground-vehicle autopilot supports a multi-waypoint patrol pattern between two fixed points (Garrison Post to Garrison Post).
+- [ ] Configure vehicle depots as permanent and invulnerable static spawns.
+- [ ] Build waypoint paths between vehicle depots and ports.
 
 ---
 
@@ -429,6 +424,18 @@ Implement the dynamically spawning, non permanent, faction owned installations. 
 - [ ] Create refueling points. Gas stations that players can connect to and refuel and get refreshed every ~30 minutes.
 
 ---
+
+### Expansion (undecided timing) Convoy Expansion
+
+Implement a system like in Mike Dude's Deserts of Kharak server where cargo plane, cargo ship, and cargo truck convoys spawn attackers that attack them when they are being escorted. Make the attackers escalate with war level (the convoys too).
+
+**To-do:**
+- [ ] Decide attacker framework for each vehicle type (planes, ships, and trucks)
+- [ ] Build attacker MES items for ship convoys (Hostile ships of equivalent war level)
+- [ ] Build attacker MES items for plane convoys (Hostile fighters of equivalent war level)
+- [ ] Build attacker MES items for ground convoys (Hostile fighters of equivalent war level)
+- [ ] Build escalated convoys for higher war levels.
+- [ ] Build escalated attackers for higher war level convoys.
 
 ### Expansion (undecided prioritiy) Port-based Naval Patrols
 

@@ -1,22 +1,29 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <!-- Airfield Store-sells-planes feature, same Trigger/Action mechanism as
-     WW2-Store-Behavior-PortSales.sbc / WW2-Store-Behavior-FactoryPlaneSales.sbc. One pair per
+     WW2-Store-Behavior-PortSales.sbc / WW2-Store-Behavior-FactoryPlaneSales.sbc. One trigger set per
      faction, targeting the "Store-Airport-Vehicles" block, stacking every existing per-plane
      StoreProfile for that faction (reused directly from WW2-Store-StoreProfiles.sbc - no new
-     profiles needed) so the airfield sells its owning faction's ENTIRE plane roster, not just one
-     type like a single Factory does.
+     profiles needed) so the airfield sells its owning faction's ENTIRE unlocked plane roster, not
+     just one type like a single Factory does.
+
+     War Level gated (2026-09-22): each faction now has a -Clear trigger (always runs, seeds the
+     level-1 plane) plus one -TierN trigger per level at which that faction has an airfield-sold
+     plane, each gated by [Conditions:WW2-WarLevel-Condition-AtLeastN] (War-Level-Gating.sbc).
+     All of them run every 60s independently (RivalAI Triggers re-check their own Condition on
+     every cooldown even without a toggle) - Clear always re-clears+seeds Re2000/MS406, and only
+     the tiers whose War Level is currently met additionally layer their planes on top with
+     ClearStoreContentsFirst:false, so the store self-corrects each cycle if War Level is ever
+     lowered by hand for testing.
 
      MES pairs StoreProfiles[i] with StoreBlocks[i] (stops at the shorter list) and only applies to a
-     store whose OwnerId == the Remote Control's OwnerId. ClearStoreContentsFirst clears before EACH
-     profile, so the trigger runs a "-Clear" action (first profile, clear:true) and then a second action
-     (remaining profiles, clear:false); a single action would leave only the last profile in stock. -->
+     store whose OwnerId == the Remote Control's OwnerId. -->
 	<EntityComponents>
 
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Gray</SubtypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Gray-Clear</SubtypeId>
 			</Id>
 			<Description>
 			[MES AI Trigger]
@@ -27,7 +34,6 @@
 			[StartsReady:true]
 			[MaxActions:-1]
 			[Actions:WW2-Store-Action-UpdateSales-Airfield-Vehicles-Gray-Clear]
-			[Actions:WW2-Store-Action-UpdateSales-Airfield-Vehicles-Gray]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -43,10 +49,28 @@
 			[StoreProfiles:WW2-Store-Profile-Re2000]
 			</Description>
 		</EntityComponent>
+
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Store-Action-UpdateSales-Airfield-Vehicles-Gray</SubtypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Gray-Tier2</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast2]
+			[Actions:WW2-Store-Action-UpdateSales-Airfield-Vehicles-Gray-Tier2]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Airfield-Vehicles-Gray-Tier2</SubtypeId>
 			</Id>
 			<Description>
 			[MES AI Action]
@@ -55,9 +79,38 @@
 			[StoreBlocks:Store-Airport-Vehicles]
 			[StoreProfiles:WW2-Store-Profile-Re2001]
 			[StoreBlocks:Store-Airport-Vehicles]
-			[StoreProfiles:WW2-Store-Profile-FC20]
-			[StoreBlocks:Store-Airport-Vehicles]
 			[StoreProfiles:WW2-Store-Profile-Ba65]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Gray-Tier3</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast3]
+			[Actions:WW2-Store-Action-UpdateSales-Airfield-Vehicles-Gray-Tier3]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Airfield-Vehicles-Gray-Tier3</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Action]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:false]
+			[StoreBlocks:Store-Airport-Vehicles]
+			[StoreProfiles:WW2-Store-Profile-FC20]
 			[StoreBlocks:Store-Airport-Vehicles]
 			[StoreProfiles:WW2-Store-Profile-SM79Bomber]
 			[StoreBlocks:Store-Airport-Vehicles]
@@ -68,7 +121,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Green</SubtypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Green-Clear</SubtypeId>
 			</Id>
 			<Description>
 			[MES AI Trigger]
@@ -79,7 +132,6 @@
 			[StartsReady:true]
 			[MaxActions:-1]
 			[Actions:WW2-Store-Action-UpdateSales-Airfield-Vehicles-Green-Clear]
-			[Actions:WW2-Store-Action-UpdateSales-Airfield-Vehicles-Green]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -95,10 +147,28 @@
 			[StoreProfiles:WW2-Store-Profile-MS406]
 			</Description>
 		</EntityComponent>
+
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Store-Action-UpdateSales-Airfield-Vehicles-Green</SubtypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Green-Tier3</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast3]
+			[Actions:WW2-Store-Action-UpdateSales-Airfield-Vehicles-Green-Tier3]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Airfield-Vehicles-Green-Tier3</SubtypeId>
 			</Id>
 			<Description>
 			[MES AI Action]

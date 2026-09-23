@@ -8,7 +8,14 @@
      - ONE shared Goods pair (WW2-Store-Trigger/Action-UpdateSales-PortGoods), referenced from
        ALL 7 locations (4 Ports + Valencia) - the goods catalog is identical everywhere.
      - THREE Vehicle pairs (-Gray/-Green/-Valencia), each referenced only by the Behaviors that
-       should offer that faction's roster. -->
+       should offer that faction's roster.
+
+     War Level gated (2026-09-22): Gray and Green each split into a -Base pair (always runs, the
+     3 guaranteed level-1 items) plus a -Tier2 pair gated by [Conditions:WW2-WarLevel-Condition-
+     AtLeast2] (War-Level-Gating.sbc), since exactly one item in each roster (Francesco Crispi /
+     Bougainville) is level 2 and everything else there is level 1. Both pairs run every 60s
+     independently and re-check their own Condition each cycle, same self-correcting pattern as
+     WW2-Store-Behavior-AirfieldSales.sbc. Valencia is untouched - every item it sells is level 1. -->
 	<EntityComponents>
 
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -44,7 +51,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Store-Trigger-UpdateSales-Vehicles-Gray</SubtypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Vehicles-Gray-Base</SubtypeId>
 			</Id>
 			<Description>
 			[MES AI Trigger]
@@ -54,27 +61,27 @@
 			[MaxCooldownMs:60001]
 			[StartsReady:true]
 			[MaxActions:-1]
-			[Actions:WW2-Store-Action-UpdateSales-Vehicles-Gray]
+			[Actions:WW2-Store-Action-UpdateSales-Vehicles-Gray-Base]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Store-Action-UpdateSales-Vehicles-Gray</SubtypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Vehicles-Gray-Base</SubtypeId>
 			</Id>
 			<Description>
 			[MES AI Action]
 			[ApplyStoreProfiles:true]
 			[ClearStoreContentsFirst:true]
 			[StoreBlocks:Store-Port-Vehicles]
-			[StoreProfiles:WW2-Store-Profile-Vehicles-Gray]
+			[StoreProfiles:WW2-Store-Profile-Vehicles-Gray-Base]
 			</Description>
 		</EntityComponent>
 
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Store-Trigger-UpdateSales-Vehicles-Green</SubtypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Vehicles-Gray-Tier2</SubtypeId>
 			</Id>
 			<Description>
 			[MES AI Trigger]
@@ -84,20 +91,82 @@
 			[MaxCooldownMs:60001]
 			[StartsReady:true]
 			[MaxActions:-1]
-			[Actions:WW2-Store-Action-UpdateSales-Vehicles-Green]
+			[Conditions:WW2-WarLevel-Condition-AtLeast2]
+			[Actions:WW2-Store-Action-UpdateSales-Vehicles-Gray-Tier2]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Store-Action-UpdateSales-Vehicles-Green</SubtypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Vehicles-Gray-Tier2</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Action]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:false]
+			[StoreBlocks:Store-Port-Vehicles]
+			[StoreProfiles:WW2-Store-Profile-Vehicles-Gray-Tier2]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Vehicles-Green-Base</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Store-Action-UpdateSales-Vehicles-Green-Base]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Vehicles-Green-Base</SubtypeId>
 			</Id>
 			<Description>
 			[MES AI Action]
 			[ApplyStoreProfiles:true]
 			[ClearStoreContentsFirst:true]
 			[StoreBlocks:Store-Port-Vehicles]
-			[StoreProfiles:WW2-Store-Profile-Vehicles-Green]
+			[StoreProfiles:WW2-Store-Profile-Vehicles-Green-Base]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Vehicles-Green-Tier2</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast2]
+			[Actions:WW2-Store-Action-UpdateSales-Vehicles-Green-Tier2]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Vehicles-Green-Tier2</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Action]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:false]
+			[StoreBlocks:Store-Port-Vehicles]
+			[StoreProfiles:WW2-Store-Profile-Vehicles-Green-Tier2]
 			</Description>
 		</EntityComponent>
 

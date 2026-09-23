@@ -4,7 +4,7 @@
 
 	<!-- Nautical Paths - CargoShip
 	     Fixed point-to-point routes for CargoShip ("Nautical") behavior NPCs, using MES's
-	     native [CustomWaypoints:X:Y:Z,X:Y:Z,...] Behavior tag (RivalAI CargoShip subclass).
+	     native [CustomWaypoints:X Y Z,X Y Z,...] Behavior tag (RivalAI CargoShip subclass).
 	     This seeds the ship's full ordered waypoint queue at spawn - it flies each point in
 	     order, then despawns after the last one. It replaces (does not add to) the default
 	     "AddWaypoints on DestinationReached" random-destination pattern used by the plain
@@ -32,7 +32,7 @@
 
 			[WeaponSystem:WW2-Weapons-CargoShip]
 
-			[CustomWaypoints:7219.22:-27130.26:10854.68,9243.59:-23021.01:17047.34,9335.38:-20832.01:19618.71,3347.94:-1599.76:29871.67,3562.77:8725.65:28586.94,-3660.24:20482.92:21751.4,-3313.06:20680.14:21624.19]
+			[CustomWaypoints:7256 -27057 11005,9123 -23758 16068,9725 -21198 19024,7495 -13797 25679,7848 444 29055,401 15384 25866,-3154 20530 21782]
 
 			[Triggers:WW2-Trigger-UnStatic]
 			[Triggers:WW2-Trigger-CargoDamage]
@@ -65,7 +65,7 @@
 
 			[WeaponSystem:WW2-Weapons-CargoShip]
 
-			[CustomWaypoints:-3313.06:20680.14:21624.19,-3660.24:20482.92:21751.4,3562.77:8725.65:28586.94,3347.94:-1599.76:29871.67,9335.38:-20832.01:19618.71,9243.59:-23021.01:17047.34,7219.22:-27130.26:10854.68]
+			[CustomWaypoints:-3154 20530 21782,401 15384 25866,7848 444 29055,7495 -13797 25679,9725 -21198 19024,9123 -23758 16068,7256 -27057 11005]
 
 			[Triggers:WW2-Trigger-UnStatic]
 			[Triggers:WW2-Trigger-CargoDamage]
@@ -80,6 +80,74 @@
 			</Description>
         </EntityComponent>
 	<!-- End La Spezia <-> Tripoli -->
+
+<!-- La Spezia <-> Civitavecchia -->
+	<!-- La Spezia -> Civitavecchia -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-CargoShip-Gray-LaSpezia-Civitavecchia</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[Triggers:WW2-Territory-Trigger-Delivery-Gray-LaSpezia-Civitavecchia]
+
+			[AutopilotData:WW2-Autopilot-CargoShip]
+			[TargetData:WW2-Targeting-ShipMain]
+
+			[WeaponSystem:WW2-Weapons-CargoShip]
+
+			[CustomWaypoints:7256 -27057 11005,9123 -23758 16068,9725 -21198 19024,3321 -21097, 21207]
+
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-CargoDamage]
+			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
+			[Triggers:WW2-Trigger-HostileNear-Cargo]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Gray]
+			[Triggers:WW2-Territory-Trigger-CargoShip-RouteArrived]
+			[Triggers:WW2-Territory-Trigger-CargoShip-UnloadTimer]
+
+			</Description>
+        </EntityComponent>
+
+	<!-- Civitavecchia -> La Spezia -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-CargoShip-Gray-Civitavecchia-LaSpezia</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[Triggers:WW2-Territory-Trigger-Delivery-Gray-Civitavecchia-LaSpezia]
+
+			[AutopilotData:WW2-Autopilot-CargoShip]
+			[TargetData:WW2-Targeting-ShipMain]
+
+			[WeaponSystem:WW2-Weapons-CargoShip]
+
+			[CustomWaypoints:3321 -21097, 21207,9725 -21198 19024,9123 -23758 16068,7256 -27057 11005]
+
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-CargoDamage]
+			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
+			[Triggers:WW2-Trigger-HostileNear-Cargo]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Gray]
+			[Triggers:WW2-Territory-Trigger-CargoShip-RouteArrived]
+			[Triggers:WW2-Territory-Trigger-CargoShip-UnloadTimer]
+
+			</Description>
+        </EntityComponent>
+	<!-- End La Spezia <-> Civitavecchia -->
 
 	<!-- Oran -> Toulon -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -99,7 +167,7 @@
 
 			[WeaponSystem:WW2-Weapons-CargoShip]
 
-			[CustomWaypoints:21959.52:8012.84:-18957.84,25022.38:-7770.26:-14811.06,25572.66:-14988.84:-5213.51,17643.8:-23429.4:6762.48,16818.41:-23976.79:6939.93]
+			[CustomWaypoints:22118 7537 -18976,26426 3729 -13925,29784 -4261 890,21586 -5135 20337,20252 -19317 11074,16833 -23953 6995]
 
 			[Triggers:WW2-Trigger-UnStatic]
 			[Triggers:WW2-Trigger-CargoDamage]
@@ -132,7 +200,7 @@
 
 			[WeaponSystem:WW2-Weapons-CargoShip]
 
-			[CustomWaypoints:16818.41:-23976.79:6939.93,17643.8:-23429.4:6762.48,25572.66:-14988.84:-5213.51,25022.38:-7770.26:-14811.06,21959.52:8012.84:-18957.84]
+			[CustomWaypoints:20252 -19317 11074,21586 -5135 20337,29784 -4261 890,26426 3729 -13925,22118 7537 -18976,21868 8101 -19033]
 
 			[Triggers:WW2-Trigger-UnStatic]
 			[Triggers:WW2-Trigger-CargoDamage]
@@ -166,7 +234,7 @@
 
 			[WeaponSystem:WW2-Weapons-CargoShip]
 
-			[CustomWaypoints:16818.41:-23976.79:6939.93,17450.09:-23219.82:7887.05,21422.12:-6790.95:20020.47,6747.3:-3130.82:29163.38,2819.58:6347.49:29285.04,-23414.39:18515.49:-3859.76,-7142.42:25873.42:-13622.89,-5971.69:25913.47:-14098.75]
+			[CustomWaypoints:20252 -19317 11074,21586 -5135 20337,5994 -336 29495,1365 14345 26426,-14953 19437 17454,-23968 18019 2615,-20738 20338 -7894,-6007 25955 -14008]
 
 			[Triggers:WW2-Trigger-UnStatic]
 			[Triggers:WW2-Trigger-CargoDamage]
@@ -199,7 +267,7 @@
 
 			[WeaponSystem:WW2-Weapons-CargoShip]
 
-			[CustomWaypoints:-5971.69:25913.47:-14098.75,-7142.42:25873.42:-13622.89,-23414.39:18515.49:-3859.76,2819.58:6347.49:29285.04,6747.3:-3130.82:29163.38,21422.12:-6790.95:20020.47,17450.09:-23219.82:7887.05,16818.41:-23976.79:6939.93]
+			[CustomWaypoints:-6007 25955 -14008,-20738 20338 -7894,-23968 18019 2615,-14953 19437 17454,1365 14345 26426,5994 -336 29495,21586 -5135 20337,20252 -19317 11074,16833 -23953 6995]
 
 			[Triggers:WW2-Trigger-UnStatic]
 			[Triggers:WW2-Trigger-CargoDamage]
@@ -214,74 +282,6 @@
 			</Description>
         </EntityComponent>
 	<!-- End Toulon <-> Alexandria -->
-
-	<!-- La Spezia <-> Civitavecchia -->
-	<!-- La Spezia -> Civitavecchia -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Behavior-CargoShip-Gray-LaSpezia-Civitavecchia</SubtypeId>
-            </Id>
-            <Description>
-
-			[RivalAI Behavior]
-			[BehaviorName:CargoShip]
-			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
-			[Triggers:WW2-Territory-Trigger-Delivery-Gray-LaSpezia-Civitavecchia]
-
-			[AutopilotData:WW2-Autopilot-CargoShip]
-			[TargetData:WW2-Targeting-ShipMain]
-
-			[WeaponSystem:WW2-Weapons-CargoShip]
-
-			[CustomWaypoints:7165.85:-27145.31:10854.32,8371.83:-25246.97:14090.08,7786.58:-24444.34:15741.88,9467.47:-22778.75:17245.51,8217.11:-20449.18:20500.11,3320.96:-21072.99:21232.59]
-
-			[Triggers:WW2-Trigger-UnStatic]
-			[Triggers:WW2-Trigger-CargoDamage]
-			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
-			[Triggers:WW2-Trigger-HostileNear-Cargo]
-			[Triggers:WW2-Trigger-BotCrew-3]
-			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
-			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Gray]
-			[Triggers:WW2-Territory-Trigger-CargoShip-RouteArrived]
-			[Triggers:WW2-Territory-Trigger-CargoShip-UnloadTimer]
-
-			</Description>
-        </EntityComponent>
-
-	<!-- Civitavecchia -> La Spezia -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Behavior-CargoShip-Gray-Civitavecchia-LaSpezia</SubtypeId>
-            </Id>
-            <Description>
-
-			[RivalAI Behavior]
-			[BehaviorName:CargoShip]
-			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
-			[Triggers:WW2-Territory-Trigger-Delivery-Gray-Civitavecchia-LaSpezia]
-
-			[AutopilotData:WW2-Autopilot-CargoShip]
-			[TargetData:WW2-Targeting-ShipMain]
-
-			[WeaponSystem:WW2-Weapons-CargoShip]
-
-			[CustomWaypoints:3320.96:-21072.99:21232.59,8217.11:-20449.18:20500.11,9467.47:-22778.75:17245.51,7786.58:-24444.34:15741.88,8371.83:-25246.97:14090.08,7165.85:-27145.31:10854.32]
-
-			[Triggers:WW2-Trigger-UnStatic]
-			[Triggers:WW2-Trigger-CargoDamage]
-			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
-			[Triggers:WW2-Trigger-HostileNear-Cargo]
-			[Triggers:WW2-Trigger-BotCrew-3]
-			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
-			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Gray]
-			[Triggers:WW2-Territory-Trigger-CargoShip-RouteArrived]
-			[Triggers:WW2-Territory-Trigger-CargoShip-UnloadTimer]
-
-			</Description>
-        </EntityComponent>
-	<!-- End La Spezia <-> Civitavecchia -->
 
 	</EntityComponents>
 </Definitions>

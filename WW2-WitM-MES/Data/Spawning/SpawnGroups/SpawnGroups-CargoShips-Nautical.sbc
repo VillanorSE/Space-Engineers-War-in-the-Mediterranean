@@ -9,7 +9,18 @@
      Behaviors-Port.sbc / Triggers-CargoSpawn-Port.sbc) - not through MES's normal ambient
      ship-spawning system. Each group still needs a SpawnConditions profile with a RivalAi spawn
      flag, or MES reports No Eligible SpawnGroups for type OtherNPC (see
-     SpawnConditions-CargoShips.sbc). -->
+     SpawnConditions-CargoShips.sbc).
+
+     2026-09-22: added [IgnoreCleanupRules:true] to each group below, per the user's ask that these
+     ships only leave the world by reaching their destination, not generic cleanup. Confirmed via
+     source (ImprovedSpawnGroup.cs/NpcData.cs/Watchers/Cleaning.cs): this is a SpawnGroup-level tag,
+     not a SpawnConditions one - it sets Attributes.IgnoreCleanup, which makes
+     Cleaning.BasicCleanupChecks exempt the grid entirely from the generic distance/timer cleanup
+     sweep. A same-named [IgnoreCleanupRules:true] already sits in
+     SpawnConditions-CargoShips.sbc, added earlier this session by mistake - SpawnConditionsProfile.cs
+     has no parser for that tag at all, so it was always a silent no-op there and did nothing to
+     prevent the cleanup despawns actually observed. Left it in that file, now corrected with its
+     own note, rather than deleting on the chance something else reads it later. -->
 
 <!-- La Spezia -> Tripoli -->
 	<SpawnGroup>
@@ -21,6 +32,8 @@
 		[Modular Encounters SpawnGroup]
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
+
+		[IgnoreCleanupRules:true]
 
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
@@ -55,6 +68,8 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
 
+		[IgnoreCleanupRules:true]
+
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -87,6 +102,8 @@
 		[Modular Encounters SpawnGroup]
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
+
+		[IgnoreCleanupRules:true]
 
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
@@ -121,6 +138,8 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
 
+		[IgnoreCleanupRules:true]
+
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -153,6 +172,8 @@
 		[Modular Encounters SpawnGroup]
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
+
+		[IgnoreCleanupRules:true]
 
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
@@ -187,6 +208,8 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
 
+		[IgnoreCleanupRules:true]
+
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -220,6 +243,8 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
 
+		[IgnoreCleanupRules:true]
+
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -252,6 +277,8 @@
 		[Modular Encounters SpawnGroup]
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoShips-Nautical]
+
+		[IgnoreCleanupRules:true]
 
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
