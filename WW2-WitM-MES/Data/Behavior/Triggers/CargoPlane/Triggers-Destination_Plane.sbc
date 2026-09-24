@@ -37,8 +37,6 @@
 				[AutopilotProfile:Secondary]
 				[EnableTriggers:true]
 				[EnableTriggerNames:WW2-Trigger-CargoPlane-DestinationReached]
-				[EnableTriggerNames:WW2-Territory-Trigger-Delivery-CargoPlane-Gray]
-				[EnableTriggerNames:WW2-Territory-Trigger-Delivery-CargoPlane-Green]
 			</Description>
 		</EntityComponent>
 
@@ -201,6 +199,7 @@
 				[ChatData:WW2-Chat-CargoPlane-LandingClearance]
 				[BroadcastCommandProfiles:true]
 				[CommandProfileIds:WW2-Command-CargoPlane-DestinationReached]
+				[SetBooleansTrue:Retired]
 				[ForceDespawn:true]
 			</Description>
 		</EntityComponent>

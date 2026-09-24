@@ -1027,9 +1027,9 @@
 		</EntityComponent>
 
 <!-- ==================== CARGO SHIP DELIVERIES ====================
-     Fixed-route ships (Paths-Nautical.sbc): on reaching the final waypoint (BehaviorTriggerD, the same event that starts
-     the unload wait) BOTH endpoint anchors of the route get +100, one-sided (no loss to the rival), and the ship is
-     marked Retired so being sunk while unloading is not scored as a kill. Civitavecchia scores for the Rome anchor. -->
+     Fixed-route ships (Paths-Nautical.sbc): at the END of the 5-min unload (timer enabled by
+     WW2-Territory-Action-CargoShip-BeginUnload) the DESTINATION anchor of the route gets +100, one-sided (no loss to the rival). Retired is set
+     only at the final despawn (Triggers-CargoShip-RouteArrival.sbc), so sinking it while unloading still scores a kill. Civitavecchia scores for the Rome anchor. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -1038,9 +1038,11 @@
 			<Description>
 
 			[RivalAI Trigger]
-			[UseTrigger:true]
-			[Type:BehaviorTriggerD]
-			[StartsReady:true]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:300000]
+			[MaxCooldownMs:300001]
+			[StartsReady:false]
 			[MaxActions:1]
 			[Actions:WW2-Territory-Action-Delivery-Gray-LaSpezia-Tripoli]
 
@@ -1054,10 +1056,8 @@
 			<Description>
 
 			[RivalAI Action]
-			[IncreaseSandboxCounters:LaSpezia_Points]
 			[IncreaseSandboxCounters:Tripoli_Points]
 			[IncreaseSandboxCountersAmount:100]
-			[SetBooleansTrue:Retired]
 
 			</Description>
 		</EntityComponent>
@@ -1069,9 +1069,11 @@
 			<Description>
 
 			[RivalAI Trigger]
-			[UseTrigger:true]
-			[Type:BehaviorTriggerD]
-			[StartsReady:true]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:300000]
+			[MaxCooldownMs:300001]
+			[StartsReady:false]
 			[MaxActions:1]
 			[Actions:WW2-Territory-Action-Delivery-Gray-Tripoli-LaSpezia]
 
@@ -1085,10 +1087,8 @@
 			<Description>
 
 			[RivalAI Action]
-			[IncreaseSandboxCounters:Tripoli_Points]
 			[IncreaseSandboxCounters:LaSpezia_Points]
 			[IncreaseSandboxCountersAmount:100]
-			[SetBooleansTrue:Retired]
 
 			</Description>
 		</EntityComponent>
@@ -1100,9 +1100,11 @@
 			<Description>
 
 			[RivalAI Trigger]
-			[UseTrigger:true]
-			[Type:BehaviorTriggerD]
-			[StartsReady:true]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:300000]
+			[MaxCooldownMs:300001]
+			[StartsReady:false]
 			[MaxActions:1]
 			[Actions:WW2-Territory-Action-Delivery-Gray-LaSpezia-Civitavecchia]
 
@@ -1116,10 +1118,8 @@
 			<Description>
 
 			[RivalAI Action]
-			[IncreaseSandboxCounters:LaSpezia_Points]
 			[IncreaseSandboxCounters:Rome_Points]
 			[IncreaseSandboxCountersAmount:100]
-			[SetBooleansTrue:Retired]
 
 			</Description>
 		</EntityComponent>
@@ -1131,9 +1131,11 @@
 			<Description>
 
 			[RivalAI Trigger]
-			[UseTrigger:true]
-			[Type:BehaviorTriggerD]
-			[StartsReady:true]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:300000]
+			[MaxCooldownMs:300001]
+			[StartsReady:false]
 			[MaxActions:1]
 			[Actions:WW2-Territory-Action-Delivery-Gray-Civitavecchia-LaSpezia]
 
@@ -1147,10 +1149,8 @@
 			<Description>
 
 			[RivalAI Action]
-			[IncreaseSandboxCounters:Rome_Points]
 			[IncreaseSandboxCounters:LaSpezia_Points]
 			[IncreaseSandboxCountersAmount:100]
-			[SetBooleansTrue:Retired]
 
 			</Description>
 		</EntityComponent>
@@ -1162,9 +1162,11 @@
 			<Description>
 
 			[RivalAI Trigger]
-			[UseTrigger:true]
-			[Type:BehaviorTriggerD]
-			[StartsReady:true]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:300000]
+			[MaxCooldownMs:300001]
+			[StartsReady:false]
 			[MaxActions:1]
 			[Actions:WW2-Territory-Action-Delivery-Green-Oran-Toulon]
 
@@ -1178,10 +1180,8 @@
 			<Description>
 
 			[RivalAI Action]
-			[IncreaseSandboxCounters:Oran_Points]
 			[IncreaseSandboxCounters:Toulon_Points]
 			[IncreaseSandboxCountersAmount:100]
-			[SetBooleansTrue:Retired]
 
 			</Description>
 		</EntityComponent>
@@ -1193,9 +1193,11 @@
 			<Description>
 
 			[RivalAI Trigger]
-			[UseTrigger:true]
-			[Type:BehaviorTriggerD]
-			[StartsReady:true]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:300000]
+			[MaxCooldownMs:300001]
+			[StartsReady:false]
 			[MaxActions:1]
 			[Actions:WW2-Territory-Action-Delivery-Green-Toulon-Oran]
 
@@ -1209,10 +1211,8 @@
 			<Description>
 
 			[RivalAI Action]
-			[IncreaseSandboxCounters:Toulon_Points]
 			[IncreaseSandboxCounters:Oran_Points]
 			[IncreaseSandboxCountersAmount:100]
-			[SetBooleansTrue:Retired]
 
 			</Description>
 		</EntityComponent>
@@ -1224,9 +1224,11 @@
 			<Description>
 
 			[RivalAI Trigger]
-			[UseTrigger:true]
-			[Type:BehaviorTriggerD]
-			[StartsReady:true]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:300000]
+			[MaxCooldownMs:300001]
+			[StartsReady:false]
 			[MaxActions:1]
 			[Actions:WW2-Territory-Action-Delivery-Green-Toulon-Alexandria]
 
@@ -1240,10 +1242,8 @@
 			<Description>
 
 			[RivalAI Action]
-			[IncreaseSandboxCounters:Toulon_Points]
 			[IncreaseSandboxCounters:Alexandria_Points]
 			[IncreaseSandboxCountersAmount:100]
-			[SetBooleansTrue:Retired]
 
 			</Description>
 		</EntityComponent>
@@ -1255,9 +1255,11 @@
 			<Description>
 
 			[RivalAI Trigger]
-			[UseTrigger:true]
-			[Type:BehaviorTriggerD]
-			[StartsReady:true]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:300000]
+			[MaxCooldownMs:300001]
+			[StartsReady:false]
 			[MaxActions:1]
 			[Actions:WW2-Territory-Action-Delivery-Green-Alexandria-Toulon]
 
@@ -1271,79 +1273,357 @@
 			<Description>
 
 			[RivalAI Action]
-			[IncreaseSandboxCounters:Alexandria_Points]
 			[IncreaseSandboxCounters:Toulon_Points]
 			[IncreaseSandboxCountersAmount:100]
-			[SetBooleansTrue:Retired]
 
 			</Description>
 		</EntityComponent>
 
-<!-- ==================== CARGO PLANE DELIVERIES ====================
-     A cargo plane destination is a factory/hangar/airfield, not an anchor, so the +20 goes to all 3 anchors of the
-     delivering faction (flat, like combat). Enabled by WW2-Action-CargoPlane-Destination when the plane is given its
-     destination; fires on BehaviorTriggerA (arrival), the same event that starts the loiter. One-sided. -->
+<!-- ==================== AIR CARGO DELIVERIES ====================
+     Airfield-to-airfield cargo planes (Triggers-AirCargo.sbc). Plane side: +50M to its faction bank, fired by
+     WW2-Trigger-AirCargo-Unload-{Faction} after the 5-min loiter. Airfield side (below): +20 at the delivering
+     faction's anchor nearest that airfield.
+     MES quirk: ChangeNpcFactionCredits reads ChangePlayerCreditsAmount, not ChangeNpcFactionCreditsAmount. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Trigger-Delivery-CargoPlane-Gray</SubtypeId>
+				<SubtypeId>WW2-Territory-Action-Delivery-AirCargo-Gray</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetBooleansTrue:Retired]
+			[ChangeNpcFactionCredits:true]
+			[ChangeNpcFactionCreditsTag:GRAY]
+			[ChangePlayerCreditsAmount:50000000]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Delivery-AirCargo-Green</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetBooleansTrue:Retired]
+			[ChangeNpcFactionCredits:true]
+			[ChangeNpcFactionCreditsTag:GREEN]
+			[ChangePlayerCreditsAmount:50000000]
+
+			</Description>
+		</EntityComponent>
+
+
+<!-- ==================== AIR CARGO - NEAREST ANCHOR ====================
+     Run on WW2-Behavior-Airfield. The plane sends AirCargo-Delivered-{GRAY|GREEN} on delivery; the matching
+     anchor trigger passes only on the airfield whose {SpawnGroupName}_Near{Faction}_{Anchor} sandbox boolean is set.
+     Nearest = smallest angle to the anchor zone center (computed 2026-09-23). New airfield: add its 2 flags below. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Airfield-NearestAnchorFlags</SubtypeId>
 			</Id>
 			<Description>
 
 			[RivalAI Trigger]
-			[UseTrigger:false]
-			[Type:BehaviorTriggerA]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
 			[StartsReady:true]
 			[MaxActions:1]
-			[Actions:WW2-Territory-Action-Delivery-CargoPlane-Gray]
+			[Actions:WW2-Territory-Action-Airfield-NearestAnchorFlags]
 
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Action-Delivery-CargoPlane-Gray</SubtypeId>
+				<SubtypeId>WW2-Territory-Action-Airfield-NearestAnchorFlags</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[SetSandboxBooleansTrue:WW2-Airfield-Gibraltar_NearGray_Tripoli]
+			[SetSandboxBooleansTrue:WW2-Airfield-Gibraltar_NearGreen_Oran]
+			[SetSandboxBooleansTrue:WW2-Airfield-Bizerte_NearGray_Rome]
+			[SetSandboxBooleansTrue:WW2-Airfield-Bizerte_NearGreen_Toulon]
+			[SetSandboxBooleansTrue:WW2-Airfield-Tripoli_NearGray_Tripoli]
+			[SetSandboxBooleansTrue:WW2-Airfield-Tripoli_NearGreen_Alexandria]
+			[SetSandboxBooleansTrue:WW2-Airfield-Foggia_NearGray_Rome]
+			[SetSandboxBooleansTrue:WW2-Airfield-Foggia_NearGreen_Toulon]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-AirCargoDelivered-Gray-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:AirCargo-Delivered-GRAY]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Territory-Condition-NearGray-LaSpezia]
+			[Actions:WW2-Territory-Action-AirCargoPoints-LaSpezia]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-NearGray-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:{SpawnGroupName}_NearGray_LaSpezia]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-AirCargoPoints-LaSpezia</SubtypeId>
 			</Id>
 			<Description>
 
 			[RivalAI Action]
 			[IncreaseSandboxCounters:LaSpezia_Points]
-			[IncreaseSandboxCounters:Tripoli_Points]
-			[IncreaseSandboxCounters:Rome_Points]
 			[IncreaseSandboxCountersAmount:20]
-			[SetBooleansTrue:Retired]
 
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Trigger-Delivery-CargoPlane-Green</SubtypeId>
+				<SubtypeId>WW2-Territory-Trigger-AirCargoDelivered-Gray-Tripoli</SubtypeId>
 			</Id>
 			<Description>
 
 			[RivalAI Trigger]
-			[UseTrigger:false]
-			[Type:BehaviorTriggerA]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:AirCargo-Delivered-GRAY]
 			[StartsReady:true]
-			[MaxActions:1]
-			[Actions:WW2-Territory-Action-Delivery-CargoPlane-Green]
+			[MaxActions:-1]
+			[Conditions:WW2-Territory-Condition-NearGray-Tripoli]
+			[Actions:WW2-Territory-Action-AirCargoPoints-Tripoli]
 
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Territory-Action-Delivery-CargoPlane-Green</SubtypeId>
+				<SubtypeId>WW2-Territory-Condition-NearGray-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:{SpawnGroupName}_NearGray_Tripoli]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-AirCargoPoints-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCountersAmount:20]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-AirCargoDelivered-Gray-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:AirCargo-Delivered-GRAY]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Territory-Condition-NearGray-Rome]
+			[Actions:WW2-Territory-Action-AirCargoPoints-Rome]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-NearGray-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:{SpawnGroupName}_NearGray_Rome]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-AirCargoPoints-Rome</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:20]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-AirCargoDelivered-Green-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:AirCargo-Delivered-GREEN]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Territory-Condition-NearGreen-Toulon]
+			[Actions:WW2-Territory-Action-AirCargoPoints-Toulon]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-NearGreen-Toulon</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:{SpawnGroupName}_NearGreen_Toulon]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-AirCargoPoints-Toulon</SubtypeId>
 			</Id>
 			<Description>
 
 			[RivalAI Action]
 			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCountersAmount:20]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-AirCargoDelivered-Green-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:AirCargo-Delivered-GREEN]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Territory-Condition-NearGreen-Oran]
+			[Actions:WW2-Territory-Action-AirCargoPoints-Oran]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-NearGreen-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:{SpawnGroupName}_NearGreen_Oran]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-AirCargoPoints-Oran</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
 			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCountersAmount:20]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-AirCargoDelivered-Green-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:AirCargo-Delivered-GREEN]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Territory-Condition-NearGreen-Alexandria]
+			[Actions:WW2-Territory-Action-AirCargoPoints-Alexandria]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Condition-NearGreen-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:{SpawnGroupName}_NearGreen_Alexandria]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-AirCargoPoints-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Action]
 			[IncreaseSandboxCounters:Alexandria_Points]
 			[IncreaseSandboxCountersAmount:20]
-			[SetBooleansTrue:Retired]
 
 			</Description>
 		</EntityComponent>

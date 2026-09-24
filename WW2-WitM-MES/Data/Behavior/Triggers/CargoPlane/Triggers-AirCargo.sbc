@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+<!-- Air Cargo plane flow (WW2-Behavior-AirCargo-Gray/Green)
+     1. Wander: every time the waypoint list empties (BehaviorTriggerD) add one random leg from the plane's position.
+     2. MarkOrigin (5s): short-range destination request, answered only by the origin airfield while
+        DestinationAssigned is still disabled - AllowUniqueCommandCodeSenderOnly then ignores that airfield for good.
+     3. RequestDestination (every 5-8 min): long-range request, first friendly airfield reply wins.
+     4. Arrived: loiter ring over the airfield, 5 min Unload timer, then bank + despawn. Points are awarded by
+        the destination airfield (AirCargo-Delivered-{FactionTag} -> its nearest anchor, Territory-Points.sbc).
+     GiveUp: 60 min without a destination -> despawn, no credit. Notes: .claude/notes/mes-debugging-log.md -->
+
+<!-- Wander -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-AirCargo-Wander</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerD]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-AirCargo-Wander]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-AirCargo-Wander</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[AddWaypoints:true]
+			[WaypointsToAdd:WW2-Waypoint-AirCargo-Wander]
+			</Description>
+		</EntityComponent>
+
+<!-- Origin exclusion -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-AirCargo-MarkOrigin</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:6000]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Action-AirCargo-MarkOrigin]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-AirCargo-MarkOrigin</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[BroadcastCommandProfiles:true]
+			[CommandProfileIds:WW2-Command-AirCargo-MarkOrigin]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Command-AirCargo-MarkOrigin</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Command]
+			[CommandCode:AirCargo-RequestDest-{FactionTag}]
+			[IgnoreAntennaRequirement:true]
+			[IgnoreReceiverAntennaRequirement:true]
+			[Radius:3000]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-AirCargo-ArmDestination</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:30000]
+			[MaxCooldownMs:31000]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Action-AirCargo-ArmDestination]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-AirCargo-ArmDestination</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Trigger-AirCargo-DestinationAssigned]
+			</Description>
+		</EntityComponent>
+
+<!-- Destination request -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-AirCargo-RequestDestination</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:300000]
+			[MaxCooldownMs:480000]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Actions:WW2-Action-AirCargo-RequestDestination]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-AirCargo-RequestDestination</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[BroadcastCommandProfiles:true]
+			[CommandProfileIds:WW2-Command-AirCargo-RequestDestination]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Command-AirCargo-RequestDestination</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Command]
+			[CommandCode:AirCargo-RequestDest-{FactionTag}]
+			[IgnoreAntennaRequirement:true]
+			[IgnoreReceiverAntennaRequirement:true]
+			[Radius:1000000]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-AirCargo-DestinationAssigned</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:CommandReceived]
+			[CommandReceiveCode:AirCargo-DestAssigned]
+			[AllowUniqueCommandCodeSenderOnly:true]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Action-AirCargo-DestinationAssigned]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-AirCargo-DestinationAssigned</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ClearAllWaypoints:true]
+			[AddWaypointFromCommand:true]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-AirCargo-EnRoute]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Trigger-AirCargo-Arrived]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Trigger-AirCargo-Wander]
+			[DisableTriggerNames:WW2-Trigger-AirCargo-RequestDestination]
+			[DisableTriggerNames:WW2-Trigger-AirCargo-GiveUp]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-AirCargo-EnRoute</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[MaxChats:1]
+			[BroadcastRandomly:true]
+			[Author:Cargo Plane Pilot]
+			[Color:Blue]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:10000]
+			[ChatMessages:{AntennaName} has its heading, en route to a friendly airfield.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			[ChatMessages:{AntennaName} setting course for the supply drop.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
+
+<!-- Arrival + loiter -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-AirCargo-Arrived</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:BehaviorTriggerA]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Action-AirCargo-BeginLoiter]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-AirCargo-BeginLoiter</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Secondary]
+			[AddWaypoints:true]
+			[WaypointsToAdd:WW2-Waypoint-AirCargo-Loiter,WW2-Waypoint-AirCargo-Loiter,WW2-Waypoint-AirCargo-Loiter,WW2-Waypoint-AirCargo-Loiter,WW2-Waypoint-AirCargo-Loiter,WW2-Waypoint-AirCargo-Loiter,WW2-Waypoint-AirCargo-Loiter]
+			[WaypointsToAdd:WW2-Waypoint-AirCargo-Loiter,WW2-Waypoint-AirCargo-Loiter,WW2-Waypoint-AirCargo-Loiter,WW2-Waypoint-AirCargo-Loiter,WW2-Waypoint-AirCargo-Loiter,WW2-Waypoint-AirCargo-Loiter,WW2-Waypoint-AirCargo-Loiter]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-AirCargo-Arrived]
+			[ResetCooldownTimeOfTriggers:true]
+			[ResetTriggerCooldownNames:WW2-Trigger-AirCargo-Unload-Gray]
+			[ResetTriggerCooldownNames:WW2-Trigger-AirCargo-Unload-Green]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Trigger-AirCargo-LoiterRefill]
+			[EnableTriggerNames:WW2-Trigger-AirCargo-Unload-Gray]
+			[EnableTriggerNames:WW2-Trigger-AirCargo-Unload-Green]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-AirCargo-Arrived</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[MaxChats:1]
+			[BroadcastRandomly:true]
+			[Author:Cargo Plane Pilot]
+			[Color:Blue]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:10000]
+			[ChatMessages:{AntennaName} over the field with much needed supplies. Circling for drop clearance.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			[ChatMessages:This is {AntennaName}, holding overhead. We've got the supplies you boys have been waiting on.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			[ChatMessages:{AntennaName} on station. Much needed supplies inbound, stand by for the drop.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-AirCargo-LoiterRefill</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:BehaviorTriggerD]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-AirCargo-LoiterRefill]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-AirCargo-LoiterRefill</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[AddWaypoints:true]
+			[WaypointsToAdd:WW2-Waypoint-AirCargo-Loiter,WW2-Waypoint-AirCargo-Loiter,WW2-Waypoint-AirCargo-Loiter,WW2-Waypoint-AirCargo-Loiter]
+			</Description>
+		</EntityComponent>
+
+<!-- Delivery (5 min after arrival). Bank payout lives in Territory-Points.sbc. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-AirCargo-Unload-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:300000]
+			[MaxCooldownMs:300001]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Delivery-AirCargo-Gray]
+			[Actions:WW2-Action-AirCargo-FinishDelivery]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-AirCargo-Unload-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:300000]
+			[MaxCooldownMs:300001]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Delivery-AirCargo-Green]
+			[Actions:WW2-Action-AirCargo-FinishDelivery]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-AirCargo-FinishDelivery</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-AirCargo-Delivered]
+			[BroadcastCommandProfiles:true]
+			[CommandProfileIds:WW2-Command-AirCargo-Delivered]
+			[ForceDespawn:true]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Command-AirCargo-Delivered</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Command]
+			[CommandCode:AirCargo-Delivered-{FactionTag}]
+			[SingleRecipient:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoreReceiverAntennaRequirement:true]
+			[Radius:4000]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-AirCargo-Delivered</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[MaxChats:1]
+			[BroadcastRandomly:true]
+			[Author:Cargo Plane Pilot]
+			[Color:Blue]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:10000]
+			[ChatMessages:{AntennaName} supplies delivered. Heading home.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			[ChatMessages:Drop complete. {AntennaName} signing off.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
+
+<!-- Give up: no friendly airfield answered within 60 min -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-AirCargo-GiveUp</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:3600000]
+			[MaxCooldownMs:3600001]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Action-AirCargo-GiveUp]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-AirCargo-GiveUp</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetBooleansTrue:Retired]
+			[ForceDespawn:true]
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

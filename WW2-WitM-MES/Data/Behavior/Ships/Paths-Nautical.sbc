@@ -100,7 +100,7 @@
 
 			[WeaponSystem:WW2-Weapons-CargoShip]
 
-			[CustomWaypoints:7256 -27057 11005,9123 -23758 16068,9725 -21198 19024,3321 -21097, 21207]
+			[CustomWaypoints:7256 -27057 11005,9123 -23758 16068,9725 -21198 19024,3321 -21097 21207]
 
 			[Triggers:WW2-Trigger-UnStatic]
 			[Triggers:WW2-Trigger-CargoDamage]
@@ -127,13 +127,14 @@
 			[BehaviorName:CargoShip]
 			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
 			[Triggers:WW2-Territory-Trigger-Delivery-Gray-Civitavecchia-LaSpezia]
+			[TriggerGroups:WW2-TriggerGroup-ConvoyRaid-Gray]
 
 			[AutopilotData:WW2-Autopilot-CargoShip]
 			[TargetData:WW2-Targeting-ShipMain]
 
 			[WeaponSystem:WW2-Weapons-CargoShip]
 
-			[CustomWaypoints:3321 -21097, 21207,9725 -21198 19024,9123 -23758 16068,7256 -27057 11005]
+			[CustomWaypoints:3321 -21097 21207,9725 -21198 19024,9123 -23758 16068,7256 -27057 11005]
 
 			[Triggers:WW2-Trigger-UnStatic]
 			[Triggers:WW2-Trigger-CargoDamage]

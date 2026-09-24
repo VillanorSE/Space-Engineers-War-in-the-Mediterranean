@@ -5,7 +5,9 @@
 <!-- Port Cargo Ship Spawns
      One Timer Trigger -> Action -> Spawn chain per leg, each spawning that leg's own
      direction-specific cargo ship (see Paths-Nautical.sbc / SpawnGroups-CargoShips-Nautical.sbc).
-     60-90 min per leg. Toulon runs two independent chains (Oran leg + Alexandria leg) since it's
+     Cooldown per leg = 1-2x its trip time incl. 5-min unload (~0.5-1 ship at sea per direction):
+     Civitavecchia 35-70 min, Tripoli 115-230, Toulon->Oran 120-240, Oran->Toulon 135-270,
+     Toulon->Alexandria 220-440, Alexandria->Toulon 230-460. Toulon runs two independent chains (Oran leg + Alexandria leg) since it's
      the hub port for both Green routes - every other port here only runs one.
      Always-on timer (not gated behind player proximity) - ports run continuous background
      shipping traffic regardless of whether a player has visited. -->
@@ -23,8 +25,8 @@
 			[UseTrigger:true]
 			[Type:Timer]
 
-			[MinCooldownMs:3600000]
-			[MaxCooldownMs:5400000]
+			[MinCooldownMs:6900000]
+			[MaxCooldownMs:13800000]
 			[StartsReady:false]
 
 			[MaxActions:-1]
@@ -85,8 +87,8 @@
 			[UseTrigger:true]
 			[Type:Timer]
 
-			[MinCooldownMs:3600000]
-			[MaxCooldownMs:5400000]
+			[MinCooldownMs:2100000]
+			[MaxCooldownMs:4200000]
 			[StartsReady:false]
 
 			[MaxActions:-1]
@@ -147,8 +149,8 @@
 			[UseTrigger:true]
 			[Type:Timer]
 
-			[MinCooldownMs:3600000]
-			[MaxCooldownMs:5400000]
+			[MinCooldownMs:6900000]
+			[MaxCooldownMs:13800000]
 			[StartsReady:false]
 
 			[MaxActions:-1]
@@ -209,8 +211,8 @@
 			[UseTrigger:true]
 			[Type:Timer]
 
-			[MinCooldownMs:3600000]
-			[MaxCooldownMs:5400000]
+			[MinCooldownMs:8100000]
+			[MaxCooldownMs:16200000]
 			[StartsReady:false]
 
 			[MaxActions:-1]
@@ -271,8 +273,8 @@
 			[UseTrigger:true]
 			[Type:Timer]
 
-			[MinCooldownMs:3600000]
-			[MaxCooldownMs:5400000]
+			[MinCooldownMs:7200000]
+			[MaxCooldownMs:14400000]
 			[StartsReady:false]
 
 			[MaxActions:-1]
@@ -333,8 +335,8 @@
 			[UseTrigger:true]
 			[Type:Timer]
 
-			[MinCooldownMs:3600000]
-			[MaxCooldownMs:5400000]
+			[MinCooldownMs:13200000]
+			[MaxCooldownMs:26400000]
 			[StartsReady:false]
 
 			[MaxActions:-1]
@@ -395,8 +397,8 @@
 			[UseTrigger:true]
 			[Type:Timer]
 
-			[MinCooldownMs:3600000]
-			[MaxCooldownMs:5400000]
+			[MinCooldownMs:13800000]
+			[MaxCooldownMs:27600000]
 			[StartsReady:false]
 
 			[MaxActions:-1]
@@ -457,9 +459,9 @@
 			[UseTrigger:true]
 			[Type:Timer]
 
-			[MinCooldownMs:3600000]
-			[MaxCooldownMs:5400000]
-			[StartsReady:false]
+			[MinCooldownMs:2100000]
+			[MaxCooldownMs:4200000]
+			[StartsReady:true]
 
 			[MaxActions:-1]
             [Actions:WW2-Action-CargoSpawn-Port-Civitavecchia]

@@ -26,9 +26,8 @@
      5-minute unload wait, then despawn in place instead of letting MES's own silent despawn logic
      carry it away first.
 
-     Delivery scoring: NOT in this file. Each route Behavior in Paths-Nautical.sbc also lists its own
-     WW2-Territory-Trigger-Delivery-{Route} (+100 to both endpoint anchors, Territory-Points.sbc), which fires on
-     this same BehaviorTriggerD arrival event alongside WW2-Territory-Trigger-CargoShip-RouteArrived below.
+     Delivery scoring: each route Behavior in Paths-Nautical.sbc lists its own WW2-Territory-Trigger-Delivery-{Route}
+     (+100 to the destination anchor, Territory-Points.sbc), a 5-min timer enabled by BeginUnload below.
 
      Gravity/roll-over note: does NOT use DisableAutopilot on arrival. Per MES source
      (Behavior/Subsystems/AutoPilot/AutoPilotSystem.cs), DisableAutopilot calls
@@ -77,9 +76,25 @@
 
 			[ResetCooldownTimeOfTriggers:true]
 			[ResetTriggerCooldownNames:WW2-Territory-Trigger-CargoShip-UnloadTimer]
+			[ResetTriggerCooldownNames:WW2-Territory-Trigger-Delivery-Gray-LaSpezia-Tripoli]
+			[ResetTriggerCooldownNames:WW2-Territory-Trigger-Delivery-Gray-Tripoli-LaSpezia]
+			[ResetTriggerCooldownNames:WW2-Territory-Trigger-Delivery-Gray-LaSpezia-Civitavecchia]
+			[ResetTriggerCooldownNames:WW2-Territory-Trigger-Delivery-Gray-Civitavecchia-LaSpezia]
+			[ResetTriggerCooldownNames:WW2-Territory-Trigger-Delivery-Green-Oran-Toulon]
+			[ResetTriggerCooldownNames:WW2-Territory-Trigger-Delivery-Green-Toulon-Oran]
+			[ResetTriggerCooldownNames:WW2-Territory-Trigger-Delivery-Green-Toulon-Alexandria]
+			[ResetTriggerCooldownNames:WW2-Territory-Trigger-Delivery-Green-Alexandria-Toulon]
 
 			[EnableTriggers:true]
 			[EnableTriggerNames:WW2-Territory-Trigger-CargoShip-UnloadTimer]
+			[EnableTriggerNames:WW2-Territory-Trigger-Delivery-Gray-LaSpezia-Tripoli]
+			[EnableTriggerNames:WW2-Territory-Trigger-Delivery-Gray-Tripoli-LaSpezia]
+			[EnableTriggerNames:WW2-Territory-Trigger-Delivery-Gray-LaSpezia-Civitavecchia]
+			[EnableTriggerNames:WW2-Territory-Trigger-Delivery-Gray-Civitavecchia-LaSpezia]
+			[EnableTriggerNames:WW2-Territory-Trigger-Delivery-Green-Oran-Toulon]
+			[EnableTriggerNames:WW2-Territory-Trigger-Delivery-Green-Toulon-Oran]
+			[EnableTriggerNames:WW2-Territory-Trigger-Delivery-Green-Toulon-Alexandria]
+			[EnableTriggerNames:WW2-Territory-Trigger-Delivery-Green-Alexandria-Toulon]
 
 			</Description>
 		</EntityComponent>
@@ -116,7 +131,7 @@
 			</Description>
 		</EntityComponent>
 
-<!-- Fixed 5-minute unload wait, then despawn in place -->
+<!-- 5-minute unload wait, then despawn in place. 5s after the route's delivery timer so points land first. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -127,8 +142,8 @@
 			[RivalAI Trigger]
 			[UseTrigger:false]
 			[Type:Timer]
-			[MinCooldownMs:300000]
-			[MaxCooldownMs:300001]
+			[MinCooldownMs:305000]
+			[MaxCooldownMs:305001]
 			[StartsReady:false]
 			[MaxActions:1]
 			[Actions:WW2-Territory-Action-CargoShip-FinishUnload]
@@ -148,6 +163,7 @@
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Territory-Chat-CargoShip-Departed]
 
+			[SetBooleansTrue:Retired]
 			[ForceDespawn:true]
 
 			</Description>

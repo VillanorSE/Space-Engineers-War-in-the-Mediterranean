@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+
+<!-- Convoy raids: enemy attackers spawned only while a friendly player (rep >= 500) escorts the convoy (PlayerNear 3km).
+     Add [TriggerGroups:WW2-TriggerGroup-ConvoyRaid-{Gray|Green}] (convoy's own faction) to a cargo ship behavior.
+     Wave trigger -> ManuallyActivateTrigger tag -> one war-level tier passes its condition.
+     WarLevel is unset at level 1, so WL1 runs as the ElseActions of an AtLeast2 check.
+     18-25 min cooldown: one wave on the shortest leg with StartsReady:false; MaxActions = safety cap: longest leg / 18 min + 1 (Gray La Spezia-Tripoli 6, Green Toulon-Alexandria 11). -->
+
+<!-- Gray convoy (Green raiders) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-TriggerGroup-ConvoyRaid-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Trigger-ConvoyRaid-Wave-Gray]
+			[Triggers:WW2-Trigger-ConvoyRaid-WL1-Gray]
+			[Triggers:WW2-Trigger-ConvoyRaid-WL2-Gray]
+			[Triggers:WW2-Trigger-ConvoyRaid-WL3-Gray]
+			[Triggers:WW2-Trigger-ConvoyRaid-WL4-Gray]
+			[Triggers:WW2-Trigger-ConvoyRaid-WL5-Gray]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ConvoyRaid-Wave-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:PlayerNear]
+			[TargetDistance:3000]
+			[MinPlayerReputation:500]
+
+			[MinCooldownMs:1080000]
+			[MaxCooldownMs:1500000]
+			[StartsReady:true]
+
+			[MaxActions:6]
+			[Actions:WW2-Action-ConvoyRaid-Wave-Gray]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ConvoyRaid-Wave-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[ManuallyActivateTrigger:true]
+			[ManuallyActivatedTriggerTags:ConvoyRaid-Gray]
+			[ForceManualTriggerActivation:false]
+
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-ConvoyRaid]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ConvoyRaid-WL1-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyRaid-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+
+			[Conditions:WW2-WarLevel-Condition-AtLeast2]
+			[UseElseActions:true]
+			[ElseActions:WW2-Action-ConvoyRaid-WL1-Gray]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ConvoyRaid-WL1-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Green-WL1Plane-A]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Green-WL1Plane-B]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ConvoyRaid-WL2-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyRaid-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+
+			[Conditions:WW2-WarLevel-Condition-Exactly2]
+			[Actions:WW2-Action-ConvoyRaid-WL2-Gray]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ConvoyRaid-WL2-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Green-Corvette]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ConvoyRaid-WL3-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyRaid-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+
+			[Conditions:WW2-WarLevel-Condition-Exactly3]
+			[Actions:WW2-Action-ConvoyRaid-WL3-Gray]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ConvoyRaid-WL3-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Green-CorvetteOrDestroyer]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ConvoyRaid-WL4-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyRaid-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+
+			[Conditions:WW2-WarLevel-Condition-Exactly4]
+			[Actions:WW2-Action-ConvoyRaid-WL4-Gray]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ConvoyRaid-WL4-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Green-Destroyer]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Green-Plane]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ConvoyRaid-WL5-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyRaid-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+
+			[Conditions:WW2-WarLevel-Condition-Exactly5]
+			[Actions:WW2-Action-ConvoyRaid-WL5-Gray]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ConvoyRaid-WL5-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Green-DestroyerOrCruiser]
+
+			</Description>
+        </EntityComponent>
+<!-- End Gray convoy -->
+
+<!-- Green convoy (Gray raiders) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-TriggerGroup-ConvoyRaid-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI TriggerGroup]
+
+			[Triggers:WW2-Trigger-ConvoyRaid-Wave-Green]
+			[Triggers:WW2-Trigger-ConvoyRaid-WL1-Green]
+			[Triggers:WW2-Trigger-ConvoyRaid-WL2-Green]
+			[Triggers:WW2-Trigger-ConvoyRaid-WL3-Green]
+			[Triggers:WW2-Trigger-ConvoyRaid-WL4-Green]
+			[Triggers:WW2-Trigger-ConvoyRaid-WL5-Green]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ConvoyRaid-Wave-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:PlayerNear]
+			[TargetDistance:3000]
+			[MinPlayerReputation:500]
+
+			[MinCooldownMs:1080000]
+			[MaxCooldownMs:1500000]
+			[StartsReady:true]
+
+			[MaxActions:11]
+			[Actions:WW2-Action-ConvoyRaid-Wave-Green]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ConvoyRaid-Wave-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[ManuallyActivateTrigger:true]
+			[ManuallyActivatedTriggerTags:ConvoyRaid-Green]
+			[ForceManualTriggerActivation:false]
+
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-ConvoyRaid]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ConvoyRaid-WL1-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyRaid-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+
+			[Conditions:WW2-WarLevel-Condition-AtLeast2]
+			[UseElseActions:true]
+			[ElseActions:WW2-Action-ConvoyRaid-WL1-Green]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ConvoyRaid-WL1-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Gray-WL1Plane-A]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Gray-WL1Plane-B]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ConvoyRaid-WL2-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyRaid-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+
+			[Conditions:WW2-WarLevel-Condition-Exactly2]
+			[Actions:WW2-Action-ConvoyRaid-WL2-Green]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ConvoyRaid-WL2-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Gray-Corvette]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ConvoyRaid-WL3-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyRaid-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+
+			[Conditions:WW2-WarLevel-Condition-Exactly3]
+			[Actions:WW2-Action-ConvoyRaid-WL3-Green]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ConvoyRaid-WL3-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Gray-CorvetteOrDestroyer]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ConvoyRaid-WL4-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyRaid-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+
+			[Conditions:WW2-WarLevel-Condition-Exactly4]
+			[Actions:WW2-Action-ConvoyRaid-WL4-Green]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ConvoyRaid-WL4-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Gray-Destroyer]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Gray-Plane]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ConvoyRaid-WL5-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyRaid-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+
+			[Conditions:WW2-WarLevel-Condition-Exactly5]
+			[Actions:WW2-Action-ConvoyRaid-WL5-Green]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ConvoyRaid-WL5-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Gray-DestroyerOrCruiser]
+
+			</Description>
+        </EntityComponent>
+<!-- End Green convoy -->
+
+<!-- Green raider spawns -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-ConvoyRaid-Green-WL1Plane-A</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-MS406]
+
+			[MinDistance:800]
+			[MaxDistance:2000]
+			[MinAltitude:200]
+			[MaxAltitude:800]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:false]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-ConvoyRaid-Green-WL1Plane-B</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-MS406]
+
+			[MinDistance:800]
+			[MaxDistance:2000]
+			[MinAltitude:200]
+			[MaxAltitude:800]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:false]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-ConvoyRaid-Green-Plane</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-MS406]
+			[SpawnGroups:NPC-WW2-Loire130]
+			[SpawnGroups:NPC-WW2-Potez630]
+			[SpawnGroups:NPC-WW2-V-156-F_Bomber]
+			[SpawnGroups:NPC-WW2-V-156-F_Torpedo]
+
+			[MinDistance:800]
+			[MaxDistance:2000]
+			[MinAltitude:200]
+			[MaxAltitude:800]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:false]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-ConvoyRaid-Green-Corvette</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-La_Malouine]
+
+			[MinDistance:1200]
+			[MaxDistance:2000]
+			[MinAltitude:0]
+			[MaxAltitude:10]
+			[IgnoreSafetyChecks:true]
+			[InheritNpcAltitude:true]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-ConvoyRaid-Green-CorvetteOrDestroyer</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-La_Malouine]
+			[SpawnGroups:NPC-WW2-Bougainville]
+			[SpawnGroups:NPC-WW2-Le_Triomphant]
+
+			[MinDistance:1200]
+			[MaxDistance:2000]
+			[MinAltitude:0]
+			[MaxAltitude:10]
+			[IgnoreSafetyChecks:true]
+			[InheritNpcAltitude:true]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-ConvoyRaid-Green-Destroyer</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-Bougainville]
+			[SpawnGroups:NPC-WW2-Le_Triomphant]
+
+			[MinDistance:1200]
+			[MaxDistance:2000]
+			[MinAltitude:0]
+			[MaxAltitude:10]
+			[IgnoreSafetyChecks:true]
+			[InheritNpcAltitude:true]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-ConvoyRaid-Green-DestroyerOrCruiser</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-Bougainville]
+			[SpawnGroups:NPC-WW2-Le_Triomphant]
+			[SpawnGroups:NPC-WW2-Emile_Bertin]
+			[SpawnGroups:NPC-WW2-Algerie]
+
+			[MinDistance:1200]
+			[MaxDistance:2000]
+			[MinAltitude:0]
+			[MaxAltitude:10]
+			[IgnoreSafetyChecks:true]
+			[InheritNpcAltitude:true]
+
+			</Description>
+        </EntityComponent>
+<!-- End Green raider spawns -->
+
+<!-- Gray raider spawns -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-ConvoyRaid-Gray-WL1Plane-A</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-Re2000]
+
+			[MinDistance:800]
+			[MaxDistance:2000]
+			[MinAltitude:200]
+			[MaxAltitude:800]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:false]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-ConvoyRaid-Gray-WL1Plane-B</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-Re2000]
+
+			[MinDistance:800]
+			[MaxDistance:2000]
+			[MinAltitude:200]
+			[MaxAltitude:800]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:false]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-ConvoyRaid-Gray-Plane</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-Re2000]
+			[SpawnGroups:NPC-WW2-Re2001]
+			[SpawnGroups:NPC-WW2-Ba65]
+			[SpawnGroups:NPC-WW2-FC20]
+			[SpawnGroups:NPC-WW2-SM79Bomber]
+			[SpawnGroups:NPC-WW2-SM79Torpedo]
+
+			[MinDistance:800]
+			[MaxDistance:2000]
+			[MinAltitude:200]
+			[MaxAltitude:800]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:false]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-ConvoyRaid-Gray-Corvette</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-Gabbiano]
+
+			[MinDistance:1200]
+			[MaxDistance:2000]
+			[MinAltitude:0]
+			[MaxAltitude:10]
+			[IgnoreSafetyChecks:true]
+			[InheritNpcAltitude:true]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-ConvoyRaid-Gray-CorvetteOrDestroyer</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-Gabbiano]
+			[SpawnGroups:NPC-WW2-Spica]
+			[SpawnGroups:NPC-WW2-Francesco_Crispi]
+			[SpawnGroups:NPC-WW2-Comandante_Margottini]
+
+			[MinDistance:1200]
+			[MaxDistance:2000]
+			[MinAltitude:0]
+			[MaxAltitude:10]
+			[IgnoreSafetyChecks:true]
+			[InheritNpcAltitude:true]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-ConvoyRaid-Gray-Destroyer</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-Spica]
+			[SpawnGroups:NPC-WW2-Francesco_Crispi]
+			[SpawnGroups:NPC-WW2-Comandante_Margottini]
+
+			[MinDistance:1200]
+			[MaxDistance:2000]
+			[MinAltitude:0]
+			[MaxAltitude:10]
+			[IgnoreSafetyChecks:true]
+			[InheritNpcAltitude:true]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Spawn-ConvoyRaid-Gray-DestroyerOrCruiser</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Spawn]
+
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[RivalAiSpawn:true]
+
+			[SpawnGroups:NPC-WW2-Spica]
+			[SpawnGroups:NPC-WW2-Francesco_Crispi]
+			[SpawnGroups:NPC-WW2-Comandante_Margottini]
+			[SpawnGroups:NPC-WW2-Trento]
+
+			[MinDistance:1200]
+			[MaxDistance:2000]
+			[MinAltitude:0]
+			[MaxAltitude:10]
+			[IgnoreSafetyChecks:true]
+			[InheritNpcAltitude:true]
+
+			</Description>
+        </EntityComponent>
+<!-- End Gray raider spawns -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Chat-ConvoyRaid</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Chat]
+
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:true]
+			[Author:Convoy]
+			[Color:Red]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:3500]
+
+			[ChatMessages:Enemy raiders inbound!]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+
+			[ChatMessages:Contacts closing on the convoy.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+
+			</Description>
+        </EntityComponent>
+
+	</EntityComponents>
+</Definitions>

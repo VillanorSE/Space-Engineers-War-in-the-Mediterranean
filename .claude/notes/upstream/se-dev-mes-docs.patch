@@ -1,0 +1,84 @@
+diff --git a/SKILL.md b/SKILL.md
+index f158eaa..bac5d10 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -157,6 +157,8 @@ Full token table, rules, and Tag broadcast system: [`references/profiles_and_tag
+ - **[HARD] Dereliction Percentage Gating**: percentages ignored without `[UseSeparatePercentages:true]`. → [`references/manipulation_and_dereliction.md`](references/manipulation_and_dereliction.md) §3
+ - **[HARD] Weapon Randomizer Public Definition**: non-public weapon definitions skipped unless `<Public>true</Public>`. → [`references/manipulation_and_dereliction.md`](references/manipulation_and_dereliction.md) §2
+ - **[HARD] Faction Resolution Drop**: non-existent or misspelled faction tag silently rejects spawn with 0% rate (`Could Not Get Valid NPC Faction`) → [`references/spawning_and_conditions.md`](references/spawning_and_conditions.md) §6
++- **[HARD] `ChangeNpcFactionCredits`** reads `[ChangePlayerCreditsAmount:]`, not `...NpcFactionCreditsAmount`. → [`economy_and_stores.md`](references/economy_and_stores.md) §4
++- **[HARD] Waypoints/Commands/Timers**: `RelativeRandom` follows the grid (use `EntityRandom`); random waypoints ignore water; replies beat `EnableTriggers`; cooldowns re-roll and persist. → [`behaviors_and_autopilot.md`](references/behaviors_and_autopilot.md) §5.C, §7, §8
+ - **[SOFT] WeaponCore Fixed Guns — Mouse Control + Wide Tolerance**: WC fixed guns default to "Auto (AI Controlled)" which silently ignores MES fire commands. Set block to **Mouse Control** in the prefab (`scripts/wc_shootmode.py`). Also relax `[WeaponMaxAngleFromTarget]` to 8°–12° — gyro alignment flicker drops shots at tight tolerances. Timer Block proxy workaround is legacy/obsolete. → [`references/third_party_integrations.md`](references/third_party_integrations.md) §1C
+ - **[SOFT] Anti-Clang Aircraft Force-Despawn**: force-despawn disabled aircraft to avoid falling-airframe Havok loops. → [`references/diagnostics_and_troubleshooting.md`](references/diagnostics_and_troubleshooting.md) §5
+ 
+diff --git a/references/behaviors_and_autopilot.md b/references/behaviors_and_autopilot.md
+index 5825495..77dd103 100644
+--- a/references/behaviors_and_autopilot.md
++++ b/references/behaviors_and_autopilot.md
+@@ -166,6 +166,13 @@ RivalAI allows inter-grid communication using radio commands:
+ - Transmits landing coordinates via `[AddWaypointFromCommand:true]`.
+ - Courier approaches, reduces altitude (`NewAutopilotMinAltitude:15`), lands, resupplies stock, and retreats.
+ 
++### C. Command Delivery Semantics (`TriggerSystem.cs` / `CommandHelper.cs`) [HARD]
++- **Synchronous delivery**: with `[CommandDelayTicks:0]` (default) `CommandHelper.SendCommand` invokes every listener immediately, inside the sender's action. A receiver's reply is therefore delivered back to the sender *before the sender's action finishes*.
++- **Action ordering trap**: within one `[RivalAI Action]`, `BroadcastCommandProfiles` runs before `EnableTriggers` (`ActionSystem.cs`). An action that sends a request and enables the reply listener in the same breath misses the reply, because it arrives while the listener is still disabled. Enable the listener from an earlier action or a separate timer.
++- **`[AllowUniqueCommandCodeSenderOnly:true]` records while disabled**: `ProcessCommandReceiveTriggerWatcher` adds `senderEntityId + receiveCode` to `ReceivedCommandSenderCode` *before* it checks `UseTrigger`. A command that arrives while the trigger is disabled still permanently blacklists that sender for that trigger (stored in the RC, survives reloads). Combined with the ordering trap above this can silently blacklist the intended replier. It can also be used on purpose: get one reply from a sender while the trigger is disabled to exclude it forever (e.g. "fly to any friendly base except the one that spawned me").
++- **`[ReturnToSender:true]`** on a reply command sets `SingleRecipient` and targets the requesting Remote Control only.
++- **`{FactionTag}` in `[CommandCode:]`** is replaced with the sender Remote Control owner's faction tag (`Command.PrepareCommand`), so one command profile can address faction-specific listeners (`[CommandReceiveCode:Request-GRAY]`). This is a separate replace from `IdsReplacer`; receive codes go through `IdsReplacer` instead.
++
+ ---
+ 
+ ## 6. Thruster Direction Requirements, FighterPlane & Rover Locomotion
+@@ -347,5 +354,31 @@ Setting artificial horizon leveling tags on combat craft causes total loss of pi
+      ```
+    - Reserve `LevelWithGravity` strictly for naval vessels (`Nautical`, `NauticalRoutes`), hovertanks, or broadside blimps with 100% turreted armament that never need to pitch.
+ 
++---
++
++## 7. Waypoint Profiles & the CargoShip Waypoint Queue
++
++### A. `[RivalAI Waypoint]` Types (`WaypointProfile.cs`, `EncounterWaypoint.cs`) [HARD]
++| `[Waypoint:]` | Stored as | Behavior |
++| :--- | :--- | :--- |
++| `Static` / `StaticRandom` | fixed world coords | `StaticRandom` randomizes around `[Coordinates:]`. |
++| `EntityOffset` | fixed world coords | `[Coordinates:]` transformed by the entity's matrix **once**, at creation. |
++| `EntityRandom` | fixed world coords | Random point around the entity's position **at creation**. Use with `[RelativeEntity:Self]` for random "wander" legs. |
++| `RelativeOffset` | offset, re-applied on every read | `Vector3D.Transform(Offset, Entity.WorldMatrix)` in every `GetCoords()`: the point moves and rotates with the entity. |
++| `RelativeRandom` | offset, re-applied on every read | Computes a **world-space** delta (random point minus entity center) but stores it as a `RelativeOffset`, which `GetCoords()` treats as **local** and pushes through the entity's current `WorldMatrix`. The point follows the entity (with `Self` it can never be reached), and its direction/altitude are rotated by the entity's orientation. Avoid; use `EntityRandom`. Upstream: [MES #321](https://github.com/MeridiusIX/Modular-Encounters-Systems/issues/321). |
+ 
++- **[HARD] Random waypoints ignore the Water Mod**: `WaypointProfile.GetRandomCoords` (used by `StaticRandom`, `EntityRandom`, `RelativeRandom`) calls vanilla `planet.GetClosestSurfacePointGlobal` directly, so `[MinAltitude:]`/`[MaxAltitude:]` are measured from the **seabed**. Autopilot altitude (`PlanetEntity.SurfaceCoordsAtPosition`) *is* water-aware, and planetary pathing (`CalculateSafePlanetPathWaypoint`) lifts the pending waypoint so the grid still stays above the water. The arrival check, however, uses the raw point (see §7.B).
++
++### B. `[BehaviorName:CargoShip]` Waypoint Queue (`CargoShip.cs`) [HARD]
++- The queue is `AutoPilot.State.CargoShipWaypoints`, seeded from `[CustomWaypoints:]` at init. `[AddWaypoints:true]` + `[WaypointsToAdd:<WaypointProfile>,...]` appends (duplicates allowed), `[ClearAllWaypoints:true]` invalidates everything queued, `[AddWaypointFromCommand:true]` appends a command's waypoint. Within one action they run Clear -> Add -> AddFromCommand.
++- **BehaviorTrigger flags**: `A` = a queued waypoint was reached. `B` = departed a waypoint. `C` = queue went empty -> non-empty. `D` = queue went non-empty -> empty (once per transition, **including right after spawn with no `[CustomWaypoints:]`**). With an empty queue the ship heads for its auto-generated despawn coords.
++- **Procedural routes**: a `[Type:BehaviorTriggerD]` trigger with `[MaxActions:-1]` whose action adds one `EntityRandom`/`Self` waypoint gives a random walk that drifts away from the spawn point; each leg is generated from wherever the previous leg ended.
++- **Arrival**: `Distance(RC, waypoint) < hypot(WaypointTolerance, WaypointTolerance)` against the **raw** waypoint, not the pathing-adjusted one. If pathing holds the grid well above a low (e.g. seabed-relative) waypoint, it never arrives. Raise `[WaypointTolerance:]` or the waypoint altitude.
++- **`[WaypointWaitTimeTrigger:]` defaults to 5s**, and during the wait the autopilot runs with mode `None` (no thrust). Fine for ships; aircraft brake or stall mid-air. Set `[WaypointWaitTimeTrigger:0]` on aircraft autopilot profiles that use CargoShip.
++
++---
+ 
++## 8. Trigger Timer Persistence & Cooldown Re-Roll [HARD]
++- **Cooldown re-rolls on every fire**: `InitRandomTimes()` only seeds the first `CooldownTime`; `ProcessTrigger` rolls a new one from `[MinCooldownMs:]`-`[MaxCooldownMs:]` each time the trigger fires (`TriggerSystem.cs`). A 45-60 min timer varies between 45 and 60 min every cycle.
++- **Timers survive save/load**: each trigger's `CooldownTime`, `LastTriggerTime` (game time), `TriggerCount` and `UseTrigger` are serialized into the Remote Control's `Storage` (`StoredSettings`) and restored on load. Progress toward a long timer carries across sessions, so a 3-hour timer still fires even if every play session is shorter than 3 hours.
++- The restored snapshot replaces the trigger list built from the `.sbc`, so trigger-field edits only reach grids spawned afterwards; Action/Condition/Spawner/Command/Chat profile contents are looked up by SubtypeId at runtime and do update.
+diff --git a/references/economy_and_stores.md b/references/economy_and_stores.md
+index 6f1b362..415065a 100644
+--- a/references/economy_and_stores.md
++++ b/references/economy_and_stores.md
+@@ -148,3 +148,16 @@ flowchart TD
+    - When a mod updates an icon path or adds a new store prefab, clients frequently retain stale null references from their cached `.sbcB5` file.
+    - **Resolution**: Clients must clear their `.sbcB5` cache, or the mod author must update the mod version/timestamp to force cache regeneration.
+ 
++---
++
++## 4. NPC Faction Credits (`[ChangeNpcFactionCredits:true]`) [HARD]
++The action is wired to the wrong fields (`ActionSystem.cs`, `ChangeNpcFactionCredits` block):
++- **The amount comes from `[ChangePlayerCreditsAmount:]`**, not `[ChangeNpcFactionCreditsAmount:]`; the NPC-specific tag is parsed and never read. A counter override uses `[ChangePlayerCreditsAmountCounter:{CounterName}]`.
++  ```xml
++  [ChangeNpcFactionCredits:true]
++  [ChangeNpcFactionCreditsTag:GRAY]
++  [ChangePlayerCreditsAmount:50000000]
++  ```
++  Leave `[ChangeNpcFactionCreditsTag:]` blank for the NPC's own faction.
++- Because the amount field is shared, one action cannot pay the player and the faction different amounts. Don't add `[ChangePlayerCredits:true]` unless the player should be paid too.
++- **Negative amounts never fail (players too)**: the insufficient-funds check in all three credit blocks (`ChangePlayerCredits` player loop, saved-player branch, `ChangeNpcFactionCredits`) is `amount > credits`, which is always false for a negative amount. A charge larger than the balance is always attempted and `PaymentSuccess` fires; `PaymentFailure` never fires for a debit. Don't rely on `[Type:PaymentFailure]` triggers to gate paid services.

@@ -68,6 +68,74 @@
 	</SpawnGroup>
 <!-- End Gray Cargo Plane -->
 
+<!-- Air Cargo Green (airfield timer spawn) -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-AirCargo-Green</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoPlanes]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
+		[ManipulationProfiles:WW2-Manipulation-CargoPlanes]
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-F222">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-AirCargo-Green</Behaviour>
+				<Speed>50.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+<!-- End Air Cargo Green -->
+
+<!-- Air Cargo Gray (airfield timer spawn) -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-AirCargo-Gray</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-CargoPlanes]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Loot-Medium-Cargo]
+		[ManipulationProfiles:WW2-Manipulation-CargoPlanes]
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Ju52">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-AirCargo-Gray</Behaviour>
+				<Speed>50.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+<!-- End Air Cargo Gray -->
+
 	</SpawnGroups>
 </Definitions>
 

@@ -2,10 +2,11 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Factions>
 
-<!-- GRAY/GREEN StaticReputation true to prevent basic damaging mechanics from changing reputation.
-	 Reputation should be further changed by combat-triggered reputation system (see WW2-WitM-Roadmap.md's
-	 Reputation section). TRADER sets StaticReputation:true + StartingReputation:500 so it stays 
-	 permanently Friendly/neutral-safe. FactionIcon paths below are vanilla Builder-icon placeholders; 
+<!-- GRAY/GREEN StaticReputation false: in SE, static rep blocks EVERY change (admin menu, MES actions,
+	 mod API), not just damage. Vanilla damage rep is zeroed instead in WW2-WitM-Framework
+	 Reputation/ReputationSettings.sbc; reputation is changed only by the MES combat-triggered system
+	 (see WW2-WitM-Roadmap.md's Reputation section). TRADER/UNOWNED keep StaticReputation:true +
+	 StartingReputation:500 so they stay permanently Friendly/neutral-safe. FactionIcon paths below are vanilla Builder-icon placeholders; 
 	 swap for the Italian flag (GRAY), French flag (GREEN), and Spanish flag (TRADER) once real art exists. -->
 
     <Faction Tag="GRAY" Founder="The Dictator">
@@ -23,7 +24,7 @@
 	  <StartingBalance>1000000000</StartingBalance>
 	  <Type>Builder</Type>
 	  <DiscoveredByDefault>true</DiscoveredByDefault>
-	  <StaticReputation>true</StaticReputation>
+	  <StaticReputation>false</StaticReputation>
 	  <EnableFriendlyFire>false</EnableFriendlyFire>
 	  <StartingReputation>-600</StartingReputation>
 	  <FactionIcon>Textures\FactionLogo\Builders\BuilderIcon_1.dds</FactionIcon>
@@ -47,7 +48,7 @@
 	  <StartingBalance>1000000000</StartingBalance>
 	  <Type>Builder</Type>
 	  <DiscoveredByDefault>true</DiscoveredByDefault>
-	  <StaticReputation>true</StaticReputation>
+	  <StaticReputation>false</StaticReputation>
 	  <EnableFriendlyFire>false</EnableFriendlyFire>
 	  <StartingReputation>-600</StartingReputation>
 	  <FactionIcon>Textures\FactionLogo\Builders\BuilderIcon_2.dds</FactionIcon>

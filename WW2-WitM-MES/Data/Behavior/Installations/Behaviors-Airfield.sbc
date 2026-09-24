@@ -13,6 +13,7 @@
        - store sales (Store-Airport-Vehicles, every plane of the owning faction)
        - offensive spawns (moved here from the plane factories)
        - cargo-plane request listener (Triggers-Airfield-CargoRequest.sbc)
+       - air cargo spawn timer + destination listener (Triggers-Airfield-AirCargo.sbc)
        - reputation damage, bot crew and defensive spawn (airfield-owned "Gated" copies)
 
      A new airfield anywhere just needs its own SpawnGroup + Prefab + SpawnConditions pointing at this
@@ -51,10 +52,20 @@
 
 			[Triggers:WW2-Trigger-Airfield-Gated-BotCrew-3]
 
+			[Triggers:WW2-Territory-Trigger-Airfield-NearestAnchorFlags]
+			[Triggers:WW2-Territory-Trigger-AirCargoDelivered-Gray-LaSpezia]
+			[Triggers:WW2-Territory-Trigger-AirCargoDelivered-Gray-Tripoli]
+			[Triggers:WW2-Territory-Trigger-AirCargoDelivered-Gray-Rome]
+			[Triggers:WW2-Territory-Trigger-AirCargoDelivered-Green-Toulon]
+			[Triggers:WW2-Territory-Trigger-AirCargoDelivered-Green-Oran]
+			[Triggers:WW2-Territory-Trigger-AirCargoDelivered-Green-Alexandria]
+
 			[Triggers:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Gray]
 			[Triggers:WW2-Trigger-Airfield-Gated-DefenseSpawn-Gray]
 			[Triggers:WW2-Trigger-OffenseSpawn-Gray]
 			[Triggers:WW2-Trigger-Airfield-RequestCargoPlane-Gray]
+			[Triggers:WW2-Trigger-Airfield-AirCargoSpawn-Gray]
+			[Triggers:WW2-Trigger-Airfield-AirCargoDest-Gray]
 			[Triggers:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Gray-Clear]
 			[Triggers:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Gray-Tier2]
 			[Triggers:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Gray-Tier3]
@@ -63,6 +74,8 @@
 			[Triggers:WW2-Trigger-Airfield-Gated-DefenseSpawn-Green]
 			[Triggers:WW2-Trigger-OffenseSpawn-Green]
 			[Triggers:WW2-Trigger-Airfield-RequestCargoPlane-Green]
+			[Triggers:WW2-Trigger-Airfield-AirCargoSpawn-Green]
+			[Triggers:WW2-Trigger-Airfield-AirCargoDest-Green]
 			[Triggers:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Green-Clear]
 			[Triggers:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Green-Tier3]
 

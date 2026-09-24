@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+
+<!-- Air Cargo Planes - spawned by airfields on a timer (Triggers-Airfield-AirCargo.sbc).
+     Wander on random legs, then fly to another friendly airfield, loiter 5 min, deliver, despawn.
+     Flow: Triggers-AirCargo.sbc. -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-AirCargo-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityAir]
+
+			[AutopilotData:WW2-Autopilot-AirCargo-Cruise]
+			[SecondaryAutopilotData:WW2-Autopilot-AirCargo-Loiter]
+
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-CargoDamage]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Gray]
+			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
+			[Triggers:WW2-Trigger-HostileNear-Cargo]
+			[Triggers:WW2-Trigger-DefenseSpawn1-Gray]
+
+			[Triggers:WW2-Trigger-AirCargo-Wander]
+			[Triggers:WW2-Trigger-AirCargo-MarkOrigin]
+			[Triggers:WW2-Trigger-AirCargo-ArmDestination]
+			[Triggers:WW2-Trigger-AirCargo-RequestDestination]
+			[Triggers:WW2-Trigger-AirCargo-DestinationAssigned]
+			[Triggers:WW2-Trigger-AirCargo-Arrived]
+			[Triggers:WW2-Trigger-AirCargo-LoiterRefill]
+			[Triggers:WW2-Trigger-AirCargo-Unload-Gray]
+			[Triggers:WW2-Trigger-AirCargo-GiveUp]
+
+			[Triggers:WW2-Trigger-Crash-Air]
+			[Triggers:WW2-Trigger-Compromised-Air]
+			[Triggers:WW2-Trigger-StopCrash-Air]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-AirCargo-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityAir]
+
+			[AutopilotData:WW2-Autopilot-AirCargo-Cruise]
+			[SecondaryAutopilotData:WW2-Autopilot-AirCargo-Loiter]
+
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-CargoDamage]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Green]
+			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
+			[Triggers:WW2-Trigger-HostileNear-Cargo]
+			[Triggers:WW2-Trigger-DefenseSpawn1-Green]
+
+			[Triggers:WW2-Trigger-AirCargo-Wander]
+			[Triggers:WW2-Trigger-AirCargo-MarkOrigin]
+			[Triggers:WW2-Trigger-AirCargo-ArmDestination]
+			[Triggers:WW2-Trigger-AirCargo-RequestDestination]
+			[Triggers:WW2-Trigger-AirCargo-DestinationAssigned]
+			[Triggers:WW2-Trigger-AirCargo-Arrived]
+			[Triggers:WW2-Trigger-AirCargo-LoiterRefill]
+			[Triggers:WW2-Trigger-AirCargo-Unload-Green]
+			[Triggers:WW2-Trigger-AirCargo-GiveUp]
+
+			[Triggers:WW2-Trigger-Crash-Air]
+			[Triggers:WW2-Trigger-Compromised-Air]
+			[Triggers:WW2-Trigger-StopCrash-Air]
+
+			</Description>
+        </EntityComponent>
+
+<!-- Autopilots. WaypointWaitTimeTrigger 0: no mid-air pause between legs.
+     High WaypointTolerance (arrival radius = tol x 1.41): random waypoints are seabed-relative, so over
+     deep water the plane can't get close to them (MES issue filed 2026-09-23). -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-AirCargo-Cruise</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Autopilot]
+
+			[FlyLevelWithGravity:false]
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[CollisionEvasionResumeDistance:50]
+
+			[AngleAllowedForForwardThrust:180]
+			[LimitRotationSpeed:true]
+			[MaxRotationMagnitude:0.2]
+
+			[IdealPlanetAltitude:600]
+			[MinimumPlanetAltitude:500]
+			[AltitudeTolerance:100]
+			[WaypointTolerance:600]
+			[WaypointWaitTimeTrigger:0]
+
+			[IdealMaxSpeed:60]
+			[IdealMinSpeed:50]
+			[MaxSpeedTolerance:3]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-AirCargo-Loiter</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Autopilot]
+
+			[FlyLevelWithGravity:false]
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[CollisionEvasionResumeDistance:50]
+
+			[AngleAllowedForForwardThrust:180]
+			[LimitRotationSpeed:true]
+			[MaxRotationMagnitude:0.2]
+
+			[IdealPlanetAltitude:600]
+			[MinimumPlanetAltitude:500]
+			[AltitudeTolerance:100]
+			[WaypointTolerance:300]
+			[WaypointWaitTimeTrigger:0]
+
+			[IdealMaxSpeed:55]
+			[IdealMinSpeed:45]
+			[MaxSpeedTolerance:3]
+
+			[MinAngleForLeveledDescent:60]
+			[MaxAngleForLeveledAscent:90]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Waypoints. EntityRandom + Self = fixed point picked around the plane's position when added
+     (RelativeRandom would move with the plane and never be reached). -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Waypoint-AirCargo-Wander</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Waypoint]
+			[Waypoint:EntityRandom]
+			[RelativeEntity:Self]
+			[MinDistance:4000]
+			[MaxDistance:7000]
+			[MinAltitude:500]
+			[MaxAltitude:700]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Waypoint-AirCargo-Loiter</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Waypoint]
+			[Waypoint:EntityRandom]
+			[RelativeEntity:Self]
+			[MinDistance:1200]
+			[MaxDistance:2000]
+			[MinAltitude:500]
+			[MaxAltitude:700]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Sent by an airfield in its destination reply: a point above that airfield -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Waypoint-AirCargo-OverAirfield</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Waypoint]
+			[Waypoint:EntityRandom]
+			[RelativeEntity:Self]
+			[MinDistance:0]
+			[MaxDistance:150]
+			[MinAltitude:500]
+			[MaxAltitude:700]
+
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>
