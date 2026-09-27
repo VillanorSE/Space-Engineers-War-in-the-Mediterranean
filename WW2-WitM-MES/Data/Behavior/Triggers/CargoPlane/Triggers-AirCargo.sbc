@@ -9,7 +9,7 @@
      3. RequestDestination (every 5-8 min): long-range request, first friendly airfield reply wins.
      4. Arrived: loiter ring over the airfield, 5 min Unload timer, then bank + despawn. Points are awarded by
         the destination airfield (AirCargo-Delivered-{FactionTag} -> its nearest anchor, Territory-Points.sbc).
-     GiveUp: 60 min without a destination -> despawn, no credit. Notes: .claude/notes/mes-debugging-log.md -->
+     GiveUp: 60 min without a destination -> despawn, no credit. Notes: se-mod-production/projects/war-in-the-mediterranean/notes/mes-debugging-log.md -->
 
 <!-- Wander -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
