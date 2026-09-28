@@ -12,6 +12,7 @@
 			
 			[RivalAI Behavior]
 			[BehaviorName:Nautical]
+			[UseNoTargetTimer:false]
 			[TriggerGroups:WW2-Points-Group-Gray-Carrier]
 			
 			[AutopilotData:WW2-Autopilot-Carrier-Gray]
@@ -41,6 +42,7 @@
 			
 			[RivalAI Behavior]
 			[BehaviorName:Nautical]
+			[UseNoTargetTimer:false]
 			[TriggerGroups:WW2-Points-Group-Green-Carrier]
 			
 			[AutopilotData:WW2-Autopilot-Carrier-Green]
@@ -80,6 +82,7 @@
 			[WaypointTolerance:50]
 			[IdealMinSpeed:10]
 			[IdealMaxSpeed:15]
+			[MaxSpeedTolerance:1]
 			
 			[RotationMultiplier:0.4]
 			[AngleAllowedForForwardThrust:180]
@@ -111,6 +114,7 @@
 			[WaypointTolerance:50]
 			[IdealMinSpeed:15]
 			[IdealMaxSpeed:22.5]
+			[MaxSpeedTolerance:1]
 			
 			[RotationMultiplier:0.4]
 			[AngleAllowedForForwardThrust:180]
@@ -142,6 +146,7 @@
 			[WaypointTolerance:50]
 			[IdealMinSpeed:10]
 			[IdealMaxSpeed:15]
+			[MaxSpeedTolerance:1]
 			
 			[RotationMultiplier:0.4]
 			[AngleAllowedForForwardThrust:180]
@@ -173,6 +178,7 @@
 			[WaypointTolerance:50]
 			[IdealMinSpeed:18]
 			[IdealMaxSpeed:24.5]
+			[MaxSpeedTolerance:1]
 			
 			[RotationMultiplier:0.4]
 			[AngleAllowedForForwardThrust:180]

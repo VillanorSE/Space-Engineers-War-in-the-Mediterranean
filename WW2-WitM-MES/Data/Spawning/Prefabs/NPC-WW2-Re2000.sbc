@@ -1847,49 +1847,6 @@ Draw title screen=true
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
               <Enabled>true</Enabled>
-              <Program>IMyShipController c; List&lt;IMyGyro&gt; g = new List&lt;IMyGyro&gt;();
-Vector3D f0, v0; double t, t90, t180, p90, s90, p180, s180, h0, d90, d180, pit0, rol0; float rate; bool run; string mode = "";
-public Program() {
-  Runtime.UpdateFrequency = UpdateFrequency.Update1;
-  var cs = new List&lt;IMyShipController&gt;();
-  GridTerminalSystem.GetBlocksOfType(cs, x =&gt; x.CubeGrid == Me.CubeGrid);
-  if (cs.Count &gt; 0) c = cs[0];
-  GridTerminalSystem.GetBlocksOfType(g, x =&gt; x.CubeGrid == Me.CubeGrid);
-}
-void Drive(Vector3D worldAxis, float r) {
-  foreach (var gy in g) {
-    var l = Vector3D.TransformNormal(worldAxis * r, MatrixD.Transpose(gy.WorldMatrix));
-    gy.GyroOverride = r != 0; gy.Pitch = (float)l.X; gy.Yaw = (float)l.Y; gy.Roll = (float)l.Z; } }
-double Alt() { double h; c.TryGetPlanetElevation(MyPlanetElevation.Sealevel, out h); return h; }
-Vector3D UpV() { var gv = c.GetNaturalGravity(); return gv.LengthSquared() &gt; 0.01 ? -Vector3D.Normalize(gv) : c.WorldMatrix.Up; }
-Vector3D Flat(Vector3D v, Vector3D up) { var h = v - Vector3D.Dot(v, up) * up; return h.LengthSquared() &gt; 1e-6 ? Vector3D.Normalize(h) : v; }
-double VAng() {
-  var v = c.GetShipVelocities().LinearVelocity;
-  if (v0.LengthSquared() &lt; 1 || v.LengthSquared() &lt; 1) return 0;
-  return Math.Acos(MathHelper.Clamp(Vector3D.Dot(Vector3D.Normalize(v0), Vector3D.Normalize(v)), -1, 1)) * 57.2958; }
-public void Main(string a) {
-  if (c == null) { Echo("No cockpit or remote control on this grid"); return; }
-  var w = a.Split(' ');
-  if (w[0] == "pitch" || w[0] == "yaw") {
-    mode = w[0]; rate = w.Length &gt; 1 ? int.Parse(w[1]) / 100f : 30f;
-    f0 = c.WorldMatrix.Forward; v0 = c.GetShipVelocities().LinearVelocity; h0 = Alt();
-    var up = UpV();
-    pit0 = Math.Asin(MathHelper.Clamp(Vector3D.Dot(f0, up), -1, 1)) * 57.2958;
-    rol0 = Math.Asin(MathHelper.Clamp(Vector3D.Dot(c.WorldMatrix.Right, up), -1, 1)) * 57.2958;
-    t = t90 = t180 = p90 = s90 = p180 = s180 = d90 = d180 = 0; run = true; }
-  if (a == "stop") { run = false; Drive(Vector3D.Up, 0); }
-  if (run) {
-    t += Runtime.TimeSinceLastRun.TotalSeconds;
-    var up = UpV();
-    Drive(mode == "yaw" ? up : c.WorldMatrix.Right, rate);
-    double ang = mode == "yaw"
-      ? Math.Acos(MathHelper.Clamp(Vector3D.Dot(Flat(f0, up), Flat(c.WorldMatrix.Forward, up)), -1, 1)) * 57.2958
-      : Math.Acos(MathHelper.Clamp(Vector3D.Dot(f0, c.WorldMatrix.Forward), -1, 1)) * 57.2958;
-    if (ang &gt;= 90 &amp;&amp; t90 == 0) { t90 = t; p90 = VAng(); s90 = c.GetShipSpeed(); d90 = Alt() - h0; }
-    if (ang &gt;= 175) { t180 = t; p180 = VAng(); s180 = c.GetShipSpeed(); d180 = Alt() - h0; run = false; Drive(Vector3D.Up, 0); }
-  }
-  Echo($"{c.CustomName}, speed {c.GetShipSpeed():F0}, alt {Alt():F0}\nstart nose pitch {pit0:F0} deg, roll {rol0:F0} deg\n90deg at {t90:F1}s: path {p90:F0}, {s90:F0} m/s, alt {d90:F0} m\n180deg at {t180:F1}s: path {p180:F0}, {s180:F0} m/s, alt {d180:F0} m");
-}</Program>
               <Storage />
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">

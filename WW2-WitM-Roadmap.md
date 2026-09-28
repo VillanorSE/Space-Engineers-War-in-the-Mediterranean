@@ -44,11 +44,11 @@ There is a full modlist for this project but the primary functional mods are lis
 
 **Action To-do:**
 - [ ] Test CrashAir for whether it is working properly
-- [ ] Test cargo ship spawns to see if nautical paths are working properly.
-- [ ] Gate spawns and sales behind war level.
-- [ ] Implement MaxWaterDepth once MES updates (for wreck spawns)
-- [ ] Test cargo planes spawning and flying to factories.
-- [x] Test plane offensive spawns coming from airfields. (They now fly well, test further to ensure no odd edge cases and that they align well enough in attack runs to get off substantial shots)
+- [x] Test cargo ship spawns to see if nautical paths are working properly.
+- [x] Gate spawns and sales behind war level.
+- [x] Implement MaxWaterDepth once MES updates (for wreck spawns)
+- [ ] Test cargo planes spawning and flying to airfields.
+- [x] Test plane offensive spawns coming from airfields.
 - [x] Create Cruiser Ship Core (Created but values not checked personally, likely need tuning)
 - [x] Create Heavy Cruiser Ship Core (Created but values not checked personally, likely need tuning)
 - [x] Create Battleship Ship Core (Created but values not checked personally, likely need tuning)
@@ -56,8 +56,8 @@ There is a full modlist for this project but the primary functional mods are lis
 - [x] Create Tank Ship Cores (Created but values not checked personally, likely need tuning)
 
 **Build To-do List:**
-- [ ] NPC-WW2-Tramontane (Destroyer/Le Fantasque-class, Green)
-- [ ] Armored Car - AB 41
+- [ ] NPC-WW2-Tramontane (Destroyer/Bourrasque-class, Green)
+- [x] Armored Car - AB 41
 - [ ] Armored Car - Panhard 178
 - [ ] Light Tank - L6/40
 - [ ] Light Tank - Renault R35
@@ -67,7 +67,7 @@ There is a full modlist for this project but the primary functional mods are lis
 - [ ] Battleship - Vittoria Veneto
 
 **Installations:**
-- [ ] NPC-WW2-Garage (Basic garage for ground vehicles)
+- [x] NPC-WW2-Garage (Basic garage for ground vehicles)
 - [ ] NPC-WW2-Vehicle-Depot (A vehicle depot that functions the way airports do but for ground vehicles)
 - [ ] NPC-WW2-Barracks (A basic barracks that spawns ground forces, would like more functions eventually)
 
@@ -224,7 +224,7 @@ War Level integration: Higher war levels will increase volume of ammunition, num
 |---|---|---|
 | **Utility** | Golo (Italian variant) | Golo (French variant) |
 | **Corvette** | Gabbiano | La Malouine |
-| **Destroyer** | Francesco Crispi, Comandante Margottini, Spica (Torpedo Boat), Turbine, Carabiniere (Soldati class) | Bougainville (Aviso/Destroyer-behavior), Léopard (Chacal class) | Le Triomphant, Tramontane (Bourrasque class) |
+| **Destroyer** | Francesco Crispi, Comandante Margottini, Spica (Torpedo Boat), Turbine, Carabiniere (Soldati class) | Bougainville (Aviso/Destroyer-behavior), Léopard (Chacal class), Le Triomphant, Tramontane (Bourrasque class) |
 | **Cruiser** | Bartolomeo Colleoni (Giussano-class,), Luigi Cadormo | Emile Bertin, Duguay-Trouin, La Galissonnière |
 | **Heavy Cruiser** | Trento, Zara | Algérie, Colbert (Suffren class) |
 | **Battleship** | Vittorio Veneto (Littorio-class) | Strasbourg (Dunkerque-class) |

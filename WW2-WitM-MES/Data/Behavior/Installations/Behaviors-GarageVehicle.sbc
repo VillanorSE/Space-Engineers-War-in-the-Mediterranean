@@ -2,41 +2,36 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
 
-<!-- Gray Hangar/Garage Behaviors -->
+<!-- Gray Armored Cars -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Behavior-HangarGarage-Gray</SubtypeId>
+                <SubtypeId>WW2-Behavior-GarageVehicle-AB41</SubtypeId>
             </Id>
             <Description>
+
 			[RivalAI Behavior]
 			[BehaviorName:Passive]
-			[TriggerGroups:WW2-Points-Group-Gray-Hangar]
-
-			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
-			[Triggers:WW2-Trigger-BotCrew-3]
+			
+			[Triggers:WW2-Trigger-UnStatic]
 
 			</Description>
         </EntityComponent>
-<!-- End Gray Hangar/Garage Behaviors -->
 
-<!-- Green Hangar/Garage Behaviors -->
+<!-- Gray Utility Trucks -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Behavior-HangarGarage-Green</SubtypeId>
+                <SubtypeId>WW2-Behavior-GarageVehicle-Fiat626</SubtypeId>
             </Id>
             <Description>
+
 			[RivalAI Behavior]
 			[BehaviorName:Passive]
-			[TriggerGroups:WW2-Points-Group-Green-Hangar]
-
-			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
-			[Triggers:WW2-Trigger-BotCrew-3]
 
 			</Description>
         </EntityComponent>
-<!-- End Green Hangar/Garage Behaviors -->
+<!-- End Garage Vehicle Behaviors -->
 
 	</EntityComponents>
 </Definitions>

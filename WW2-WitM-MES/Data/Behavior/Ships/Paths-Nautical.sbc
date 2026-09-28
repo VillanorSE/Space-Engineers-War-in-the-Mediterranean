@@ -7,9 +7,8 @@
 	     native [CustomWaypoints:X Y Z,X Y Z,...] Behavior tag (RivalAI CargoShip subclass).
 	     This seeds the ship's full ordered waypoint queue at spawn - it flies each point in
 	     order, then despawns after the last one. It replaces (does not add to) the default
-	     "AddWaypoints on DestinationReached" random-destination pattern used by the plain
-	     WW2-Behavior-CargoShip-Gray/Green behaviors, so a ship using one of these Behaviors
-	     is committed to this route only.
+	     "AddWaypoints on DestinationReached" random-destination pattern, so a ship using one of
+	     these Behaviors is committed to this route only.
 
 	     Bi-directional = two separate Behaviors, one per direction (the waypoint list simply
 	     reversed) - CustomWaypoints has no native "loop back" once the queue is emptied. -->

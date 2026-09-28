@@ -3,7 +3,7 @@
 	<EntityComponents>
 
 <!-- Territory point awards - all 6 anchors. Companion to Triggers-Zone-Change.sbc (which turns the {Anchor}_Points
-     counters into zone radius changes). GENERATED: values come from the Territory-WarLevel-Design.md event table.
+     counters into zone radius changes). Originally generated from the Territory-WarLevel-Design.md event table; now hand-maintained.
      Grid types: Carrier 100, Battleship 80, HeavyCruiser 50, Cruiser 40, Destroyer 20, Submarine 15, Corvette 10, UtilityNaval 10, UtilityAir 5, Bomber 5, Attacker 4, Fighter 3, Factory 10, Hangar 2. -->
 
 <!-- ==================== KILLS / LOSSES ====================
@@ -1028,7 +1028,7 @@
 
 <!-- ==================== CARGO SHIP DELIVERIES ====================
      Fixed-route ships (Paths-Nautical.sbc): at the END of the 5-min unload (timer enabled by
-     WW2-Territory-Action-CargoShip-BeginUnload) the DESTINATION anchor of the route gets +100, one-sided (no loss to the rival). Retired is set
+     WW2-Territory-Action-CargoShip-BeginUnload) the DESTINATION anchor of the route gets +100, one-sided (no loss to the rival), and the ship's faction bank +200M. Retired is set
      only at the final despawn (Triggers-CargoShip-RouteArrival.sbc), so sinking it while unloading still scores a kill. Civitavecchia scores for the Rome anchor. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -1058,6 +1058,9 @@
 			[RivalAI Action]
 			[IncreaseSandboxCounters:Tripoli_Points]
 			[IncreaseSandboxCountersAmount:100]
+			[ChangeNpcFactionCredits:true]
+			[ChangeNpcFactionCreditsTag:GRAY]
+			[ChangeNpcFactionCreditsAmount:200000000]
 
 			</Description>
 		</EntityComponent>
@@ -1089,6 +1092,9 @@
 			[RivalAI Action]
 			[IncreaseSandboxCounters:LaSpezia_Points]
 			[IncreaseSandboxCountersAmount:100]
+			[ChangeNpcFactionCredits:true]
+			[ChangeNpcFactionCreditsTag:GRAY]
+			[ChangeNpcFactionCreditsAmount:200000000]
 
 			</Description>
 		</EntityComponent>
@@ -1120,6 +1126,9 @@
 			[RivalAI Action]
 			[IncreaseSandboxCounters:Rome_Points]
 			[IncreaseSandboxCountersAmount:100]
+			[ChangeNpcFactionCredits:true]
+			[ChangeNpcFactionCreditsTag:GRAY]
+			[ChangeNpcFactionCreditsAmount:200000000]
 
 			</Description>
 		</EntityComponent>
@@ -1151,6 +1160,9 @@
 			[RivalAI Action]
 			[IncreaseSandboxCounters:LaSpezia_Points]
 			[IncreaseSandboxCountersAmount:100]
+			[ChangeNpcFactionCredits:true]
+			[ChangeNpcFactionCreditsTag:GRAY]
+			[ChangeNpcFactionCreditsAmount:200000000]
 
 			</Description>
 		</EntityComponent>
@@ -1182,6 +1194,9 @@
 			[RivalAI Action]
 			[IncreaseSandboxCounters:Toulon_Points]
 			[IncreaseSandboxCountersAmount:100]
+			[ChangeNpcFactionCredits:true]
+			[ChangeNpcFactionCreditsTag:GREEN]
+			[ChangeNpcFactionCreditsAmount:200000000]
 
 			</Description>
 		</EntityComponent>
@@ -1213,6 +1228,9 @@
 			[RivalAI Action]
 			[IncreaseSandboxCounters:Oran_Points]
 			[IncreaseSandboxCountersAmount:100]
+			[ChangeNpcFactionCredits:true]
+			[ChangeNpcFactionCreditsTag:GREEN]
+			[ChangeNpcFactionCreditsAmount:200000000]
 
 			</Description>
 		</EntityComponent>
@@ -1244,6 +1262,9 @@
 			[RivalAI Action]
 			[IncreaseSandboxCounters:Alexandria_Points]
 			[IncreaseSandboxCountersAmount:100]
+			[ChangeNpcFactionCredits:true]
+			[ChangeNpcFactionCreditsTag:GREEN]
+			[ChangeNpcFactionCreditsAmount:200000000]
 
 			</Description>
 		</EntityComponent>
@@ -1275,6 +1296,9 @@
 			[RivalAI Action]
 			[IncreaseSandboxCounters:Toulon_Points]
 			[IncreaseSandboxCountersAmount:100]
+			[ChangeNpcFactionCredits:true]
+			[ChangeNpcFactionCreditsTag:GREEN]
+			[ChangeNpcFactionCreditsAmount:200000000]
 
 			</Description>
 		</EntityComponent>
@@ -1282,8 +1306,7 @@
 <!-- ==================== AIR CARGO DELIVERIES ====================
      Airfield-to-airfield cargo planes (Triggers-AirCargo.sbc). Plane side: +50M to its faction bank, fired by
      WW2-Trigger-AirCargo-Unload-{Faction} after the 5-min loiter. Airfield side (below): +20 at the delivering
-     faction's anchor nearest that airfield.
-     MES quirk: ChangeNpcFactionCredits reads ChangePlayerCreditsAmount, not ChangeNpcFactionCreditsAmount. -->
+     faction's anchor nearest that airfield. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -1295,7 +1318,7 @@
 			[SetBooleansTrue:Retired]
 			[ChangeNpcFactionCredits:true]
 			[ChangeNpcFactionCreditsTag:GRAY]
-			[ChangePlayerCreditsAmount:50000000]
+			[ChangeNpcFactionCreditsAmount:50000000]
 
 			</Description>
 		</EntityComponent>
@@ -1310,7 +1333,7 @@
 			[SetBooleansTrue:Retired]
 			[ChangeNpcFactionCredits:true]
 			[ChangeNpcFactionCreditsTag:GREEN]
-			[ChangePlayerCreditsAmount:50000000]
+			[ChangeNpcFactionCreditsAmount:50000000]
 
 			</Description>
 		</EntityComponent>

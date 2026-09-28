@@ -158,7 +158,7 @@
         </EntityComponent>
 <!-- End Plane detection -->
 
-<!-- Civilian ship detection - Compromised, for WW2-Behavior-CargoShip-Gray/Green only -->
+<!-- Civilian ship detection - Compromised, for the port-route cargo ships (Paths-Nautical.sbc) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>

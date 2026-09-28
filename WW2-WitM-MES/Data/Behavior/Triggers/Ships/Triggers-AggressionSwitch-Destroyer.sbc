@@ -36,14 +36,14 @@
 			[ChatData:WW2-Chat-AggressionSwitch-Destroyer]
 
 			[ChangeAutopilotProfile:true]
-			[NewAutoPilotProfile:Secondary]
+			[AutopilotProfile:Secondary]
 
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Trigger-AggressionSwitch-Destroyer]
 
 			[EnableTriggers:true]
 			[EnableTriggerNames:WW2-Trigger-PassiveSwitch-Destroyer]
-			[EnableTriggerNames:MES-Trigger-NoTargetRetreatInitialCheck]
+			[EnableTriggerNames:WW2-Trigger-PassiveSwitchNoTarget-Destroyer]
 
 			</Description>
         </EntityComponent>
@@ -59,7 +59,11 @@
 
 			[UseChat:true]
 			[StartsReady:true]
-			[MaxChats:1]
+			[MaxChats:-1]
+			[MinTime:120]
+			[MaxTime:121]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:10000]
 			[BroadcastRandomly:true]
 			[Author:Destroyer]
 			[Color:Red]
@@ -68,7 +72,7 @@
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
 
-			[ChatMessages:Deviating from patrol to intercept hostile target.]
+			[ChatMessages:Altering course to intercept hostile target.]
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
 
@@ -129,13 +133,14 @@
 			[ChatData:WW2-Chat-PassiveSwitch-Destroyer]
 
 			[ChangeAutopilotProfile:true]
-			[NewAutoPilotProfile:Primary]
+			[AutopilotProfile:Primary]
 
 			[ChangeAutopilotSpeed:true]
-			[NewAutoPilotSpeed:15]
+			[NewAutopilotSpeed:-1]
 
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Trigger-PassiveSwitch-Destroyer]
+			[DisableTriggerNames:WW2-Trigger-PassiveSwitchNoTarget-Destroyer]
 
 			[EnableTriggers:true]
 			[EnableTriggerNames:WW2-Trigger-AggressionSwitch-Destroyer]
@@ -154,16 +159,20 @@
 
 			[UseChat:true]
 			[StartsReady:true]
-			[MaxChats:1]
+			[MaxChats:-1]
+			[MinTime:120]
+			[MaxTime:121]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:10000]
 			[BroadcastRandomly:true]
 			[Author:Destroyer]
 			[Color:Red]
 
-			[ChatMessages: Hostile leaving, returning to original course.]
+			[ChatMessages: No hostile in range, standing down from combat speed.]
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
 
-			[ChatMessages:Target lost, returning to escort.]
+			[ChatMessages:Ringing down to cruising speed, keeping a sharp lookout.]
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
 

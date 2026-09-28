@@ -12,6 +12,7 @@
 			
 			[RivalAI Behavior]
 			[BehaviorName:Nautical]
+			[UseNoTargetTimer:false]
 			[TriggerGroups:WW2-Points-Group-Green-Corvette]
 			
 			[AutopilotData:WW2-Autopilot-Corvette]
@@ -42,6 +43,7 @@
 			
 			[RivalAI Behavior]
 			[BehaviorName:Nautical]
+			[UseNoTargetTimer:false]
 			[TriggerGroups:WW2-Points-Group-Gray-Corvette]
 			
 			[AutopilotData:WW2-Autopilot-Corvette]
@@ -82,6 +84,7 @@
 			[WaypointTolerance:50]
 			[IdealMinSpeed:8]
 			[IdealMaxSpeed:10]
+			[MaxSpeedTolerance:1]
 			
 			[RotationMultiplier:0.4]
 			[AngleAllowedForForwardThrust:180]
@@ -113,6 +116,7 @@
 			[WaypointTolerance:50]
 			[IdealMinSpeed:12]
 			[IdealMaxSpeed:20]
+			[MaxSpeedTolerance:1]
 			
 			[RotationMultiplier:0.4]
 			[AngleAllowedForForwardThrust:180]

@@ -84,18 +84,12 @@
 </Description>
 	</EntityComponent>
 
-	<!-- Shallow-water wrecks (Golo hulks, etc.): spawns in/against water instead of dry land.
-	     MinWaterDepth is confirmed real (enforced in MES's PathPlacements.cs, not the dead/commented
-	     coarse gate in SpawnConditions.cs). There is still no MaxWaterDepth anywhere in MES (a PR
-	     adding one was in progress with MeridiusIX/Enenra as of 2026-09-14) - the placeholder line
-	     below is intentionally plain text, NOT a real [MaxWaterDepth:7.5] tag and NOT wrapped in an
-	     XML comment (an XML comment nested inside Description breaks SE's XmlSerializer entirely -
-	     confirmed from the actual SpaceEngineers.log). Restore it as a real tag once that MES update
-	     ships. MinWaterCoverage/MaxWaterCoverage bias toward close-to-shore water (measured via
-	     /MES.Info.GetDiagnostics: harbor mouth 0.438, good open coast up to 0.59, open ocean 1.0).
-	     2026-09-18: MaxWaterCoverage raised from 0.42 to 0.6 so wrecks are eligible from open coast (a chat-command test at 0.59 found zero eligible groups). Trade-off: with no MaxWaterDepth yet, this lets wrecks land in deeper water than before. Lower it again if they turn up too deep.
-	     7.5m covers the Utility/Corvette/Destroyer-tier wrecks; a future Cruiser+ wreck should get
-	     its own profile with [MaxWaterDepth:12] once that tag is live. -->
+	<!-- Shallow-water wrecks (Golo hulks, etc.): spawn in/against water instead of dry land.
+	     MaxWaterDepth (MES 2.74.03+) defaults to 0, so it must always be set. No XML comments inside
+	     Description: they break SE's XmlSerializer. Water coverage biases toward the coast
+	     (/MES.Info.GetDiagnostics: harbor mouth 0.438, open coast up to 0.59, open ocean 1.0).
+	     7.5m covers Utility/Corvette/Destroyer-tier wrecks; a Cruiser+ wreck should get its own
+	     profile with [MaxWaterDepth:12]. -->
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
@@ -110,7 +104,7 @@
 			[InstallationSpawnsOnDryLand:false]
 			[InstallationSpawnsUnderwater:true]
 			[MinWaterDepth:1]
-			PLACEHOLDER MaxWaterDepth:7.5 disabled - not live in MES yet, see comment above; restore as a real [MaxWaterDepth:7.5] tag once Enenra's update ships
+			[MaxWaterDepth:7.5]
 			[MinWaterCoverage:0.15]
 			[MaxWaterCoverage:0.6]
 			[AlignToSurface:true]
@@ -140,7 +134,7 @@
 			[InstallationSpawnsOnDryLand:false]
 			[InstallationSpawnsUnderwater:true]
 			[MinWaterDepth:1]
-			PLACEHOLDER MaxWaterDepth:7.5 disabled - not live in MES yet, see comment above; restore as a real [MaxWaterDepth:7.5] tag once Enenra's update ships
+			[MaxWaterDepth:7.5]
 			[MinWaterCoverage:0.15]
 			[MaxWaterCoverage:0.6]
 			[AlignToSurface:true]
@@ -174,7 +168,7 @@
 			[InstallationSpawnsOnDryLand:false]
 			[InstallationSpawnsUnderwater:true]
 			[MinWaterDepth:1]
-			PLACEHOLDER MaxWaterDepth:7.5 disabled - not live in MES yet, see comment above; restore as a real [MaxWaterDepth:7.5] tag once Enenra's update ships
+			[MaxWaterDepth:7.5]
 			[MinWaterCoverage:0.15]
 			[MaxWaterCoverage:0.6]
 			[AlignToSurface:true]

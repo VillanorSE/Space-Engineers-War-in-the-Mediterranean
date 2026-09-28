@@ -36,14 +36,14 @@
 			[ChatData:WW2-Chat-AggressionSwitch-Cruiser]
 
 			[ChangeAutopilotProfile:true]
-			[NewAutoPilotProfile:Secondary]
+			[AutopilotProfile:Secondary]
 
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Trigger-AggressionSwitch-Cruiser]
 
 			[EnableTriggers:true]
 			[EnableTriggerNames:WW2-Trigger-PassiveSwitch-Cruiser]
-			[EnableTriggerNames:MES-Trigger-NoTargetRetreatInitialCheck]
+			[EnableTriggerNames:WW2-Trigger-PassiveSwitchNoTarget-Cruiser]
 
 			</Description>
         </EntityComponent>
@@ -59,7 +59,11 @@
 
 			[UseChat:true]
 			[StartsReady:true]
-			[MaxChats:1]
+			[MaxChats:-1]
+			[MinTime:120]
+			[MaxTime:121]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:10000]
 			[BroadcastRandomly:true]
 			[Author:Cruiser]
 			[Color:Red]
@@ -129,13 +133,14 @@
 			[ChatData:WW2-Chat-PassiveSwitch-Cruiser]
 
 			[ChangeAutopilotProfile:true]
-			[NewAutoPilotProfile:Primary]
+			[AutopilotProfile:Primary]
 
 			[ChangeAutopilotSpeed:true]
-			[NewAutoPilotSpeed:12]
+			[NewAutopilotSpeed:-1]
 
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Trigger-PassiveSwitch-Cruiser]
+			[DisableTriggerNames:WW2-Trigger-PassiveSwitchNoTarget-Cruiser]
 
 			[EnableTriggers:true]
 			[EnableTriggerNames:WW2-Trigger-AggressionSwitch-Cruiser]
@@ -154,16 +159,20 @@
 
 			[UseChat:true]
 			[StartsReady:true]
-			[MaxChats:1]
+			[MaxChats:-1]
+			[MinTime:120]
+			[MaxTime:121]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:10000]
 			[BroadcastRandomly:true]
 			[Author:Cruiser]
 			[Color:Red]
 
-			[ChatMessages:Enemy has broken off. Stand down from action stations.]
+			[ChatMessages:Standing down from action stations.]
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
 
-			[ChatMessages:Contact lost. Resuming assigned course.]
+			[ChatMessages:No contact in range. Reduce to cruising speed.]
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
 

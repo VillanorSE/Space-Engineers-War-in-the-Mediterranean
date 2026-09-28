@@ -4,9 +4,7 @@
 
 <!-- Cargo Ship Route Arrival - Unload & Despawn
      For the fixed-route Nautical-path cargo ships in Paths-Nautical.sbc (WW2-Behavior-CargoShip-
-     {Gray/Green}-{Anchor}-{Anchor}), NOT the ambient single-destination ships in
-     Behaviors-CargoShip.sbc (those already have their own DestinationReached flow via
-     Triggers-Destination_Ship.sbc).
+     {Gray/Green}-{Anchor}-{Anchor}).
 
      Verified against MES source (Data/Scripts/ModularEncountersSystems/Behavior/CargoShip.cs):
      [BehaviorName:Nautical] does NOT support [CustomWaypoints:...] at all - that tag only exists
@@ -116,15 +114,15 @@
 			[IgnoreAntennaRequirement:true]
 			[IgnoredAntennaRangeOverride:3000]
 
-			[ChatMessages:{AntennaName} has arrived and begun unloading cargo.]
+			[ChatMessages:{GridName} has arrived and begun unloading cargo.]
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
 
-			[ChatMessages:Dockhands are unloading {AntennaName} now.]
+			[ChatMessages:Dockhands are unloading {GridName} now.]
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
 
-			[ChatMessages:{AntennaName} moored, cargo transfer underway.]
+			[ChatMessages:{GridName} moored, cargo transfer underway.]
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
 
@@ -186,11 +184,11 @@
 			[IgnoreAntennaRequirement:true]
 			[IgnoredAntennaRangeOverride:3000]
 
-			[ChatMessages:{AntennaName} unloading complete, casting off.]
+			[ChatMessages:{GridName} unloading complete, casting off.]
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
 
-			[ChatMessages:Cargo transfer finished. {AntennaName} departing port.]
+			[ChatMessages:Cargo transfer finished. {GridName} departing port.]
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
 

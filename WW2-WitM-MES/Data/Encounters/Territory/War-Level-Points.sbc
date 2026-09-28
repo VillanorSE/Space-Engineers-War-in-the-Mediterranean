@@ -2,7 +2,7 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<EntityComponents>
 
-<!-- War Level points - the single global WarActivity counter and the WarLevel (1-5) it drives. GENERATED from Territory-WarLevel-Design.md section 2. -->
+<!-- War Level points - the single global WarActivity counter and the WarLevel (1-5) it drives. Originally generated from Territory-WarLevel-Design.md section 2; now hand-maintained. -->
 
 <!-- ==================== SHARED CONDITIONS / RETIRE ====================
      Per-grid booleans (stored on the grid own Remote Control, so every NPC tracks its own):

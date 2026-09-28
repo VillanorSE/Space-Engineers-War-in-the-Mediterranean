@@ -7,33 +7,6 @@
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
-			<SubtypeId>WW2-SpawnConditions-Ships-Utility</SubtypeId>
-		</Id>
-		<Description>
-			[MES Spawn Conditions]
-
-			[PlanetaryInstallation:true]
-			[RivalAiPlanetaryInstallation:true]
-			[InstallationSpawnsOnWaterSurface:true]
-			[InstallationSpawnsOnDryLand:false]
-			[MinWaterDepth:10]
-			[MinWaterCoverage:0.4]
-
-			[RotateFirstCockpitToForward:true]
-			[DisableDampeners:false]
-			[ReplenishSystems:true]
-
-			[MaxSpawnFromPlanetSurface:5000]
-			[PlanetRequiresAtmo:true]
-			[UsePlayerCountCheck:true]
-			[MinimumPlayers:1]
-
-		</Description>
-	</EntityComponent>
-
-	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-		<Id>
-			<TypeId>Inventory</TypeId>
 			<SubtypeId>WW2-SpawnConditions-Ships-Corvettes</SubtypeId>
 		</Id>
 		<Description>
@@ -44,6 +17,7 @@
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:15]
+			[MaxWaterDepth:10000]
 			[MinWaterCoverage:0.45]
 
 			[RotateFirstCockpitToForward:true]
@@ -71,6 +45,7 @@
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:15]
+			[MaxWaterDepth:10000]
 			[MinWaterCoverage:0.5]
 
 			[RotateFirstCockpitToForward:true]
@@ -97,6 +72,7 @@
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:15]
+			[MaxWaterDepth:10000]
 			[MinWaterCoverage:0.5]
 
 			[RotateFirstCockpitToForward:true]
@@ -127,6 +103,7 @@
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:15]
+			[MaxWaterDepth:10000]
 			[MinWaterCoverage:0.5]
 
 			[RotateFirstCockpitToForward:true]
@@ -159,6 +136,7 @@
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:15]
+			[MaxWaterDepth:10000]
 			[MinWaterCoverage:0.65]
 
 			[RotateFirstCockpitToForward:true]
@@ -185,6 +163,7 @@
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:15]
+			[MaxWaterDepth:10000]
 			[MinWaterCoverage:0.65]
 
 			[RotateFirstCockpitToForward:true]
@@ -217,6 +196,7 @@
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:25]
+			[MaxWaterDepth:10000]
 			[MinWaterCoverage:0.85]
 
 			[RotateFirstCockpitToForward:true]
@@ -247,6 +227,7 @@
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:25]
+			[MaxWaterDepth:10000]
 			[MinWaterCoverage:0.85]
 
 			[RotateFirstCockpitToForward:true]

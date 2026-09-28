@@ -36,14 +36,14 @@
 			[ChatData:WW2-Chat-AggressionSwitch-Carrier]
 
 			[ChangeAutopilotProfile:true]
-			[NewAutoPilotProfile:Secondary]
+			[AutopilotProfile:Secondary]
 
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Trigger-AggressionSwitch-Carrier]
 
 			[EnableTriggers:true]
 			[EnableTriggerNames:WW2-Trigger-PassiveSwitch-Carrier]
-			[EnableTriggerNames:MES-Trigger-NoTargetRetreatInitialCheck]
+			[EnableTriggerNames:WW2-Trigger-PassiveSwitchNoTarget-Carrier]
 
 			</Description>
         </EntityComponent>
@@ -59,7 +59,11 @@
 
 			[UseChat:true]
 			[StartsReady:true]
-			[MaxChats:1]
+			[MaxChats:-1]
+			[MinTime:120]
+			[MaxTime:121]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:10000]
 			[BroadcastRandomly:true]
 			[Author:Carrier]
 			[Color:Red]
@@ -88,7 +92,7 @@
 			
 			[UseTrigger:false]
 			[Type:TargetFar]
-			[TargetDistance:10000]
+			[TargetDistance:9000]
 			
 			[StartsReady:true]
 			[MaxActions:-1]
@@ -129,13 +133,14 @@
 			[ChatData:WW2-Chat-PassiveSwitch-Carrier]
 
 			[ChangeAutopilotProfile:true]
-			[NewAutoPilotProfile:Primary]
+			[AutopilotProfile:Primary]
 
 			[ChangeAutopilotSpeed:true]
-			[NewAutoPilotSpeed:15]
+			[NewAutopilotSpeed:-1]
 
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Trigger-PassiveSwitch-Carrier]
+			[DisableTriggerNames:WW2-Trigger-PassiveSwitchNoTarget-Carrier]
 
 			[EnableTriggers:true]
 			[EnableTriggerNames:WW2-Trigger-AggressionSwitch-Carrier]
@@ -154,12 +159,16 @@
 
 			[UseChat:true]
 			[StartsReady:true]
-			[MaxChats:1]
+			[MaxChats:-1]
+			[MinTime:120]
+			[MaxTime:121]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:10000]
 			[BroadcastRandomly:true]
 			[Author:Carrier]
 			[Color:Red]
 
-			[ChatMessages: Hostile retreating.]
+			[ChatMessages: Hostile no longer a threat.]
 			[ChatAudio:ArcHudGPSNotification1]
 			[BroadcastChatType:Chat]
 

@@ -2,68 +2,6 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
 
-	<!-- Cargo Ship Behaviors -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Behavior-CargoShip-Gray</SubtypeId>
-            </Id>
-			<!-- Basic Gray Cargo Ship Behavior -->
-            <Description>
-			
-			[RivalAI Behavior]
-			[BehaviorName:Nautical]
-			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
-			
-			[AutopilotData:WW2-Autopilot-CargoShip]
-			[TargetData:WW2-Targeting-ShipMain]
-			
-			[WeaponSystem:WW2-Weapons-CargoShip]
-			
-			[Triggers:WW2-Trigger-UnStatic]
-			[Triggers:WW2-Trigger-CargoDamage]
-			[Triggers:WW2-Trigger-CargoShip-Destination]
-			[Triggers:WW2-Trigger-CargoShip-DestinationReached]
-			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
-			[Triggers:WW2-Trigger-HostileNear-Cargo]
-			[Triggers:WW2-Trigger-BotCrew-3]
-			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
-			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Gray]
-
-			</Description>
-        </EntityComponent>
-
-        <EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Behavior-CargoShip-Green</SubtypeId>
-            </Id>
-			<!-- Basic Green Cargo Ship Behavior -->
-            <Description>
-			
-			[RivalAI Behavior]
-			[BehaviorName:Nautical]
-			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
-			
-			[AutopilotData:WW2-Autopilot-CargoShip]
-			[TargetData:WW2-Targeting-ShipMain]
-			
-			[WeaponSystem:WW2-Weapons-CargoShip]
-			
-			[Triggers:WW2-Trigger-UnStatic]
-			[Triggers:WW2-Trigger-CargoDamage]
-			[Triggers:WW2-Trigger-CargoShip-Destination]
-			[Triggers:WW2-Trigger-CargoShip-DestinationReached]
-			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
-			[Triggers:WW2-Trigger-HostileNear-Cargo]
-			[Triggers:WW2-Trigger-BotCrew-3]
-			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
-			[Triggers:WW2-Trigger-ReputationDamageHeavy-Ship-Green]
-
-			</Description>
-        </EntityComponent>
-	<!-- End Cargo Ship Behaviors -->
-
 	<!-- Cargo Ship Autopilot -->
 	<!-- 2026-09-22: UseVelocityCollisionEvasion disabled. A ship on a live route showed its
 	     AutoPilot "Current Waypoint" (204m out, 76 degrees off heading) fighting its real
