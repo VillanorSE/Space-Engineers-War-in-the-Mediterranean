@@ -251,17 +251,6 @@
     <AllowedDirections>Right</AllowedDirections>
   </BlockLimits>
   <BlockLimits>
-    <Name>PropulsionSideways</Name>
-    <BlockGroups>Propellers - Water</BlockGroups>
-    <MaxCount>2</MaxCount>
-    <CrossConnectorPunishment>false</CrossConnectorPunishment>
-    <PunishByNoFlyZone>true</PunishByNoFlyZone>
-    <IsCriticalLimit>false</IsCriticalLimit>
-    <PunishmentType>ShutOff</PunishmentType>
-    <AllowedDirections>Left</AllowedDirections>
-    <AllowedDirections>Right</AllowedDirections>
-  </BlockLimits>
-  <BlockLimits>
     <Name>NoWheels</Name>
     <BlockGroups>Wheels</BlockGroups>
     <BlockGroups>Wheels - Plane</BlockGroups>

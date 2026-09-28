@@ -4975,13 +4975,6 @@ public class PID
                           </PhysicalContent>
                           <ItemId>0</ItemId>
                         </MyObjectBuilder_InventoryItem>
-                        <MyObjectBuilder_InventoryItem>
-                          <Amount>1</Amount>
-                          <PhysicalContent xsi:type="MyObjectBuilder_PhysicalGunObject">
-                            <SubtypeName>Welder4Item</SubtypeName>
-                          </PhysicalContent>
-                          <ItemId>1</ItemId>
-                        </MyObjectBuilder_InventoryItem>
                       </Items>
                       <nextItemId>2</nextItemId>
                       <Volume>1</Volume>
@@ -11926,13 +11919,6 @@ returnToRestPosition = True
                     <Component xsi:type="MyObjectBuilder_Inventory">
                       <CanPutItems>true</CanPutItems>
                       <Items>
-                        <MyObjectBuilder_InventoryItem>
-                          <Amount>1</Amount>
-                          <PhysicalContent xsi:type="MyObjectBuilder_PhysicalGunObject">
-                            <SubtypeName>Welder4Item</SubtypeName>
-                          </PhysicalContent>
-                          <ItemId>0</ItemId>
-                        </MyObjectBuilder_InventoryItem>
                         <MyObjectBuilder_InventoryItem>
                           <Amount>200</Amount>
                           <PhysicalContent xsi:type="MyObjectBuilder_Component">
