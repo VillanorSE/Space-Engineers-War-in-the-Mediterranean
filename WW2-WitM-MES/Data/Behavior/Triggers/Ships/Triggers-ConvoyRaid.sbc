@@ -2,7 +2,7 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
 
-<!-- Convoy raids: enemy attackers spawned only while a friendly player (rep >= 500) escorts the convoy (PlayerNear 3km).
+<!-- Convoy raids: enemy attackers spawned only while a friendly player (rep >= 500) escorts the convoy (PlayerNear 1km).
      Add [TriggerGroups:WW2-TriggerGroup-ConvoyRaid-{Gray|Green}] (convoy's own faction) to a cargo ship behavior.
      Wave trigger -> ManuallyActivateTrigger tag -> one war-level tier passes its condition.
      WarLevel is unset at level 1, so WL1 runs as the ElseActions of an AtLeast2 check.
@@ -38,7 +38,7 @@
 
 			[UseTrigger:true]
 			[Type:PlayerNear]
-			[TargetDistance:3000]
+			[TargetDistance:1000]
 			[MinPlayerReputation:500]
 
 			[MinCooldownMs:55000]
@@ -277,7 +277,7 @@
 
 			[UseTrigger:true]
 			[Type:PlayerNear]
-			[TargetDistance:3000]
+			[TargetDistance:1000]
 			[MinPlayerReputation:500]
 
 			[MinCooldownMs:55000]
