@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+<!-- Territory gate: dynamic SpawnGroups add [PersistentConditions:WW2-SpawnConditions-Territory-{Gray|Green}]. -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-ZoneConditions-LaSpezia</SubtypeId>
+		</Id>
+		<Description>
+			[MES Zone Conditions]
+			[ZoneName:LaSpezia_Zone]
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-ZoneConditions-Rome</SubtypeId>
+		</Id>
+		<Description>
+			[MES Zone Conditions]
+			[ZoneName:Rome_Zone]
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-ZoneConditions-Tripoli</SubtypeId>
+		</Id>
+		<Description>
+			[MES Zone Conditions]
+			[ZoneName:Tripoli_Zone]
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-ZoneConditions-Toulon</SubtypeId>
+		</Id>
+		<Description>
+			[MES Zone Conditions]
+			[ZoneName:Toulon_Zone]
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-ZoneConditions-Oran</SubtypeId>
+		</Id>
+		<Description>
+			[MES Zone Conditions]
+			[ZoneName:Oran_Zone]
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-ZoneConditions-Alexandria</SubtypeId>
+		</Id>
+		<Description>
+			[MES Zone Conditions]
+			[ZoneName:Alexandria_Zone]
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Territory-Gray</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+			[ZoneConditions:WW2-ZoneConditions-LaSpezia]
+			[ZoneConditions:WW2-ZoneConditions-Rome]
+			[ZoneConditions:WW2-ZoneConditions-Tripoli]
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Territory-Green</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+			[ZoneConditions:WW2-ZoneConditions-Toulon]
+			[ZoneConditions:WW2-ZoneConditions-Oran]
+			[ZoneConditions:WW2-ZoneConditions-Alexandria]
+		</Description>
+	</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

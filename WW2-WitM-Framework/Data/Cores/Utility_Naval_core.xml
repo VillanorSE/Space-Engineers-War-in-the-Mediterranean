@@ -152,6 +152,11 @@
     <Name>Propellers</Name>
     <BlockGroups>Propellers - Water</BlockGroups>
     <MaxCount>7</MaxCount>
+    <DirectionBudgets>
+      <DirectionBudget Direction="Forward" MaxCount="1" />
+      <DirectionBudget Direction="Left" MaxCount="1" />
+      <DirectionBudget Direction="Right" MaxCount="1" />
+    </DirectionBudgets>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
     <IsCriticalLimit>false</IsCriticalLimit>
@@ -189,7 +194,7 @@
   <BlockLimits>
     <Name>CargoContainers</Name>
     <BlockGroups>CargoContainers</BlockGroups>
-    <MaxCount>12</MaxCount>
+    <MaxCount>15</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
     <IsCriticalLimit>false</IsCriticalLimit>

@@ -122,6 +122,32 @@
 </Description>
 	</EntityComponent>
 
+	<!-- Carrier escort destroyers: behavior (CustomSpawn) only, never ambient. -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Ships-Escort</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[RivalAiSpawn:true]
+
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+		</Description>
+	</EntityComponent>
+
 	<!-- Covers both Cruiser and Heavy Cruiser tiers. -->
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>

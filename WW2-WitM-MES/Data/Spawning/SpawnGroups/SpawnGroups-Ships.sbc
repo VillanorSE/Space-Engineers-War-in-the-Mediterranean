@@ -12,6 +12,7 @@
 		[Modular Encounters SpawnGroup]
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Destroyers-WL2]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -34,10 +35,7 @@
 		</Prefabs>
 	</SpawnGroup>
 
-<!-- Spica variant spawned exclusively via RivalAI CustomSpawn from the Aquila carrier's
-     escort action (Triggers-CarrierSpawn.sbc) - not through MES's normal ambient
-     ship-spawning system - so no [SpawnConditionsProfiles] tag is needed here, matching
-     the convention used by the Nautical cargo ships. -->
+<!-- Spica escort: spawned only by the Aquila carrier's escort trigger (Triggers-CarrierSpawn.sbc); Ships-Escort conditions are RivalAi-only, so no ambient spawns. -->
 	<SpawnGroup>
 		<Id>
 				<TypeId>SpawnGroupDefinition</TypeId>
@@ -50,7 +48,7 @@
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
 		[FactionOverride:GRAY]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Destroyers-WL2]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Escort]
 
 		</Description>
 		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
@@ -78,6 +76,7 @@
 		[Modular Encounters SpawnGroup]
 	
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Corvettes]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -111,6 +110,7 @@
 		[Modular Encounters SpawnGroup]
 	
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Destroyers-WL2]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -142,6 +142,7 @@
 		[Modular Encounters SpawnGroup]
 	
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Destroyers-WL3]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -175,6 +176,7 @@
 		[Modular Encounters SpawnGroup]
 	
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Corvettes]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -208,6 +210,7 @@
 		[Modular Encounters SpawnGroup]
 	
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Destroyers-WL2]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -230,10 +233,7 @@
 		</Prefabs>
 	</SpawnGroup>
 
-<!-- Bougainville variant spawned exclusively via RivalAI CustomSpawn from the Bearn carrier's
-     escort action (Triggers-CarrierSpawn.sbc) - not through MES's normal ambient
-     ship-spawning system - so no [SpawnConditionsProfiles] tag is needed here, same fix
-     applied to Spica-Escort. -->
+<!-- Bougainville escort: spawned only by the Bearn carrier's escort trigger (Triggers-CarrierSpawn.sbc); Ships-Escort conditions are RivalAi-only, so no ambient spawns. -->
 	<SpawnGroup>
 		<Id>
 				<TypeId>SpawnGroupDefinition</TypeId>
@@ -246,7 +246,7 @@
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
 		[FactionOverride:GREEN]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Destroyers-WL2]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Escort]
 
 		</Description>
 		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
@@ -274,6 +274,7 @@
 		[Modular Encounters SpawnGroup]
 	
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Destroyers-WL3]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]

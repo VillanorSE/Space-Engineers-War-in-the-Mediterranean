@@ -382,23 +382,6 @@
       <CriticalComponent Subtype="Computer" Index="0" />
     </Definition>
 
-    <!-- Source: workshop 2844434226, Data/CubeBlocks/AA/Type96Single.sbc -->
-    <Definition xsi:type="ConveyorSorterDefinition">
-      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="Type96Single" />
-      <Components>
-        <Component Subtype="SteelPlate" Count="10" />
-        <Component Subtype="MetalGrid" Count="5" />
-        <Component Subtype="LargeTube" Count="6" />
-        <Component Subtype="Motor" Count="5" />
-        <Component Subtype="PrototechFrame" Count="2" />
-        <Component Subtype="Computer" Count="2" />
-        <Component Subtype="Construction" Count="5" />
-        <Component Subtype="MetalGrid" Count="10" />
-        <Component Subtype="SteelPlate" Count="20" />
-      </Components>
-      <CriticalComponent Subtype="Computer" Index="0" />
-    </Definition>
-
     <!-- Source: workshop 2844434226, Data/CubeBlocks/BB/12Inch45Mark5.sbc -->
     <Definition xsi:type="ConveyorSorterDefinition">
       <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="12Inch45Mark5" />

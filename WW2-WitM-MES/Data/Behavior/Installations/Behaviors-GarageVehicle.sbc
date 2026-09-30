@@ -31,6 +31,19 @@
 
 			</Description>
         </EntityComponent>
+<!-- Green Utility Trucks -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-GarageVehicle-RenaultAHN</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			</Description>
+        </EntityComponent>
 <!-- End Garage Vehicle Behaviors -->
 
 	</EntityComponents>
