@@ -30,31 +30,6 @@
 		</Description>
 	</EntityComponent>
 
-	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-		<Id>
-			<TypeId>Inventory</TypeId>
-			<SubtypeId>WW2-SpawnConditions-Ships-Destroyers</SubtypeId>
-		</Id>
-		<Description>
-			[MES Spawn Conditions]
-
-			[PlanetaryInstallation:true]
-			[InstallationSpawnsOnWaterSurface:true]
-			[InstallationSpawnsOnDryLand:false]
-			[MinWaterDepth:15]
-			[MaxWaterDepth:10000]
-			[MinWaterCoverage:0.5]
-
-			[RotateFirstCockpitToForward:true]
-			[DisableDampeners:false]
-
-			[MaxSpawnFromPlanetSurface:5000]
-			[PlanetRequiresAtmo:true]
-			[UsePlayerCountCheck:true]
-			[MinimumPlayers:1]
-
-		</Description>
-	</EntityComponent>
 <EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
@@ -236,32 +211,6 @@
 		</Description>
 	</EntityComponent>
 
-	<!-- Covers both Cruiser and Heavy Cruiser tiers. -->
-	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-		<Id>
-			<TypeId>Inventory</TypeId>
-			<SubtypeId>WW2-SpawnConditions-Ships-Cruisers</SubtypeId>
-		</Id>
-		<Description>
-			[MES Spawn Conditions]
-
-			[PlanetaryInstallation:true]
-			[InstallationSpawnsOnWaterSurface:true]
-			[InstallationSpawnsOnDryLand:false]
-			[MinWaterDepth:15]
-			[MaxWaterDepth:10000]
-			[MinWaterCoverage:0.65]
-
-			[RotateFirstCockpitToForward:true]
-			[DisableDampeners:false]
-
-			[MaxSpawnFromPlanetSurface:5000]
-			[PlanetRequiresAtmo:true]
-			[UsePlayerCountCheck:true]
-			[MinimumPlayers:1]
-
-		</Description>
-	</EntityComponent>
 <EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
@@ -292,36 +241,6 @@
 </Description>
 	</EntityComponent>
 
-	<!-- Carriers and battleships both use this profile. -->
-	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-		<Id>
-			<TypeId>Inventory</TypeId>
-			<SubtypeId>WW2-SpawnConditions-Ships-Carriers</SubtypeId>
-		</Id>
-		<Description>
-			[MES Spawn Conditions]
-
-			[PlanetaryInstallation:true]
-			[InstallationSpawnsOnWaterSurface:true]
-			[InstallationSpawnsOnDryLand:false]
-			[MinWaterDepth:25]
-			[MaxWaterDepth:10000]
-			[MinWaterCoverage:0.85]
-
-			[RotateFirstCockpitToForward:true]
-			[DisableDampeners:false]
-
-			[MaxSpawnFromPlanetSurface:5000]
-			[PlanetRequiresAtmo:true]
-			[UsePlayerCountCheck:true]
-			[MinimumPlayers:1]
-
-			[UseThreatLevelCheck:true]
-			[ThreatLevelCheckRange:10000]
-			[ThreatScoreMinimum:350]
-
-		</Description>
-	</EntityComponent>
 <EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>

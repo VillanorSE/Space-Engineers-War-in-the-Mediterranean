@@ -13,7 +13,7 @@
      UNCHANGED (WW2-Behavior-Factory-Plane-<Plane>) on the SHELL prefab only  - the three
      plane prefabs get no Behaviour at all, since they're static under-construction
      displays, not flyable  - so the full existing trigger system (Announcement,
-     DeliverySpawn, CallCargoPlane, Recirculate, Activation, OffenseSpawn, DefenseSpawn,
+     DeliverySpawn, CallCargoPlane, Recirculate, Activation, DefenseSpawn,
      BotCrew, ReputationDamage, ProjectorBuild) keeps working exactly as before  - no changes
      to the trigger system were needed for this rebuild after all (an earlier version of this
      note claimed ProjectorBuild was dead/no-op; that was based on a bad search and was wrong

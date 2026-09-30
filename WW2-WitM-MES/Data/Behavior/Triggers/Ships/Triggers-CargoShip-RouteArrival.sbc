@@ -15,7 +15,7 @@
 
      Under CargoShip, every waypoint in the list (including the last) briefly pauses the ship in
      WaitAtWaypoint mode - governed by the ship's own AutopilotData's [WaypointWaitTimeTrigger]
-     (WW2-Autopilot-CargoShip already has this at 15s, unchanged), firing BehaviorTriggerA - then
+     (0 in WW2-Autopilot-CargoShip, so no real pause), firing BehaviorTriggerA - then
      auto-resumes toward the next point with NO trigger action required to advance. Once the
      CustomWaypoints list is exhausted, the ship fires BehaviorTriggerD exactly once, at the final
      waypoint's position, immediately before it would otherwise peel off toward an auto-generated

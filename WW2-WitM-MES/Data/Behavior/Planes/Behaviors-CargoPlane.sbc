@@ -3,7 +3,7 @@
     <EntityComponents>
 
 <!-- Cargo Plane Behaviors -->
-	<!-- Basic Gray Cargo Plane Behavior, has slots for two escorts (unused) -->
+	<!-- Basic Gray Cargo Plane Behavior -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -19,7 +19,6 @@
 			[SecondaryAutopilotData:WW2-Autopilot-CargoPlane-Destination]
 			
 			[Triggers:WW2-Trigger-UnStatic]
-			[Triggers:WW2-Trigger-ProcessEscortRequest]
 
 			[Triggers:WW2-Trigger-CargoDamage]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
@@ -40,14 +39,11 @@
 			[Triggers:WW2-Trigger-Crash-Air]
 			[Triggers:WW2-Trigger-Compromised-Air]
 			[Triggers:WW2-Trigger-StopCrash-Air]
-			
-			[EscortOffsets:{X:-100 Y:0 Z:0}]
-			[EscortOffsets:{X:100 Y:0 Z:0}]
-			
+
 			</Description>
         </EntityComponent>
 
-	<!-- Basic Green Cargo Plane Behavior, has slots for two escorts (unused) -->
+	<!-- Basic Green Cargo Plane Behavior -->
         <EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -63,7 +59,6 @@
 			[SecondaryAutopilotData:WW2-Autopilot-CargoPlane-Destination]
 			
 			[Triggers:WW2-Trigger-UnStatic]
-			[Triggers:WW2-Trigger-ProcessEscortRequest]
 			
 			[Triggers:WW2-Trigger-CargoDamage]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]

@@ -67,7 +67,7 @@
 
 	<!-- WW2-WitM Respawn Vehicles
 	     Ground-vehicle respawn pods for the Mediterranean setting - planet-only, no
-	     parachute on these prefabs. PlanetDeployAltitude raised to 30 on both ships
+	     parachute on these prefabs. PlanetDeployAltitude set to 20 on both ships
 	     (was 10) - both were clipping/glitching on spawn at low altitude, not just
 	     one, so this isn't prefab-geometry-specific. Still far below vanilla's
 	     1500m since Water Mod's WaterConfig.xml entries for these SubtypeIds
