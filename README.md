@@ -24,10 +24,11 @@ The mod is built with room to grow. A custom Mediterranean coastline is one dire
 
 ## Repository structure
 
-This repo covers two Workshop mods, developed together:
+This repo covers three Workshop mods, developed together:
 
 - **`WW2-WitM-MES/`** — Modular Encounters Systems content: spawn groups, behaviors, factions, loot.
-- **`WW2-WitM_Framework/`** — mechanics and scenario systems: Ship Core progression, suit tweaks, respawn vehicles.
+- **`WW2-WitM-Framework/`** — mechanics and scenario systems: Ship Core progression, suit tweaks, respawn vehicles.
+- **`WW2-WitM-Planet/`** — the Mediterranean planet: terrain, biomes and materials.
 
 ## More detail
 

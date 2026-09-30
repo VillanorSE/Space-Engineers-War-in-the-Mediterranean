@@ -25,22 +25,17 @@
 			</Description>
         </EntityComponent>
 
-	<!-- Enables offensive plane spawn triggers and a chat message -->
+	<!-- Chat message on activation (patrols now come from airfields) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
                 <SubtypeId>WW2-Action-Activation-Factory-Plane-Gray</SubtypeId>
             </Id>
-			
-            <Description>	
-			
+
+            <Description>
+
 			[RivalAI Action]
-			
-			[EnableTriggers:true]
-			[EnableTriggerNames:WW2-Trigger-OffenseSpawn-Factory-Plane-Re2000]
-			[EnableTriggerNames:WW2-Trigger-OffenseSpawn-Factory-Plane-Re2001]
-			[EnableTriggerNames:WW2-Trigger-OffenseSpawn-Factory-Plane-FC20]
-			
+
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Chat-Factory-Activation]
 			
@@ -71,22 +66,16 @@
 			</Description>
         </EntityComponent>
 
-	<!--Enables offensive plane spawn triggers and a chat message-->
+	<!-- Chat message on activation (patrols now come from airfields) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
                 <SubtypeId>WW2-Action-Activation-Factory-Plane-Green</SubtypeId>
             </Id>
             <Description>
-			
+
 			[RivalAI Action]
-			
-			[EnableTriggers:true]
-			[EnableTriggerNames:WW2-Trigger-OffenseSpawn-Factory-Plane-MS406]
-			
-			[EnableTriggers:true]
-			[EnableTriggerNames:WW2-Trigger-OffenseSpawn-Factory-Plane-Potez630]
-			
+
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Chat-Factory-Activation]
 			
@@ -113,7 +102,7 @@
 			[IgnoreAntennaRequirement:true]
 			[IgnoredAntennaRangeOverride:10000]
 
-            [ChatMessages:Surrounding area is populated, beginning routine patrol procedures!]
+            [ChatMessages:Unidentified personnel approaching the factory, all hands to stations!]
             [ChatAudio:ArcHudGPSNotification2]
             [BroadcastChatType:Chat]
 			
