@@ -13,7 +13,6 @@
 			[MES Spawn Conditions]
 
 			[PlanetaryInstallation:true]
-			[RivalAiPlanetaryInstallation:true]
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:15]
@@ -22,7 +21,6 @@
 
 			[RotateFirstCockpitToForward:true]
 			[DisableDampeners:false]
-			[ReplenishSystems:true]
 
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]
@@ -41,7 +39,6 @@
 			[MES Spawn Conditions]
 
 			[PlanetaryInstallation:true]
-			[RivalAiPlanetaryInstallation:true]
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:15]
@@ -50,7 +47,6 @@
 
 			[RotateFirstCockpitToForward:true]
 			[DisableDampeners:false]
-			[ReplenishSystems:true]
 
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]
@@ -68,7 +64,6 @@
 			[MES Spawn Conditions]
 
 			[PlanetaryInstallation:true]
-			[RivalAiPlanetaryInstallation:true]
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:15]
@@ -77,7 +72,6 @@
 
 			[RotateFirstCockpitToForward:true]
 			[DisableDampeners:false]
-			[ReplenishSystems:true]
 
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]
@@ -99,7 +93,6 @@
 			[MES Spawn Conditions]
 
 			[PlanetaryInstallation:true]
-			[RivalAiPlanetaryInstallation:true]
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:15]
@@ -108,7 +101,6 @@
 
 			[RotateFirstCockpitToForward:true]
 			[DisableDampeners:false]
-			[ReplenishSystems:true]
 
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]
@@ -148,6 +140,102 @@
 		</Description>
 	</EntityComponent>
 
+	<!-- Convoy-raid warships: behavior (CustomSpawn) only, never ambient. -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Ships-Raid-Corvettes</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[RivalAiSpawn:true]
+
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Ships-Raid-Destroyers-WL2</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[RivalAiSpawn:true]
+
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Ships-Raid-Destroyers-WL3</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[RivalAiSpawn:true]
+
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+		</Description>
+	</EntityComponent>
+
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Ships-Raid-Cruisers-WL4</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[RivalAiSpawn:true]
+
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+		</Description>
+	</EntityComponent>
+
 	<!-- Covers both Cruiser and Heavy Cruiser tiers. -->
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
@@ -158,7 +246,6 @@
 			[MES Spawn Conditions]
 
 			[PlanetaryInstallation:true]
-			[RivalAiPlanetaryInstallation:true]
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:15]
@@ -167,7 +254,6 @@
 
 			[RotateFirstCockpitToForward:true]
 			[DisableDampeners:false]
-			[ReplenishSystems:true]
 
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]
@@ -185,7 +271,6 @@
 			[MES Spawn Conditions]
 
 			[PlanetaryInstallation:true]
-			[RivalAiPlanetaryInstallation:true]
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:15]
@@ -194,7 +279,6 @@
 
 			[RotateFirstCockpitToForward:true]
 			[DisableDampeners:false]
-			[ReplenishSystems:true]
 
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]
@@ -218,7 +302,6 @@
 			[MES Spawn Conditions]
 
 			[PlanetaryInstallation:true]
-			[RivalAiPlanetaryInstallation:true]
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:25]
@@ -227,7 +310,6 @@
 
 			[RotateFirstCockpitToForward:true]
 			[DisableDampeners:false]
-			[ReplenishSystems:true]
 
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]
@@ -249,7 +331,6 @@
 			[MES Spawn Conditions]
 
 			[PlanetaryInstallation:true]
-			[RivalAiPlanetaryInstallation:true]
 			[InstallationSpawnsOnWaterSurface:true]
 			[InstallationSpawnsOnDryLand:false]
 			[MinWaterDepth:25]
@@ -258,7 +339,6 @@
 
 			[RotateFirstCockpitToForward:true]
 			[DisableDampeners:false]
-			[ReplenishSystems:true]
 
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]

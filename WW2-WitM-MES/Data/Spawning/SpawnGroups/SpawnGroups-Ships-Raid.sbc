@@ -2,84 +2,178 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<SpawnGroups>
 
-<!-- Gray Torpedo Boats -->
+<!-- Convoy-raid warships: spawned only by the WW2-Spawn-ConvoyRaid-* behavior spawners (Triggers-ConvoyRaid.sbc); Raid conditions are RivalAi-only, no territory gate, so no ambient spawns. Mirrors the ambient groups of the same ship. -->
 	<SpawnGroup>
 		<Id>
 				<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Spica</SubtypeId>
-		</Id>
-		<Description>
-		[Modular Encounters SpawnGroup]
-
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Destroyers-WL2]
-		[ReplenishSystems:true]
-		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
-		[ManipulationProfiles:MES-Manipulation-RivalAi]
-		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
-		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
-		[FactionOverride:GRAY]
-
-		</Description>
-		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
-		<Frequency>10.0</Frequency>
-		<IsPirate>true</IsPirate>
-		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Spica">
-				<Position>
-					<X>0.0</X>
-					<Y>0.0</Y>
-					<Z>0.0</Z>
-				</Position>
-				<Behaviour>WW2-Behavior-Destroyer-Gray</Behaviour>
-				<Speed>15.0</Speed>
-			</Prefab>
-		</Prefabs>
-	</SpawnGroup>
-
-<!-- Spica escort: spawned only by the Aquila carrier's escort trigger (Triggers-CarrierSpawn.sbc); Ships-Escort conditions are RivalAi-only, so no ambient spawns. -->
-	<SpawnGroup>
-		<Id>
-				<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Spica-Escort</SubtypeId>
-		</Id>
-		<Description>
-		[Modular Encounters SpawnGroup]
-
-		[ManipulationProfiles:MES-Manipulation-RivalAi]
-		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
-		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
-		[FactionOverride:GRAY]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Escort]
-		[ReplenishSystems:true]
-
-		</Description>
-		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
-		<Frequency>10.0</Frequency>
-		<IsPirate>true</IsPirate>
-		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Spica">
-				<Position>
-					<X>0.0</X>
-					<Y>0.0</Y>
-					<Z>0.0</Z>
-				</Position>
-				<Behaviour>WW2-Behavior-Destroyer-Gray</Behaviour>
-				<Speed>15.0</Speed>
-			</Prefab>
-		</Prefabs>
-	</SpawnGroup>
-
-	<SpawnGroup>
-		<Id>
-				<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Gabbiano</SubtypeId>
+			<SubtypeId>NPC-WW2-La_Malouine-Raid</SubtypeId>
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
 	
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Corvettes]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Raid-Corvettes]
 		[ReplenishSystems:true]
-		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-La_Malouine">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Corvette-Green</Behaviour>
+				<Speed>5.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<SpawnGroup>
+		<Id>
+				<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Bougainville-Raid</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+	
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Raid-Destroyers-WL2]
+		[ReplenishSystems:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Bougainville">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Destroyer-Green</Behaviour>
+				<Speed>15.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<SpawnGroup>
+		<Id>
+				<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Le_Triomphant-Raid</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+	
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Raid-Destroyers-WL3]
+		[ReplenishSystems:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Le_Triomphant">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Destroyer-Green</Behaviour>
+				<Speed>15.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Emile_Bertin-Raid</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+	
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Raid-Cruisers-WL4]
+		[ReplenishSystems:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Loot-Large]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Emile_Bertin">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Cruiser-Green</Behaviour>
+				<Speed>12.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Algerie-Raid</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Raid-Cruisers-WL4]
+		[ReplenishSystems:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Loot-Large]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Algerie">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HeavyCruiser-Green</Behaviour>
+				<Speed>12.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<SpawnGroup>
+		<Id>
+				<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Gabbiano-Raid</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+	
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Raid-Corvettes]
+		[ReplenishSystems:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -101,20 +195,49 @@
 			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
-<!-- End Gray Torpedo Boats -->
 
-<!-- Gray Destroyers -->
 	<SpawnGroup>
 		<Id>
 				<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Francesco_Crispi</SubtypeId>
+			<SubtypeId>NPC-WW2-Spica-Raid</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Raid-Destroyers-WL2]
+		[ReplenishSystems:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
+		<Frequency>10.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Spica">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Destroyer-Gray</Behaviour>
+				<Speed>15.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<SpawnGroup>
+		<Id>
+				<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Francesco_Crispi-Raid</SubtypeId>
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
 	
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Destroyers-WL2]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Raid-Destroyers-WL2]
 		[ReplenishSystems:true]
-		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -140,14 +263,13 @@
 	<SpawnGroup>
 		<Id>
 				<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Comandante_Margottini</SubtypeId>
+			<SubtypeId>NPC-WW2-Comandante_Margottini-Raid</SubtypeId>
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
 	
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Destroyers-WL3]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Raid-Destroyers-WL3]
 		[ReplenishSystems:true]
-		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
@@ -169,144 +291,39 @@
 			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
-<!-- End Gray Destroyers -->
 
-<!-- Green Corvettes -->
 	<SpawnGroup>
 		<Id>
-				<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-La_Malouine</SubtypeId>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>NPC-WW2-Trento-Raid</SubtypeId>
 		</Id>
 		<Description>
+
 		[Modular Encounters SpawnGroup]
-	
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Corvettes]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Raid-Cruisers-WL4]
 		[ReplenishSystems:true]
-		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
-		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+		[ManipulationProfiles:WW2-Manipulation-Loot-Large]
 		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
-		[FactionOverride:GREEN]
+		[FactionOverride:GRAY]
 
 		</Description>
 		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
 		<Frequency>10.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-La_Malouine">
+			<Prefab SubtypeId="NPC-WW2-Trento">
 				<Position>
 					<X>0.0</X>
 					<Y>0.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-Corvette-Green</Behaviour>
-				<Speed>5.0</Speed>
+				<Behaviour>WW2-Behavior-HeavyCruiser-Gray</Behaviour>
+				<Speed>12.0</Speed>
 			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
-<!-- End Green Corvettes -->
-
-<!-- Green Destroyers -->
-	<SpawnGroup>
-		<Id>
-				<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Bougainville</SubtypeId>
-		</Id>
-		<Description>
-		[Modular Encounters SpawnGroup]
-	
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Destroyers-WL2]
-		[ReplenishSystems:true]
-		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
-		[ManipulationProfiles:MES-Manipulation-RivalAi]
-		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
-		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
-		[FactionOverride:GREEN]
-
-		</Description>
-		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
-		<Frequency>10.0</Frequency>
-		<IsPirate>true</IsPirate>
-		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Bougainville">
-				<Position>
-					<X>0.0</X>
-					<Y>0.0</Y>
-					<Z>0.0</Z>
-				</Position>
-				<Behaviour>WW2-Behavior-Destroyer-Green</Behaviour>
-				<Speed>15.0</Speed>
-			</Prefab>
-		</Prefabs>
-	</SpawnGroup>
-
-<!-- Bougainville escort: spawned only by the Bearn carrier's escort trigger (Triggers-CarrierSpawn.sbc); Ships-Escort conditions are RivalAi-only, so no ambient spawns. -->
-	<SpawnGroup>
-		<Id>
-				<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Bougainville-Escort</SubtypeId>
-		</Id>
-		<Description>
-		[Modular Encounters SpawnGroup]
-
-		[ManipulationProfiles:MES-Manipulation-RivalAi]
-		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
-		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
-		[FactionOverride:GREEN]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Escort]
-		[ReplenishSystems:true]
-
-		</Description>
-		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
-		<Frequency>10.0</Frequency>
-		<IsPirate>true</IsPirate>
-		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Bougainville">
-				<Position>
-					<X>0.0</X>
-					<Y>0.0</Y>
-					<Z>0.0</Z>
-				</Position>
-				<Behaviour>WW2-Behavior-Destroyer-Green</Behaviour>
-				<Speed>15.0</Speed>
-			</Prefab>
-		</Prefabs>
-	</SpawnGroup>
-
-	<SpawnGroup>
-		<Id>
-				<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>NPC-WW2-Le_Triomphant</SubtypeId>
-		</Id>
-		<Description>
-		[Modular Encounters SpawnGroup]
-	
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Ships-Destroyers-WL3]
-		[ReplenishSystems:true]
-		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
-		[ManipulationProfiles:MES-Manipulation-RivalAi]
-		[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
-		[ManipulationProfiles:WW2-Manipulation-ShipsBasicLoot]
-		[FactionOverride:GREEN]
-
-		</Description>
-		<Icon>Textures\GUI\Icons\Fake.dds</Icon>
-		<Frequency>10.0</Frequency>
-		<IsPirate>true</IsPirate>
-		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Le_Triomphant">
-				<Position>
-					<X>0.0</X>
-					<Y>0.0</Y>
-					<Z>0.0</Z>
-				</Position>
-				<Behaviour>WW2-Behavior-Destroyer-Green</Behaviour>
-				<Speed>15.0</Speed>
-			</Prefab>
-		</Prefabs>
-	</SpawnGroup>
-<!-- End Green Destroyers -->
 
 	</SpawnGroups>
 </Definitions>
-

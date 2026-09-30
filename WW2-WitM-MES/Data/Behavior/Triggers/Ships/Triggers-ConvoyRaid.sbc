@@ -41,8 +41,8 @@
 			[TargetDistance:3000]
 			[MinPlayerReputation:500]
 
-			[MinCooldownMs:1080000]
-			[MaxCooldownMs:1500000]
+			[MinCooldownMs:55000]
+			[MaxCooldownMs:65000]
 			[StartsReady:true]
 
 			[MaxActions:6]
@@ -280,8 +280,8 @@
 			[TargetDistance:3000]
 			[MinPlayerReputation:500]
 
-			[MinCooldownMs:1080000]
-			[MaxCooldownMs:1500000]
+			[MinCooldownMs:55000]
+			[MaxCooldownMs:65000]
 			[StartsReady:true]
 
 			[MaxActions:11]
@@ -580,7 +580,7 @@
 			[SpawningType:CustomSpawn]
 			[RivalAiSpawn:true]
 
-			[SpawnGroups:NPC-WW2-La_Malouine]
+			[SpawnGroups:NPC-WW2-La_Malouine-Raid]
 
 			[MinDistance:1200]
 			[MaxDistance:2000]
@@ -605,9 +605,9 @@
 			[SpawningType:CustomSpawn]
 			[RivalAiSpawn:true]
 
-			[SpawnGroups:NPC-WW2-La_Malouine]
-			[SpawnGroups:NPC-WW2-Bougainville]
-			[SpawnGroups:NPC-WW2-Le_Triomphant]
+			[SpawnGroups:NPC-WW2-La_Malouine-Raid]
+			[SpawnGroups:NPC-WW2-Bougainville-Raid]
+			[SpawnGroups:NPC-WW2-Le_Triomphant-Raid]
 
 			[MinDistance:1200]
 			[MaxDistance:2000]
@@ -632,8 +632,8 @@
 			[SpawningType:CustomSpawn]
 			[RivalAiSpawn:true]
 
-			[SpawnGroups:NPC-WW2-Bougainville]
-			[SpawnGroups:NPC-WW2-Le_Triomphant]
+			[SpawnGroups:NPC-WW2-Bougainville-Raid]
+			[SpawnGroups:NPC-WW2-Le_Triomphant-Raid]
 
 			[MinDistance:1200]
 			[MaxDistance:2000]
@@ -658,10 +658,10 @@
 			[SpawningType:CustomSpawn]
 			[RivalAiSpawn:true]
 
-			[SpawnGroups:NPC-WW2-Bougainville]
-			[SpawnGroups:NPC-WW2-Le_Triomphant]
-			[SpawnGroups:NPC-WW2-Emile_Bertin]
-			[SpawnGroups:NPC-WW2-Algerie]
+			[SpawnGroups:NPC-WW2-Bougainville-Raid]
+			[SpawnGroups:NPC-WW2-Le_Triomphant-Raid]
+			[SpawnGroups:NPC-WW2-Emile_Bertin-Raid]
+			[SpawnGroups:NPC-WW2-Algerie-Raid]
 
 			[MinDistance:1200]
 			[MaxDistance:2000]
@@ -769,7 +769,7 @@
 			[SpawningType:CustomSpawn]
 			[RivalAiSpawn:true]
 
-			[SpawnGroups:NPC-WW2-Gabbiano]
+			[SpawnGroups:NPC-WW2-Gabbiano-Raid]
 
 			[MinDistance:1200]
 			[MaxDistance:2000]
@@ -794,10 +794,10 @@
 			[SpawningType:CustomSpawn]
 			[RivalAiSpawn:true]
 
-			[SpawnGroups:NPC-WW2-Gabbiano]
-			[SpawnGroups:NPC-WW2-Spica]
-			[SpawnGroups:NPC-WW2-Francesco_Crispi]
-			[SpawnGroups:NPC-WW2-Comandante_Margottini]
+			[SpawnGroups:NPC-WW2-Gabbiano-Raid]
+			[SpawnGroups:NPC-WW2-Spica-Raid]
+			[SpawnGroups:NPC-WW2-Francesco_Crispi-Raid]
+			[SpawnGroups:NPC-WW2-Comandante_Margottini-Raid]
 
 			[MinDistance:1200]
 			[MaxDistance:2000]
@@ -822,9 +822,9 @@
 			[SpawningType:CustomSpawn]
 			[RivalAiSpawn:true]
 
-			[SpawnGroups:NPC-WW2-Spica]
-			[SpawnGroups:NPC-WW2-Francesco_Crispi]
-			[SpawnGroups:NPC-WW2-Comandante_Margottini]
+			[SpawnGroups:NPC-WW2-Spica-Raid]
+			[SpawnGroups:NPC-WW2-Francesco_Crispi-Raid]
+			[SpawnGroups:NPC-WW2-Comandante_Margottini-Raid]
 
 			[MinDistance:1200]
 			[MaxDistance:2000]
@@ -849,10 +849,10 @@
 			[SpawningType:CustomSpawn]
 			[RivalAiSpawn:true]
 
-			[SpawnGroups:NPC-WW2-Spica]
-			[SpawnGroups:NPC-WW2-Francesco_Crispi]
-			[SpawnGroups:NPC-WW2-Comandante_Margottini]
-			[SpawnGroups:NPC-WW2-Trento]
+			[SpawnGroups:NPC-WW2-Spica-Raid]
+			[SpawnGroups:NPC-WW2-Francesco_Crispi-Raid]
+			[SpawnGroups:NPC-WW2-Comandante_Margottini-Raid]
+			[SpawnGroups:NPC-WW2-Trento-Raid]
 
 			[MinDistance:1200]
 			[MaxDistance:2000]

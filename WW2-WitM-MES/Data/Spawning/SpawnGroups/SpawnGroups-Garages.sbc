@@ -39,7 +39,7 @@
 			<Prefab SubtypeId="Player-WW2-AB41">
 				<Position>
 					<X>0</X>
-					<Y>4.0</Y>
+					<Y>4.5</Y>
 					<Z>12.5</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
@@ -83,18 +83,17 @@
 			<Prefab SubtypeId="Player-WW2-AB41">
 				<Position>
 					<X>0</X>
-					<Y>4</Y>
+					<Y>4.5</Y>
 					<Z>0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<!-- Fiat 626 in the second bay: placeholder offset, tune in game -->
 			<Prefab SubtypeId="Player-WW2-Fiat626">
 				<Position>
-					<X>8</X>
-					<Y>4</Y>
-					<Z>0</Z>
+					<X>-12.5</X>
+					<Y>5</Y>
+					<Z>-2</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-GarageVehicle-Fiat626</Behaviour>
 				<Speed>0.0</Speed>

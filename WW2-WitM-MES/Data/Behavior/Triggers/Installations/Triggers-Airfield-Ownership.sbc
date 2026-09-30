@@ -383,70 +383,6 @@
 			</Description>
 		</EntityComponent>
 
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Condition-Airfield-InGrayTerritory</SubtypeId>
-			</Id>
-			<Description>
-			[RivalAI Condition]
-			[UseConditions:true]
-			[MatchAnyCondition:false]
-			[CheckTrueBooleans:true]
-			[TrueBooleans:InGray_LaSpezia]
-			[TrueBooleans:InGray_Tripoli]
-			[TrueBooleans:InGray_Rome]
-			[AllowAnyTrueBoolean:true]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Condition-Airfield-InGreenTerritory</SubtypeId>
-			</Id>
-			<Description>
-			[RivalAI Condition]
-			[UseConditions:true]
-			[MatchAnyCondition:false]
-			[CheckTrueBooleans:true]
-			[TrueBooleans:InGreen_Toulon]
-			[TrueBooleans:InGreen_Oran]
-			[TrueBooleans:InGreen_Alexandria]
-			[AllowAnyTrueBoolean:true]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Condition-Airfield-NotInGrayTerritory</SubtypeId>
-			</Id>
-			<Description>
-			[RivalAI Condition]
-			[UseConditions:true]
-			[MatchAnyCondition:false]
-			[CheckFalseBooleans:true]
-			[FalseBooleans:InGray_LaSpezia]
-			[FalseBooleans:InGray_Tripoli]
-			[FalseBooleans:InGray_Rome]
-			[AllowAnyFalseBoolean:false]
-			</Description>
-		</EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Condition-Airfield-NotInGreenTerritory</SubtypeId>
-			</Id>
-			<Description>
-			[RivalAI Condition]
-			[UseConditions:true]
-			[MatchAnyCondition:false]
-			[CheckFalseBooleans:true]
-			[FalseBooleans:InGreen_Toulon]
-			[FalseBooleans:InGreen_Oran]
-			[FalseBooleans:InGreen_Alexandria]
-			[AllowAnyFalseBoolean:false]
-			</Description>
-		</EntityComponent>
 
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -699,7 +635,8 @@
 			</Description>
 		</EntityComponent>
 
-<!-- Unowned state: check Green first, then Gray -->
+<!-- Unowned state: goes to a faction only when that faction alone covers it. Owned airfields keep their
+     owner while its territory covers them (first to cover holds a shared airfield). -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -713,8 +650,7 @@
 			[MaxCooldownMs:10001]
 			[StartsReady:true]
 			[MaxActions:-1]
-			[Conditions:WW2-Condition-Airfield-InGreenTerritory]
-			[MatchAnyCondition:false]
+			[Conditions:WW2-Condition-Airfield-GreenTerritoryOnly]
 			[Actions:WW2-Action-Airfield-Unowned-BecomeGreen]
 			</Description>
 		</EntityComponent>
