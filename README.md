@@ -10,7 +10,7 @@ Nobody starts with a battleship. Every ship, plane, tank, and base you build run
 
 ## A world that remembers
 
-Depots and outposts can be captured, flipping ownership and reshaping who controls what. Fighter squadrons track their own losses: enough dead wingmen and the survivors break off, matching how real air combat played out rather than fighting to the last plane. Standing with a faction shifts based on who gets hurt, not simply how much damage was done.
+Territory grows from each side's ports and airfields, and airfields change hands as it shifts. Depots and outposts are planned to become capturable too, and fighter squadrons to track their own losses, breaking off once enough wingmen are down instead of fighting to the last plane. Standing with a faction shifts based on who gets hurt, not simply how much damage was done.
 
 ## Take what you can carry
 
