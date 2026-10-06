@@ -33,4 +33,4 @@ This repo covers three Workshop mods, developed together:
 ## More detail
 
 - [WW2-WitM-Roadmap.md](WW2-WitM-Roadmap.md) — staged build order, confirmed technical decisions, open questions.
-- [WW2-WitM-Modlist.md](WW2-WitM-Modlist.md) — required/optional/retiring mod dependencies.
+- [WW2-WitM-Modlist.md](WW2-WitM-Modlist.md) — which mods to add to a world: required, world rules and optional.

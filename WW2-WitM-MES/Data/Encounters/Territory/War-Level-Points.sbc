@@ -1071,6 +1071,7 @@
      Every port runs the SILENT group (sets WarLevel idempotently), so thresholds are tracked wherever a player
      is; only the Civitavecchia port also runs the ANNOUNCE group (same pairs + chat), so each change is announced
      once instead of six times. Floor 0 / ceiling 840 for WarActivity, same idea as the territory counters. -->
+<!-- The level-5 pairs also set the sandbox boolean WW2-WarLevel5 (unset = false), which gates WL5 ship spawns (SpawnConditions-Ships.sbc). -->
 
 <!-- ==== Silent variant ==== -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -1337,6 +1338,7 @@
 			[RivalAI Action]
 			[SetSandboxCounters:WarLevel]
 			[SetSandboxCountersValues:5]
+			[SetSandboxBooleansTrue:WW2-WarLevel5]
 
 			</Description>
 		</EntityComponent>
@@ -1350,6 +1352,7 @@
 			[RivalAI Action]
 			[SetSandboxCounters:WarLevel]
 			[SetSandboxCountersValues:4]
+			[SetSandboxBooleansFalse:WW2-WarLevel5]
 
 			</Description>
 		</EntityComponent>
@@ -1631,6 +1634,7 @@
 			[RivalAI Action]
 			[SetSandboxCounters:WarLevel]
 			[SetSandboxCountersValues:5]
+			[SetSandboxBooleansTrue:WW2-WarLevel5]
 			[UseChatBroadcast:true]
 			[ChatData:WW2-WarLevel-Chat-Up5]
 
@@ -1646,6 +1650,7 @@
 			[RivalAI Action]
 			[SetSandboxCounters:WarLevel]
 			[SetSandboxCountersValues:4]
+			[SetSandboxBooleansFalse:WW2-WarLevel5]
 			[UseChatBroadcast:true]
 			[ChatData:WW2-WarLevel-Chat-Down5]
 

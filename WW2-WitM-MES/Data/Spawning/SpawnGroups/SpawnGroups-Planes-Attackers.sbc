@@ -234,6 +234,48 @@
 		</Prefab>
 	</Prefabs>
 </SpawnGroup>
+
+<!-- Ba 65 pair: lead and echelon wingman, used only by the War Level 4+ airfield offense pool (no flight morale) -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Ba65-Pair</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-Fighters-WL4]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-Ba65">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Ba65">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
 <!-- End Gray Attacker Planes -->
 
 </SpawnGroups>

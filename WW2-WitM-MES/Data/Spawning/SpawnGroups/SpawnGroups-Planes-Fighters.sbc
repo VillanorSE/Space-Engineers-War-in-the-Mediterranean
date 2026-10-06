@@ -135,6 +135,158 @@
 </SpawnGroup>
 <!-- End Gray Fighter Planes -->
 
+<!-- Fighter flights: three planes in a vic, used only by the War Level 4+ airfield offense pool -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-MS406-Flight</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-Fighters-WL4]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Small]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GREEN]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green-Flight</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>-50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green-Flight</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green-Flight</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Re2000-Flight</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-Fighters-WL4]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Small]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-Re2000">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray-Flight</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Re2000">
+			<Position>
+				<X>-50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray-Flight</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Re2000">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray-Flight</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Re2001-Flight</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-Fighters-WL4]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Small]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-Re2001">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray-Flight</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Re2001">
+			<Position>
+				<X>-50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray-Flight</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Re2001">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray-Flight</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+<!-- End Fighter flights -->
+
 </SpawnGroups>
 </Definitions>
 

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+<!-- Flight morale (flight behaviors only): a downed plane tells same-faction flight planes within 6 km; at 2 losses a plane breaks off. -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-TriggerGroup-FlightMorale</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Trigger-WingmanDown-Hit]
+			[Triggers:WW2-Trigger-WingmanDown-Killed]
+			[Triggers:WW2-Trigger-WingmanLost]
+			[Triggers:WW2-Trigger-FlightBreakOff]
+			</Description>
+        </EntityComponent>
+
+	<!-- Sender: same moment as WW2-Trigger-Crash-Air. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-WingmanDown-Hit</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:HealthPercentage]
+			[MinCooldownMs:250]
+			[MaxCooldownMs:500]
+			[PercentageOfHealthRemaining:94]
+			[UseFailCondition:true]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Action-WingmanDown]
+			</Description>
+        </EntityComponent>
+
+	<!-- Sender: remote control killed outright; not on despawn. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-WingmanDown-Killed</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Points-Condition-NotRetired]
+			[Actions:WW2-Action-WingmanDown]
+			</Description>
+        </EntityComponent>
+
+	<!-- Broadcasts the loss once and stops this plane's own morale triggers. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-WingmanDown</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Action]
+			[BroadcastCommandProfiles:true]
+			[CommandProfileIds:WW2-Command-WingmanDown]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Trigger-WingmanDown-Hit]
+			[DisableTriggerNames:WW2-Trigger-WingmanDown-Killed]
+			[DisableTriggerNames:WW2-Trigger-WingmanLost]
+			[DisableTriggerNames:WW2-Trigger-FlightBreakOff]
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Command-WingmanDown</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Command]
+			[CommandCode:WW2-WingmanDown]
+			[IgnoreAntennaRequirement:true]
+			[IgnoreReceiverAntennaRequirement:true]
+			[MatchSenderReceiverOwners:true]
+			[Radius:6000]
+			</Description>
+        </EntityComponent>
+
+	<!-- Receiver: count one friendly loss. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-WingmanLost</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:WW2-WingmanDown]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-WingmanLost]
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-WingmanLost</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Action]
+			[IncreaseCounters:WingmenLost]
+			</Description>
+        </EntityComponent>
+
+	<!-- Break off once 2 losses are counted. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-FlightBreakOff</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:2000]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Conditions:WW2-Condition-FlightBreakOff]
+			[ConditionCheckResetsTimer:true]
+			[Actions:WW2-Action-FlightBreakOff]
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Condition-FlightBreakOff</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckCustomCounters:true]
+			[CustomCounters:WingmenLost]
+			[CustomCountersTargets:2]
+			[CounterCompareTypes:GreaterOrEqual]
+			</Description>
+        </EntityComponent>
+
+	<!-- Retreat with the FighterPlane subclass (forward-thrust retreat) and stop everything that could switch it back. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-FlightBreakOff</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Action]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-FlightBreakOff]
+			[Retreat:true]
+			[ChangeBehaviorSubclass:true]
+			[NewBehaviorSubclass:FighterPlane]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Primary]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Trigger-FighterSwitch-Fighter]
+			[DisableTriggerNames:WW2-Trigger-PatrolSwitch-Fighter]
+			[DisableTriggerNames:WW2-Trigger-FighterTargetLost]
+			[DisableTriggerNames:WW2-Trigger-FighterRunStart]
+			[DisableTriggerNames:WW2-Trigger-FighterRunEnd]
+			[DisableTriggerNames:WW2-Trigger-PatrolNextFromLast]
+			[DisableTriggerNames:WW2-Trigger-WingmanLost]
+			[DisableTriggerNames:WW2-Trigger-FlightBreakOff]
+			</Description>
+        </EntityComponent>
+
+	<!-- Planes have no antenna, so the chat ignores the antenna requirement. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-FlightBreakOff</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[MaxChats:-1]
+			[BroadcastRandomly:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:8000]
+			[Author:Fighter]
+			[Color:Red]
+			[ChatMessages:Too many losses, breaking off!]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			[ChatMessages:Squadron is cut to pieces. Disengaging.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

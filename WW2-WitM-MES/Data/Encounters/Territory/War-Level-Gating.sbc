@@ -44,6 +44,22 @@
 			</Description>
 		</EntityComponent>
 
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-AtLeast4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			</Description>
+		</EntityComponent>
+
 <!-- Exact level (convoy raid tiers). No Exactly1: WarLevel is unset at level 1, use AtLeast2 + ElseActions. -->
 
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">

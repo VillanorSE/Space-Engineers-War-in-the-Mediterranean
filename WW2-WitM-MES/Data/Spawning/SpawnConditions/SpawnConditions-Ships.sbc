@@ -27,6 +27,8 @@
 			[UsePlayerCountCheck:true]
 			[MinimumPlayers:1]
 
+			[FalseSandboxVariables:WW2-WarLevel5]
+
 		</Description>
 	</EntityComponent>
 
@@ -52,6 +54,8 @@
 			[PlanetRequiresAtmo:true]
 			[UsePlayerCountCheck:true]
 			[MinimumPlayers:1]
+
+			[FalseSandboxVariables:WW2-WarLevel5]
 
 					[CheckCustomSandboxCounters:true]
 			[CustomSandboxCounters:WarLevel]
@@ -82,9 +86,44 @@
 			[UsePlayerCountCheck:true]
 			[MinimumPlayers:1]
 
+			[FalseSandboxVariables:WW2-WarLevel5]
+
 					[CheckCustomSandboxCounters:true]
 			[CustomSandboxCounters:WarLevel]
 			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+</Description>
+	</EntityComponent>
+
+	<!-- War Level 5 destroyer pairs: WW2-WarLevel5 is set by War-Level-Points.sbc; the single destroyers and corvettes require it false. -->
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Ships-Destroyers-Pair-WL5</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[InstallationSpawnsOnWaterSurface:true]
+			[InstallationSpawnsOnDryLand:false]
+			[MinWaterDepth:15]
+			[MaxWaterDepth:10000]
+			[MinWaterCoverage:0.5]
+
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+
+			[SandboxVariables:WW2-WarLevel5]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:5]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 </Description>
 	</EntityComponent>

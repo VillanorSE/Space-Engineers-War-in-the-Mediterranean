@@ -58,7 +58,7 @@ There is a full modlist for this project but the primary functional mods are lis
 **Build To-do List:**
 - [ ] NPC-WW2-Tramontane (Destroyer/Bourrasque-class, Green)
 - [x] Armored Car - AB 41
-- [ ] Armored Car - Panhard 178
+- [ ] Armored Car - Panhard 178 (in progress; wiring ready)
 - [ ] Light Tank - L6/40
 - [ ] Light Tank - Renault R35
 - [x] Attacker - Ba 65
@@ -272,7 +272,7 @@ War Level integration: Higher war levels will increase volume of ammunition, num
 
 **To-do:**
 - [x] Make plane spawns altitude be relative to water surface. (Plane spawns are relative to water surface when water mod is present.)
-- [ ] Design and wire a currency-reward mechanic tied to successful cargo ship/plane deliveries (or similar), so GRAY/GREEN can meaningfully grow richer through play rather than just sitting at their starting balance.
+- [x] Design and wire a currency-reward mechanic tied to successful cargo ship/plane deliveries (or similar), so GRAY/GREEN can meaningfully grow richer through play rather than just sitting at their starting balance.
 - [ ] Make a cargo ship spawn on a variable timer at airfields that travel a random path that wanders away from the spawn or goes to another friendly airfield if there is one.
 
 ---
@@ -389,7 +389,7 @@ Create vehicle depots, at least two ground vehicles per faction, and implement f
 Structure spawns to only occur within the territory of their faction. All logistics buildings, naval encounters, and non reconnaissance air spawns will be constrained to only spawn in their faction territory.
 
 **To-do:**
-- [ ] Add `ZoneConditions` gating to existing dynamic SpawnConditions so Gray/Green spawns are restricted to their own current territory (any-anchor-of-that-faction, not anchor-specific).
+- [x] Add `ZoneConditions` gating to existing dynamic SpawnConditions so Gray/Green spawns are restricted to their own current territory (any-anchor-of-that-faction, not anchor-specific). Done for the dynamic ship and installation spawns (D-025). Fighters, attackers and convoy raids aren't gated: they are launched by spawners from airfields, factories, carriers and convoys rather than spawning on their own.
 
 ---
 
@@ -419,7 +419,7 @@ Implement the dynamically spawning, non permanent, faction owned installations. 
 
 **To-Do**
 - [ ] Create supply depots to spawn dynamically. (Buy all items and ores)
-- [ ] Create ammo depots to spawn dynamically. Stocked with ammunition and also buy and sell ammunition. 
+- [~] Create ammo depots to spawn dynamically. Stocked with ammunition and also buy and sell ammunition. Spawning and ammunition loot: built (`NPC-WW2-Ammo_Depot`, Gray and Green). Buy and sell: not yet (no store block). 
 - [ ] Create ground vehicle factory mimicking plane factories but for armored cars, light tanks, etc.
 - [ ] Create refueling points. Gas stations that players can connect to and refuel and get refreshed every ~30 minutes.
 
@@ -431,7 +431,7 @@ Implement a system like in Mike Dude's Deserts of Kharak server where cargo plan
 
 **To-do:**
 - [ ] Decide attacker framework for each vehicle type (planes, ships, and trucks)
-- [ ] Build attacker MES items for ship convoys (Hostile ships of equivalent war level)
+- [x] Build attacker MES items for ship convoys (Hostile ships of equivalent war level)
 - [ ] Build attacker MES items for plane convoys (Hostile fighters of equivalent war level)
 - [ ] Build attacker MES items for ground convoys (Hostile fighters of equivalent war level)
 - [ ] Build escalated convoys for higher war levels.
@@ -461,7 +461,7 @@ Have ships run out and back before despawn.
 ## Basic-Tier Starters
 
 Build starter grids per domain and make them available in ports, airports, vehicle depots, hangars, and garages.
-- [ ] Naval: one small patrol boat per faction, sized to Corvette Core. (Can start by just making a player version of the Gabbiano and La Malouine, turn on gravity align script and add ship core)
+- [x] Naval: one small patrol boat per faction, sized to Corvette Core. (Can start by just making a player version of the Gabbiano and La Malouine, turn on gravity align script and add ship core)
 - [ ] Ground: one Armored Car per faction. This is also where land combat gets its first real content instead of just installations.
 - [x] Ground Utility: one truck per faction to serve as a respawn vehicle. Include survival kit and cargo. Include components for wind turbine, basic refinery, and basic assembler.
 - [ ] Air Utility: Create a larger hangar so the Ju 52 and F.222 can be spawned and found.
@@ -501,7 +501,7 @@ Build starter grids per domain and make them available in ports, airports, vehic
 - Ore system: real cited EarthLike ore-type proportions (Silicon/Magnesium/Iron/Cobalt/Nickel/Gold/Silver), Ice's proportion replaced with Platinum + Uranium (for a planned Platinum/Uranium-gated advanced-component crafting restriction), scaled to 4% land coverage, biased toward coastlines and away from the exact poles, with extra clustering around real WW2-significant North African ports (Tunis, Bizerte, Tripoli, Benghazi, Tobruk, Alexandria) to bias player activity toward historically active areas. Distribution within that budget is otherwise random, deliberately deferred, not a gap.
 
 **Known open items:**
-- [ ] Biome GREEN channel (foliage/environment items) not built yet.
+- [x] Biome GREEN channel (foliage/environment items): built (biome values 1-4, forest tiers, rock scatter, savanna).
 - [x] Water Mod's working radius for this planet is empirically `/wradius 1.02862`. This is the result of wradius 1.0 being based on the lowest point of the surface, not "sea level".
 - [ ] Ore distribution is random-within-budget; revisit if specific historical/gameplay-driven placement becomes worth the effort.
 
