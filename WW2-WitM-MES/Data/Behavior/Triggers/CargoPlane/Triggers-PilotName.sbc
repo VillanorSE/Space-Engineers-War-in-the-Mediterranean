@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+<!-- Cargo plane radio sender (owner 2026-10-06): sets the NPC custom string PilotName once at spawn; the cargo chats use [Author:{PilotName}]. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-PilotName-Ju52</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:100]
+			[MaxCooldownMs:101]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Action-PilotName-Ju52]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-PilotName-Ju52</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetCustomStrings:true]
+			[CustomStrings:PilotName,Ju 52 pilot]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-PilotName-F222</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:100]
+			[MaxCooldownMs:101]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Action-PilotName-F222]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-PilotName-F222</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetCustomStrings:true]
+			[CustomStrings:PilotName,F. 222 pilot]
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

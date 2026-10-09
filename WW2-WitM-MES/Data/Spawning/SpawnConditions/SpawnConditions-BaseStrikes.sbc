@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+<!-- Base strikes and retaliation (D-036). Routine: static player threat band within 2 km, player rep <= -1000 within 4 km,
+     faction cooldown bool, exact WarLevel tier (unset WarLevel = WL1, so WL1 has no counter check). Retaliation: tagged player within 10 km. -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Gray-Small-WL2</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Gray]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:150]
+			[ThreatScoreMaximum:499]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:Less]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Gray-Small-WL3</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Gray]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:150]
+			[ThreatScoreMaximum:499]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:Less]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Gray-Small-WL4</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Gray]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:150]
+			[ThreatScoreMaximum:499]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Gray-Medium-WL2</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Gray]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:500]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:Less]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Gray-Medium-WL3</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Gray]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:500]
+			[ThreatScoreMaximum:999]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:Less]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Gray-Medium-WL4</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Gray]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:500]
+			[ThreatScoreMaximum:999]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Gray-Large-WL3</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Gray]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:1000]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:Less]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Gray-Large-WL4</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Gray]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:1000]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Retaliation-Gray-WL1</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+
+			[UsePlayerCondition:true]
+			[PlayerConditionIds:WW2-PlayerCondition-Attacked-Gray]
+			[PlayerConditionCheckRadius:10000]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Retaliation-Gray-WL2</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+
+			[UsePlayerCondition:true]
+			[PlayerConditionIds:WW2-PlayerCondition-Attacked-Gray]
+			[PlayerConditionCheckRadius:10000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:Less]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Retaliation-Gray-WL4</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+
+			[UsePlayerCondition:true]
+			[PlayerConditionIds:WW2-PlayerCondition-Attacked-Gray]
+			[PlayerConditionCheckRadius:10000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Green-Small-WL2</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Green]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:150]
+			[ThreatScoreMaximum:499]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:Less]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Green-Small-WL3</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Green]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:150]
+			[ThreatScoreMaximum:499]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:Less]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Green-Small-WL4</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Green]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:150]
+			[ThreatScoreMaximum:499]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Green-Medium-WL2</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Green]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:500]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:Less]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Green-Medium-WL3</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Green]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:500]
+			[ThreatScoreMaximum:999]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:Less]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Green-Medium-WL4</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Green]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:500]
+			[ThreatScoreMaximum:999]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Green-Large-WL3</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Green]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:1000]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:Less]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-BaseStrike-Green-Large-WL4</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+			[FalseSandboxVariables:WW2-BaseStrike-Cooldown-Green]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:2000]
+			[ThreatScoreGridConfiguration:Static]
+			[ThreatScoreMinimum:1000]
+
+			[UsePlayerFactionReputation:true]
+			[PlayerReputationCheckRadius:4000]
+			[MaximumReputation:-1000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Retaliation-Green-WL1</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+
+			[UsePlayerCondition:true]
+			[PlayerConditionIds:WW2-PlayerCondition-Attacked-Green]
+			[PlayerConditionCheckRadius:10000]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Retaliation-Green-WL2</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+
+			[UsePlayerCondition:true]
+			[PlayerConditionIds:WW2-PlayerCondition-Attacked-Green]
+			[PlayerConditionCheckRadius:10000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:Less]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Retaliation-Green-WL4</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryCargoShip:true]
+			[SkipAirDensityCheck:true]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WW2-StoryLive]
+
+			[UsePlayerCondition:true]
+			[PlayerConditionIds:WW2-PlayerCondition-Attacked-Green]
+			[PlayerConditionCheckRadius:10000]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

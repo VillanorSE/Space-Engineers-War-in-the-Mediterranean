@@ -4,7 +4,7 @@
 
 <!-- Garage Spawns -->
 
-<!-- Gray AB 41 Garage 1 (barn, one gate). Offsets tuned in game 2026-09-29. -->
+<!-- Gray AB 41 Garage 1 (barn, one gate) -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
@@ -48,7 +48,7 @@
 		</Prefabs>
 	</SpawnGroup>
 
-<!-- Gray AB 41 Garage 2 (concrete, two bays). Offsets tuned in game 2026-09-29. -->
+<!-- Gray AB 41 Garage 2 (concrete, two bays). -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
@@ -101,7 +101,51 @@
 		</Prefabs>
 	</SpawnGroup>
 
-<!-- Green Garage 2 (concrete, two bays): Renault AHN now, Panhard 178 in the other bay once built. Offsets tuned in game 2026-09-29. -->
+<!-- Green Panhard 178 Garage 1 (barn, one gate). -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Garage-Green-Panhard178-1</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Medium]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GREEN]
+		[SpawnRandomCargo:true]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Garage1">
+				<Position>
+					<X>2.0</X>
+					<Y>2.5</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarGarage-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Panhard178">
+				<Position>
+					<X>1</X>
+					<Y>3</Y>
+					<Z>10</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-Panhard178</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- Green Garage 2 (concrete, two bays): Panhard 178 and Renault AHN. -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
@@ -133,10 +177,19 @@
 				<Behaviour>WW2-Behavior-HangarGarage-Green</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Panhard178">
+				<Position>
+					<X>2.5</X>
+					<Y>2.5</Y>
+					<Z>-3.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-Panhard178</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
 			<Prefab SubtypeId="Player-WW2-RenaultAHN">
 				<Position>
 					<X>-8.0</X>
-					<Y>1.5</Y>
+					<Y>3</Y>
 					<Z>-7.5</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-GarageVehicle-RenaultAHN</Behaviour>

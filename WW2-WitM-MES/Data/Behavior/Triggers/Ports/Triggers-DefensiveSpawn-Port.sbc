@@ -5,7 +5,7 @@
 <!-- 2026-08-28: Port defensive spawn, same pattern as Triggers-DefensiveSpawn.sbc (Factory_Planes)
      - hostile player near, low cooldown-gated plane scramble. Separate Trigger/Action/Spawner
      SubtypeIds from the Factory versions (kept per-installation-type for clarity in debug logs)
-     but reuses the same shared WW2-Chat-DefenseSpawn-Factory-Plane chat profile - the message
+     but reuses the same shared WW2-Chat-DefenseSpawn-Factory-Plane-{Gray|Green} chat profiles - the message
      itself ("Scrambling air support") isn't Factory-specific. Green spawner list drops F4F
      (pulled from the roster per Roadmap, 2026-08-21) unlike the Factory version, which still
      references it. -->
@@ -47,7 +47,7 @@
 			[RivalAI Action]
 
 			[UseChatBroadcast:true]
-			[ChatData:WW2-Chat-DefenseSpawn-Factory-Plane]
+			[ChatData:WW2-Chat-DefenseSpawn-Factory-Plane-Gray]
 
 			[SpawnEncounter:true]
 			[Spawner:WW2-Spawn-DefenseSpawn-Port-Gray]
@@ -122,7 +122,7 @@
 			[RivalAI Action]
 
 			[UseChatBroadcast:true]
-			[ChatData:WW2-Chat-DefenseSpawn-Factory-Plane]
+			[ChatData:WW2-Chat-DefenseSpawn-Factory-Plane-Green]
 
 			[SpawnEncounter:true]
 			[Spawner:WW2-Spawn-DefenseSpawn-Port-Green]

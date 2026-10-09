@@ -360,7 +360,19 @@
 			<ItemType>Prefab</ItemType>
 			<ItemSubtypeId>Player-WW2-AB41</ItemSubtypeId>
 			<Offer>
-				<CustomPrice>35000</CustomPrice>
+				<CustomPrice>250000</CustomPrice>
+				<MinPriceMultiplier>100</MinPriceMultiplier>
+				<MaxPriceMultiplier>100</MaxPriceMultiplier>
+				<MinAmount>1</MinAmount>
+				<MaxAmount>2</MaxAmount>
+			</Offer>
+		</StoreItem>
+		<StoreItem>
+			<StoreItemId>WW2-Vehicle-Panhard178</StoreItemId>
+			<ItemType>Prefab</ItemType>
+			<ItemSubtypeId>Player-WW2-Panhard178</ItemSubtypeId>
+			<Offer>
+				<CustomPrice>225000</CustomPrice>
 				<MinPriceMultiplier>100</MinPriceMultiplier>
 				<MaxPriceMultiplier>100</MaxPriceMultiplier>
 				<MinAmount>1</MinAmount>

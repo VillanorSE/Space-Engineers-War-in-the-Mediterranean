@@ -406,9 +406,9 @@
 			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGreen]
 			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGray]
 			[SetCustomStrings:true]
-			[CustomStrings:NewOwner,The Gray]
+			[CustomStrings:NewOwner,Gray]
 			[UseChatBroadcast:true]
-			[ChatData:WW2-Chat-Airfield-Captured]
+			[ChatData:WW2-Chat-Airfield-Captured-Gray]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -444,9 +444,9 @@
 			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGreen]
 			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGray]
 			[SetCustomStrings:true]
-			[CustomStrings:NewOwner,The Green]
+			[CustomStrings:NewOwner,Green]
 			[UseChatBroadcast:true]
-			[ChatData:WW2-Chat-Airfield-Captured]
+			[ChatData:WW2-Chat-Airfield-Captured-Green]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -491,9 +491,9 @@
 			[DisableTriggerNames:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Gray-Tier2]
 			[DisableTriggerNames:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Gray-Tier3]
 			[SetCustomStrings:true]
-			[CustomStrings:NewOwner,The Green]
+			[CustomStrings:NewOwner,Green]
 			[UseChatBroadcast:true]
-			[ChatData:WW2-Chat-Airfield-Captured]
+			[ChatData:WW2-Chat-Airfield-Captured-Green]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -507,9 +507,9 @@
 			[OldBlockColors:{X:0 Y:-0.75 Z:0}]
 			[NewBlockColors:{X:0 Y:0 Z:0.9}]
 			[SetCustomStrings:true]
-			[CustomStrings:OldOwner,The Gray]
+			[CustomStrings:OldOwner,Gray]
 			[UseChatBroadcast:true]
-			[ChatData:WW2-Chat-Airfield-Abandoned]
+			[ChatData:WW2-Chat-Airfield-Abandoned-Gray]
 			[ChangeBlockOwnership:true]
 			[OwnershipBlockNames:Airfield Block]
 			[OwnershipBlockFactions:UNOWNED]
@@ -578,9 +578,9 @@
 						[DisableTriggerNames:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Green-Clear]
 			[DisableTriggerNames:WW2-Store-Trigger-UpdateSales-Airfield-Vehicles-Green-Tier3]
 			[SetCustomStrings:true]
-			[CustomStrings:NewOwner,The Gray]
+			[CustomStrings:NewOwner,Gray]
 			[UseChatBroadcast:true]
-			[ChatData:WW2-Chat-Airfield-Captured]
+			[ChatData:WW2-Chat-Airfield-Captured-Gray]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -594,9 +594,9 @@
 			[OldBlockColors:{X:0.25555557 Y:-0.41 Z:-0.3}]
 			[NewBlockColors:{X:0 Y:0 Z:0.9}]
 			[SetCustomStrings:true]
-			[CustomStrings:OldOwner,The Green]
+			[CustomStrings:OldOwner,Green]
 			[UseChatBroadcast:true]
-			[ChatData:WW2-Chat-Airfield-Abandoned]
+			[ChatData:WW2-Chat-Airfield-Abandoned-Green]
 			[ChangeBlockOwnership:true]
 			[OwnershipBlockNames:Airfield Block]
 			[OwnershipBlockFactions:UNOWNED]
@@ -934,7 +934,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Chat-Airfield-Captured</SubtypeId>
+				<SubtypeId>WW2-Chat-Airfield-Captured-Gray</SubtypeId>
 			</Id>
 			<Description>
 			[RivalAI Chat]
@@ -943,7 +943,7 @@
 			[Chance:100]
 			[MaxChats:-1]
 			[BroadcastRandomly:false]
-			[Author:Airfield Command]
+			[Author:Comando Aeroporto]
 			[Color:Blue]
 			[ChatMessages:{NewOwner} has taken control of an airfield.]
 			[ChatAudio:ArcHudGPSNotification2]
@@ -956,7 +956,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Chat-Airfield-Abandoned</SubtypeId>
+				<SubtypeId>WW2-Chat-Airfield-Captured-Green</SubtypeId>
 			</Id>
 			<Description>
 			[RivalAI Chat]
@@ -965,7 +965,51 @@
 			[Chance:100]
 			[MaxChats:-1]
 			[BroadcastRandomly:false]
-			[Author:Airfield Command]
+			[Author:Commandement de la Base Aérienne]
+			[Color:Blue]
+			[ChatMessages:{NewOwner} has taken control of an airfield.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:false]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-Airfield-Abandoned-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Comando Aeroporto]
+			[Color:Blue]
+			[ChatMessages:{OldOwner} has lost control of an airfield.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:false]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-Airfield-Abandoned-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Commandement de la Base Aérienne]
 			[Color:Blue]
 			[ChatMessages:{OldOwner} has lost control of an airfield.]
 			[ChatAudio:ArcHudGPSNotification2]

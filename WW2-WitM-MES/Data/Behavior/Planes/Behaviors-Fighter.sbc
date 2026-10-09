@@ -30,11 +30,11 @@
 			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Gray]
 			[Triggers:WW2-Trigger-UnStatic]
 
-			[Triggers:WW2-Trigger-PatrolSwitch-Fighter]
-			[Triggers:WW2-Trigger-FighterSwitch-Fighter]
+			[Triggers:WW2-Trigger-PatrolSwitch-Fighter-Gray]
+			[Triggers:WW2-Trigger-FighterSwitch-Fighter-Gray]
 			[Triggers:WW2-Trigger-FighterRunStart]
 			[Triggers:WW2-Trigger-FighterRunEnd]
-			[Triggers:WW2-Trigger-FighterTargetLost]
+			[Triggers:WW2-Trigger-FighterTargetLost-Gray]
 			[Triggers:WW2-Trigger-PatrolNextFromLast]
 
 			[Triggers:WW2-Trigger-Crash-Air]
@@ -69,11 +69,11 @@
 			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Green]
 			[Triggers:WW2-Trigger-UnStatic]
 
-			[Triggers:WW2-Trigger-PatrolSwitch-Fighter]
-			[Triggers:WW2-Trigger-FighterSwitch-Fighter]
+			[Triggers:WW2-Trigger-PatrolSwitch-Fighter-Green]
+			[Triggers:WW2-Trigger-FighterSwitch-Fighter-Green]
 			[Triggers:WW2-Trigger-FighterRunStart]
 			[Triggers:WW2-Trigger-FighterRunEnd]
-			[Triggers:WW2-Trigger-FighterTargetLost]
+			[Triggers:WW2-Trigger-FighterTargetLost-Green]
 			[Triggers:WW2-Trigger-PatrolNextFromLast]
 
 			[Triggers:WW2-Trigger-Crash-Air]
@@ -94,7 +94,7 @@
 			[RivalAI Behavior]
 			[BehaviorName:Patrol]
 			[TriggerGroups:WW2-Points-Group-Gray-Fighter]
-			[TriggerGroups:WW2-TriggerGroup-FlightMorale]
+			[TriggerGroups:WW2-TriggerGroup-FlightMorale-Gray]
 			[RetreatDespawnDistance:6000]
 
 			[TargetData:WW2-Targeting-Fighter]
@@ -110,11 +110,11 @@
 			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Gray]
 			[Triggers:WW2-Trigger-UnStatic]
 
-			[Triggers:WW2-Trigger-PatrolSwitch-Fighter]
-			[Triggers:WW2-Trigger-FighterSwitch-Fighter]
+			[Triggers:WW2-Trigger-PatrolSwitch-Fighter-Gray]
+			[Triggers:WW2-Trigger-FighterSwitch-Fighter-Gray]
 			[Triggers:WW2-Trigger-FighterRunStart]
 			[Triggers:WW2-Trigger-FighterRunEnd]
-			[Triggers:WW2-Trigger-FighterTargetLost]
+			[Triggers:WW2-Trigger-FighterTargetLost-Gray]
 			[Triggers:WW2-Trigger-PatrolNextFromLast]
 
 			[Triggers:WW2-Trigger-Crash-Air]
@@ -135,7 +135,7 @@
 			[RivalAI Behavior]
 			[BehaviorName:Patrol]
 			[TriggerGroups:WW2-Points-Group-Green-Fighter]
-			[TriggerGroups:WW2-TriggerGroup-FlightMorale]
+			[TriggerGroups:WW2-TriggerGroup-FlightMorale-Green]
 			[RetreatDespawnDistance:6000]
 
 			[TargetData:WW2-Targeting-Fighter]
@@ -151,11 +151,11 @@
 			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Green]
 			[Triggers:WW2-Trigger-UnStatic]
 
-			[Triggers:WW2-Trigger-PatrolSwitch-Fighter]
-			[Triggers:WW2-Trigger-FighterSwitch-Fighter]
+			[Triggers:WW2-Trigger-PatrolSwitch-Fighter-Green]
+			[Triggers:WW2-Trigger-FighterSwitch-Fighter-Green]
 			[Triggers:WW2-Trigger-FighterRunStart]
 			[Triggers:WW2-Trigger-FighterRunEnd]
-			[Triggers:WW2-Trigger-FighterTargetLost]
+			[Triggers:WW2-Trigger-FighterTargetLost-Green]
 			[Triggers:WW2-Trigger-PatrolNextFromLast]
 
 			[Triggers:WW2-Trigger-Crash-Air]

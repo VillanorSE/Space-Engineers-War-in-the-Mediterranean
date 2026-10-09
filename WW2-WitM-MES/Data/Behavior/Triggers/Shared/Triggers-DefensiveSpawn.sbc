@@ -40,7 +40,7 @@
 			[RivalAI Action]
 			
 			[UseChatBroadcast:true]
-			[ChatData:WW2-Chat-DefenseSpawn-Factory-Plane]
+			[ChatData:WW2-Chat-DefenseSpawn-Factory-Plane-Gray]
 			
 			[SpawnEncounter:true]
 			[Spawner:WW2-Spawn-DefenseSpawn-Gray]
@@ -115,7 +115,7 @@
 			[RivalAI Action]
 			
 			[UseChatBroadcast:true]
-			[ChatData:WW2-Chat-DefenseSpawn-Factory-Plane]
+			[ChatData:WW2-Chat-DefenseSpawn-Factory-Plane-Green]
 			
 			[SpawnEncounter:true]
 			[Spawner:WW2-Spawn-DefenseSpawn-Green]
@@ -156,7 +156,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Chat-DefenseSpawn-Factory-Plane</SubtypeId>
+                <SubtypeId>WW2-Chat-DefenseSpawn-Factory-Plane-Gray</SubtypeId>
             </Id>
             <Description>
 			
@@ -165,7 +165,42 @@
 			[UseChat:true]
             [StartsReady:true]
             [BroadcastRandomly:true]
-			[Author:Dispatch]
+			[Author:Comando Supremo]
+			[Color:Red]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:2500]
+
+            [ChatMessages:Scrambling air support.]
+            [ChatAudio:ArcHudGPSNotification2]
+            [BroadcastChatType:Both]
+			
+			[ChatMessages:Reinforcements on their way.]
+            [ChatAudio:ArcHudGPSNotification2]
+            [BroadcastChatType:Both]
+			
+			[ChatMessages:Hostile contact detected.]
+            [ChatAudio:ArcHudGPSNotification2]
+            [BroadcastChatType:Both]
+			
+			[ChatMessages:Ready to fight!]
+            [ChatAudio:ArcHudGPSNotification2]
+            [BroadcastChatType:Both]
+			
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Chat-DefenseSpawn-Factory-Plane-Green</SubtypeId>
+            </Id>
+            <Description>
+			
+			[RivalAI Chat]
+			
+			[UseChat:true]
+            [StartsReady:true]
+            [BroadcastRandomly:true]
+			[Author:État-Major Général]
 			[Color:Red]
 			[IgnoreAntennaRequirement:true]
 			[IgnoredAntennaRangeOverride:2500]

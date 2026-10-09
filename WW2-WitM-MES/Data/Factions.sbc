@@ -14,8 +14,8 @@
         <TypeId>MyObjectBuilder_FactionDefinition</TypeId>
         <SubtypeId>WW2-Gray</SubtypeId>
       </Id>
-      <DisplayName>The Gray</DisplayName>
-	  <Description>The Gray are an alliance of several entities intent on expanding their territory even if that means violence.</Description>
+      <DisplayName>Gray</DisplayName>
+	  <Description>Gray is an alliance of several entities intent on expanding its territory, even if that means violence.</Description>
       <IsDefault>true</IsDefault>
 	  <DefaultRelation>Enemies</DefaultRelation>
 	  <DefaultRelationToPlayers>Neutral</DefaultRelationToPlayers>
@@ -38,8 +38,8 @@
         <TypeId>MyObjectBuilder_FactionDefinition</TypeId>
         <SubtypeId>WW2-Green</SubtypeId>
       </Id>
-      <DisplayName>The Green</DisplayName>
-	  <Description>The Green are an alliance of numerous entities intent on containing The Gray. They are prepared to fight any who fight them.</Description>
+      <DisplayName>Green</DisplayName>
+	  <Description>Green is an alliance of numerous entities intent on containing Gray. It is prepared to fight any who fight it.</Description>
       <IsDefault>true</IsDefault>
 	  <DefaultRelation>Enemies</DefaultRelation>
 	  <DefaultRelationToPlayers>Neutral</DefaultRelationToPlayers>

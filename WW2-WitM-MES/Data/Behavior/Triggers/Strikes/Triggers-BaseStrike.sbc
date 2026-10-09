@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+<!-- Base strikes and retaliation (D-036). Strike lead planes carry WW2-TriggerGroup-BaseStrike-{F}: on spawn it sets the 60-90 min
+     faction cooldown, radios the attack, and (retaliation only) clears WW2-Attacked-{TAG} from tagged players within 10 km.
+     Ammo depots and factories carry WW2-TriggerGroup-Retaliation-Tag-{F} (not hangars or garages: owner 2026-10-06): a player hit tags the shooter and hostile players within 2 km. -->
+
+<!-- Gray -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-TriggerGroup-BaseStrike-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Trigger-BaseStrike-OnSpawn-Gray]
+			[Triggers:WW2-Trigger-Retaliation-OnSpawn-Gray]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-BaseStrike-OnSpawn-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Condition-BaseStrike-Routine-Gray]
+			[Actions:WW2-Action-BaseStrike-OnSpawn-Gray]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Retaliation-OnSpawn-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Condition-BaseStrike-Retaliation-Gray]
+			[Actions:WW2-Action-Retaliation-OnSpawn-Gray]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Condition-BaseStrike-Routine-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckForSpawnConditions:true]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Gray-Small-WL2]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Gray-Small-WL3]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Gray-Small-WL4]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Gray-Medium-WL2]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Gray-Medium-WL3]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Gray-Medium-WL4]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Gray-Large-WL3]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Gray-Large-WL4]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Condition-BaseStrike-Retaliation-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckForSpawnConditions:true]
+			[RequiredSpawnConditions:WW2-SpawnConditions-Retaliation-Gray-WL1]
+			[RequiredSpawnConditions:WW2-SpawnConditions-Retaliation-Gray-WL2]
+			[RequiredSpawnConditions:WW2-SpawnConditions-Retaliation-Gray-WL4]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-BaseStrike-OnSpawn-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetSandboxBooleansTrue:WW2-BaseStrike-Cooldown-Gray]
+			[ActivateEvent:true]
+			[ActivateEventTags:WW2-BaseStrike-CooldownStart-Gray]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-BaseStrike-Gray]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Retaliation-OnSpawn-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetSandboxBooleansTrue:WW2-BaseStrike-Cooldown-Gray]
+			[ActivateEvent:true]
+			[ActivateEventTags:WW2-BaseStrike-CooldownStart-Gray]
+			[RemoveTagsFromPlayers:true]
+			[RemoveTagsPlayerConditionIds:WW2-PlayerCondition-AttackedNear-Gray]
+			[RemoveTagsOverridePositioninPlayerCondition:true]
+			[RemoveTags:WW2-Attacked-GRAY]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-Retaliation-Gray]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-BaseStrike-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:true]
+			[Author:Comando Bombardamento]
+			[Color:Red]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:10000]
+
+			[ChatMessages:Formation, target in sight. Begin the attack run.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Chat]
+
+			[ChatMessages:Approaching enemy installations. Bombs away on my mark.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Chat]
+
+			[ChatMessages:Command to all aircraft: strike the enemy outpost and return.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-Retaliation-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:true]
+			[Author:Comando Aeronautica]
+			[Color:Red]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:10000]
+
+			[ChatMessages:Raiders struck one of our installations. Reprisal flight, find them.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Chat]
+
+			[ChatMessages:Anyone who hits our depots or factories will answer for it.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Chat]
+
+			[ChatMessages:Nobody fires on a Gray installation unpunished.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-TriggerGroup-Retaliation-Tag-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Trigger-Retaliation-Tag-Gray]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Retaliation-Tag-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[Conditions:WW2-Condition-ReputationDamage]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-Retaliation-Tag-Gray]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Retaliation-Tag-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[AddTagstoPlayers:true]
+			[AddTagsPlayerConditionIds:WW2-PlayerCondition-HostileNear-Gray]
+			[AddTagsOverridePositionInPlayerCondition:true]
+			[AddTagsIncludeSavedPlayerIdentity:true]
+			[AddTags:WW2-Attacked-GRAY]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-PlayerCondition-HostileNear-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES Player Condition]
+			[CheckPlayerNear:true]
+			[PlayerNearDistanceFromCoords:2000]
+			[CheckPlayerReputation:true]
+			[CheckReputationwithFaction:GRAY]
+			[MinPlayerReputation:-1500]
+			[MaxPlayerReputation:-501]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-PlayerCondition-Attacked-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES Player Condition]
+			[CheckPlayerTags:true]
+			[IncludedPlayerTags:WW2-Attacked-GRAY]
+			[CheckPlayerReputation:true]
+			[CheckReputationwithFaction:GRAY]
+			[MinPlayerReputation:-1500]
+			[MaxPlayerReputation:-501]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-PlayerCondition-AttackedNear-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES Player Condition]
+			[CheckPlayerTags:true]
+			[IncludedPlayerTags:WW2-Attacked-GRAY]
+			[CheckPlayerNear:true]
+			[PlayerNearDistanceFromCoords:10000]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Event-BaseStrike-CooldownEnd-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event]
+			[UseEvent:true]
+			[UniqueEvent:false]
+			[StartsReady:false]
+			[MinCooldownMs:3600000]
+			[MaxCooldownMs:5400000]
+			[OnFailResetCooldown:true]
+			[ConditionIds:WW2-EventCondition-BaseStrike-Cooldown-Gray]
+			[ActionIds:WW2-EventAction-BaseStrike-CooldownEnd-Gray]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-EventCondition-BaseStrike-Cooldown-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event Condition]
+			[CheckTrueBooleans:true]
+			[TrueBooleans:WW2-BaseStrike-Cooldown-Gray]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Event-BaseStrike-CooldownStart-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event]
+			[UseEvent:false]
+			[UniqueEvent:false]
+			[Tags:WW2-BaseStrike-CooldownStart-Gray]
+			[ActionIds:WW2-EventAction-BaseStrike-CooldownStart-Gray]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-EventAction-BaseStrike-CooldownStart-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event Action]
+			[ResetCooldownTimeOfEvents:true]
+			[ResetEventCooldownIds:WW2-Event-BaseStrike-CooldownEnd-Gray]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-EventAction-BaseStrike-CooldownEnd-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event Action]
+			[ChangeBooleans:true]
+			[SetBooleansFalse:WW2-BaseStrike-Cooldown-Gray]
+			</Description>
+		</EntityComponent>
+
+<!-- Green -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-TriggerGroup-BaseStrike-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Trigger-BaseStrike-OnSpawn-Green]
+			[Triggers:WW2-Trigger-Retaliation-OnSpawn-Green]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-BaseStrike-OnSpawn-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Condition-BaseStrike-Routine-Green]
+			[Actions:WW2-Action-BaseStrike-OnSpawn-Green]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Retaliation-OnSpawn-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Condition-BaseStrike-Retaliation-Green]
+			[Actions:WW2-Action-Retaliation-OnSpawn-Green]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Condition-BaseStrike-Routine-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckForSpawnConditions:true]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Green-Small-WL2]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Green-Small-WL3]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Green-Small-WL4]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Green-Medium-WL2]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Green-Medium-WL3]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Green-Medium-WL4]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Green-Large-WL3]
+			[RequiredSpawnConditions:WW2-SpawnConditions-BaseStrike-Green-Large-WL4]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Condition-BaseStrike-Retaliation-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckForSpawnConditions:true]
+			[RequiredSpawnConditions:WW2-SpawnConditions-Retaliation-Green-WL1]
+			[RequiredSpawnConditions:WW2-SpawnConditions-Retaliation-Green-WL2]
+			[RequiredSpawnConditions:WW2-SpawnConditions-Retaliation-Green-WL4]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-BaseStrike-OnSpawn-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetSandboxBooleansTrue:WW2-BaseStrike-Cooldown-Green]
+			[ActivateEvent:true]
+			[ActivateEventTags:WW2-BaseStrike-CooldownStart-Green]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-BaseStrike-Green]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Retaliation-OnSpawn-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetSandboxBooleansTrue:WW2-BaseStrike-Cooldown-Green]
+			[ActivateEvent:true]
+			[ActivateEventTags:WW2-BaseStrike-CooldownStart-Green]
+			[RemoveTagsFromPlayers:true]
+			[RemoveTagsPlayerConditionIds:WW2-PlayerCondition-AttackedNear-Green]
+			[RemoveTagsOverridePositioninPlayerCondition:true]
+			[RemoveTags:WW2-Attacked-GREEN]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-Retaliation-Green]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-BaseStrike-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:true]
+			[Author:Groupe de Bombardement]
+			[Color:Red]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:10000]
+
+			[ChatMessages:Target sighted. All aircraft, commence the attack.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Chat]
+
+			[ChatMessages:Enemy outpost dead ahead. Open the bomb doors.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Chat]
+
+			[ChatMessages:Strike group to base: we are nearing the target.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-Retaliation-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:true]
+			[Author:Commandement de l'Air]
+			[Color:Red]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:10000]
+
+			[ChatMessages:One of our installations has been attacked. Reprisal flight airborne.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Chat]
+
+			[ChatMessages:Whoever struck our depots and factories will be found. Hunt them down.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Chat]
+
+			[ChatMessages:Nobody fires on a Green installation unpunished.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-TriggerGroup-Retaliation-Tag-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Trigger-Retaliation-Tag-Green]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Retaliation-Tag-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[Conditions:WW2-Condition-ReputationDamage]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-Retaliation-Tag-Green]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Retaliation-Tag-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[AddTagstoPlayers:true]
+			[AddTagsPlayerConditionIds:WW2-PlayerCondition-HostileNear-Green]
+			[AddTagsOverridePositionInPlayerCondition:true]
+			[AddTagsIncludeSavedPlayerIdentity:true]
+			[AddTags:WW2-Attacked-GREEN]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-PlayerCondition-HostileNear-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES Player Condition]
+			[CheckPlayerNear:true]
+			[PlayerNearDistanceFromCoords:2000]
+			[CheckPlayerReputation:true]
+			[CheckReputationwithFaction:GREEN]
+			[MinPlayerReputation:-1500]
+			[MaxPlayerReputation:-501]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-PlayerCondition-Attacked-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES Player Condition]
+			[CheckPlayerTags:true]
+			[IncludedPlayerTags:WW2-Attacked-GREEN]
+			[CheckPlayerReputation:true]
+			[CheckReputationwithFaction:GREEN]
+			[MinPlayerReputation:-1500]
+			[MaxPlayerReputation:-501]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-PlayerCondition-AttackedNear-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES Player Condition]
+			[CheckPlayerTags:true]
+			[IncludedPlayerTags:WW2-Attacked-GREEN]
+			[CheckPlayerNear:true]
+			[PlayerNearDistanceFromCoords:10000]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Event-BaseStrike-CooldownEnd-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event]
+			[UseEvent:true]
+			[UniqueEvent:false]
+			[StartsReady:false]
+			[MinCooldownMs:3600000]
+			[MaxCooldownMs:5400000]
+			[OnFailResetCooldown:true]
+			[ConditionIds:WW2-EventCondition-BaseStrike-Cooldown-Green]
+			[ActionIds:WW2-EventAction-BaseStrike-CooldownEnd-Green]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-EventCondition-BaseStrike-Cooldown-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event Condition]
+			[CheckTrueBooleans:true]
+			[TrueBooleans:WW2-BaseStrike-Cooldown-Green]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Event-BaseStrike-CooldownStart-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event]
+			[UseEvent:false]
+			[UniqueEvent:false]
+			[Tags:WW2-BaseStrike-CooldownStart-Green]
+			[ActionIds:WW2-EventAction-BaseStrike-CooldownStart-Green]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-EventAction-BaseStrike-CooldownStart-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event Action]
+			[ResetCooldownTimeOfEvents:true]
+			[ResetEventCooldownIds:WW2-Event-BaseStrike-CooldownEnd-Green]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-EventAction-BaseStrike-CooldownEnd-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event Action]
+			[ChangeBooleans:true]
+			[SetBooleansFalse:WW2-BaseStrike-Cooldown-Green]
+			</Description>
+		</EntityComponent>
+
+<!-- Shared: retaliation tags expire every 3 h -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-PlayerCondition-AnyAttacked</SubtypeId>
+			</Id>
+			<Description>
+			[MES Player Condition]
+			[CheckPlayerTags:true]
+			[IncludedPlayerTags:WW2-Attacked-GRAY]
+			[IncludedPlayerTags:WW2-Attacked-GREEN]
+			[AllowAnyIncludedPlayerTag:true]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Event-Retaliation-Sweep</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event]
+			[UseEvent:true]
+			[UniqueEvent:false]
+			[StartsReady:false]
+			[MinCooldownMs:10800000]
+			[MaxCooldownMs:10800001]
+			[ActionIds:WW2-EventAction-Retaliation-Sweep]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-EventAction-Retaliation-Sweep</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event Action]
+			[RemoveTagsFromPlayers:true]
+			[RemoveTagsPlayerConditionIds:WW2-PlayerCondition-AnyAttacked]
+			[RemoveTags:WW2-Attacked-GRAY]
+			[RemoveTags:WW2-Attacked-GREEN]
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

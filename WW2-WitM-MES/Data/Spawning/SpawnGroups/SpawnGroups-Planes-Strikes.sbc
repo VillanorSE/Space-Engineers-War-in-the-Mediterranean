@@ -1,0 +1,1020 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<SpawnGroups>
+
+<!-- Player-base strikes and retaliation (D-036), spawned by MES as planetary cargo ships. The lead plane has the strike behavior
+     (cooldown, radio, news); wingmen use the normal fighter behaviors. Retaliation is not territory-gated. WL1 retaliation stays in the
+     pool at every War Level (an unset WarLevel can not be tested), so it has a low Frequency. -->
+
+<!-- Ba.65 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Gray-Small-WL2</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Gray-Small-WL2]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-Ba65">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- Ba.65 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Gray-Small-WL3-A</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Gray-Small-WL3]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-Ba65">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- FC.20 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Gray-Small-WL3-B</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Gray-Small-WL3]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-FC20">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- Ba.65 + Ba.65 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Gray-Small-WL4</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Gray-Small-WL4]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-Ba65">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Ba65">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- Ba.65 + Re.2000 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Gray-Medium-WL2</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Gray-Medium-WL2]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-Ba65">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Re2000">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- SM.79 Bomber + Re.2000 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Gray-Medium-WL3</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Gray-Medium-WL3]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-SM79_Bomber">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Re2000">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- SM.79 Bomber + Re.2001 + Re.2001 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Gray-Medium-WL4</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Gray-Medium-WL4]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-SM79_Bomber">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Re2001">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Re2001">
+			<Position>
+				<X>-50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- SM.79 Bomber + SM.79 Bomber + Re.2000 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Gray-Large-WL3</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Gray-Large-WL3]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-SM79_Bomber">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-SM79_Bomber">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Re2000">
+			<Position>
+				<X>-50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- SM.79 Bomber + SM.79 Bomber + Re.2001 + Re.2001 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Gray-Large-WL4</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Gray-Large-WL4]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-SM79_Bomber">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-SM79_Bomber">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Re2001">
+			<Position>
+				<X>-50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Re2001">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>80.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- Re.2000 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Retaliation-Gray-WL1</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-Retaliation-Gray-WL1]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Small]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>0.2</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-Re2000">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- Re.2001 + Ba.65 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Retaliation-Gray-WL2</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-Retaliation-Gray-WL2]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-Re2001">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Ba65">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- Re.2000 + Re.2000 + Re.2000 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Retaliation-Gray-WL4</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-Retaliation-Gray-WL4]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Small]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-Re2000">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Gray-Flight</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Re2000">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray-Flight</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-Re2000">
+			<Position>
+				<X>-50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray-Flight</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- MS.406 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Green-Small-WL2</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Green-Small-WL2]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Small]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GREEN]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- Potez 630 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Green-Small-WL3</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Green-Small-WL3]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GREEN]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-Potez630">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- Potez 630 + MS.406 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Green-Small-WL4</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Green-Small-WL4]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GREEN]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-Potez630">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- MS.406 + MS.406 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Green-Medium-WL2</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Green-Medium-WL2]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Small]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GREEN]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- V-156-F Bomber + MS.406 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Green-Medium-WL3</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Green-Medium-WL3]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GREEN]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-V-156-F_Bomber">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- V-156-F Bomber + MS.406 + MS.406 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Green-Medium-WL4</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Green-Medium-WL4]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GREEN]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-V-156-F_Bomber">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>-50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- V-156-F Bomber + V-156-F Bomber + MS.406 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Green-Large-WL3</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Green-Large-WL3]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GREEN]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-V-156-F_Bomber">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-V-156-F_Bomber">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>-50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- V-156-F Bomber + V-156-F Bomber + MS.406 + MS.406 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Strike-Green-Large-WL4</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-BaseStrike-Green-Large-WL4]
+	[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GREEN]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-V-156-F_Bomber">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-V-156-F_Bomber">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>-50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>80.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- MS.406 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Retaliation-Green-WL1</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-Retaliation-Green-WL1]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Small]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GREEN]
+
+	</Description>
+	<Frequency>0.2</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- MS.406 + MS.406 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Retaliation-Green-WL2</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-Retaliation-Green-WL2]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Small]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GREEN]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- MS.406 + MS.406 + MS.406 -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Retaliation-Green-WL4</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-Retaliation-Green-WL4]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Small]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GREEN]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Strike-Green-Flight</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green-Flight</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-MS406">
+			<Position>
+				<X>-50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green-Flight</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+</SpawnGroups>
+</Definitions>

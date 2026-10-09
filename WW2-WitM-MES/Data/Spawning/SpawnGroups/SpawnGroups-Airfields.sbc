@@ -143,5 +143,39 @@
 		</Prefabs>
 	</SpawnGroup>
 
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Airfield-Casablanca</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Airfield-Casablanca]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[GridsAreEditable:false]
+		[GridsAreDestructable:false]
+		[IgnoreCleanupRules:true]
+
+		[FactionOverride:UNOWNED]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>false</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Airport-Casablanca">
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Airfield</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
 	</SpawnGroups>
 </Definitions>

@@ -39,13 +39,12 @@
 			[MinCooldownMs:250]
 			[MaxCooldownMs:500]
 			
-			[PercentageOfHealthRemaining:94]
+			[PercentageOfHealthRemaining:80]
 			[UseFailCondition:true]
 			
 			[StartsReady:true]
 			[MaxActions:1]
 			[Actions:WW2-Action-Crash-Air]
-			[Actions:WW2-Action-Crash-Air-DebugChat]
 			
 			</Description>
         </EntityComponent>
@@ -75,21 +74,6 @@
 			</Description>
         </EntityComponent>
 
-	<!-- Debug confirmation - broadcasts WW2-Chat-Test so you can see in-game the moment this actually fires. Safe to strip out later. -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-Crash-Air-DebugChat</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Action]
-			
-			[UseChatBroadcast:true]
-			[ChatData:WW2-Chat-Test]
-			
-			</Description>
-        </EntityComponent>
 <!-- End Crash Actions -->
 
 <!-- Stop Crash, triggers when grid below 100m altitude after Crash trigger passed -->

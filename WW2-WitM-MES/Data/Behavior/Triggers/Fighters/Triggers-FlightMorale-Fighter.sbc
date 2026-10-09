@@ -6,14 +6,27 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-TriggerGroup-FlightMorale</SubtypeId>
+                <SubtypeId>WW2-TriggerGroup-FlightMorale-Gray</SubtypeId>
             </Id>
             <Description>
 			[RivalAI TriggerGroup]
 			[Triggers:WW2-Trigger-WingmanDown-Hit]
 			[Triggers:WW2-Trigger-WingmanDown-Killed]
 			[Triggers:WW2-Trigger-WingmanLost]
-			[Triggers:WW2-Trigger-FlightBreakOff]
+			[Triggers:WW2-Trigger-FlightBreakOff-Gray]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-TriggerGroup-FlightMorale-Green</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Trigger-WingmanDown-Hit]
+			[Triggers:WW2-Trigger-WingmanDown-Killed]
+			[Triggers:WW2-Trigger-WingmanLost]
+			[Triggers:WW2-Trigger-FlightBreakOff-Green]
 			</Description>
         </EntityComponent>
 
@@ -29,7 +42,7 @@
 			[Type:HealthPercentage]
 			[MinCooldownMs:250]
 			[MaxCooldownMs:500]
-			[PercentageOfHealthRemaining:94]
+			[PercentageOfHealthRemaining:80]
 			[UseFailCondition:true]
 			[StartsReady:true]
 			[MaxActions:1]
@@ -68,7 +81,8 @@
 			[DisableTriggerNames:WW2-Trigger-WingmanDown-Hit]
 			[DisableTriggerNames:WW2-Trigger-WingmanDown-Killed]
 			[DisableTriggerNames:WW2-Trigger-WingmanLost]
-			[DisableTriggerNames:WW2-Trigger-FlightBreakOff]
+			[DisableTriggerNames:WW2-Trigger-FlightBreakOff-Gray]
+			[DisableTriggerNames:WW2-Trigger-FlightBreakOff-Green]
 			</Description>
         </EntityComponent>
 
@@ -119,7 +133,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-FlightBreakOff</SubtypeId>
+                <SubtypeId>WW2-Trigger-FlightBreakOff-Gray</SubtypeId>
             </Id>
             <Description>
 			[RivalAI Trigger]
@@ -131,9 +145,123 @@
 			[MaxActions:1]
 			[Conditions:WW2-Condition-FlightBreakOff]
 			[ConditionCheckResetsTimer:true]
-			[Actions:WW2-Action-FlightBreakOff]
+			[Actions:WW2-Action-FlightBreakOff-Gray]
 			</Description>
         </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-FlightBreakOff-Gray</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Action]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-FlightBreakOff-Gray]
+			[Retreat:true]
+			[ChangeBehaviorSubclass:true]
+			[NewBehaviorSubclass:FighterPlane]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Primary]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Trigger-FighterSwitch-Fighter-Gray]
+			[DisableTriggerNames:WW2-Trigger-PatrolSwitch-Fighter-Gray]
+			[DisableTriggerNames:WW2-Trigger-FighterTargetLost-Gray]
+			[DisableTriggerNames:WW2-Trigger-FighterRunStart]
+			[DisableTriggerNames:WW2-Trigger-FighterRunEnd]
+			[DisableTriggerNames:WW2-Trigger-PatrolNextFromLast]
+			[DisableTriggerNames:WW2-Trigger-WingmanLost]
+			[DisableTriggerNames:WW2-Trigger-FlightBreakOff-Gray]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-FlightBreakOff-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[MaxChats:-1]
+			[BroadcastRandomly:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:8000]
+			[Author:Squadriglia Caccia]
+			[Color:Red]
+			[ChatMessages:Too many losses, breaking off!]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			[ChatMessages:Squadron is cut to pieces. Disengaging.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-FlightBreakOff-Green</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:2000]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Conditions:WW2-Condition-FlightBreakOff]
+			[ConditionCheckResetsTimer:true]
+			[Actions:WW2-Action-FlightBreakOff-Green]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-FlightBreakOff-Green</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Action]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-FlightBreakOff-Green]
+			[Retreat:true]
+			[ChangeBehaviorSubclass:true]
+			[NewBehaviorSubclass:FighterPlane]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Primary]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Trigger-FighterSwitch-Fighter-Green]
+			[DisableTriggerNames:WW2-Trigger-PatrolSwitch-Fighter-Green]
+			[DisableTriggerNames:WW2-Trigger-FighterTargetLost-Green]
+			[DisableTriggerNames:WW2-Trigger-FighterRunStart]
+			[DisableTriggerNames:WW2-Trigger-FighterRunEnd]
+			[DisableTriggerNames:WW2-Trigger-PatrolNextFromLast]
+			[DisableTriggerNames:WW2-Trigger-WingmanLost]
+			[DisableTriggerNames:WW2-Trigger-FlightBreakOff-Green]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-FlightBreakOff-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[MaxChats:-1]
+			[BroadcastRandomly:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:8000]
+			[Author:Groupe de Chasse]
+			[Color:Red]
+			[ChatMessages:Too many losses, breaking off!]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			[ChatMessages:Squadron is cut to pieces. Disengaging.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
 
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
@@ -151,56 +279,8 @@
         </EntityComponent>
 
 	<!-- Retreat with the FighterPlane subclass (forward-thrust retreat) and stop everything that could switch it back. -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-FlightBreakOff</SubtypeId>
-            </Id>
-            <Description>
-			[RivalAI Action]
-			[UseChatBroadcast:true]
-			[ChatData:WW2-Chat-FlightBreakOff]
-			[Retreat:true]
-			[ChangeBehaviorSubclass:true]
-			[NewBehaviorSubclass:FighterPlane]
-			[ChangeAutopilotProfile:true]
-			[AutopilotProfile:Primary]
-			[DisableTriggers:true]
-			[DisableTriggerNames:WW2-Trigger-FighterSwitch-Fighter]
-			[DisableTriggerNames:WW2-Trigger-PatrolSwitch-Fighter]
-			[DisableTriggerNames:WW2-Trigger-FighterTargetLost]
-			[DisableTriggerNames:WW2-Trigger-FighterRunStart]
-			[DisableTriggerNames:WW2-Trigger-FighterRunEnd]
-			[DisableTriggerNames:WW2-Trigger-PatrolNextFromLast]
-			[DisableTriggerNames:WW2-Trigger-WingmanLost]
-			[DisableTriggerNames:WW2-Trigger-FlightBreakOff]
-			</Description>
-        </EntityComponent>
 
 	<!-- Planes have no antenna, so the chat ignores the antenna requirement. -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-			<Id>
-				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Chat-FlightBreakOff</SubtypeId>
-			</Id>
-			<Description>
-			[RivalAI Chat]
-			[UseChat:true]
-			[StartsReady:true]
-			[MaxChats:-1]
-			[BroadcastRandomly:true]
-			[IgnoreAntennaRequirement:true]
-			[IgnoredAntennaRangeOverride:8000]
-			[Author:Fighter]
-			[Color:Red]
-			[ChatMessages:Too many losses, breaking off!]
-			[ChatAudio:ArcHudGPSNotification1]
-			[BroadcastChatType:Chat]
-			[ChatMessages:Squadron is cut to pieces. Disengaging.]
-			[ChatAudio:ArcHudGPSNotification1]
-			[BroadcastChatType:Chat]
-			</Description>
-		</EntityComponent>
 
 	</EntityComponents>
 </Definitions>

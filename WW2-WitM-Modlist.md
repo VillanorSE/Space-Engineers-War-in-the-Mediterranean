@@ -23,6 +23,7 @@ in its own requirements, listed under **Pulled in automatically**, so you don't 
 | Suppress Vanilla Planetary Installations | 3796756949 | No vanilla planetary installations. |
 | Hostile Takeover | 2694751775 | Hacking and taking over grids. |
 | Block Restrictions | 2053202808 | Keeps out-of-period blocks out of the G-menu. |
+| Relative Top Speed | 1359618037 | Raises the speed cap to 150 m/s; Ship Core then gives each class its own top speed. Set `SpeedLimit`, `MaxBoostSpeed` and `RemoteControlSpeedLimit` to 150 in the world's `RelativeTopSpeed.cfg`. |
 | AllianceRepHelper | 3660799548 | Pick your side: a faction leader types `/alliance GRAY` or `/alliance GREEN` to ally with one side and become the other's enemy. New player factions start hostile to both. |
 
 ## Optional (nice for the scenario, not required)

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+<!-- Story switch (D-036). WW2-StoryLive gates strikes/retaliation (and later battles); story events should test it too.
+     Admin pause: /MES.Debug.ChangeBool.WW2-StoryPaused.true (resume with .false). Fresh 5-20 min grace after every load and every resume. -->
+
+	<!-- Every load: story off, start the grace timer -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Event-Story-OnLoad</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event]
+			[UseEvent:true]
+			[UniqueEvent:false]
+			[StartsReady:true]
+			[MinCooldownMs:0]
+			[MaxCooldownMs:1]
+			[ConditionIds:WW2-EventCondition-Story-OnSession]
+			[ActionIds:WW2-EventAction-Story-OnLoad]
+			</Description>
+		</EntityComponent>
+
+	<!-- After the grace period: story on -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Event-Story-Release</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event]
+			[UseEvent:false]
+			[UniqueEvent:false]
+			[StartsReady:false]
+			[MinCooldownMs:300000]
+			[MaxCooldownMs:1200000]
+			[OnFailResetCooldown:true]
+			[ConditionIds:WW2-EventCondition-Story-NotPaused]
+			[ActionIds:WW2-EventAction-Story-On]
+			</Description>
+		</EntityComponent>
+
+	<!-- Admin pause (live or during the grace): story off, stop the grace timer, wait for resume -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Event-Story-Pause</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event]
+			[UseEvent:false]
+			[UniqueEvent:false]
+			[StartsReady:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[ConditionIds:WW2-EventCondition-Story-Paused]
+			[ActionIds:WW2-EventAction-Story-Pause]
+			</Description>
+		</EntityComponent>
+
+	<!-- Admin resume: restart the grace timer from now -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Event-Story-Resume</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event]
+			[UseEvent:false]
+			[UniqueEvent:false]
+			[StartsReady:true]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[ConditionIds:WW2-EventCondition-Story-NotPaused]
+			[ActionIds:WW2-EventAction-Story-Resume]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-EventCondition-Story-OnSession</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event Condition]
+			[CheckOnSession:true]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-EventCondition-Story-NotPaused</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event Condition]
+			[CheckFalseBooleans:true]
+			[FalseBooleans:WW2-StoryPaused]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-EventCondition-Story-Paused</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event Condition]
+			[CheckTrueBooleans:true]
+			[TrueBooleans:WW2-StoryPaused]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-EventAction-Story-OnLoad</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event Action]
+			[ChangeBooleans:true]
+			[SetBooleansFalse:WW2-StoryLive]
+			[ToggleEvents:true]
+			[ToggleEventIds:WW2-Event-Story-Release]
+			[ToggleEventIdModes:true]
+			[ToggleEventIds:WW2-Event-Story-Pause]
+			[ToggleEventIdModes:true]
+			[ToggleEventIds:WW2-Event-Story-Resume]
+			[ToggleEventIdModes:false]
+			[ResetCooldownTimeOfEvents:true]
+			[ResetEventCooldownIds:WW2-Event-Story-Release]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-EventAction-Story-On</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event Action]
+			[ChangeBooleans:true]
+			[SetBooleansTrue:WW2-StoryLive]
+			[ToggleEvents:true]
+			[ToggleEventIds:WW2-Event-Story-Release]
+			[ToggleEventIdModes:false]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-EventAction-Story-Pause</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event Action]
+			[ChangeBooleans:true]
+			[SetBooleansFalse:WW2-StoryLive]
+			[ToggleEvents:true]
+			[ToggleEventIds:WW2-Event-Story-Release]
+			[ToggleEventIdModes:false]
+			[ToggleEventIds:WW2-Event-Story-Pause]
+			[ToggleEventIdModes:false]
+			[ToggleEventIds:WW2-Event-Story-Resume]
+			[ToggleEventIdModes:true]
+			[ResetCooldownTimeOfEvents:true]
+			[ResetEventCooldownIds:WW2-Event-Story-Resume]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-EventAction-Story-Resume</SubtypeId>
+			</Id>
+			<Description>
+			[MES Event Action]
+			[ToggleEvents:true]
+			[ToggleEventIds:WW2-Event-Story-Release]
+			[ToggleEventIdModes:true]
+			[ToggleEventIds:WW2-Event-Story-Pause]
+			[ToggleEventIdModes:true]
+			[ToggleEventIds:WW2-Event-Story-Resume]
+			[ToggleEventIdModes:false]
+			[ResetCooldownTimeOfEvents:true]
+			[ResetEventCooldownIds:WW2-Event-Story-Release]
+			[ResetEventCooldownIds:WW2-Event-Story-Pause]
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

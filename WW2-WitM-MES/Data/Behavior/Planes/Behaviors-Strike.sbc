@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+
+<!-- Strike lead planes (D-036): copies of the fighter behaviors (Behaviors-Fighter.sbc) plus WW2-TriggerGroup-BaseStrike-{F}.
+     Keep them in step when the fighter behaviors change. -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Strike-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[TriggerGroups:WW2-Points-Group-Gray-Fighter]
+			[TriggerGroups:WW2-TriggerGroup-BaseStrike-Gray]
+
+			[TargetData:WW2-Targeting-Fighter]
+			[OverrideTargetData:WW2-Targeting-Fighter]
+
+			[AutopilotData:WW2-Autopilot-Fighter-Patrol]
+			[SecondaryAutopilotData:WW2-Autopilot-Fighter-Approach]
+			[TertiaryAutopilotData:WW2-Autopilot-Fighter-Run]
+
+			[WeaponSystem:WW2-Weapons-Fighter]
+
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Gray]
+			[Triggers:WW2-Trigger-UnStatic]
+
+			[Triggers:WW2-Trigger-PatrolSwitch-Fighter-Gray]
+			[Triggers:WW2-Trigger-FighterSwitch-Fighter-Gray]
+			[Triggers:WW2-Trigger-FighterRunStart]
+			[Triggers:WW2-Trigger-FighterRunEnd]
+			[Triggers:WW2-Trigger-FighterTargetLost-Gray]
+			[Triggers:WW2-Trigger-PatrolNextFromLast]
+
+			[Triggers:WW2-Trigger-Crash-Air]
+			[Triggers:WW2-Trigger-Compromised-Air]
+			[Triggers:WW2-Trigger-StopCrash-Air]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Strike-Green</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[TriggerGroups:WW2-Points-Group-Green-Fighter]
+			[TriggerGroups:WW2-TriggerGroup-BaseStrike-Green]
+
+			[TargetData:WW2-Targeting-Fighter]
+			[OverrideTargetData:WW2-Targeting-Fighter]
+
+			[AutopilotData:WW2-Autopilot-Fighter-Patrol]
+			[SecondaryAutopilotData:WW2-Autopilot-Fighter-Approach]
+			[TertiaryAutopilotData:WW2-Autopilot-Fighter-Run]
+
+			[WeaponSystem:WW2-Weapons-Fighter]
+
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Green]
+			[Triggers:WW2-Trigger-UnStatic]
+
+			[Triggers:WW2-Trigger-PatrolSwitch-Fighter-Green]
+			[Triggers:WW2-Trigger-FighterSwitch-Fighter-Green]
+			[Triggers:WW2-Trigger-FighterRunStart]
+			[Triggers:WW2-Trigger-FighterRunEnd]
+			[Triggers:WW2-Trigger-FighterTargetLost-Green]
+			[Triggers:WW2-Trigger-PatrolNextFromLast]
+
+			[Triggers:WW2-Trigger-Crash-Air]
+			[Triggers:WW2-Trigger-Compromised-Air]
+			[Triggers:WW2-Trigger-StopCrash-Air]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Strike-Gray-Flight</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[TriggerGroups:WW2-Points-Group-Gray-Fighter]
+			[TriggerGroups:WW2-TriggerGroup-BaseStrike-Gray]
+			[TriggerGroups:WW2-TriggerGroup-FlightMorale-Gray]
+			[RetreatDespawnDistance:6000]
+
+			[TargetData:WW2-Targeting-Fighter]
+			[OverrideTargetData:WW2-Targeting-Fighter]
+
+			[AutopilotData:WW2-Autopilot-Fighter-Patrol]
+			[SecondaryAutopilotData:WW2-Autopilot-Fighter-Approach]
+			[TertiaryAutopilotData:WW2-Autopilot-Fighter-Run]
+
+			[WeaponSystem:WW2-Weapons-Fighter]
+
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Gray]
+			[Triggers:WW2-Trigger-UnStatic]
+
+			[Triggers:WW2-Trigger-PatrolSwitch-Fighter-Gray]
+			[Triggers:WW2-Trigger-FighterSwitch-Fighter-Gray]
+			[Triggers:WW2-Trigger-FighterRunStart]
+			[Triggers:WW2-Trigger-FighterRunEnd]
+			[Triggers:WW2-Trigger-FighterTargetLost-Gray]
+			[Triggers:WW2-Trigger-PatrolNextFromLast]
+
+			[Triggers:WW2-Trigger-Crash-Air]
+			[Triggers:WW2-Trigger-Compromised-Air]
+			[Triggers:WW2-Trigger-StopCrash-Air]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Strike-Green-Flight</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[TriggerGroups:WW2-Points-Group-Green-Fighter]
+			[TriggerGroups:WW2-TriggerGroup-BaseStrike-Green]
+			[TriggerGroups:WW2-TriggerGroup-FlightMorale-Green]
+			[RetreatDespawnDistance:6000]
+
+			[TargetData:WW2-Targeting-Fighter]
+			[OverrideTargetData:WW2-Targeting-Fighter]
+
+			[AutopilotData:WW2-Autopilot-Fighter-Patrol]
+			[SecondaryAutopilotData:WW2-Autopilot-Fighter-Approach]
+			[TertiaryAutopilotData:WW2-Autopilot-Fighter-Run]
+
+			[WeaponSystem:WW2-Weapons-Fighter]
+
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Green]
+			[Triggers:WW2-Trigger-UnStatic]
+
+			[Triggers:WW2-Trigger-PatrolSwitch-Fighter-Green]
+			[Triggers:WW2-Trigger-FighterSwitch-Fighter-Green]
+			[Triggers:WW2-Trigger-FighterRunStart]
+			[Triggers:WW2-Trigger-FighterRunEnd]
+			[Triggers:WW2-Trigger-FighterTargetLost-Green]
+			[Triggers:WW2-Trigger-PatrolNextFromLast]
+
+			[Triggers:WW2-Trigger-Crash-Air]
+			[Triggers:WW2-Trigger-Compromised-Air]
+			[Triggers:WW2-Trigger-StopCrash-Air]
+
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

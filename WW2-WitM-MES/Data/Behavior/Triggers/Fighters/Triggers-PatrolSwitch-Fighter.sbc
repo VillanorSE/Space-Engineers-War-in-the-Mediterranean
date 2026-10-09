@@ -5,7 +5,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-PatrolSwitch-Fighter</SubtypeId>
+                <SubtypeId>WW2-Trigger-PatrolSwitch-Fighter-Gray</SubtypeId>
             </Id>
             <Description>
 			[RivalAI Trigger]
@@ -14,38 +14,36 @@
 			[TargetDistance:15000]
 			[StartsReady:true]
 			[MaxActions:-1]
-			[Actions:WW2-Action-PatrolSwitch-Fighter]
+			[Actions:WW2-Action-PatrolSwitch-Fighter-Gray]
 			</Description>
         </EntityComponent>
-	<!-- Switches to the Patrol subclass and the patrol autopilot. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-PatrolSwitch-Fighter</SubtypeId>
+                <SubtypeId>WW2-Action-PatrolSwitch-Fighter-Gray</SubtypeId>
             </Id>
             <Description>
 			[RivalAI Action]
 			[UseChatBroadcast:true]
-			[ChatData:WW2-Chat-PatrolSwitch-Fighter]
+			[ChatData:WW2-Chat-PatrolSwitch-Fighter-Gray]
 			[UseCurrentPositionAsPatrolReference:true]
 			[ChangeBehaviorSubclass:true]
 			[NewBehaviorSubclass:Patrol]
 			[ChangeAutopilotProfile:true]
 			[AutopilotProfile:Primary]
 			[DisableTriggers:true]
-			[DisableTriggerNames:WW2-Trigger-PatrolSwitch-Fighter]
+			[DisableTriggerNames:WW2-Trigger-PatrolSwitch-Fighter-Gray]
 			[DisableTriggerNames:WW2-Trigger-FighterRunStart]
 			[DisableTriggerNames:WW2-Trigger-FighterRunEnd]
-			[DisableTriggerNames:WW2-Trigger-FighterTargetLost]
+			[DisableTriggerNames:WW2-Trigger-FighterTargetLost-Gray]
 			[EnableTriggers:true]
-			[EnableTriggerNames:WW2-Trigger-FighterSwitch-Fighter]
+			[EnableTriggerNames:WW2-Trigger-FighterSwitch-Fighter-Gray]
 			</Description>
         </EntityComponent>
-	<!-- Trigger to switch back to patrol when the target is lost. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-FighterTargetLost</SubtypeId>
+                <SubtypeId>WW2-Trigger-FighterTargetLost-Gray</SubtypeId>
             </Id>
             <Description>
 			[RivalAI Trigger]
@@ -53,14 +51,13 @@
 			[Type:LostTarget]
 			[StartsReady:true]
 			[MaxActions:-1]
-			[Actions:WW2-Action-PatrolSwitch-Fighter]
+			[Actions:WW2-Action-PatrolSwitch-Fighter-Gray]
 			</Description>
         </EntityComponent>
-	<!-- Broadcasts chats about patrolling -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Chat-PatrolSwitch-Fighter</SubtypeId>
+				<SubtypeId>WW2-Chat-PatrolSwitch-Fighter-Gray</SubtypeId>
 			</Id>
 			<Description>
 			[RivalAI Chat]
@@ -68,7 +65,7 @@
 			[StartsReady:true]
 			[MaxChats:-1]
 			[BroadcastRandomly:true]
-			[Author:Fighter]
+			[Author:Squadriglia Caccia]
 			[Color:Red]
 			[ChatMessages: Returning to patrol pattern.]
 			[ChatAudio:ArcHudGPSNotification1]
@@ -78,6 +75,82 @@
 			[BroadcastChatType:Chat]
 			</Description>
 		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-PatrolSwitch-Fighter-Green</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:TargetFar]
+			[TargetDistance:15000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-PatrolSwitch-Fighter-Green]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-PatrolSwitch-Fighter-Green</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Action]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-PatrolSwitch-Fighter-Green]
+			[UseCurrentPositionAsPatrolReference:true]
+			[ChangeBehaviorSubclass:true]
+			[NewBehaviorSubclass:Patrol]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Primary]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Trigger-PatrolSwitch-Fighter-Green]
+			[DisableTriggerNames:WW2-Trigger-FighterRunStart]
+			[DisableTriggerNames:WW2-Trigger-FighterRunEnd]
+			[DisableTriggerNames:WW2-Trigger-FighterTargetLost-Green]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Trigger-FighterSwitch-Fighter-Green]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-FighterTargetLost-Green</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:LostTarget]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-PatrolSwitch-Fighter-Green]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-PatrolSwitch-Fighter-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[MaxChats:-1]
+			[BroadcastRandomly:true]
+			[Author:Groupe de Chasse]
+			[Color:Red]
+			[ChatMessages: Returning to patrol pattern.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			[ChatMessages:Target lost, beginning patrol.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
+	<!-- Switches to the Patrol subclass and the patrol autopilot. -->
+	<!-- Trigger to switch back to patrol when the target is lost. -->
+	<!-- Broadcasts chats about patrolling -->
 	<!-- Trigger that measures the next patrol waypoint from the plane's current position. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>

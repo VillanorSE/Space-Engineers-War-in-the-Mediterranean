@@ -304,5 +304,34 @@
 		</Description>
 	</EntityComponent>
 
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Airfield-Casablanca</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:true]
+			[StaticEncounterUsePlanetDirectionAndAltitude:true]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterPlanetDirection:{X:0.132644238359419 Y:0.637365737443778 Z:-0.759058905990042}]
+			[StaticEncounterPlanetAltitude:0.383512724933098]
+			[StaticEncounterForward:{X:0.153701737862925 Y:0.746065558652629 Z:0.647890390398142}]
+			[StaticEncounterUp:{X:0.130729838007397 Y:0.634564155484028 Z:-0.761733576803204}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:UNOWNED]
+
+			[TriggerRadius:20000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+		</Description>
+	</EntityComponent>
+
 	</EntityComponents>
 </Definitions>

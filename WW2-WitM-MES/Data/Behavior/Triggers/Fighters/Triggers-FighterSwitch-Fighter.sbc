@@ -5,7 +5,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-FighterSwitch-Fighter</SubtypeId>
+                <SubtypeId>WW2-Trigger-FighterSwitch-Fighter-Gray</SubtypeId>
             </Id>
             <Description>
 			[RivalAI Trigger]
@@ -14,37 +14,35 @@
 			[TargetDistance:6000]
 			[StartsReady:true]
 			[MaxActions:-1]
-			[Actions:WW2-Action-FighterSwitch-Fighter]
+			[Actions:WW2-Action-FighterSwitch-Fighter-Gray]
 			</Description>
         </EntityComponent>
-	<!-- Switches to the FighterPlane combat subclass and the Approach autopilot. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Action-FighterSwitch-Fighter</SubtypeId>
+                <SubtypeId>WW2-Action-FighterSwitch-Fighter-Gray</SubtypeId>
             </Id>
             <Description>
 			[RivalAI Action]
 			[UseChatBroadcast:true]
-			[ChatData:WW2-Chat-FighterSwitch-Fighter]
+			[ChatData:WW2-Chat-FighterSwitch-Fighter-Gray]
 			[ChangeBehaviorSubclass:true]
 			[NewBehaviorSubclass:FighterPlane]
 			[ChangeAutopilotProfile:true]
 			[AutopilotProfile:Secondary]
 			[DisableTriggers:true]
-			[DisableTriggerNames:WW2-Trigger-FighterSwitch-Fighter]
+			[DisableTriggerNames:WW2-Trigger-FighterSwitch-Fighter-Gray]
 			[EnableTriggers:true]
-			[EnableTriggerNames:WW2-Trigger-PatrolSwitch-Fighter]
+			[EnableTriggerNames:WW2-Trigger-PatrolSwitch-Fighter-Gray]
 			[EnableTriggerNames:WW2-Trigger-FighterRunStart]
 			[EnableTriggerNames:WW2-Trigger-FighterRunEnd]
-			[EnableTriggerNames:WW2-Trigger-FighterTargetLost]
+			[EnableTriggerNames:WW2-Trigger-FighterTargetLost-Gray]
 			</Description>
         </EntityComponent>
-	<!-- Broadcasts chat about engaging a target -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Chat-FighterSwitch-Fighter</SubtypeId>
+				<SubtypeId>WW2-Chat-FighterSwitch-Fighter-Gray</SubtypeId>
 			</Id>
 			<Description>
 			[RivalAI Chat]
@@ -52,7 +50,7 @@
 			[StartsReady:true]
 			[MaxChats:-1]
 			[BroadcastRandomly:true]
-			[Author:Fighter]
+			[Author:Squadriglia Caccia]
 			[Color:Red]
 			[ChatMessages: Hostile approaching. Switching to engage.]
 			[ChatAudio:ArcHudGPSNotification1]
@@ -62,6 +60,66 @@
 			[BroadcastChatType:Chat]
 			</Description>
 		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-FighterSwitch-Fighter-Green</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:TargetNear]
+			[TargetDistance:6000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-FighterSwitch-Fighter-Green]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-FighterSwitch-Fighter-Green</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Action]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-FighterSwitch-Fighter-Green]
+			[ChangeBehaviorSubclass:true]
+			[NewBehaviorSubclass:FighterPlane]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Secondary]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Trigger-FighterSwitch-Fighter-Green]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Trigger-PatrolSwitch-Fighter-Green]
+			[EnableTriggerNames:WW2-Trigger-FighterRunStart]
+			[EnableTriggerNames:WW2-Trigger-FighterRunEnd]
+			[EnableTriggerNames:WW2-Trigger-FighterTargetLost-Green]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Chat-FighterSwitch-Fighter-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[MaxChats:-1]
+			[BroadcastRandomly:true]
+			[Author:Groupe de Chasse]
+			[Color:Red]
+			[ChatMessages: Hostile approaching. Switching to engage.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			[ChatMessages:Deviating from patrol to intercept hostile target.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
+	<!-- Switches to the FighterPlane combat subclass and the Approach autopilot. -->
+	<!-- Broadcasts chat about engaging a target -->
 <!-- End Trigger to switch to combat -->
 	</EntityComponents>
 </Definitions>

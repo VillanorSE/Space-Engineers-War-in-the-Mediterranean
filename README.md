@@ -10,7 +10,7 @@ Nobody starts with a battleship. Every ship, plane, tank, and base you build run
 
 ## A world that remembers
 
-Territory grows from each side's ports and airfields, and airfields change hands as it shifts. Depots and outposts are planned to become capturable too, and fighter squadrons to track their own losses, breaking off once enough wingmen are down instead of fighting to the last plane. Standing with a faction shifts based on who gets hurt, not simply how much damage was done.
+Territory grows from each side's ports and airfields, and airfields change hands as it shifts. As the war escalates, fighters take to the air in flights of three that break off once two wingmen are down instead of fighting to the last plane. Attack a side's depots or factories and it sends a reprisal flight after you; build a base in hostile territory and expect air raids. A War News feed reports it all. Depots and outposts are planned to become capturable too. Standing with a faction shifts based on who gets hurt, not simply how much damage was done.
 
 ## Take what you can carry
 
