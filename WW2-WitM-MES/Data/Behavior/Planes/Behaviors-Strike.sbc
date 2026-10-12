@@ -96,6 +96,7 @@
 			[TriggerGroups:WW2-TriggerGroup-BaseStrike-Gray]
 			[TriggerGroups:WW2-TriggerGroup-FlightMorale-Gray]
 			[RetreatDespawnDistance:6000]
+			[EscortOffsets:{X:-50 Y:0 Z:40},{X:50 Y:0 Z:40}]
 
 			[TargetData:WW2-Targeting-Fighter]
 			[OverrideTargetData:WW2-Targeting-Fighter]
@@ -116,6 +117,7 @@
 			[Triggers:WW2-Trigger-FighterRunEnd]
 			[Triggers:WW2-Trigger-FighterTargetLost-Gray]
 			[Triggers:WW2-Trigger-PatrolNextFromLast]
+			[Triggers:WW2-Trigger-FlightJoinReceived]
 
 			[Triggers:WW2-Trigger-Crash-Air]
 			[Triggers:WW2-Trigger-Compromised-Air]
@@ -137,6 +139,7 @@
 			[TriggerGroups:WW2-TriggerGroup-BaseStrike-Green]
 			[TriggerGroups:WW2-TriggerGroup-FlightMorale-Green]
 			[RetreatDespawnDistance:6000]
+			[EscortOffsets:{X:-50 Y:0 Z:40},{X:50 Y:0 Z:40}]
 
 			[TargetData:WW2-Targeting-Fighter]
 			[OverrideTargetData:WW2-Targeting-Fighter]
@@ -157,6 +160,7 @@
 			[Triggers:WW2-Trigger-FighterRunEnd]
 			[Triggers:WW2-Trigger-FighterTargetLost-Green]
 			[Triggers:WW2-Trigger-PatrolNextFromLast]
+			[Triggers:WW2-Trigger-FlightJoinReceived]
 
 			[Triggers:WW2-Trigger-Crash-Air]
 			[Triggers:WW2-Trigger-Compromised-Air]

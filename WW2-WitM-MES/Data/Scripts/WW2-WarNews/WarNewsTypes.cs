@@ -47,11 +47,14 @@ namespace WW2WitM.WarNewsSystem
         [ProtoMember(4)] public int Clock;
     }
 
-    // Network packet on WarNewsSession.NetChannel. Kind: 1 full feed (server to one client), 2 one new item (server to all), 3 feed request (client to server).
+    // Network packet on WarNewsSession.NetChannel. Kind: 1 full feed (server to one client), 2 one new item (server to all), 3 feed request (client to server),
+    // 4 admin /witm command (client to server, Text), 5 command reply (server to one client, Text; Screen = show as a report window).
     [ProtoContract]
     public class WarNewsPacket
     {
         [ProtoMember(1)] public int Kind;
         [ProtoMember(2)] public List<NewsItem> Items = new List<NewsItem>();
+        [ProtoMember(3)] public string Text = "";
+        [ProtoMember(4)] public bool Screen;
     }
 }

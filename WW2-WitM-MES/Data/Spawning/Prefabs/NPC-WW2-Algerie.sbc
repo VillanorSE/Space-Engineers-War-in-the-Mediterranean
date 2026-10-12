@@ -31208,48 +31208,16 @@ public class PID
               <NumberInGrid>2</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_Flap_Straight_Centered</SubtypeName>
+              <SubtypeName>aero-wing_2x5x1_pointed_edge_Small</SubtypeName>
               <EntityId>124698818829870890</EntityId>
               <Min x="17" y="9" z="0" />
-              <BlockOrientation Forward="Right" Up="Backward" />
+              <BlockOrientation Forward="Up" Up="Backward" />
               <ColorMaskHSV x="0" y="0" z="-0.09" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;45&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;30&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;true&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Loire 130 - Rudder Control Surface</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
-              <ShowInToolbarConfig>true</ShowInToolbarConfig>
+              <ShowInTerminal>false</ShowInTerminal>
+              <ShowInToolbarConfig>false</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>6</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_HalfSlopeArmorBlock</SubtypeName>
@@ -31367,6 +31335,21 @@ public class PID
                 <Slots />
                 <SlotsGamepad />
               </Toolbar>
+            </MyObjectBuilder_CubeBlock>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Gyro">
+              <SubtypeName>SmallBlockGyro</SubtypeName>
+              <EntityId>126792081010621025</EntityId>
+              <Min x="4" y="8" z="0" />
+              <BlockOrientation Forward="Forward" Up="Down" />
+              <ColorMaskHSV x="0.25" y="-0.49" z="-0.29" />
+              <SkinSubtypeId>Weldless</SkinSubtypeId>
+              <ShareMode>Faction</ShareMode>
+              <ShowOnHUD>false</ShowOnHUD>
+              <ShowInTerminal>true</ShowInTerminal>
+              <ShowInToolbarConfig>true</ShowInToolbarConfig>
+              <ShowInInventory>true</ShowInInventory>
+              <NumberInGrid>1</NumberInGrid>
+              <Enabled>true</Enabled>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorBlock</SubtypeName>
@@ -31719,92 +31702,26 @@ public class PID
               <NumberInGrid>1</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_Flap_Straight_Centered</SubtypeName>
+              <SubtypeName>aero-wing_2x5x1_pointed_edge_Small</SubtypeName>
               <EntityId>136483955016962088</EntityId>
               <Min x="4" y="10" z="-14" />
-              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.25" y="-0.49" z="-0.29" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;45&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;30&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;true&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Loire 130 - Aileron R Control Surface</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
+              <ShowInTerminal>false</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>4</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_Flap_Straight_Centered</SubtypeName>
+              <SubtypeName>aero-wing_2x5x1_pointed_edge_Small</SubtypeName>
               <EntityId>121112398065153650</EntityId>
               <Min x="4" y="10" z="10" />
-              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.25" y="-0.49" z="-0.29" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;45&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;30&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;true&lt;/Yaw&gt;
-  &lt;Roll&gt;true&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Loire 130 - Aileron L Control Surface</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
+              <ShowInTerminal>false</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>3</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_SmallArmorPanelLight</SubtypeName>
@@ -33040,92 +32957,28 @@ public class PID
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>SlimWing3x1ControlSurfaceOffset</SubtypeName>
+              <SubtypeName>SlimWing1x3Offset</SubtypeName>
               <EntityId>127423277087743387</EntityId>
               <Min x="18" y="9" z="3" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0" y="0" z="-0.09" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;30&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;20&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;true&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;true&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Loire 130 - Elevator L Control Surface</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
+              <ShowInTerminal>false</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>1</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>SlimWing3x1ControlSurfaceOffset</SubtypeName>
+              <SubtypeName>SlimWing1x3Offset</SubtypeName>
               <EntityId>74410886705117845</EntityId>
               <Min x="18" y="9" z="-5" />
               <BlockOrientation Forward="Right" Up="Down" />
               <ColorMaskHSV x="0" y="0" z="-0.09" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;30&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;20&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;true&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;true&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Loire 130 - Elevator R Control Surface</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
+              <ShowInTerminal>false</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>2</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillOffset</SubtypeName>
@@ -36078,36 +35931,6 @@ public class PID
             </MyObjectBuilder_ConveyorLine>
           </ConveyorLines>
           <BlockGroups>
-            <MyObjectBuilder_BlockGroup>
-              <Name>Loire 130 - Elevator</Name>
-              <Blocks>
-                <Vector3I>
-                  <X>18</X>
-                  <Y>9</Y>
-                  <Z>4</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>18</X>
-                  <Y>9</Y>
-                  <Z>-4</Z>
-                </Vector3I>
-              </Blocks>
-            </MyObjectBuilder_BlockGroup>
-            <MyObjectBuilder_BlockGroup>
-              <Name>Loire 130 - Ailerons</Name>
-              <Blocks>
-                <Vector3I>
-                  <X>4</X>
-                  <Y>10</Y>
-                  <Z>10</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>4</X>
-                  <Y>10</Y>
-                  <Z>-14</Z>
-                </Vector3I>
-              </Blocks>
-            </MyObjectBuilder_BlockGroup>
             <MyObjectBuilder_BlockGroup>
               <Name>Loire 130 - MGs</Name>
               <Blocks>

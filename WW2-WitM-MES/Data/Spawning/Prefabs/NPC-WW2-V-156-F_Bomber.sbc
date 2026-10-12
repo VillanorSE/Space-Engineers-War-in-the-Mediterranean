@@ -1358,91 +1358,27 @@
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>SlimWing5x2ControlSurface</SubtypeName>
+              <SubtypeName>SlimWing2x5</SubtypeName>
               <EntityId>77561045807120818</EntityId>
               <Min x="5" y="6" z="-1" />
+              <ColorMaskHSV x="0.558333337" y="-0.58" z="-0.2" />
+              <SkinSubtypeId>Weldless</SkinSubtypeId>
+              <ShowOnHUD>false</ShowOnHUD>
+              <ShowInTerminal>false</ShowInTerminal>
+              <ShowInToolbarConfig>false</ShowInToolbarConfig>
+              <ShowInInventory>true</ShowInInventory>
+            </MyObjectBuilder_CubeBlock>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
+              <SubtypeName>SlimWing2x5</SubtypeName>
+              <EntityId>140315370386960413</EntityId>
+              <Min x="-9" y="6" z="-1" />
               <BlockOrientation Forward="Forward" Up="Down" />
               <ColorMaskHSV x="0.558333337" y="-0.58" z="-0.2" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;20&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;20&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;true&lt;/Roll&gt;
-  &lt;InvertRoll&gt;true&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Control Surface - Aileron Left</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
-              <ShowInToolbarConfig>true</ShowInToolbarConfig>
+              <ShowInTerminal>false</ShowInTerminal>
+              <ShowInToolbarConfig>false</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>3</NumberInGrid>
-            </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>SlimWing5x2ControlSurface</SubtypeName>
-              <EntityId>140315370386960413</EntityId>
-              <Min x="-9" y="6" z="-1" />
-              <ColorMaskHSV x="0.558333337" y="-0.58" z="-0.2" />
-              <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;20&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;20&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;true&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Control Surface - Aileron Right</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
-              <ShowInToolbarConfig>true</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>2</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SlimWingFillEdge</SubtypeName>
@@ -1554,49 +1490,12 @@
               <ColorMaskHSV x="0.558333337" y="-0.58" z="-0.2" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>89779485213983660</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="0" y="8" z="-11" />
-              <BlockOrientation Forward="Forward" Up="Left" />
+              <BlockOrientation Forward="Down" Up="Left" />
               <ColorMaskHSV x="0" y="-0.8" z="0.55" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;20&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;20&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;true&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Control Surface - Rudder 1</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
-              <ShowInToolbarConfig>true</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>3</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>aero-wing_tip_D_2x1x1_rounded_full_to_edge_Small</SubtypeName>
@@ -1606,134 +1505,40 @@
               <ColorMaskHSV x="0" y="-0.8" z="0.55" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>121444330041937788</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="-1" y="8" z="-11" />
+              <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.558333337" y="-0.58" z="-0.2" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;25.0000019&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;25.0000019&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;true&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Control Surface - Elevator Right 1</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
-              <ShowInToolbarConfig>true</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>2</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_Elevator_Straight_Centered</SubtypeName>
-              <EntityId>101151073013467469</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="2" y="8" z="-11" />
+              <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.558333337" y="-0.58" z="-0.2" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;25.0000019&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;25.0000019&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;true&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Control Surface - Elevator Left 2</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
-              <ShowInToolbarConfig>true</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>1</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_Elevator_Straight_Centered</SubtypeName>
-              <EntityId>85847920358569556</EntityId>
-              <Min x="-3" y="8" z="-11" />
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
+              <Min x="3" y="8" z="-11" />
+              <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.558333337" y="-0.58" z="-0.2" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;25.0000019&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;25.0000019&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;true&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Control Surface - Elevator Right 2</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
-              <ShowInToolbarConfig>true</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>2</NumberInGrid>
+            </MyObjectBuilder_CubeBlock>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
+              <Min x="-3" y="8" z="-11" />
+              <BlockOrientation Forward="Left" Up="Up" />
+              <ColorMaskHSV x="0.558333337" y="-0.58" z="-0.2" />
+              <SkinSubtypeId>Weldless</SkinSubtypeId>
+            </MyObjectBuilder_CubeBlock>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
+              <Min x="-2" y="8" z="-11" />
+              <BlockOrientation Forward="Left" Up="Up" />
+              <ColorMaskHSV x="0.558333337" y="-0.58" z="-0.2" />
+              <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>SmallBlockArmorBlock</SubtypeName>
@@ -2645,7 +2450,7 @@
               <SubtypeName>SmallBlockGyro</SubtypeName>
               <EntityId>75220091747675955</EntityId>
               <Min x="0" y="8" z="3" />
-              <BlockOrientation Forward="Left" Up="Forward" />
+              <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.558333337" y="-0.58" z="-0.2" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
               <ShareMode>Faction</ShareMode>
@@ -2827,92 +2632,26 @@
               <ColorMaskHSV x="0.558333337" y="-0.58" z="-0.2" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_Elevator_Straight_Centered</SubtypeName>
-              <EntityId>117658120523396468</EntityId>
-              <Min x="0" y="9" z="-11" />
-              <BlockOrientation Forward="Forward" Up="Right" />
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
+              <Min x="0" y="10" z="-11" />
+              <BlockOrientation Forward="Up" Up="Right" />
               <ColorMaskHSV x="0" y="-0.8" z="0.55" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;20&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;20&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;true&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Control Surface - Rudder 2</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
-              <ShowInToolbarConfig>true</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>3</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>128240683427001934</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
+              <Min x="0" y="9" z="-11" />
+              <BlockOrientation Forward="Up" Up="Right" />
+              <ColorMaskHSV x="0" y="-0.8" z="0.55" />
+              <SkinSubtypeId>Weldless</SkinSubtypeId>
+            </MyObjectBuilder_CubeBlock>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="1" y="8" z="-11" />
+              <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.558333337" y="-0.58" z="-0.2" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;25.0000019&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;25.0000019&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;true&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Control Surface - Elevator Left 1</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
-              <ShowInToolbarConfig>true</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>1</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_1x2_HalfSlope_CornerMirror</SubtypeName>

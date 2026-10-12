@@ -2012,98 +2012,26 @@
               <ColorMaskHSV x="0.105555557" y="0.14" z="0.21" />
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_Flap_Straight_Centered</SubtypeName>
+              <SubtypeName>aero-wing_2x5x1_pointed_edge_Small</SubtypeName>
               <EntityId>139747953775291297</EntityId>
               <Min x="-27" y="8" z="5" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.105555557" y="0.14" z="0.16" />
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=False;r=True;i=False;ir=False]</Value>
-                          </item>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;30&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;25.0000019&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;true&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Ju 52 - Aileron Left</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>false</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>1</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_Flap_Straight_Centered</SubtypeName>
+              <SubtypeName>aero-wing_2x5x1_pointed_edge_Small</SubtypeName>
               <EntityId>128035179962325212</EntityId>
               <Min x="23" y="8" z="5" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.105555557" y="0.14" z="0.16" />
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=False;r=True;i=False;ir=False]</Value>
-                          </item>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;30&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;25.0000019&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;true&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Ju 52 - Aileron Right</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>false</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>2</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
@@ -5261,52 +5189,11 @@
               <BlockOrientation Forward="Forward" Up="Left" />
               <ColorMaskHSV x="0" y="0.12" z="-0.21" />
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>80912562996862972</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="0" y="16" z="29" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0.125" y="-0.8" z="0.55" />
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;30&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;25.0000019&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;true&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Ju 52 - Rudder 1</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>1</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>aero-wing_tip_D_2x1x1_rounded_full_to_edge_Small</SubtypeName>
@@ -5469,100 +5356,28 @@
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_Flap_Straight_Centered</SubtypeName>
+              <SubtypeName>aero-wing_2x5x1_pointed_edge_Small</SubtypeName>
               <EntityId>106874268857589652</EntityId>
               <Min x="4" y="12" z="26" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.191666663" y="-0.45" z="-0.3" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;20&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;10&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;true&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Ju 52 - Elevator 8</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>false</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>3</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_Flap_Straight_Centered</SubtypeName>
+              <SubtypeName>aero-wing_2x5x1_pointed_edge_Small</SubtypeName>
               <EntityId>121337480645647820</EntityId>
               <Min x="-8" y="12" z="26" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.191666663" y="-0.45" z="-0.3" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;20&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;10&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;true&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Ju 52 - Elevator 1</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>false</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>4</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>aero-wing_tip_E_2x1x1_rounded_half_to_edge_Small</SubtypeName>
@@ -5578,293 +5393,47 @@
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.191666663" y="-0.45" z="-0.3" />
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>119659665935008567</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="-1" y="12" z="26" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.191666663" y="-0.45" z="-0.3" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;20&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;10&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;true&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Ju 52 - Elevator 4</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>2</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>80149650255401005</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="1" y="12" z="26" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.191666663" y="-0.45" z="-0.3" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;20&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;10&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;true&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Ju 52 - Elevator 5</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>3</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>122121938604744450</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="-3" y="12" z="26" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.191666663" y="-0.45" z="-0.3" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;20&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;10&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;true&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Ju 52 - Elevator 2</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>4</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>80166118698651008</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="2" y="12" z="26" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.191666663" y="-0.45" z="-0.3" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;20&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;10&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;true&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Ju 52 - Elevator 6</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>5</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>120934271526351959</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="-2" y="12" z="26" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.191666663" y="-0.45" z="-0.3" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;20&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;10&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;true&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Ju 52 - Elevator 3</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>6</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>82954466232063785</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="3" y="12" z="26" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.191666663" y="-0.45" z="-0.3" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;20&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;10&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;true&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Ju 52 - Elevator 7</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>7</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorBlock</SubtypeName>
@@ -8474,193 +8043,29 @@
               <BlockOrientation Forward="Backward" Up="Right" />
               <ColorMaskHSV x="0" y="0.12" z="-0.21" />
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>106630790046310923</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="0" y="15" z="29" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0.297222227" y="-0.15" z="-0.24" />
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;30&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;25.0000019&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;true&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Ju 52 - Rudder 2</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>8</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>83108563132619215</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="0" y="14" z="29" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0.191666663" y="-0.45" z="-0.3" />
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;30&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;25.0000019&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;true&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Ju 52 - Rudder 3</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>9</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>109233889561170748</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="0" y="13" z="29" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0.191666663" y="-0.45" z="-0.3" />
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;30&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;25.0000019&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;true&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Ju 52 - Rudder 4</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>10</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>77122160851002136</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="0" y="12" z="29" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0.191666663" y="-0.45" z="-0.3" />
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;30&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;25.0000019&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;true&lt;/Yaw&gt;
-  &lt;Roll&gt;false&lt;/Roll&gt;
-  &lt;InvertRoll&gt;false&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Ju 52 - Rudder 5</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>11</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ConveyorConnector">
               <SubtypeName>ConveyorTubeDuctSmall</SubtypeName>
@@ -9141,7 +8546,7 @@
               <HudText>Ju 52 - Cargo</HudText>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Gyro">
-              <SubtypeName>CAPOMissileGyro</SubtypeName>
+              <SubtypeName>SmallBlockGyro</SubtypeName>
               <EntityId>131569775449280240</EntityId>
               <Min x="0" y="11" z="-1" />
               <BlockOrientation Forward="Left" Up="Up" />
@@ -11343,66 +10748,6 @@
               </Blocks>
             </MyObjectBuilder_BlockGroup>
             <MyObjectBuilder_BlockGroup>
-              <Name>Ju 52 - Elevator</Name>
-              <Blocks>
-                <Vector3I>
-                  <X>-4</X>
-                  <Y>12</Y>
-                  <Z>26</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>8</X>
-                  <Y>12</Y>
-                  <Z>26</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>3</X>
-                  <Y>12</Y>
-                  <Z>26</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>2</X>
-                  <Y>12</Y>
-                  <Z>26</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>1</X>
-                  <Y>12</Y>
-                  <Z>26</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>-1</X>
-                  <Y>12</Y>
-                  <Z>26</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>-2</X>
-                  <Y>12</Y>
-                  <Z>26</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>-3</X>
-                  <Y>12</Y>
-                  <Z>26</Z>
-                </Vector3I>
-              </Blocks>
-            </MyObjectBuilder_BlockGroup>
-            <MyObjectBuilder_BlockGroup>
-              <Name>Ju 52 - Ailerons</Name>
-              <Blocks>
-                <Vector3I>
-                  <X>-23</X>
-                  <Y>8</Y>
-                  <Z>5</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>27</X>
-                  <Y>8</Y>
-                  <Z>5</Z>
-                </Vector3I>
-              </Blocks>
-            </MyObjectBuilder_BlockGroup>
-            <MyObjectBuilder_BlockGroup>
               <Name>Ju 52 - Cargo</Name>
               <Blocks>
                 <Vector3I>
@@ -11429,36 +10774,6 @@
                   <X>0</X>
                   <Y>11</Y>
                   <Z>2</Z>
-                </Vector3I>
-              </Blocks>
-            </MyObjectBuilder_BlockGroup>
-            <MyObjectBuilder_BlockGroup>
-              <Name>Ju 52 - Rudder</Name>
-              <Blocks>
-                <Vector3I>
-                  <X>0</X>
-                  <Y>13</Y>
-                  <Z>29</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>0</X>
-                  <Y>12</Y>
-                  <Z>29</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>0</X>
-                  <Y>16</Y>
-                  <Z>29</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>0</X>
-                  <Y>15</Y>
-                  <Z>29</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>0</X>
-                  <Y>14</Y>
-                  <Z>29</Z>
                 </Vector3I>
               </Blocks>
             </MyObjectBuilder_BlockGroup>

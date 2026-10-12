@@ -1376,7 +1376,7 @@
 			[StartsReady:false]
 			[MaxActions:-1]
 			[Actions:WW2-WarLevel-Action-LevelUp2-Announce]
-			[Conditions:WW2-WarLevel-Condition-Up2]
+			[Conditions:WW2-WarLevel-Condition-Up2-Announce]
 
 			</Description>
 		</EntityComponent>
@@ -1388,7 +1388,7 @@
 			<Description>
 
 			[RivalAI Trigger]
-			[UseTrigger:false]
+			[UseTrigger:true]
 			[Type:Timer]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Up2-Announce]
@@ -1398,7 +1398,7 @@
 			[StartsReady:false]
 			[MaxActions:-1]
 			[Actions:WW2-WarLevel-Action-LevelDown2-Announce]
-			[Conditions:WW2-WarLevel-Condition-Down2]
+			[Conditions:WW2-WarLevel-Condition-Down2-Announce]
 
 			</Description>
 		</EntityComponent>
@@ -1412,6 +1412,7 @@
 			[RivalAI Action]
 			[SetSandboxCounters:WarLevel]
 			[SetSandboxCountersValues:2]
+			[SetSandboxBooleansTrue:WW2-WarLevel2Announced]
 			[UseChatBroadcast:true]
 			[ChatData:WW2-WarLevel-Chat-Up2]
 
@@ -1427,6 +1428,7 @@
 			[RivalAI Action]
 			[SetSandboxCounters:WarLevel]
 			[SetSandboxCountersValues:1]
+			[SetSandboxBooleansFalse:WW2-WarLevel2Announced]
 			[UseChatBroadcast:true]
 			[ChatData:WW2-WarLevel-Chat-Down2]
 
@@ -1450,7 +1452,7 @@
 			[StartsReady:false]
 			[MaxActions:-1]
 			[Actions:WW2-WarLevel-Action-LevelUp3-Announce]
-			[Conditions:WW2-WarLevel-Condition-Up3]
+			[Conditions:WW2-WarLevel-Condition-Up3-Announce]
 
 			</Description>
 		</EntityComponent>
@@ -1462,7 +1464,7 @@
 			<Description>
 
 			[RivalAI Trigger]
-			[UseTrigger:false]
+			[UseTrigger:true]
 			[Type:Timer]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Up3-Announce]
@@ -1472,7 +1474,7 @@
 			[StartsReady:false]
 			[MaxActions:-1]
 			[Actions:WW2-WarLevel-Action-LevelDown3-Announce]
-			[Conditions:WW2-WarLevel-Condition-Down3]
+			[Conditions:WW2-WarLevel-Condition-Down3-Announce]
 
 			</Description>
 		</EntityComponent>
@@ -1486,6 +1488,7 @@
 			[RivalAI Action]
 			[SetSandboxCounters:WarLevel]
 			[SetSandboxCountersValues:3]
+			[SetSandboxBooleansTrue:WW2-WarLevel3Announced]
 			[UseChatBroadcast:true]
 			[ChatData:WW2-WarLevel-Chat-Up3]
 
@@ -1501,6 +1504,7 @@
 			[RivalAI Action]
 			[SetSandboxCounters:WarLevel]
 			[SetSandboxCountersValues:2]
+			[SetSandboxBooleansFalse:WW2-WarLevel3Announced]
 			[UseChatBroadcast:true]
 			[ChatData:WW2-WarLevel-Chat-Down3]
 
@@ -1524,7 +1528,7 @@
 			[StartsReady:false]
 			[MaxActions:-1]
 			[Actions:WW2-WarLevel-Action-LevelUp4-Announce]
-			[Conditions:WW2-WarLevel-Condition-Up4]
+			[Conditions:WW2-WarLevel-Condition-Up4-Announce]
 
 			</Description>
 		</EntityComponent>
@@ -1536,7 +1540,7 @@
 			<Description>
 
 			[RivalAI Trigger]
-			[UseTrigger:false]
+			[UseTrigger:true]
 			[Type:Timer]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Up4-Announce]
@@ -1546,7 +1550,7 @@
 			[StartsReady:false]
 			[MaxActions:-1]
 			[Actions:WW2-WarLevel-Action-LevelDown4-Announce]
-			[Conditions:WW2-WarLevel-Condition-Down4]
+			[Conditions:WW2-WarLevel-Condition-Down4-Announce]
 
 			</Description>
 		</EntityComponent>
@@ -1560,6 +1564,7 @@
 			[RivalAI Action]
 			[SetSandboxCounters:WarLevel]
 			[SetSandboxCountersValues:4]
+			[SetSandboxBooleansTrue:WW2-WarLevel4Announced]
 			[UseChatBroadcast:true]
 			[ChatData:WW2-WarLevel-Chat-Up4]
 
@@ -1575,6 +1580,7 @@
 			[RivalAI Action]
 			[SetSandboxCounters:WarLevel]
 			[SetSandboxCountersValues:3]
+			[SetSandboxBooleansFalse:WW2-WarLevel4Announced]
 			[UseChatBroadcast:true]
 			[ChatData:WW2-WarLevel-Chat-Down4]
 
@@ -1598,7 +1604,7 @@
 			[StartsReady:false]
 			[MaxActions:-1]
 			[Actions:WW2-WarLevel-Action-LevelUp5-Announce]
-			[Conditions:WW2-WarLevel-Condition-Up5]
+			[Conditions:WW2-WarLevel-Condition-Up5-Announce]
 
 			</Description>
 		</EntityComponent>
@@ -1610,7 +1616,7 @@
 			<Description>
 
 			[RivalAI Trigger]
-			[UseTrigger:false]
+			[UseTrigger:true]
 			[Type:Timer]
 			[ConditionCheckResetsTimer:true]
 			[ToggleWithTriggerProfile:WW2-WarLevel-Trigger-Up5-Announce]
@@ -1620,7 +1626,7 @@
 			[StartsReady:false]
 			[MaxActions:-1]
 			[Actions:WW2-WarLevel-Action-LevelDown5-Announce]
-			[Conditions:WW2-WarLevel-Condition-Down5]
+			[Conditions:WW2-WarLevel-Condition-Down5-Announce]
 
 			</Description>
 		</EntityComponent>
@@ -1635,6 +1641,7 @@
 			[SetSandboxCounters:WarLevel]
 			[SetSandboxCountersValues:5]
 			[SetSandboxBooleansTrue:WW2-WarLevel5]
+			[SetSandboxBooleansTrue:WW2-WarLevel5Announced]
 			[UseChatBroadcast:true]
 			[ChatData:WW2-WarLevel-Chat-Up5]
 
@@ -1651,6 +1658,7 @@
 			[SetSandboxCounters:WarLevel]
 			[SetSandboxCountersValues:4]
 			[SetSandboxBooleansFalse:WW2-WarLevel5]
+			[SetSandboxBooleansFalse:WW2-WarLevel5Announced]
 			[UseChatBroadcast:true]
 			[ChatData:WW2-WarLevel-Chat-Down5]
 
@@ -1981,6 +1989,168 @@
 			[SendToAllOnlinePlayers:false]
 			[IgnoreAntennaRequirement:true]
 			[IgnoredAntennaRangeOverride:100000]
+
+			</Description>
+		</EntityComponent>
+
+<!-- Announce conditions: WW2-WarLevel{N}Announced makes each announcement once per level, also across a port refresh (D4). -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Up2-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CheckFalseSandboxBooleans:true]
+			[FalseSandboxBooleans:WW2-WarLevel2Announced]
+			[AllowAnyFalseSandboxBoolean:false]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Down2-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:100]
+			[SandboxCounterCompareTypes:Less]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WW2-WarLevel2Announced]
+			[AllowAnyTrueSandboxBoolean:false]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Up3-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:200]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CheckFalseSandboxBooleans:true]
+			[FalseSandboxBooleans:WW2-WarLevel3Announced]
+			[AllowAnyFalseSandboxBoolean:false]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Down3-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:200]
+			[SandboxCounterCompareTypes:Less]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WW2-WarLevel3Announced]
+			[AllowAnyTrueSandboxBoolean:false]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Up4-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:400]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CheckFalseSandboxBooleans:true]
+			[FalseSandboxBooleans:WW2-WarLevel4Announced]
+			[AllowAnyFalseSandboxBoolean:false]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Down4-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:400]
+			[SandboxCounterCompareTypes:Less]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WW2-WarLevel4Announced]
+			[AllowAnyTrueSandboxBoolean:false]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Up5-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:700]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[CheckFalseSandboxBooleans:true]
+			[FalseSandboxBooleans:WW2-WarLevel5Announced]
+			[AllowAnyFalseSandboxBoolean:false]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Condition-Down5-Announce</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarActivity]
+			[CustomSandboxCountersTargets:700]
+			[SandboxCounterCompareTypes:Less]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WW2-WarLevel5Announced]
+			[AllowAnyTrueSandboxBoolean:false]
 
 			</Description>
 		</EntityComponent>

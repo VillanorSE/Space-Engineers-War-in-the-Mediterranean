@@ -405,6 +405,8 @@
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGreen]
 			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGray]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CommandGray]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CommandGreen]
 			[SetCustomStrings:true]
 			[CustomStrings:NewOwner,Gray]
 			[UseChatBroadcast:true]
@@ -443,6 +445,8 @@
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGreen]
 			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGray]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CommandGray]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Unowned-CommandGreen]
 			[SetCustomStrings:true]
 			[CustomStrings:NewOwner,Green]
 			[UseChatBroadcast:true]
@@ -518,6 +522,8 @@
 			[EnableTriggers:true]
 			[EnableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGreen]
 			[EnableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGray]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Unowned-CommandGray]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Unowned-CommandGreen]
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Trigger-Airfield-Gray-CheckGreen]
 			[DisableTriggerNames:WW2-Trigger-Airfield-Gray-CheckUnowned]
@@ -605,6 +611,8 @@
 			[EnableTriggers:true]
 			[EnableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGreen]
 			[EnableTriggerNames:WW2-Trigger-Airfield-Unowned-CheckGray]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Unowned-CommandGray]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Unowned-CommandGreen]
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Trigger-Airfield-Green-CheckGray]
 			[DisableTriggerNames:WW2-Trigger-Airfield-Green-CheckUnowned]
@@ -657,6 +665,72 @@
 			[MaxActions:-1]
 			[Conditions:WW2-Condition-Airfield-GrayTerritoryOnly]
 			[Actions:WW2-Action-Airfield-Unowned-BecomeGray]
+			</Description>
+		</EntityComponent>
+
+<!-- Refresh command (D2): /witm refresh re-applies an airfield's old owner while that owner's territory still covers it. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-Unowned-CommandGray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:WitM-AirfieldOwner-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Condition-Airfield-InGrayTerritory]
+			[Actions:WW2-Action-Airfield-Unowned-BecomeGray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Trigger-Airfield-Unowned-CommandGreen</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:WitM-AirfieldOwner-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Condition-Airfield-InGreenTerritory]
+			[Actions:WW2-Action-Airfield-Unowned-BecomeGreen]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Condition-Airfield-InGrayTerritory</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckTrueBooleans:true]
+			[TrueBooleans:InGray_LaSpezia]
+			[TrueBooleans:InGray_Tripoli]
+			[TrueBooleans:InGray_Rome]
+			[AllowAnyTrueBoolean:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Condition-Airfield-InGreenTerritory</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckTrueBooleans:true]
+			[TrueBooleans:InGreen_Toulon]
+			[TrueBooleans:InGreen_Oran]
+			[TrueBooleans:InGreen_Alexandria]
+			[AllowAnyTrueBoolean:true]
 			</Description>
 		</EntityComponent>
 
@@ -899,6 +973,7 @@
 			[StartsReady:true]
 			
 			[MaxPlayerReputation:-500]
+			[Conditions:WW2-Supply-Condition-Defense]
 			
             [Actions:WW2-Action-DefenseSpawn-Gray]
 
@@ -922,6 +997,7 @@
 			[StartsReady:true]
 			
 			[MaxPlayerReputation:-500]
+			[Conditions:WW2-Supply-Condition-Defense]
 			
             [Actions:WW2-Action-DefenseSpawn-Green]
 

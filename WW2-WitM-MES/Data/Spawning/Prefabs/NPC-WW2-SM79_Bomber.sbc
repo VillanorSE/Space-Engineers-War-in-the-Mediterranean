@@ -363,48 +363,16 @@
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_Flap_Straight_Centered</SubtypeName>
+              <SubtypeName>aero-wing_2x5x1_pointed_edge_Small</SubtypeName>
               <EntityId>87857545027425069</EntityId>
               <Min x="1" y="7" z="5" />
-              <BlockOrientation Forward="Backward" Up="Down" />
+              <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;25.0000019&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;20&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;true&lt;/Roll&gt;
-  &lt;InvertRoll&gt;true&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Control Surface Aileron Left</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
-              <ShowInToolbarConfig>true</ShowInToolbarConfig>
+              <ShowInTerminal>false</ShowInTerminal>
+              <ShowInToolbarConfig>false</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>4</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorSlope2Base</SubtypeName>
@@ -1414,36 +1382,12 @@
               <ColorMaskHSV x="0" y="-0.8" z="0.55" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>106124226823861317</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="20" y="8" z="25" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Rudder 5</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>1</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorBlock</SubtypeName>
@@ -1499,36 +1443,12 @@
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>137517312571532169</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="20" y="9" z="25" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Rudder 4</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>2</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorSlope2Base</SubtypeName>
@@ -1872,67 +1792,19 @@
               <ColorMaskHSV x="0.09166667" y="-0.04" z="-0.25" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>123211633058981219</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="20" y="11" z="25" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0" y="-0.8" z="0.55" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Rudder 2</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>3</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>86333928700013960</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="22" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.105555557" y="-0.15" z="-0.17" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 6</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>4</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorBlock</SubtypeName>
@@ -1995,67 +1867,19 @@
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>92262697314161430</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="20" y="12" z="25" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Rudder 1</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>5</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>135920463085442026</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="24" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.116666667" y="-0.21" z="-0.25" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 8</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>6</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorSlope2Tip</SubtypeName>
@@ -2119,36 +1943,12 @@
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>141861503511460163</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="20" y="7" z="25" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Rudder 6</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>7</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorBlock</SubtypeName>
@@ -2156,36 +1956,12 @@
               <ColorMaskHSV x="0" y="-0.8" z="0.55" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>110357601582489602</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="18" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 3</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>8</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_HalfArmorBlock</SubtypeName>
@@ -3986,98 +3762,26 @@ static class BlueScreenOfDeath
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>115159312398086713</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="21" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.105555557" y="-0.15" z="-0.17" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 5</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>9</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>84471407162867956</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="19" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 4</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>10</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>73827666921503726</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="17" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 2</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>11</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorBlock</SubtypeName>
@@ -4155,67 +3859,19 @@ static class BlueScreenOfDeath
               <ColorMaskHSV x="0.116666667" y="-0.21" z="-0.25" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>138135855194139859</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="23" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.116666667" y="-0.21" z="-0.25" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 7</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>12</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>92779241823162670</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="16" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.105555557" y="-0.15" z="-0.17" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 1</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>13</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>aero-wing_tip_E_2x1x1_rounded_half_to_edge_Small</SubtypeName>
@@ -4345,36 +4001,12 @@ static class BlueScreenOfDeath
               <ColorMaskHSV x="0" y="-0.8" z="0.55" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>89540554785216369</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="20" y="10" z="25" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Rudder 3</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>14</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_HalfArmorBlock</SubtypeName>
@@ -7191,48 +6823,16 @@ static class BlueScreenOfDeath
               <NumberInGrid>7</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_Flap_Straight_Centered</SubtypeName>
+              <SubtypeName>aero-wing_2x5x1_pointed_edge_Small</SubtypeName>
               <EntityId>138264214794379622</EntityId>
               <Min x="35" y="7" z="5" />
-              <BlockOrientation Forward="Backward" Up="Down" />
+              <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.105555557" y="-0.15" z="-0.17" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;25.0000019&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;20&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;true&lt;/Roll&gt;
-  &lt;InvertRoll&gt;true&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Control Surface Aileron Right</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
-              <ShowInToolbarConfig>true</ShowInToolbarConfig>
+              <ShowInTerminal>false</ShowInTerminal>
+              <ShowInToolbarConfig>false</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>3</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorBlock</SubtypeName>
@@ -10016,86 +9616,6 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_ConveyorLine>
           </ConveyorLines>
           <BlockGroups>
-            <MyObjectBuilder_BlockGroup>
-              <Name>SM 79 - Elevator</Name>
-              <Blocks>
-                <Vector3I>
-                  <X>23</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>24</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>16</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>17</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>18</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>19</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>21</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>22</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-              </Blocks>
-            </MyObjectBuilder_BlockGroup>
-            <MyObjectBuilder_BlockGroup>
-              <Name>SM 79 - Rudder</Name>
-              <Blocks>
-                <Vector3I>
-                  <X>20</X>
-                  <Y>11</Y>
-                  <Z>25</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>20</X>
-                  <Y>10</Y>
-                  <Z>25</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>20</X>
-                  <Y>9</Y>
-                  <Z>25</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>20</X>
-                  <Y>8</Y>
-                  <Z>25</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>20</X>
-                  <Y>7</Y>
-                  <Z>25</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>20</X>
-                  <Y>12</Y>
-                  <Z>25</Z>
-                </Vector3I>
-              </Blocks>
-            </MyObjectBuilder_BlockGroup>
             <MyObjectBuilder_BlockGroup>
               <Name>SM 79 - Fuel/Hydrogen Tanks</Name>
               <Blocks>

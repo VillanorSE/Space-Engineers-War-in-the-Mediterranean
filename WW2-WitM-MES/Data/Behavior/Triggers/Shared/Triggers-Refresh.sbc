@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+<!-- Sent from C# by /witm refresh (SendBehaviorCommand) to re-apply an airfield's owner; the code is overridden per send. -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Command-Refresh</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Command]
+			[CommandCode:WitM-Refresh]
+			[IgnoreAntennaRequirement:true]
+			[IgnoreReceiverAntennaRequirement:true]
+			[Radius:1000]
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

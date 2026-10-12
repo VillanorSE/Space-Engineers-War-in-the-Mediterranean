@@ -9,7 +9,7 @@
      every airfield spawn its whole roster at once (5 planes Gray, 3 Green) every cycle and again on every
      ownership flip. The triggers start disabled ([UseTrigger:false]) and are enabled/disabled by the
      ownership flip actions in Triggers-Airfield-Ownership.sbc. -->
-<!-- War Level 4+: the trigger runs the -WL4 pool (no single fighters, 3-fighter flights); below that ElseActions run the original pool. -->
+<!-- Supply (D-045): the timer needs WitM-SupplyOffense-{site} and relays to the -Pick manual trigger, which runs the -WL4 pool at War Level 4+ and the original pool below. -->
 
 <!-- Offense Gray spawn sequence -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -29,6 +29,42 @@
 			[StartsReady:true]
 
 			[MaxActions:-1]
+			[Conditions:WW2-Supply-Condition-Offense]
+			[ConditionCheckResetsTimer:true]
+			[Actions:WW2-Action-OffenseSpawn-Gray-Pick]
+
+			</Description>
+        </EntityComponent>
+
+	<!-- Relays to the War Level pick below -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-OffenseSpawn-Gray-Pick</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[ManuallyActivateTrigger:true]
+			[ManuallyActivatedTriggerNames:WW2-Trigger-OffenseSpawn-Gray-Pick]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-OffenseSpawn-Gray-Pick</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Manual]
+			[StartsReady:true]
+			[MaxActions:-1]
+
 			[Conditions:WW2-WarLevel-Condition-AtLeast4]
 			[Actions:WW2-Action-OffenseSpawn-Gray-WL4]
 			[UseElseActions:true]
@@ -149,6 +185,42 @@
 			[StartsReady:true]
 
 			[MaxActions:-1]
+			[Conditions:WW2-Supply-Condition-Offense]
+			[ConditionCheckResetsTimer:true]
+			[Actions:WW2-Action-OffenseSpawn-Green-Pick]
+
+			</Description>
+        </EntityComponent>
+
+	<!-- Relays to the War Level pick below -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-OffenseSpawn-Green-Pick</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[ManuallyActivateTrigger:true]
+			[ManuallyActivatedTriggerNames:WW2-Trigger-OffenseSpawn-Green-Pick]
+
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-OffenseSpawn-Green-Pick</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Manual]
+			[StartsReady:true]
+			[MaxActions:-1]
+
 			[Conditions:WW2-WarLevel-Condition-AtLeast4]
 			[Actions:WW2-Action-OffenseSpawn-Green-WL4]
 			[UseElseActions:true]

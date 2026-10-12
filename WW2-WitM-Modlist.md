@@ -23,13 +23,15 @@ in its own requirements, listed under **Pulled in automatically**, so you don't 
 | Suppress Vanilla Planetary Installations | 3796756949 | No vanilla planetary installations. |
 | Hostile Takeover | 2694751775 | Hacking and taking over grids. |
 | Block Restrictions | 2053202808 | Keeps out-of-period blocks out of the G-menu. |
-| Relative Top Speed | 1359618037 | Raises the speed cap to 150 m/s; Ship Core then gives each class its own top speed. Set `SpeedLimit`, `MaxBoostSpeed` and `RemoteControlSpeedLimit` to 150 in the world's `RelativeTopSpeed.cfg`. |
+| Relative Top Speed | 1359618037 | Raises the speed cap to 150 m/s; Ship Core then gives each class its own top speed. Set `SpeedLimit` and `RemoteControlSpeedLimit` to 150 and both `MaxBoostSpeed` values to 120 in the world's `RelativeTopSpeed.cfg`. |
 | AllianceRepHelper | 3660799548 | Pick your side: a faction leader types `/alliance GRAY` or `/alliance GREEN` to ally with one side and become the other's enemy. New player factions start hostile to both. |
 
 ## Optional (nice for the scenario, not required)
 
 Disabled Collision Damage - Vehicles & Players (3252194102), Resource Nodes Filters (3422654770), Pipelines
 (2499720849), VAP - Vehicles Addon Pack (3409154935), AE NPC Dummies - Interactable NPC Blocks (2289675817).
+Aerodynamic Control Surfaces (800500312) if you want Draygo's movable surfaces on planes you build; WitM planes steer by
+gyro and don't use them.
 
 Quality of life: Build Info (514062285), HUD Compass (1469072169), Colorful Icons (801185519), Edge Be Gone!
 (2042716312), Screen Gunk Be Gone! (1289657379), AutoCloseDoors (1843256487), GV Inventory Sorter/Assembly Quota (3082595868).
@@ -38,7 +40,7 @@ Quality of life: Build Info (514062285), HUD Compass (1469072169), Colorful Icon
 
 WW2-WitM-Framework, Modular Encounters Systems, WeaponCore 3.0, Water Mod, Ship Core Framework, [CAP] Consty's Aircraft
 Pack, Consty Aircraft Pack - Ordnance, Thin Wings Plane Parts & Control Surfaces, Plane Parts, Aerodynamic Control
-Surfaces (+ Mod Component), Carrier Landing - Arrestor Cable and Tailhook, Boat Parts, AQD - Armor Expansion,
+Surface Mod Component, Carrier Landing - Arrestor Cable and Tailhook, Boat Parts, AQD - Armor Expansion,
 ArmourEssentials, SETB Community Tank Parts, SETB Handweapons, Yakobe's Machinations, Terran Titans - Naval Blocks,
 Terran Titans - Naval Advanced Systems, Terran Titans - WW2 Weapons Pack, Scope Framework, Definition Extension API,
 [Mexpex] Thruster FX Framework, Text HUD API, Fix LCD support, Camera Panning, Bot_spawner (RobotBots).

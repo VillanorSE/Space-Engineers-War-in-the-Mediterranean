@@ -83,7 +83,7 @@
 			</Description>
 		</EntityComponent>
 
-	<!-- Gray Fighter Behavior for 3-plane flights: adds flight morale (break off after 2 losses) -->
+	<!-- Gray flight leader (3-plane flights): flight morale, escort slots for the two wingmen -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -96,6 +96,7 @@
 			[TriggerGroups:WW2-Points-Group-Gray-Fighter]
 			[TriggerGroups:WW2-TriggerGroup-FlightMorale-Gray]
 			[RetreatDespawnDistance:6000]
+			[EscortOffsets:{X:-50 Y:0 Z:40},{X:50 Y:0 Z:40}]
 
 			[TargetData:WW2-Targeting-Fighter]
 			[OverrideTargetData:WW2-Targeting-Fighter]
@@ -116,6 +117,7 @@
 			[Triggers:WW2-Trigger-FighterRunEnd]
 			[Triggers:WW2-Trigger-FighterTargetLost-Gray]
 			[Triggers:WW2-Trigger-PatrolNextFromLast]
+			[Triggers:WW2-Trigger-FlightJoinReceived]
 
 			[Triggers:WW2-Trigger-Crash-Air]
 			[Triggers:WW2-Trigger-Compromised-Air]
@@ -124,7 +126,7 @@
 			</Description>
 		</EntityComponent>
 
-	<!-- Green Fighter Behavior for 3-plane flights: adds flight morale (break off after 2 losses) -->
+	<!-- Green flight leader (3-plane flights): flight morale, escort slots for the two wingmen -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -137,6 +139,7 @@
 			[TriggerGroups:WW2-Points-Group-Green-Fighter]
 			[TriggerGroups:WW2-TriggerGroup-FlightMorale-Green]
 			[RetreatDespawnDistance:6000]
+			[EscortOffsets:{X:-50 Y:0 Z:40},{X:50 Y:0 Z:40}]
 
 			[TargetData:WW2-Targeting-Fighter]
 			[OverrideTargetData:WW2-Targeting-Fighter]
@@ -157,6 +160,89 @@
 			[Triggers:WW2-Trigger-FighterRunEnd]
 			[Triggers:WW2-Trigger-FighterTargetLost-Green]
 			[Triggers:WW2-Trigger-PatrolNextFromLast]
+			[Triggers:WW2-Trigger-FlightJoinReceived]
+
+			[Triggers:WW2-Trigger-Crash-Air]
+			[Triggers:WW2-Trigger-Compromised-Air]
+			[Triggers:WW2-Trigger-StopCrash-Air]
+
+			</Description>
+		</EntityComponent>
+
+	<!-- Gray flight wingman: holds an escort slot on the leader with no target, fights as FighterPlane -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Fighter-Gray-FlightWing</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Escort]
+			[TriggerGroups:WW2-Points-Group-Gray-Fighter]
+			[TriggerGroups:WW2-TriggerGroup-FlightMorale-Gray]
+			[RetreatDespawnDistance:6000]
+
+			[TargetData:WW2-Targeting-Fighter]
+			[OverrideTargetData:WW2-Targeting-Fighter]
+
+			[AutopilotData:WW2-Autopilot-Fighter-Formation]
+			[SecondaryAutopilotData:WW2-Autopilot-Fighter-Approach]
+			[TertiaryAutopilotData:WW2-Autopilot-Fighter-Run]
+
+			[WeaponSystem:WW2-Weapons-Fighter]
+
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Gray]
+			[Triggers:WW2-Trigger-UnStatic]
+
+			[Triggers:WW2-Trigger-FlightJoin]
+			[Triggers:WW2-Trigger-FighterSwitch-Wing]
+			[Triggers:WW2-Trigger-FormationSwitch]
+			[Triggers:WW2-Trigger-FormationTargetLost]
+			[Triggers:WW2-Trigger-FighterRunStart]
+			[Triggers:WW2-Trigger-FighterRunEnd]
+
+			[Triggers:WW2-Trigger-Crash-Air]
+			[Triggers:WW2-Trigger-Compromised-Air]
+			[Triggers:WW2-Trigger-StopCrash-Air]
+
+			</Description>
+		</EntityComponent>
+
+	<!-- Green flight wingman: holds an escort slot on the leader with no target, fights as FighterPlane -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Fighter-Green-FlightWing</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Escort]
+			[TriggerGroups:WW2-Points-Group-Green-Fighter]
+			[TriggerGroups:WW2-TriggerGroup-FlightMorale-Green]
+			[RetreatDespawnDistance:6000]
+
+			[TargetData:WW2-Targeting-Fighter]
+			[OverrideTargetData:WW2-Targeting-Fighter]
+
+			[AutopilotData:WW2-Autopilot-Fighter-Formation]
+			[SecondaryAutopilotData:WW2-Autopilot-Fighter-Approach]
+			[TertiaryAutopilotData:WW2-Autopilot-Fighter-Run]
+
+			[WeaponSystem:WW2-Weapons-Fighter]
+
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-Plane-Green]
+			[Triggers:WW2-Trigger-UnStatic]
+
+			[Triggers:WW2-Trigger-FlightJoin]
+			[Triggers:WW2-Trigger-FighterSwitch-Wing]
+			[Triggers:WW2-Trigger-FormationSwitch]
+			[Triggers:WW2-Trigger-FormationTargetLost]
+			[Triggers:WW2-Trigger-FighterRunStart]
+			[Triggers:WW2-Trigger-FighterRunEnd]
 
 			[Triggers:WW2-Trigger-Crash-Air]
 			[Triggers:WW2-Trigger-Compromised-Air]
@@ -227,8 +313,9 @@
 			[WaypointTolerance:200]
 
 			[IdealMinSpeed:65]
-			[IdealMaxSpeed:100]
-			[MaxSpeedTolerance:10]
+			[IdealMaxSpeed:70]
+			[MaxSpeedTolerance:3]
+			[MaxVelocityAngleForSpeedControl:180]
 
 			[MinimumPlanetAltitude:600]
 			[IdealPlanetAltitude:1000]
@@ -266,8 +353,9 @@
 			[WaypointTolerance:100]
 
 			[IdealMinSpeed:55]
-			[IdealMaxSpeed:100]
-			[MaxSpeedTolerance:5]
+			[IdealMaxSpeed:85]
+			[MaxSpeedTolerance:3]
+			[MaxVelocityAngleForSpeedControl:180]
 
 			[MinimumPlanetAltitude:300]
 			[IdealPlanetAltitude:1000]
@@ -315,8 +403,9 @@
 			[WaypointTolerance:100]
 
 			[IdealMinSpeed:55]
-			[IdealMaxSpeed:100]
-			[MaxSpeedTolerance:5]
+			[IdealMaxSpeed:85]
+			[MaxSpeedTolerance:3]
+			[MaxVelocityAngleForSpeedControl:180]
 
 			[MinimumPlanetAltitude:250]
 			[IdealPlanetAltitude:500]
@@ -332,6 +421,44 @@
 			[AttackRunBreakawayDistance:500]
 			[AttackRunUseSafePlanetPathing:true]
 			[AttackRunUseCollisionEvasionPlanet:false]
+
+			</Description>
+		</EntityComponent>
+
+	<!-- Formation autopilot: wingman flies its escort slot on the leader. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-Fighter-Formation</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:true]
+			[FlyLevelWithGravity:false]
+			[LevelWithGravityWhenIdle:false]
+			[UseVelocityCollisionEvasion:true]
+
+			[SlowDownOnWaypointApproach:false]
+			[WaypointTolerance:5]
+			[WaypointWaitTimeTrigger:10]
+
+			[IdealMinSpeed:55]
+			[IdealMaxSpeed:77]
+			[MaxSpeedTolerance:2]
+			[MaxVelocityAngleForSpeedControl:180]
+
+			[EscortSpeedMatchMaxDistance:100]
+			[EscortUsesRelativeDampening:false]
+
+			[MinimumPlanetAltitude:400]
+			[IdealPlanetAltitude:1000]
+			[AltitudeTolerance:50]
+
+			[LimitRotationSpeed:true]
+			[MaxRotationMagnitude:0.3]
+			[AngleAllowedForForwardThrust:180]
 
 			</Description>
 		</EntityComponent>

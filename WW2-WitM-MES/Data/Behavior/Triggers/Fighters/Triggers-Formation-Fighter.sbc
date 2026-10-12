@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+<!-- Flight formation (flight behaviors only): wingmen ask the leader for an escort slot, break to fight, rejoin after. -->
+
+	<!-- Wingman: asks for a slot every ~2 s, up to 4 times. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-FlightJoin</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:2000]
+			[MaxCooldownMs:2500]
+			[StartsReady:false]
+			[MaxActions:4]
+			[Actions:WW2-Action-FlightJoin]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-FlightJoin</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Action]
+			[BroadcastCommandProfiles:true]
+			[CommandProfileIds:WW2-Command-FlightJoin]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Command-FlightJoin</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Command]
+			[CommandCode:WW2-FlightJoin]
+			[RequestEscortSlot:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoreReceiverAntennaRequirement:true]
+			[MatchSenderReceiverOwners:true]
+			[Radius:500]
+			</Description>
+        </EntityComponent>
+
+	<!-- Leader: gives the requesting wingman a free slot. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-FlightJoinReceived</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:WW2-FlightJoin]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-FlightJoinAssign]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-FlightJoinAssign</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Action]
+			[AssignEscortFromCommand:true]
+			</Description>
+        </EntityComponent>
+
+	<!-- Wingman: target near, leave the slot (clear the escort speed cap) and fight. No chat. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-FighterSwitch-Wing</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:TargetNear]
+			[TargetDistance:6000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-FighterSwitch-Wing]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-FighterSwitch-Wing</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Action]
+			[ChangeAutopilotSpeed:true]
+			[NewAutopilotSpeed:-1]
+			[ChangeBehaviorSubclass:true]
+			[NewBehaviorSubclass:FighterPlane]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Secondary]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Trigger-FighterSwitch-Wing]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Trigger-FormationSwitch]
+			[EnableTriggerNames:WW2-Trigger-FormationTargetLost]
+			[EnableTriggerNames:WW2-Trigger-FighterRunStart]
+			[EnableTriggerNames:WW2-Trigger-FighterRunEnd]
+			</Description>
+        </EntityComponent>
+
+	<!-- Wingman: target far or lost, back to the escort slot. No chat. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-FormationSwitch</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:TargetFar]
+			[TargetDistance:15000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-FormationRejoin]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-FormationTargetLost</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:LostTarget]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Action-FormationRejoin]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-FormationRejoin</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Action]
+			[ChangeBehaviorSubclass:true]
+			[NewBehaviorSubclass:Escort]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Primary]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Trigger-FormationSwitch]
+			[DisableTriggerNames:WW2-Trigger-FormationTargetLost]
+			[DisableTriggerNames:WW2-Trigger-FighterRunStart]
+			[DisableTriggerNames:WW2-Trigger-FighterRunEnd]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Trigger-FighterSwitch-Wing]
+			</Description>
+        </EntityComponent>
+
+	</EntityComponents>
+</Definitions>

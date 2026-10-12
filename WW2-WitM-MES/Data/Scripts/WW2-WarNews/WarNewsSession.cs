@@ -41,6 +41,13 @@ namespace WW2WitM.WarNewsSystem
             if (s != null) s.RemoveMarker(key);
         }
 
+        // Drops every post for the given seconds from now (not saved). The refresh command uses it so respawned sites post nothing.
+        public static void Mute(double seconds)
+        {
+            var s = WarNewsSession.Instance;
+            if (s != null) s.Mute(seconds);
+        }
+
         // The current feed, newest first (server and clients). FeedVersion increases on every change.
         public static IList<NewsItem> Items { get { return WarNewsSession.Instance != null ? WarNewsSession.Instance.Items : EmptyItems; } }
         public static int FeedVersion { get { return WarNewsSession.Instance != null ? WarNewsSession.Instance.FeedVersion : 0; } }
@@ -63,6 +70,7 @@ namespace WW2WitM.WarNewsSystem
         public static WarNewsSession Instance;
 
         public bool IsServer;
+        public MesApiLite Mes { get { return mes; } }
         public readonly List<NewsItem> Items = new List<NewsItem>();
         public int FeedVersion;
 
@@ -80,6 +88,7 @@ namespace WW2WitM.WarNewsSystem
         private int tick;
         private string lastText = "";
         private double lastTextTime = -1000;
+        private double mutedUntil = -1;
 
         public override void LoadData()
         {
@@ -159,6 +168,11 @@ namespace WW2WitM.WarNewsSystem
                 return false;
 
             var now = Now();
+            if (now < mutedUntil)
+            {
+                Log("muted: " + text);
+                return false;
+            }
             if (text == lastText && now - lastTextTime < DuplicateWindowSeconds)
                 return false;
             lastText = text;
@@ -181,6 +195,12 @@ namespace WW2WitM.WarNewsSystem
             return true;
         }
 
+        public void Mute(double seconds)
+        {
+            if (IsServer)
+                mutedUntil = Math.Max(mutedUntil, Now() + seconds);
+        }
+
         private void OnMessage(ushort channel, byte[] data, ulong sender, bool fromServer)
         {
             try
@@ -191,6 +211,11 @@ namespace WW2WitM.WarNewsSystem
 
                 if (IsServer)
                 {
+                    if (packet.Kind == 4)
+                    {
+                        WW2WitM.Refresh.RefreshSession.OnCommandPacket(sender, packet.Text);
+                        return;
+                    }
                     if (packet.Kind != 3)
                         return;
                     var reply = new WarNewsPacket { Kind = 1 };
@@ -199,7 +224,14 @@ namespace WW2WitM.WarNewsSystem
                     return;
                 }
 
-                if (!fromServer || packet.Items == null)
+                if (!fromServer)
+                    return;
+                if (packet.Kind == 5)
+                {
+                    WW2WitM.Refresh.RefreshSession.ShowReply(packet.Text, packet.Screen);
+                    return;
+                }
+                if (packet.Items == null)
                     return;
 
                 if (packet.Kind == 1)

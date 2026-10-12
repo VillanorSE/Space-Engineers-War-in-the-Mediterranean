@@ -130,6 +130,17 @@ namespace WW2WitM.WarNewsSystem
             return "CONVOY ARRIVES - " + AnAdj(faction) + " supply ship from " + origin + " has docked at " + destination + ".";
         }
 
+        // Supply (D-045, wording approved by the owner 2026-10-10). site is "Bizerte airfield" or a port name.
+        public static string SupplyLow(string faction, string site)
+        {
+            return "Supplies are running short at " + site + ". " + Adj(faction) + " sorties from " + site + " will be fewer.";
+        }
+
+        public static string SupplyRecovered(string site)
+        {
+            return "Supplies are getting through to " + site + " again.";
+        }
+
         // Carriers
         public static string CarrierSighted(string faction, string carrierName, string place)
         {

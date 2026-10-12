@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+
+<!-- Airfield supply gates (D-045). The WW2-WarNews C# (SupplySession) sets these per-site sandbox booleans. -->
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Supply-Condition-Offense</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-SupplyOffense-{SpawnGroupName}]
+
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Supply-Condition-Defense</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-SupplyDefense-{SpawnGroupName}]
+
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

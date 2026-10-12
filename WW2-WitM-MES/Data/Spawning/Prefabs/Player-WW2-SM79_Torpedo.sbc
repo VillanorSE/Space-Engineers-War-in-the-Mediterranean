@@ -363,48 +363,16 @@
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_Flap_Straight_Centered</SubtypeName>
+              <SubtypeName>aero-wing_2x5x1_pointed_edge_Small</SubtypeName>
               <EntityId>86640696165911197</EntityId>
               <Min x="1" y="7" z="5" />
-              <BlockOrientation Forward="Backward" Up="Down" />
+              <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;25.0000019&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;20&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;true&lt;/Roll&gt;
-  &lt;InvertRoll&gt;true&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Control Surface Aileron Left</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
-              <ShowInToolbarConfig>true</ShowInToolbarConfig>
+              <ShowInTerminal>false</ShowInTerminal>
+              <ShowInToolbarConfig>false</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>4</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorSlope2Base</SubtypeName>
@@ -932,11 +900,16 @@
                   <Slot>
                     <Index>6</Index>
                     <Item />
-                    <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalGroup">
-                      <Action>Reverse</Action>
-                      <GridEntityId>0</GridEntityId>
-                      <BlockEntityId>72691923025725380</BlockEntityId>
-                      <GroupName>SM 79 - Landing Gear</GroupName>
+                    <Data xsi:type="MyObjectBuilder_ToolbarItemTerminalBlock">
+                      <Action>Run</Action>
+                      <Parameters>
+                        <MyObjectBuilder_ToolbarItemActionParameter>
+                          <TypeCode>String</TypeCode>
+                          <Value>gear</Value>
+                        </MyObjectBuilder_ToolbarItemActionParameter>
+                      </Parameters>
+                      <CustomIconTitle>gear</CustomIconTitle>
+                      <BlockEntityId>143035553631733427</BlockEntityId>
                     </Data>
                   </Slot>
                   <Slot>
@@ -1424,36 +1397,12 @@
               <ColorMaskHSV x="0" y="-0.8" z="0.55" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>94349213912602133</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="20" y="8" z="25" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Rudder 5</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>1</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorBlock</SubtypeName>
@@ -1509,36 +1458,12 @@
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>115554503573517096</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="20" y="9" z="25" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Rudder 4</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>2</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorSlope2Base</SubtypeName>
@@ -1882,67 +1807,19 @@
               <ColorMaskHSV x="0.09166667" y="-0.04" z="-0.25" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>137902100496755439</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="20" y="11" z="25" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0" y="-0.8" z="0.55" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Rudder 2</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>3</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>94531406566252783</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="22" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.105555557" y="-0.15" z="-0.17" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 6</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>4</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorBlock</SubtypeName>
@@ -2005,67 +1882,19 @@
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>127766984519904818</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="20" y="12" z="25" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Rudder 1</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>5</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>124026234513096687</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="24" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.116666667" y="-0.21" z="-0.25" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 8</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>6</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorSlope2Tip</SubtypeName>
@@ -2129,36 +1958,12 @@
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>122178294216579853</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="20" y="7" z="25" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Rudder 6</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>7</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorBlock</SubtypeName>
@@ -2166,36 +1971,12 @@
               <ColorMaskHSV x="0" y="-0.8" z="0.55" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>94261297111269221</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="18" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 3</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>8</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_HalfArmorBlock</SubtypeName>
@@ -2438,24 +2219,6 @@
                       </TextPanelsContents>
                     </Component>
                   </ComponentData>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[SWCS Config]
-Wheel ignore name tag=Ignore
-Braking constant=0.1
-Detect blocks over connectors=false
-Draw title screen=true
-</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
                 </Components>
               </ComponentContainer>
               <ShowOnHUD>false</ShowOnHUD>
@@ -2466,31 +2229,45 @@ Draw title screen=true
               <Enabled>true</Enabled>
               <Program>
 /*
-/ //// / Whip's Subgrid Wheel Control Script / //// /
+/ //// / Villanor's Plane Control Script / //// /
+War in the Mediterranean (WW2-WitM). Questions and bug reports: Villanor.
 
-Instructions:
-1.) Place this script on your ship
+Subgrid wheel control: wheels on subgrids (landing gear) steer, drive and brake with the
+cockpit's WASD and handbrake. Wheels left of the seat in use count as left wheels.
+The wheel control is based on Whiplash141's Subgrid Wheel Control Script (v11.7.3), modified
+for WitM; do not contact Whiplash141 about this version.
 
-2.) Place some wheels on subgrids
+Landing gear:
+1.) Put every landing-gear hinge and rotor in one block group named "Landing Gear", or ending in it
+    (e.g. "Re2000 - Landing Gear")
+    (change the name in Custom Data, [WitM Landing Gear] section).
+2.) Set each hinge/rotor's limits to the deployed and stowed angles. A limit set past where
+    the gear physically jams is fine: the first time the gear stops short of a limit, the
+    script moves that limit to just shy of the jam point (3 degrees; Custom Data).
+    Stowed wheels are pulled up their suspension so they don't rub on the airframe.
+3.) Hotbar arguments:
+      gear              deploy or stow (toggle)
+      gear_down         deploy
+      gear_up           stow
+      gear_set_down     run once with the gear DOWN if the script has the directions backwards
+      gear_reset_limits restore the limits the script changed
+The gear is unlocked to move and locked again when it stops. Braking torque is raised to at
+least the motor torque, and suspension AirShock is turned off (both on every setup scan).
 
-3.) Place a cockpit
+Flight assist is not in this script any more: the WW2-WitM Framework mod flies every plane with
+an air Ship Core (Fighter, Attacker, Bomber, Utility Air) through its gyro. Chat: /assist on, off
+or status. WitM planes ship without control surfaces and steer with their gyro; this script never
+touches it (it only clears a gyro override left by an older version, once, when nobody is flying).
 
-4.) Enjoy :)
-
-All subgrid wheels to the left of the seat you are controlling will be treated as left wheels. Same thing goes for the right side.
+Handbrake when no wheels are on the main grid: brake_toggle, brake_on, brake_off
+These notes also appear at the top of each section in the block's Custom Data.
 */
 
 
-/*
-//=============================================
-// THERE IS NO REASON TO TOUCH ANYTHING BELOW
-// DOING SO WILL VOID YOUR WARRANTY
-//=============================================
-*/
-const string VERSION = "11.7.3";
-const string DATE = "2023/04/18";
+const string VERSION = "1.7";
+const string DATE = "2026/10/11";
 
-const string INI_SECTION_SWCS = "SWCS Config";
+const string INI_SECTION_SWCS = "Plane Wheels";
 const string INI_KEY_IGNORE_TAG = "Wheel ignore name tag";
 const string INI_KEY_BRAKING_CONST = "Braking constant";
 const string INI_KEY_SCAN_CONNECTORS = "Detect blocks over connectors";
@@ -2510,13 +2287,14 @@ Scheduler scheduler;
 ScheduledAction setupAction;
 StringBuilder echoBuilder = new StringBuilder();
 StringBuilder finalEchoBuilder = new StringBuilder();
+string echoText = ""; // WitM: echoed on every run so the info panel doesn't flicker between refreshes
 
 List&lt;IMyMotorSuspension&gt; subgridWheels = new List&lt;IMyMotorSuspension&gt;();
 List&lt;IMyMotorSuspension&gt; ignoredWheels = new List&lt;IMyMotorSuspension&gt;();
 List&lt;IMyMotorSuspension&gt; wheels = new List&lt;IMyMotorSuspension&gt;();
 List&lt;IMyShipController&gt; shipControllers = new List&lt;IMyShipController&gt;();
 StringBuilder setupBuilder = new StringBuilder();
-SwcsTitleScreen titleScreen;
+WitmTitleCard titleScreen;
 readonly MyIni _ini = new MyIni();
 
 void ParseIni()
@@ -2530,6 +2308,11 @@ void ParseIni()
         brakingConstant = _ini.Get(INI_SECTION_SWCS, INI_KEY_BRAKING_CONST).ToSingle(brakingConstant);
         detectBlocksOverConnectors = _ini.Get(INI_SECTION_SWCS, INI_KEY_SCAN_CONNECTORS).ToBoolean(detectBlocksOverConnectors);
         drawTitleScreen = _ini.Get(INI_SECTION_SWCS, INI_KEY_TITLE_SCREEN).ToBoolean(drawTitleScreen);
+        gearGroupName = _ini.Get(INI_SECTION_GEAR, INI_KEY_GEAR_GROUP).ToString(gearGroupName);
+        gearDefaultRpm = _ini.Get(INI_SECTION_GEAR, INI_KEY_GEAR_RPM).ToSingle(gearDefaultRpm);
+        gearMarginDeg = _ini.Get(INI_SECTION_GEAR, INI_KEY_GEAR_MARGIN).ToSingle(gearMarginDeg);
+        gearDisableAirShock = _ini.Get(INI_SECTION_GEAR, INI_KEY_GEAR_AIRSHOCK).ToBoolean(gearDisableAirShock);
+        gearTuckWheels = _ini.Get(INI_SECTION_GEAR, INI_KEY_GEAR_TUCK).ToBoolean(gearTuckWheels);
     }
     else if (!string.IsNullOrWhiteSpace(Me.CustomData))
     {
@@ -2541,7 +2324,21 @@ void ParseIni()
     _ini.Set(INI_SECTION_SWCS, INI_KEY_BRAKING_CONST, brakingConstant);
     _ini.Set(INI_SECTION_SWCS, INI_KEY_SCAN_CONNECTORS, detectBlocksOverConnectors);
     _ini.Set(INI_SECTION_SWCS, INI_KEY_TITLE_SCREEN, drawTitleScreen);
+    _ini.Set(INI_SECTION_GEAR, INI_KEY_GEAR_GROUP, gearGroupName);
+    _ini.Set(INI_SECTION_GEAR, INI_KEY_GEAR_RPM, gearDefaultRpm);
+    _ini.Set(INI_SECTION_GEAR, INI_KEY_GEAR_MARGIN, gearMarginDeg);
+    _ini.Set(INI_SECTION_GEAR, INI_KEY_GEAR_AIRSHOCK, gearDisableAirShock);
+    _ini.Set(INI_SECTION_GEAR, INI_KEY_GEAR_TUCK, gearTuckWheels);
 
+    _ini.DeleteSection(INI_SECTION_FLIGHT_OLD); // up to 1.6; flight assist is in the Framework mod now
+    _ini.SetSectionComment(INI_SECTION_SWCS,
+        " Villanor's Plane Control Script. Run arguments:\n" +
+        "   gear, gear_down, gear_up        landing gear (group \"Landing Gear\")\n" +
+        "   brake_toggle, brake_on, brake_off   handbrake when no wheels are on the main grid\n" +
+        " Wheels on subgrids steer and drive with WASD.");
+    _ini.SetSectionComment(INI_SECTION_GEAR,
+        " Hinges/rotors in the gear group stop short of anything they jam against and lock when done.\n" +
+        " gear_set_down: run with the gear down if up/down are backwards. gear_reset_limits: undo limit changes.");
     string output = _ini.ToString();
     if (!string.Equals(output, customData))
         Me.CustomData = output;
@@ -2550,18 +2347,30 @@ void ParseIni()
 Program()
 {
     Runtime.UpdateFrequency = UpdateFrequency.Update10;
-    titleScreen = new SwcsTitleScreen(VERSION, this);
+    titleScreen = new WitmTitleCard(VERSION, this);
     runtimeTracker = new RuntimeTracker(this);
     scheduler = new Scheduler(this);
     setupAction = new ScheduledAction(GetBlocks, 0.1);
 
     scheduler.AddScheduledAction(setupAction);
     scheduler.AddScheduledAction(ControlSubgridWheels, 10);
-    scheduler.AddScheduledAction(DrawTitleScreen, 6);
-    scheduler.AddScheduledAction(titleScreen.RestartDraw, 0.2);
+    scheduler.AddScheduledAction(DrawTitleScreen, 0.2);
     scheduler.AddScheduledAction(PrintEcho, 1);
+    scheduler.AddScheduledAction(UpdateGear, GearUpdateHz);
 
+    LoadGearState();
     GetBlocks();
+    ClearLeftoverGyroOverride();
+
+    // A pasted or projected plane comes in with its hinges and rotors at odd angles (half deployed), so on
+    // start the gear is driven to the state the script last knew (down for a plane saved on the ground) and locked.
+    if (gearMotors.Count &gt; 0)
+        MoveGear(gearDown);
+}
+
+void Save()
+{
+    SaveGearState();
 }
 
 void DrawTitleScreen()
@@ -2583,15 +2392,17 @@ new void Echo(string text)
 void PrintEcho()
 {
     finalEchoBuilder.Clear();
-    finalEchoBuilder.AppendLine($"Whip's Subgrid Wheel Control Script\n(Version {VERSION} - {DATE})\n");
+    finalEchoBuilder.AppendLine($"Villanor's Plane Control Script\n(Version {VERSION} - {DATE})\n");
 
     finalEchoBuilder.Append(echoBuilder);
+    finalEchoBuilder.AppendLine($"&gt; Landing gear: {gearStatus}");
+    finalEchoBuilder.AppendLine("&gt; Flight assist: WW2-WitM Framework mod (chat /assist)");
 
     finalEchoBuilder.AppendLine($"\nNext refresh in {Math.Ceiling(Math.Max(setupAction.RunInterval - setupAction.TimeSinceLastRun, 0))} seconds\n");
     finalEchoBuilder.AppendLine($"Last setup results:\n{setupBuilder}{(isSetup ? "&gt; Setup Successful!" : "&gt; Setup Failed!")}\n");
     finalEchoBuilder.AppendLine(runtimeTracker.Write());
 
-    base.Echo(finalEchoBuilder.ToString());
+    echoText = finalEchoBuilder.ToString();
 }
 
 void ClearEcho()
@@ -2618,15 +2429,32 @@ void Main(string arg, UpdateType updateSource)
                 case "brake_off":
                     handbrakeOverride = false;
                     break;
+                case "gear":
+                case "gear_toggle":
+                    MoveGear(!gearDown);
+                    break;
+                case "gear_down":
+                    MoveGear(true);
+                    break;
+                case "gear_up":
+                    MoveGear(false);
+                    break;
+                case "gear_set_down":
+                    RecordGearDown();
+                    break;
+                case "gear_reset_limits":
+                    ResetGearLimits();
+                    break;
             }
         }
     
         scheduler.Update();
+        base.Echo(echoText);
         runtimeTracker.AddInstructions();
     }
     catch (Exception e)
     {
-        BlueScreenOfDeath.Show(Me.GetSurface(0), "SWCS", VERSION, e);
+        BlueScreenOfDeath.Show(Me.GetSurface(0), "Plane Control", VERSION, e);
     }
 }
 
@@ -2802,6 +2630,7 @@ void GetBlocks()
     ParseIni();
 
     GridTerminalSystem.GetBlocksOfType&lt;IMyTerminalBlock&gt;(null, BlockCollect);
+    GetGearBlocks();
 
     if (shipControllers.Count == 0)
     {
@@ -2820,6 +2649,388 @@ void GetBlocks()
     isSetup = true;
 }
 
+#region WitM landing gear
+const string INI_SECTION_GEAR = "WitM Landing Gear";
+const string INI_KEY_GEAR_GROUP = "Gear group name";
+const string INI_KEY_GEAR_RPM = "Gear speed if a motor is set to 0 (RPM)";
+const string INI_KEY_GEAR_MARGIN = "Stop short of a jam by (degrees)";
+const string INI_KEY_GEAR_AIRSHOCK = "Turn off suspension AirShock";
+const string INI_KEY_GEAR_TUCK = "Pull subgrid wheels in when stowed";
+
+const string STORAGE_SECTION_GEAR = "Gear";
+const double GearUpdateHz = 6;
+const double GearDoneToleranceRad = 0.0175; // about 1 degree from the target limit counts as arrived
+const double GearStallMinRad = 0.002;       // a motor counts as stopped below 10% of its commanded movement, and never below this
+const int GearStallUpdates = 4;             // stopped this many updates in a row (about 0.7 s) = jammed
+const double GearMinSeconds = 1.0;          // give the motors time to start before judging a jam
+const double GearTimeoutSeconds = 20.0;
+
+string gearGroupName = "Landing Gear";
+readonly List&lt;IMyBlockGroup&gt; gearGroups = new List&lt;IMyBlockGroup&gt;();
+float gearDefaultRpm = 18f;
+float gearMarginDeg = 3f;
+bool gearDisableAirShock = true;
+bool gearTuckWheels = true;
+
+class GearMotor
+{
+    public IMyMotorStator Block;
+    public int DownSide;   // +1: the upper limit is the deployed position; -1: the lower limit; 0: unusable
+    public int TargetSide;
+    public float LastAngle;
+    public int StalledUpdates;
+    public bool Done;
+}
+
+readonly List&lt;GearMotor&gt; gearMotors = new List&lt;GearMotor&gt;();
+readonly List&lt;IMyMotorStator&gt; gearScratch = new List&lt;IMyMotorStator&gt;();
+readonly Dictionary&lt;long, GearMotor&gt; gearMotorCache = new Dictionary&lt;long, GearMotor&gt;();
+Func&lt;IMyMotorStator, bool&gt; gearSameConstruct;
+readonly Dictionary&lt;long, int&gt; gearDownSides = new Dictionary&lt;long, int&gt;();
+readonly Dictionary&lt;long, Vector2D&gt; gearOriginalLimits = new Dictionary&lt;long, Vector2D&gt;(); // X lower, Y upper (rad)
+readonly Dictionary&lt;long, float&gt; gearWheelHeights = new Dictionary&lt;long, float&gt;();        // suspension height before tucking
+ITerminalProperty&lt;float&gt; suspensionHeightProp;
+readonly MyIni gearStorageIni = new MyIni();
+bool gearDown = true;
+bool gearMoving = false;
+double gearElapsed = 0;
+string gearStatus = "not set up";
+
+void LoadGearState()
+{
+    gearStorageIni.Clear();
+    if (!gearStorageIni.TryParse(Storage))
+        return;
+
+    gearDown = gearStorageIni.Get(STORAGE_SECTION_GEAR, "Down").ToBoolean(true);
+    var keys = new List&lt;MyIniKey&gt;();
+    gearStorageIni.GetKeys(STORAGE_SECTION_GEAR, keys);
+    foreach (var key in keys)
+    {
+        string[] parts = key.Name.Split('.');
+        long id;
+        if (parts.Length != 2 || !long.TryParse(parts[0], out id))
+            continue;
+        if (parts[1] == "Side")
+        {
+            gearDownSides[id] = gearStorageIni.Get(key).ToInt32(0);
+        }
+        else if (parts[1] == "Limits")
+        {
+            string[] lim = gearStorageIni.Get(key).ToString("").Split(';');
+            double lo, hi;
+            if (lim.Length == 2 &amp;&amp; double.TryParse(lim[0], out lo) &amp;&amp; double.TryParse(lim[1], out hi))
+                gearOriginalLimits[id] = new Vector2D(lo, hi);
+        }
+        else if (parts[1] == "Height")
+        {
+            gearWheelHeights[id] = gearStorageIni.Get(key).ToSingle(0f);
+        }
+    }
+}
+
+void SaveGearState()
+{
+    gearStorageIni.Clear();
+    gearStorageIni.Set(STORAGE_SECTION_GEAR, "Down", gearDown);
+    foreach (var pair in gearDownSides)
+        gearStorageIni.Set(STORAGE_SECTION_GEAR, pair.Key + ".Side", pair.Value);
+    foreach (var pair in gearOriginalLimits)
+        gearStorageIni.Set(STORAGE_SECTION_GEAR, pair.Key + ".Limits", pair.Value.X + ";" + pair.Value.Y);
+    foreach (var pair in gearWheelHeights)
+        gearStorageIni.Set(STORAGE_SECTION_GEAR, pair.Key + ".Height", pair.Value);
+    Storage = gearStorageIni.ToString();
+}
+
+// Rebuilt on every setup scan, except while the gear is moving.
+void GetGearBlocks()
+{
+    if (gearDisableAirShock)
+    {
+        foreach (var wheel in wheels)
+            if (wheel.AirShockEnabled) wheel.AirShockEnabled = false;
+        foreach (var wheel in ignoredWheels)
+            if (wheel.AirShockEnabled) wheel.AirShockEnabled = false;
+    }
+
+    if (gearMoving)
+        return;
+
+    // The group named exactly as set, or else any group whose name ends with it ("Re2000 - Landing Gear").
+    gearScratch.Clear();
+    var group = GridTerminalSystem.GetBlockGroupWithName(gearGroupName);
+    if (group == null)
+    {
+        gearGroups.Clear();
+        GridTerminalSystem.GetBlockGroups(gearGroups);
+        foreach (var g in gearGroups)
+            if (g.Name.EndsWith(gearGroupName, StringComparison.OrdinalIgnoreCase)) { group = g; break; }
+    }
+    if (group != null)
+    {
+        if (gearSameConstruct == null)
+            gearSameConstruct = b =&gt; Me.IsSameConstructAs(b);
+        group.GetBlocksOfType(gearScratch, gearSameConstruct);
+    }
+
+    gearMotors.Clear();
+    int unusable = 0;
+    foreach (var block in gearScratch)
+    {
+        if (block.BrakingTorque &lt; block.Torque)
+            block.BrakingTorque = block.Torque;
+
+        int side;
+        if (!gearDownSides.TryGetValue(block.EntityId, out side))
+        {
+            int nearest = NearestLimitSide(block);
+            side = gearDown ? nearest : -nearest;
+            if (side != 0)
+                gearDownSides[block.EntityId] = side;
+        }
+        if (side == 0)
+            unusable++;
+        GearMotor gm;
+        if (!gearMotorCache.TryGetValue(block.EntityId, out gm))
+        {
+            gm = new GearMotor { Block = block };
+            gearMotorCache[block.EntityId] = gm;
+        }
+        gm.DownSide = side;
+        gearMotors.Add(gm);
+    }
+
+    if (gearMotors.Count == 0)
+        gearStatus = $"no group \"{gearGroupName}\"";
+    else
+        gearStatus = (gearDown ? "down" : "up") + (unusable &gt; 0 ? $" ({unusable} motor(s) without limits ignored)" : "");
+}
+
+void MoveGear(bool down)
+{
+    if (gearMotors.Count == 0)
+        GetGearBlocks();
+    if (gearMotors.Count == 0)
+        return;
+
+    gearDown = down;
+    if (down)
+        RestoreWheelHeights();
+    else if (gearTuckWheels)
+        TuckWheels();
+    foreach (var gm in gearMotors)
+    {
+        if (gm.DownSide == 0 || gm.Block.Closed)
+        {
+            gm.Done = true;
+            continue;
+        }
+        gm.TargetSide = down ? gm.DownSide : -gm.DownSide;
+        float rpm = Math.Abs(gm.Block.TargetVelocityRPM);
+        if (rpm &lt; 0.1f)
+            rpm = gearDefaultRpm;
+        gm.Block.RotorLock = false;
+        gm.Block.TargetVelocityRPM = gm.TargetSide * rpm;
+        gm.LastAngle = gm.Block.Angle;
+        gm.StalledUpdates = 0;
+        gm.Done = false;
+    }
+    gearElapsed = 0;
+    gearMoving = true;
+    gearStatus = down ? "deploying" : "stowing";
+    SaveGearState();
+}
+
+void UpdateGear()
+{
+    if (!gearMoving)
+        return;
+    gearElapsed += 1.0 / GearUpdateHz;
+
+    int done = 0;
+    foreach (var gm in gearMotors)
+    {
+        if (gm.Done) { done++; continue; }
+        var block = gm.Block;
+        if (block.Closed || !block.IsAttached) { gm.Done = true; done++; continue; }
+
+        float angle = block.Angle;
+        double limit = gm.TargetSide &gt; 0 ? block.UpperLimitRad : block.LowerLimitRad;
+        double remaining = Wrap(limit - angle) * gm.TargetSide; // &gt; 0: still short of the target limit
+        if (remaining &lt;= GearDoneToleranceRad) { gm.Done = true; done++; continue; }
+
+        // Pressed against an obstruction a motor jitters rather than standing still, so compare with
+        // the movement its speed should give instead of looking for zero.
+        double expected = Math.Abs(block.TargetVelocityRPM) * (Math.PI / 30.0) / GearUpdateHz;
+        double stallBelow = Math.Max(GearStallMinRad, 0.1 * expected);
+        gm.StalledUpdates = Math.Abs(Wrap(angle - gm.LastAngle)) &lt; stallBelow ? gm.StalledUpdates + 1 : 0;
+        gm.LastAngle = angle;
+        if (gearElapsed &gt;= GearMinSeconds &amp;&amp; gm.StalledUpdates &gt;= GearStallUpdates)
+        {
+            PullLimitShortOfJam(gm, angle, limit, remaining);
+            gm.Done = true;
+            done++;
+        }
+    }
+
+    if (done &lt; gearMotors.Count &amp;&amp; gearElapsed &lt; GearTimeoutSeconds)
+        return;
+
+    foreach (var gm in gearMotors)
+    {
+        if (gm.Block.Closed || gm.DownSide == 0)
+            continue;
+        if (!gm.Done &amp;&amp; gm.Block.IsAttached)
+        {
+            // Timed out short of its limit: treat where it stopped as the jam point.
+            float angle = gm.Block.Angle;
+            double limit = gm.TargetSide &gt; 0 ? gm.Block.UpperLimitRad : gm.Block.LowerLimitRad;
+            PullLimitShortOfJam(gm, angle, limit, Wrap(limit - angle) * gm.TargetSide);
+        }
+        gm.Block.RotorLock = true;
+    }
+    gearMoving = false;
+    gearStatus = (gearDown ? "down" : "up") + (gearElapsed &gt;= GearTimeoutSeconds ? " (timed out, locked where it stopped)" : "");
+    SaveGearState();
+}
+
+// The motor stopped before its limit: something is in the way. Move that limit to just
+// short of where it stopped, so it no longer presses against the obstruction.
+void PullLimitShortOfJam(GearMotor gm, float angle, double limit, double remaining)
+{
+    double margin = MathHelper.ToRadians(gearMarginDeg);
+    if (remaining &lt;= margin)
+        return;
+
+    var block = gm.Block;
+    if (!gearOriginalLimits.ContainsKey(block.EntityId))
+        gearOriginalLimits[block.EntityId] = new Vector2D(block.LowerLimitRad, block.UpperLimitRad);
+
+    // Computed from the old limit so a rotor's 0..360 angle stays on the same side of its limits.
+    double newLimit = limit - gm.TargetSide * (remaining + margin);
+    if (gm.TargetSide &gt; 0)
+        block.UpperLimitRad = (float)newLimit;
+    else
+        block.LowerLimitRad = (float)newLimit;
+}
+
+// Stowed wheels pressed against the airframe make the plane shake, so pull each subgrid wheel
+// up its suspension (minimum height) while stowed and put the old height back on deploy.
+void TuckWheels()
+{
+    TuckList(wheels);
+    TuckList(ignoredWheels);
+}
+
+void TuckList(List&lt;IMyMotorSuspension&gt; list)
+{
+    foreach (var wheel in list)
+    {
+        if (wheel.Closed || wheel.CubeGrid == Me.CubeGrid)
+            continue;
+        if (suspensionHeightProp == null)
+        {
+            var p = wheel.GetProperty("Height");
+            if (p == null)
+                return;
+            suspensionHeightProp = p.AsFloat();
+        }
+        if (!gearWheelHeights.ContainsKey(wheel.EntityId))
+            gearWheelHeights[wheel.EntityId] = suspensionHeightProp.GetValue(wheel);
+        suspensionHeightProp.SetValue(wheel, suspensionHeightProp.GetMinimum(wheel));
+    }
+}
+
+void RestoreWheelHeights()
+{
+    if (gearWheelHeights.Count == 0)
+        return;
+    RestoreList(wheels);
+    RestoreList(ignoredWheels);
+    gearWheelHeights.Clear();
+}
+
+void RestoreList(List&lt;IMyMotorSuspension&gt; list)
+{
+    foreach (var wheel in list)
+    {
+        float height;
+        if (wheel.Closed || !gearWheelHeights.TryGetValue(wheel.EntityId, out height))
+            continue;
+        if (suspensionHeightProp == null)
+        {
+            var p = wheel.GetProperty("Height");
+            if (p == null)
+                return;
+            suspensionHeightProp = p.AsFloat();
+        }
+        suspensionHeightProp.SetValue(wheel, height);
+    }
+}
+
+void RecordGearDown()
+{
+    gearDownSides.Clear();
+    gearDown = true;
+    gearMotors.Clear();
+    GetGearBlocks();
+    SaveGearState();
+}
+
+void ResetGearLimits()
+{
+    foreach (var gm in gearMotors)
+    {
+        Vector2D limits;
+        if (!gearOriginalLimits.TryGetValue(gm.Block.EntityId, out limits))
+            continue;
+        gm.Block.LowerLimitRad = (float)limits.X;
+        gm.Block.UpperLimitRad = (float)limits.Y;
+    }
+    gearOriginalLimits.Clear();
+    SaveGearState();
+}
+
+// +1 if the motor sits nearer its upper limit, -1 if nearer its lower limit, 0 if it has no limits.
+static int NearestLimitSide(IMyMotorStator block)
+{
+    double lower = block.LowerLimitRad, upper = block.UpperLimitRad;
+    if (double.IsNaN(lower) || double.IsNaN(upper) || Math.Abs(lower) &gt; 100 || Math.Abs(upper) &gt; 100)
+        return 0;
+    double angle = block.Angle;
+    return Math.Abs(Wrap(angle - upper)) &lt;= Math.Abs(Wrap(angle - lower)) ? 1 : -1;
+}
+
+// Wraps an angle difference into (-pi, pi], so a rotor's 0..2pi angle compares with its limits.
+static double Wrap(double a)
+{
+    while (a &gt; Math.PI) a -= 2 * Math.PI;
+    while (a &lt;= -Math.PI) a += 2 * Math.PI;
+    return a;
+}
+#endregion
+
+#region Gyro cleanup
+const string INI_SECTION_FLIGHT_OLD = "WitM Flight Assist";
+
+// Up to 1.6 this script flew the plane with gyro override; the Framework mod does that now. Clear an
+// override such a version left on, once at start, and only when nobody is flying the plane.
+void ClearLeftoverGyroOverride()
+{
+    foreach (var c in shipControllers)
+        if (c.IsUnderControl)
+            return;
+    var gyros = new List&lt;IMyGyro&gt;();
+    GridTerminalSystem.GetBlocksOfType(gyros, g =&gt; g.CubeGrid == Me.CubeGrid &amp;&amp; g.GyroOverride);
+    foreach (var gyro in gyros)
+    {
+        gyro.Pitch = 0f;
+        gyro.Yaw = 0f;
+        gyro.Roll = 0f;
+        gyro.GyroOverride = false;
+    }
+}
+#endregion
 
 #region Scheduler
 /// &lt;summary&gt;
@@ -3103,7 +3314,8 @@ public class RuntimeTracker
             _runtimes.Dequeue();
         }
         
-        MaxRuntime = _runtimes.Max();
+        MaxRuntime = 0; // WitM: manual max instead of LINQ Max(), which allocates every run
+        foreach (double r in _runtimes) if (r &gt; MaxRuntime) MaxRuntime = r;
     }
 
     public void AddInstructions()
@@ -3118,7 +3330,8 @@ public class RuntimeTracker
             _instructions.Dequeue();
         }
         
-        MaxInstructions = _instructions.Max();
+        MaxInstructions = 0;
+        foreach (double i in _instructions) if (i &gt; MaxInstructions) MaxInstructions = i;
     }
 
     public string Write()
@@ -3144,76 +3357,23 @@ public static class StringExtensions
     }
 }
 
-class SwcsTitleScreen
+// Static title card on the programmable block's own screen. Drawn once, then redrawn every few
+// seconds only so it reappears after the screen is reset (world load, block repaired).
+class WitmTitleCard
 {
-    // General
-    readonly Color _topBarColor = new Color(25, 25, 25);
-    readonly Color _white = new Color(200, 200, 200);
-    readonly Color _black = Color.Black;
+    static readonly Color Background = new Color(18, 24, 34);
+    static readonly Color Sand = new Color(222, 200, 150);
+    static readonly Color Dim = new Color(150, 135, 100);
+    const string Font = "White";
 
-    const TextAlignment Center = TextAlignment.CENTER;
-    const SpriteType Texture = SpriteType.TEXTURE;
+    readonly string _versionText;
+    readonly IMyTextSurface _surface;
+    bool _toggle;
 
-    const float TitleBarHeightPx = 64f;
-    const float TextSize = 1.3f;
-    const float BaseTextHeightPx = 37f;
-    const string Font = "Debug";
-    readonly string _titleText;
-    Program _program;
-    int _idx = 0;
-    bool _clearSpriteCache = false;
-    IMyTextSurface _surface = null;
-
-    // Specific
-    const string TitleFormat = "SWCS - v{0}";
-    const float WasdScale = 1.5f;
-    const float ArrowScale = 1f;
-    const float WheelScale = 0.5f;
-    const float RotorScale = 1f;
-    readonly Vector2 _wasdPos = new Vector2(-100, 100);
-    readonly Vector2 _arrowPos = new Vector2(100, -50);
-    readonly Vector2 _wheelPos = new Vector2(100, -30);
-    readonly Vector2 _rotorPos = new Vector2(100, 90);
-    static readonly Color _pressedColor = new Color(100, 100, 100);
-    enum WasdKey { None, W, A, S, D }
-    enum Arrow { None, CW, CCW }
-
-    struct Anim
+    public WitmTitleCard(string version, Program program)
     {
-        public WasdKey Key;
-        public float WheelAngle;
-        public Arrow Arrow;
-
-        public Anim(float wheelAng, WasdKey key = WasdKey.None, Arrow arrow = Arrow.None)
-        {
-            WheelAngle = MathHelper.ToRadians(wheelAng);
-            Key = key;
-            Arrow = arrow;
-        }
-    }
-
-    readonly Anim[] _animSequence = new Anim[] {
-        new Anim(0),
-        new Anim(0),
-        new Anim(30, WasdKey.D, Arrow.CW),
-        new Anim(60, WasdKey.D, Arrow.CW),
-        new Anim(90, WasdKey.D, Arrow.CW),
-        new Anim(120, WasdKey.D, Arrow.CW),
-        new Anim(150, WasdKey.D, Arrow.CW),
-        new Anim(180),
-        new Anim(180),
-        new Anim(150, WasdKey.A, Arrow.CCW),
-        new Anim(120, WasdKey.A, Arrow.CCW),
-        new Anim(90, WasdKey.A, Arrow.CCW),
-        new Anim(60, WasdKey.A, Arrow.CCW),
-        new Anim(30, WasdKey.A, Arrow.CCW),
-    };
-    
-    public SwcsTitleScreen(string version, Program program)
-    {
-        _titleText = string.Format(TitleFormat, version);
-        _program = program;
-        _surface = _program.Me.GetSurface(0);
+        _versionText = "v" + version + "  -  Villanor";
+        _surface = program.Me.GetSurface(0);
     }
 
     public void Draw()
@@ -3221,10 +3381,9 @@ class SwcsTitleScreen
         if (_surface == null)
             return;
 
-        Anim anim = _animSequence[_idx];
-        _idx = ++_idx % _animSequence.Length;
-
-        SetupDrawSurface(_surface);
+        _surface.ContentType = ContentType.SCRIPT;
+        _surface.Script = "";
+        _surface.ScriptBackgroundColor = Background;
 
         Vector2 center = _surface.TextureSize * 0.5f;
         Vector2 scaleVec = _surface.SurfaceSize / 512f;
@@ -3232,128 +3391,47 @@ class SwcsTitleScreen
 
         using (var frame = _surface.DrawFrame())
         {
-            if (_clearSpriteCache)
-            {
+            // Toggling an empty sprite makes the game redraw the frame even though nothing changed.
+            _toggle = !_toggle;
+            if (_toggle)
                 frame.Add(new MySprite());
-            }
 
-            if (anim.Arrow == Arrow.CW)
-            {
-                DrawArrowCW(frame, _arrowPos * scale + center, ArrowScale * scale);
-            }
-            else if (anim.Arrow == Arrow.CCW)
-            {
-                DrawArrowCCW(frame, _arrowPos * scale + center, ArrowScale * scale);
-            }
-            DrawWasdIcon(frame, _wasdPos * scale + center, anim.Key, WasdScale * scale);
-            DrawRotor(frame, _rotorPos * scale + center, RotorScale * scale);
-            DrawWheel(frame, _wheelPos * scale + center, WheelScale * scale, anim.WheelAngle);
+            Text(frame, "WAR IN THE", new Vector2(0, -215), 1.0f, Dim, center, scale);
+            Text(frame, "MEDITERRANEAN", new Vector2(0, -185), 1.7f, Sand, center, scale);
+            Box(frame, new Vector2(0, -120), new Vector2(300, 3), Dim, center, scale);
 
-            DrawTitleBar(_surface, frame, scale);
+            // Plane seen from above, nose up.
+            Vector2 p = new Vector2(0, 15);
+            Box(frame, p + new Vector2(0, -98), new Vector2(76, 6), Sand, center, scale);   // propeller
+            Circle(frame, p + new Vector2(0, -80), 30, Sand, center, scale);                // nose
+            Box(frame, p + new Vector2(0, 0), new Vector2(28, 160), Sand, center, scale);   // fuselage
+            Box(frame, p + new Vector2(0, -20), new Vector2(250, 32), Sand, center, scale); // wings
+            Circle(frame, p + new Vector2(-125, -20), 32, Sand, center, scale);             // wing tips
+            Circle(frame, p + new Vector2(125, -20), 32, Sand, center, scale);
+            Box(frame, p + new Vector2(0, 70), new Vector2(104, 16), Sand, center, scale);  // tailplane
+            Circle(frame, p + new Vector2(0, 80), 20, Sand, center, scale);                 // tail
+            Circle(frame, p + new Vector2(0, -42), 16, Background, center, scale);          // cockpit
+
+            Box(frame, new Vector2(0, 135), new Vector2(300, 3), Dim, center, scale);
+            Text(frame, "PLANE CONTROL", new Vector2(0, 150), 1.4f, Sand, center, scale);
+            Text(frame, _versionText, new Vector2(0, 200), 0.8f, Dim, center, scale);
         }
     }
 
-    public void RestartDraw()
+    static void Box(MySpriteDrawFrame frame, Vector2 pos, Vector2 size, Color color, Vector2 center, float scale)
     {
-        _clearSpriteCache = !_clearSpriteCache;
+        frame.Add(new MySprite(SpriteType.TEXTURE, "SquareSimple", pos * scale + center, size * scale, color, null, TextAlignment.CENTER, 0f));
     }
 
-    #region Draw Helper Functions
-    void DrawTitleBar(IMyTextSurface _surface, MySpriteDrawFrame frame, float scale)
+    static void Circle(MySpriteDrawFrame frame, Vector2 pos, float diameter, Color color, Vector2 center, float scale)
     {
-        float titleBarHeight = scale * TitleBarHeightPx;
-        Vector2 topLeft = 0.5f * (_surface.TextureSize - _surface.SurfaceSize);
-        Vector2 titleBarSize = new Vector2(_surface.TextureSize.X, titleBarHeight);
-        Vector2 titleBarPos = topLeft + new Vector2(_surface.TextureSize.X * 0.5f, titleBarHeight * 0.5f);
-        Vector2 titleBarTextPos = topLeft + new Vector2(_surface.TextureSize.X * 0.5f, 0.5f * (titleBarHeight - scale * BaseTextHeightPx));
-
-        // Title bar
-        frame.Add(new MySprite(
-            Texture,
-            "SquareSimple",
-            titleBarPos,
-            titleBarSize,
-            _topBarColor,
-            null,
-            Center));
-
-        // Title bar text
-        frame.Add(new MySprite(
-            SpriteType.TEXT,
-            _titleText,
-            titleBarTextPos,
-            null,
-            _white,
-            Font,
-            Center,
-            TextSize * scale));
+        frame.Add(new MySprite(SpriteType.TEXTURE, "Circle", pos * scale + center, new Vector2(diameter, diameter) * scale, color, null, TextAlignment.CENTER, 0f));
     }
 
-    void SetupDrawSurface(IMyTextSurface _surface)
+    static void Text(MySpriteDrawFrame frame, string text, Vector2 pos, float size, Color color, Vector2 center, float scale)
     {
-        _surface.ScriptBackgroundColor = _black;
-        _surface.ContentType = ContentType.SCRIPT;
-        _surface.Script = "";
+        frame.Add(new MySprite(SpriteType.TEXT, text, pos * scale + center, null, color, Font, TextAlignment.CENTER, size * scale));
     }
-
-    void DrawWasdIcon(MySpriteDrawFrame frame, Vector2 centerPos, WasdKey pressedKey = WasdKey.None, float scale = 1f)
-    {
-        frame.Add(new MySprite(SpriteType.TEXTURE, "SquareSimple", new Vector2(55f, 0f) * scale + centerPos, new Vector2(50f, 50f) * scale, pressedKey == WasdKey.D ? _pressedColor : _white, null, TextAlignment.CENTER, 0f)); // d key
-        frame.Add(new MySprite(SpriteType.TEXTURE, "SquareSimple", new Vector2(0f, 0f) * scale + centerPos, new Vector2(50f, 50f) * scale, pressedKey == WasdKey.S ? _pressedColor : _white, null, TextAlignment.CENTER, 0f)); // s key
-        frame.Add(new MySprite(SpriteType.TEXTURE, "SquareSimple", new Vector2(-55f, 0f) * scale + centerPos, new Vector2(50f, 50f) * scale, pressedKey == WasdKey.A ? _pressedColor : _white, null, TextAlignment.CENTER, 0f)); // a key
-        frame.Add(new MySprite(SpriteType.TEXTURE, "SquareSimple", new Vector2(0f, -55f) * scale + centerPos, new Vector2(50f, 50f) * scale, pressedKey == WasdKey.W ? _pressedColor : _white, null, TextAlignment.CENTER, 0f)); // w key
-        frame.Add(new MySprite(SpriteType.TEXT, "D", new Vector2(47f, -15f) * scale + centerPos, null, _black, "DEBUG", TextAlignment.LEFT, 1f * scale)); // d
-        frame.Add(new MySprite(SpriteType.TEXT, "S", new Vector2(-9f, -15f) * scale + centerPos, null, _black, "DEBUG", TextAlignment.LEFT, 1f * scale)); // s
-        frame.Add(new MySprite(SpriteType.TEXT, "A", new Vector2(-65f, -15f) * scale + centerPos, null, _black, "DEBUG", TextAlignment.LEFT, 1f * scale)); // a
-        frame.Add(new MySprite(SpriteType.TEXT, "W", new Vector2(-13f, -68f) * scale + centerPos, null, _black, "DEBUG", TextAlignment.LEFT, 1f * scale)); // w
-    }
-
-    void DrawRotor(MySpriteDrawFrame frame, Vector2 centerPos, float scale = 1f)
-    {
-        frame.Add(new MySprite(Texture, "SquareSimple", new Vector2(0f, -15f) * scale + centerPos, new Vector2(80f, 10f) * scale, _white, null, Center, 0f)); // stator top
-        frame.Add(new MySprite(Texture, "SquareSimple", new Vector2(0f, 20f) * scale + centerPos, new Vector2(100f, 60f) * scale, _white, null, Center, 0f)); // stator
-        frame.Add(new MySprite(Texture, "SquareSimple", new Vector2(0f, -35f) * scale + centerPos, new Vector2(40f, 20f) * scale, _white, null, Center, 0f)); // rotor shaft
-        frame.Add(new MySprite(Texture, "SquareSimple", new Vector2(0f, -50f) * scale + centerPos, new Vector2(100f, 10f) * scale, _white, null, Center, 0f)); // rotor top
-    }
-
-    void DrawArrowCW(MySpriteDrawFrame frame, Vector2 centerPos, float scale = 1f, float rotation = 0f)
-    {
-        float sin = (float)Math.Sin(rotation);
-        float cos = (float)Math.Cos(rotation);
-        frame.Add(new MySprite(Texture, "Circle", new Vector2(cos * 0f - sin * 0f, sin * 0f + cos * 0f) * scale + centerPos, new Vector2(200f, 200f) * scale, _white, null, Center, 0f + rotation)); // body
-        frame.Add(new MySprite(Texture, "SemiCircle", new Vector2(cos * 0f - sin * 0f, sin * 0f + cos * 0f) * scale + centerPos, new Vector2(250f, 250f) * scale, _black, null, Center, -2.3562f + rotation)); // body mask2
-        frame.Add(new MySprite(Texture, "Circle", new Vector2(cos * 0f - sin * 0f, sin * 0f + cos * 0f) * scale + centerPos, new Vector2(150f, 150f) * scale, _black, null, Center, 0f + rotation)); // body mask center
-        frame.Add(new MySprite(Texture, "SemiCircle", new Vector2(cos * 0f - sin * 0f, sin * 0f + cos * 0f) * scale + centerPos, new Vector2(250f, 250f) * scale, _black, null, Center, 2.3562f + rotation)); // body mask1
-        frame.Add(new MySprite(Texture, "Triangle", new Vector2(cos * 75f - sin * -48f, sin * 75f + cos * -48f) * scale + centerPos, new Vector2(50f, 50f) * scale, _white, null, Center, 2.3562f + rotation)); // head
-    }
-
-    void DrawArrowCCW(MySpriteDrawFrame frame, Vector2 centerPos, float scale = 1f, float rotation = 0f)
-    {
-        float sin = (float)Math.Sin(rotation);
-        float cos = (float)Math.Cos(rotation);
-        frame.Add(new MySprite(Texture, "Circle", new Vector2(cos * 0f - sin * 0f, sin * 0f + cos * 0f) * scale + centerPos, new Vector2(200f, 200f) * scale, _white, null, Center, 0f + rotation)); // body
-        frame.Add(new MySprite(Texture, "SemiCircle", new Vector2(cos * 0f - sin * 0f, sin * 0f + cos * 0f) * scale + centerPos, new Vector2(250f, 250f) * scale, _black, null, Center, -2.3562f + rotation)); // body mask2
-        frame.Add(new MySprite(Texture, "Circle", new Vector2(cos * 0f - sin * 0f, sin * 0f + cos * 0f) * scale + centerPos, new Vector2(150f, 150f) * scale, _black, null, Center, 0f + rotation)); // body mask center
-        frame.Add(new MySprite(Texture, "SemiCircle", new Vector2(cos * 0f - sin * 0f, sin * 0f + cos * 0f) * scale + centerPos, new Vector2(250f, 250f) * scale, _black, null, Center, 2.3562f + rotation)); // body mask1
-        frame.Add(new MySprite(Texture, "Triangle", new Vector2(cos * -75f - sin * -48f, sin * -75f + cos * -48f) * scale + centerPos, new Vector2(50f, 50f) * scale, _white, null, Center, -2.3562f + rotation)); // head
-    }
-
-    public void DrawWheel(MySpriteDrawFrame frame, Vector2 centerPos, float scale = 1f, float rotation = 0f)
-    {
-        float sin = (float)Math.Sin(rotation);
-        float cos = (float)Math.Cos(rotation);
-        frame.Add(new MySprite(SpriteType.TEXTURE, "Circle", new Vector2(cos * 0f - sin * 0f, sin * 0f + cos * 0f) * scale + centerPos, new Vector2(275f, 275f) * scale, _black, null, TextAlignment.CENTER, 0f + rotation)); // tire shadow
-        frame.Add(new MySprite(SpriteType.TEXTURE, "Circle", new Vector2(cos * 0f - sin * 0f, sin * 0f + cos * 0f) * scale + centerPos, new Vector2(250f, 250f) * scale, _white, null, TextAlignment.CENTER, 0f + rotation)); // tire
-        frame.Add(new MySprite(SpriteType.TEXTURE, "Circle", new Vector2(cos * 0f - sin * 0f, sin * 0f + cos * 0f) * scale + centerPos, new Vector2(150f, 150f) * scale, _black, null, TextAlignment.CENTER, 0f + rotation)); // cutout
-        frame.Add(new MySprite(SpriteType.TEXTURE, "SquareSimple", new Vector2(cos * -23f - sin * 32f, sin * -23f + cos * 32f) * scale + centerPos, new Vector2(25f, 100f) * scale, _white, null, TextAlignment.CENTER, -2.5133f + rotation)); // spoke5
-        frame.Add(new MySprite(SpriteType.TEXTURE, "SquareSimple", new Vector2(cos * 23f - sin * 32f, sin * 23f + cos * 32f) * scale + centerPos, new Vector2(25f, 100f) * scale, _white, null, TextAlignment.CENTER, 2.5133f + rotation)); // spoke4
-        frame.Add(new MySprite(SpriteType.TEXTURE, "SquareSimple", new Vector2(cos * -38f - sin * -12f, sin * -38f + cos * -12f) * scale + centerPos, new Vector2(25f, 100f) * scale, _white, null, TextAlignment.CENTER, -1.2566f + rotation)); // spoke3
-        frame.Add(new MySprite(SpriteType.TEXTURE, "SquareSimple", new Vector2(cos * 38f - sin * -12f, sin * 38f + cos * -12f) * scale + centerPos, new Vector2(25f, 100f) * scale, _white, null, TextAlignment.CENTER, 1.2566f + rotation)); // spoke2
-        frame.Add(new MySprite(SpriteType.TEXTURE, "SquareSimple", new Vector2(cos * 0f - sin * -40f, sin * 0f + cos * -40f) * scale + centerPos, new Vector2(25f, 100f) * scale, _white, null, TextAlignment.CENTER, 0f + rotation)); // spoke1
-        frame.Add(new MySprite(SpriteType.TEXTURE, "Circle", new Vector2(cos * 0f - sin * 0f, sin * 0f + cos * 0f) * scale + centerPos, new Vector2(50f, 50f) * scale, _white, null, TextAlignment.CENTER, 0f + rotation)); // center
-    }
-
-    #endregion
 }
 
 #region BSOD
@@ -3370,7 +3448,7 @@ static class BlueScreenOfDeath
     "{3}\n"+
     "\n"+
     "* Please REPORT this crash message to\n"+ 
-    "  the Bug Reports discussion of this script\n"+ 
+    "  Villanor (War in the Mediterranean)\n"+ 
     "\n"+
     "* Press RECOMPILE to restart the program";
 
@@ -3997,98 +4075,26 @@ static class BlueScreenOfDeath
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>121002109806613649</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="21" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.105555557" y="-0.15" z="-0.17" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 5</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>9</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>119338879980637537</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="19" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 4</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>10</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>140612560500103916</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="17" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 2</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>11</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorBlock</SubtypeName>
@@ -4166,67 +4172,19 @@ static class BlueScreenOfDeath
               <ColorMaskHSV x="0.116666667" y="-0.21" z="-0.25" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>102470391631915317</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="23" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.116666667" y="-0.21" z="-0.25" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 7</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>12</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>108618295527309583</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="16" y="9" z="24" />
-              <BlockOrientation Forward="Backward" Up="Up" />
+              <BlockOrientation Forward="Right" Up="Up" />
               <ColorMaskHSV x="0.105555557" y="-0.15" z="-0.17" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=True;y=False;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Elevator 1</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>13</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>aero-wing_tip_E_2x1x1_rounded_half_to_edge_Small</SubtypeName>
@@ -4356,36 +4314,12 @@ static class BlueScreenOfDeath
               <ColorMaskHSV x="0" y="-0.8" z="0.55" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
             </MyObjectBuilder_CubeBlock>
-            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_2x1_Control_Centered</SubtypeName>
-              <EntityId>125575012816789912</EntityId>
+            <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+              <SubtypeName>aero-wing_2x1x1_pointed_edge_Small</SubtypeName>
               <Min x="20" y="10" z="25" />
-              <BlockOrientation Forward="Backward" Up="Right" />
+              <BlockOrientation Forward="Down" Up="Right" />
               <ColorMaskHSV x="0.191666663" y="-0.38" z="-0.31" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[t=0;p=False;y=True;r=False;i=False;ir=False]</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>SM 79 - Rudder 3</CustomName>
-              <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>false</ShowInTerminal>
-              <ShowInToolbarConfig>false</ShowInToolbarConfig>
-              <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>14</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_HalfArmorBlock</SubtypeName>
@@ -7264,48 +7198,16 @@ static class BlueScreenOfDeath
               <NumberInGrid>7</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TerminalBlock">
-              <SubtypeName>Small_Flap_Straight_Centered</SubtypeName>
+              <SubtypeName>aero-wing_2x5x1_pointed_edge_Small</SubtypeName>
               <EntityId>117047941753407884</EntityId>
               <Min x="35" y="7" z="5" />
-              <BlockOrientation Forward="Backward" Up="Down" />
+              <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.105555557" y="-0.15" z="-0.17" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ComponentContainer>
-                <Components>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>b90f1f1d-920c-4fc9-a05e-1ffeb58ffaf2</Key>
-                            <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ControlSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;AutoConfigure&gt;true&lt;/AutoConfigure&gt;
-  &lt;MaxAngle&gt;25.0000019&lt;/MaxAngle&gt;
-  &lt;MaxAngleAtMaxVelocity&gt;20&lt;/MaxAngleAtMaxVelocity&gt;
-  &lt;MaxVelocity&gt;150&lt;/MaxVelocity&gt;
-  &lt;InvertPitch&gt;false&lt;/InvertPitch&gt;
-  &lt;InvertYaw&gt;false&lt;/InvertYaw&gt;
-  &lt;Trim&gt;0&lt;/Trim&gt;
-  &lt;Pitch&gt;false&lt;/Pitch&gt;
-  &lt;Yaw&gt;false&lt;/Yaw&gt;
-  &lt;Roll&gt;true&lt;/Roll&gt;
-  &lt;InvertRoll&gt;true&lt;/InvertRoll&gt;
-&lt;/ControlSettings&gt;</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
-                </Components>
-              </ComponentContainer>
-              <CustomName>Control Surface Aileron Right</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
-              <ShowInTerminal>true</ShowInTerminal>
-              <ShowInToolbarConfig>true</ShowInToolbarConfig>
+              <ShowInTerminal>false</ShowInTerminal>
+              <ShowInToolbarConfig>false</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
-              <NumberInGrid>3</NumberInGrid>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>CAP_ArmorBlock</SubtypeName>
@@ -9996,86 +9898,6 @@ static class BlueScreenOfDeath
             </MyObjectBuilder_ConveyorLine>
           </ConveyorLines>
           <BlockGroups>
-            <MyObjectBuilder_BlockGroup>
-              <Name>SM 79 - Elevator</Name>
-              <Blocks>
-                <Vector3I>
-                  <X>23</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>24</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>16</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>17</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>18</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>19</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>21</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>22</X>
-                  <Y>9</Y>
-                  <Z>24</Z>
-                </Vector3I>
-              </Blocks>
-            </MyObjectBuilder_BlockGroup>
-            <MyObjectBuilder_BlockGroup>
-              <Name>SM 79 - Rudder</Name>
-              <Blocks>
-                <Vector3I>
-                  <X>20</X>
-                  <Y>11</Y>
-                  <Z>25</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>20</X>
-                  <Y>10</Y>
-                  <Z>25</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>20</X>
-                  <Y>9</Y>
-                  <Z>25</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>20</X>
-                  <Y>8</Y>
-                  <Z>25</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>20</X>
-                  <Y>7</Y>
-                  <Z>25</Z>
-                </Vector3I>
-                <Vector3I>
-                  <X>20</X>
-                  <Y>12</Y>
-                  <Z>25</Z>
-                </Vector3I>
-              </Blocks>
-            </MyObjectBuilder_BlockGroup>
             <MyObjectBuilder_BlockGroup>
               <Name>SM 79 - Fuel/Hydrogen Tanks</Name>
               <Blocks>

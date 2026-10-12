@@ -333,5 +333,34 @@
 		</Description>
 	</EntityComponent>
 
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Airfield-Benghazi</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:true]
+			[StaticEncounterUsePlanetDirectionAndAltitude:true]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterPlanetDirection:{X:-0.609556573339072 Y:0.782094995327427 Z:0.129492093128965}]
+			[StaticEncounterPlanetAltitude:-0.849765043556545]
+			[StaticEncounterForward:{X:-0.07929425 Y:0.101492234 Z:-0.9916712}]
+			[StaticEncounterUp:{X:-0.610533059 Y:0.7814481 Z:0.128795385}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:UNOWNED]
+
+			[TriggerRadius:20000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+		</Description>
+	</EntityComponent>
+
 	</EntityComponents>
 </Definitions>

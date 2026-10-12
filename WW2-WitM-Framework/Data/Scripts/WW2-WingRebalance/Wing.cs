@@ -274,6 +274,7 @@ namespace WW2WitM.Aerodynamics
 
                     case "aero-wing_2x5x1_rounded_edge_Small":
                     case "aero-wing_5x2x1_rounded_edge_Small":
+                    case "aero-wing_2x5x1_pointed_edge_Small":
                         forceMul = wing_5x2;
                         fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.15);
                         break;

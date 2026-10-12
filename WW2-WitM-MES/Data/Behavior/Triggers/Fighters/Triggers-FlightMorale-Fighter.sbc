@@ -162,6 +162,8 @@
 			[NewBehaviorSubclass:FighterPlane]
 			[ChangeAutopilotProfile:true]
 			[AutopilotProfile:Primary]
+			[ChangeAutopilotSpeed:true]
+			[NewAutopilotSpeed:-1]
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Trigger-FighterSwitch-Fighter-Gray]
 			[DisableTriggerNames:WW2-Trigger-PatrolSwitch-Fighter-Gray]
@@ -171,6 +173,9 @@
 			[DisableTriggerNames:WW2-Trigger-PatrolNextFromLast]
 			[DisableTriggerNames:WW2-Trigger-WingmanLost]
 			[DisableTriggerNames:WW2-Trigger-FlightBreakOff-Gray]
+			[DisableTriggerNames:WW2-Trigger-FighterSwitch-Wing]
+			[DisableTriggerNames:WW2-Trigger-FormationSwitch]
+			[DisableTriggerNames:WW2-Trigger-FormationTargetLost]
 			</Description>
         </EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -228,6 +233,8 @@
 			[NewBehaviorSubclass:FighterPlane]
 			[ChangeAutopilotProfile:true]
 			[AutopilotProfile:Primary]
+			[ChangeAutopilotSpeed:true]
+			[NewAutopilotSpeed:-1]
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Trigger-FighterSwitch-Fighter-Green]
 			[DisableTriggerNames:WW2-Trigger-PatrolSwitch-Fighter-Green]
@@ -237,6 +244,9 @@
 			[DisableTriggerNames:WW2-Trigger-PatrolNextFromLast]
 			[DisableTriggerNames:WW2-Trigger-WingmanLost]
 			[DisableTriggerNames:WW2-Trigger-FlightBreakOff-Green]
+			[DisableTriggerNames:WW2-Trigger-FighterSwitch-Wing]
+			[DisableTriggerNames:WW2-Trigger-FormationSwitch]
+			[DisableTriggerNames:WW2-Trigger-FormationTargetLost]
 			</Description>
         </EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
