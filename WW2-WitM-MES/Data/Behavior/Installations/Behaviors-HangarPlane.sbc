@@ -19,6 +19,21 @@
 
 			</Description>
         </EntityComponent>
+		
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-HangarPlane-D520</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			[Triggers:WW2-Trigger-UnStatic]
+
+			</Description>
+        </EntityComponent>
 
 <!-- Green Attackers -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">

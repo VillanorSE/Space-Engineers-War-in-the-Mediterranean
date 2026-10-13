@@ -62,7 +62,7 @@ There is a full modlist for this project but the primary functional mods are lis
 - [ ] Light Tank - L6/40
 - [ ] Light Tank - Renault R35
 - [x] Attacker - Ba 65
-- [ ] Fighter - Dewoitine D.520
+- [ ] Fighter - Dewoitine D.520 (built and wired; owner test pending)
 - [ ] Battleship - Strasbourg
 - [ ] Battleship - Vittoria Veneto
 

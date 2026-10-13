@@ -596,7 +596,7 @@
 	</Prefabs>
 </SpawnGroup>
 
-<!-- Potez 630 + MS.406 -->
+<!-- Potez 630 + escort (D.520 or MS.406, random) -->
 <SpawnGroup>
 	<Id>
 		<TypeId>SpawnGroupDefinition</TypeId>
@@ -627,6 +627,15 @@
 			<Behaviour>WW2-Behavior-Strike-Green</Behaviour>
 			<Speed>55.0</Speed>
 		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-D520">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
 		<Prefab SubtypeId="NPC-WW2-MS406">
 			<Position>
 				<X>50.0</X>
@@ -639,7 +648,7 @@
 	</Prefabs>
 </SpawnGroup>
 
-<!-- MS.406 + MS.406 -->
+<!-- MS.406 + escort (D.520 or MS.406, random) -->
 <SpawnGroup>
 	<Id>
 		<TypeId>SpawnGroupDefinition</TypeId>
@@ -670,6 +679,15 @@
 			<Behaviour>WW2-Behavior-Strike-Green</Behaviour>
 			<Speed>55.0</Speed>
 		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-D520">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
 		<Prefab SubtypeId="NPC-WW2-MS406">
 			<Position>
 				<X>50.0</X>
@@ -682,7 +700,7 @@
 	</Prefabs>
 </SpawnGroup>
 
-<!-- V-156-F Bomber + MS.406 -->
+<!-- V-156-F Bomber + escort (D.520 or MS.406, random) -->
 <SpawnGroup>
 	<Id>
 		<TypeId>SpawnGroupDefinition</TypeId>
@@ -713,6 +731,15 @@
 			<Behaviour>WW2-Behavior-Strike-Green</Behaviour>
 			<Speed>55.0</Speed>
 		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-D520">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
 		<Prefab SubtypeId="NPC-WW2-MS406">
 			<Position>
 				<X>50.0</X>
@@ -725,7 +752,7 @@
 	</Prefabs>
 </SpawnGroup>
 
-<!-- V-156-F Bomber + MS.406 + MS.406 -->
+<!-- V-156-F Bomber + 2 escorts (D.520 or MS.406 each, random) -->
 <SpawnGroup>
 	<Id>
 		<TypeId>SpawnGroupDefinition</TypeId>
@@ -756,9 +783,27 @@
 			<Behaviour>WW2-Behavior-Strike-Green</Behaviour>
 			<Speed>55.0</Speed>
 		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-D520">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
 		<Prefab SubtypeId="NPC-WW2-MS406">
 			<Position>
 				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-D520">
+			<Position>
+				<X>-50.0</X>
 				<Y>0.0</Y>
 				<Z>40.0</Z>
 			</Position>
@@ -777,7 +822,7 @@
 	</Prefabs>
 </SpawnGroup>
 
-<!-- V-156-F Bomber + V-156-F Bomber + MS.406 -->
+<!-- V-156-F Bomber + V-156-F Bomber + escort (D.520 or MS.406, random) -->
 <SpawnGroup>
 	<Id>
 		<TypeId>SpawnGroupDefinition</TypeId>
@@ -817,6 +862,15 @@
 			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
 			<Speed>55.0</Speed>
 		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-D520">
+			<Position>
+				<X>-50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
 		<Prefab SubtypeId="NPC-WW2-MS406">
 			<Position>
 				<X>-50.0</X>
@@ -829,7 +883,7 @@
 	</Prefabs>
 </SpawnGroup>
 
-<!-- V-156-F Bomber + V-156-F Bomber + MS.406 + MS.406 -->
+<!-- V-156-F Bomber + V-156-F Bomber + 2 escorts (D.520 or MS.406 each, random) -->
 <SpawnGroup>
 	<Id>
 		<TypeId>SpawnGroupDefinition</TypeId>
@@ -869,11 +923,29 @@
 			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
 			<Speed>55.0</Speed>
 		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-D520">
+			<Position>
+				<X>-50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
 		<Prefab SubtypeId="NPC-WW2-MS406">
 			<Position>
 				<X>-50.0</X>
 				<Y>0.0</Y>
 				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-D520">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>80.0</Z>
 			</Position>
 			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
 			<Speed>55.0</Speed>
@@ -923,7 +995,7 @@
 	</Prefabs>
 </SpawnGroup>
 
-<!-- MS.406 + MS.406 -->
+<!-- MS.406 + escort (D.520 or MS.406, random) -->
 <SpawnGroup>
 	<Id>
 		<TypeId>SpawnGroupDefinition</TypeId>
@@ -953,6 +1025,15 @@
 			<Behaviour>WW2-Behavior-Strike-Green</Behaviour>
 			<Speed>55.0</Speed>
 		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-D520">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
 		<Prefab SubtypeId="NPC-WW2-MS406">
 			<Position>
 				<X>50.0</X>
@@ -965,7 +1046,7 @@
 	</Prefabs>
 </SpawnGroup>
 
-<!-- MS.406 + MS.406 + MS.406 -->
+<!-- MS.406 + 2 escorts (D.520 or MS.406 each, random) -->
 <SpawnGroup>
 	<Id>
 		<TypeId>SpawnGroupDefinition</TypeId>
@@ -995,9 +1076,27 @@
 			<Behaviour>WW2-Behavior-Strike-Green-Flight</Behaviour>
 			<Speed>55.0</Speed>
 		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-D520">
+			<Position>
+				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green-FlightWing</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
 		<Prefab SubtypeId="NPC-WW2-MS406">
 			<Position>
 				<X>50.0</X>
+				<Y>0.0</Y>
+				<Z>40.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green-FlightWing</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+		<Prefab SubtypeId="NPC-WW2-D520">
+			<Position>
+				<X>-50.0</X>
 				<Y>0.0</Y>
 				<Z>40.0</Z>
 			</Position>

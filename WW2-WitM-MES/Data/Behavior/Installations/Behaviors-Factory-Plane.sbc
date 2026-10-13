@@ -148,6 +148,33 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Factory-Plane-D520</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+			[TriggerGroups:WW2-Points-Group-Green-Factory]
+
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[TriggerGroups:WW2-TriggerGroup-Retaliation-Tag-Green]
+			[Triggers:WW2-Trigger-Announcement-Factory]
+			
+			[Triggers:WW2-Trigger-DeliverySpawn-Factory-Plane-Green]
+			[Triggers:WW2-Trigger-CallCargoPlane]
+			[Triggers:WW2-Trigger-Recirculate-Factory-Plane]
+			[Triggers:WW2-Trigger-ProjectorBuild-Factory]
+
+			[Triggers:WW2-Trigger-Activation-Factory-Plane-Green]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-DefenseSpawn-Green]
+			[Triggers:WW2-Store-Trigger-UpdateSales-D520]
+
+			</Description>
+        </EntityComponent>
+		
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
                 <SubtypeId>WW2-Behavior-Factory-Plane-Potez630</SubtypeId>
             </Id>
             <Description>

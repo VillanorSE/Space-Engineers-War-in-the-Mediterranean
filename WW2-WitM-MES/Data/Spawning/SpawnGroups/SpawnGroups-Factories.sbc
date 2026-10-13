@@ -373,6 +373,74 @@
 		</Prefabs>
 	</SpawnGroup>
 
+	<!-- Green D.520 Factory -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Factory-Green-D520</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[PlanetaryInstallationType:Medium]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-WL2]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-33pct]
+
+		[FactionOverride:GREEN]
+		[SpawnRandomCargo:true]
+
+		[UseContainerTypeAssignment:true]
+		[ContainerTypeAssignBlockName:Small Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
+
+		[ContainerTypeAssignBlockName:Medium Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Factory-Plane-Green">
+				<Position>
+					<X>0.0</X>
+					<Y>-26.5</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Factory-Plane-D520</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-D520">
+				<Position>
+					<X>-2.5</X>
+					<Y>3.5</Y>
+					<Z>-20.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-D520">
+				<Position>
+					<X>-2.5</X>
+					<Y>3.5</Y>
+					<Z>-5.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-D520">
+				<Position>
+					<X>-2.5</X>
+					<Y>3.5</Y>
+					<Z>10.0</Z>
+				</Position>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
 	<!-- Green Potez 630 Factory -->
 	<SpawnGroup>
 		<Id>

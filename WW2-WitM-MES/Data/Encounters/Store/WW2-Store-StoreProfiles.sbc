@@ -134,6 +134,20 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-D520</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-FactoryPlanes.xml]
+			[MinOfferItems:1]
+			[MaxOfferItems:1]
+			[ItemsRequireInventory:false]
+			[RequiredOffers:WW2-D520]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
 				<SubtypeId>WW2-Store-Profile-Potez630</SubtypeId>
 			</Id>
 			<Description>

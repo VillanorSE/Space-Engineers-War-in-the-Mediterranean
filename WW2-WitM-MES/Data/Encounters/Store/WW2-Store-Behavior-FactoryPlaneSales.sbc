@@ -256,6 +256,36 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-D520</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Store-Action-UpdateSales-D520]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-D520</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Action]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-FactoryPlane]
+			[StoreProfiles:WW2-Store-Profile-D520]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
 				<SubtypeId>WW2-Store-Trigger-UpdateSales-Potez630</SubtypeId>
 			</Id>
 			<Description>
