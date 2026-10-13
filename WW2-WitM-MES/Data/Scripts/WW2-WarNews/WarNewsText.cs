@@ -60,6 +60,22 @@ namespace WW2WitM.WarNewsSystem
             return "AIRFIELD ABANDONED - " + Adj(oldOwner) + " forces have withdrawn from " + airfield + " airfield.";
         }
 
+        // Vehicle depots (D-049)
+        public static string DepotTaken(string newOwner, string depot)
+        {
+            return "DEPOT OCCUPIED - " + Adj(newOwner) + " forces have moved into the " + depot + " vehicle depot.";
+        }
+
+        public static string DepotCaptured(string newOwner, string oldOwner, string depot)
+        {
+            return "DEPOT CHANGES HANDS - " + Adj(newOwner) + " forces have taken the " + depot + " vehicle depot from " + People(oldOwner) + ".";
+        }
+
+        public static string DepotAbandoned(string oldOwner, string depot)
+        {
+            return "DEPOT ABANDONED - " + Adj(oldOwner) + " forces have withdrawn from the " + depot + " vehicle depot.";
+        }
+
         // War Level (owner's wording, 2026-10-06)
         public static string WarLevelUp(int level)
         {

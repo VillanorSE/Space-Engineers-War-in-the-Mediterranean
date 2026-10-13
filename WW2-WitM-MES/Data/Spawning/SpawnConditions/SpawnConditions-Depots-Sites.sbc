@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Depot positions (owner). Placeholders stay closed: fill StaticEncounterCoords = TriggerCoords (Build World grid position), Forward and Up, THEN set [StaticEncounter:true]. To move one: false, reload, true, reload. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Depot-Benghazi</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:false]
+			[StaticEncounterUsePlanetDirectionAndAltitude:false]
+			[StaticEncounterCoords:{X:0 Y:0 Z:0}]
+			[TriggerCoords:{X:0 Y:0 Z:0}]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterForward:{X:0 Y:0 Z:0}]
+			[StaticEncounterUp:{X:0 Y:0 Z:0}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:UNOWNED]
+
+			[TriggerRadius:20000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WitM-DepotOpen-{SpawnGroupName}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Depot-Tunis</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:false]
+			[StaticEncounterUsePlanetDirectionAndAltitude:false]
+			[StaticEncounterCoords:{X:0 Y:0 Z:0}]
+			[TriggerCoords:{X:0 Y:0 Z:0}]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterForward:{X:0 Y:0 Z:0}]
+			[StaticEncounterUp:{X:0 Y:0 Z:0}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:UNOWNED]
+
+			[TriggerRadius:20000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WitM-DepotOpen-{SpawnGroupName}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Depot-Tobruk</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:false]
+			[StaticEncounterUsePlanetDirectionAndAltitude:false]
+			[StaticEncounterCoords:{X:0 Y:0 Z:0}]
+			[TriggerCoords:{X:0 Y:0 Z:0}]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterForward:{X:0 Y:0 Z:0}]
+			[StaticEncounterUp:{X:0 Y:0 Z:0}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:UNOWNED]
+
+			[TriggerRadius:20000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WitM-DepotOpen-{SpawnGroupName}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Depot-Abruzzo</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:false]
+			[StaticEncounterUsePlanetDirectionAndAltitude:false]
+			[StaticEncounterCoords:{X:0 Y:0 Z:0}]
+			[TriggerCoords:{X:0 Y:0 Z:0}]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterForward:{X:0 Y:0 Z:0}]
+			[StaticEncounterUp:{X:0 Y:0 Z:0}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:UNOWNED]
+
+			[TriggerRadius:20000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WitM-DepotOpen-{SpawnGroupName}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Depot-Mascara</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:false]
+			[StaticEncounterUsePlanetDirectionAndAltitude:false]
+			[StaticEncounterCoords:{X:0 Y:0 Z:0}]
+			[TriggerCoords:{X:0 Y:0 Z:0}]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterForward:{X:0 Y:0 Z:0}]
+			[StaticEncounterUp:{X:0 Y:0 Z:0}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:UNOWNED]
+
+			[TriggerRadius:20000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WitM-DepotOpen-{SpawnGroupName}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Depot-Sirte</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:false]
+			[StaticEncounterUsePlanetDirectionAndAltitude:false]
+			[StaticEncounterCoords:{X:0 Y:0 Z:0}]
+			[TriggerCoords:{X:0 Y:0 Z:0}]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterForward:{X:0 Y:0 Z:0}]
+			[StaticEncounterUp:{X:0 Y:0 Z:0}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:UNOWNED]
+
+			[TriggerRadius:20000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[SandboxVariables:WitM-DepotOpen-{SpawnGroupName}]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

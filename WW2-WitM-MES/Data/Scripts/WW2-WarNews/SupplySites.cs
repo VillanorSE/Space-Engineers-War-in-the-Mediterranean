@@ -9,17 +9,22 @@ using WW2WitM.Refresh;
 
 namespace WW2WitM.Supply
 {
-    // Supply rules (D-035, D-041, D-045; production repo design/war-layer-phase1-build-plan.md) and the site data supply needs
+    // Supply rules (D-035, D-041, D-045, D-047, D-049; production repo design/war-layer-phase1-build-plan.md) and the site data supply needs
     // on top of the shared site table RefreshSites.All.
     public static class SupplySites
     {
         public const int Normal = 0, Low = 1, Full = 2;
 
-        public const int PortStart = 200, PortCap = 400, PortLow = 100, PortFull = 320, PortUpkeep = 4;
+        // Ports (D-047): Home box cap 200 (bands on Home), Onward box cap 400. Start values for a new port are an agent choice.
+        public const int PortStart = 120, PortCap = 200, PortLow = 60, PortFull = 180, PortUpkeep = 4;
+        public const int PortOnwardStart = 80, PortOnwardCap = 400;
+        public const double PortOnwardShare = 0.5;
         public const int AirfieldStart = 60, AirfieldCap = 100, AirfieldLow = 30, AirfieldFull = 80, AirfieldUpkeep = 2;
         public const int CapturedStart = 20;
-        public const int Feed = 10, ShipDelivery = 60, AirCargoDelivery = 20, AirCargoCost = 10;
+        public const int HqProduction = 20, AirCargoDelivery = 20, AirCargoCost = 10;
         public const int DefenseCost = 3, SingleCost = 4, BomberCost = 5, GroupPlaneCost = 3;
+        // Each defending plane a port scrambles (WW2-Action-DefenseSpawn-Port-{F}), from its Home box; not refunded.
+        public const int PortDefenseCost = 3;
         public const double ZoneStep = 5000;
         public const double AirCargoDeliveryRange = 5000;
 
@@ -32,6 +37,19 @@ namespace WW2WitM.Supply
             { "WW2-Port-Toulon", new[] { "Green", "Toulon" } },
             { "WW2-Port-Oran", new[] { "Green", "Oran" } },
             { "WW2-Port-Alexandria", new[] { "Green", "Alexandria" } },
+        };
+
+        // Supply production (D-047): the HQs put it into Onward and top their Home box up from it.
+        private static readonly HashSet<string> Hqs = new HashSet<string> { "WW2-Port-LaSpezia", "WW2-Port-Toulon" };
+
+        // Cargo ship spawn group WW2-CargoShip-{Origin}-{Destination} -> load delivered; it costs a third of that at the HQ.
+        // Return legs (to an HQ) are not listed: they carry and cost nothing.
+        private static readonly Dictionary<string, int> ShipLoads = new Dictionary<string, int>
+        {
+            { "WW2-CargoShip-LaSpezia-Civitavecchia", 15 },
+            { "WW2-CargoShip-LaSpezia-Tripoli", 60 },
+            { "WW2-CargoShip-Toulon-Oran", 60 },
+            { "WW2-CargoShip-Toulon-Alexandria", 90 },
         };
 
         // Territory zone centres ([Coordinates:] in Territory-Zones.sbc); radius 5 km plus 5 km per {Anchor}_Tier{k}Grown (Triggers-Zone-Change.sbc).
@@ -51,9 +69,26 @@ namespace WW2WitM.Supply
             "NPC-WW2-Re2000", "NPC-WW2-Re2001", "NPC-WW2-FC20", "NPC-WW2-Ba65", "NPC-WW2-SM79Bomber",
             "NPC-WW2-Ba65-Pair", "NPC-WW2-Re2000-Flight", "NPC-WW2-Re2001-Flight",
             "NPC-WW2-MS406", "NPC-WW2-Potez630", "NPC-WW2-V-156-F_Bomber", "NPC-WW2-MS406-Flight",
+            "NPC-WW2-D520", "NPC-WW2-D520-Flight",
         };
 
         private static readonly HashSet<string> Bombers = new HashSet<string> { "NPC-WW2-SM79Bomber", "NPC-WW2-V-156-F_Bomber" };
+
+        // Depot ground units (D-049): spawn groups WW2-DepotUnit-{Defense|Patrol}-WL{n}-{Side} (production repo
+        // tools/scripts/WW2-Tool-GenDepots.py). Charged at spawn by prefab: armored car 2, tank 3 (defense) / 4 (patrol).
+        // Depots use the airfield supply constants (start 60, cap 100, Low < 30, Full >= 80, upkeep 2/h, captured 20).
+        public const string DepotUnitPrefix = "WW2-DepotUnit-";
+        public const int DepotCarCost = 2, DepotTankDefenseCost = 3, DepotTankPatrolCost = 4;
+        private static readonly HashSet<string> ArmoredCars = new HashSet<string> { "NPC-WW2-AB41", "NPC-WW2-Panhard178" };
+        // Territory points a held depot adds each hour to its owner's nearest anchor (D-049 "holding gives territory points";
+        // AGENT number, owner to confirm). Counters are capped by Triggers-Zone-Change.sbc.
+        public const int DepotHoldingPointsPerHour = 5;
+
+        private static readonly Dictionary<string, string> AnchorSides = new Dictionary<string, string>
+        {
+            { "LaSpezia", "Gray" }, { "Tripoli", "Gray" }, { "Rome", "Gray" },
+            { "Toulon", "Green" }, { "Oran", "Green" }, { "Alexandria", "Green" },
+        };
 
         public static readonly List<RefreshSite> Tracked = BuildTracked();
 
@@ -65,7 +100,7 @@ namespace WW2WitM.Supply
         {
             var list = new List<RefreshSite>();
             foreach (var s in RefreshSites.All)
-                if (s.Airfield || Ports.ContainsKey(s.Group))
+                if (s.Owned || Ports.ContainsKey(s.Group))
                     list.Add(s);
             return list;
         }
@@ -90,6 +125,49 @@ namespace WW2WitM.Supply
             return Ports.ContainsKey(group);
         }
 
+        public static bool IsDepot(string group)
+        {
+            var s = group != null ? Find(group) : null;
+            return s != null && s.Depot;
+        }
+
+        public static bool IsDepotUnitGroup(string group)
+        {
+            return group != null && group.StartsWith(DepotUnitPrefix, StringComparison.Ordinal);
+        }
+
+        public static bool IsDepotPatrolGroup(string group)
+        {
+            return IsDepotUnitGroup(group) && group.StartsWith(DepotUnitPrefix + "Patrol-", StringComparison.Ordinal);
+        }
+
+        public static int DepotUnitCost(string prefab, bool patrol)
+        {
+            if (prefab != null && ArmoredCars.Contains(prefab))
+                return DepotCarCost;
+            return patrol ? DepotTankPatrolCost : DepotTankDefenseCost;
+        }
+
+        // The owner's territory anchor nearest a site, for depot holding points; "" if none.
+        public static string NearestAnchor(Vector3D position, string side)
+        {
+            string best = "";
+            double bestDist = double.MaxValue;
+            foreach (var a in Anchors)
+            {
+                string s;
+                if (!AnchorSides.TryGetValue(a.Key, out s) || s != side)
+                    continue;
+                var d = Vector3D.DistanceSquared(a.Value, position);
+                if (d < bestDist)
+                {
+                    bestDist = d;
+                    best = a.Key;
+                }
+            }
+            return best;
+        }
+
         public static string PortFaction(string group)
         {
             string[] p;
@@ -101,6 +179,28 @@ namespace WW2WitM.Supply
             string[] p;
             return Ports.TryGetValue(group, out p) ? p[1] : "";
         }
+
+        public static bool IsHq(string group)
+        {
+            return group != null && Hqs.Contains(group);
+        }
+
+        // A cargo ship's load and its origin/destination port groups, or false for a return leg or another group.
+        public static bool ShipLoad(string group, out int load, out string origin, out string destination)
+        {
+            origin = destination = null;
+            if (group == null || !ShipLoads.TryGetValue(group, out load))
+            {
+                load = 0;
+                return false;
+            }
+            var parts = group.Split('-');
+            origin = "WW2-Port-" + parts[2];
+            destination = "WW2-Port-" + parts[3];
+            return true;
+        }
+
+        public static int ShipCost(int load) { return load / 3; }
 
         public static int Cap(string group) { return IsPort(group) ? PortCap : AirfieldCap; }
         public static int Start(string group) { return IsPort(group) ? PortStart : AirfieldStart; }
@@ -171,6 +271,11 @@ namespace WW2WitM.Supply
         // Where MES places the site: the surface under its direction, raised by its altitude (as RefreshSession.ComputeAnchor).
         public static bool Position(RefreshSite site, out Vector3D position)
         {
+            if (site.Depot)
+            {
+                position = site.Coords;
+                return true;
+            }
             if (positions.TryGetValue(site.Group, out position))
                 return true;
             if (planet == null || planet.MarkedForClose)
@@ -211,13 +316,36 @@ namespace WW2WitM.Supply
         // The MES spawn group stored on the grid (NpcData, see RefreshSites.cs NpcDataLite), or null.
         public static string SpawnGroupOf(IMyCubeGrid grid)
         {
+            var data = NpcDataOf(grid);
+            return data != null ? data.SpawnGroupName : null;
+        }
+
+        // Set by the port defense spawners ([CustomCountersVariables:WitMPortDefense,1], Triggers-DefensiveSpawn-Port.sbc); MES copies
+        // a spawner's counter variables onto the spawned NpcData (Spawning/PrefabSpawner.cs, BehaviorSpawnHelper.cs).
+        public const string PortDefenseMarker = "WitMPortDefense";
+
+        public static bool IsPortDefenseSpawn(IMyCubeGrid grid)
+        {
+            var data = NpcDataOf(grid);
+            int v;
+            return data != null && data.CustomCountersVariables != null && data.CustomCountersVariables.TryGetValue(PortDefenseMarker, out v) && v > 0;
+        }
+
+        // The prefab MES spawned the grid from (NpcData OriginalPrefabId), or null.
+        public static string PrefabOf(IMyCubeGrid grid)
+        {
+            var data = NpcDataOf(grid);
+            return data != null ? data.OriginalPrefabId : null;
+        }
+
+        private static NpcDataLite NpcDataOf(IMyCubeGrid grid)
+        {
             string text;
             if (grid == null || grid.Storage == null || !grid.Storage.TryGetValue(RefreshSession.NpcDataKey, out text) || string.IsNullOrEmpty(text))
                 return null;
             try
             {
-                var data = MyAPIGateway.Utilities.SerializeFromBinary<NpcDataLite>(Convert.FromBase64String(text));
-                return data != null ? data.SpawnGroupName : null;
+                return MyAPIGateway.Utilities.SerializeFromBinary<NpcDataLite>(Convert.FromBase64String(text));
             }
             catch (Exception)
             {

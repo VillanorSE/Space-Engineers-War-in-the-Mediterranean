@@ -1,0 +1,1554 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Supply truck convoy routes (production repo design/war-layer-phase2-supply-convoys.md). Per route: the road as [CustomWaypoints:{X:1 Y:2 Z:3},{X:4 Y:5 Z:6}] (one line, no spaces after the commas: MES skips such points) (same list in Lead and Follow, port to destination) and 5 start slots (1 = lead, front of the column). A route stays off until the C# finds all of it filled in. -->
+<!-- Civitavecchia port -> Foggia airfield (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Civitavecchia-Foggia-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Civitavecchia-Foggia-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Civitavecchia-Foggia-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Civitavecchia-Foggia-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Civitavecchia-Foggia-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Civitavecchia-Foggia-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Civitavecchia-Foggia-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Tripoli port -> Bizerte airfield (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Tripoli-Bizerte-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Tripoli-Bizerte-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-Bizerte-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-Bizerte-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-Bizerte-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-Bizerte-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-Bizerte-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Tripoli port -> Benghazi airfield (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Tripoli-Benghazi-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Tripoli-Benghazi-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-Benghazi-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-Benghazi-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-Benghazi-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-Benghazi-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-Benghazi-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Tripoli port -> Tobruk airfield (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Tripoli-Tobruk-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Tripoli-Tobruk-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-Tobruk-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-Tobruk-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-Tobruk-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-Tobruk-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-Tobruk-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Toulon port -> Gibraltar airfield (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Toulon-Gibraltar-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Toulon-Gibraltar-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Toulon-Gibraltar-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Toulon-Gibraltar-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Toulon-Gibraltar-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Toulon-Gibraltar-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Toulon-Gibraltar-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Oran port -> Bizerte airfield (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Oran-Bizerte-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Oran-Bizerte-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Oran-Bizerte-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Oran-Bizerte-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Oran-Bizerte-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Oran-Bizerte-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Oran-Bizerte-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Alexandria port -> Casablanca airfield (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Alexandria-Casablanca-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Alexandria-Casablanca-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-Casablanca-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-Casablanca-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-Casablanca-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-Casablanca-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-Casablanca-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Alexandria port -> Benghazi airfield (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Alexandria-Benghazi-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Alexandria-Benghazi-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-Benghazi-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-Benghazi-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-Benghazi-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-Benghazi-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-Benghazi-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Tripoli port -> Benghazi depot (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Tripoli-BenghaziDepot-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Tripoli-BenghaziDepot-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-BenghaziDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-BenghaziDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-BenghaziDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-BenghaziDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-BenghaziDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Alexandria port -> Benghazi depot (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Alexandria-BenghaziDepot-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Alexandria-BenghaziDepot-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-BenghaziDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-BenghaziDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-BenghaziDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-BenghaziDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-BenghaziDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Tripoli port -> Tunis depot (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Tripoli-TunisDepot-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Tripoli-TunisDepot-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-TunisDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-TunisDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-TunisDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-TunisDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-TunisDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Oran port -> Tunis depot (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Oran-TunisDepot-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Oran-TunisDepot-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Oran-TunisDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Oran-TunisDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Oran-TunisDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Oran-TunisDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Oran-TunisDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Tripoli port -> Tobruk depot (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Tripoli-TobrukDepot-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Tripoli-TobrukDepot-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-TobrukDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-TobrukDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-TobrukDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-TobrukDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-TobrukDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Alexandria port -> Tobruk depot (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Alexandria-TobrukDepot-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Alexandria-TobrukDepot-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-TobrukDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-TobrukDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-TobrukDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-TobrukDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-TobrukDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Civitavecchia port -> Abruzzo depot (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Civitavecchia-AbruzzoDepot-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Civitavecchia-AbruzzoDepot-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Civitavecchia-AbruzzoDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Civitavecchia-AbruzzoDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Civitavecchia-AbruzzoDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Civitavecchia-AbruzzoDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Civitavecchia-AbruzzoDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Oran port -> Mascara depot (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Oran-MascaraDepot-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Oran-MascaraDepot-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Oran-MascaraDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Oran-MascaraDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Oran-MascaraDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Oran-MascaraDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Oran-MascaraDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Tripoli port -> Sirte depot (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Tripoli-SirteDepot-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Tripoli-SirteDepot-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-SirteDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-SirteDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-SirteDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-SirteDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Tripoli-SirteDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+<!-- Alexandria port -> Sirte depot (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Alexandria-SirteDepot-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckLead-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Convoy-Alexandria-SirteDepot-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:CargoShip]
+			[UsePlayerDistanceTimer:false]
+			[AutopilotData:WW2-Autopilot-ConvoyTruck]
+			[TriggerGroups:WW2-Convoy-TriggerGroup-TruckFollow-Green]
+			[TriggerGroups:WW2-Points-Group-Green-UtilityNaval]
+			[CustomWaypoints:]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-SirteDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-SirteDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-SirteDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-SirteDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Start-Alexandria-SirteDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Waypoint]
+			[Waypoint:Static]
+			[Coordinates:{X:0 Y:0 Z:0}]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

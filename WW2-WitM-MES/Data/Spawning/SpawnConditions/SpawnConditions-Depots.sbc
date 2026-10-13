@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Depot ground units and garage bay vehicles, spawned only by depot triggers (Triggers-Depot-Forces.sbc). -Pick1: one of two prefabs; -WL5: the heavy tank, one medium and each further medium at 50% (MES SpawnGroupCollection.cs SelectPrefabIndexes, RandomSelectedIndexes; -1 picks nothing). -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnit</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnit-Pick1</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Unit,Unit]
+			[PrefabIndexGroupValues:0,1]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnit-WL5</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Heavy,Medium1,Medium2,Medium2,Medium3,Medium3]
+			[PrefabIndexGroupValues:0,1,2,-1,3,-1]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

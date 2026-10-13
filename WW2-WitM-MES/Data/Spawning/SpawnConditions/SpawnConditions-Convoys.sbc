@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Supply convoy trucks, spawned only by the port convoy triggers (Triggers-Convoy-Port.sbc). WarLevel is unset at level 1, so an unset counter fails these checks, which is what slots 3-5 need. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Convoy</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Convoy-WL3</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Convoy-WL4</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:4]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Convoy-WL5</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:5]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

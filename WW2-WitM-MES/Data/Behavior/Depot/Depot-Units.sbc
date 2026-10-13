@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Depot ground units: MES Patrol behavior on hidden NPC thrusters (no wheel driving or road pathing in MES), looping around their spawn point; turrets engage on their own. Default player-distance despawn kept: they only matter with players near. Despawn after 30 min; the C# refunds intact patrol units. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-DepotPatrol</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Autopilot]
+			[UseSurfaceHoverThrustMode:true]
+			[IdealPlanetAltitude:2]
+			[MinimumPlanetAltitude:0]
+			[AltitudeTolerance:2]
+			[HoverPathStepDistance:30]
+			[FlyLevelWithGravity:false]
+			[LevelWithGravityWhenIdle:true]
+			[DisableInertiaDampeners:false]
+			[IdealMaxSpeed:10]
+			[IdealMinSpeed:4]
+			[MaxSpeedTolerance:3]
+			[MaxVelocityAngleForSpeedControl:180]
+			[SlowDownOnWaypointApproach:true]
+			[ExtraSlowDownDistance:40]
+			[WaypointTolerance:15]
+			[WaypointWaitTimeTrigger:20]
+			[WaypointAbandonTimeTrigger:300]
+			[AngleAllowedForForwardThrust:35]
+			[RotationMultiplier:1]
+			[RotationMultiplierPitch:0.1]
+			[LimitRotationSpeed:true]
+			[MaxRotationMagnitude:0.3]
+			[HoverUpAngle:30]
+			[UseVelocityCollisionEvasion:false]
+			[AllowStrafing:false]
+			[OffsetPlanetMinTargetAltitude:2]
+			[OffsetPlanetMaxTargetAltitude:2]
+			[OffsetPlanetMinDistFromTarget:800]
+			[OffsetPlanetMaxDistFromTarget:1200]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-DepotDefense</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Autopilot]
+			[UseSurfaceHoverThrustMode:true]
+			[IdealPlanetAltitude:2]
+			[MinimumPlanetAltitude:0]
+			[AltitudeTolerance:2]
+			[HoverPathStepDistance:30]
+			[FlyLevelWithGravity:false]
+			[LevelWithGravityWhenIdle:true]
+			[DisableInertiaDampeners:false]
+			[IdealMaxSpeed:10]
+			[IdealMinSpeed:4]
+			[MaxSpeedTolerance:3]
+			[MaxVelocityAngleForSpeedControl:180]
+			[SlowDownOnWaypointApproach:true]
+			[ExtraSlowDownDistance:40]
+			[WaypointTolerance:15]
+			[WaypointWaitTimeTrigger:20]
+			[WaypointAbandonTimeTrigger:300]
+			[AngleAllowedForForwardThrust:35]
+			[RotationMultiplier:1]
+			[RotationMultiplierPitch:0.1]
+			[LimitRotationSpeed:true]
+			[MaxRotationMagnitude:0.3]
+			[HoverUpAngle:30]
+			[UseVelocityCollisionEvasion:false]
+			[AllowStrafing:false]
+			[OffsetPlanetMinTargetAltitude:2]
+			[OffsetPlanetMaxTargetAltitude:2]
+			[OffsetPlanetMinDistFromTarget:300]
+			[OffsetPlanetMaxDistFromTarget:700]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotDefense-Gray-Car</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotDefense]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotDefense-Gray-Light</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotDefense]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-LightTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotDefense-Gray-Medium</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotDefense]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-MediumTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotDefense-Gray-Heavy</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotDefense]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-HeavyTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotPatrol-Gray-Car</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotPatrol]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotPatrol-Gray-Light</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotPatrol]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-LightTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotPatrol-Gray-Medium</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotPatrol]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-MediumTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotPatrol-Gray-Heavy</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotPatrol]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-HeavyTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotDefense-Green-Car</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotDefense]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotDefense-Green-Light</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotDefense]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[TriggerGroups:WW2-Points-Group-Green-LightTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotDefense-Green-Medium</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotDefense]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[TriggerGroups:WW2-Points-Group-Green-MediumTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotDefense-Green-Heavy</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotDefense]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[TriggerGroups:WW2-Points-Group-Green-HeavyTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotPatrol-Green-Car</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotPatrol]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotPatrol-Green-Light</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotPatrol]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[TriggerGroups:WW2-Points-Group-Green-LightTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotPatrol-Green-Medium</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotPatrol]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[TriggerGroups:WW2-Points-Group-Green-MediumTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotPatrol-Green-Heavy</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Patrol]
+			[AutopilotData:WW2-Autopilot-DepotPatrol]
+			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[TriggerGroups:WW2-Points-Group-Green-HeavyTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-UnitLeave</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:1800000]
+			[MaxCooldownMs:1800001]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Depot-Action-UnitLeave]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-UnitLeave</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ForceDespawn:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotGarageVehicle</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			[Triggers:WW2-Trigger-UnStatic]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

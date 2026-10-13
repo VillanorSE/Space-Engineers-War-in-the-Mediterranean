@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Depot store (D-049): the holder's ground vehicles on 'Store-Depot-Vehicles', refreshed every 60 s while owned. Prices follow the depot's supply band (SupplySession.StoreAction). Tanks join when they exist. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Depot-Vehicles-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Store-Action-UpdateSales-Depot-Vehicles-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Depot-Vehicles-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-Depot-Vehicles]
+			[StoreProfiles:WW2-Store-Profile-Depot-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-Depot-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
+			[MinOfferItems:2]
+			[MaxOfferItems:2]
+			[ItemsRequireInventory:false]
+			[RequiredOffers:WW2-Vehicle-AB41]
+			[RequiredOffers:WW2-Vehicle-Fiat626]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Depot-Vehicles-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Store-Action-UpdateSales-Depot-Vehicles-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Depot-Vehicles-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-Depot-Vehicles]
+			[StoreProfiles:WW2-Store-Profile-Depot-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-Depot-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
+			[MinOfferItems:2]
+			[MaxOfferItems:2]
+			[ItemsRequireInventory:false]
+			[RequiredOffers:WW2-Vehicle-Panhard178]
+			[RequiredOffers:WW2-Vehicle-RenaultAHN]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

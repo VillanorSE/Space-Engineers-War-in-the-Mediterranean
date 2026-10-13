@@ -14,13 +14,13 @@ namespace WW2WitM.WarNewsSystem
         {
             public string Name;
             public Vector3D Dir;
-            public bool Airfield;
+            public WW2WitM.Refresh.SiteKind Kind;
 
-            public Site(string name, Vector3D dir, bool airfield)
+            public Site(string name, Vector3D dir, WW2WitM.Refresh.SiteKind kind)
             {
                 Name = name;
                 Dir = Vector3D.Normalize(dir);
-                Airfield = airfield;
+                Kind = kind;
             }
         }
 
@@ -31,8 +31,8 @@ namespace WW2WitM.WarNewsSystem
             var all = WW2WitM.Refresh.RefreshSites.All;
             var sites = new Site[all.Length + 1];
             for (int i = 0; i < all.Length; i++)
-                sites[i] = new Site(all[i].Name, all[i].Dir, all[i].Airfield);
-            sites[all.Length] = new Site("Rome", new Vector3D(26.83, -20030.21, 22474.36), false);
+                sites[i] = new Site(all[i].Name, all[i].Dir, all[i].Kind);
+            sites[all.Length] = new Site("Rome", new Vector3D(26.83, -20030.21, 22474.36), WW2WitM.Refresh.SiteKind.Port);
             return sites;
         }
 
@@ -52,12 +52,17 @@ namespace WW2WitM.WarNewsSystem
 
         public static string Nearest(Vector3D position)
         {
-            return Find(position, false);
+            return Find(position, null);
         }
 
         public static string NearestAirfield(Vector3D position)
         {
-            return Find(position, true);
+            return Find(position, WW2WitM.Refresh.SiteKind.Airfield);
+        }
+
+        public static string NearestDepot(Vector3D position)
+        {
+            return Find(position, WW2WitM.Refresh.SiteKind.Depot);
         }
 
         public static string AnchorName(string id)
@@ -77,7 +82,7 @@ namespace WW2WitM.WarNewsSystem
             planets.Clear();
         }
 
-        private static string Find(Vector3D position, bool airfieldsOnly)
+        private static string Find(Vector3D position, WW2WitM.Refresh.SiteKind? only)
         {
             var centre = PlanetCentre(position);
             var dir = position - centre;
@@ -89,7 +94,7 @@ namespace WW2WitM.WarNewsSystem
             double bestDot = -2;
             foreach (var s in Sites)
             {
-                if (airfieldsOnly && !s.Airfield)
+                if (only.HasValue && s.Kind != only.Value)
                     continue;
                 var d = Vector3D.Dot(dir, s.Dir);
                 if (d > bestDot)

@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Supply truck behavior pieces shared by every route (Convoy-Routes.sbc). Trucks drive the route's waypoints on MES thrust (no wheel steering in MES), stop at the last one, deliver after 60 s (the C# credits the destination on WW2-Convoy-Action-Delivered) and despawn 5 s later. GiveUp despawns a stuck truck after 2 h (C# refunds its port). -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-ConvoyTruck</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Autopilot]
+			[UseSurfaceHoverThrustMode:true]
+			[IdealPlanetAltitude:2]
+			[MinimumPlanetAltitude:0]
+			[AltitudeTolerance:2]
+			[HoverPathStepDistance:30]
+			[FlyLevelWithGravity:false]
+			[LevelWithGravityWhenIdle:true]
+			[DisableInertiaDampeners:false]
+			[IdealMaxSpeed:12]
+			[IdealMinSpeed:5]
+			[MaxSpeedTolerance:2]
+			[MaxVelocityAngleForSpeedControl:180]
+			[SlowDownOnWaypointApproach:true]
+			[ExtraSlowDownDistance:40]
+			[WaypointTolerance:15]
+			[WaypointWaitTimeTrigger:0]
+			[AngleAllowedForForwardThrust:35]
+			[RotationMultiplier:1]
+			[LimitRotationSpeed:true]
+			[MaxRotationMagnitude:0.3]
+			[UseVelocityCollisionEvasion:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-TriggerGroup-TruckLead-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Convoy-Trigger-Arrived-Lead]
+			[Triggers:WW2-Convoy-Trigger-Delivered]
+			[Triggers:WW2-Convoy-Trigger-Leave]
+			[Triggers:WW2-Convoy-Trigger-GiveUp]
+			[Triggers:WW2-Convoy-Trigger-Recall]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
+			[Triggers:WW2-Trigger-HostileNear-Cargo]
+			[Triggers:WW2-Convoy-Trigger-Raid-Wave-Gray]
+			[Triggers:WW2-Convoy-Trigger-Raid-Low-Gray]
+			[Triggers:WW2-Convoy-Trigger-Raid-WL3-Gray]
+			[Triggers:WW2-Convoy-Trigger-Raid-High-Gray]
+			[Triggers:WW2-Convoy-Trigger-EscortTick]
+			[Triggers:WW2-Convoy-Trigger-EscortPay]
+			[Triggers:WW2-Convoy-Trigger-EscortTier1-Gray]
+			[Triggers:WW2-Convoy-Trigger-EscortTier2-Gray]
+			[Triggers:WW2-Convoy-Trigger-EscortTier3-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-TriggerGroup-TruckFollow-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Convoy-Trigger-Arrived-Follow]
+			[Triggers:WW2-Convoy-Trigger-Delivered]
+			[Triggers:WW2-Convoy-Trigger-Leave]
+			[Triggers:WW2-Convoy-Trigger-GiveUp]
+			[Triggers:WW2-Convoy-Trigger-Recall]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-TriggerGroup-TruckLead-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Convoy-Trigger-Arrived-Lead]
+			[Triggers:WW2-Convoy-Trigger-Delivered]
+			[Triggers:WW2-Convoy-Trigger-Leave]
+			[Triggers:WW2-Convoy-Trigger-GiveUp]
+			[Triggers:WW2-Convoy-Trigger-Recall]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
+			[Triggers:WW2-Trigger-HostileNear-Cargo]
+			[Triggers:WW2-Convoy-Trigger-Raid-Wave-Green]
+			[Triggers:WW2-Convoy-Trigger-Raid-Low-Green]
+			[Triggers:WW2-Convoy-Trigger-Raid-WL3-Green]
+			[Triggers:WW2-Convoy-Trigger-Raid-High-Green]
+			[Triggers:WW2-Convoy-Trigger-EscortTick]
+			[Triggers:WW2-Convoy-Trigger-EscortPay]
+			[Triggers:WW2-Convoy-Trigger-EscortTier1-Green]
+			[Triggers:WW2-Convoy-Trigger-EscortTier2-Green]
+			[Triggers:WW2-Convoy-Trigger-EscortTier3-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-TriggerGroup-TruckFollow-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Convoy-Trigger-Arrived-Follow]
+			[Triggers:WW2-Convoy-Trigger-Delivered]
+			[Triggers:WW2-Convoy-Trigger-Leave]
+			[Triggers:WW2-Convoy-Trigger-GiveUp]
+			[Triggers:WW2-Convoy-Trigger-Recall]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			</Description>
+		</EntityComponent>
+<!-- Arrival: BehaviorTriggerD fires once when the CargoShip waypoint list runs out (CargoShip.cs), as for the cargo ships. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Arrived-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerD]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Convoy-Action-Arrived-Lead]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Arrived-Lead</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[StopAllRotation:true]
+			[ChangeAutopilotSpeed:true]
+			[NewAutopilotSpeed:0]
+			[ResetCooldownTimeOfTriggers:true]
+			[ResetTriggerCooldownNames:WW2-Convoy-Trigger-EscortPay]
+			[ResetTriggerCooldownNames:WW2-Convoy-Trigger-Delivered]
+			[ResetTriggerCooldownNames:WW2-Convoy-Trigger-Leave]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Convoy-Trigger-Delivered]
+			[EnableTriggerNames:WW2-Convoy-Trigger-Leave]
+			[EnableTriggerNames:WW2-Convoy-Trigger-EscortPay]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Convoy-Trigger-EscortTick]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Convoy-Chat-Arrived]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Arrived-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerD]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Convoy-Action-Arrived-Follow]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Arrived-Follow</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[StopAllRotation:true]
+			[ChangeAutopilotSpeed:true]
+			[NewAutopilotSpeed:0]
+			[ResetCooldownTimeOfTriggers:true]
+			[ResetTriggerCooldownNames:WW2-Convoy-Trigger-Delivered]
+			[ResetTriggerCooldownNames:WW2-Convoy-Trigger-Leave]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Convoy-Trigger-Delivered]
+			[EnableTriggerNames:WW2-Convoy-Trigger-Leave]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Chat-Arrived</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[MaxChats:1]
+			[BroadcastRandomly:true]
+			[Author:Convoy]
+			[Color:Red]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:3000]
+
+			[ChatMessages:{GridName} has arrived. Unloading.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+
+			[ChatMessages:Convoy in. Get those crates off the trucks.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Delivered</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Convoy-Action-Delivered]
+			</Description>
+		</EntityComponent>
+<!-- Read by the WW2-WarNews C# (SupplyHooks): the truck's spawn group names its route. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Delivered</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[StopAllRotation:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Leave</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:65000]
+			[MaxCooldownMs:65001]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Convoy-Action-Despawn]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-GiveUp</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:7200000]
+			[MaxCooldownMs:7200001]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Convoy-Action-Despawn]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Despawn</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ForceDespawn:true]
+			</Description>
+		</EntityComponent>
+<!-- Recall: the C# sets WitM-ConvoyRecall-{truck spawn group} while the route's side does not hold the destination; the truck despawns and its load is refunded to the port. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Recall</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:5001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Convoy-Condition-Recall]
+			[Actions:WW2-Convoy-Action-Despawn]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Recall</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyRecall-{SpawnGroupName}]
+			</Description>
+		</EntityComponent>
+<!-- Raids on the lead truck only: enemy planes while a friendly player (rep >= 500) is within 1 km, 18-25 min apart, at most 3 waves (longest road about 50 min). WarLevel is unset at level 1, so WL1-2 is the else branch of AtLeast3. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Raid-Wave-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:PlayerNear]
+			[TargetDistance:1000]
+			[MinPlayerReputation:500]
+			[MinCooldownMs:1080000]
+			[MaxCooldownMs:1500000]
+			[StartsReady:false]
+			[MaxActions:3]
+			[Actions:WW2-Convoy-Action-Raid-Wave-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Raid-Wave-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ManuallyActivateTrigger:true]
+			[ManuallyActivatedTriggerTags:TruckRaid-Gray]
+			[ForceManualTriggerActivation:false]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-ConvoyRaid]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Raid-Low-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:TruckRaid-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast3]
+			[UseElseActions:true]
+			[ElseActions:WW2-Convoy-Action-Raid-Low-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Raid-Low-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Green-WL1Plane-A]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Raid-WL3-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:TruckRaid-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly3]
+			[Actions:WW2-Convoy-Action-Raid-WL3-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Raid-WL3-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Green-WL1Plane-A]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Green-WL1Plane-B]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Raid-High-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:TruckRaid-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast4]
+			[Actions:WW2-Convoy-Action-Raid-High-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Raid-High-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Green-WL1Plane-A]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Raid-Green-Attacker]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Raid-Wave-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:PlayerNear]
+			[TargetDistance:1000]
+			[MinPlayerReputation:500]
+			[MinCooldownMs:1080000]
+			[MaxCooldownMs:1500000]
+			[StartsReady:false]
+			[MaxActions:3]
+			[Actions:WW2-Convoy-Action-Raid-Wave-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Raid-Wave-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ManuallyActivateTrigger:true]
+			[ManuallyActivatedTriggerTags:TruckRaid-Green]
+			[ForceManualTriggerActivation:false]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Chat-ConvoyRaid]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Raid-Low-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:TruckRaid-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast3]
+			[UseElseActions:true]
+			[ElseActions:WW2-Convoy-Action-Raid-Low-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Raid-Low-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Gray-WL1Plane-A]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Raid-WL3-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:TruckRaid-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly3]
+			[Actions:WW2-Convoy-Action-Raid-WL3-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Raid-WL3-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Gray-WL1Plane-A]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Gray-WL1Plane-B]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Raid-High-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:TruckRaid-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast4]
+			[Actions:WW2-Convoy-Action-Raid-High-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Raid-High-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Spawn-ConvoyRaid-Gray-WL1Plane-A]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Raid-Gray-Attacker]
+			</Description>
+		</EntityComponent>
+<!-- Escort credit (lead truck): a tick every 30 s while a friendly player (rep >= 500) is within 1000 m, kept in the truck's own EscortTicks counter. 60 s after arrival every friendly player within 1500 m is paid each tier reached (cumulative); a recalled truck despawns first and pays nothing. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-EscortTick</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:PlayerNear]
+			[TargetDistance:1000]
+			[MinPlayerReputation:500]
+			[MinCooldownMs:30000]
+			[MaxCooldownMs:30001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Convoy-Action-EscortTick]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-EscortTick</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[IncreaseCounters:EscortTicks]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-EscortPay</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Convoy-Action-EscortPay]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-EscortPay</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ManuallyActivateTrigger:true]
+			[ManuallyActivatedTriggerTags:ConvoyEscortPay]
+			[ForceManualTriggerActivation:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-EscortTier1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckCustomCounters:true]
+			[CustomCounters:EscortTicks]
+			[CustomCountersTargets:10]
+			[CounterCompareTypes:GreaterOrEqual]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-EscortTier2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckCustomCounters:true]
+			[CustomCounters:EscortTicks]
+			[CustomCountersTargets:30]
+			[CounterCompareTypes:GreaterOrEqual]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-EscortTier3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckCustomCounters:true]
+			[CustomCounters:EscortTicks]
+			[CustomCountersTargets:60]
+			[CounterCompareTypes:GreaterOrEqual]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-PlayerCondition-Escort-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES Player Condition]
+			[CheckPlayerNear:true]
+			[PlayerNearDistanceFromCoords:1500]
+			[CheckPlayerReputation:true]
+			[CheckReputationwithFaction:GRAY]
+			[MinPlayerReputation:500]
+			[MaxPlayerReputation:1500]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-EscortTier1-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyEscortPay]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Convoy-Condition-EscortTier1]
+			[Actions:WW2-Convoy-Action-EscortTier1-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-EscortTier1-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ChangePlayerCredits:true]
+			[ChangePlayerCreditsAmount:50000]
+			[ChangePlayerCreditsPlayerConditionIds:WW2-Convoy-PlayerCondition-Escort-Gray]
+			[ChangePlayerCreditsOverridePositionInPlayerCondition:true]
+			[ChangePlayerCreditsIncludeSavedPlayerIdentity:false]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Convoy-Chat-EscortPaid]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-EscortTier2-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyEscortPay]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Convoy-Condition-EscortTier2]
+			[Actions:WW2-Convoy-Action-EscortTier2-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-EscortTier2-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ChangePlayerCredits:true]
+			[ChangePlayerCreditsAmount:100000]
+			[ChangePlayerCreditsPlayerConditionIds:WW2-Convoy-PlayerCondition-Escort-Gray]
+			[ChangePlayerCreditsOverridePositionInPlayerCondition:true]
+			[ChangePlayerCreditsIncludeSavedPlayerIdentity:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-EscortTier3-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyEscortPay]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Convoy-Condition-EscortTier3]
+			[Actions:WW2-Convoy-Action-EscortTier3-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-EscortTier3-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ChangePlayerCredits:true]
+			[ChangePlayerCreditsAmount:150000]
+			[ChangePlayerCreditsPlayerConditionIds:WW2-Convoy-PlayerCondition-Escort-Gray]
+			[ChangePlayerCreditsOverridePositionInPlayerCondition:true]
+			[ChangePlayerCreditsIncludeSavedPlayerIdentity:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-PlayerCondition-Escort-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES Player Condition]
+			[CheckPlayerNear:true]
+			[PlayerNearDistanceFromCoords:1500]
+			[CheckPlayerReputation:true]
+			[CheckReputationwithFaction:GREEN]
+			[MinPlayerReputation:500]
+			[MaxPlayerReputation:1500]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-EscortTier1-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyEscortPay]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Convoy-Condition-EscortTier1]
+			[Actions:WW2-Convoy-Action-EscortTier1-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-EscortTier1-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ChangePlayerCredits:true]
+			[ChangePlayerCreditsAmount:50000]
+			[ChangePlayerCreditsPlayerConditionIds:WW2-Convoy-PlayerCondition-Escort-Green]
+			[ChangePlayerCreditsOverridePositionInPlayerCondition:true]
+			[ChangePlayerCreditsIncludeSavedPlayerIdentity:false]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Convoy-Chat-EscortPaid]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-EscortTier2-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyEscortPay]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Convoy-Condition-EscortTier2]
+			[Actions:WW2-Convoy-Action-EscortTier2-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-EscortTier2-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ChangePlayerCredits:true]
+			[ChangePlayerCreditsAmount:100000]
+			[ChangePlayerCreditsPlayerConditionIds:WW2-Convoy-PlayerCondition-Escort-Green]
+			[ChangePlayerCreditsOverridePositionInPlayerCondition:true]
+			[ChangePlayerCreditsIncludeSavedPlayerIdentity:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-EscortTier3-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:ConvoyEscortPay]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Conditions:WW2-Convoy-Condition-EscortTier3]
+			[Actions:WW2-Convoy-Action-EscortTier3-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-EscortTier3-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ChangePlayerCredits:true]
+			[ChangePlayerCreditsAmount:150000]
+			[ChangePlayerCreditsPlayerConditionIds:WW2-Convoy-PlayerCondition-Escort-Green]
+			[ChangePlayerCreditsOverridePositionInPlayerCondition:true]
+			[ChangePlayerCreditsIncludeSavedPlayerIdentity:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Chat-EscortPaid</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[MaxChats:1]
+			[BroadcastRandomly:true]
+			[Author:Convoy]
+			[Color:Green]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:1500]
+
+			[ChatMessages:Thanks for the escort. Your pay is on its way.]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Raid-Gray-Attacker</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:NPC-WW2-Ba65]
+			[MinDistance:800]
+			[MaxDistance:2000]
+			[MinAltitude:200]
+			[MaxAltitude:800]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Raid-Green-Attacker</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:NPC-WW2-Potez630]
+			[SpawnGroups:NPC-WW2-V-156-F_Bomber]
+			[MinDistance:800]
+			[MaxDistance:2000]
+			[MinAltitude:200]
+			[MaxAltitude:800]
+			[IgnoreSafetyChecks:false]
+			[InheritNpcAltitude:false]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

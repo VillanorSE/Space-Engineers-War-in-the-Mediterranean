@@ -11,13 +11,14 @@ using VRageMath;
 using WW2WitM.Refresh;
 using WW2WitM.WarNewsSystem;
 
-// WW2-WitM supply, war layer phase 1 (D-035, D-045; production repo design/war-layer-phase1-build-plan.md).
-// Server only. Each port and airfield holds a stock of supply, saved per site so it survives /witm refresh and respawns.
-// Hourly: upkeep, and each port that is not Low feeds the owned same-side airfields in its territory zone for which it is the
-// nearest such port. Cargo ships and air cargo deliver; airfield sorties cost supply and are refunded if they come back.
+// WW2-WitM supply (D-035, D-045, D-047; production repo design/war-layer-phase2-supply-convoys.md).
+// Server only. Each port and airfield holds a Home stock; ports also an Onward stock. Saved per site so it survives /witm refresh.
+// Hourly: upkeep from Home; the HQs (La Spezia, Toulon) produce into Onward and top their Home up from it. Cargo ships load
+// from the HQ's Onward, trucks from their port's Onward (SupplyConvoys); air cargo moves surplus from Full airfields.
 // MES reads the result through per-site sandbox booleans (Supply-Conditions.sbc) and two store price counters.
-//   /witm supply                       table of sites, stock, band, owner and feeder
-//   /witm supply set <site> <n>        set a site's stock
+//   /witm supply                       table of sites, stock, band, owner and routes
+//   /witm supply set <site> <n>        set a site's Home stock
+//   /witm supply onward <site> <n>     set a port's Onward stock
 //   /witm supply hour                  run one hourly tick now
 namespace WW2WitM.Supply
 {
@@ -34,6 +35,12 @@ namespace WW2WitM.Supply
         {
             var s = SupplySession.Instance != null ? SupplySession.Instance.Get(site) : null;
             return s != null ? s.Band : SupplySites.Normal;
+        }
+
+        public static int GetOnward(string site)
+        {
+            var s = SupplySession.Instance != null ? SupplySession.Instance.Get(site) : null;
+            return s != null ? s.Onward : 0;
         }
 
         public static string GetOwner(string site)
@@ -62,7 +69,8 @@ namespace WW2WitM.Supply
         public const string FullPrefix = "WitM-SupplyFull-";
         public const string StockPrefix = "WitM-Supply-";
         private const string GoodsStoreName = "Store-Port-Goods";
-        private const int StateVersion = 1;
+        // 2: Home/Onward split (D-047); older saves are migrated once in Migrate.
+        private const int StateVersion = 2;
         private const int MaxCatchUpHours = 3;
         private const double NewsGapSeconds = 7200;
         private const int MaintainTicks = 600;
@@ -82,7 +90,6 @@ namespace WW2WitM.Supply
         private SupplyState state = new SupplyState();
         private readonly Dictionary<string, SiteStock> sites = new Dictionary<string, SiteStock>();
         private readonly HashSet<string> createdThisLoad = new HashSet<string>();
-        private readonly List<KeyValuePair<SiteStock, SiteStock>> feeds = new List<KeyValuePair<SiteStock, SiteStock>>();
         private readonly List<StockPass> stockPasses = new List<StockPass>();
         private readonly List<IMyCubeGrid> gridBuffer = new List<IMyCubeGrid>();
         private readonly List<IMySlimBlock> blockBuffer = new List<IMySlimBlock>();
@@ -102,9 +109,20 @@ namespace WW2WitM.Supply
             if (!isServer)
                 return;
             LoadState();
+            Migrate();
+            PublishDepots();
             EnsureSites();
             foreach (var s in state.Sites)
                 Publish(s);
+            try
+            {
+                SupplyConvoys.CheckReady();
+                SupplyConvoys.Publish();
+            }
+            catch (Exception e)
+            {
+                Log("convoys: " + e);
+            }
         }
 
         protected override void UnloadData()
@@ -113,6 +131,7 @@ namespace WW2WitM.Supply
             {
                 if (started) SupplyHooks.Unregister(Mes());
                 SupplySites.Clear();
+                SupplyConvoys.Clear();
             }
             catch (Exception e)
             {
@@ -150,18 +169,20 @@ namespace WW2WitM.Supply
                     started = true;
                     SupplyHooks.Register(mes);
                     ScanOwners();
-                    int ports = 0, airfields = 0;
+                    int ports = 0, airfields = 0, depots = 0;
                     foreach (var s in state.Sites)
                     {
                         if (SupplySites.IsPort(s.Site)) ports++;
+                        else if (s.Site.StartsWith("WW2-Depot-", StringComparison.Ordinal)) depots++;
                         else airfields++;
                     }
-                    Log("loaded, " + ports + " ports " + airfields + " airfields" + (mes.HasSpawnApi ? "" : " (MES spawn API missing: sorties are not charged)"));
+                    Log("loaded, " + ports + " ports " + airfields + " airfields " + depots + " depots" + (mes.HasSpawnApi ? "" : " (MES spawn API missing: sorties are not charged)"));
                 }
 
                 if (tick % MaintainTicks == 0)
                 {
                     SupplyHooks.Maintain();
+                    SupplyConvoys.Publish();
                     CheckHour();
                 }
             }
@@ -191,6 +212,8 @@ namespace WW2WitM.Supply
                 if (!sites.TryGetValue(site.Group, out s))
                 {
                     s = new SiteStock { Site = site.Group, Stock = SupplySites.Start(site.Group) };
+                    if (SupplySites.IsPort(site.Group))
+                        s.Onward = SupplySites.PortOnwardStart;
                     s.Band = SupplySites.ComputeBand(site.Group, s.Stock, SupplySites.Normal);
                     state.Sites.Add(s);
                     sites[site.Group] = s;
@@ -205,7 +228,23 @@ namespace WW2WitM.Supply
             }
         }
 
-        // Airfield owners from the live grids' "Airfield Block" (as /witm refresh reads them). New sites take the owner as found.
+        // D-049: a depot spawns only while WitM-DepotOpen-{group} is true (its spawn conditions require it), i.e. once its position
+        // and the depot prefab exist (RefreshSites.Depots).
+        private static void PublishDepots()
+        {
+            int open = 0;
+            foreach (var d in RefreshSites.Depots)
+            {
+                MyAPIGateway.Utilities.SetVariable(RefreshSites.DepotOpenPrefix + d.Group, d.Open);
+                if (d.Open)
+                    open++;
+                else
+                    Log("depot " + d.Name + " closed: " + d.Problem);
+            }
+            Log("depots: " + open + " of " + RefreshSites.Depots.Length + " open");
+        }
+
+        // Airfield and depot owners from the live grids' "Airfield Block" / "Depot Block" (as /witm refresh reads them). New sites take the owner as found.
         private void ScanOwners()
         {
             var seen = new HashSet<string>();
@@ -271,10 +310,10 @@ namespace WW2WitM.Supply
         private static bool IsAirfieldBlock(IMySlimBlock block)
         {
             var terminal = block.FatBlock as IMyTerminalBlock;
-            return terminal != null && terminal.CustomName == "Airfield Block";
+            return terminal != null && (terminal.CustomName == "Airfield Block" || terminal.CustomName == "Depot Block");
         }
 
-        // An airfield changed hands (WW2-Action-Airfield-{From}-Become{To}); to is "Gray", "Green" or "" for unowned.
+        // An airfield or depot changed hands (WW2-Action-{Airfield|Depot}-{From}-Become{To}); to is "Gray", "Green" or "" for unowned.
         // Captured from the enemy, or taken from unowned by a new owner: starts Low. The first claim after the site first
         // spawns and a re-take by the last owner (/witm refresh, respawn) keep the stock. Unowned: stock frozen.
         public void OwnerChanged(string site, string to)
@@ -313,9 +352,53 @@ namespace WW2WitM.Supply
             return true;
         }
 
+        // A port's Onward box (ships and trucks load from it, and their refunds go back to it).
+        public bool ChangeOnward(string site, int amount, string reason)
+        {
+            var s = Get(site);
+            if (s == null || !SupplySites.IsPort(site))
+                return false;
+            SetOnward(s, s.Onward + amount);
+            if (!string.IsNullOrEmpty(reason))
+                Log(site + ": " + (amount >= 0 ? "+" : "") + amount + " onward, " + reason + ", now " + s.Onward);
+            return true;
+        }
+
+        // A delivery to a port splits between Home and Onward (SupplySites.PortOnwardShare, odd unit to Home); a full box overflows
+        // into the other, and only what neither can hold is lost (D-047, owner 2026-10-12).
+        public void Receive(string site, int amount, string reason)
+        {
+            var s = Get(site);
+            if (s == null || amount <= 0)
+                return;
+            bool port = SupplySites.IsPort(site);
+            int toOnward = port ? (int)Math.Floor(amount * SupplySites.PortOnwardShare) : 0;
+            int toHome = amount - toOnward;
+            int homeRoom = Math.Max(0, SupplySites.Cap(site) - s.Stock);
+            int onwardRoom = port ? Math.Max(0, SupplySites.PortOnwardCap - s.Onward) : 0;
+            int home = Math.Min(toHome, homeRoom);
+            int onward = Math.Min(toOnward, onwardRoom);
+            int extra = Math.Min(toHome - home, onwardRoom - onward);
+            onward += extra;
+            int back = Math.Min(toOnward - (onward - extra), homeRoom - home);
+            home += back;
+            int lost = amount - home - onward;
+            Set(s, s.Stock + home);
+            if (port)
+                SetOnward(s, s.Onward + onward);
+            Log(site + ": +" + amount + " " + reason + ", home " + s.Stock + (port ? " onward " + s.Onward : "")
+                + (lost > 0 ? ", " + lost + " lost (full)" : ""));
+            UpdateSite(s);
+        }
+
         private static void Set(SiteStock s, int stock)
         {
             s.Stock = Math.Max(0, Math.Min(SupplySites.Cap(s.Site), stock));
+        }
+
+        private static void SetOnward(SiteStock s, int stock)
+        {
+            s.Onward = Math.Max(0, Math.Min(SupplySites.PortOnwardCap, stock));
         }
 
         // Recomputes the band (posting news on a change into or out of Low) and publishes the site's sandbox values.
@@ -359,7 +442,7 @@ namespace WW2WitM.Supply
             var site = SupplySites.Find(group);
             if (site == null)
                 return group;
-            return site.Airfield ? site.Name + " airfield" : site.Name;
+            return site.Airfield ? site.Name + " airfield" : site.Depot ? site.Name + " depot" : site.Name;
         }
 
         // Read by MES trigger conditions through {SpawnGroupName} (ConditionProfile.cs CheckTrueSandboxBooleans). Saved with the world.
@@ -396,17 +479,6 @@ namespace WW2WitM.Supply
 
         public void HourTick()
         {
-            // Feeding uses the bands as they stood at the start of the hour.
-            feeds.Clear();
-            foreach (var s in state.Sites)
-            {
-                if (SupplySites.IsPort(s.Site) || s.Owner.Length == 0 || SupplySites.Find(s.Site) == null)
-                    continue;
-                var port = FeederOf(s);
-                if (port != null && port.Band != SupplySites.Low)
-                    feeds.Add(new KeyValuePair<SiteStock, SiteStock>(s, port));
-            }
-
             foreach (var s in state.Sites)
             {
                 if (SupplySites.Find(s.Site) == null)
@@ -415,64 +487,70 @@ namespace WW2WitM.Supply
                     Set(s, s.Stock - SupplySites.PortUpkeep);
                 else if (s.Owner.Length > 0)
                     Set(s, s.Stock - SupplySites.AirfieldUpkeep);
-            }
-
-            foreach (var f in feeds)
-            {
-                var airfield = f.Key;
-                var port = f.Value;
-                int amount = Math.Min(SupplySites.Feed, Math.Min(port.Stock, SupplySites.AirfieldCap - airfield.Stock));
-                if (amount <= 0)
+                if (!SupplySites.IsHq(s.Site))
                     continue;
-                port.Stock -= amount;
-                airfield.Stock += amount;
+                SetOnward(s, s.Onward + SupplySites.HqProduction);
+                int top = Math.Min(s.Onward, SupplySites.Cap(s.Site) - s.Stock);
+                if (top > 0)
+                {
+                    s.Onward -= top;
+                    s.Stock += top;
+                }
             }
-            feeds.Clear();
 
             foreach (var s in state.Sites)
                 if (SupplySites.Find(s.Site) != null)
                     UpdateSite(s);
+            foreach (var s in state.Sites)
+                if (s.Owner.Length > 0 && SupplySites.IsDepot(s.Site))
+                    DepotHeldHour(s);
             Log("hour: " + Summary());
         }
 
-        // The nearest same-side supply port whose territory zone covers the airfield (D-045: fed by that port only), or null.
-        public SiteStock FeederOf(SiteStock airfield)
+        // A depot held for an hour (D-049): territory points to the holder's nearest anchor ({Anchor}_Points, the counter MES
+        // IncreaseSandboxCounters writes, TriggerSystem.cs SetSandboxCounter), then the reserves hook.
+        private void DepotHeldHour(SiteStock s)
         {
-            var afSite = SupplySites.Find(airfield.Site);
-            Vector3D afPos;
-            if (afSite == null || airfield.Owner.Length == 0 || !SupplySites.Position(afSite, out afPos))
-                return null;
-            SiteStock best = null;
-            double bestDist = double.MaxValue;
-            foreach (var site in SupplySites.Tracked)
+            var site = SupplySites.Find(s.Site);
+            Vector3D pos;
+            if (site == null || !SupplySites.Position(site, out pos))
+                return;
+            var anchor = SupplySites.NearestAnchor(pos, s.Owner);
+            if (anchor.Length > 0 && SupplySites.DepotHoldingPointsPerHour > 0)
             {
-                if (!SupplySites.IsPort(site.Group) || SupplySites.PortFaction(site.Group) != airfield.Owner)
-                    continue;
-                if (!SupplySites.InZone(SupplySites.PortAnchor(site.Group), afPos))
-                    continue;
-                Vector3D portPos;
-                if (!SupplySites.Position(site, out portPos))
-                    continue;
-                var d = Vector3D.DistanceSquared(afPos, portPos);
-                if (d < bestDist)
-                {
-                    bestDist = d;
-                    best = Get(site.Group);
-                }
+                int points;
+                MyAPIGateway.Utilities.GetVariable(anchor + "_Points", out points);
+                MyAPIGateway.Utilities.SetVariable(anchor + "_Points", points + SupplySites.DepotHoldingPointsPerHour);
+                Log(s.Site + ": held by " + s.Owner + ", +" + SupplySites.DepotHoldingPointsPerHour + " " + anchor + "_Points");
             }
-            return best;
+            DepotReservesHook(s);
+        }
+
+        // Reserves (later war-layer phase, D-049): called once per hour for every held depot. Nothing yet.
+        private void DepotReservesHook(SiteStock s)
+        {
         }
 
         // ---------------- deliveries ----------------
 
-        // WW2-Territory-Action-Delivery-{F}-{Origin}-{Destination}: the destination port gets a ship's load.
-        public void ShipDelivered(string destinationAnchor)
+        // WW2-Territory-Action-Delivery-{F}-{Origin}-{Destination}: the destination port gets the load the ship was charged for
+        // at spawn (SupplyHooks). Return legs to an HQ, and ships not in the ledger, carry nothing.
+        public void ShipDelivered(Shipment ship, string destinationAnchor)
         {
-            Change("WW2-Port-" + destinationAnchor, SupplySites.ShipDelivery, "cargo ship delivery");
+            if (ship == null)
+            {
+                if (!SupplySites.IsHq("WW2-Port-" + destinationAnchor))
+                    Log("cargo ship to " + destinationAnchor + " delivered nothing: not in the ledger (spawned before this version, or its spawn was not seen)");
+                return;
+            }
+            if (ship.Delivered)
+                return;
+            ship.Delivered = true;
+            Receive(ship.Destination, ship.Load, "cargo ship delivery from " + ship.Origin);
         }
 
-        // WW2-Territory-Action-Delivery-AirCargo-{F}: the nearest airfield within 5 km of the plane, if F owns it.
-        public void AirCargoDelivered(Vector3D position, string faction)
+        // WW2-Territory-Action-Delivery-AirCargo-{F}: the nearest airfield within 5 km of the plane, if F owns it. True if credited.
+        public bool AirCargoDelivered(Vector3D position, string faction)
         {
             SiteStock best = null;
             double bestDist = SupplySites.AirCargoDeliveryRange * SupplySites.AirCargoDeliveryRange;
@@ -491,9 +569,10 @@ namespace WW2WitM.Supply
             if (best == null || best.Owner != faction)
             {
                 Log("air cargo delivery (" + faction + ") not credited: " + (best == null ? "no airfield within 5 km" : best.Site + " is owned by " + Show(best.Owner)));
-                return;
+                return false;
             }
             Change(best.Site, SupplySites.AirCargoDelivery, "air cargo delivery");
+            return true;
         }
 
         // ---------------- store prices ----------------
@@ -576,29 +655,32 @@ namespace WW2WitM.Supply
                 return "Ran one hourly tick.\n\n" + s.Table();
             }
             if (sub == "set")
-                return s.SetCommand(words);
+                return s.SetCommand(words, false);
+            if (sub == "onward")
+                return s.SetCommand(words, true);
             screen = true;
             return HelpText();
         }
 
         public static string HelpText()
         {
-            return "/witm supply\n  Lists every port and airfield: stock, band, owner and which port feeds it.\n\n"
-                + "/witm supply set <site> <amount>\n  <site>: a name (La Spezia, Bizerte) or Port-Tripoli / Airfield-Tripoli.\n\n"
-                + "/witm supply hour\n  Runs one hourly tick now (upkeep and port feeding).";
+            return "/witm supply\n  Lists every port, airfield and open depot: Home (and Onward) stock, band, owner, and the convoy routes.\n\n"
+                + "/witm supply set <site> <amount>\n  Sets the Home stock. <site>: a name (La Spezia, Bizerte) or Port-Tripoli / Airfield-Tripoli / Depot-Benghazi.\n\n"
+                + "/witm supply onward <site> <amount>\n  Sets a port's Onward stock (what ships and trucks load).\n\n"
+                + "/witm supply hour\n  Runs one hourly tick now (upkeep and HQ production).";
         }
 
-        private string SetCommand(string[] words)
+        private string SetCommand(string[] words, bool onward)
         {
             int amount;
             if (words.Length < 5 || !int.TryParse(words[words.Length - 1], out amount))
-                return "Usage: /witm supply set <site> <amount>";
+                return "Usage: /witm supply " + (onward ? "onward" : "set") + " <site> <amount>";
             var name = string.Join(" ", words, 3, words.Length - 4);
             RefreshSite match = null;
             int matches = 0;
             foreach (var site in SupplySites.Tracked)
             {
-                var kind = site.Airfield ? "Airfield-" : "Port-";
+                var kind = site.Airfield ? "Airfield-" : site.Depot ? "Depot-" : "Port-";
                 var compact = site.Name.Replace(" ", "");
                 if (Is(name, site.Group) || Is("WW2-" + name, site.Group) || Is(name, site.Name) || Is(name, compact) || Is(name, kind + compact) || Is(name, site.Label))
                 {
@@ -609,8 +691,16 @@ namespace WW2WitM.Supply
             if (matches == 0)
                 return "Unknown site '" + name + "'. /witm supply lists them.";
             if (matches > 1)
-                return "'" + name + "' is both a port and an airfield: use Port-" + match.Name.Replace(" ", "") + " or Airfield-" + match.Name.Replace(" ", "") + ".";
+                return "'" + name + "' names several sites: use Port-" + match.Name.Replace(" ", "") + ", Airfield-" + match.Name.Replace(" ", "") + " or Depot-" + match.Name.Replace(" ", "") + ".";
             var stock = Get(match.Group);
+            if (onward)
+            {
+                if (!SupplySites.IsPort(match.Group))
+                    return match.Label + " is not a port: only ports have an Onward stock.";
+                SetOnward(stock, amount);
+                Log(match.Group + ": onward set to " + stock.Onward + " by command");
+                return match.Label + ": onward " + stock.Onward + ".";
+            }
             Set(stock, amount);
             Log(match.Group + ": set to " + stock.Stock + " by command");
             UpdateSite(stock);
@@ -627,22 +717,27 @@ namespace WW2WitM.Supply
                 var s = Get(site.Group);
                 if (s == null)
                     continue;
-                sb.Append(site.Label).Append(": ").Append(s.Stock).Append('/').Append(SupplySites.Cap(site.Group))
-                    .Append(' ').Append(SupplySites.BandName(s.Band)).Append(", ").Append(s.Owner.Length > 0 ? s.Owner : "unowned");
-                if (site.Airfield)
-                {
-                    var feeder = FeederOf(s);
-                    var feederSite = feeder != null ? SupplySites.Find(feeder.Site) : null;
-                    sb.Append(", fed by ").Append(feederSite != null ? feederSite.Label + (feeder.Band == SupplySites.Low ? " (Low: not feeding)" : "") : "no port");
-                }
-                else
-                {
-                    var anchor = SupplySites.PortAnchor(site.Group);
-                    sb.Append(", zone ").Append(anchor).Append(' ').Append((int)(SupplySites.ZoneRadius(anchor) / 1000)).Append(" km");
-                }
+                sb.Append(site.Label).Append(": ").Append(site.Owned ? "" : "home ").Append(s.Stock).Append('/').Append(SupplySites.Cap(site.Group))
+                    .Append(' ').Append(SupplySites.BandName(s.Band));
+                if (!site.Owned)
+                    sb.Append(", onward ").Append(s.Onward).Append('/').Append(SupplySites.PortOnwardCap).Append(SupplySites.IsHq(site.Group) ? " (HQ +" + SupplySites.HqProduction + "/h)" : "");
+                sb.Append(", ").Append(s.Owner.Length > 0 ? s.Owner : "unowned");
+                if (site.Owned)
+                    sb.Append(", trucks from: ").Append(SupplyConvoys.RoutesTo(site.Group, s.Owner));
                 sb.Append('\n');
             }
-            sb.Append("\nSorties in the air: ").Append(state.Sorties.Count).Append('.');
+            int ships = 0, planes = 0;
+            foreach (var c in state.Shipments)
+            {
+                if (c.Plane) planes++;
+                else ships++;
+            }
+            sb.Append("\nSorties in the air: ").Append(state.Sorties.Count).Append(". Cargo ships at sea: ").Append(ships)
+                .Append(". Cargo planes in the air: ").Append(planes).Append('.');
+            SupplyConvoys.Describe(sb, state.Trucks.Count);
+            var closed = RefreshSites.ClosedDepotLines();
+            if (closed.Length > 0)
+                sb.Append("\n").Append(closed);
             return sb.ToString();
         }
 
@@ -669,6 +764,15 @@ namespace WW2WitM.Supply
                 state = loaded;
                 if (state.Sites == null) state.Sites = new List<SiteStock>();
                 if (state.Sorties == null) state.Sorties = new List<Sortie>();
+                if (state.Trucks == null) state.Trucks = new List<Truck>();
+                if (state.Shipments == null) state.Shipments = new List<Shipment>();
+                foreach (var t in state.Trucks)
+                    if (t.Route == null) t.Route = "";
+                foreach (var c in state.Shipments)
+                {
+                    if (c.Origin == null) c.Origin = "";
+                    if (c.Destination == null) c.Destination = "";
+                }
                 foreach (var s in state.Sites)
                 {
                     if (s.Site == null) s.Site = "";
@@ -680,6 +784,25 @@ namespace WW2WitM.Supply
             {
                 Log("load: " + e);
             }
+        }
+
+        // Once, on the first load of a save from before version 2: a port's stock goes into Home up to its cap and the rest into
+        // Onward; port bands are recomputed on the new thresholds (no headline).
+        private void Migrate()
+        {
+            if (state.Version >= 2 || state.Sites.Count == 0)
+                return;
+            foreach (var s in state.Sites)
+            {
+                if (s == null || !SupplySites.IsPort(s.Site))
+                    continue;
+                int over = Math.Max(0, s.Stock - SupplySites.PortCap);
+                s.Stock -= over;
+                SetOnward(s, s.Onward + over);
+                s.Band = SupplySites.ComputeBand(s.Site, s.Stock, s.Band == SupplySites.Low ? SupplySites.Low : SupplySites.Normal);
+                Log(s.Site + ": migrated to home " + s.Stock + ", onward " + s.Onward);
+            }
+            state.Version = StateVersion;
         }
 
         private void SaveState()

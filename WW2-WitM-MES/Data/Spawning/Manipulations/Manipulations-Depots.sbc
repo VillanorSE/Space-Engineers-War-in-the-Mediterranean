@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Depot ground units: MES NPC thrusters (MES-NPC-Thrust-Atmo-*) drive them; restricted once a player owns the grid. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-DepotUnit</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[ConfigureSpecialNpcThrusters:true]
+			[RestrictNpcAtmoThrust:true]
+			[NpcAtmoThrustForceMultiply:1]
+			[NpcAtmoThrustPowerMultiply:0.0001]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

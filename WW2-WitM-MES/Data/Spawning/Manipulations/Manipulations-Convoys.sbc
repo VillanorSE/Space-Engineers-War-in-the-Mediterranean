@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Supply convoy trucks: MES NPC thrusters (MES-NPC-Thrust-Atmo-*) stop working once a player owns the truck; almost no power draw so the batteries last the trip. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-ConvoyTruck</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[ConfigureSpecialNpcThrusters:true]
+			[RestrictNpcAtmoThrust:true]
+			[NpcAtmoThrustForceMultiply:1]
+			[NpcAtmoThrustPowerMultiply:0.0001]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

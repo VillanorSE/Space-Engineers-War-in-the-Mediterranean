@@ -1,0 +1,2391 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Supply convoy departures. Each supply port's behavior (Behaviors-Port.sbc) carries [TriggerGroups:WW2-Convoy-TriggerGroup-Port-{Port}]. A route's timer (150-210 min) runs only while the C# sets WitM-ConvoyOpen-{Route} (route filled in, destination held, port Onward can load the column); it fires as soon as the route opens if its cooldown has passed. Slots 1-2 always spawn, 3-5 only from War Level 3/4/5 (SpawnConditions-Convoys.sbc), so the column is 2/2/3/4/5 trucks. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-TriggerGroup-Port-Civitavecchia</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Convoy-Trigger-Civitavecchia-Foggia]
+			[Triggers:WW2-Convoy-Trigger-Civitavecchia-AbruzzoDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-TriggerGroup-Port-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Convoy-Trigger-Tripoli-Bizerte]
+			[Triggers:WW2-Convoy-Trigger-Tripoli-Benghazi]
+			[Triggers:WW2-Convoy-Trigger-Tripoli-Tobruk]
+			[Triggers:WW2-Convoy-Trigger-Tripoli-BenghaziDepot]
+			[Triggers:WW2-Convoy-Trigger-Tripoli-TunisDepot]
+			[Triggers:WW2-Convoy-Trigger-Tripoli-TobrukDepot]
+			[Triggers:WW2-Convoy-Trigger-Tripoli-SirteDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-TriggerGroup-Port-Toulon</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Convoy-Trigger-Toulon-Gibraltar]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-TriggerGroup-Port-Oran</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Convoy-Trigger-Oran-Bizerte]
+			[Triggers:WW2-Convoy-Trigger-Oran-TunisDepot]
+			[Triggers:WW2-Convoy-Trigger-Oran-MascaraDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-TriggerGroup-Port-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Convoy-Trigger-Alexandria-Casablanca]
+			[Triggers:WW2-Convoy-Trigger-Alexandria-Benghazi]
+			[Triggers:WW2-Convoy-Trigger-Alexandria-BenghaziDepot]
+			[Triggers:WW2-Convoy-Trigger-Alexandria-TobrukDepot]
+			[Triggers:WW2-Convoy-Trigger-Alexandria-SirteDepot]
+			</Description>
+		</EntityComponent>
+<!-- Civitavecchia -> Foggia airfield (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Civitavecchia-Foggia</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Civitavecchia-Foggia]
+			[Actions:WW2-Convoy-Action-Civitavecchia-Foggia]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Civitavecchia-Foggia</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Civitavecchia-Foggia]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Civitavecchia-Foggia</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Civitavecchia-Foggia-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Civitavecchia-Foggia-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Civitavecchia-Foggia-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Civitavecchia-Foggia-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Civitavecchia-Foggia-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Civitavecchia-Foggia-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Civitavecchia-Foggia-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Civitavecchia-Foggia-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Civitavecchia-Foggia-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Civitavecchia-Foggia-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Civitavecchia-Foggia-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Civitavecchia-Foggia-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Civitavecchia-Foggia-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Civitavecchia-Foggia-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Civitavecchia-Foggia-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Civitavecchia-Foggia-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Civitavecchia-Foggia-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Civitavecchia-Foggia-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Civitavecchia-Foggia-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Civitavecchia-Foggia-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Tripoli -> Bizerte airfield (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Tripoli-Bizerte</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Tripoli-Bizerte]
+			[Actions:WW2-Convoy-Action-Tripoli-Bizerte]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Tripoli-Bizerte</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Tripoli-Bizerte]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Tripoli-Bizerte</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-Bizerte-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-Bizerte-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-Bizerte-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-Bizerte-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-Bizerte-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-Bizerte-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-Bizerte-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-Bizerte-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-Bizerte-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-Bizerte-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-Bizerte-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-Bizerte-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-Bizerte-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-Bizerte-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-Bizerte-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-Bizerte-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-Bizerte-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-Bizerte-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-Bizerte-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-Bizerte-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Tripoli -> Benghazi airfield (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Tripoli-Benghazi</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Tripoli-Benghazi]
+			[Actions:WW2-Convoy-Action-Tripoli-Benghazi]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Tripoli-Benghazi</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Tripoli-Benghazi]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Tripoli-Benghazi</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-Benghazi-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-Benghazi-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-Benghazi-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-Benghazi-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-Benghazi-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-Benghazi-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-Benghazi-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-Benghazi-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-Benghazi-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-Benghazi-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-Benghazi-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-Benghazi-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-Benghazi-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-Benghazi-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-Benghazi-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-Benghazi-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-Benghazi-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-Benghazi-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-Benghazi-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-Benghazi-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Tripoli -> Tobruk airfield (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Tripoli-Tobruk</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Tripoli-Tobruk]
+			[Actions:WW2-Convoy-Action-Tripoli-Tobruk]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Tripoli-Tobruk</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Tripoli-Tobruk]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Tripoli-Tobruk</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-Tobruk-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-Tobruk-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-Tobruk-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-Tobruk-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-Tobruk-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-Tobruk-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-Tobruk-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-Tobruk-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-Tobruk-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-Tobruk-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-Tobruk-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-Tobruk-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-Tobruk-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-Tobruk-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-Tobruk-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-Tobruk-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-Tobruk-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-Tobruk-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-Tobruk-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-Tobruk-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Toulon -> Gibraltar airfield (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Toulon-Gibraltar</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Toulon-Gibraltar]
+			[Actions:WW2-Convoy-Action-Toulon-Gibraltar]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Toulon-Gibraltar</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Toulon-Gibraltar]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Toulon-Gibraltar</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Toulon-Gibraltar-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Toulon-Gibraltar-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Toulon-Gibraltar-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Toulon-Gibraltar-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Toulon-Gibraltar-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Toulon-Gibraltar-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Toulon-Gibraltar-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Toulon-Gibraltar-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Toulon-Gibraltar-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Toulon-Gibraltar-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Toulon-Gibraltar-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Toulon-Gibraltar-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Toulon-Gibraltar-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Toulon-Gibraltar-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Toulon-Gibraltar-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Toulon-Gibraltar-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Toulon-Gibraltar-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Toulon-Gibraltar-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Toulon-Gibraltar-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Toulon-Gibraltar-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Oran -> Bizerte airfield (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Oran-Bizerte</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Oran-Bizerte]
+			[Actions:WW2-Convoy-Action-Oran-Bizerte]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Oran-Bizerte</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Oran-Bizerte]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Oran-Bizerte</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Oran-Bizerte-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Oran-Bizerte-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Oran-Bizerte-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Oran-Bizerte-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Oran-Bizerte-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Oran-Bizerte-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Oran-Bizerte-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Oran-Bizerte-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Oran-Bizerte-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Oran-Bizerte-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Oran-Bizerte-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Oran-Bizerte-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Oran-Bizerte-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Oran-Bizerte-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Oran-Bizerte-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Oran-Bizerte-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Oran-Bizerte-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Oran-Bizerte-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Oran-Bizerte-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Oran-Bizerte-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Alexandria -> Casablanca airfield (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Alexandria-Casablanca</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Alexandria-Casablanca]
+			[Actions:WW2-Convoy-Action-Alexandria-Casablanca]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Alexandria-Casablanca</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Alexandria-Casablanca]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Alexandria-Casablanca</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-Casablanca-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-Casablanca-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-Casablanca-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-Casablanca-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-Casablanca-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-Casablanca-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-Casablanca-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-Casablanca-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-Casablanca-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-Casablanca-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-Casablanca-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-Casablanca-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-Casablanca-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-Casablanca-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-Casablanca-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-Casablanca-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-Casablanca-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-Casablanca-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-Casablanca-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-Casablanca-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Alexandria -> Benghazi airfield (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Alexandria-Benghazi</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Alexandria-Benghazi]
+			[Actions:WW2-Convoy-Action-Alexandria-Benghazi]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Alexandria-Benghazi</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Alexandria-Benghazi]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Alexandria-Benghazi</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-Benghazi-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-Benghazi-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-Benghazi-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-Benghazi-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-Benghazi-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-Benghazi-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-Benghazi-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-Benghazi-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-Benghazi-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-Benghazi-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-Benghazi-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-Benghazi-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-Benghazi-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-Benghazi-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-Benghazi-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-Benghazi-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-Benghazi-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-Benghazi-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-Benghazi-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-Benghazi-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Tripoli -> Benghazi depot (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Tripoli-BenghaziDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Tripoli-BenghaziDepot]
+			[Actions:WW2-Convoy-Action-Tripoli-BenghaziDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Tripoli-BenghaziDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Tripoli-BenghaziDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Tripoli-BenghaziDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-BenghaziDepot-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-BenghaziDepot-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-BenghaziDepot-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-BenghaziDepot-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-BenghaziDepot-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-BenghaziDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-BenghaziDepot-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-BenghaziDepot-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-BenghaziDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-BenghaziDepot-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-BenghaziDepot-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-BenghaziDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-BenghaziDepot-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-BenghaziDepot-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-BenghaziDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-BenghaziDepot-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-BenghaziDepot-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-BenghaziDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-BenghaziDepot-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-BenghaziDepot-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Alexandria -> Benghazi depot (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Alexandria-BenghaziDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Alexandria-BenghaziDepot]
+			[Actions:WW2-Convoy-Action-Alexandria-BenghaziDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Alexandria-BenghaziDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Alexandria-BenghaziDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Alexandria-BenghaziDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-BenghaziDepot-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-BenghaziDepot-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-BenghaziDepot-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-BenghaziDepot-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-BenghaziDepot-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-BenghaziDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-BenghaziDepot-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-BenghaziDepot-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-BenghaziDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-BenghaziDepot-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-BenghaziDepot-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-BenghaziDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-BenghaziDepot-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-BenghaziDepot-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-BenghaziDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-BenghaziDepot-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-BenghaziDepot-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-BenghaziDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-BenghaziDepot-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-BenghaziDepot-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Tripoli -> Tunis depot (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Tripoli-TunisDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Tripoli-TunisDepot]
+			[Actions:WW2-Convoy-Action-Tripoli-TunisDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Tripoli-TunisDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Tripoli-TunisDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Tripoli-TunisDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-TunisDepot-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-TunisDepot-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-TunisDepot-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-TunisDepot-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-TunisDepot-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-TunisDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-TunisDepot-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-TunisDepot-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-TunisDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-TunisDepot-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-TunisDepot-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-TunisDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-TunisDepot-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-TunisDepot-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-TunisDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-TunisDepot-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-TunisDepot-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-TunisDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-TunisDepot-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-TunisDepot-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Oran -> Tunis depot (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Oran-TunisDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Oran-TunisDepot]
+			[Actions:WW2-Convoy-Action-Oran-TunisDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Oran-TunisDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Oran-TunisDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Oran-TunisDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Oran-TunisDepot-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Oran-TunisDepot-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Oran-TunisDepot-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Oran-TunisDepot-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Oran-TunisDepot-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Oran-TunisDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Oran-TunisDepot-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Oran-TunisDepot-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Oran-TunisDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Oran-TunisDepot-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Oran-TunisDepot-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Oran-TunisDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Oran-TunisDepot-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Oran-TunisDepot-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Oran-TunisDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Oran-TunisDepot-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Oran-TunisDepot-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Oran-TunisDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Oran-TunisDepot-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Oran-TunisDepot-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Tripoli -> Tobruk depot (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Tripoli-TobrukDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Tripoli-TobrukDepot]
+			[Actions:WW2-Convoy-Action-Tripoli-TobrukDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Tripoli-TobrukDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Tripoli-TobrukDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Tripoli-TobrukDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-TobrukDepot-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-TobrukDepot-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-TobrukDepot-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-TobrukDepot-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-TobrukDepot-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-TobrukDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-TobrukDepot-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-TobrukDepot-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-TobrukDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-TobrukDepot-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-TobrukDepot-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-TobrukDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-TobrukDepot-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-TobrukDepot-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-TobrukDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-TobrukDepot-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-TobrukDepot-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-TobrukDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-TobrukDepot-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-TobrukDepot-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Alexandria -> Tobruk depot (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Alexandria-TobrukDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Alexandria-TobrukDepot]
+			[Actions:WW2-Convoy-Action-Alexandria-TobrukDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Alexandria-TobrukDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Alexandria-TobrukDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Alexandria-TobrukDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-TobrukDepot-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-TobrukDepot-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-TobrukDepot-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-TobrukDepot-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-TobrukDepot-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-TobrukDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-TobrukDepot-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-TobrukDepot-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-TobrukDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-TobrukDepot-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-TobrukDepot-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-TobrukDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-TobrukDepot-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-TobrukDepot-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-TobrukDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-TobrukDepot-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-TobrukDepot-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-TobrukDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-TobrukDepot-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-TobrukDepot-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Civitavecchia -> Abruzzo depot (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Civitavecchia-AbruzzoDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Civitavecchia-AbruzzoDepot]
+			[Actions:WW2-Convoy-Action-Civitavecchia-AbruzzoDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Civitavecchia-AbruzzoDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Civitavecchia-AbruzzoDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Civitavecchia-AbruzzoDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Civitavecchia-AbruzzoDepot-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Civitavecchia-AbruzzoDepot-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Civitavecchia-AbruzzoDepot-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Civitavecchia-AbruzzoDepot-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Civitavecchia-AbruzzoDepot-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Civitavecchia-AbruzzoDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Civitavecchia-AbruzzoDepot-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Civitavecchia-AbruzzoDepot-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Civitavecchia-AbruzzoDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Civitavecchia-AbruzzoDepot-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Civitavecchia-AbruzzoDepot-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Civitavecchia-AbruzzoDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Civitavecchia-AbruzzoDepot-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Civitavecchia-AbruzzoDepot-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Civitavecchia-AbruzzoDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Civitavecchia-AbruzzoDepot-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Civitavecchia-AbruzzoDepot-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Civitavecchia-AbruzzoDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Civitavecchia-AbruzzoDepot-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Civitavecchia-AbruzzoDepot-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Oran -> Mascara depot (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Oran-MascaraDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Oran-MascaraDepot]
+			[Actions:WW2-Convoy-Action-Oran-MascaraDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Oran-MascaraDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Oran-MascaraDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Oran-MascaraDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Oran-MascaraDepot-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Oran-MascaraDepot-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Oran-MascaraDepot-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Oran-MascaraDepot-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Oran-MascaraDepot-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Oran-MascaraDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Oran-MascaraDepot-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Oran-MascaraDepot-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Oran-MascaraDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Oran-MascaraDepot-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Oran-MascaraDepot-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Oran-MascaraDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Oran-MascaraDepot-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Oran-MascaraDepot-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Oran-MascaraDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Oran-MascaraDepot-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Oran-MascaraDepot-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Oran-MascaraDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Oran-MascaraDepot-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Oran-MascaraDepot-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Tripoli -> Sirte depot (Gray) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Tripoli-SirteDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Tripoli-SirteDepot]
+			[Actions:WW2-Convoy-Action-Tripoli-SirteDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Tripoli-SirteDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Tripoli-SirteDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Tripoli-SirteDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-SirteDepot-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-SirteDepot-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-SirteDepot-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-SirteDepot-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Tripoli-SirteDepot-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-SirteDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-SirteDepot-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-SirteDepot-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-SirteDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-SirteDepot-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-SirteDepot-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-SirteDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-SirteDepot-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-SirteDepot-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-SirteDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-SirteDepot-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-SirteDepot-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Tripoli-SirteDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Tripoli-SirteDepot-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Tripoli-SirteDepot-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Alexandria -> Sirte depot (Green) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Alexandria-SirteDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:9000000]
+			[MaxCooldownMs:12600000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Convoy-Condition-Alexandria-SirteDepot]
+			[Actions:WW2-Convoy-Action-Alexandria-SirteDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Alexandria-SirteDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-ConvoyOpen-Alexandria-SirteDepot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Alexandria-SirteDepot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-SirteDepot-1]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-SirteDepot-2]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-SirteDepot-3]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-SirteDepot-4]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Convoy-Spawn-Alexandria-SirteDepot-5]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-SirteDepot-1</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-SirteDepot-1]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-SirteDepot-1]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-SirteDepot-2</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-SirteDepot-2]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-SirteDepot-2]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-SirteDepot-3</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-SirteDepot-3]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-SirteDepot-3]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-SirteDepot-4</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-SirteDepot-4]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-SirteDepot-4]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Spawn-Alexandria-SirteDepot-5</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-Convoy-Alexandria-SirteDepot-5]
+			[UseWaypoint:true]
+			[Waypoint:WW2-Convoy-Start-Alexandria-SirteDepot-5]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

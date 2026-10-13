@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Ground unit kill scoring (D-049): Light Tank 1, Medium Tank 2, Heavy Tank 2 (design/WW2-WitM-Territory-WarLevel-Design.md). Armored Car scores 0, so it has no group. Attach with [TriggerGroups:WW2-Points-Group-{Side}-{Type}]. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-LightTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-LightTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-LightTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:1]
+			[SetBooleansTrue:Attacked]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-LightTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-LightTank]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-LightTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:1]
+			[SetBooleansTrue:Retired]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-LightTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-LightTank]
+			[Conditions:WW2-Points-Condition-NotRetired]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-LightTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:1]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:1]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-LightTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-LightTank]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-LightTank]
+			[Triggers:WW2-WarLevel-Trigger-Kill-LightTank]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-LightTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-LightTank]
+			[Conditions:WW2-Points-Condition-NotRetired]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-LightTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:1]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:1]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-LightTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Territory-Trigger-Kill-Green-LightTank]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-LightTank]
+			[Triggers:WW2-WarLevel-Trigger-Kill-LightTank]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-MediumTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-MediumTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-MediumTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:2]
+			[SetBooleansTrue:Attacked]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-MediumTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-MediumTank]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-MediumTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:2]
+			[SetBooleansTrue:Retired]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-MediumTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-MediumTank]
+			[Conditions:WW2-Points-Condition-NotRetired]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-MediumTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:2]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:2]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-MediumTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-MediumTank]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-MediumTank]
+			[Triggers:WW2-WarLevel-Trigger-Kill-MediumTank]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-MediumTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-MediumTank]
+			[Conditions:WW2-Points-Condition-NotRetired]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-MediumTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:2]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:2]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-MediumTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Territory-Trigger-Kill-Green-MediumTank]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-MediumTank]
+			[Triggers:WW2-WarLevel-Trigger-Kill-MediumTank]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-HeavyTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-HeavyTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-HeavyTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:2]
+			[SetBooleansTrue:Attacked]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-HeavyTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-HeavyTank]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-HeavyTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:2]
+			[SetBooleansTrue:Retired]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-HeavyTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-HeavyTank]
+			[Conditions:WW2-Points-Condition-NotRetired]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-HeavyTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCountersAmount:2]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCountersAmount:2]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-HeavyTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-HeavyTank]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-HeavyTank]
+			[Triggers:WW2-WarLevel-Trigger-Kill-HeavyTank]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-HeavyTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-HeavyTank]
+			[Conditions:WW2-Points-Condition-NotRetired]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-HeavyTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCountersAmount:2]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCountersAmount:2]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-HeavyTank</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Territory-Trigger-Kill-Green-HeavyTank]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-HeavyTank]
+			[Triggers:WW2-WarLevel-Trigger-Kill-HeavyTank]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

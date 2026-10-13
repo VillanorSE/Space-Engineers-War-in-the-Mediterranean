@@ -33,5 +33,17 @@
 			</Description>
 		</EntityComponent>
 
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Supply-Condition-Full</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[CheckTrueSandboxBooleans:true]
+			[TrueSandboxBooleans:WitM-SupplyFull-{SpawnGroupName}]
+			</Description>
+		</EntityComponent>
 	</EntityComponents>
 </Definitions>

@@ -15,7 +15,7 @@ using WW2WitM.WarNewsSystem;
 // WW2-WitM refresh command (production repo audits/mes-2026-10-10-refresh-command-*.md). Admin/Owner-only chat command that
 // replaces the live port and airfield grids (the MES static encounters) with fresh spawns from the current definitions.
 //   /witm refresh                                dry run: what would happen per site, and what blocks it. Changes nothing.
-//   /witm refresh go [targets] [force] [again]   targets: all (default), ports, airfields, a site name or spawn group.
+//   /witm refresh go [targets] [force] [again]   targets: all (default), ports, airfields, depots, a site name or spawn group.
 //   /witm refresh status | cancel | help
 //   /witm refresh behaviors                      explains why the behavior refresh is disabled (qa F5).
 //   /witm supply ...                             handled by SupplySession.Command (same Admin/Owner check and reply path).
@@ -35,6 +35,8 @@ namespace WW2WitM.Refresh
         public const string StateVariable = "WW2-Refresh-State";
         private const string CommandProfile = "WW2-Command-Refresh";
         private const string AirfieldOwnerCode = "WitM-AirfieldOwner-";
+        private const string DepotOwnerCode = "WitM-DepotOwner-";
+        private const string DepotBlockName = "Depot Block";
         private const string AirfieldBlockName = "Airfield Block";
         private const string MesUniqueVariable = "MES-UniqueEncountersSpawned";
         private const string MesStaticsVariable = "MES-ActiveStaticEncounters";
@@ -366,8 +368,8 @@ namespace WW2WitM.Refresh
         private static string HelpText()
         {
             return "/witm refresh\n  Dry run: lists every port and airfield, what a refresh would do and what blocks it. Changes nothing.\n\n"
-                + "/witm refresh go [all|ports|airfields|<site>...] [force] [again]\n  Replaces the live grids with fresh spawns, one site at a time.\n"
-                + "  <site>: a name (Toulon, Tripoli = port and airfield) or Port-Tripoli / Airfield-Tripoli.\n"
+                + "/witm refresh go [all|ports|airfields|depots|<site>...] [force] [again]\n  Replaces the live grids with fresh spawns, one site at a time.\n"
+                + "  <site>: a name (Toulon, Tripoli = port and airfield) or Port-Tripoli / Airfield-Tripoli. A bare name never picks a depot: use Depot-Benghazi or 'depots'.\n"
                 + "  force: also delete NPC-owned debris without spawn data in the way (never anything a player owns, built, sits in or stands near).\n"
                 + "  again: redo sites an unfinished run of the last 12 h already did (older runs are always redone).\n\n"
                 + "  MES can only re-arm a reset site when the world loads: after 'go', save and reload; the sites respawn about a minute later.\n\n"
@@ -396,6 +398,7 @@ namespace WW2WitM.Refresh
             else if (NpcKeyMissing())
                 sb.Append("WARNING: ").Append(NpcKeyMissingText()).Append(" 'force' is refused.\n");
             sb.Append('\n');
+            sb.Append(RefreshSites.ClosedDepotLines());
             foreach (var site in RefreshSites.All)
             {
                 var scan = ScanSite(site);
@@ -527,8 +530,9 @@ namespace WW2WitM.Refresh
                 foreach (var site in RefreshSites.All)
                 {
                     bool all = Is(w, "all");
-                    bool kind = (Is(w, "ports") && !site.Airfield) || (Is(w, "airfields") && site.Airfield);
-                    bool named = Is(w, site.Group) || Is("WW2-" + w, site.Group) || Is(w, site.Name.Replace(" ", "")) || Is(w, site.Name);
+                    bool kind = (Is(w, "ports") && !site.Owned) || (Is(w, "airfields") && site.Airfield) || (Is(w, "depots") && site.Depot);
+                    bool named = Is(w, site.Group) || Is("WW2-" + w, site.Group)
+                        || (!site.Depot && (Is(w, site.Name.Replace(" ", "")) || Is(w, site.Name)));
                     if (!all && !kind && !named)
                         continue;
                     matched = true;
@@ -537,7 +541,7 @@ namespace WW2WitM.Refresh
                 if (!matched)
                 {
                     queue.Clear();
-                    Reply(steamId, "Unknown target '" + w + "'. Use all, ports, airfields or a site name (/witm refresh help).");
+                    Reply(steamId, "Unknown target '" + w + "'. Use all, ports, airfields, depots or a site name (/witm refresh help).");
                     return;
                 }
             }
@@ -753,7 +757,7 @@ namespace WW2WitM.Refresh
                         AddAwait(current.Site.Group, current.Owner);
                         state.Done.Add(current.Site.Group);
                         Result(current.Site, "RESET: closed; MES re-arms it only when the world loads, so it respawns about a minute after a save and reload"
-                            + (current.Site.Airfield && (current.Owner == "Gray" || current.Owner == "Green") ? " (owner " + current.Owner + " is re-applied then)" : ""), true);
+                            + (current.Site.Owned && (current.Owner == "Gray" || current.Owner == "Green") ? " (owner " + current.Owner + " is re-applied then)" : ""), true);
                         NextSite();
                     }
                     break;
@@ -784,12 +788,12 @@ namespace WW2WitM.Refresh
                         {
                             newGridId = grid.EntityId;
                             state.Done.Add(current.Site.Group);
-                            if (current.Site.Airfield && (current.Owner == "Gray" || current.Owner == "Green"))
+                            if (current.Site.Owned && (current.Owner == "Gray" || current.Owner == "Green"))
                             {
                                 SetStep(Step.OwnerWait);
                                 break;
                             }
-                            Result(current.Site, "REFRESHED (new grid " + newGridId + ")" + (current.Site.Airfield ? ", owner was " + Show(current.Owner) + ", re-derived by territory" : "") + Also(), true);
+                            Result(current.Site, "REFRESHED (new grid " + newGridId + ")" + (current.Site.Owned ? ", owner was " + Show(current.Owner) + ", re-derived by territory" : "") + Also(), true);
                             NextSite();
                             break;
                         }
@@ -819,7 +823,7 @@ namespace WW2WitM.Refresh
                         {
                             var grid = MyAPIGateway.Entities.GetEntityById(newGridId);
                             var pos = grid != null ? grid.PositionComp.WorldAABB.Center : current.Anchor;
-                            mes.SendBehaviorCommand(commandProfiles, pos, AirfieldOwnerCode + current.Owner, OwnerCommandRadius, 0);
+                            mes.SendBehaviorCommand(commandProfiles, pos, (current.Site.Depot ? DepotOwnerCode : AirfieldOwnerCode) + current.Owner, OwnerCommandRadius, 0);
                             SetStep(Step.OwnerVerify);
                         }
                         else
@@ -1344,7 +1348,7 @@ namespace WW2WitM.Refresh
                 sb.Append(", ").Append(scan.MainGrids).Append(" copies of the site");
             if (scan.Debris.Count > 0)
                 sb.Append(", plus ").Append(scan.Debris.Count).Append(" NPC debris (force)");
-            if (scan.Site.Airfield)
+            if (scan.Site.Owned)
                 sb.Append(", owner ").Append(Show(scan.Owner));
             sb.Append(also);
             verdict = sb.ToString();
@@ -1553,7 +1557,7 @@ namespace WW2WitM.Refresh
                     break;
                 }
             }
-            if (site.Airfield && scan.Grids.Count > 0)
+            if (site.Owned && scan.Grids.Count > 0)
                 scan.Owner = OwnerOf(scan.Grids);
 
             foreach (var g in allGrids)
@@ -1786,7 +1790,7 @@ namespace WW2WitM.Refresh
             return null;
         }
 
-        // Owner of the site's "Airfield Block" (the blocks the ownership flip actions change): Gray, Green, Unowned, or "" if none.
+        // Owner of the site's "Airfield Block" / "Depot Block" (the blocks the ownership flip actions change): Gray, Green, Unowned, or "" if none.
         private string OwnerOf(List<IMyCubeGrid> grids)
         {
             foreach (var g in grids)
@@ -1817,7 +1821,7 @@ namespace WW2WitM.Refresh
         private static bool IsAirfieldBlock(IMySlimBlock block)
         {
             var terminal = block.FatBlock as IMyTerminalBlock;
-            return terminal != null && terminal.CustomName == AirfieldBlockName;
+            return terminal != null && (terminal.CustomName == AirfieldBlockName || terminal.CustomName == DepotBlockName);
         }
 
         private static string FactionName(long owner)
@@ -1841,6 +1845,11 @@ namespace WW2WitM.Refresh
         // False if no planet is found (qa D1). Cached per run (qa D5): cleared at each dry run and run start.
         private bool ComputeAnchor(RefreshSite site, out Vector3D anchor)
         {
+            if (site.Depot)
+            {
+                anchor = site.Coords;
+                return true;
+            }
             if (bestPlanet == null || bestPlanet.MarkedForClose)
             {
                 bestPlanet = null;

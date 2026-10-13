@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Depot ownership (D-049): same rules and territory conditions as Triggers-Airfield-Ownership.sbc. Owner-capable blocks are named 'Depot Block', the store 'Store-Depot-Vehicles'. The C# reads WW2-Action-Depot-{From}-Become{To}. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Depot-Unowned-BecomeGray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[RecolorGrid:true]
+			[OldBlockColors:{X:0 Y:0 Z:0.9}]
+			[NewBlockColors:{X:0 Y:-0.75 Z:0}]
+			[ChangeBlockOwnership:true]
+			[OwnershipBlockNames:Depot Block]
+			[OwnershipBlockFactions:GRAY]
+			[OwnershipBlockNames:Store-Depot-Vehicles]
+			[OwnershipBlockFactions:GRAY]
+			[ResetCooldownTimeOfTriggers:true]
+			[ResetTriggerCooldownNames:WW2-Depot-Trigger-Patrol-Gray]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Depot-Trigger-Gray-CheckGreen]
+			[EnableTriggerNames:WW2-Depot-Trigger-Gray-CheckUnowned]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Gray]
+			[EnableTriggerNames:WW2-Depot-Trigger-Defense-Gray]
+			[EnableTriggerNames:WW2-Depot-Trigger-Patrol-Gray]
+			[EnableTriggerNames:WW2-Depot-Trigger-GarageBay-Gray]
+			[EnableTriggerNames:WW2-Store-Trigger-UpdateSales-Depot-Vehicles-Gray]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-BotCrew-3]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Depot-Trigger-Unowned-CheckGreen]
+			[DisableTriggerNames:WW2-Depot-Trigger-Unowned-CheckGray]
+			[DisableTriggerNames:WW2-Depot-Trigger-Unowned-CommandGray]
+			[DisableTriggerNames:WW2-Depot-Trigger-Unowned-CommandGreen]
+			[SetCustomStrings:true]
+			[CustomStrings:NewOwner,Gray]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Depot-Chat-Captured-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Depot-Unowned-BecomeGreen</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[RecolorGrid:true]
+			[OldBlockColors:{X:0 Y:0 Z:0.9}]
+			[NewBlockColors:{X:0.25555557 Y:-0.41 Z:-0.3}]
+			[ChangeBlockOwnership:true]
+			[OwnershipBlockNames:Depot Block]
+			[OwnershipBlockFactions:GREEN]
+			[OwnershipBlockNames:Store-Depot-Vehicles]
+			[OwnershipBlockFactions:GREEN]
+			[ResetCooldownTimeOfTriggers:true]
+			[ResetTriggerCooldownNames:WW2-Depot-Trigger-Patrol-Green]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Depot-Trigger-Green-CheckGray]
+			[EnableTriggerNames:WW2-Depot-Trigger-Green-CheckUnowned]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Green]
+			[EnableTriggerNames:WW2-Depot-Trigger-Defense-Green]
+			[EnableTriggerNames:WW2-Depot-Trigger-Patrol-Green]
+			[EnableTriggerNames:WW2-Depot-Trigger-GarageBay-Green]
+			[EnableTriggerNames:WW2-Store-Trigger-UpdateSales-Depot-Vehicles-Green]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-BotCrew-3]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Depot-Trigger-Unowned-CheckGreen]
+			[DisableTriggerNames:WW2-Depot-Trigger-Unowned-CheckGray]
+			[DisableTriggerNames:WW2-Depot-Trigger-Unowned-CommandGray]
+			[DisableTriggerNames:WW2-Depot-Trigger-Unowned-CommandGreen]
+			[SetCustomStrings:true]
+			[CustomStrings:NewOwner,Green]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Depot-Chat-Captured-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Depot-Gray-BecomeGreen</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[RecolorGrid:true]
+			[OldBlockColors:{X:0 Y:-0.75 Z:0}]
+			[NewBlockColors:{X:0.25555557 Y:-0.41 Z:-0.3}]
+			[ChangeBlockOwnership:true]
+			[OwnershipBlockNames:Depot Block]
+			[OwnershipBlockFactions:GREEN]
+			[OwnershipBlockNames:Store-Depot-Vehicles]
+			[OwnershipBlockFactions:GREEN]
+			[ResetCooldownTimeOfTriggers:true]
+			[ResetTriggerCooldownNames:WW2-Depot-Trigger-Patrol-Green]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Depot-Trigger-Green-CheckGray]
+			[EnableTriggerNames:WW2-Depot-Trigger-Green-CheckUnowned]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Green]
+			[EnableTriggerNames:WW2-Depot-Trigger-Defense-Green]
+			[EnableTriggerNames:WW2-Depot-Trigger-Patrol-Green]
+			[EnableTriggerNames:WW2-Depot-Trigger-GarageBay-Green]
+			[EnableTriggerNames:WW2-Store-Trigger-UpdateSales-Depot-Vehicles-Green]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-BotCrew-3]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Depot-Trigger-Gray-CheckGreen]
+			[DisableTriggerNames:WW2-Depot-Trigger-Gray-CheckUnowned]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Gray]
+			[DisableTriggerNames:WW2-Depot-Trigger-Defense-Gray]
+			[DisableTriggerNames:WW2-Depot-Trigger-Patrol-Gray]
+			[DisableTriggerNames:WW2-Depot-Trigger-GarageBay-Gray]
+			[DisableTriggerNames:WW2-Store-Trigger-UpdateSales-Depot-Vehicles-Gray]
+			[SetCustomStrings:true]
+			[CustomStrings:NewOwner,Green]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Depot-Chat-Captured-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Depot-Gray-BecomeUnowned</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[RecolorGrid:true]
+			[OldBlockColors:{X:0 Y:-0.75 Z:0}]
+			[NewBlockColors:{X:0 Y:0 Z:0.9}]
+			[ChangeBlockOwnership:true]
+			[OwnershipBlockNames:Depot Block]
+			[OwnershipBlockFactions:UNOWNED]
+			[OwnershipBlockNames:Store-Depot-Vehicles]
+			[OwnershipBlockFactions:UNOWNED]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Depot-Trigger-Unowned-CheckGreen]
+			[EnableTriggerNames:WW2-Depot-Trigger-Unowned-CheckGray]
+			[EnableTriggerNames:WW2-Depot-Trigger-Unowned-CommandGray]
+			[EnableTriggerNames:WW2-Depot-Trigger-Unowned-CommandGreen]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Depot-Trigger-Gray-CheckGreen]
+			[DisableTriggerNames:WW2-Depot-Trigger-Gray-CheckUnowned]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Gray]
+			[DisableTriggerNames:WW2-Depot-Trigger-Defense-Gray]
+			[DisableTriggerNames:WW2-Depot-Trigger-Patrol-Gray]
+			[DisableTriggerNames:WW2-Depot-Trigger-GarageBay-Gray]
+			[DisableTriggerNames:WW2-Store-Trigger-UpdateSales-Depot-Vehicles-Gray]
+			[SetCustomStrings:true]
+			[CustomStrings:OldOwner,Gray]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Depot-Chat-Abandoned-Gray]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-Depot-Vehicles]
+			[StoreProfiles:WW2-Store-Profile-Airfield-Empty]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Depot-Green-BecomeGray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[RecolorGrid:true]
+			[OldBlockColors:{X:0.25555557 Y:-0.41 Z:-0.3}]
+			[NewBlockColors:{X:0 Y:-0.75 Z:0}]
+			[ChangeBlockOwnership:true]
+			[OwnershipBlockNames:Depot Block]
+			[OwnershipBlockFactions:GRAY]
+			[OwnershipBlockNames:Store-Depot-Vehicles]
+			[OwnershipBlockFactions:GRAY]
+			[ResetCooldownTimeOfTriggers:true]
+			[ResetTriggerCooldownNames:WW2-Depot-Trigger-Patrol-Gray]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Depot-Trigger-Gray-CheckGreen]
+			[EnableTriggerNames:WW2-Depot-Trigger-Gray-CheckUnowned]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Gray]
+			[EnableTriggerNames:WW2-Depot-Trigger-Defense-Gray]
+			[EnableTriggerNames:WW2-Depot-Trigger-Patrol-Gray]
+			[EnableTriggerNames:WW2-Depot-Trigger-GarageBay-Gray]
+			[EnableTriggerNames:WW2-Store-Trigger-UpdateSales-Depot-Vehicles-Gray]
+			[EnableTriggerNames:WW2-Trigger-Airfield-Gated-BotCrew-3]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Depot-Trigger-Green-CheckGray]
+			[DisableTriggerNames:WW2-Depot-Trigger-Green-CheckUnowned]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Green]
+			[DisableTriggerNames:WW2-Depot-Trigger-Defense-Green]
+			[DisableTriggerNames:WW2-Depot-Trigger-Patrol-Green]
+			[DisableTriggerNames:WW2-Depot-Trigger-GarageBay-Green]
+			[DisableTriggerNames:WW2-Store-Trigger-UpdateSales-Depot-Vehicles-Green]
+			[SetCustomStrings:true]
+			[CustomStrings:NewOwner,Gray]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Depot-Chat-Captured-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Action-Depot-Green-BecomeUnowned</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[RecolorGrid:true]
+			[OldBlockColors:{X:0.25555557 Y:-0.41 Z:-0.3}]
+			[NewBlockColors:{X:0 Y:0 Z:0.9}]
+			[ChangeBlockOwnership:true]
+			[OwnershipBlockNames:Depot Block]
+			[OwnershipBlockFactions:UNOWNED]
+			[OwnershipBlockNames:Store-Depot-Vehicles]
+			[OwnershipBlockFactions:UNOWNED]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Depot-Trigger-Unowned-CheckGreen]
+			[EnableTriggerNames:WW2-Depot-Trigger-Unowned-CheckGray]
+			[EnableTriggerNames:WW2-Depot-Trigger-Unowned-CommandGray]
+			[EnableTriggerNames:WW2-Depot-Trigger-Unowned-CommandGreen]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Depot-Trigger-Green-CheckGray]
+			[DisableTriggerNames:WW2-Depot-Trigger-Green-CheckUnowned]
+			[DisableTriggerNames:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Green]
+			[DisableTriggerNames:WW2-Depot-Trigger-Defense-Green]
+			[DisableTriggerNames:WW2-Depot-Trigger-Patrol-Green]
+			[DisableTriggerNames:WW2-Depot-Trigger-GarageBay-Green]
+			[DisableTriggerNames:WW2-Store-Trigger-UpdateSales-Depot-Vehicles-Green]
+			[SetCustomStrings:true]
+			[CustomStrings:OldOwner,Green]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Depot-Chat-Abandoned-Green]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-Depot-Vehicles]
+			[StoreProfiles:WW2-Store-Profile-Airfield-Empty]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Unowned-CheckGreen</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Condition-Airfield-GreenTerritoryOnly]
+			[Actions:WW2-Action-Depot-Unowned-BecomeGreen]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Unowned-CheckGray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Condition-Airfield-GrayTerritoryOnly]
+			[Actions:WW2-Action-Depot-Unowned-BecomeGray]
+			</Description>
+		</EntityComponent>
+<!-- /witm refresh re-applies a depot's old owner while that owner's territory still covers it (RefreshSession DepotOwnerCode). -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Unowned-CommandGray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:WitM-DepotOwner-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Condition-Airfield-InGrayTerritory]
+			[Actions:WW2-Action-Depot-Unowned-BecomeGray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Unowned-CommandGreen</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:WitM-DepotOwner-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Condition-Airfield-InGreenTerritory]
+			[Actions:WW2-Action-Depot-Unowned-BecomeGreen]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Gray-CheckGreen</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Condition-Airfield-GreenTerritoryOnly]
+			[Actions:WW2-Action-Depot-Gray-BecomeGreen]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Gray-CheckUnowned</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Condition-Airfield-NoTerritory]
+			[Actions:WW2-Action-Depot-Gray-BecomeUnowned]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Green-CheckGray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Condition-Airfield-GrayTerritoryOnly]
+			[Actions:WW2-Action-Depot-Green-BecomeGray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Green-CheckUnowned</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:10000]
+			[MaxCooldownMs:10001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-Condition-Airfield-NoTerritory]
+			[Actions:WW2-Action-Depot-Green-BecomeUnowned]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Chat-Captured-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Comando Deposito]
+			[Color:Blue]
+			[ChatMessages:{NewOwner} has taken control of a vehicle depot.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:false]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Chat-Abandoned-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Comando Deposito]
+			[Color:Blue]
+			[ChatMessages:{OldOwner} has lost control of a vehicle depot.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:false]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Chat-Captured-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Commandement du Dépôt]
+			[Color:Blue]
+			[ChatMessages:{NewOwner} has taken control of a vehicle depot.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:false]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Chat-Abandoned-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[Chance:100]
+			[MaxChats:-1]
+			[BroadcastRandomly:false]
+			[Author:Commandement du Dépôt]
+			[Color:Blue]
+			[ChatMessages:{OldOwner} has lost control of a vehicle depot.]
+			[ChatAudio:ArcHudGPSNotification2]
+			[BroadcastChatType:Both]
+			[SendToAllOnlinePlayers:false]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:100000]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

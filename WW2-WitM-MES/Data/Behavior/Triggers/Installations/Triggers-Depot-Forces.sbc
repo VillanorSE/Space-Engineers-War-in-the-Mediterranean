@@ -1,0 +1,1128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Depot defense and patrols (D-049). Defense: hostile player (rep <= -500) within 2000 m, 10-30 min; patrol: any player within 10 km, every 45-60 min. Both need the depot not Low (WitM-SupplyOffense-{SpawnGroupName}); the C# charges each unit at spawn by its prefab and refunds intact patrol units. War Level picks the column (WL1 = else of AtLeast2). -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Defense-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:PlayerNear]
+			[TargetDistance:2000]
+			[MinCooldownMs:600000]
+			[MaxCooldownMs:1800000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[MaxPlayerReputation:-500]
+			[Conditions:WW2-Supply-Condition-Offense]
+			[Actions:WW2-Depot-Action-Defense-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Defense-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ManuallyActivateTrigger:true]
+			[ManuallyActivatedTriggerTags:DepotDefense-Gray]
+			[ForceManualTriggerActivation:false]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Depot-Chat-Defense-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Patrol-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:PlayerNear]
+			[TargetDistance:10000]
+			[MinCooldownMs:2700000]
+			[MaxCooldownMs:3600000]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Conditions:WW2-Supply-Condition-Offense]
+			[Actions:WW2-Depot-Action-Patrol-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Patrol-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ManuallyActivateTrigger:true]
+			[ManuallyActivatedTriggerTags:DepotPatrol-Gray]
+			[ForceManualTriggerActivation:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Defense-WL1-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotDefense-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast2]
+			[UseElseActions:true]
+			[ElseActions:WW2-Depot-Action-Defense-WL1-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Defense-WL1-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Defense-WL1-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Defense-WL1-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Defense-WL1-Gray]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Defense-WL2-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotDefense-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly2]
+			[Actions:WW2-Depot-Action-Defense-WL2-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Defense-WL2-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Defense-WL2-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Defense-WL2-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Defense-WL2-Gray]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Defense-WL3-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotDefense-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly3]
+			[Actions:WW2-Depot-Action-Defense-WL3-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Defense-WL3-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Defense-WL3-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Defense-WL3-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Defense-WL3-Gray]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Defense-WL4-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotDefense-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly4]
+			[Actions:WW2-Depot-Action-Defense-WL4-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Defense-WL4-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Defense-WL4-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Defense-WL4-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Defense-WL4-Gray]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Defense-WL5-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotDefense-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly5]
+			[Actions:WW2-Depot-Action-Defense-WL5-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Defense-WL5-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Defense-WL5-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Defense-WL5-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Defense-WL5-Gray]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Patrol-WL1-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotPatrol-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast2]
+			[UseElseActions:true]
+			[ElseActions:WW2-Depot-Action-Patrol-WL1-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Patrol-WL1-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Patrol-WL1-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Patrol-WL1-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Patrol-WL1-Gray]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Patrol-WL2-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotPatrol-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly2]
+			[Actions:WW2-Depot-Action-Patrol-WL2-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Patrol-WL2-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Patrol-WL2-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Patrol-WL2-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Patrol-WL2-Gray]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Patrol-WL3-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotPatrol-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly3]
+			[Actions:WW2-Depot-Action-Patrol-WL3-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Patrol-WL3-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Patrol-WL3-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Patrol-WL3-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Patrol-WL3-Gray]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Patrol-WL4-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotPatrol-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly4]
+			[Actions:WW2-Depot-Action-Patrol-WL4-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Patrol-WL4-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Patrol-WL4-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Patrol-WL4-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Patrol-WL4-Gray]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Patrol-WL5-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotPatrol-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly5]
+			[Actions:WW2-Depot-Action-Patrol-WL5-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Patrol-WL5-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Patrol-WL5-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Patrol-WL5-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Patrol-WL5-Gray]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Chat-Defense-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[MaxChats:-1]
+			[BroadcastRandomly:true]
+			[Author:Comando Deposito]
+			[Color:Red]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:3000]
+
+			[ChatMessages:Enemy near the depot. Armour, roll out!]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
+<!-- Garage bay (Gray): one of the holder's vehicles parked in the yard while a player is near, at most hourly. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-GarageBay-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:PlayerNear]
+			[TargetDistance:1500]
+			[MinCooldownMs:3600000]
+			[MaxCooldownMs:3600001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Depot-Action-GarageBay-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-GarageBay-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-GarageBay-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-GarageBay-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotGarageBay-Gray]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:20 Y:2 Z:0}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Defense-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:PlayerNear]
+			[TargetDistance:2000]
+			[MinCooldownMs:600000]
+			[MaxCooldownMs:1800000]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[MaxPlayerReputation:-500]
+			[Conditions:WW2-Supply-Condition-Offense]
+			[Actions:WW2-Depot-Action-Defense-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Defense-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ManuallyActivateTrigger:true]
+			[ManuallyActivatedTriggerTags:DepotDefense-Green]
+			[ForceManualTriggerActivation:false]
+			[UseChatBroadcast:true]
+			[ChatData:WW2-Depot-Chat-Defense-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Patrol-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:PlayerNear]
+			[TargetDistance:10000]
+			[MinCooldownMs:2700000]
+			[MaxCooldownMs:3600000]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Conditions:WW2-Supply-Condition-Offense]
+			[Actions:WW2-Depot-Action-Patrol-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Patrol-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ManuallyActivateTrigger:true]
+			[ManuallyActivatedTriggerTags:DepotPatrol-Green]
+			[ForceManualTriggerActivation:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Defense-WL1-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotDefense-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast2]
+			[UseElseActions:true]
+			[ElseActions:WW2-Depot-Action-Defense-WL1-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Defense-WL1-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Defense-WL1-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Defense-WL1-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Defense-WL1-Green]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Defense-WL2-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotDefense-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly2]
+			[Actions:WW2-Depot-Action-Defense-WL2-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Defense-WL2-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Defense-WL2-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Defense-WL2-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Defense-WL2-Green]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Defense-WL3-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotDefense-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly3]
+			[Actions:WW2-Depot-Action-Defense-WL3-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Defense-WL3-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Defense-WL3-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Defense-WL3-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Defense-WL3-Green]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Defense-WL4-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotDefense-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly4]
+			[Actions:WW2-Depot-Action-Defense-WL4-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Defense-WL4-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Defense-WL4-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Defense-WL4-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Defense-WL4-Green]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Defense-WL5-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotDefense-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly5]
+			[Actions:WW2-Depot-Action-Defense-WL5-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Defense-WL5-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Defense-WL5-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Defense-WL5-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Defense-WL5-Green]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Patrol-WL1-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotPatrol-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast2]
+			[UseElseActions:true]
+			[ElseActions:WW2-Depot-Action-Patrol-WL1-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Patrol-WL1-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Patrol-WL1-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Patrol-WL1-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Patrol-WL1-Green]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Patrol-WL2-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotPatrol-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly2]
+			[Actions:WW2-Depot-Action-Patrol-WL2-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Patrol-WL2-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Patrol-WL2-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Patrol-WL2-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Patrol-WL2-Green]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Patrol-WL3-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotPatrol-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly3]
+			[Actions:WW2-Depot-Action-Patrol-WL3-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Patrol-WL3-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Patrol-WL3-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Patrol-WL3-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Patrol-WL3-Green]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Patrol-WL4-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotPatrol-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly4]
+			[Actions:WW2-Depot-Action-Patrol-WL4-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Patrol-WL4-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Patrol-WL4-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Patrol-WL4-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Patrol-WL4-Green]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-Patrol-WL5-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotPatrol-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly5]
+			[Actions:WW2-Depot-Action-Patrol-WL5-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-Patrol-WL5-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-Patrol-WL5-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-Patrol-WL5-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotUnit-Patrol-WL5-Green]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Chat-Defense-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Chat]
+			[UseChat:true]
+			[StartsReady:true]
+			[MaxChats:-1]
+			[BroadcastRandomly:true]
+			[Author:Commandement du Dépôt]
+			[Color:Red]
+			[IgnoreAntennaRequirement:true]
+			[IgnoredAntennaRangeOverride:3000]
+
+			[ChatMessages:Enemy near the depot. Armour, roll out!]
+			[ChatAudio:ArcHudGPSNotification1]
+			[BroadcastChatType:Chat]
+			</Description>
+		</EntityComponent>
+<!-- Garage bay (Green): one of the holder's vehicles parked in the yard while a player is near, at most hourly. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-GarageBay-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:PlayerNear]
+			[TargetDistance:1500]
+			[MinCooldownMs:3600000]
+			[MaxCooldownMs:3600001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Depot-Action-GarageBay-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-GarageBay-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-GarageBay-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-GarageBay-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotGarageBay-Green]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:20 Y:2 Z:0}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

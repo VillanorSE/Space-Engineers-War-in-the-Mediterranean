@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Vehicle depot (D-049), shared by every depot like WW2-Behavior-Airfield: the zone checks, territory conditions, guard bots and reputation triggers are the airfield ones; the flips are WW2-Action-Depot-* (Triggers-Depot-Ownership.sbc). -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Depot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Gray-LaSpezia]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Gray-LaSpezia]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Gray-Tripoli]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Gray-Tripoli]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Gray-Rome]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Gray-Rome]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Green-Toulon]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Green-Toulon]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Green-Oran]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Green-Oran]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckIn-Green-Alexandria]
+			[Triggers:WW2-Trigger-Airfield-ZoneCheckOut-Green-Alexandria]
+
+			[Triggers:WW2-Depot-Trigger-Unowned-CheckGreen]
+			[Triggers:WW2-Depot-Trigger-Unowned-CheckGray]
+			[Triggers:WW2-Depot-Trigger-Unowned-CommandGray]
+			[Triggers:WW2-Depot-Trigger-Unowned-CommandGreen]
+			[Triggers:WW2-Depot-Trigger-Gray-CheckGreen]
+			[Triggers:WW2-Depot-Trigger-Gray-CheckUnowned]
+			[Triggers:WW2-Depot-Trigger-Green-CheckGray]
+			[Triggers:WW2-Depot-Trigger-Green-CheckUnowned]
+
+			[Triggers:WW2-Trigger-Airfield-Gated-BotCrew-3]
+
+			[Triggers:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Gray]
+			[Triggers:WW2-Depot-Trigger-Defense-Gray]
+			[Triggers:WW2-Depot-Trigger-Patrol-Gray]
+			[Triggers:WW2-Depot-Trigger-GarageBay-Gray]
+			[Triggers:WW2-Store-Trigger-UpdateSales-Depot-Vehicles-Gray]
+			[Triggers:WW2-Depot-Trigger-Defense-WL1-Gray]
+			[Triggers:WW2-Depot-Trigger-Defense-WL2-Gray]
+			[Triggers:WW2-Depot-Trigger-Defense-WL3-Gray]
+			[Triggers:WW2-Depot-Trigger-Defense-WL4-Gray]
+			[Triggers:WW2-Depot-Trigger-Defense-WL5-Gray]
+			[Triggers:WW2-Depot-Trigger-Patrol-WL1-Gray]
+			[Triggers:WW2-Depot-Trigger-Patrol-WL2-Gray]
+			[Triggers:WW2-Depot-Trigger-Patrol-WL3-Gray]
+			[Triggers:WW2-Depot-Trigger-Patrol-WL4-Gray]
+			[Triggers:WW2-Depot-Trigger-Patrol-WL5-Gray]
+
+			[Triggers:WW2-Trigger-Airfield-Gated-ReputationDamageLight-Green]
+			[Triggers:WW2-Depot-Trigger-Defense-Green]
+			[Triggers:WW2-Depot-Trigger-Patrol-Green]
+			[Triggers:WW2-Depot-Trigger-GarageBay-Green]
+			[Triggers:WW2-Store-Trigger-UpdateSales-Depot-Vehicles-Green]
+			[Triggers:WW2-Depot-Trigger-Defense-WL1-Green]
+			[Triggers:WW2-Depot-Trigger-Defense-WL2-Green]
+			[Triggers:WW2-Depot-Trigger-Defense-WL3-Green]
+			[Triggers:WW2-Depot-Trigger-Defense-WL4-Green]
+			[Triggers:WW2-Depot-Trigger-Defense-WL5-Green]
+			[Triggers:WW2-Depot-Trigger-Patrol-WL1-Green]
+			[Triggers:WW2-Depot-Trigger-Patrol-WL2-Green]
+			[Triggers:WW2-Depot-Trigger-Patrol-WL3-Green]
+			[Triggers:WW2-Depot-Trigger-Patrol-WL4-Green]
+			[Triggers:WW2-Depot-Trigger-Patrol-WL5-Green]
+
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

@@ -10,6 +10,7 @@ namespace WW2WitM.WarNewsSystem
     // custom actions for MES Events. Action ids are the WitM-MES SubtypeIds; keep this list in step when they are renamed.
     //
     //   WW2-Action-Airfield-{Unowned|Gray|Green}-Become{Gray|Green|Unowned}   Triggers-Airfield-Ownership.sbc
+    //   WW2-Action-Depot-{Unowned|Gray|Green}-Become{Gray|Green|Unowned}      Triggers-Depot-Ownership.sbc
     //   WW2-WarLevel-Action-Level{Up|Down}{2..5}-Announce                    War-Level-Points.sbc (Civitavecchia only)
     //   WW2-Territory-Action-Radius{Grow|Shrink}{1..6}-{Anchor}              Triggers-Zone-Change.sbc
     //   WW2-Territory-Action-Loss-{Gray|Green}-{Type}                        Territory-Points.sbc (selected types only)
@@ -100,6 +101,23 @@ namespace WW2WitM.WarNewsSystem
                     WarNews.Post(WarNewsText.AirfieldAbandoned(from, airfield), from);
                 else
                     WarNews.Post(WarNewsText.AirfieldCaptured(to, from, airfield), to);
+                return;
+            }
+
+            if (Cut(id, "WW2-Action-Depot-", out rest))
+            {
+                var parts = rest.Split('-');
+                if (parts.Length != 2 || !parts[1].StartsWith("Become", StringComparison.Ordinal))
+                    return;
+                var from = parts[0];
+                var to = parts[1].Substring(6);
+                var depot = WarNewsPlaces.NearestDepot(pos);
+                if (from == "Unowned")
+                    WarNews.Post(WarNewsText.DepotTaken(to, depot), to);
+                else if (to == "Unowned")
+                    WarNews.Post(WarNewsText.DepotAbandoned(from, depot), from);
+                else
+                    WarNews.Post(WarNewsText.DepotCaptured(to, from, depot), to);
                 return;
             }
 
