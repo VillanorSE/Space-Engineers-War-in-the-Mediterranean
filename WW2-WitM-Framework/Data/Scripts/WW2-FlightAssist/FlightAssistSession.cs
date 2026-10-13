@@ -148,6 +148,11 @@ namespace WW2WitM.FlightAssist
                 if (controller == null || controller.CubeGrid == null || !controller.IsUnderControl || !controller.CanControlShip)
                     continue;
                 var grid = controller.CubeGrid;
+                // Only the seat the engine lets fly the grid group; a gunner or co-pilot seat never becomes the pilot.
+                var flying = grid.ControlSystem != null && grid.ControlSystem.CurrentShipController != null
+                    ? grid.ControlSystem.CurrentShipController.Entity as IMyShipController : null;
+                if (flying != null && flying.EntityId != controller.EntityId)
+                    continue;
                 Plane plane;
                 if (!planeByGrid.TryGetValue(grid.EntityId, out plane))
                 {

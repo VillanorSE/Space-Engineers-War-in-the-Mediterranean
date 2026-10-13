@@ -161,6 +161,8 @@ namespace WW2WitM.FlightAssist
             if (stepSq > MaxRateStep * MaxRateStep)
                 worldRate = current + step * (MaxRateStep / Math.Sqrt(stepSq));
 
+            // Set before the first override write so Release() always clears it, even if a write throws.
+            Engaged = true;
             for (int i = Gyros.Count - 1; i >= 0; i--)
             {
                 var gyro = Gyros[i];
@@ -182,7 +184,6 @@ namespace WW2WitM.FlightAssist
                 if (Math.Abs(gyro.Yaw - yaw) > WriteEpsilon) gyro.Yaw = yaw;
                 if (Math.Abs(gyro.Roll - rollRate) > WriteEpsilon) gyro.Roll = rollRate;
             }
-            Engaged = true;
             return true;
         }
 
