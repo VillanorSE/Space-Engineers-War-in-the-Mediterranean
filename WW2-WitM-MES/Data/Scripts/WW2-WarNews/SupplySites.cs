@@ -82,7 +82,7 @@ namespace WW2WitM.Supply
         private static readonly HashSet<string> ArmoredCars = new HashSet<string> { "NPC-WW2-AB41", "NPC-WW2-Panhard178" };
         // Territory points a held depot adds each hour to its owner's nearest anchor (D-049 "holding gives territory points";
         // AGENT number, owner to confirm). Counters are capped by Triggers-Zone-Change.sbc.
-        public const int DepotHoldingPointsPerHour = 5;
+        public const int DepotHoldingPointsPerHour = 0;
 
         private static readonly Dictionary<string, string> AnchorSides = new Dictionary<string, string>
         {
