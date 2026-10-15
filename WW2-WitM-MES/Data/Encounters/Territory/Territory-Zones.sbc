@@ -14,16 +14,9 @@
      Anchor coordinates: La Spezia/Toulon/Oran/Tripoli/Alexandria are real GPS, derived from
      each port's own SpawnConditions-Ports.sbc StaticEncounterPlanetDirection/Altitude
      (direction * (30101.5 + altitude), matching build_territory_layer.py's confirmed real
-     deployed planet radius). Rome's coordinate WAS derived from the same real-world-city
-     lat/lon estimate (41.9028, 12.4964) used throughout the rest of this project's city
-     placements, on the assumption that projection would land it near Civitavecchia (its real
-     port) - it didn't: that math put it ~33.3km from Civitavecchia on a planet only ~60km in
-     diameter, meaning the lat/lon-to-planet-position conversion used for Rome disagrees badly
-     with the StaticEncounterPlanetDirection system the real ports use. Confirmed wrong and
-     replaced with an in-game-verified GPS point (~3.6km from Civitavecchia, matching the real
-     Rome/Civitavecchia relationship) instead of re-deriving from lat/lon. If any other city
-     placement in this project used the same lat/lon conversion as Rome originally did, it's
-     worth spot-checking those too. -->
+     deployed planet radius). Rome is a point inland of the Civitavecchia port, placed on the
+     terrain (lat/lon conversion does not match the planet here); keep it in step with
+     SupplySites.cs and WarNewsPlaces.cs. -->
 
 <!-- La Spezia (Gray) -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -142,7 +135,7 @@
 			[Active:true]
 			[Persistent:true]
 			[Strict:false]
-			[Coordinates:{X:26.83 Y:-20030.21 Z:22474.36}]
+			[Coordinates:{X:-2630.72 Y:-20319.32 Z:22057.00}]
 			[NoSpawnZone:false]
 			[Radius:5000]
 			[UseZoneAnnounce:true]

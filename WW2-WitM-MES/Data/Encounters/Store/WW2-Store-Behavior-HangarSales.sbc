@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!-- Hangar stores: a Store block named "Store-Hangar-Vehicles" on a hangar sells that faction's utility plane
+     (Gray: Ju 52, Green: F.222). Referenced from WW2-Behavior-HangarGarage-Gray/-Green; hangars without the block
+     are unaffected. The store's owner must match the hangar's Remote Control. -->
+	<EntityComponents>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Hangar-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Store-Action-UpdateSales-Hangar-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Hangar-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Action]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-Hangar-Vehicles]
+			[StoreProfiles:WW2-Store-Profile-Hangar-Gray]
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Hangar-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Store-Action-UpdateSales-Hangar-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Hangar-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Action]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-Hangar-Vehicles]
+			[StoreProfiles:WW2-Store-Profile-Hangar-Green]
+			</Description>
+		</EntityComponent>
+
+	</EntityComponents>
+</Definitions>

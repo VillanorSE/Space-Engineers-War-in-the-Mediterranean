@@ -93,7 +93,7 @@ namespace WW2WitM.Refresh
             new RefreshSite("WW2-Port-Tripoli", "Tripoli", false, -0.097008599, 0.688288288, 0.718921807, 0),
             new RefreshSite("WW2-Port-Alexandria", "Alexandria", false, -0.192091142579102, 0.859672486172863, -0.473354211410465, -1.13989923804911),
             new RefreshSite("WW2-Port-Valencia", "Valencia", false, 0.707906168868626, -0.307714528162304, -0.635752015518312, -2.60071226354557),
-            new RefreshSite("WW2-Port-Civitavecchia", "Civitavecchia", false, 0.106072219319843, -0.699055920364547, 0.707155926576197, 0.174443636846263),
+            new RefreshSite("WW2-Port-Civitavecchia", "Civitavecchia", false, 0.020879445182773, -0.715677101440813, 0.698119141151520, 0.174443636846263),
             new RefreshSite("WW2-Airfield-Gibraltar", "Gibraltar", true, 0.405268480561213, 0.29884657438491, -0.863972328053399, 2.38300709220857),
             new RefreshSite("WW2-Airfield-Bizerte", "Bizerte", true, 0.463732953259739, 0.0435520585467395, 0.884903930524293, 2.92544832559361),
             new RefreshSite("WW2-Airfield-Tripoli", "Tripoli", true, -0.0858730279300504, 0.699611068160377, 0.709344892405395, 0.0645265073144401),

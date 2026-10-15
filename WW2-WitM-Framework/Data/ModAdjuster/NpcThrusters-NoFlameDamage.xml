@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 2026-10-14: MES NPC atmospheric thrusters (Modular Encounters Systems, workshop 1521905890,
+     Data/Blocks/CubeBlocks_NPCThrusters-Atmo.sbc) do no flame damage, so the supply convoy trucks
+     (which hide them inside the body and drive at 2 m) don't burn their own blocks, the road or
+     players. World ThrusterDamage stays on for every other thruster. Only FlameDamage is set
+     (SmallGrid-Large was 0.2, SmallGrid-Small 0.1; the LargeGrid ones had no tag, the definition
+     default); everything else stays as MES defines it. ThrustDefinition.FlameDamage is a Mod
+     Adjuster field (Adjuster/Definitions/Blocks/FunctionalBlocks.cs). -->
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CubeBlocks>
+
+    <Definition xsi:type="ThrustDefinition">
+      <Id Type="MyObjectBuilder_Thrust" Subtype="MES-NPC-Thrust-Atmo-LargeGrid-Large" />
+      <FlameDamage>0</FlameDamage>
+    </Definition>
+
+    <Definition xsi:type="ThrustDefinition">
+      <Id Type="MyObjectBuilder_Thrust" Subtype="MES-NPC-Thrust-Atmo-LargeGrid-Small" />
+      <FlameDamage>0</FlameDamage>
+    </Definition>
+
+    <Definition xsi:type="ThrustDefinition">
+      <Id Type="MyObjectBuilder_Thrust" Subtype="MES-NPC-Thrust-Atmo-SmallGrid-Large" />
+      <FlameDamage>0</FlameDamage>
+    </Definition>
+
+    <Definition xsi:type="ThrustDefinition">
+      <Id Type="MyObjectBuilder_Thrust" Subtype="MES-NPC-Thrust-Atmo-SmallGrid-Small" />
+      <FlameDamage>0</FlameDamage>
+    </Definition>
+
+  </CubeBlocks>
+</Definitions>

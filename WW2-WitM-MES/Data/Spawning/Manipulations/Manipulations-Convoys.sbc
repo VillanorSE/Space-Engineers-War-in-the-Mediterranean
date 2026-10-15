@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<EntityComponents>
-<!-- Supply convoy trucks: MES NPC thrusters (MES-NPC-Thrust-Atmo-*) stop working once a player owns the truck; almost no power draw so the batteries last the trip. -->
+<!-- Supply convoy trucks: MES NPC thrusters (MES-NPC-Thrust-Atmo-*) stop working once a player owns the truck; almost no power draw so the batteries last the trip. The prefabs are built with vanilla small-grid atmospheric thrusters; the block replacer swaps them for the MES NPC ones at spawn (same size and mount points). Force x5: one thruster per direction, about 2x the truck's weight upward (audits/change-2026-10-14-convoy-trucks-2.md). -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -10,9 +10,14 @@
 			<Description>
 			[MES Manipulation]
 			[ManipulationChance:100]
+			[UseBlockReplacer:true]
+			[ReplaceBlockOld:MyObjectBuilder_Thrust/SmallBlockSmallAtmosphericThrust]
+			[ReplaceBlockNew:MyObjectBuilder_Thrust/MES-NPC-Thrust-Atmo-SmallGrid-Small]
+			[ReplaceBlockOld:MyObjectBuilder_Thrust/SmallBlockLargeAtmosphericThrust]
+			[ReplaceBlockNew:MyObjectBuilder_Thrust/MES-NPC-Thrust-Atmo-SmallGrid-Large]
 			[ConfigureSpecialNpcThrusters:true]
 			[RestrictNpcAtmoThrust:true]
-			[NpcAtmoThrustForceMultiply:1]
+			[NpcAtmoThrustForceMultiply:5]
 			[NpcAtmoThrustPowerMultiply:0.0001]
 			</Description>
 		</EntityComponent>

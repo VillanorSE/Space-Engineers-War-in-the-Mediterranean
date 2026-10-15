@@ -60,7 +60,7 @@ namespace WW2WitM.Supply
             { "Oran", new Vector3D(22024.69, 8401.97, -18719.52) },
             { "Tripoli", new Vector3D(-2920.1, 20718.51, 21640.62) },
             { "Alexandria", new Vector3D(-5782.01, 25876.45, -14248.13) },
-            { "Rome", new Vector3D(26.83, -20030.21, 22474.36) },
+            { "Rome", new Vector3D(-2630.72, -20319.32, 22057.00) },
         };
 
         // Plane groups an airfield sortie can spawn (WW2-Spawn-OffenseSpawn-*, WW2-Spawn-DefenseSpawn-*); keep in step with those spawners.

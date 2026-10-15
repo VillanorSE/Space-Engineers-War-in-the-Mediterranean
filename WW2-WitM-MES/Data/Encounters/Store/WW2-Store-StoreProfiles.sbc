@@ -215,7 +215,7 @@
 		</EntityComponent>
 
 		
-		<!-- War Level 1 (always available): Fiat626/Gabbiano/GoloItalian. FrancescoCrispi (Level 2)
+		<!-- War Level 1 (always available): Fiat626/AB41/Gabbiano/GoloItalian/Ju52. FrancescoCrispi (Level 2)
 		     moved to the Tier2 profile below, applied by a separately-gated trigger. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -225,14 +225,15 @@
 			<Description>
 			[MES Store]
 			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
-			[MinOfferItems:4]
-			[MaxOfferItems:4]
+			[MinOfferItems:5]
+			[MaxOfferItems:5]
 			[ItemsRequireInventory:false]
 
 			[RequiredOffers:WW2-Vehicle-Fiat626]
 			[RequiredOffers:WW2-Vehicle-AB41]
 			[RequiredOffers:WW2-Vehicle-Gabbiano]
 			[RequiredOffers:WW2-Vehicle-GoloItalian]
+			[RequiredOffers:WW2-Vehicle-Ju52]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -252,7 +253,7 @@
 		</EntityComponent>
 
 		
-		<!-- War Level 1 (always available): RenaultAHN/LaMalouine/GoloFrench. Bougainville (Level 2)
+		<!-- War Level 1 (always available): RenaultAHN/Panhard178/LaMalouine/GoloFrench/F222. Bougainville (Level 2)
 		     moved to the Tier2 profile below, applied by a separately-gated trigger. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -262,14 +263,15 @@
 			<Description>
 			[MES Store]
 			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
-			[MinOfferItems:4]
-			[MaxOfferItems:4]
+			[MinOfferItems:5]
+			[MaxOfferItems:5]
 			[ItemsRequireInventory:false]
 
 			[RequiredOffers:WW2-Vehicle-RenaultAHN]
 			[RequiredOffers:WW2-Vehicle-Panhard178]
 			[RequiredOffers:WW2-Vehicle-LaMalouine]
 			[RequiredOffers:WW2-Vehicle-GoloFrench]
+			[RequiredOffers:WW2-Vehicle-F222]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -309,6 +311,37 @@
 			[RequiredOffers:WW2-Vehicle-GoloItalian]
 			[RequiredOffers:WW2-Vehicle-GoloFrench]
 			[RequiredOffers:WW2-Vehicle-Ju52]
+			[RequiredOffers:WW2-Vehicle-F222]
+			</Description>
+		</EntityComponent>
+	<!-- Hangar stores (block "Store-Hangar-Vehicles"): each faction's utility plane. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-Hangar-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
+			[MinOfferItems:1]
+			[MaxOfferItems:1]
+			[ItemsRequireInventory:false]
+
+			[RequiredOffers:WW2-Vehicle-Ju52]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-Hangar-Green</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
+			[MinOfferItems:1]
+			[MaxOfferItems:1]
+			[ItemsRequireInventory:false]
+
 			[RequiredOffers:WW2-Vehicle-F222]
 			</Description>
 		</EntityComponent>

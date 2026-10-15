@@ -32,7 +32,7 @@ namespace WW2WitM.WarNewsSystem
             var sites = new Site[all.Length + 1];
             for (int i = 0; i < all.Length; i++)
                 sites[i] = new Site(all[i].Name, all[i].Dir, all[i].Kind);
-            sites[all.Length] = new Site("Rome", new Vector3D(26.83, -20030.21, 22474.36), WW2WitM.Refresh.SiteKind.Port);
+            sites[all.Length] = new Site("Rome", new Vector3D(-2630.72, -20319.32, 22057.00), WW2WitM.Refresh.SiteKind.Port);
             return sites;
         }
 

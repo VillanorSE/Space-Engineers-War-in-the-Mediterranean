@@ -26,6 +26,31 @@
 
 		</Description>
 	</EntityComponent>
+<!-- Medium-size copy of WW2-SpawnConditions-Installations: keep in sync -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Installations-Medium</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[PlanetaryInstallationType:Medium]
+
+			[InstallationSpawnsOnDryLand:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+
+		</Description>
+	</EntityComponent>
 <EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
@@ -53,6 +78,35 @@
 			[SandboxCounterCompareTypes:GreaterOrEqual]
 </Description>
 	</EntityComponent>
+<!-- Medium-size copy of WW2-SpawnConditions-Installations-WL3: keep in sync -->
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Installations-WL3-Medium</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[PlanetaryInstallationType:Medium]
+
+			[InstallationSpawnsOnDryLand:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+</Description>
+	</EntityComponent>
 <EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
@@ -62,6 +116,35 @@
 			[MES Spawn Conditions]
 
 			[PlanetaryInstallation:true]
+
+			[InstallationSpawnsOnDryLand:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+</Description>
+	</EntityComponent>
+<!-- Medium-size copy of WW2-SpawnConditions-Installations-WL2: keep in sync -->
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Installations-WL2-Medium</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[PlanetaryInstallationType:Medium]
 
 			[InstallationSpawnsOnDryLand:true]
 
@@ -116,6 +199,37 @@
 
 		</Description>
 	</EntityComponent>
+<!-- Medium-size copy of WW2-SpawnConditions-Wreck-ShallowWater: keep in sync -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Wreck-ShallowWater-Medium</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[PlanetaryInstallationType:Medium]
+
+			[InstallationSpawnsOnDryLand:false]
+			[InstallationSpawnsUnderwater:true]
+			[MinWaterDepth:1]
+			[MaxWaterDepth:7.5]
+			[MinWaterCoverage:0.15]
+			[MaxWaterCoverage:0.6]
+			[AlignToSurface:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+
+		</Description>
+	</EntityComponent>
 <EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
@@ -125,6 +239,7 @@
 			[MES Spawn Conditions]
 
 			[PlanetaryInstallation:true]
+			[PlanetaryInstallationType:Medium]
 
 			[InstallationSpawnsOnDryLand:false]
 			[InstallationSpawnsUnderwater:true]
@@ -158,6 +273,7 @@
 			[MES Spawn Conditions]
 
 			[PlanetaryInstallation:true]
+			[PlanetaryInstallationType:Medium]
 
 			[InstallationSpawnsOnDryLand:false]
 			[InstallationSpawnsUnderwater:true]

@@ -321,9 +321,17 @@
 			[IdealPlanetAltitude:1000]
 			[AltitudeTolerance:50]
 
-			[LimitRotationSpeed:true]
-			[MaxRotationMagnitude:0.3]
+			[LimitRotationSpeed:false]
+			[MaxRotationMagnitude:0.5]
 			[AngleAllowedForForwardThrust:180]
+
+			[UseAircraftFlightModel:true]
+			[MaxAngleFromVelocity:25]
+			[RollIntoTurnsMultiplier:1.5]
+			[MaxBankAngle:45]
+			[ReturnToLevelMultiplier:0.12]
+			[MaxRotationStep:0.3]
+			[RollAndPull:true]
 
 			[OffsetPlanetMinDistFromTarget:2000]
 			[OffsetPlanetMaxDistFromTarget:5000]
@@ -361,9 +369,17 @@
 			[IdealPlanetAltitude:1000]
 			[AltitudeTolerance:20]
 
-			[LimitRotationSpeed:true]
-			[MaxRotationMagnitude:0.3]
+			[LimitRotationSpeed:false]
+			[MaxRotationMagnitude:0.5]
 			[AngleAllowedForForwardThrust:180]
+
+			[UseAircraftFlightModel:true]
+			[MaxAngleFromVelocity:25]
+			[RollIntoTurnsMultiplier:1.5]
+			[MaxBankAngle:45]
+			[ReturnToLevelMultiplier:0.12]
+			[MaxRotationStep:0.3]
+			[RollAndPull:true]
 
 			[UseProjectileLeadPrediction:true]
 
@@ -411,9 +427,17 @@
 			[IdealPlanetAltitude:500]
 			[AltitudeTolerance:20]
 
-			[LimitRotationSpeed:true]
-			[MaxRotationMagnitude:0.3]
+			[LimitRotationSpeed:false]
+			[MaxRotationMagnitude:0.5]
 			[AngleAllowedForForwardThrust:180]
+
+			[UseAircraftFlightModel:true]
+			[MaxAngleFromVelocity:25]
+			[RollIntoTurnsMultiplier:1.5]
+			[MaxBankAngle:45]
+			[ReturnToLevelMultiplier:0.12]
+			[MaxRotationStep:0.3]
+			[RollAndPull:true]
 
 			[UseProjectileLeadPrediction:true]
 
@@ -456,9 +480,16 @@
 			[IdealPlanetAltitude:1000]
 			[AltitudeTolerance:50]
 
-			[LimitRotationSpeed:true]
-			[MaxRotationMagnitude:0.3]
+			[LimitRotationSpeed:false]
+			[MaxRotationMagnitude:0.5]
 			[AngleAllowedForForwardThrust:180]
+
+			[UseAircraftFlightModel:true]
+			[MaxAngleFromVelocity:25]
+			[RollIntoTurnsMultiplier:1.5]
+			[MaxBankAngle:45]
+			[ReturnToLevelMultiplier:0.12]
+			[MaxRotationStep:0.3]
 
 			</Description>
 		</EntityComponent>

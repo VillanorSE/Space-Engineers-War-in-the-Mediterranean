@@ -14,16 +14,14 @@
 
 		[Modular Encounters SpawnGroup]
 
-		[PlanetaryInstallationType:Medium]
-
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater-Medium]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Golo-Wreck]
 
 		[FactionOverride:GRAY]
 
 		</Description>
-		<Frequency>0.3</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Golo_Italian">
@@ -48,16 +46,14 @@
 
 		[Modular Encounters SpawnGroup]
 
-		[PlanetaryInstallationType:Medium]
-
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater-Medium]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Golo-Wreck]
 
 		[FactionOverride:GREEN]
 
 		</Description>
-		<Frequency>0.3</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Golo_French">
@@ -87,8 +83,6 @@
 
 		[Modular Encounters SpawnGroup]
 
-		[PlanetaryInstallationType:Medium]
-
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Corvette-Wreck]
@@ -96,7 +90,7 @@
 		[FactionOverride:GRAY]
 
 		</Description>
-		<Frequency>0.3</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Gabbiano">
@@ -121,8 +115,6 @@
 
 		[Modular Encounters SpawnGroup]
 
-		[PlanetaryInstallationType:Medium]
-
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Corvette-Wreck]
@@ -130,7 +122,7 @@
 		[FactionOverride:GREEN]
 
 		</Description>
-		<Frequency>0.3</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-La_Malouine">
@@ -159,8 +151,6 @@
 
 		[Modular Encounters SpawnGroup]
 
-		[PlanetaryInstallationType:Large]
-
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater-WL2]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Destroyer-Wreck]
@@ -168,7 +158,7 @@
 		[FactionOverride:GRAY]
 
 		</Description>
-		<Frequency>0.3</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Francesco_Crispi">
@@ -193,8 +183,6 @@
 
 		[Modular Encounters SpawnGroup]
 
-		[PlanetaryInstallationType:Large]
-
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater-WL3]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Destroyer-Wreck]
@@ -202,7 +190,7 @@
 		[FactionOverride:GRAY]
 
 		</Description>
-		<Frequency>0.3</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Comandante_Margottini">
@@ -227,8 +215,6 @@
 
 		[Modular Encounters SpawnGroup]
 
-		[PlanetaryInstallationType:Large]
-
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater-WL2]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Destroyer-Wreck]
@@ -236,7 +222,7 @@
 		[FactionOverride:GREEN]
 
 		</Description>
-		<Frequency>0.3</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Bougainville">
@@ -261,8 +247,6 @@
 
 		[Modular Encounters SpawnGroup]
 
-		[PlanetaryInstallationType:Large]
-
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater-WL3]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Destroyer-Wreck]
@@ -270,7 +254,7 @@
 		[FactionOverride:GREEN]
 
 		</Description>
-		<Frequency>0.3</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Le_Triomphant">
@@ -295,8 +279,6 @@
 
 		[Modular Encounters SpawnGroup]
 
-		[PlanetaryInstallationType:Large]
-
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Wreck-ShallowWater-WL2]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-Destroyer-Wreck]
@@ -304,7 +286,7 @@
 		[FactionOverride:GRAY]
 
 		</Description>
-		<Frequency>0.3</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Spica">
