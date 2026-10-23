@@ -59,5 +59,24 @@
 			[PrefabIndexGroupValues:0,1,2,-1,3,-1]
 			</Description>
 		</EntityComponent>
+<!-- Gun emplacements (battle defenses): MES picks one of the five prefabs per spawn (SpawnGroupCollection.cs, Random). -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Emplacement</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[PrefabSpawningMode:Random]
+			</Description>
+		</EntityComponent>
 	</EntityComponents>
 </Definitions>

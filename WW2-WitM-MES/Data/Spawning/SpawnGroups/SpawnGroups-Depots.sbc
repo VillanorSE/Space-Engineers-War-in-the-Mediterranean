@@ -999,5 +999,132 @@
 			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
+<!-- Gun emplacements WW2-Emplacement-{Side}: one random emplacement per spawn, for airfield and depot defense during battles (D-035/D-041). Nothing spawns them yet: the Battle for X controller will, at the owner's fixed offsets. -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Emplacement-Gray</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Emplacement]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-GunEmplacement-20mm">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Emplacement-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-GunEmplacement-2cm">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Emplacement-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-GunEmplacement-37mm">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Emplacement-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-GunEmplacement-50cal">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Emplacement-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-GunEmplacement-Bofors">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Emplacement-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Emplacement-Green</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Emplacement]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-GunEmplacement-20mm">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Emplacement-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-GunEmplacement-2cm">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Emplacement-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-GunEmplacement-37mm">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Emplacement-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-GunEmplacement-50cal">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Emplacement-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-GunEmplacement-Bofors">
+				<Position>
+					<X>0.0</X>
+					<Y>0.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Emplacement-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
 	</SpawnGroups>
 </Definitions>

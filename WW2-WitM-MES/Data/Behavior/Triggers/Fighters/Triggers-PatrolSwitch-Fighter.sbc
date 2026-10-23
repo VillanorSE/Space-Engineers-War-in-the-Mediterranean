@@ -2,6 +2,7 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
 <!-- Trigger to switch back to patrol when the target is far. -->
+	<!-- Switches to the Patrol subclass and the patrol autopilot. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -40,6 +41,8 @@
 			[EnableTriggerNames:WW2-Trigger-FighterSwitch-Fighter-Gray]
 			</Description>
         </EntityComponent>
+
+	<!-- Trigger to switch back to patrol when the target is lost. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -54,6 +57,8 @@
 			[Actions:WW2-Action-PatrolSwitch-Fighter-Gray]
 			</Description>
         </EntityComponent>
+
+	<!-- Broadcasts chats about patrolling -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -78,6 +83,8 @@
 			[BroadcastChatType:Chat]
 			</Description>
 		</EntityComponent>
+
+	<!-- Switches to the Patrol subclass and the patrol autopilot. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -93,6 +100,7 @@
 			[Actions:WW2-Action-PatrolSwitch-Fighter-Green]
 			</Description>
         </EntityComponent>
+
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -116,6 +124,8 @@
 			[EnableTriggerNames:WW2-Trigger-FighterSwitch-Fighter-Green]
 			</Description>
         </EntityComponent>
+
+	<!-- Trigger to switch back to patrol when the target is lost. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -130,6 +140,8 @@
 			[Actions:WW2-Action-PatrolSwitch-Fighter-Green]
 			</Description>
         </EntityComponent>
+
+	<!-- Broadcasts chats about patrolling -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -154,9 +166,7 @@
 			[BroadcastChatType:Chat]
 			</Description>
 		</EntityComponent>
-	<!-- Switches to the Patrol subclass and the patrol autopilot. -->
-	<!-- Trigger to switch back to patrol when the target is lost. -->
-	<!-- Broadcasts chats about patrolling -->
+
 	<!-- Trigger that measures the next patrol waypoint from the plane's current position. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>

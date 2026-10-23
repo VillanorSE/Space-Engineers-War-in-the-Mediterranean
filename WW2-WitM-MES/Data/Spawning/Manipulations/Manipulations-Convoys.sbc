@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<EntityComponents>
-<!-- Supply convoy trucks: MES NPC thrusters (MES-NPC-Thrust-Atmo-*) stop working once a player owns the truck; almost no power draw so the batteries last the trip. The prefabs are built with vanilla small-grid atmospheric thrusters; the block replacer swaps them for the MES NPC ones at spawn (same size and mount points). Force x5: one thruster per direction, about 2x the truck's weight upward (audits/change-2026-10-14-convoy-trucks-2.md). -->
+<!-- Supply convoy trucks: MES NPC thrusters (MES-NPC-Thrust-Atmo-*) stop working once a player owns the truck; almost no power draw so the batteries last the trip. The prefabs are built with vanilla small-grid atmospheric thrusters; the block replacer swaps them for the MES NPC ones at spawn (same size and mount points). Force x5: one thruster per direction, about 2x the truck's weight upward (audits/change-2026-10-14-convoy-trucks-2.md). 2026-10-22: both trucks rebuilt with vanilla small-grid small ion thrusters; swapped for MES NPC ion the same way (force x20, owner's choice; ion is weak in atmosphere). The atmo swaps stay for any atmo thruster left in a prefab. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -15,10 +15,15 @@
 			[ReplaceBlockNew:MyObjectBuilder_Thrust/MES-NPC-Thrust-Atmo-SmallGrid-Small]
 			[ReplaceBlockOld:MyObjectBuilder_Thrust/SmallBlockLargeAtmosphericThrust]
 			[ReplaceBlockNew:MyObjectBuilder_Thrust/MES-NPC-Thrust-Atmo-SmallGrid-Large]
+			[ReplaceBlockOld:MyObjectBuilder_Thrust/SmallBlockSmallThrust]
+			[ReplaceBlockNew:MyObjectBuilder_Thrust/MES-NPC-Thrust-Ion-SmallGrid-Small]
 			[ConfigureSpecialNpcThrusters:true]
 			[RestrictNpcAtmoThrust:true]
 			[NpcAtmoThrustForceMultiply:5]
 			[NpcAtmoThrustPowerMultiply:0.0001]
+			[RestrictNpcIonThrust:true]
+			[NpcIonThrustForceMultiply:20]
+			[NpcIonThrustPowerMultiply:0.0001]
 			</Description>
 		</EntityComponent>
 	</EntityComponents>

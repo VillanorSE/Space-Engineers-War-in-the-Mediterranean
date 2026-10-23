@@ -174,7 +174,8 @@
 
 			</Description>
         </EntityComponent>
-<!-- Utility planes (large hangar). No UnStatic until the owner has tuned the offsets; add it before release. -->
+		
+<!-- Utility planes (large hangar). -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -185,6 +186,8 @@
 			[RivalAI Behavior]
 			[BehaviorName:Passive]
 
+			[Triggers:WW2-Trigger-UnStatic]
+			
 			</Description>
         </EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -196,6 +199,8 @@
 
 			[RivalAI Behavior]
 			[BehaviorName:Passive]
+
+			[Triggers:WW2-Trigger-UnStatic]
 
 			</Description>
         </EntityComponent>

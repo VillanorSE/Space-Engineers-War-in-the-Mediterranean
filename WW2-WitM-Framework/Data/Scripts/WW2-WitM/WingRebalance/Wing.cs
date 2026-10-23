@@ -452,8 +452,12 @@ namespace WW2WitM.Aerodynamics
                 if(grid.Physics == null || grid.Physics.IsStatic || block.MarkedForClose || block.Closed || !block.IsWorking)
                     return;
 
+                var mod = AerodynamicsMod.instance;
+                if(mod == null)
+                    return;
+
                 var gridCenter = grid.Physics.CenterOfMassWorld;
-                var planets = AerodynamicsMod.instance.planets;
+                var planets = mod.planets;
 
                 atmosphere = 0;
                 atmospheres = 0;

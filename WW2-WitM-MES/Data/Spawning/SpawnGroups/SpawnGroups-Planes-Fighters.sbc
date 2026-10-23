@@ -2,6 +2,72 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <SpawnGroups>
 
+<!-- Loire 130 Recon Plane -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Loire130</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-Fighters-WL2]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GREEN]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-Loire130">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
+<!-- Ro.43 Recon Plane -->
+<SpawnGroup>
+	<Id>
+		<TypeId>SpawnGroupDefinition</TypeId>
+		<SubtypeId>NPC-WW2-Ro43</SubtypeId>
+	</Id>
+	<Description>
+
+	[Modular Encounters SpawnGroup]
+
+	[SpawnConditionsProfiles:WW2-SpawnConditions-Fighters-WL2]
+	[ReplenishSystems:true]
+	[ManipulationProfiles:MES-Manipulation-RivalAi]
+	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
+	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
+	[FactionOverride:GRAY]
+
+	</Description>
+	<Frequency>1.0</Frequency>
+	<IsPirate>true</IsPirate>
+	<Prefabs>
+		<Prefab SubtypeId="NPC-WW2-Ro43">
+			<Position>
+				<X>0.0</X>
+				<Y>0.0</Y>
+				<Z>0.0</Z>
+			</Position>
+			<Behaviour>WW2-Behavior-Fighter-Gray</Behaviour>
+			<Speed>55.0</Speed>
+		</Prefab>
+	</Prefabs>
+</SpawnGroup>
+
 <!-- Green Fighter Planes -->
 <SpawnGroup>
 	<Id>
@@ -56,39 +122,6 @@
 	<IsPirate>true</IsPirate>
 	<Prefabs>
 		<Prefab SubtypeId="NPC-WW2-D520">
-			<Position>
-				<X>0.0</X>
-				<Y>0.0</Y>
-				<Z>0.0</Z>
-			</Position>
-			<Behaviour>WW2-Behavior-Fighter-Green</Behaviour>
-			<Speed>55.0</Speed>
-		</Prefab>
-	</Prefabs>
-</SpawnGroup>
-
-<!-- Loire 130 Recon Plane -->
-<SpawnGroup>
-	<Id>
-		<TypeId>SpawnGroupDefinition</TypeId>
-		<SubtypeId>NPC-WW2-Loire130</SubtypeId>
-	</Id>
-	<Description>
-
-	[Modular Encounters SpawnGroup]
-
-	[SpawnConditionsProfiles:WW2-SpawnConditions-Fighters-WL2]
-	[ReplenishSystems:true]
-	[ManipulationProfiles:MES-Manipulation-RivalAi]
-	[ManipulationProfiles:WW2-Manipulation-Loot-Medium]
-	[ManipulationProfiles:WW2-Manipulation-CombatPlanes]
-	[FactionOverride:GREEN]
-
-	</Description>
-	<Frequency>1.0</Frequency>
-	<IsPirate>true</IsPirate>
-	<Prefabs>
-		<Prefab SubtypeId="NPC-WW2-Loire130">
 			<Position>
 				<X>0.0</X>
 				<Y>0.0</Y>

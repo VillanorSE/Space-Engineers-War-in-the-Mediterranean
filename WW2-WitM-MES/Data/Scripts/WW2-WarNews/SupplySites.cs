@@ -223,7 +223,7 @@ namespace WW2WitM.Supply
             return band == Low ? "Low" : band == Full ? "Full" : "Normal";
         }
 
-        // Zone radius as MES has it now: every zone starts at 5 km (Territory-Zones.sbc) and each Grow adds 5 km and sets its tier bool.
+        // Zone radius as MES has it now: every zone starts at 5 km (Territory-Zones.sbc) and each Grow sets its tier radius (5 km per tier) and its tier bool.
         public static double ZoneRadius(string anchor)
         {
             int tiers = 0;

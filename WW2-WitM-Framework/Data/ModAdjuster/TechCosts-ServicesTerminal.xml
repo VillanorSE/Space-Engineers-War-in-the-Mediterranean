@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tech-component cost for the vanilla Services Terminal (grid storage). Original <Components> list reproduced in
+     full (verified against Content/Data/CubeBlocks/CubeBlocks_Economy.sbc) with the tech component appended at the
+     END, after the CriticalComponent entry, so the functional threshold is unchanged. Large-grid only - vanilla has
+     no small-grid variant. -->
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CubeBlocks>
+
+    <!-- Services Terminal (FunctionalBlock/ServicesTerminal) - +8 Industrial Components -->
+    <Definition xsi:type="FunctionalBlockDefinition">
+      <Id Type="MyObjectBuilder_FunctionalBlock" Subtype="ServicesTerminal" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="15" />
+        <Component Subtype="Construction" Count="12" />
+        <Component Subtype="RadioCommunication" Count="2" />
+        <Component Subtype="Detector" Count="6" />
+        <Component Subtype="Motor" Count="2" />
+        <Component Subtype="Computer" Count="8" />
+        <Component Subtype="Display" Count="4" />
+        <Component Subtype="SteelPlate" Count="8" />
+        <Component Subtype="PrototechMachinery" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="Display" Index="0" />
+    </Definition>
+
+  </CubeBlocks>
+</Definitions>

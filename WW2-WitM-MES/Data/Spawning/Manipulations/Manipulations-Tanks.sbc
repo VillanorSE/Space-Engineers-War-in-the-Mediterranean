@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- NPC tanks: built with vanilla small-grid small ion thrusters (one per direction); the block replacer swaps them for MES NPC ion thrusters at spawn (same model, size and mount points). They stop working once a player owns the tank, and Block Restrictions removes them from player grids. Force x5 is a starting value: tune in game. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-NpcTank</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseBlockReplacer:true]
+			[ReplaceBlockOld:MyObjectBuilder_Thrust/SmallBlockSmallThrust]
+			[ReplaceBlockNew:MyObjectBuilder_Thrust/MES-NPC-Thrust-Ion-SmallGrid-Small]
+			[ConfigureSpecialNpcThrusters:true]
+			[RestrictNpcIonThrust:true]
+			[NpcIonThrustForceMultiply:5]
+			[NpcIonThrustPowerMultiply:0.0001]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

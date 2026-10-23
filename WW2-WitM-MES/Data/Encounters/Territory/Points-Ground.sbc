@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<EntityComponents>
-<!-- Ground unit kill scoring (D-049): Light Tank 1, Medium Tank 2, Heavy Tank 2 (design/WW2-WitM-Territory-WarLevel-Design.md). Armored Car scores 0, so it has no group. Attach with [TriggerGroups:WW2-Points-Group-{Side}-{Type}]. -->
+<!-- Ground unit kill scoring (D-049): Light Tank 1, Medium Tank 2, Heavy Tank 2 (design/WW2-WitM-Territory-WarLevel-Design.md), Emplacement 1 (also scores when its gun is knocked out). Armored Car scores 0, so it has no group. Attach with [TriggerGroups:WW2-Points-Group-{Side}-{Type}]. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -86,10 +86,12 @@
 			[DecreaseSandboxCounters:LaSpezia_Points]
 			[DecreaseSandboxCounters:Tripoli_Points]
 			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCounters:Gray_Score]
 			[DecreaseSandboxCountersAmount:1]
 			[IncreaseSandboxCounters:Toulon_Points]
 			[IncreaseSandboxCounters:Oran_Points]
 			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCounters:Green_Score]
 			[IncreaseSandboxCountersAmount:1]
 			</Description>
 		</EntityComponent>
@@ -132,10 +134,12 @@
 			[DecreaseSandboxCounters:Toulon_Points]
 			[DecreaseSandboxCounters:Oran_Points]
 			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCounters:Green_Score]
 			[DecreaseSandboxCountersAmount:1]
 			[IncreaseSandboxCounters:LaSpezia_Points]
 			[IncreaseSandboxCounters:Tripoli_Points]
 			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCounters:Gray_Score]
 			[IncreaseSandboxCountersAmount:1]
 			</Description>
 		</EntityComponent>
@@ -237,10 +241,12 @@
 			[DecreaseSandboxCounters:LaSpezia_Points]
 			[DecreaseSandboxCounters:Tripoli_Points]
 			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCounters:Gray_Score]
 			[DecreaseSandboxCountersAmount:2]
 			[IncreaseSandboxCounters:Toulon_Points]
 			[IncreaseSandboxCounters:Oran_Points]
 			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCounters:Green_Score]
 			[IncreaseSandboxCountersAmount:2]
 			</Description>
 		</EntityComponent>
@@ -283,10 +289,12 @@
 			[DecreaseSandboxCounters:Toulon_Points]
 			[DecreaseSandboxCounters:Oran_Points]
 			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCounters:Green_Score]
 			[DecreaseSandboxCountersAmount:2]
 			[IncreaseSandboxCounters:LaSpezia_Points]
 			[IncreaseSandboxCounters:Tripoli_Points]
 			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCounters:Gray_Score]
 			[IncreaseSandboxCountersAmount:2]
 			</Description>
 		</EntityComponent>
@@ -388,10 +396,12 @@
 			[DecreaseSandboxCounters:LaSpezia_Points]
 			[DecreaseSandboxCounters:Tripoli_Points]
 			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCounters:Gray_Score]
 			[DecreaseSandboxCountersAmount:2]
 			[IncreaseSandboxCounters:Toulon_Points]
 			[IncreaseSandboxCounters:Oran_Points]
 			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCounters:Green_Score]
 			[IncreaseSandboxCountersAmount:2]
 			</Description>
 		</EntityComponent>
@@ -434,10 +444,12 @@
 			[DecreaseSandboxCounters:Toulon_Points]
 			[DecreaseSandboxCounters:Oran_Points]
 			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCounters:Green_Score]
 			[DecreaseSandboxCountersAmount:2]
 			[IncreaseSandboxCounters:LaSpezia_Points]
 			[IncreaseSandboxCounters:Tripoli_Points]
 			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCounters:Gray_Score]
 			[IncreaseSandboxCountersAmount:2]
 			</Description>
 		</EntityComponent>
@@ -451,6 +463,199 @@
 			[Triggers:WW2-Territory-Trigger-Kill-Green-HeavyTank]
 			[Triggers:WW2-WarLevel-Trigger-Attacked-HeavyTank]
 			[Triggers:WW2-WarLevel-Trigger-Kill-HeavyTank]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Attacked-Emplacement</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Damage]
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+			[ExcludedDamageTypes:Weld]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Attacked-Emplacement]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Attacked-Emplacement</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:1]
+			[SetBooleansTrue:Attacked]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Trigger-Kill-Emplacement</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-WarLevel-Action-Kill-Emplacement]
+			[Conditions:WW2-Points-Condition-NotRetiredNotAttacked]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-WarLevel-Action-Kill-Emplacement</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[IncreaseSandboxCounters:WarActivity]
+			[IncreaseSandboxCountersAmount:1]
+			[SetBooleansTrue:Retired]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Gray-Emplacement</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-Emplacement]
+			[Conditions:WW2-Points-Condition-NotRetired]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Gray-Emplacement</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[DecreaseSandboxCounters:LaSpezia_Points]
+			[DecreaseSandboxCounters:Tripoli_Points]
+			[DecreaseSandboxCounters:Rome_Points]
+			[DecreaseSandboxCounters:Gray_Score]
+			[DecreaseSandboxCountersAmount:1]
+			[IncreaseSandboxCounters:Toulon_Points]
+			[IncreaseSandboxCounters:Oran_Points]
+			[IncreaseSandboxCounters:Alexandria_Points]
+			[IncreaseSandboxCounters:Green_Score]
+			[IncreaseSandboxCountersAmount:1]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-GunLost-Gray-Emplacement</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:NoWeapon]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:5001]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Gray-Emplacement]
+			[Actions:WW2-Points-Action-Retire]
+			[Conditions:WW2-Points-Condition-NotRetired]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Gray-Emplacement</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Territory-Trigger-Kill-Gray-Emplacement]
+			[Triggers:WW2-Territory-Trigger-GunLost-Gray-Emplacement]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Emplacement]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Emplacement]
+			[Triggers:WW2-Points-Trigger-Retire-Despawn]
+			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-Kill-Green-Emplacement</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Compromised]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-Emplacement]
+			[Conditions:WW2-Points-Condition-NotRetired]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Action-Loss-Green-Emplacement</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[DecreaseSandboxCounters:Toulon_Points]
+			[DecreaseSandboxCounters:Oran_Points]
+			[DecreaseSandboxCounters:Alexandria_Points]
+			[DecreaseSandboxCounters:Green_Score]
+			[DecreaseSandboxCountersAmount:1]
+			[IncreaseSandboxCounters:LaSpezia_Points]
+			[IncreaseSandboxCounters:Tripoli_Points]
+			[IncreaseSandboxCounters:Rome_Points]
+			[IncreaseSandboxCounters:Gray_Score]
+			[IncreaseSandboxCountersAmount:1]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Territory-Trigger-GunLost-Green-Emplacement</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:NoWeapon]
+			[MinCooldownMs:5000]
+			[MaxCooldownMs:5001]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Territory-Action-Loss-Green-Emplacement]
+			[Actions:WW2-Points-Action-Retire]
+			[Conditions:WW2-Points-Condition-NotRetired]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Points-Group-Green-Emplacement</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI TriggerGroup]
+			[Triggers:WW2-Territory-Trigger-Kill-Green-Emplacement]
+			[Triggers:WW2-Territory-Trigger-GunLost-Green-Emplacement]
+			[Triggers:WW2-WarLevel-Trigger-Attacked-Emplacement]
+			[Triggers:WW2-WarLevel-Trigger-Kill-Emplacement]
 			[Triggers:WW2-Points-Trigger-Retire-Despawn]
 			[Triggers:WW2-Points-Trigger-Retire-DespawnMES]
 			</Description>

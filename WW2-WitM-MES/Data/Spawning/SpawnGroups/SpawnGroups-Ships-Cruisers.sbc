@@ -37,13 +37,6 @@
 	</SpawnGroup>
 <!-- End Green Emile Bertin Cruiser -->
 
-<!-- 2026-08-28: added - Trento and Algerie prefabs existed (roadmap marks both done) but had
-     no SpawnGroup at all, so neither could ever actually spawn. Added now since the user named
-     both as "advanced military spawns" that need Advanced Military Components wired in, which
-     requires a real SpawnGroup to attach loot to in the first place. Reuses the existing
-     Behaviors by class: Emile Bertin = WW2-Behavior-Cruiser-Green; Trento = WW2-Behavior-HeavyCruiser-Gray;
-     Algerie = WW2-Behavior-HeavyCruiser-Green. WW2-Behavior-Cruiser-Gray is currently unused (future Gray light
-     cruisers: Colleoni, Cadorna). Cruiser and HeavyCruiser score differently (40 vs 50). -->
 <!-- Gray Trento Heavy Cruiser -->
 	<SpawnGroup>
 		<Id>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<EntityComponents>
-<!-- Depot ground units: MES NPC thrusters (MES-NPC-Thrust-Atmo-*) drive them; restricted once a player owns the grid. -->
+<!-- Depot ground units: MES NPC thrusters drive them; restricted once a player owns the grid. Prefabs built with vanilla small-grid small ion thrusters get them swapped for MES NPC ion at spawn (force x5 to tune). -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -10,10 +10,16 @@
 			<Description>
 			[MES Manipulation]
 			[ManipulationChance:100]
+			[UseBlockReplacer:true]
+			[ReplaceBlockOld:MyObjectBuilder_Thrust/SmallBlockSmallThrust]
+			[ReplaceBlockNew:MyObjectBuilder_Thrust/MES-NPC-Thrust-Ion-SmallGrid-Small]
 			[ConfigureSpecialNpcThrusters:true]
 			[RestrictNpcAtmoThrust:true]
 			[NpcAtmoThrustForceMultiply:1]
 			[NpcAtmoThrustPowerMultiply:0.0001]
+			[RestrictNpcIonThrust:true]
+			[NpcIonThrustForceMultiply:5]
+			[NpcIonThrustPowerMultiply:0.0001]
 			</Description>
 		</EntityComponent>
 	</EntityComponents>

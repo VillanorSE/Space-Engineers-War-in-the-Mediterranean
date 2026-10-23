@@ -327,6 +327,30 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Emplacement-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[TriggerGroups:WW2-Points-Group-Gray-Emplacement]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Emplacement-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[TriggerGroups:WW2-Points-Group-Green-Emplacement]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
 				<SubtypeId>WW2-Behavior-DepotGarageVehicle</SubtypeId>
 			</Id>
 			<Description>

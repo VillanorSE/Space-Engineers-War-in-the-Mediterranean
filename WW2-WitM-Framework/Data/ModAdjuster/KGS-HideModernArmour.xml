@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 2026-10-21 (D-054): hide KONTAKT Ground Systems (2930049835) modern armour from the G-menu. These are plain
+     CubeBlocks, which Block Restrictions cannot restrict. DefinitionBase.Public is a Mod Adjuster field
+     (Adjuster/Definitions/Base.cs). NPC prefabs may still contain them. -->
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CubeBlocks>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Armour_Cube_500mm" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Armour_Slat_Plate" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Armour_Slat_Plate_Centre" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Armour_Slat_Half_1" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Armour_Slat_Half_2" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Armour_Slat_Half_Centred_1" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Armour_Slat_Half_Centred_2" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Armour_Slat_Slope" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Armour_Slat_QuarterSlope" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Armour_Slat_Plate_1x2_Base_1" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Armour_Slat_Plate_1x2_Tip_1" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Composite_Nanoceramic" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Composite_Chobham_HalfSlab" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Composite_Chobham_Slant_Var1" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Composite_Chobham_Cube_Var1" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Composite_DeU_Cladding_Var1" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_Plate_Centre" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_Plate_Flat" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_Half_Plate" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_Half_Plate_Flat" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_Brick" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_Brick_Offset" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_Brick_Double" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_Brick_DoubleSlope" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_Panel_Wedge" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_01" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_02" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_03" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_03mirror" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_04" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_04mirror" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_06" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_4slope_1" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_4slope_1mirror" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_4slope_2" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_4slope_2mirror" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_4slope_3" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_4slope_3mirror" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_4slope_4" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_4slope_4mirror" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_05" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_1" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_1mirror" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_2" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_2mirror" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_3" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_3mirror" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_4" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_4mirror" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_5" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_5mirror" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_6" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_6mirror" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_7" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_7mirror" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_8" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MalachitERA_8slope_8mirror" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_Stockade_1" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_Stockade_2" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_Stockade_3" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_Stockade_4" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_K1_A" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_K1_A_Offset" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_K1_B" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_K1_B_Offset" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_K1_C" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_K1_C_Offset" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_K1_D" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_K1_D_Offset" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_ERA_K1_E" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_Railgun_R107_Shroud" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_GepardOerlikon_Shroud" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MK30_BODY_1" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="KGS_MK30_BODY_2" />
+      <Public>false</Public>
+    </Definition>
+  </CubeBlocks>
+</Definitions>

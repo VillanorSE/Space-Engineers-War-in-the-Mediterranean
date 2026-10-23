@@ -5,7 +5,7 @@
 <!-- Territory zones for the 6 primary domain anchors.
      One resizable [MES Zone] per anchor (not 6 nested rings) - confirmed via MES source
      (Helpers/Enums.cs, ModifierEnum: None/Set/Add/Subtract/Multiply/Divide) that a live zone's
-     radius can be grown/shrunk in place via ZoneRadiusChangeType:Add/Subtract, so a single zone
+     radius can be set in place via ZoneRadiusChangeType:Set (each tier action sets its absolute radius), so a single zone
      per anchor is sufficient. Starts at tier 1 (5km), grows in 5km steps up to tier 7 (35km) via
      the Grow/Shrink triggers in Triggers-Zone-Change.sbc (WW2-WitM-MES/Data/Behavior/Triggers/
      Ports/), driven by each anchor's own CustomSandboxCounter. Math and thresholds locked in

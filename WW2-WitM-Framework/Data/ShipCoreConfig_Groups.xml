@@ -1197,12 +1197,12 @@
     <BlockTypes>
       <TypeId>MyObjectBuilder_Gyro</TypeId>
       <SubtypeId>Carden-Loyd_Transmission</SubtypeId>
-      <CountWeight>2</CountWeight>
+      <CountWeight>1</CountWeight>
     </BlockTypes>
     <BlockTypes>
       <TypeId>MyObjectBuilder_Gyro</TypeId>
       <SubtypeId>IAP_Small_Transmission_Gyroscope</SubtypeId>
-      <CountWeight>2</CountWeight>
+      <CountWeight>1</CountWeight>
     </BlockTypes>
     <BlockTypes>
       <TypeId>MyObjectBuilder_Gyro</TypeId>
@@ -1212,7 +1212,7 @@
     <BlockTypes>
       <TypeId>MyObjectBuilder_Gyro</TypeId>
       <SubtypeId>TE-80_Transmission</SubtypeId>
-      <CountWeight>2</CountWeight>
+      <CountWeight>3</CountWeight>
     </BlockTypes>
   </BlockGroup>
 
@@ -2902,6 +2902,61 @@
     <BlockTypes>
       <TypeId>MyObjectBuilder_MotorSuspension</TypeId>
       <SubtypeId>aero-wing-plane-1x1wheel_suspension_front_Large</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+  </BlockGroup>
+
+  <!-- SafeZones -->
+  <BlockGroup>
+    <Name>SafeZones</Name>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_SafeZoneBlock</TypeId>
+      <SubtypeId>SafeZoneBlock</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_SafeZoneBlock</TypeId>
+      <SubtypeId>SafeZoneBlockReskin</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+  </BlockGroup>
+
+  <!-- GridStorage -->
+  <BlockGroup>
+    <Name>GridStorage</Name>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_FunctionalBlock</TypeId>
+      <SubtypeId>ServicesTerminal</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+  </BlockGroup>
+
+  <!-- AAWeapons: small-grid Fletcher AA guns whose part name they share with the large gun, so they keep AI aim; also in Weapons -->
+  <BlockGroup>
+    <Name>AAWeapons</Name>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>FL2cmSmall</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>2cmFlakQuadSmall</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>37mmFlakDualSmall</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>37mmFlakSingleSmall</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
+      <SubtypeId>BoforSingleRemodelSmall</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
   </BlockGroup>

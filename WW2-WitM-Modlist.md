@@ -41,6 +41,6 @@ Quality of life: Build Info (514062285), HUD Compass (1469072169), Colorful Icon
 WW2-WitM-Framework, Modular Encounters Systems, WeaponCore 3.0, Water Mod, Ship Core Framework, [CAP] Consty's Aircraft
 Pack, Consty Aircraft Pack - Ordnance, Thin Wings Plane Parts & Control Surfaces, Plane Parts, Aerodynamic Control
 Surface Mod Component, Carrier Landing - Arrestor Cable and Tailhook, Boat Parts, AQD - Armor Expansion,
-ArmourEssentials, SETB Community Tank Parts, SETB Handweapons, Yakobe's Machinations, Terran Titans - Naval Blocks,
+ArmourEssentials, SETB Community Tank Parts, KONTAKT Ground Systems, SETB Handweapons, Yakobe's Machinations, Terran Titans - Naval Blocks,
 Terran Titans - Naval Advanced Systems, Terran Titans - WW2 Weapons Pack, Scope Framework, Definition Extension API,
 [Mexpex] Thruster FX Framework, Text HUD API, Fix LCD support, Camera Panning, Bot_spawner (RobotBots).

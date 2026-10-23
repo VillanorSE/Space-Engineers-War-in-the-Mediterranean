@@ -43,7 +43,7 @@ There is a full modlist for this project but the primary functional mods are lis
 - Mod Adjuster
 
 **Action To-do:**
-- [ ] Test CrashAir for whether it is working properly
+- [x] Test CrashAir for whether it is working properly
 - [x] Test cargo ship spawns to see if nautical paths are working properly.
 - [x] Gate spawns and sales behind war level.
 - [x] Implement MaxWaterDepth once MES updates (for wreck spawns)
@@ -58,11 +58,12 @@ There is a full modlist for this project but the primary functional mods are lis
 **Build To-do List:**
 - [ ] NPC-WW2-Tramontane (Destroyer/Bourrasque-class, Green)
 - [x] Armored Car - AB 41
-- [ ] Armored Car - Panhard 178 (in progress; wiring ready)
+- [x] Armored Car - Panhard 178
 - [ ] Light Tank - L6/40
 - [ ] Light Tank - Renault R35
+- [x] Medium Tank - M13/40
 - [x] Attacker - Ba 65
-- [ ] Fighter - Dewoitine D.520 (built and wired; owner test pending)
+- [x] Fighter - Dewoitine D.520 (built and wired; owner test pending)
 - [ ] Battleship - Strasbourg
 - [ ] Battleship - Vittoria Veneto
 
@@ -273,7 +274,7 @@ War Level integration: Higher war levels will increase volume of ammunition, num
 **To-do:**
 - [x] Make plane spawns altitude be relative to water surface. (Plane spawns are relative to water surface when water mod is present.)
 - [x] Design and wire a currency-reward mechanic tied to successful cargo ship/plane deliveries (or similar), so GRAY/GREEN can meaningfully grow richer through play rather than just sitting at their starting balance.
-- [ ] Make a cargo ship spawn on a variable timer at airfields that travel a random path that wanders away from the spawn or goes to another friendly airfield if there is one.
+- [x] Make a cargo plane spawn on a variable timer at airfields that travel a random path that wanders away from the spawn or goes to another friendly airfield if there is one.
 
 ---
 
@@ -365,7 +366,7 @@ War activity come from the destruction of any NPC at the following tentative rat
 - [x] Define minimum war level per spawn.
 - [x] Create store listings by war level based on "war level minimum" requirements determination.
 - [x] Update spawn conditions to include war level checks. 
-- [ ] Test war level increase rates.
+- [x] Test war level increase rates.
 - [ ] Create multi-vehicle spawn groups for higher war levels, such as 2-3 cargo ship/plane spawns at high war level and multi-plane defensive spawns at high war level.
 
 ---
@@ -375,7 +376,7 @@ War activity come from the destruction of any NPC at the following tentative rat
 Create vehicle depots, at least two ground vehicles per faction, and implement functionality for vehicle depots to have convoys from the nearest port
 
 **To-do:**
-- [ ] Create AB 41 and Panhard armored cars at 150% scale.
+- [x] Create AB 41 and Panhard armored cars at 150% scale.
 - [ ] Create one light tank per faction at 150% scale. 
 - [ ] Create a basic vehicle depot prefab either per faction or that can be used for both.
 - [ ] Create behavior for vehicle depot that calls for vehicle convoys from the nearest port that scale with war level and includes defensive AI bot spawns and general triggers. Include sale of vehicles at the vehicle depots.
@@ -435,7 +436,7 @@ Implement a system like in Mike Dude's Deserts of Kharak server where cargo plan
 - [ ] Build attacker MES items for plane convoys (Hostile fighters of equivalent war level)
 - [ ] Build attacker MES items for ground convoys (Hostile fighters of equivalent war level)
 - [ ] Build escalated convoys for higher war levels.
-- [ ] Build escalated attackers for higher war level convoys.
+- [x] Build escalated attackers for higher war level convoys.
 
 ### Expansion (undecided prioritiy) Port-based Naval Patrols
 
@@ -464,7 +465,7 @@ Build starter grids per domain and make them available in ports, airports, vehic
 - [x] Naval: one small patrol boat per faction, sized to Corvette Core. (Can start by just making a player version of the Gabbiano and La Malouine, turn on gravity align script and add ship core)
 - [ ] Ground: one Armored Car per faction. This is also where land combat gets its first real content instead of just installations.
 - [x] Ground Utility: one truck per faction to serve as a respawn vehicle. Include survival kit and cargo. Include components for wind turbine, basic refinery, and basic assembler.
-- [ ] Air Utility: Create a larger hangar so the Ju 52 and F.222 can be spawned and found.
+- [x] Air Utility: Create a larger hangar so the Ju 52 and F.222 can be spawned and found.
 
 --- 
 
