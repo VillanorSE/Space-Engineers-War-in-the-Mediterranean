@@ -53,6 +53,55 @@
 		</Prefabs>
 	</SpawnGroup>
 
+<!-- Green F.222 Hangar -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Hangar-Green-F222</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-Medium]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GREEN]
+		[SpawnRandomCargo:true]
+
+		[UseContainerTypeAssignment:true]
+		[ContainerTypeAssignBlockName:Small Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
+
+		[ContainerTypeAssignBlockName:Medium Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
+
+		</Description>
+		<Frequency>0.8</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Hangar-Large">
+				<Position>
+					<X>0.0</X>
+					<Y>4.5</Y>
+					<Z>7.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarGarage-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-F222">
+				<Position>
+					<X>-2.5</X>
+					<Y>4.0</Y>
+					<Z>5.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarPlane-F222</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
 <!-- Green D.520 Hangar -->
 	<SpawnGroup>
 		<Id>
@@ -298,6 +347,55 @@
 		</Prefabs>
 	</SpawnGroup>
 
+<!-- Gray Ju52 Hangar -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Hangar-Gray-Ju52</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-Medium]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GRAY]
+		[SpawnRandomCargo:true]
+
+		[UseContainerTypeAssignment:true]
+		[ContainerTypeAssignBlockName:Small Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
+
+		[ContainerTypeAssignBlockName:Medium Cargo Container]
+		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
+
+		</Description>
+		<Frequency>0.8</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Hangar-Large">
+				<Position>
+					<X>0.0</X>
+					<Y>4.5</Y>
+					<Z>7.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarGarage-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Ju52">
+				<Position>
+					<X>-5.0</X>
+					<Y>5.5</Y>
+					<Z>5.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarPlane-Ju52</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
 <!-- Gray Re. 2001 Hangar -->
 	<SpawnGroup>
 		<Id>
@@ -538,102 +636,6 @@
 					<Z>5.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-HangarPlane-Ba65</Behaviour>
-				<Speed>0.0</Speed>
-			</Prefab>
-		</Prefabs>
-	</SpawnGroup>
-
-<!-- Large hangar (utility planes) -->
-	<SpawnGroup>
-		<Id>
-			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-Hangar-Gray-Ju52</SubtypeId>
-		</Id>
-		<Description>
-
-		[Modular Encounters SpawnGroup]
-
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-WL2-Medium]
-		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
-		[ManipulationProfiles:MES-Manipulation-RivalAi]
-
-		[FactionOverride:GRAY]
-		[SpawnRandomCargo:true]
-
-		[UseContainerTypeAssignment:true]
-		[ContainerTypeAssignBlockName:Small Cargo Container]
-		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
-
-		[ContainerTypeAssignBlockName:Medium Cargo Container]
-		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
-
-		</Description>
-		<Frequency>0.8</Frequency>
-		<IsPirate>true</IsPirate>
-		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Hangar-Large">
-				<Position>
-					<X>0.0</X>
-					<Y>4.5</Y>
-					<Z>7.5</Z>
-				</Position>
-				<Behaviour>WW2-Behavior-HangarGarage-Gray</Behaviour>
-				<Speed>0.0</Speed>
-			</Prefab>
-			<Prefab SubtypeId="Player-WW2-Ju52">
-				<Position>
-					<X>-5.0</X>
-					<Y>5.5</Y>
-					<Z>5.0</Z>
-				</Position>
-				<Behaviour>WW2-Behavior-HangarPlane-Ju52</Behaviour>
-				<Speed>0.0</Speed>
-			</Prefab>
-		</Prefabs>
-	</SpawnGroup>
-	<SpawnGroup>
-		<Id>
-			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-Hangar-Green-F222</SubtypeId>
-		</Id>
-		<Description>
-
-		[Modular Encounters SpawnGroup]
-
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-WL2-Medium]
-		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
-		[ManipulationProfiles:MES-Manipulation-RivalAi]
-
-		[FactionOverride:GREEN]
-		[SpawnRandomCargo:true]
-
-		[UseContainerTypeAssignment:true]
-		[ContainerTypeAssignBlockName:Small Cargo Container]
-		[ContainerTypeAssignSubtypeId:WW2-SmallCargo]
-
-		[ContainerTypeAssignBlockName:Medium Cargo Container]
-		[ContainerTypeAssignSubtypeId:WW2-MediumCargo]
-
-		</Description>
-		<Frequency>0.8</Frequency>
-		<IsPirate>true</IsPirate>
-		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Hangar-Large">
-				<Position>
-					<X>0.0</X>
-					<Y>4.5</Y>
-					<Z>7.5</Z>
-				</Position>
-				<Behaviour>WW2-Behavior-HangarGarage-Green</Behaviour>
-				<Speed>0.0</Speed>
-			</Prefab>
-			<Prefab SubtypeId="Player-WW2-F222">
-				<Position>
-					<X>-2.5</X>
-					<Y>4.0</Y>
-					<Z>5.0</Z>
-				</Position>
-				<Behaviour>WW2-Behavior-HangarPlane-F222</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>

@@ -46,8 +46,8 @@
 			[UseNoTargetTimer:false]
 			[TriggerGroups:WW2-Points-Group-Green-Cruiser]
 			
-			[AutopilotData:WW2-Autopilot-Cruiser-Green]
-			[SecondaryAutopilotData:WW2-Autopilot-Cruiser-GreenB]
+			[AutopilotData:WW2-Autopilot-Cruiser-EmileBertin]
+			[SecondaryAutopilotData:WW2-Autopilot-Cruiser-EmileBertinB]
 			[TargetData:WW2-Targeting-ShipMain]
 			
 			[WeaponSystem:WW2-Weapons-Cruiser]
@@ -65,7 +65,7 @@
 			</Description>
         </EntityComponent>
 
-	<!-- Heavy Cruiser Behaviors: copy of the Cruiser behavior; the only difference so far is the HeavyCruiser points group (Algerie = Heavy Cruiser, 50). -->
+	<!-- Heavy Cruiser Behaviors: copy of the Cruiser behavior with the HeavyCruiser points group (Algerie = Heavy Cruiser, 50) and per-ship autopilots (D-056). -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -78,8 +78,8 @@
 			[UseNoTargetTimer:false]
 			[TriggerGroups:WW2-Points-Group-Green-HeavyCruiser]
 			
-			[AutopilotData:WW2-Autopilot-Cruiser-Green]
-			[SecondaryAutopilotData:WW2-Autopilot-Cruiser-GreenB]
+			[AutopilotData:WW2-Autopilot-HeavyCruiser-Algerie]
+			[SecondaryAutopilotData:WW2-Autopilot-HeavyCruiser-AlgerieB]
 			[TargetData:WW2-Targeting-ShipMain]
 			
 			[WeaponSystem:WW2-Weapons-Cruiser]
@@ -109,8 +109,8 @@
 			[UseNoTargetTimer:false]
 			[TriggerGroups:WW2-Points-Group-Gray-HeavyCruiser]
 			
-			[AutopilotData:WW2-Autopilot-Cruiser-Gray]
-			[SecondaryAutopilotData:WW2-Autopilot-Cruiser-GrayB]
+			[AutopilotData:WW2-Autopilot-HeavyCruiser-Trento]
+			[SecondaryAutopilotData:WW2-Autopilot-HeavyCruiser-TrentoB]
 			[TargetData:WW2-Targeting-ShipMain]
 			
 			[WeaponSystem:WW2-Weapons-Cruiser]
@@ -199,7 +199,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Autopilot-Cruiser-Green</SubtypeId>
+				<SubtypeId>WW2-Autopilot-Cruiser-EmileBertin</SubtypeId>
 			</Id>
 			<Description>
 			
@@ -212,8 +212,8 @@
 			[LevelWithGravityWhenIdle:true]
 			[AllowStrafing:false]
 			[WaypointTolerance:50]
-			[IdealMinSpeed:8]
-			[IdealMaxSpeed:12]
+			[IdealMinSpeed:17.2]
+			[IdealMaxSpeed:25.8]
 			[MaxSpeedTolerance:1]
 			
 			[RotationMultiplier:0.3]
@@ -228,11 +228,11 @@
 			
 			</Description>
 		</EntityComponent>
-		
+
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Autopilot-Cruiser-GreenB</SubtypeId>
+				<SubtypeId>WW2-Autopilot-Cruiser-EmileBertinB</SubtypeId>
 			</Id>
 			<Description>
 			
@@ -245,8 +245,140 @@
 			[LevelWithGravityWhenIdle:true]
 			[AllowStrafing:false]
 			[WaypointTolerance:50]
-			[IdealMinSpeed:14]
-			[IdealMaxSpeed:20]
+			[IdealMinSpeed:30.1]
+			[IdealMaxSpeed:43]
+			[MaxSpeedTolerance:1]
+			
+			[RotationMultiplier:0.3]
+			[AngleAllowedForForwardThrust:180]
+			
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[WaypointWaitTimeTrigger:0]
+			
+			[EngageDistancePlanet:1500]
+			[DisengageDistancePlanet:1600]
+			
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-HeavyCruiser-Algerie</SubtypeId>
+			</Id>
+			<Description>
+			
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:false]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:0]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[AllowStrafing:false]
+			[WaypointTolerance:50]
+			[IdealMinSpeed:14.6]
+			[IdealMaxSpeed:21.8]
+			[MaxSpeedTolerance:1]
+			
+			[RotationMultiplier:0.3]
+			[AngleAllowedForForwardThrust:180]
+			
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[WaypointWaitTimeTrigger:15]
+			
+			[EngageDistancePlanet:1500]
+			[DisengageDistancePlanet:1600]
+			
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-HeavyCruiser-AlgerieB</SubtypeId>
+			</Id>
+			<Description>
+			
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:false]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:0]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[AllowStrafing:false]
+			[WaypointTolerance:50]
+			[IdealMinSpeed:25.5]
+			[IdealMaxSpeed:36.4]
+			[MaxSpeedTolerance:1]
+			
+			[RotationMultiplier:0.3]
+			[AngleAllowedForForwardThrust:180]
+			
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[WaypointWaitTimeTrigger:0]
+			
+			[EngageDistancePlanet:1500]
+			[DisengageDistancePlanet:1600]
+			
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-HeavyCruiser-Trento</SubtypeId>
+			</Id>
+			<Description>
+			
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:false]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:0]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[AllowStrafing:false]
+			[WaypointTolerance:50]
+			[IdealMinSpeed:16.9]
+			[IdealMaxSpeed:25.4]
+			[MaxSpeedTolerance:1]
+			
+			[RotationMultiplier:0.3]
+			[AngleAllowedForForwardThrust:180]
+			
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[WaypointWaitTimeTrigger:15]
+			
+			[EngageDistancePlanet:1500]
+			[DisengageDistancePlanet:1600]
+			
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-HeavyCruiser-TrentoB</SubtypeId>
+			</Id>
+			<Description>
+			
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:false]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:0]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[AllowStrafing:false]
+			[WaypointTolerance:50]
+			[IdealMinSpeed:29.6]
+			[IdealMaxSpeed:42.3]
 			[MaxSpeedTolerance:1]
 			
 			[RotationMultiplier:0.3]

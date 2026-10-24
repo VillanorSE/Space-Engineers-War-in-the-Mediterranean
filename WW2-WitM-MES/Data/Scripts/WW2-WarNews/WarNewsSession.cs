@@ -52,6 +52,10 @@ namespace WW2WitM.WarNewsSystem
         public static IList<NewsItem> Items { get { return WarNewsSession.Instance != null ? WarNewsSession.Instance.Items : EmptyItems; } }
         public static int FeedVersion { get { return WarNewsSession.Instance != null ? WarNewsSession.Instance.FeedVersion : 0; } }
 
+        // Net faction scores (MES counters Gray_Score / Green_Score, D-051), on the server and clients.
+        public static int GrayScore { get { return WarNewsSession.Instance != null ? WarNewsSession.Instance.GrayScore : 0; } }
+        public static int GreenScore { get { return WarNewsSession.Instance != null ? WarNewsSession.Instance.GreenScore : 0; } }
+
         private static readonly List<NewsItem> EmptyItems = new List<NewsItem>();
     }
 
@@ -62,6 +66,7 @@ namespace WW2WitM.WarNewsSystem
         public const string StateVariable = "WW2-WarNews-State";
         public const int MaxItems = 20;
         private const int MarkerUpdateTicks = 600;
+        private const int ScoreUpdateTicks = 600;
         private const double RetiredKeepSeconds = 48 * 3600;
         private const double DuplicateWindowSeconds = 60;
         private const int ClockVersion = 2;
@@ -73,6 +78,8 @@ namespace WW2WitM.WarNewsSystem
         public MesApiLite Mes { get { return mes; } }
         public readonly List<NewsItem> Items = new List<NewsItem>();
         public int FeedVersion;
+        public int GrayScore;
+        public int GreenScore;
 
         private readonly List<MarkerState> markers = new List<MarkerState>();
         private readonly List<RetiredName> retired = new List<RetiredName>();
@@ -104,7 +111,10 @@ namespace WW2WitM.WarNewsSystem
         public override void BeforeStart()
         {
             if (IsServer)
+            {
                 LoadState();
+                ReadScores();
+            }
         }
 
         protected override void UnloadData()
@@ -153,6 +163,12 @@ namespace WW2WitM.WarNewsSystem
 
                 if (tick % MarkerUpdateTicks == 0)
                     UpdateMarkers();
+
+                if (tick % ScoreUpdateTicks == 0 && ReadScores() && MyAPIGateway.Multiplayer.MultiplayerActive)
+                {
+                    var packet = new WarNewsPacket { Kind = 6, GrayScore = GrayScore, GreenScore = GreenScore };
+                    MyAPIGateway.Multiplayer.SendMessageToOthers(NetChannel, MyAPIGateway.Utilities.SerializeToBinary(packet));
+                }
             }
             catch (Exception e)
             {
@@ -218,7 +234,8 @@ namespace WW2WitM.WarNewsSystem
                     }
                     if (packet.Kind != 3)
                         return;
-                    var reply = new WarNewsPacket { Kind = 1 };
+                    ReadScores();
+                    var reply = new WarNewsPacket { Kind = 1, GrayScore = GrayScore, GreenScore = GreenScore };
                     reply.Items.AddRange(Items);
                     MyAPIGateway.Multiplayer.SendMessageTo(NetChannel, MyAPIGateway.Utilities.SerializeToBinary(reply), sender);
                     return;
@@ -231,11 +248,19 @@ namespace WW2WitM.WarNewsSystem
                     WW2WitM.Refresh.RefreshSession.ShowReply(packet.Text, packet.Screen);
                     return;
                 }
+                if (packet.Kind == 6)
+                {
+                    GrayScore = packet.GrayScore;
+                    GreenScore = packet.GreenScore;
+                    return;
+                }
                 if (packet.Items == null)
                     return;
 
                 if (packet.Kind == 1)
                 {
+                    GrayScore = packet.GrayScore;
+                    GreenScore = packet.GreenScore;
                     Items.Clear();
                     Items.AddRange(packet.Items);
                 }
@@ -252,6 +277,21 @@ namespace WW2WitM.WarNewsSystem
             {
                 Log("message: " + e);
             }
+        }
+
+        // ---------------- scores ----------------
+
+        // Server: reads the MES score counters (an unset counter is 0). Returns true if either changed.
+        private bool ReadScores()
+        {
+            int gray, green;
+            MyAPIGateway.Utilities.GetVariable("Gray_Score", out gray);
+            MyAPIGateway.Utilities.GetVariable("Green_Score", out green);
+            if (gray == GrayScore && green == GreenScore)
+                return false;
+            GrayScore = gray;
+            GreenScore = green;
+            return true;
         }
 
         // ---------------- GPS markers ----------------

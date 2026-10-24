@@ -8,6 +8,22 @@ namespace WW2WitM.WarNewsSystem
         public const string LcdScriptName = "War News";
         public const string LcdTitle = "WAR BULLETIN";
         public const string LcdEmpty = "No dispatches yet.";
+        public const string ScoreLcdScriptName = "War Score";
+        public const string ScoreLcdTitle = "WAR SCORE";
+
+        // Side name on the score displays (owner, 2026-10-23).
+        public static string Nation(string faction)
+        {
+            if (faction == "Gray") return "Italy";
+            if (faction == "Green") return "France";
+            return "";
+        }
+
+        // Scoreboard line under the War News title, one part per side (net score, can be negative).
+        public static string ScorePart(string faction, int score)
+        {
+            return (Nation(faction) + " " + score).Trim();
+        }
 
         // Adjective: "Italian bombers", "the French carrier Bearn".
         public static string Adj(string faction)

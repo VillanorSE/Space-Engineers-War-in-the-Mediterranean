@@ -48,7 +48,8 @@ namespace WW2WitM.WarNewsSystem
     }
 
     // Network packet on WarNewsSession.NetChannel. Kind: 1 full feed (server to one client), 2 one new item (server to all), 3 feed request (client to server),
-    // 4 admin /witm command (client to server, Text), 5 command reply (server to one client, Text; Screen = show as a report window).
+    // 4 admin /witm command (client to server, Text), 5 command reply (server to one client, Text; Screen = show as a report window),
+    // 6 faction scores (server to all). Kinds 1 and 6 carry the scores.
     [ProtoContract]
     public class WarNewsPacket
     {
@@ -56,5 +57,7 @@ namespace WW2WitM.WarNewsSystem
         [ProtoMember(2)] public List<NewsItem> Items = new List<NewsItem>();
         [ProtoMember(3)] public string Text = "";
         [ProtoMember(4)] public bool Screen;
+        [ProtoMember(5)] public int GrayScore;
+        [ProtoMember(6)] public int GreenScore;
     }
 }

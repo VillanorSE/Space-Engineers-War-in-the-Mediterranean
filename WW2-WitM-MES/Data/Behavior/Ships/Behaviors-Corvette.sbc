@@ -15,8 +15,8 @@
 			[UseNoTargetTimer:false]
 			[TriggerGroups:WW2-Points-Group-Green-Corvette]
 			
-			[AutopilotData:WW2-Autopilot-Corvette]
-			[SecondaryAutopilotData:WW2-Autopilot-Corvette-B]
+			[AutopilotData:WW2-Autopilot-Corvette-LaMalouine]
+			[SecondaryAutopilotData:WW2-Autopilot-Corvette-LaMalouineB]
 			[TargetData:WW2-Targeting-ShipMain]
 			
 			[WeaponSystem:WW2-Weapons-Corvette]
@@ -46,8 +46,8 @@
 			[UseNoTargetTimer:false]
 			[TriggerGroups:WW2-Points-Group-Gray-Corvette]
 			
-			[AutopilotData:WW2-Autopilot-Corvette]
-			[SecondaryAutopilotData:WW2-Autopilot-Corvette-B]
+			[AutopilotData:WW2-Autopilot-Corvette-Gabbiano]
+			[SecondaryAutopilotData:WW2-Autopilot-Corvette-GabbianoB]
 			[TargetData:WW2-Targeting-ShipMain]
 			
 			[WeaponSystem:WW2-Weapons-Corvette]
@@ -70,7 +70,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Autopilot-Corvette</SubtypeId>
+				<SubtypeId>WW2-Autopilot-Corvette-Gabbiano</SubtypeId>
 			</Id>
 			<Description>
 			
@@ -83,8 +83,8 @@
 			[LevelWithGravityWhenIdle:true]
 			[AllowStrafing:false]
 			[WaypointTolerance:50]
-			[IdealMinSpeed:8]
-			[IdealMaxSpeed:10]
+			[IdealMinSpeed:8.3]
+			[IdealMaxSpeed:10.3]
 			[MaxSpeedTolerance:1]
 			
 			[RotationMultiplier:0.4]
@@ -99,11 +99,11 @@
 			
 			</Description>
 		</EntityComponent>
-		
+
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Autopilot-Corvette-B</SubtypeId>
+				<SubtypeId>WW2-Autopilot-Corvette-GabbianoB</SubtypeId>
 			</Id>
 			<Description>
 			
@@ -116,8 +116,74 @@
 			[LevelWithGravityWhenIdle:true]
 			[AllowStrafing:false]
 			[WaypointTolerance:50]
-			[IdealMinSpeed:12]
-			[IdealMaxSpeed:20]
+			[IdealMinSpeed:12.4]
+			[IdealMaxSpeed:20.7]
+			[MaxSpeedTolerance:1]
+			
+			[RotationMultiplier:0.4]
+			[AngleAllowedForForwardThrust:180]
+			
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[WaypointWaitTimeTrigger:0]
+			
+			[EngageDistancePlanet:750]
+			[DisengageDistancePlanet:850]
+			
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-Corvette-LaMalouine</SubtypeId>
+			</Id>
+			<Description>
+			
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:false]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:0]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[AllowStrafing:false]
+			[WaypointTolerance:50]
+			[IdealMinSpeed:7.4]
+			[IdealMaxSpeed:9.2]
+			[MaxSpeedTolerance:1]
+			
+			[RotationMultiplier:0.4]
+			[AngleAllowedForForwardThrust:180]
+			
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[WaypointWaitTimeTrigger:15]
+			
+			[EngageDistancePlanet:750]
+			[DisengageDistancePlanet:850]
+			
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-Corvette-LaMalouineB</SubtypeId>
+			</Id>
+			<Description>
+			
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:false]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:0]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[AllowStrafing:false]
+			[WaypointTolerance:50]
+			[IdealMinSpeed:11]
+			[IdealMaxSpeed:18.4]
 			[MaxSpeedTolerance:1]
 			
 			[RotationMultiplier:0.4]

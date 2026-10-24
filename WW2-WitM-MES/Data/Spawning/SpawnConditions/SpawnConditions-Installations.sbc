@@ -27,6 +27,7 @@
 
 		</Description>
 	</EntityComponent>
+	
 <!-- Medium-size copy of WW2-SpawnConditions-Installations: keep in sync -->
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
@@ -53,65 +54,8 @@
 
 		</Description>
 	</EntityComponent>
-<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-		<Id>
-			<TypeId>Inventory</TypeId>
-			<SubtypeId>WW2-SpawnConditions-Installations-WL3</SubtypeId>
-		</Id>
-		<Description>
-			[MES Spawn Conditions]
 
-			[PlanetaryInstallation:true]
-
-			[InstallationSpawnsOnDryLand:true]
-			[MaxWaterCoverage:0.6]
-
-			[MaxSpawnFromPlanetSurface:5000]
-			[PlanetRequiresAtmo:true]
-			[UsePlayerCountCheck:true]
-			[MinimumPlayers:1]
-			[IgnoreCombatPhase:true]
-
-			[CutVoxelsAtAirtightCells:true]
-			[CutVoxelSize:2.7]
-
-					[CheckCustomSandboxCounters:true]
-			[CustomSandboxCounters:WarLevel]
-			[CustomSandboxCountersTargets:3]
-			[SandboxCounterCompareTypes:GreaterOrEqual]
-</Description>
-	</EntityComponent>
-<!-- Medium-size copy of WW2-SpawnConditions-Installations-WL3: keep in sync -->
-<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-		<Id>
-			<TypeId>Inventory</TypeId>
-			<SubtypeId>WW2-SpawnConditions-Installations-WL3-Medium</SubtypeId>
-		</Id>
-		<Description>
-			[MES Spawn Conditions]
-
-			[PlanetaryInstallation:true]
-			[PlanetaryInstallationType:Medium]
-
-			[InstallationSpawnsOnDryLand:true]
-			[MaxWaterCoverage:0.6]
-
-			[MaxSpawnFromPlanetSurface:5000]
-			[PlanetRequiresAtmo:true]
-			[UsePlayerCountCheck:true]
-			[MinimumPlayers:1]
-			[IgnoreCombatPhase:true]
-
-			[CutVoxelsAtAirtightCells:true]
-			[CutVoxelSize:2.7]
-
-					[CheckCustomSandboxCounters:true]
-			[CustomSandboxCounters:WarLevel]
-			[CustomSandboxCountersTargets:3]
-			[SandboxCounterCompareTypes:GreaterOrEqual]
-</Description>
-	</EntityComponent>
-<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
 			<SubtypeId>WW2-SpawnConditions-Installations-WL2</SubtypeId>
@@ -137,10 +81,11 @@
 			[CustomSandboxCounters:WarLevel]
 			[CustomSandboxCountersTargets:2]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
-</Description>
+	</Description>
 	</EntityComponent>
+	
 <!-- Medium-size copy of WW2-SpawnConditions-Installations-WL2: keep in sync -->
-<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
 			<SubtypeId>WW2-SpawnConditions-Installations-WL2-Medium</SubtypeId>
@@ -167,15 +112,70 @@
 			[CustomSandboxCounters:WarLevel]
 			[CustomSandboxCountersTargets:2]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
-</Description>
+	</Description>
 	</EntityComponent>
 
-	<!-- Shallow-water wrecks (Golo hulks, etc.): spawn in/against water instead of dry land.
-	     MaxWaterDepth (MES 2.74.03+) defaults to 0, so it must always be set. No XML comments inside
-	     Description: they break SE's XmlSerializer. Water coverage biases toward the coast
-	     (/MES.Info.GetDiagnostics: harbor mouth 0.438, open coast up to 0.59, open ocean 1.0).
-	     7.5m covers Utility/Corvette/Destroyer-tier wrecks; a Cruiser+ wreck should get its own
-	     profile with [MaxWaterDepth:12]. -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Installations-WL3</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+
+			[InstallationSpawnsOnDryLand:true]
+			[MaxWaterCoverage:0.6]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+	</Description>
+	</EntityComponent>
+	
+<!-- Medium-size copy of WW2-SpawnConditions-Installations-WL3: keep in sync -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Installations-WL3-Medium</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[PlanetaryInstallationType:Medium]
+
+			[InstallationSpawnsOnDryLand:true]
+			[MaxWaterCoverage:0.6]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+	</Description>
+	</EntityComponent>
+
+<!-- Shallow-water wrecks (Golo hulks, etc.): spawn in shallow water instead of dry land. -->
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
@@ -205,6 +205,7 @@
 
 		</Description>
 	</EntityComponent>
+	
 <!-- Medium-size copy of WW2-SpawnConditions-Wreck-ShallowWater: keep in sync -->
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
@@ -236,41 +237,8 @@
 
 		</Description>
 	</EntityComponent>
-<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-		<Id>
-			<TypeId>Inventory</TypeId>
-			<SubtypeId>WW2-SpawnConditions-Wreck-ShallowWater-WL3</SubtypeId>
-		</Id>
-		<Description>
-			[MES Spawn Conditions]
-
-			[PlanetaryInstallation:true]
-			[PlanetaryInstallationType:Medium]
-
-			[InstallationSpawnsOnDryLand:false]
-			[InstallationSpawnsUnderwater:true]
-			[MinWaterDepth:1]
-			[MaxWaterDepth:7.5]
-			[MinWaterCoverage:0.15]
-			[MaxWaterCoverage:0.6]
-			[AlignToSurface:true]
-
-			[MaxSpawnFromPlanetSurface:5000]
-			[PlanetRequiresAtmo:true]
-			[UsePlayerCountCheck:true]
-			[MinimumPlayers:1]
-			[IgnoreCombatPhase:true]
-
-			[CutVoxelsAtAirtightCells:true]
-			[CutVoxelSize:2.7]
-
-					[CheckCustomSandboxCounters:true]
-			[CustomSandboxCounters:WarLevel]
-			[CustomSandboxCountersTargets:3]
-			[SandboxCounterCompareTypes:GreaterOrEqual]
-</Description>
-	</EntityComponent>
-<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+	
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
 			<SubtypeId>WW2-SpawnConditions-Wreck-ShallowWater-WL2</SubtypeId>
@@ -302,14 +270,47 @@
 			[CustomSandboxCounters:WarLevel]
 			[CustomSandboxCountersTargets:2]
 			[SandboxCounterCompareTypes:GreaterOrEqual]
-</Description>
+	</Description>
+	</EntityComponent>
+	
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Wreck-ShallowWater-WL3</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[PlanetaryInstallationType:Medium]
+
+			[InstallationSpawnsOnDryLand:false]
+			[InstallationSpawnsUnderwater:true]
+			[MinWaterDepth:1]
+			[MaxWaterDepth:7.5]
+			[MinWaterCoverage:0.15]
+			[MaxWaterCoverage:0.6]
+			[AlignToSurface:true]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+	</Description>
 	</EntityComponent>
 
-<!-- Secondary installations (airfields, vehicle depots, garrisons). Unlike the 6 primary Port
-     anchors, these spawn UNOWNED and their FactionOverride/ownership/flag color is reassigned at
-     runtime by the installation's own Behavior once territory ownership claims it (see
-     Behaviors-Airfield.sbc). 20km TriggerRadius. -->
-
+<!-- Secondary installations (airfields, vehicle depots, garrisons). These spawn UNOWNED and
+	 their FactionOverride/ownership/flag color is reassigned at runtime by the installation's
+	 own Behavior once territory ownership claims it. 20km TriggerRadius. -->
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>

@@ -12,12 +12,13 @@ using VRageMath;
 namespace WW2WitM.WarNewsSystem
 {
     // "War News" LCD script: pick it in any LCD's Script list (players' own LCDs included). Draws client-side from the
-    // feed WarNewsSession keeps in sync, newest first, as many items as fit.
+    // feed WarNewsSession keeps in sync: the faction scores, then the news newest first, as many items as fit.
     [MyTextSurfaceScript("WW2WitM_WarNews", WarNewsText.LcdScriptName)]
     public class WarNewsTss : MyTSSCommon
     {
         private const string Font = "White";
         private const float TitleScale = 0.9f;
+        private const float ScoreScale = 0.75f;
         private const float StampScale = 0.55f;
         private const float TextScale = 0.65f;
         private const float Margin = 12f;
@@ -70,7 +71,13 @@ namespace WW2WitM.WarNewsSystem
             using (var frame = Surface.DrawFrame())
             {
                 AddText(frame, WarNewsText.LcdTitle, corner + new Vector2(Margin, y), fg, TitleScale);
-                y += LineHeight(TitleScale) * 1.4f;
+                y += LineHeight(TitleScale) * 1.2f;
+
+                var gray = WarNewsText.ScorePart("Gray", WarNews.GrayScore);
+                AddText(frame, gray, corner + new Vector2(Margin, y), FactionColor("Gray", fg), ScoreScale);
+                float gap = TextWidth(gray + "     ", ScoreScale);
+                AddText(frame, WarNewsText.ScorePart("Green", WarNews.GreenScore), corner + new Vector2(Margin + gap, y), FactionColor("Green", fg), ScoreScale);
+                y += LineHeight(ScoreScale) * 1.4f;
 
                 var items = WarNews.Items;
                 if (items.Count == 0)
@@ -98,7 +105,7 @@ namespace WW2WitM.WarNewsSystem
             }
         }
 
-        private static Color FactionColor(string faction, Color fallback)
+        internal static Color FactionColor(string faction, Color fallback)
         {
             if (faction == "Gray") return new Color(200, 200, 200);
             if (faction == "Green") return new Color(150, 220, 150);

@@ -3,10 +3,11 @@
     <EntityComponents>
 
 	<!-- Destroyer Behaviors -->
+	<!-- One behavior per destroyer (D-056) so each has its own speeds. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Behavior-Destroyer-Gray</SubtypeId>
+                <SubtypeId>WW2-Behavior-Destroyer-Spica</SubtypeId>
             </Id>
             <Description>
 			
@@ -15,8 +16,8 @@
 			[UseNoTargetTimer:false]
 			[TriggerGroups:WW2-Points-Group-Gray-Destroyer]
 			
-			[AutopilotData:WW2-Autopilot-Destroyer-Gray]
-			[SecondaryAutopilotData:WW2-Autopilot-Destroyer-GrayB]
+			[AutopilotData:WW2-Autopilot-Destroyer-Spica]
+			[SecondaryAutopilotData:WW2-Autopilot-Destroyer-SpicaB]
 			[TargetData:WW2-Targeting-ShipMain]
 			
 			[WeaponSystem:WW2-Weapons-Destroyer]
@@ -33,11 +34,73 @@
 			
 			</Description>
         </EntityComponent>
-		
+
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Behavior-Destroyer-Green</SubtypeId>
+                <SubtypeId>WW2-Behavior-Destroyer-Crispi</SubtypeId>
+            </Id>
+            <Description>
+			
+			[RivalAI Behavior]
+			[BehaviorName:Nautical]
+			[UseNoTargetTimer:false]
+			[TriggerGroups:WW2-Points-Group-Gray-Destroyer]
+			
+			[AutopilotData:WW2-Autopilot-Destroyer-Crispi]
+			[SecondaryAutopilotData:WW2-Autopilot-Destroyer-CrispiB]
+			[TargetData:WW2-Targeting-ShipMain]
+			
+			[WeaponSystem:WW2-Weapons-Destroyer]
+			
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-AggressionSwitch-Destroyer]
+			[Triggers:WW2-Trigger-PassiveSwitch-Destroyer]
+			[Triggers:WW2-Trigger-PassiveSwitchNoTarget-Destroyer]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-MilitaryShip-Gray]
+			
+			[TriggerGroups:WW2-TriggerGroup-Broadside]
+			
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Destroyer-Margottini</SubtypeId>
+            </Id>
+            <Description>
+			
+			[RivalAI Behavior]
+			[BehaviorName:Nautical]
+			[UseNoTargetTimer:false]
+			[TriggerGroups:WW2-Points-Group-Gray-Destroyer]
+			
+			[AutopilotData:WW2-Autopilot-Destroyer-Margottini]
+			[SecondaryAutopilotData:WW2-Autopilot-Destroyer-MargottiniB]
+			[TargetData:WW2-Targeting-ShipMain]
+			
+			[WeaponSystem:WW2-Weapons-Destroyer]
+			
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-AggressionSwitch-Destroyer]
+			[Triggers:WW2-Trigger-PassiveSwitch-Destroyer]
+			[Triggers:WW2-Trigger-PassiveSwitchNoTarget-Destroyer]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-MilitaryShip-Gray]
+			
+			[TriggerGroups:WW2-TriggerGroup-Broadside]
+			
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Destroyer-LeTriomphant</SubtypeId>
             </Id>
             <Description>
 			
@@ -46,8 +109,39 @@
 			[UseNoTargetTimer:false]
 			[TriggerGroups:WW2-Points-Group-Green-Destroyer]
 			
-			[AutopilotData:WW2-Autopilot-Destroyer-Green]
-			[SecondaryAutopilotData:WW2-Autopilot-Destroyer-GreenB]
+			[AutopilotData:WW2-Autopilot-Destroyer-LeTriomphant]
+			[SecondaryAutopilotData:WW2-Autopilot-Destroyer-LeTriomphantB]
+			[TargetData:WW2-Targeting-ShipMain]
+			
+			[WeaponSystem:WW2-Weapons-Destroyer]
+			
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-AggressionSwitch-Destroyer]
+			[Triggers:WW2-Trigger-PassiveSwitch-Destroyer]
+			[Triggers:WW2-Trigger-PassiveSwitchNoTarget-Destroyer]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-MilitaryShip-Green]
+			
+			[TriggerGroups:WW2-TriggerGroup-Broadside]
+			
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Destroyer-Bougainville</SubtypeId>
+            </Id>
+            <Description>
+			
+			[RivalAI Behavior]
+			[BehaviorName:Nautical]
+			[UseNoTargetTimer:false]
+			[TriggerGroups:WW2-Points-Group-Green-Destroyer]
+			
+			[AutopilotData:WW2-Autopilot-Destroyer-Bougainville]
+			[SecondaryAutopilotData:WW2-Autopilot-Destroyer-BougainvilleB]
 			[TargetData:WW2-Targeting-ShipMain]
 			
 			[WeaponSystem:WW2-Weapons-Destroyer]
@@ -70,7 +164,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Autopilot-Destroyer-Gray</SubtypeId>
+				<SubtypeId>WW2-Autopilot-Destroyer-Spica</SubtypeId>
 			</Id>
 			<Description>
 			
@@ -83,8 +177,8 @@
 			[LevelWithGravityWhenIdle:true]
 			[AllowStrafing:false]
 			[WaypointTolerance:50]
-			[IdealMinSpeed:10]
-			[IdealMaxSpeed:15]
+			[IdealMinSpeed:16.3]
+			[IdealMaxSpeed:24.5]
 			[MaxSpeedTolerance:1]
 			
 			[RotationMultiplier:0.4]
@@ -103,7 +197,7 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Autopilot-Destroyer-GrayB</SubtypeId>
+				<SubtypeId>WW2-Autopilot-Destroyer-SpicaB</SubtypeId>
 			</Id>
 			<Description>
 			
@@ -116,8 +210,8 @@
 			[LevelWithGravityWhenIdle:true]
 			[AllowStrafing:false]
 			[WaypointTolerance:50]
-			[IdealMinSpeed:18]
-			[IdealMaxSpeed:24.5]
+			[IdealMinSpeed:29.4]
+			[IdealMaxSpeed:40]
 			[MaxSpeedTolerance:1]
 			
 			[RotationMultiplier:0.4]
@@ -132,11 +226,11 @@
 			
 			</Description>
 		</EntityComponent>
-		
+
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Autopilot-Destroyer-Green</SubtypeId>
+				<SubtypeId>WW2-Autopilot-Destroyer-Crispi</SubtypeId>
 			</Id>
 			<Description>
 			
@@ -149,8 +243,8 @@
 			[LevelWithGravityWhenIdle:true]
 			[AllowStrafing:false]
 			[WaypointTolerance:50]
-			[IdealMinSpeed:10]
-			[IdealMaxSpeed:15]
+			[IdealMinSpeed:15.8]
+			[IdealMaxSpeed:23.8]
 			[MaxSpeedTolerance:1]
 			
 			[RotationMultiplier:0.4]
@@ -165,11 +259,11 @@
 			
 			</Description>
 		</EntityComponent>
-		
+
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Autopilot-Destroyer-GreenB</SubtypeId>
+				<SubtypeId>WW2-Autopilot-Destroyer-CrispiB</SubtypeId>
 			</Id>
 			<Description>
 			
@@ -182,8 +276,206 @@
 			[LevelWithGravityWhenIdle:true]
 			[AllowStrafing:false]
 			[WaypointTolerance:50]
-			[IdealMinSpeed:18]
-			[IdealMaxSpeed:24.5]
+			[IdealMinSpeed:28.5]
+			[IdealMaxSpeed:38.8]
+			[MaxSpeedTolerance:1]
+			
+			[RotationMultiplier:0.4]
+			[AngleAllowedForForwardThrust:180]
+			
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[WaypointWaitTimeTrigger:0]
+			
+			[EngageDistancePlanet:1250]
+			[DisengageDistancePlanet:1350]
+			
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-Destroyer-Margottini</SubtypeId>
+			</Id>
+			<Description>
+			
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:false]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:0]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[AllowStrafing:false]
+			[WaypointTolerance:50]
+			[IdealMinSpeed:16.8]
+			[IdealMaxSpeed:25.2]
+			[MaxSpeedTolerance:1]
+			
+			[RotationMultiplier:0.4]
+			[AngleAllowedForForwardThrust:180]
+			
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[WaypointWaitTimeTrigger:15]
+			
+			[EngageDistancePlanet:1250]
+			[DisengageDistancePlanet:1350]
+			
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-Destroyer-MargottiniB</SubtypeId>
+			</Id>
+			<Description>
+			
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:false]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:0]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[AllowStrafing:false]
+			[WaypointTolerance:50]
+			[IdealMinSpeed:30.2]
+			[IdealMaxSpeed:41.1]
+			[MaxSpeedTolerance:1]
+			
+			[RotationMultiplier:0.4]
+			[AngleAllowedForForwardThrust:180]
+			
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[WaypointWaitTimeTrigger:0]
+			
+			[EngageDistancePlanet:1250]
+			[DisengageDistancePlanet:1350]
+			
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-Destroyer-LeTriomphant</SubtypeId>
+			</Id>
+			<Description>
+			
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:false]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:0]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[AllowStrafing:false]
+			[WaypointTolerance:50]
+			[IdealMinSpeed:17.8]
+			[IdealMaxSpeed:26.6]
+			[MaxSpeedTolerance:1]
+			
+			[RotationMultiplier:0.4]
+			[AngleAllowedForForwardThrust:180]
+			
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[WaypointWaitTimeTrigger:15]
+			
+			[EngageDistancePlanet:1250]
+			[DisengageDistancePlanet:1350]
+			
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-Destroyer-LeTriomphantB</SubtypeId>
+			</Id>
+			<Description>
+			
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:false]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:0]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[AllowStrafing:false]
+			[WaypointTolerance:50]
+			[IdealMinSpeed:32]
+			[IdealMaxSpeed:43.5]
+			[MaxSpeedTolerance:1]
+			
+			[RotationMultiplier:0.4]
+			[AngleAllowedForForwardThrust:180]
+			
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[WaypointWaitTimeTrigger:0]
+			
+			[EngageDistancePlanet:1250]
+			[DisengageDistancePlanet:1350]
+			
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-Destroyer-Bougainville</SubtypeId>
+			</Id>
+			<Description>
+			
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:false]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:0]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[AllowStrafing:false]
+			[WaypointTolerance:50]
+			[IdealMinSpeed:7.4]
+			[IdealMaxSpeed:11.1]
+			[MaxSpeedTolerance:1]
+			
+			[RotationMultiplier:0.4]
+			[AngleAllowedForForwardThrust:180]
+			
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[WaypointWaitTimeTrigger:15]
+			
+			[EngageDistancePlanet:1250]
+			[DisengageDistancePlanet:1350]
+			
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-Destroyer-BougainvilleB</SubtypeId>
+			</Id>
+			<Description>
+			
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:false]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:0]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[AllowStrafing:false]
+			[WaypointTolerance:50]
+			[IdealMinSpeed:13.4]
+			[IdealMaxSpeed:18.2]
 			[MaxSpeedTolerance:1]
 			
 			[RotationMultiplier:0.4]

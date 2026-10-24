@@ -3,15 +3,15 @@
   <SubtypeId>WW2-Core-Naval-Carrier</SubtypeId>
   <UniqueName>Carrier</UniqueName>
   <ForceBroadCast>true</ForceBroadCast>
-  <ForceBroadCastRange>4500</ForceBroadCastRange>
+  <ForceBroadCastRange>9000</ForceBroadCastRange>
   <MobilityType>Mobile</MobilityType>
   <MaxBlocks>9250</MaxBlocks>
   <MinBlocks>-1</MinBlocks>
   <MaxMass>-1</MaxMass>
   <MaxPCU>29000</MaxPCU>
-  <MaxBackupCores>1</MaxBackupCores>
-  <MaxPerPlayer>-1</MaxPerPlayer>
-  <MaxPerFaction>-1</MaxPerFaction>
+  <MaxBackupCores>2</MaxBackupCores>
+  <MaxPerPlayer>1</MaxPerPlayer>
+  <MaxPerFaction>3</MaxPerFaction>
   <FactionPlayersNeededPerCore>-1</FactionPlayersNeededPerCore>
   <MinPlayers>-1</MinPlayers>
   <MaxPlayers>-1</MaxPlayers>
@@ -37,7 +37,7 @@
     <ThrusterForce>1</ThrusterForce>
   </Modifiers>
   <SpeedModifiers>
-    <MaxSpeed>0.3</MaxSpeed>
+    <MaxSpeed>0.224564</MaxSpeed>
     <MaxAngularVelocity>0</MaxAngularVelocity>
     <MaxBoost>0.25</MaxBoost>
     <BoostDuration>45</BoostDuration>
