@@ -320,5 +320,41 @@
 </Description>
 	</EntityComponent>
 
+	<!-- Battleships: same rules as the carriers. -->
+<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Ships-Battleships-WL5</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[PlanetaryInstallationType:Medium]
+			[InstallationSpawnsOnWaterSurface:true]
+			[InstallationSpawnsOnDryLand:false]
+			[MinWaterDepth:25]
+			[MaxWaterDepth:10000]
+			[MinWaterCoverage:0.85]
+
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+
+			[UseThreatLevelCheck:true]
+			[ThreatLevelCheckRange:10000]
+			[ThreatScoreMinimum:350]
+
+					[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:5]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+</Description>
+	</EntityComponent>
+
 	</EntityComponents>
 </Definitions>

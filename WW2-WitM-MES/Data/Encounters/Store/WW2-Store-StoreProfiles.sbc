@@ -289,6 +289,21 @@
 			[RequiredOffers:WW2-Vehicle-Bougainville]
 			</Description>
 		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-Vehicles-Green-Tier5</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
+			[MinOfferItems:1]
+			[MaxOfferItems:1]
+			[ItemsRequireInventory:false]
+
+			[RequiredOffers:WW2-Vehicle-Strasbourg]
+			</Description>
+		</EntityComponent>
 
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>

@@ -114,6 +114,39 @@
     <AllowedDirections>Any</AllowedDirections>
   </BlockLimits>
   <BlockLimits>
+    <Name>MediumWeapons</Name>
+    <BlockGroups>MediumWeapons</BlockGroups>
+    <BlockGroups>HeavyWeapons</BlockGroups>
+    <BlockGroups>CapitalWeapons</BlockGroups>
+    <MaxCount>8</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>HeavyWeapons</Name>
+    <BlockGroups>HeavyWeapons</BlockGroups>
+    <BlockGroups>CapitalWeapons</BlockGroups>
+    <MaxCount>2</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>CapitalWeapons</Name>
+    <BlockGroups>CapitalWeapons</BlockGroups>
+    <MaxCount>0</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
     <Name>Countermeasures</Name>
     <BlockGroups>Countermeasures</BlockGroups>
     <MaxCount>0</MaxCount>
@@ -228,6 +261,16 @@
     <Name>SafeZones</Name>
     <BlockGroups>SafeZones</BlockGroups>
     <MaxCount>1</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>SiegeDrives</Name>
+    <BlockGroups>SiegeDrives</BlockGroups>
+    <MaxCount>0</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
     <IsCriticalLimit>false</IsCriticalLimit>

@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <VoxelMaterials>
+
+    <!-- Road surface: vanilla Soil's look, own MaterialTypeName so MES
+         [DisallowedTerrainTypes:SoilDry] keeps installations off roads.
+         SoilDry is vanilla (AlienSoil) and unused elsewhere on this planet;
+         plain Soil is shared with CrackedSoil/DustyRocks. -->
+    <VoxelMaterial xsi:type="MyObjectBuilder_Dx11VoxelMaterialDefinition">
+      <Id>
+        <TypeId>VoxelMaterialDefinition</TypeId>
+        <SubtypeId>WitM_RoadSoil</SubtypeId>
+      </Id>
+      <SpawnsInAsteroids>false</SpawnsInAsteroids>
+      <MaterialTypeName>SoilDry</MaterialTypeName>
+      <MinedOre>Stone</MinedOre>
+      <MinedOreRatio>1</MinedOreRatio>
+      <CanBeHarvested>true</CanBeHarvested>
+      <IsRare>false</IsRare>
+
+      <VoxelHandPreview>Textures\Voxels\Soil_Thumbnail.dds</VoxelHandPreview>
+      <ColorMetalXZnY>Textures\Voxels\Soil_cm.dds</ColorMetalXZnY>
+      <NormalGlossXZnY>Textures\Voxels\Soil_ng.dds</NormalGlossXZnY>
+      <ExtXZnY>Textures\Voxels\Dummy_add.dds</ExtXZnY>
+
+      <ColorMetalXZnYFar1>Textures\Voxels\Soil_Far1_cm.dds</ColorMetalXZnYFar1>
+      <NormalGlossXZnYFar1>Textures\Voxels\Soil_Far1_ng.dds</NormalGlossXZnYFar1>
+      <ExtXZnYFar1>Textures\Voxels\Dummy_add.dds</ExtXZnYFar1>
+
+      <ColorMetalXZnYFar2>Textures\Voxels\Soil_Far2_cm.dds</ColorMetalXZnYFar2>
+      <NormalGlossXZnYFar2>Textures\Voxels\Soil_Far2_ng.dds</NormalGlossXZnYFar2>
+      <ExtXZnYFar2>Textures\Voxels\Dummy_add.dds</ExtXZnYFar2>
+
+      <SimpleTilingSetup>
+        <ExtDetailScale>0.005</ExtDetailScale>
+        <Far1Distance>30</Far1Distance>
+        <Far2Distance>500</Far2Distance>
+        <Far1Scale>200</Far1Scale>
+        <Far2Scale>1000</Far2Scale>
+        <Far3Distance>5000</Far3Distance>
+      </SimpleTilingSetup>
+
+      <ExtDetailScale>0.005</ExtDetailScale>
+      <ScaleMultiplier>8</ScaleMultiplier>
+      <Far1Distance>30</Far1Distance>
+      <Far2Distance>500</Far2Distance>
+      <Far1Scale>200</Far1Scale>
+      <Far2Scale>1000</Far2Scale>
+      <TilingScale>32</TilingScale>
+      <Far3Distance>5000</Far3Distance>
+      <Far3Color>
+        <X>0.13</X>
+        <Y>0.10</Y>
+        <Z>0.05</Z>
+        <W>1.0</W>
+      </Far3Color>
+
+      <ColorKey Hex="#BCBB56"/>
+    </VoxelMaterial>
+
+  </VoxelMaterials>
+</Definitions>

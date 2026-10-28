@@ -1,0 +1,146 @@
+# WitM G menu rules, read by Scripts/WW2-WitM/GMenu/GMenuSession.cs when a world loads (on every client).
+# Preview: se-mod-production tools/gmenu/gmenu_preview.py reads this same file.
+#
+# tab <key> <category Name>          a WitM tab, declared in Data/GMenu/BlockCategories.sbc (the Name sets the order)
+# keep <category Name>               a category that stays as it is (ship, tool and animation categories always stay)
+# define <NAME> <a,b,c>              a list, used as @NAME in the mods or types field
+# rule <tab> <mods> <types> <subtypes>
+#     Every cube block goes in the tab of the FIRST rule it matches. mods: Workshop IDs, "vanilla" or a local mod
+#     folder name; types: TypeId without MyObjectBuilder_; subtypes: patterns where * is the only wildcard
+#     (not case sensitive). Each field is a comma list or *. Subtypes is the rest of the line, so it may hold spaces.
+# rulename <tab> <mods> <types> <display names>   like rule, but matches the block's (English) display name
+# incat <tab> <category Name>        blocks the mods themselves listed in that category (read before the cleanup)
+# move <category Name> <category Name>  add the first category's items to the second, then hide the first
+#
+# Every other category is hidden and emptied.
+
+tab Cores       Section1_Position0_WitM01_Cores
+tab WpnNaval    Section1_Position0_WitM02_WeaponsNaval
+tab WpnGround   Section1_Position0_WitM03_WeaponsGround
+tab WpnAir      Section1_Position0_WitM04_WeaponsAirAA
+tab Armor      Section1_Position0_WitM05_Armor
+tab Armor4     Section1_Position0_WitM05_Armor_004mm
+tab Armor12    Section1_Position0_WitM05_Armor_012mm
+tab Armor25    Section1_Position0_WitM05_Armor_025mm
+tab Armor50    Section1_Position0_WitM05_Armor_050mm
+tab Armor75    Section1_Position0_WitM05_Armor_075mm
+tab Armor100   Section1_Position0_WitM05_Armor_100mm
+tab Aircraft    Section1_Position0_WitM06_AircraftParts
+tab Ground      Section1_Position0_WitM07_GroundVehicleParts
+tab Naval       Section1_Position0_WitM08_NavalParts
+tab Cockpits    Section1_Position0_WitM09_CockpitsSeats
+tab Power       Section1_Position0_WitM10_EnginesPower
+tab Electronics Section1_Position0_WitM11_OpticsElectronics
+tab Logistics   Section1_Position0_WitM12_Logistics
+tab DoorsLights Section1_Position0_WitM13_DoorsLights
+tab Decor       Section1_Position0_WitM14_DecorStructure
+tab Utility     Section1_Position0_WitM15_ProductionUtility
+tab Other       Section1_Position0_WitM16_Other
+
+keep Section1_Position1_LargeBlocks
+keep Section1_Position1_SmallBlocks
+keep VoxelHands
+
+# SETB Handweapons' AT weapons go with the other character weapons (owner 2026-10-25)
+move Anti_Tank_Weapons Section0_Position2_CharacterWeapons
+
+# Mods by theme
+define AIR     2758773086,2612368868,837058476,800500312,2219683817
+define NAVAL   2899106264,2685161727,2844434226,3043566172
+define GROUND  2930049835,3579674659,3431829641,3409154935,3660034986,2883075089,3208995513,3209005014
+define ORDNANCE 2881339118
+
+# Block types
+define WEAPON  ConveyorSorter,SmallMissileLauncher,SmallMissileLauncherReload,SmallGatlingGun,LargeGatlingTurret,LargeMissileTurret,InteriorTurret,Warhead
+define MECH    MotorStator,MotorRotor,MotorAdvancedStator,MotorAdvancedRotor,PistonBase,ExtendedPistonBase,PistonTop,MotorSuspension,Wheel,LandingGear
+define POWER   Thrust,HydrogenEngine,BatteryBlock,Reactor,SolarPanel,WindTurbine,Gyro,ExhaustBlock,OxygenTank,HeatVentBlock,Parachute
+define LOGI    CargoContainer,Conveyor,ConveyorConnector,ConveyorSorter,ShipConnector,MergeBlock,Collector,Passage
+define ELEC    CameraBlock,RadioAntenna,LaserAntenna,Beacon,TextPanel,LCDPanelsBlock,ButtonPanel,MyProgrammableBlock,TimerBlock,SensorBlock,EventControllerBlock,TurretControlBlock,RemoteControl,FlightMovementBlock,OffensiveCombatBlock,DefensiveCombatBlock,BasicMissionBlock,PathRecorderBlock,EmotionControllerBlock,BroadcastController,TransponderBlock,ControlPanel,SoundBlock,Jukebox,Projector,OreDetector,Decoy
+define DOORS   Door,AdvancedDoor,AirtightHangarDoor,AirtightSlideDoor,AirtightDoorGeneric,InteriorLight,ReflectorLight,LightingBlock,Searchlight,EmissiveBlock,Ladder2
+define UTIL    Assembler,Refinery,SurvivalKit,MedicalRoom,CryoChamber,OxygenGenerator,OxygenFarm,AirVent,Drill,ShipWelder,ShipGrinder,GravityGenerator,GravityGeneratorSphere,VirtualMass,SpaceBall,JumpDrive,UpgradeModule,SafeZoneBlock,StoreBlock,ContractBlock,VendingMachine,Kitchen,Planter,TargetDummyBlock
+
+# --- 1. Ship cores ---
+rule Cores * FunctionalBlock WW2-Core-*
+
+# --- 2. Exceptions that the type rules below would put in the wrong tab ---
+rule Decor       2289675817 * *
+rule Electronics @AIR LargeGatlingTurret,LargeMissileTurret CAPRadarTurret,*Radar*
+rule Electronics @NAVAL LargeMissileTurret *Radar*
+rule Utility     3422654770 * *
+rule Logistics   2499720849 * *
+rule Armor      2758773086 CubeBlock *ArmorPanel*
+rule Power       2844434226 ExhaustBlock SmallExhaustPipe,LargeExhaustPipe
+rule Armor      @NAVAL Conveyor *Barbette*
+
+# --- 3. Weapons ---
+rule WpnAir      @ORDNANCE * *
+incat WpnAir     FletcherArmsAA
+incat WpnAir     FletcherArmsAircraft
+rule WpnAir      2844434226 ConveyorSorter *Small,BoforStaticGun,OerlikonStatic
+rule WpnAir      2612368868 LargeGatlingTurret *
+rule WpnAir      2685161727 LargeGatlingTurret Ship20mm*
+rule WpnAir      3043566172 * *BOFORS*
+rule WpnAir      2883075089 * *GBU-6*
+rule WpnNaval    @NAVAL @WEAPON *
+rule WpnNaval    2685161727 * Torpedo*
+rule WpnGround   @GROUND @WEAPON *
+rule WpnGround   2883075089 RadioAntenna,SensorBlock ECS_*,Active Protection*
+rule WpnGround   vanilla,3154371364 @WEAPON *
+
+# --- 4. Seats ---
+rule Cockpits * Cockpit *
+
+# --- 5. Aircraft and naval functional parts that belong with their airframe / hull ---
+rule Aircraft @AIR @MECH,AdvancedDoor,AirVent *
+rule Aircraft @AIR ControlPanel RandaHook,TailHook,Arrestor*
+rule Naval    @NAVAL AdvancedDoor,LandingGear,ExhaustBlock,InteriorLight,ReflectorLight,ShipWelder,Collector *
+
+# --- 6. Functional blocks by type ---
+rule Power       * @POWER *
+rule Electronics * @ELEC *
+rule Logistics   * @LOGI *
+rule DoorsLights * @DOORS *
+rule Ground      * @MECH *
+rule Utility     * @UTIL *
+
+# --- 7. Shapes, armour and decor by mod ---
+incat Decor    KGS2Decor
+incat Decor    G56AWG Decor Blocks
+incat Decor    G65AWG Map Decor Blocks
+incat Decor    A51Decorative
+incat Decor    A52Signs
+rule Electronics 2930049835 CubeBlock KGS_ArmouredVisionPort*
+# KGS and IAP armour by thickness (owner 2026-10-25)
+rule Armor4     2930049835,2883075089 CubeBlock *_4mm,*_4mm_*,4mm*
+rule Armor12    2930049835,2883075089 CubeBlock *_12mm,*_12mm_*,12mm*
+rule Armor25    2930049835,2883075089 CubeBlock *_25mm,*_25mm_*,25mm*
+rule Armor50    2930049835,2883075089 CubeBlock *_50mm,*_50mm_*,50mm*
+rule Armor75    2930049835,2883075089 CubeBlock *_75mm,*_75mm_*,75mm*
+rule Armor100   2930049835,2883075089 CubeBlock *_100mm,*_100mm_*,100mm*
+# SETB and some IAP armour carry the thickness only in the display name ("4mm 6 Slope Corner 1")
+rulename Armor4     2930049835,2883075089,3579674659 CubeBlock 4mm*,* 4mm*,*(4mm*
+rulename Armor12    2930049835,2883075089,3579674659 CubeBlock 12mm*,* 12mm*,*(12mm*
+rulename Armor25    2930049835,2883075089,3579674659 CubeBlock 25mm*,* 25mm*,*(25mm*
+rulename Armor50    2930049835,2883075089,3579674659 CubeBlock 50mm*,* 50mm*,*(50mm*
+rulename Armor75    2930049835,2883075089,3579674659 CubeBlock 75mm*,* 75mm*,*(75mm*
+rulename Armor100   2930049835,2883075089,3579674659 CubeBlock 100mm*,* 100mm*,*(100mm*
+incat Armor   G50Armor Blocks
+rule Armor    2930049835 CubeBlock KGS_Armour*,KGS_Mantlet*,KGS_MalachitERA*,KGS_ERA*,KGS_Composite*
+rule Armor    2883075089 CubeBlock 4mm*,12mm*,25mm*,50mm*,75mm*,100mm*,*Mantlet*,*Armor*,*Armour*
+rule Armor    1939935505,3660034986 * *
+rule Ground    2930049835,2883075089 * *
+rule Ground    3579674659,3431829641,3409154935,3208995513,3209005014 * *
+rule Aircraft  @AIR * *
+rule Naval     @NAVAL * *
+
+# --- 8. Vanilla shapes ---
+incat Armor   Section1_Position2_Armorblocks
+incat Decor    Section1_Position3_Windows
+incat Decor    Section1_Position3_Decorative
+incat Decor    Section1_Position3_ShipStructure
+incat Utility  Section1_Position3_Production
+incat Utility  Section1_Position3_Utility
+rule Decor     vanilla * *
+
+# --- 9. Safety net (a mod update or a new mod) ---
+rule Other * * *

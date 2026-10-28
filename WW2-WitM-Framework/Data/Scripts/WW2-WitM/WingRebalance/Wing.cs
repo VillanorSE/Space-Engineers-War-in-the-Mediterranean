@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using VRage.Game;
@@ -115,6 +116,11 @@ namespace WW2WitM.Aerodynamics
         )]
     public class Wing : MyGameLogicComponent
     {
+        // Lift summed per grid each frame while the Flight Assist log asks for it (/assist log).
+        public struct LiftTotal { public int Frame; public Vector3D Force; public Vector3D At; }
+        public static bool TrackLift;
+        public static readonly Dictionary<long, LiftTotal> GridLift = new Dictionary<long, LiftTotal>();
+
         private IMyTerminalBlock block;
         private float atmosphere = 0;
         private int atmospheres = 0;
@@ -432,9 +438,22 @@ namespace WW2WitM.Aerodynamics
                 {
                     var upDir = blockMatrix.Up;
                     var forceVector = -upDir * upDir.Dot(vel) * forceMul * speedSq * atmosphere;
-                    var applyForceAt = grid.Physics.CenterOfMassWorld;
+                    // Lift goes through the whole plane's centre of mass (subgrids included, as CAP's own script does);
+                    // at the main grid's own centre it twisted the nose up in proportion to lift (owner flight logs 2026-10-27).
+                    var applyForceAt = MyGridPhysicalGroupData.GetGroupSharedProperties((MyCubeGrid)grid).CoMWorld;
 
                     grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, forceVector, applyForceAt, null);
+
+                    if(TrackLift)
+                    {
+                        int frame = MyAPIGateway.Session.GameplayFrameCounter;
+                        LiftTotal total;
+                        if(!GridLift.TryGetValue(grid.EntityId, out total) || total.Frame != frame)
+                            total = new LiftTotal { Frame = frame };
+                        total.Force += forceVector;
+                        total.At = applyForceAt;
+                        GridLift[grid.EntityId] = total;
+                    }
                 }
             }
             catch(Exception e)

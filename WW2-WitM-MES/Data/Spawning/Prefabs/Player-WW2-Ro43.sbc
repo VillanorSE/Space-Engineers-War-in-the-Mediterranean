@@ -4193,8 +4193,8 @@ These notes also appear at the top of each section in the block's Custom Data.
 */
 
 
-const string VERSION = "1.7";
-const string DATE = "2026/10/11";
+const string VERSION = "1.8";
+const string DATE = "2026/10/25";
 
 const string INI_SECTION_SWCS = "Plane Wheels";
 const string INI_KEY_IGNORE_TAG = "Wheel ignore name tag";
@@ -4695,11 +4695,21 @@ void GetGearBlocks()
         foreach (var g in gearGroups)
             if (g.Name.EndsWith(gearGroupName, StringComparison.OrdinalIgnoreCase)) { group = g; break; }
     }
+    string emptyReason = null;
     if (group != null)
     {
         if (gearSameConstruct == null)
             gearSameConstruct = b =&gt; Me.IsSameConstructAs(b);
         group.GetBlocksOfType(gearScratch, gearSameConstruct);
+        if (gearScratch.Count == 0)
+        {
+            // Say why the group came up empty: the script only sees blocks its owner can use.
+            group.GetBlocksOfType(gearScratch);
+            emptyReason = gearScratch.Count &gt; 0
+                ? $"\"{group.Name}\": hinges/rotors not on this plane"
+                : $"\"{group.Name}\": no usable hinges/rotors\n  (take ownership of them, recompile)";
+            gearScratch.Clear();
+        }
     }
 
     gearMotors.Clear();
@@ -4730,7 +4740,7 @@ void GetGearBlocks()
     }
 
     if (gearMotors.Count == 0)
-        gearStatus = $"no group \"{gearGroupName}\"";
+        gearStatus = emptyReason ?? $"no group \"{gearGroupName}\"";
     else
         gearStatus = (gearDown ? "down" : "up") + (unusable &gt; 0 ? $" ({unusable} motor(s) without limits ignored)" : "");
 }

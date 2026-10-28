@@ -7,11 +7,11 @@
   <MobilityType>Mobile</MobilityType>
   <MaxBlocks>900</MaxBlocks>
   <MinBlocks>-1</MinBlocks>
-  <MaxMass>-1</MaxMass>
+  <MaxMass>24000</MaxMass>
   <MaxPCU>4500</MaxPCU>
   <MaxBackupCores>1</MaxBackupCores>
-  <MaxPerPlayer>-1</MaxPerPlayer>
-  <MaxPerFaction>-1</MaxPerFaction>
+  <MaxPerPlayer>3</MaxPerPlayer>
+  <MaxPerFaction>12</MaxPerFaction>
   <FactionPlayersNeededPerCore>-1</FactionPlayersNeededPerCore>
   <MinPlayers>-1</MinPlayers>
   <MaxPlayers>-1</MaxPlayers>
@@ -106,6 +106,37 @@
   <BlockLimits>
     <Name>SpecialWeapons</Name>
     <BlockGroups>SpecialWeapons</BlockGroups>
+    <MaxCount>0</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>MediumWeapons</Name>
+    <BlockGroups>GroundMediumWeapons</BlockGroups>
+    <BlockGroups>GroundHeavyWeapons</BlockGroups>
+    <MaxCount>2</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>HeavyWeapons</Name>
+    <BlockGroups>GroundHeavyWeapons</BlockGroups>
+    <MaxCount>0</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>NavalWeapons</Name>
+    <BlockGroups>LargeGridWeapons</BlockGroups>
     <MaxCount>0</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
@@ -256,6 +287,16 @@
   <BlockLimits>
     <Name>SafeZones</Name>
     <BlockGroups>SafeZones</BlockGroups>
+    <MaxCount>0</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>SiegeDrives</Name>
+    <BlockGroups>SiegeDrives</BlockGroups>
     <MaxCount>0</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>

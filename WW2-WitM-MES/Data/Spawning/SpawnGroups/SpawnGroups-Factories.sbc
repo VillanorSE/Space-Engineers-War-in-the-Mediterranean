@@ -534,5 +534,86 @@
 
 <!-- End Plane Factory Spawns -->
 
+<!-- Ground Vehicle Factory Spawns
+     Shell NPC-WW2-Factory-Ground plus its display vehicles. Every prefab uses PlaceToGridOrigin, so each
+     Position is that grid's origin in the spawn frame (X right, Y up, Z back), taken from the owner's
+     parked layout in the Build World (2026-10-25): shell origin 0.43 m above the ground, vehicles at their
+     parked grid origins relative to the shell (+0.1 m). The M13/40 hull grid is built sideways (seats face
+     its right) and the Fiat 626 grid faces its back, so with no rotation the truck stands at 90 degrees to
+     the row. Prefab indexes 2 and 3 get the 66% / 33% build states, as in the plane factories. -->
+
+	<!-- Gray M13/40 Factory -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Factory-Gray-Ground-M1340</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-Medium-FactoryGround]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-33pct]
+
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Factory-Ground">
+				<Position>
+					<X>0.0</X>
+					<Y>-13.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-Factory-Ground-M1340</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-M13_40">
+				<Position>
+					<X>28</X>
+					<Y>2.5</Y>
+					<Z>2.5</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-M13_40">
+				<Position>
+					<X>28</X>
+					<Y>2.5</Y>
+					<Z>22.5</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-M13_40">
+				<Position>
+					<X>28</X>
+					<Y>2.5</Y>
+					<Z>42.5</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Fiat626">
+				<Position>
+					<X>0</X>
+					<Y>12</Y>
+					<Z>10</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+<!-- End Ground Vehicle Factory Spawns -->
+
 	</SpawnGroups>
 </Definitions>

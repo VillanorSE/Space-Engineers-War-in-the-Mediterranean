@@ -416,7 +416,7 @@
 			<ItemType>Prefab</ItemType>
 			<ItemSubtypeId>Player-WW2-Panhard178</ItemSubtypeId>
 			<Offer>
-				<CustomPrice>225000</CustomPrice>
+				<CustomPrice>35000</CustomPrice>
 				<MinPriceMultiplier>100</MinPriceMultiplier>
 				<MaxPriceMultiplier>100</MaxPriceMultiplier>
 				<MinAmount>1</MinAmount>
@@ -542,6 +542,21 @@
 			<ItemSubtypeId>Player-WW2-F222</ItemSubtypeId>
 			<Offer>
 				<CustomPrice>150000</CustomPrice>
+				<MinPriceMultiplier>100</MinPriceMultiplier>
+				<MaxPriceMultiplier>100</MaxPriceMultiplier>
+				<MinAmount>1</MinAmount>
+				<MaxAmount>1</MaxAmount>
+				<SandboxCounterMultiplier>WitM-StoreOfferPct</SandboxCounterMultiplier>
+			</Offer>
+		</StoreItem>
+
+		<!-- Battleship tier (War Level 5), Green Vehicle stores only. D-012 price. -->
+		<StoreItem>
+			<StoreItemId>WW2-Vehicle-Strasbourg</StoreItemId>
+			<ItemType>Prefab</ItemType>
+			<ItemSubtypeId>Player-WW2-Strasbourg</ItemSubtypeId>
+			<Offer>
+				<CustomPrice>169550000</CustomPrice>
 				<MinPriceMultiplier>100</MinPriceMultiplier>
 				<MaxPriceMultiplier>100</MaxPriceMultiplier>
 				<MinAmount>1</MinAmount>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+
+	<!-- Battleship Behaviors: the heavy cruiser behavior with the Battleship points group and per-ship autopilots (D-056). -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Battleship-Strasbourg</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Nautical]
+			[UseNoTargetTimer:false]
+			[TriggerGroups:WW2-Points-Group-Green-Battleship]
+
+			[AutopilotData:WW2-Autopilot-Battleship-Strasbourg]
+			[SecondaryAutopilotData:WW2-Autopilot-Battleship-StrasbourgB]
+			[TargetData:WW2-Targeting-ShipMain]
+
+			[WeaponSystem:WW2-Weapons-Cruiser]
+
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-AggressionSwitch-Cruiser]
+			[Triggers:WW2-Trigger-PassiveSwitch-Cruiser]
+			[Triggers:WW2-Trigger-PassiveSwitchNoTarget-Cruiser]
+			[Triggers:WW2-Trigger-BotCrew-10]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[Triggers:WW2-Trigger-ReputationDamageHeavy-MilitaryShip-Green]
+
+			[TriggerGroups:WW2-TriggerGroup-Broadside]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-Battleship-Strasbourg</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:false]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:0]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[AllowStrafing:false]
+			[WaypointTolerance:50]
+			[IdealMinSpeed:14.8]
+			[IdealMaxSpeed:22.0]
+			[MaxSpeedTolerance:1]
+
+			[RotationMultiplier:0.3]
+			[AngleAllowedForForwardThrust:180]
+
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[WaypointWaitTimeTrigger:15]
+
+			[EngageDistancePlanet:1500]
+			[DisengageDistancePlanet:1600]
+
+			</Description>
+		</EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-Battleship-StrasbourgB</SubtypeId>
+			</Id>
+			<Description>
+
+			[RivalAI Autopilot]
+
+			[DisableInertiaDampeners:false]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:0]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[AllowStrafing:false]
+			[WaypointTolerance:50]
+			[IdealMinSpeed:25.8]
+			[IdealMaxSpeed:36.8]
+			[MaxSpeedTolerance:1]
+
+			[RotationMultiplier:0.3]
+			[AngleAllowedForForwardThrust:180]
+
+			[UseVelocityCollisionEvasion:true]
+			[CollisionEvasionWaypointDistance:100]
+			[WaypointWaitTimeTrigger:0]
+
+			[EngageDistancePlanet:1500]
+			[DisengageDistancePlanet:1600]
+
+			</Description>
+		</EntityComponent>
+
+    </EntityComponents>
+</Definitions>

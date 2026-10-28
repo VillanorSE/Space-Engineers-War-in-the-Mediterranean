@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- WitM G menu tabs. They start empty: Scripts/WW2-WitM/GMenu/GMenuSession.cs fills them from Data/GMenu/GMenuRules.txt
+     and hides every other block category when a world loads. The game lists tabs by Name, so the number sets the order;
+     Section1_Position0 puts them above Large Blocks / Small Blocks. Three leading spaces in a DisplayName indent the tab
+     as a sub-tab, as vanilla does for the character tabs. -->
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CategoryClasses>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Ship Cores</DisplayName>
+      <Name>Section1_Position0_WitM01_Cores</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Weapons: Naval</DisplayName>
+      <Name>Section1_Position0_WitM02_WeaponsNaval</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Weapons: Ground</DisplayName>
+      <Name>Section1_Position0_WitM03_WeaponsGround</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Weapons: Air &amp; AA</DisplayName>
+      <Name>Section1_Position0_WitM04_WeaponsAirAA</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Armor</DisplayName>
+      <Name>Section1_Position0_WitM05_Armor</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>   Armor 4mm</DisplayName>
+      <Name>Section1_Position0_WitM05_Armor_004mm</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>   Armor 12mm</DisplayName>
+      <Name>Section1_Position0_WitM05_Armor_012mm</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>   Armor 25mm</DisplayName>
+      <Name>Section1_Position0_WitM05_Armor_025mm</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>   Armor 50mm</DisplayName>
+      <Name>Section1_Position0_WitM05_Armor_050mm</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>   Armor 75mm</DisplayName>
+      <Name>Section1_Position0_WitM05_Armor_075mm</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>   Armor 100mm</DisplayName>
+      <Name>Section1_Position0_WitM05_Armor_100mm</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Aircraft Parts</DisplayName>
+      <Name>Section1_Position0_WitM06_AircraftParts</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Ground Vehicle Parts</DisplayName>
+      <Name>Section1_Position0_WitM07_GroundVehicleParts</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Naval Parts</DisplayName>
+      <Name>Section1_Position0_WitM08_NavalParts</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Cockpits &amp; Seats</DisplayName>
+      <Name>Section1_Position0_WitM09_CockpitsSeats</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Engines &amp; Power</DisplayName>
+      <Name>Section1_Position0_WitM10_EnginesPower</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Optics &amp; Electronics</DisplayName>
+      <Name>Section1_Position0_WitM11_OpticsElectronics</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Logistics</DisplayName>
+      <Name>Section1_Position0_WitM12_Logistics</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Doors &amp; Lights</DisplayName>
+      <Name>Section1_Position0_WitM13_DoorsLights</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Decor &amp; Structure</DisplayName>
+      <Name>Section1_Position0_WitM14_DecorStructure</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Production &amp; Utility</DisplayName>
+      <Name>Section1_Position0_WitM15_ProductionUtility</Name>
+      <ItemIds/>
+    </Category>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Other</DisplayName>
+      <Name>Section1_Position0_WitM16_Other</Name>
+      <ItemIds/>
+    </Category>
+  </CategoryClasses>
+</Definitions>

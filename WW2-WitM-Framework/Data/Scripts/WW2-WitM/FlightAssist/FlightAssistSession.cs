@@ -18,7 +18,7 @@ namespace WW2WitM.FlightAssist
         const ushort NetChannel = 47263;
         const byte PacketCommand = 1;
         const byte PacketReply = 2;
-        const byte CmdStatus = 0, CmdOn = 1, CmdOff = 2, CmdToggle = 3;
+        const byte CmdStatus = 0, CmdOn = 1, CmdOff = 2, CmdToggle = 3, CmdLog = 4;
         const int ScanTicks = 10;
         const int CheckTicks = 120;
         const string AirCorePrefix = "WW2-Core-Air-";
@@ -36,6 +36,7 @@ namespace WW2WitM.FlightAssist
         readonly List<Plane> planes = new List<Plane>();
         readonly Dictionary<long, Plane> planeByGrid = new Dictionary<long, Plane>();
         readonly HashSet<ulong> assistOff = new HashSet<ulong>();
+        readonly HashSet<ulong> logOn = new HashSet<ulong>();
         readonly List<IMyPlayer> players = new List<IMyPlayer>();
         readonly List<IMyCubeGrid> groupGrids = new List<IMyCubeGrid>();
         readonly List<IMySlimBlock> blockScratch = new List<IMySlimBlock>();
@@ -103,7 +104,7 @@ namespace WW2WitM.FlightAssist
                 for (int i = planes.Count - 1; i >= 0; i--)
                 {
                     var p = planes[i];
-                    if (!p.Tick(!assistOff.Contains(p.PilotSteamId)))
+                    if (!p.Tick(!assistOff.Contains(p.PilotSteamId), logOn.Contains(p.PilotSteamId)))
                         DropAt(i);
                 }
             }
@@ -190,10 +191,8 @@ namespace WW2WitM.FlightAssist
         {
             plane.NextCheckTick = tick + CheckTicks;
             var grid = plane.Grid;
+            // MES's NpcData tag travels in blueprints and Player prefabs, so ownership and an active MES behavior decide, not that tag.
             bool air = false, surface = false, mes = false;
-
-            if (grid.Storage != null && grid.Storage.ContainsKey(MesNpcDataKey))
-                mes = true;
 
             groupGrids.Clear();
             MyAPIGateway.GridGroups.GetGroup(grid, GridLinkTypeEnum.Mechanical, groupGrids);
@@ -333,9 +332,10 @@ namespace WW2WitM.FlightAssist
                 else if (arg == "on") cmd = CmdOn;
                 else if (arg == "off") cmd = CmdOff;
                 else if (arg == "status") cmd = CmdStatus;
+                else if (arg == "log") cmd = CmdLog;
                 else
                 {
-                    Show("/assist toggles Flight Assist for you. /assist on, /assist off, /assist status.");
+                    Show("/assist toggles Flight Assist for you. /assist on, /assist off, /assist status, /assist log (flight log above 100 m/s to the game log).");
                     return;
                 }
                 if (isServer)
@@ -358,7 +358,7 @@ namespace WW2WitM.FlightAssist
             {
                 if (data == null || data.Length < 1)
                     return;
-                if (data[0] == PacketCommand && isServer && !fromServer && data.Length == 2 && data[1] <= CmdToggle)
+                if (data[0] == PacketCommand && isServer && !fromServer && data.Length == 2 && data[1] <= CmdLog)
                 {
                     string reply = Command(sender, data[1]);
                     var bytes = Encoding.UTF8.GetBytes(reply);
@@ -389,6 +389,17 @@ namespace WW2WitM.FlightAssist
                 if (!assistOff.Remove(steamId))
                     assistOff.Add(steamId);
             }
+            if (cmd == CmdLog)
+            {
+                bool on = logOn.Add(steamId);
+                if (!on)
+                    logOn.Remove(steamId);
+                WW2WitM.Aerodynamics.Wing.TrackLift = logOn.Count > 0;
+                if (logOn.Count == 0)
+                    WW2WitM.Aerodynamics.Wing.GridLift.Clear();
+                Log("player " + steamId + " turned the flight log " + (on ? "on" : "off"));
+                return "Flight log " + (on ? "ON: every 0.1 s above 100 m/s to the game log (SpaceEngineers_*.log). /assist log again to stop." : "OFF.");
+            }
             if (cmd != CmdStatus)
                 Log("player " + steamId + " turned it " + (assistOff.Contains(steamId) ? "off" : "on"));
 
@@ -402,6 +413,8 @@ namespace WW2WitM.FlightAssist
                 if (!p.Eligible) sb.Append("not assisted, ").Append(p.Reason).Append('.');
                 else if (p.Engaged) sb.Append("assisting (").Append(p.Reason).Append(").");
                 else sb.Append("ready, engages above ").Append(p.Settings.MinSpeed.ToString("0")).Append(" m/s (").Append(p.Reason).Append(").");
+                if (cmd == CmdStatus)
+                    sb.Append(p.Stats.Report());
                 break;
             }
             return sb.ToString();

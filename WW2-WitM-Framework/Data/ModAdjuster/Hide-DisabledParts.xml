@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 2026-10-25 (owner): hide the plain CubeBlock parts of blocks WitM disables (BlockRestrictions-Disabled.sbc), which
+     Block Restrictions cannot restrict: the Consty nose FLIR mount and FLIR rotor/hinge heads, and the Thin Wings ducted fan cover. -->
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CubeBlocks>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="CAP_Nose_FLIR_Mount" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="DuctedCover" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_MotorRotor" Subtype="CAPHingeHead" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_MotorRotor" Subtype="CAPHingeFullHead" />
+      <Public>false</Public>
+    </Definition>
+    <Definition xsi:type="CubeBlockDefinition">
+      <Id Type="MyObjectBuilder_MotorRotor" Subtype="CAPRotorHead" />
+      <Public>false</Public>
+    </Definition>
+  </CubeBlocks>
+</Definitions>

@@ -7,11 +7,11 @@
   <MobilityType>Mobile</MobilityType>
   <MaxBlocks>450</MaxBlocks>
   <MinBlocks>-1</MinBlocks>
-  <MaxMass>-1</MaxMass>
+  <MaxMass>12800</MaxMass>
   <MaxPCU>4000</MaxPCU>
   <MaxBackupCores>1</MaxBackupCores>
-  <MaxPerPlayer>10</MaxPerPlayer>
-  <MaxPerFaction>-1</MaxPerFaction>
+  <MaxPerPlayer>6</MaxPerPlayer>
+  <MaxPerFaction>20</MaxPerFaction>
   <FactionPlayersNeededPerCore>-1</FactionPlayersNeededPerCore>
   <MinPlayers>-1</MinPlayers>
   <MaxPlayers>-1</MaxPlayers>
@@ -37,7 +37,7 @@
     <ThrusterForce>1.15</ThrusterForce>
   </Modifiers>
   <SpeedModifiers>
-    <MaxSpeed>0.666667</MaxSpeed>
+    <MaxSpeed>0.808642</MaxSpeed>
     <MaxAngularVelocity>0</MaxAngularVelocity>
     <MaxBoost>0.4</MaxBoost>
     <BoostDuration>10</BoostDuration>
@@ -256,6 +256,16 @@
   <BlockLimits>
     <Name>SafeZones</Name>
     <BlockGroups>SafeZones</BlockGroups>
+    <MaxCount>0</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>SiegeDrives</Name>
+    <BlockGroups>SiegeDrives</BlockGroups>
     <MaxCount>0</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>

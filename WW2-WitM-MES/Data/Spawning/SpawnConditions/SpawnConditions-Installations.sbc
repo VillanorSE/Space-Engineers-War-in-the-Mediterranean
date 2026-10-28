@@ -15,6 +15,8 @@
 
 			[InstallationSpawnsOnDryLand:true]
 			[MaxWaterCoverage:0.6]
+			[InstallationTerrainValidation:true]
+			[DisallowedTerrainTypes:SoilDry]
 
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]
@@ -42,6 +44,8 @@
 
 			[InstallationSpawnsOnDryLand:true]
 			[MaxWaterCoverage:0.6]
+			[InstallationTerrainValidation:true]
+			[DisallowedTerrainTypes:SoilDry]
 
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]
@@ -51,6 +55,41 @@
 
 			[CutVoxelsAtAirtightCells:true]
 			[CutVoxelSize:2.7]
+
+		</Description>
+	</EntityComponent>
+
+	<!-- Ground vehicle factory: a copy of Installations-Medium (keep the two in step) plus RotateInstallations,
+	     one entry per prefab of WW2-Factory-Gray-Ground-M1340 in spawn-group order: shell, three M13/40s, Fiat 626.
+	     MES yaw is atan(Y / 45) towards the spawn's right (PathPlacements.CalculateDerelictSpawnMatrix), so
+	     Y:1000000 turns the truck ~90 degrees; -1000000 turns it the other way. RotateFirstCockpitToForward stays
+	     on (MES default), so each prefab's first seat faces its (rotated) forward. -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Installations-Medium-FactoryGround</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[PlanetaryInstallationType:Medium]
+
+			[InstallationSpawnsOnDryLand:true]
+			[MaxWaterCoverage:0.6]
+			[InstallationTerrainValidation:true]
+			[DisallowedTerrainTypes:SoilDry]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+
+			[RotateInstallations:{X:0 Y:0 Z:0},{X:0 Y:0 Z:0},{X:0 Y:0 Z:0},{X:0 Y:0 Z:0},{X:0 Y:1000000 Z:0}]
 
 		</Description>
 	</EntityComponent>
@@ -67,6 +106,8 @@
 
 			[InstallationSpawnsOnDryLand:true]
 			[MaxWaterCoverage:0.6]
+			[InstallationTerrainValidation:true]
+			[DisallowedTerrainTypes:SoilDry]
 
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]
@@ -98,6 +139,8 @@
 
 			[InstallationSpawnsOnDryLand:true]
 			[MaxWaterCoverage:0.6]
+			[InstallationTerrainValidation:true]
+			[DisallowedTerrainTypes:SoilDry]
 
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]
@@ -127,6 +170,8 @@
 
 			[InstallationSpawnsOnDryLand:true]
 			[MaxWaterCoverage:0.6]
+			[InstallationTerrainValidation:true]
+			[DisallowedTerrainTypes:SoilDry]
 
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]
@@ -158,6 +203,8 @@
 
 			[InstallationSpawnsOnDryLand:true]
 			[MaxWaterCoverage:0.6]
+			[InstallationTerrainValidation:true]
+			[DisallowedTerrainTypes:SoilDry]
 
 			[MaxSpawnFromPlanetSurface:5000]
 			[PlanetRequiresAtmo:true]

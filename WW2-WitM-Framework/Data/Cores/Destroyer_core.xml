@@ -11,7 +11,7 @@
   <MaxPCU>8000</MaxPCU>
   <MaxBackupCores>1</MaxBackupCores>
   <MaxPerPlayer>3</MaxPerPlayer>
-  <MaxPerFaction>20</MaxPerFaction>
+  <MaxPerFaction>15</MaxPerFaction>
   <FactionPlayersNeededPerCore>-1</FactionPlayersNeededPerCore>
   <MinPlayers>-1</MinPlayers>
   <MaxPlayers>-1</MaxPlayers>
@@ -107,6 +107,39 @@
     <Name>SpecialWeapons</Name>
     <BlockGroups>SpecialWeapons</BlockGroups>
     <MaxCount>6</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>MediumWeapons</Name>
+    <BlockGroups>MediumWeapons</BlockGroups>
+    <BlockGroups>HeavyWeapons</BlockGroups>
+    <BlockGroups>CapitalWeapons</BlockGroups>
+    <MaxCount>0</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>HeavyWeapons</Name>
+    <BlockGroups>HeavyWeapons</BlockGroups>
+    <BlockGroups>CapitalWeapons</BlockGroups>
+    <MaxCount>0</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>CapitalWeapons</Name>
+    <BlockGroups>CapitalWeapons</BlockGroups>
+    <MaxCount>0</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
     <IsCriticalLimit>false</IsCriticalLimit>
@@ -263,6 +296,16 @@
   <BlockLimits>
     <Name>SafeZones</Name>
     <BlockGroups>SafeZones</BlockGroups>
+    <MaxCount>0</MaxCount>
+    <CrossConnectorPunishment>false</CrossConnectorPunishment>
+    <PunishByNoFlyZone>true</PunishByNoFlyZone>
+    <IsCriticalLimit>false</IsCriticalLimit>
+    <PunishmentType>ShutOff</PunishmentType>
+    <AllowedDirections>Any</AllowedDirections>
+  </BlockLimits>
+  <BlockLimits>
+    <Name>SiegeDrives</Name>
+    <BlockGroups>SiegeDrives</BlockGroups>
     <MaxCount>0</MaxCount>
     <CrossConnectorPunishment>false</CrossConnectorPunishment>
     <PunishByNoFlyZone>true</PunishByNoFlyZone>
