@@ -567,7 +567,7 @@
 			<Prefab SubtypeId="NPC-WW2-Factory-Ground">
 				<Position>
 					<X>0.0</X>
-					<Y>-13.0</Y>
+					<Y>-14.0</Y>
 					<Z>0.0</Z>
 				</Position>
 				<PlaceToGridOrigin>true</PlaceToGridOrigin>
@@ -576,38 +576,192 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-M13_40">
 				<Position>
-					<X>28</X>
-					<Y>2.5</Y>
+					<X>30</X>
+					<Y>2</Y>
 					<Z>2.5</Z>
 				</Position>
 				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-M1340</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-M13_40">
 				<Position>
-					<X>28</X>
-					<Y>2.5</Y>
+					<X>30</X>
+					<Y>2</Y>
 					<Z>22.5</Z>
 				</Position>
 				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-M1340</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-M13_40">
 				<Position>
-					<X>28</X>
-					<Y>2.5</Y>
+					<X>30</X>
+					<Y>2</Y>
 					<Z>42.5</Z>
 				</Position>
 				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-M1340</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-Fiat626">
 				<Position>
-					<X>0</X>
-					<Y>12</Y>
-					<Z>10</Z>
+					<X>18</X>
+					<Y>11</Y>
+					<Z>30</Z>
 				</Position>
 				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-Fiat626</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Gray AB 41 Factory -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Factory-Gray-Ground-AB41</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-Medium-FactoryGround]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-33pct]
+
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Factory-Ground">
+				<Position>
+					<X>0.0</X>
+					<Y>-14.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-Factory-Ground-AB41</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-AB41">
+				<Position>
+					<X>28</X>
+					<Y>6.5</Y>
+					<Z>2.5</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-AB41">
+				<Position>
+					<X>28</X>
+					<Y>6.5</Y>
+					<Z>22.5</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-AB41">
+				<Position>
+					<X>28</X>
+					<Y>6.5</Y>
+					<Z>42.5</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Fiat626">
+				<Position>
+					<X>18</X>
+					<Y>11</Y>
+					<Z>30</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-Fiat626</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Gray AB 43 (War Level 3+) Factory -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Factory-Gray-Ground-AB43</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-WL3-Medium-FactoryGround]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-33pct]
+
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Factory-Ground">
+				<Position>
+					<X>0.0</X>
+					<Y>-14.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-Factory-Ground-AB43</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-AB43">
+				<Position>
+					<X>35</X>
+					<Y>3</Y>
+					<Z>2.5</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-AB43</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-AB43">
+				<Position>
+					<X>35</X>
+					<Y>3</Y>
+					<Z>22.5</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-AB43</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-AB43">
+				<Position>
+					<X>35</X>
+					<Y>3</Y>
+					<Z>42.5</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-AB43</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Fiat626">
+				<Position>
+					<X>18</X>
+					<Y>11</Y>
+					<Z>30</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-Fiat626</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>

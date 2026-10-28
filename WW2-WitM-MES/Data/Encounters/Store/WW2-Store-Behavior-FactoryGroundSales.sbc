@@ -48,5 +48,93 @@
 			[RequiredOffers:WW2-Vehicle-Fiat626]
 			</Description>
 		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-FactoryGround-AB41</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Store-Action-UpdateSales-FactoryGround-AB41]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-FactoryGround-AB41</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Action]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-FactoryVehicle]
+			[StoreProfiles:WW2-Store-Profile-FactoryGround-AB41]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-FactoryGround-AB41</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
+			[MinOfferItems:2]
+			[MaxOfferItems:2]
+			[ItemsRequireInventory:false]
+			[RequiredOffers:WW2-Vehicle-AB41]
+			[RequiredOffers:WW2-Vehicle-Fiat626]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-FactoryGround-AB43</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Store-Action-UpdateSales-FactoryGround-AB43]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-FactoryGround-AB43</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Action]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-FactoryVehicle]
+			[StoreProfiles:WW2-Store-Profile-FactoryGround-AB43]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-FactoryGround-AB43</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-PortCatalog.xml]
+			[MinOfferItems:2]
+			[MaxOfferItems:2]
+			[ItemsRequireInventory:false]
+			[RequiredOffers:WW2-Vehicle-AB43]
+			[RequiredOffers:WW2-Vehicle-Fiat626]
+			</Description>
+		</EntityComponent>
 	</EntityComponents>
 </Definitions>

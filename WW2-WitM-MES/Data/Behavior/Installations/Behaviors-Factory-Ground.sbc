@@ -23,6 +23,40 @@
 			[Triggers:WW2-Store-Trigger-UpdateSales-FactoryGround-M1340]
 			</Description>
         </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Factory-Ground-AB41</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+			[TriggerGroups:WW2-Points-Group-Gray-Factory]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[TriggerGroups:WW2-TriggerGroup-Retaliation-Tag-Gray]
+			[Triggers:WW2-Trigger-Activation-Factory-Plane-Gray]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-DefenseSpawn-Gray]
+			[Triggers:WW2-Store-Trigger-UpdateSales-FactoryGround-AB41]
+			</Description>
+        </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-Factory-Ground-AB43</SubtypeId>
+            </Id>
+            <Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+			[TriggerGroups:WW2-Points-Group-Gray-Factory]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
+			[TriggerGroups:WW2-TriggerGroup-Retaliation-Tag-Gray]
+			[Triggers:WW2-Trigger-Activation-Factory-Plane-Gray]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-DefenseSpawn-Gray]
+			[Triggers:WW2-Store-Trigger-UpdateSales-FactoryGround-AB43]
+			</Description>
+        </EntityComponent>
 <!-- End Gray Factory Behaviors -->
 
 	</EntityComponents>

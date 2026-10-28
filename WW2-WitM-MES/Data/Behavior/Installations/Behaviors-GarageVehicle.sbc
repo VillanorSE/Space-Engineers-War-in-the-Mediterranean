@@ -17,6 +17,20 @@
 
 			</Description>
         </EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-GarageVehicle-AB43</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+			
+			[Triggers:WW2-Trigger-UnStatic]
+
+			</Description>
+        </EntityComponent>
 
 <!-- Gray Utility Trucks -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -53,6 +67,21 @@
             <Id>
                 <TypeId>Inventory</TypeId>
                 <SubtypeId>WW2-Behavior-GarageVehicle-Panhard178</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+			
+			[Triggers:WW2-Trigger-UnStatic]
+
+			</Description>
+        </EntityComponent>
+<!-- Gray Medium Tanks (factory display) -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Behavior-GarageVehicle-M1340</SubtypeId>
             </Id>
             <Description>
 
