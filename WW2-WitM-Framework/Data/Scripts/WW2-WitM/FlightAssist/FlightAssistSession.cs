@@ -18,7 +18,10 @@ namespace WW2WitM.FlightAssist
         const ushort NetChannel = 47263;
         const byte PacketCommand = 1;
         const byte PacketReply = 2;
-        const byte CmdStatus = 0, CmdOn = 1, CmdOff = 2, CmdToggle = 3, CmdLog = 4;
+        const byte CmdStatus = 0, CmdOn = 1, CmdOff = 2, CmdToggle = 3, CmdLog = 4, CmdServerOn = 5, CmdServerOff = 6;
+        // Sandbox variables, saved with the world: pilots who turned it off (Steam IDs, comma-separated), and the admin switch.
+        const string OffVariable = "WitM-FlightAssistOff";
+        const string ServerOffVariable = "WitM-FlightAssistServerOff";
         const int ScanTicks = 10;
         const int CheckTicks = 120;
         const string AirCorePrefix = "WW2-Core-Air-";
@@ -30,6 +33,7 @@ namespace WW2WitM.FlightAssist
         bool isServer;
         bool chatHooked;
         bool loadCleanupDone;
+        bool serverOff;
         int tick;
         int errors;
 
@@ -90,6 +94,7 @@ namespace WW2WitM.FlightAssist
                 if (!loadCleanupDone)
                 {
                     loadCleanupDone = true;
+                    LoadChoices();
                     var all = new HashSet<IMyEntity>();
                     MyAPIGateway.Entities.GetEntities(all, e => e is IMyCubeGrid);
                     foreach (var e in all)
@@ -104,7 +109,7 @@ namespace WW2WitM.FlightAssist
                 for (int i = planes.Count - 1; i >= 0; i--)
                 {
                     var p = planes[i];
-                    if (!p.Tick(!assistOff.Contains(p.PilotSteamId), logOn.Contains(p.PilotSteamId)))
+                    if (!p.Tick(!serverOff && !assistOff.Contains(p.PilotSteamId), logOn.Contains(p.PilotSteamId)))
                         DropAt(i);
                 }
             }
@@ -311,7 +316,8 @@ namespace WW2WitM.FlightAssist
             }
         }
 
-        // ---- /assist command: each pilot turns it on or off for themselves; the server keeps the choice (this session). ----
+        // ---- /assist command: each pilot turns it on or off for themselves; the choice is saved with the world. ----
+        // An admin can turn it off for everyone with /assist server off.
 
         void OnChat(ulong sender, string text, ref bool sendToOthers)
         {
@@ -333,9 +339,11 @@ namespace WW2WitM.FlightAssist
                 else if (arg == "off") cmd = CmdOff;
                 else if (arg == "status") cmd = CmdStatus;
                 else if (arg == "log") cmd = CmdLog;
+                else if (arg == "server" && words.Length > 2 && words[2].ToLowerInvariant() == "on") cmd = CmdServerOn;
+                else if (arg == "server" && words.Length > 2 && words[2].ToLowerInvariant() == "off") cmd = CmdServerOff;
                 else
                 {
-                    Show("/assist toggles Flight Assist for you. /assist on, /assist off, /assist status, /assist log (flight log above 100 m/s to the game log).");
+                    Show("/assist toggles Flight Assist for you. /assist on, /assist off, /assist status, /assist log (flight log above 100 m/s to the game log). Admins: /assist server on or off (for everyone).");
                     return;
                 }
                 if (isServer)
@@ -358,7 +366,7 @@ namespace WW2WitM.FlightAssist
             {
                 if (data == null || data.Length < 1)
                     return;
-                if (data[0] == PacketCommand && isServer && !fromServer && data.Length == 2 && data[1] <= CmdLog)
+                if (data[0] == PacketCommand && isServer && !fromServer && data.Length == 2 && data[1] <= CmdServerOff)
                 {
                     string reply = Command(sender, data[1]);
                     var bytes = Encoding.UTF8.GetBytes(reply);
@@ -382,6 +390,16 @@ namespace WW2WitM.FlightAssist
         {
             if (steamId == 0)
                 return "Flight Assist: no player.";
+            if (cmd == CmdServerOn || cmd == CmdServerOff)
+            {
+                if (MyAPIGateway.Session.GetUserPromoteLevel(steamId) < MyPromoteLevel.Admin)
+                    return "Only an admin can turn Flight Assist on or off for everyone.";
+                serverOff = cmd == CmdServerOff;
+                MyAPIGateway.Utilities.SetVariable(ServerOffVariable, serverOff);
+                Log("admin " + steamId + " turned it " + (serverOff ? "off" : "on") + " for everyone");
+                return "Flight Assist is " + (serverOff ? "OFF for everyone (each pilot's own choice is kept for when it is back on)." : "ON again (each pilot's own choice applies).");
+            }
+            bool wasOff = assistOff.Contains(steamId);
             if (cmd == CmdOn) assistOff.Remove(steamId);
             else if (cmd == CmdOff) assistOff.Add(steamId);
             else if (cmd == CmdToggle)
@@ -402,9 +420,13 @@ namespace WW2WitM.FlightAssist
             }
             if (cmd != CmdStatus)
                 Log("player " + steamId + " turned it " + (assistOff.Contains(steamId) ? "off" : "on"));
+            if (wasOff != assistOff.Contains(steamId))
+                SaveChoices();
 
             var sb = new StringBuilder();
             sb.Append("Flight Assist is ").Append(assistOff.Contains(steamId) ? "OFF" : "ON").Append(" for you.");
+            if (serverOff)
+                sb.Append(" An admin has turned it off for everyone.");
             foreach (var p in planes)
             {
                 if (p.PilotSteamId != steamId)
@@ -418,6 +440,25 @@ namespace WW2WitM.FlightAssist
                 break;
             }
             return sb.ToString();
+        }
+
+        void LoadChoices()
+        {
+            MyAPIGateway.Utilities.GetVariable(ServerOffVariable, out serverOff);
+            string text;
+            if (!MyAPIGateway.Utilities.GetVariable(OffVariable, out text) || string.IsNullOrEmpty(text))
+                return;
+            foreach (var part in text.Split(','))
+            {
+                ulong id;
+                if (ulong.TryParse(part, out id) && id != 0)
+                    assistOff.Add(id);
+            }
+        }
+
+        void SaveChoices()
+        {
+            MyAPIGateway.Utilities.SetVariable(OffVariable, string.Join(",", assistOff));
         }
 
         static void Show(string text)

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<EntityComponents>
-<!-- Depot ground units: MES Patrol behavior on hidden NPC thrusters (no wheel driving or road pathing in MES), looping around their spawn point; turrets engage on their own. Default player-distance despawn kept: they only matter with players near. Despawn after 30 min; the C# refunds intact patrol units. -->
+<!-- Depot ground units: MES Patrol behavior on hidden NPC thrusters (no wheel driving or road pathing in MES), looping around their spawn point; turrets engage on their own. Ground handling copied from Mike Dude's Land Escorts (2653133286): dampeners off while driving and an AltitudeTolerance far above IdealPlanetAltitude, so MES never fires the up/down thrusters and gravity keeps the wheels down (with dampeners on, the thrusters held the grid up and it flew off downhill slopes). MES only applies DisableInertiaDampeners at spawn, not on profile switches, so stops turn them on with an action. Dampeners go on while a unit waits at a patrol point (BehaviorTriggerA) so it does not roll, and off when it leaves (BehaviorTriggerB). Default player-distance despawn kept: they only matter with players near. Despawn after 30 min; the C# refunds intact patrol units. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -11,12 +11,12 @@
 			[RivalAI Autopilot]
 			[UseSurfaceHoverThrustMode:true]
 			[IdealPlanetAltitude:2]
-			[MinimumPlanetAltitude:0]
-			[AltitudeTolerance:2]
+			[MinimumPlanetAltitude:-100]
+			[AltitudeTolerance:50]
 			[HoverPathStepDistance:30]
 			[FlyLevelWithGravity:false]
 			[LevelWithGravityWhenIdle:true]
-			[DisableInertiaDampeners:false]
+			[DisableInertiaDampeners:true]
 			[IdealMaxSpeed:10]
 			[IdealMinSpeed:4]
 			[MaxSpeedTolerance:3]
@@ -49,12 +49,12 @@
 			[RivalAI Autopilot]
 			[UseSurfaceHoverThrustMode:true]
 			[IdealPlanetAltitude:2]
-			[MinimumPlanetAltitude:0]
-			[AltitudeTolerance:2]
+			[MinimumPlanetAltitude:-100]
+			[AltitudeTolerance:50]
 			[HoverPathStepDistance:30]
 			[FlyLevelWithGravity:false]
 			[LevelWithGravityWhenIdle:true]
-			[DisableInertiaDampeners:false]
+			[DisableInertiaDampeners:true]
 			[IdealMaxSpeed:10]
 			[IdealMinSpeed:4]
 			[MaxSpeedTolerance:3]
@@ -88,6 +88,8 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotDefense]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			</Description>
 		</EntityComponent>
@@ -101,6 +103,8 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotDefense]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			[TriggerGroups:WW2-Points-Group-Gray-LightTank]
 			</Description>
@@ -115,6 +119,8 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotDefense]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			[TriggerGroups:WW2-Points-Group-Gray-MediumTank]
 			</Description>
@@ -129,6 +135,8 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotDefense]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			[TriggerGroups:WW2-Points-Group-Gray-HeavyTank]
 			</Description>
@@ -143,6 +151,8 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotPatrol]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			</Description>
 		</EntityComponent>
@@ -156,6 +166,8 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotPatrol]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			[TriggerGroups:WW2-Points-Group-Gray-LightTank]
 			</Description>
@@ -170,6 +182,8 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotPatrol]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			[TriggerGroups:WW2-Points-Group-Gray-MediumTank]
 			</Description>
@@ -184,6 +198,8 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotPatrol]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			[TriggerGroups:WW2-Points-Group-Gray-HeavyTank]
 			</Description>
@@ -198,6 +214,8 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotDefense]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			</Description>
 		</EntityComponent>
@@ -211,6 +229,8 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotDefense]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[TriggerGroups:WW2-Points-Group-Green-LightTank]
 			</Description>
@@ -225,6 +245,8 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotDefense]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[TriggerGroups:WW2-Points-Group-Green-MediumTank]
 			</Description>
@@ -239,6 +261,8 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotDefense]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[TriggerGroups:WW2-Points-Group-Green-HeavyTank]
 			</Description>
@@ -253,6 +277,8 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotPatrol]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			</Description>
 		</EntityComponent>
@@ -266,6 +292,8 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotPatrol]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[TriggerGroups:WW2-Points-Group-Green-LightTank]
 			</Description>
@@ -280,6 +308,8 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotPatrol]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[TriggerGroups:WW2-Points-Group-Green-MediumTank]
 			</Description>
@@ -294,8 +324,60 @@
 			[BehaviorName:Patrol]
 			[AutopilotData:WW2-Autopilot-DepotPatrol]
 			[Triggers:WW2-Depot-Trigger-UnitLeave]
+			[Triggers:WW2-Ground-Trigger-DampenersOnAtWaypoint]
+			[Triggers:WW2-Ground-Trigger-DampenersOffLeaving]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[TriggerGroups:WW2-Points-Group-Green-HeavyTank]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Ground-Trigger-DampenersOnAtWaypoint</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerA]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Ground-Action-DampenersOn]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Ground-Trigger-DampenersOffLeaving</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerB]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Ground-Action-DampenersOff]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Ground-Action-DampenersOn</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ChangeInertiaDampeners:true]
+			[InertiaDampenersEnable:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Ground-Action-DampenersOff</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ChangeInertiaDampeners:true]
+			[InertiaDampenersEnable:false]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -351,13 +433,105 @@
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Behavior-DepotGarageVehicle</SubtypeId>
+				<SubtypeId>WW2-Behavior-DepotGarageVehicle-Gray</SubtypeId>
 			</Id>
 			<Description>
 			[RivalAI Behavior]
 			[BehaviorName:Passive]
 
 			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-ShareAll]
+			[Triggers:WW2-Depot-Trigger-GarageGunsOff-Gray]
+			[Triggers:WW2-Depot-Trigger-GarageBayPing]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-GarageGunsOff-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Depot-Action-GarageGunsOff-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-GarageGunsOff-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ToggleBlocksOfType:true]
+			[BlockTypesToToggle:MyObjectBuilder_LargeGatlingTurret/YtD_MG6-35_ball_mounted_sloped]
+			[BlockTypesToToggle:MyObjectBuilder_ConveyorSorter/CAP_20mmAircraftCannon]
+			[BlockTypesToToggle:MyObjectBuilder_ConveyorSorter/YtD_CC54-38_gun]
+			[BlockTypesToToggle:MyObjectBuilder_LargeGatlingTurret/YtD_MG6-35_brit_mounted_off]
+			[BlockTypesToToggle:MyObjectBuilder_LargeGatlingTurret/YtD_6mm_Lmg_2_mounted]
+			[BlockTypeToggles:Off]
+			[BlockTypeToggles:Off]
+			[BlockTypeToggles:Off]
+			[BlockTypeToggles:Off]
+			[BlockTypeToggles:Off]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-DepotGarageVehicle-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+
+			[Triggers:WW2-Trigger-UnStatic]
+			[Triggers:WW2-Trigger-ShareAll]
+			[Triggers:WW2-Depot-Trigger-GarageGunsOff-Green]
+			[Triggers:WW2-Depot-Trigger-GarageBayPing]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-GarageGunsOff-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Depot-Action-GarageGunsOff-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-GarageGunsOff-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ToggleBlocksOfType:true]
+			[BlockTypesToToggle:MyObjectBuilder_TurretControlBlock/TurretTraverseCTC]
+			[BlockTypesToToggle:MyObjectBuilder_LargeGatlingTurret/YtD_MG6-35_brit_mounted]
+			[BlockTypesToToggle:MyObjectBuilder_SmallGatlingGun/YtD_SC2037_ac]
+			[BlockTypesToToggle:MyObjectBuilder_ConveyorSorter/SHA_Sh37_gun]
+			[BlockTypesToToggle:MyObjectBuilder_SmallMissileLauncher/KGS_CoaxialMG]
+			[BlockTypesToToggle:MyObjectBuilder_ConveyorSorter/YtD_CC54-38_gun]
+			[BlockTypeToggles:Off]
+			[BlockTypeToggles:Off]
+			[BlockTypeToggles:Off]
+			[BlockTypeToggles:Off]
+			[BlockTypeToggles:Off]
+			[BlockTypeToggles:Off]
 			</Description>
 		</EntityComponent>
 	</EntityComponents>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<EntityComponents>
-<!-- Supply truck behavior pieces shared by every route (Convoy-Routes.sbc). Trucks drive the route's waypoints on MES thrust (no wheel steering in MES), stop at the last one, deliver after 60 s (the C# credits the destination on WW2-Convoy-Action-Delivered) and despawn 5 s later. GiveUp despawns a stuck truck after 2 h (C# refunds its port). -->
+<!-- Supply truck behavior pieces shared by every route (Convoy-Routes.sbc). Trucks drive the route's waypoints on MES thrust (no wheel steering in MES), stop at the last one, deliver after 60 s (the C# credits the destination on WW2-Convoy-Action-Delivered) and despawn 5 s later. GiveUp despawns a stuck truck after 2 h (C# refunds its port). Ground handling copied from Mike Dude's Land Escorts (2653133286): dampeners off while driving and an AltitudeTolerance far above IdealPlanetAltitude, so MES never fires the up/down thrusters and gravity keeps the wheels down (with dampeners on, the thrusters held the grid up and it flew off downhill slopes). MES only applies DisableInertiaDampeners at spawn, not on profile switches, so stops turn them on with an action. Dampeners go on at arrival. The lead (IdealMaxSpeed 10, no slow-down before each waypoint) drives the route; slots 2-5 are MES escorts in a staggered line behind it (see the escort block below and Convoy-Routes.sbc). Pitched more than 16 deg, a truck switches to the Tilted profile (level with gravity, no surface hover) until it is back under 16 deg, as Mike's transports do. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -11,25 +11,214 @@
 			[RivalAI Autopilot]
 			[UseSurfaceHoverThrustMode:true]
 			[IdealPlanetAltitude:2]
-			[MinimumPlanetAltitude:0]
-			[AltitudeTolerance:2]
+			[MinimumPlanetAltitude:-100]
+			[AltitudeTolerance:50]
 			[HoverPathStepDistance:30]
 			[FlyLevelWithGravity:false]
 			[LevelWithGravityWhenIdle:true]
-			[DisableInertiaDampeners:false]
-			[IdealMaxSpeed:12]
+			[DisableInertiaDampeners:true]
+			[IdealMaxSpeed:10]
 			[IdealMinSpeed:5]
 			[MaxSpeedTolerance:2]
 			[MaxVelocityAngleForSpeedControl:180]
-			[SlowDownOnWaypointApproach:true]
+			[SlowDownOnWaypointApproach:false]
 			[ExtraSlowDownDistance:40]
-			[WaypointTolerance:15]
+			[WaypointTolerance:6]
 			[WaypointWaitTimeTrigger:0]
 			[AngleAllowedForForwardThrust:35]
 			[RotationMultiplier:1]
 			[LimitRotationSpeed:true]
 			[MaxRotationMagnitude:0.3]
 			[UseVelocityCollisionEvasion:false]
+			[HoverUpAngle:30]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-ConvoyTruck-Tilted</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Autopilot]
+			[UseSurfaceHoverThrustMode:false]
+			[IdealPlanetAltitude:2]
+			[MinimumPlanetAltitude:-100]
+			[AltitudeTolerance:50]
+			[HoverPathStepDistance:30]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[DisableInertiaDampeners:true]
+			[IdealMaxSpeed:10]
+			[IdealMinSpeed:5]
+			[MaxSpeedTolerance:2]
+			[MaxVelocityAngleForSpeedControl:180]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:40]
+			[WaypointTolerance:6]
+			[WaypointWaitTimeTrigger:0]
+			[AngleAllowedForForwardThrust:35]
+			[RotationMultiplier:1]
+			[LimitRotationSpeed:true]
+			[MaxRotationMagnitude:0.3]
+			[UseVelocityCollisionEvasion:false]
+			[HoverUpAngle:30]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-ConvoyEscort</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Autopilot]
+			[UseSurfaceHoverThrustMode:true]
+			[IdealPlanetAltitude:2]
+			[MinimumPlanetAltitude:-100]
+			[AltitudeTolerance:50]
+			[HoverPathStepDistance:30]
+			[FlyLevelWithGravity:false]
+			[LevelWithGravityWhenIdle:true]
+			[DisableInertiaDampeners:false]
+			[IdealMaxSpeed:12]
+			[IdealMinSpeed:5]
+			[MaxSpeedTolerance:1]
+			[MaxVelocityAngleForSpeedControl:180]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:40]
+			[WaypointTolerance:2]
+			[WaypointWaitTimeTrigger:120]
+			[AngleAllowedForForwardThrust:35]
+			[RotationMultiplier:1]
+			[LimitRotationSpeed:true]
+			[MaxRotationMagnitude:0.3]
+			[UseVelocityCollisionEvasion:false]
+			[HoverUpAngle:30]
+			[EscortSpeedMatchMaxDistance:15]
+			[EscortUsesRelativeDampening:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-ConvoyEscort-Tilted</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Autopilot]
+			[UseSurfaceHoverThrustMode:false]
+			[IdealPlanetAltitude:2]
+			[MinimumPlanetAltitude:-100]
+			[AltitudeTolerance:50]
+			[HoverPathStepDistance:30]
+			[FlyLevelWithGravity:true]
+			[LevelWithGravityWhenIdle:true]
+			[DisableInertiaDampeners:false]
+			[IdealMaxSpeed:12]
+			[IdealMinSpeed:5]
+			[MaxSpeedTolerance:1]
+			[MaxVelocityAngleForSpeedControl:180]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:40]
+			[WaypointTolerance:2]
+			[WaypointWaitTimeTrigger:120]
+			[AngleAllowedForForwardThrust:35]
+			[RotationMultiplier:1]
+			[LimitRotationSpeed:true]
+			[MaxRotationMagnitude:0.3]
+			[UseVelocityCollisionEvasion:false]
+			[HoverUpAngle:30]
+			[EscortSpeedMatchMaxDistance:15]
+			[EscortUsesRelativeDampening:false]
+			</Description>
+		</EntityComponent>
+<!-- Yard parking (Secondary on park routes): the escort profile, slow, matching the (still) depot from 2 m so the truck stops on its spot. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Autopilot-ConvoyEscortPark</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Autopilot]
+			[UseSurfaceHoverThrustMode:true]
+			[IdealPlanetAltitude:2]
+			[MinimumPlanetAltitude:-100]
+			[AltitudeTolerance:50]
+			[HoverPathStepDistance:30]
+			[FlyLevelWithGravity:false]
+			[LevelWithGravityWhenIdle:true]
+			[DisableInertiaDampeners:false]
+			[IdealMaxSpeed:4]
+			[IdealMinSpeed:2]
+			[MaxSpeedTolerance:1]
+			[MaxVelocityAngleForSpeedControl:180]
+			[SlowDownOnWaypointApproach:false]
+			[ExtraSlowDownDistance:40]
+			[WaypointTolerance:2]
+			[WaypointWaitTimeTrigger:120]
+			[AngleAllowedForForwardThrust:35]
+			[RotationMultiplier:1]
+			[LimitRotationSpeed:true]
+			[MaxRotationMagnitude:0.3]
+			[UseVelocityCollisionEvasion:false]
+			[HoverUpAngle:30]
+			[EscortSpeedMatchMaxDistance:2]
+			[EscortUsesRelativeDampening:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Tilt</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[ActionExecution:All]
+			[MinCooldownMs:1000]
+			[MaxCooldownMs:1001]
+			[Conditions:WW2-Convoy-Condition-Tilted]
+			[ConditionCheckResetsTimer:true]
+			[Actions:WW2-Convoy-Action-Tilted]
+			[UseElseActions:true]
+			[ElseActions:WW2-Convoy-Action-Level]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Condition-Tilted</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:true]
+			[CheckHorizonAngle:true]
+			[MinHorizonAngle:16]
+			[MaxHorizonAngle:90]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Tilted</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Tertiary]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Level</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Primary]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -44,6 +233,7 @@
 			[Triggers:WW2-Convoy-Trigger-Leave]
 			[Triggers:WW2-Convoy-Trigger-GiveUp]
 			[Triggers:WW2-Convoy-Trigger-Recall]
+			[Triggers:WW2-Convoy-Trigger-Tilt]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
 			[Triggers:WW2-Trigger-HostileNear-Cargo]
@@ -65,11 +255,16 @@
 			</Id>
 			<Description>
 			[RivalAI TriggerGroup]
-			[Triggers:WW2-Convoy-Trigger-Arrived-Follow]
+			[Triggers:WW2-Convoy-Trigger-LeaderFound]
+			[Triggers:WW2-Convoy-Trigger-LeaderLost]
+			[Triggers:WW2-Convoy-Trigger-NoLeader]
+			[Triggers:WW2-Convoy-Trigger-LostFromLeader]
+			[Triggers:WW2-Convoy-Trigger-StrandedDespawn]
 			[Triggers:WW2-Convoy-Trigger-Delivered]
 			[Triggers:WW2-Convoy-Trigger-Leave]
 			[Triggers:WW2-Convoy-Trigger-GiveUp]
 			[Triggers:WW2-Convoy-Trigger-Recall]
+			[Triggers:WW2-Convoy-Trigger-Tilt]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Gray]
 			</Description>
 		</EntityComponent>
@@ -85,6 +280,7 @@
 			[Triggers:WW2-Convoy-Trigger-Leave]
 			[Triggers:WW2-Convoy-Trigger-GiveUp]
 			[Triggers:WW2-Convoy-Trigger-Recall]
+			[Triggers:WW2-Convoy-Trigger-Tilt]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			[Triggers:WW2-Trigger-FriendlyNear-Cargo]
 			[Triggers:WW2-Trigger-HostileNear-Cargo]
@@ -106,15 +302,20 @@
 			</Id>
 			<Description>
 			[RivalAI TriggerGroup]
-			[Triggers:WW2-Convoy-Trigger-Arrived-Follow]
+			[Triggers:WW2-Convoy-Trigger-LeaderFound]
+			[Triggers:WW2-Convoy-Trigger-LeaderLost]
+			[Triggers:WW2-Convoy-Trigger-NoLeader]
+			[Triggers:WW2-Convoy-Trigger-LostFromLeader]
+			[Triggers:WW2-Convoy-Trigger-StrandedDespawn]
 			[Triggers:WW2-Convoy-Trigger-Delivered]
 			[Triggers:WW2-Convoy-Trigger-Leave]
 			[Triggers:WW2-Convoy-Trigger-GiveUp]
 			[Triggers:WW2-Convoy-Trigger-Recall]
+			[Triggers:WW2-Convoy-Trigger-Tilt]
 			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
 			</Description>
 		</EntityComponent>
-<!-- Arrival: BehaviorTriggerD fires once when the CargoShip waypoint list runs out (CargoShip.cs), as for the cargo ships. -->
+<!-- Arrival: BehaviorTriggerD fires once when the lead's CargoShip waypoint list runs out (CargoShip.cs), as for the cargo ships. Escorts arrive by the lead's halt command (WW2-Convoy-Action-Halt below). -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -139,6 +340,10 @@
 			[StopAllRotation:true]
 			[ChangeAutopilotSpeed:true]
 			[NewAutopilotSpeed:0]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Primary]
+			[ChangeInertiaDampeners:true]
+			[InertiaDampenersEnable:true]
 			[ResetCooldownTimeOfTriggers:true]
 			[ResetTriggerCooldownNames:WW2-Convoy-Trigger-EscortPay]
 			[ResetTriggerCooldownNames:WW2-Convoy-Trigger-Delivered]
@@ -149,34 +354,76 @@
 			[EnableTriggerNames:WW2-Convoy-Trigger-EscortPay]
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Convoy-Trigger-EscortTick]
+			[DisableTriggerNames:WW2-Convoy-Trigger-Tilt]
 			[UseChatBroadcast:true]
 			[ChatData:WW2-Convoy-Chat-Arrived]
 			</Description>
 		</EntityComponent>
+<!-- Yard parking (Convoy-Routes.sbc park routes): ask the depot for a spot, follow it slowly, stop for good 50 s later and unload. The depot side is WW2-Depot-Trigger-ConvoyParkAssign (Triggers-Depot-Forces.sbc). -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Convoy-Trigger-Arrived-Follow</SubtypeId>
+				<SubtypeId>WW2-Convoy-Action-ParkRequest</SubtypeId>
 			</Id>
 			<Description>
-			[RivalAI Trigger]
-			[UseTrigger:true]
-			[Type:BehaviorTriggerD]
-			[StartsReady:true]
-			[MaxActions:1]
-			[Actions:WW2-Convoy-Action-Arrived-Follow]
+			[RivalAI Action]
+			[ChangeAutopilotSpeed:true]
+			[NewAutopilotSpeed:-1]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Secondary]
+			[ChangeInertiaDampeners:true]
+			[InertiaDampenersEnable:true]
+			[BroadcastCommandProfiles:true]
+			[CommandProfileIds:WW2-Convoy-Command-Park]
+			[ResetCooldownTimeOfTriggers:true]
+			[ResetTriggerCooldownNames:WW2-Convoy-Trigger-ParkStop]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Convoy-Trigger-ParkStop]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Convoy-Action-Arrived-Follow</SubtypeId>
+				<SubtypeId>WW2-Convoy-Command-Park</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Command]
+			[CommandCode:WW2_Convoy_Park]
+			[RequestEscortSlot:true]
+			[MatchSenderReceiverOwners:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoreReceiverAntennaRequirement:true]
+			[Radius:300]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-ParkStop</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:50000]
+			[MaxCooldownMs:50001]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Convoy-Action-ParkStop]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-ParkStop</SubtypeId>
 			</Id>
 			<Description>
 			[RivalAI Action]
 			[StopAllRotation:true]
 			[ChangeAutopilotSpeed:true]
 			[NewAutopilotSpeed:0]
+			[ChangeInertiaDampeners:true]
+			[InertiaDampenersEnable:true]
 			[ResetCooldownTimeOfTriggers:true]
 			[ResetTriggerCooldownNames:WW2-Convoy-Trigger-Delivered]
 			[ResetTriggerCooldownNames:WW2-Convoy-Trigger-Leave]
@@ -279,6 +526,178 @@
 			[ForceDespawn:true]
 			</Description>
 		</EntityComponent>
+<!-- Escort trucks (slots 2-5, Behavior Escort). Each asks the truck ahead of it in the chain for its one escort place (per route triggers in Convoy-Routes.sbc) and follows it with dampeners off. The lead halts them at the gate or road end (WW2-Convoy-Action-Halt): they leave the slot, stop and deliver like the lead. A truck whose leader is lost, or that gets no place within 60 s, is stranded: it stops (Passive, dampeners on), tells its own escort to do the same, and despawns once no player is within 1 km (refunded as an intact truck). MES Escort.cs retreats a leaderless escort after WaypointWaitTimeTrigger (120 s on the escort autopilot), so every path leaves Escort or despawns before that. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-AssignSlot</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[AssignEscortFromCommand:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-LeaderFound</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerA]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Convoy-Action-LeaderFound]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-LeaderFound</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ChangeInertiaDampeners:true]
+			[InertiaDampenersEnable:false]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Convoy-Trigger-NoLeader]
+			[DisableTriggerTags:WW2-Convoy-RequestTag]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-LeaderLost</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:BehaviorTriggerB]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Convoy-Action-Stranded]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-NoLeader</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Convoy-Action-Stranded]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-LostFromLeader</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:WW2_Convoy_Lost]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Convoy-Action-Stranded]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Stranded</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[LeaveEscortSlot:true]
+			[BroadcastCommandProfiles:true]
+			[CommandProfileIds:WW2-Convoy-Command-Lost]
+			[ChangeBehaviorSubclass:true]
+			[NewBehaviorSubclass:Passive]
+			[ChangeAutopilotSpeed:true]
+			[NewAutopilotSpeed:0]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Primary]
+			[ChangeInertiaDampeners:true]
+			[InertiaDampenersEnable:true]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Convoy-Trigger-StrandedDespawn]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Convoy-Trigger-Tilt]
+			[DisableTriggerNames:WW2-Convoy-Trigger-NoLeader]
+			[DisableTriggerNames:WW2-Convoy-Trigger-LeaderLost]
+			[DisableTriggerNames:WW2-Convoy-Trigger-LostFromLeader]
+			[DisableTriggerTags:WW2-Convoy-RequestTag]
+			[DisableTriggerTags:WW2-Convoy-HaltTag]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Command-Lost</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Command]
+			[CommandCode:WW2_Convoy_Lost]
+			[MatchSenderReceiverOwners:true]
+			[MatchReceiverEscort:true]
+			[IgnoreAntennaRequirement:true]
+			[IgnoreReceiverAntennaRequirement:true]
+			[Radius:500]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-StrandedDespawn</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:PlayerFar]
+			[TargetDistance:1000]
+			[MinCooldownMs:30000]
+			[MaxCooldownMs:30001]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Convoy-Action-Despawn]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Halt</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[LeaveEscortSlot:true]
+			[StopAllRotation:true]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Primary]
+			[ChangeInertiaDampeners:true]
+			[InertiaDampenersEnable:true]
+			[ResetCooldownTimeOfTriggers:true]
+			[ResetTriggerCooldownNames:WW2-Convoy-Trigger-Delivered]
+			[ResetTriggerCooldownNames:WW2-Convoy-Trigger-Leave]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Convoy-Trigger-Delivered]
+			[EnableTriggerNames:WW2-Convoy-Trigger-Leave]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Convoy-Trigger-Tilt]
+			[DisableTriggerNames:WW2-Convoy-Trigger-NoLeader]
+			[DisableTriggerNames:WW2-Convoy-Trigger-LeaderLost]
+			[DisableTriggerNames:WW2-Convoy-Trigger-LostFromLeader]
+			[DisableTriggerTags:WW2-Convoy-RequestTag]
+			</Description>
+		</EntityComponent>
 <!-- Recall: the C# sets WitM-ConvoyRecall-{truck spawn group} while the route's side does not hold the destination; the truck despawns and its load is refunded to the port. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
@@ -309,7 +728,7 @@
 			[TrueSandboxBooleans:WitM-ConvoyRecall-{SpawnGroupName}]
 			</Description>
 		</EntityComponent>
-<!-- Raids on the lead truck only: enemy planes while a friendly player (rep >= 500) is within 1 km, 18-25 min apart, at most 3 waves (longest road about 50 min). WarLevel is unset at level 1, so WL1-2 is the else branch of AtLeast3. -->
+<!-- Raids on the lead truck only: enemy planes while a friendly player (rep >= 500) is within 1 km, 18-25 min apart, at most 3 waves (longest road about 50 min). WL1-2 is the else branch of AtLeast3. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>

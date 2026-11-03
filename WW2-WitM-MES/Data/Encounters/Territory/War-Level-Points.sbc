@@ -1063,11 +1063,11 @@
 		</EntityComponent>
 
 <!-- ==================== WAR LEVEL THRESHOLDS ====================
-     WarLevel (1-5, unset = 1) follows WarActivity (the Down pairs exist only so a hand-edited counter can lower it): 2 @ 100, 3 @ 200, 4 @ 400, 5 @ 700 (design 2.2). Same Timer +
+     WarLevel (1-5; seeded to 1 at world start by RefreshSession.BeforeStart, D-064) follows WarActivity (the Down pairs exist only so a hand-edited counter can lower it): 2 @ 100, 3 @ 200, 4 @ 400, 5 @ 700 (design 2.2). Same Timer +
      Condition + ToggleWithTriggerProfile pair-per-boundary pattern as the territory zone tiers, so crossing a
      boundary is a one-shot set, not a repeat. Conditions only ever test WarActivity (never WarLevel itself): MES
-     sandbox-counter conditions FAIL for a counter that has never been set, and WarLevel is unset until the first
-     rise. Level 1 therefore needs no gate anywhere; gate level N with WarLevel >= N (N >= 2).
+     sandbox-counter conditions FAIL for a counter that has never been set (worlds older than the seed, or before
+     the session starts). Gate level N with WarLevel >= N; the WL1 garage bands use Less 2 and rely on the seed.
      Every port runs the SILENT group (sets WarLevel idempotently), so thresholds are tracked wherever a player
      is; only the Civitavecchia port also runs the ANNOUNCE group (same pairs + chat), so each change is announced
      once instead of six times. Floor 0 / ceiling 840 for WarActivity, same idea as the territory counters. -->

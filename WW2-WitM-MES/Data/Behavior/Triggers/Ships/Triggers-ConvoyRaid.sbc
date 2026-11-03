@@ -5,7 +5,7 @@
 <!-- Convoy raids: enemy attackers spawned only while a friendly player (rep >= 500) escorts the convoy (PlayerNear 1km).
      Every cargo ship behavior carries [TriggerGroups:WW2-TriggerGroup-ConvoyRaid-{Gray|Green}] (convoy's own faction).
      Wave trigger -> ManuallyActivateTrigger tag -> one war-level tier passes its condition.
-     WarLevel is unset at level 1, so WL1 runs as the ElseActions of an AtLeast2 check.
+     WL1 runs as the ElseActions of an AtLeast2 check (WarLevel was unset at level 1 before the D-064 seed).
      18-25 min cooldown: one wave on the shortest leg with StartsReady:false; MaxActions = safety cap: longest leg / 18 min + 1 (Gray La Spezia-Tripoli 6, Green Toulon-Alexandria 11). -->
 
 <!-- Gray convoy (Green raiders) -->

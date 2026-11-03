@@ -1267,12 +1267,13 @@
               <Min x="-3" y="3" z="0" />
               <ColorMaskHSV x="0.111111112" y="-0.62" z="-0.07" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
+              <CustomName>Exhaust Pipe</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
-              <Enabled>true</Enabled>
+              <Enabled>false</Enabled>
               <ExhaustEffect>CarSmoke</ExhaustEffect>
               <PowerDependency>0</PowerDependency>
             </MyObjectBuilder_CubeBlock>
@@ -2431,12 +2432,13 @@
               <ColorMaskHSV x="0.111111112" y="-0.62" z="-0.07" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
               <ShareMode>Faction</ShareMode>
+              <CustomName>Hydrogen Engine</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
-              <Enabled>true</Enabled>
+              <Enabled>false</Enabled>
               <Capacity>5000</Capacity>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_OxygenTank">
@@ -2517,6 +2519,7 @@
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Connector</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -2558,7 +2561,7 @@
                   </ComponentData>
                 </Components>
               </ComponentContainer>
-              <CustomName>Sprocket Suspension 2x2 Right</CustomName>
+              <CustomName>Sprocket Suspension - R1</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -2615,7 +2618,7 @@
                   </ComponentData>
                 </Components>
               </ComponentContainer>
-              <CustomName>Sprocket Suspension 2x2 Left</CustomName>
+              <CustomName>Sprocket Suspension - L1</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -2848,7 +2851,7 @@
                         <dictionary>
                           <item>
                             <Key>75bbb4f5-4fb9-4230-beef-bb79c9811501</Key>
-                            <Value>+nzZAQoJCAAQFh0AAAAAEssBCAASQC0AAEhCMjkIABAAGAAgACgAMABIAFgAeACAAQCQAQCgAQCwAQDAAQDQAQDYAQDoAQDwAQD4AQGwAgDQAgDgAgAaRBIJDQAAAAAQACAbGAAgl4CAgICAgIACMAA4AEAASABSIxobCQAAAAAAAAAAIQAAAAAAAAAAOQAAAAAAAAAAIAAoADAAIi0IABAAIAAqBiDf/v//BzIbCQAAAAAAAAAAIQAAAAAAAAAAOQAAAAAAAAAAOAAqEAgAIAEoADAAOA9AAUgAUAAIIg==</Value>
+                            <Value>+nzZAQoJCAAQFh0AAAAAEssBCAASQC0AAEhDMjkIABAAGAAgACgAMABIAFgAeACAAQCQAQCgAQCwAQDAAQDQAQDYAQDoAQDwAQD4AQGwAgDQAgDgAgAaRBIJDQAAAAAQACAbGAAgl4CAgICAgIACMAA4AEAASABSIxobCQAAAAAAAAAAIQAAAAAAAAAAOQAAAAAAAAAAIAAoADAAIi0IABAAIAAqBiDf/v//BzIbCQAAAAAAAAAAIQAAAAAAAAAAOQAAAAAAAAAAOAAqEAgAIAEoADAAOA9AAUgAUAAIIg==</Value>
                           </item>
                         </dictionary>
                       </Storage>
@@ -3046,6 +3049,7 @@
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Cargo Container</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
@@ -3190,12 +3194,13 @@
               <Min x="-3" y="3" z="-6" />
               <ColorMaskHSV x="0.111111112" y="-0.62" z="-0.07" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
+              <CustomName>Exhaust Pipe</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
-              <Enabled>true</Enabled>
+              <Enabled>false</Enabled>
               <ExhaustEffect>CarSmoke</ExhaustEffect>
               <PowerDependency>0</PowerDependency>
             </MyObjectBuilder_CubeBlock>
@@ -3421,6 +3426,7 @@
                 </SlotsGamepad>
               </Toolbar>
               <SelectedGunId xsi:nil="true" />
+              <IsMainCockpit>true</IsMainCockpit>
               <BuildToolbar>
                 <ToolbarType>Character</ToolbarType>
                 <SelectedSlot xsi:nil="true" />
@@ -3604,6 +3610,7 @@
               <ColorMaskHSV x="0.111111112" y="-0.62" z="-0.07" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
               <ShareMode>Faction</ShareMode>
+              <CustomName>Gyroscope</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -3786,11 +3793,15 @@ turn Override off on the gyros.
 
 Steering: A/D with W or S turn at a set rate (Custom Data, degrees per second); the script
 measures how fast the hull is really turning and splits power between the sides to match.
+The rate builds up while A/D are held: it starts at the start rate and reaches the full rate
+after the ramp-up time, so a tap nudges the heading and holding A/D turns at the full rate.
 A/D alone never drive the tank forward: nearly stopped they pivot in place at full power (or at
 their own set rate); while rolling the sides work against each other to turn at the set rate,
-which also slows the tank. At speed the turn rate is capped so the sideways pull stays under
-"Max sideways acceleration in turns", which keeps the tank from rolling over.
+which also slows the tank.
 W/S alone hold the heading the tank had when the last turn ended.
+
+Anti-roll: in a turn the outer wheels stiffen and the inner wheels soften with the sideways
+pull, like an anti-roll bar, so the hull leans less. Strengths go back when the turn ends.
 
 Traction control: each wheel's spin is compared with the ground speed under it. A wheel
 spinning more than the allowed slip ahead of the ground has its drive cut until it grips.
@@ -3811,15 +3822,16 @@ Arguments:
   record    record the ride height again the next time the tank sits still
 */
 
-const string VERSION = "1.12";
-const string DATE = "2026/10/21";
+const string VERSION = "1.13";
+const string DATE = "2026/10/28";
 const string SECTION = "WitM Tank Drive";
 
 // Custom Data settings (defaults)
 string groupName = "Tank Drive";
 float driveFriction = 100f, turnFriction = 50f, frictionRampTime = 1f, adaptiveAngleDeg = 45f;
 bool adaptiveFriction = true, invertSteerReversing = false;
-float turnRateDeg = 30f, pivotRateDeg = 0f, steerGain = 1f, maxSideAccel = 16f; bool straightHold = true;
+float turnRateDeg = 30f, turnStartDeg = 5f, turnRampTime = 1f, pivotRateDeg = 0f, steerGain = 1f; bool straightHold = true;
+float rollStiffPct = 100f;
 float gyroTurnPower = 100f, gyroDrivePower = 10f;
 bool tractionControl = true; float allowedSlip = 15f, radiusSetting = 0f;
 bool loadBalancing = true; float lbStep = 2f, lbMinStrength = 10f, lbMaxStrength = 100f, lbMaxDrop = 0.15f;
@@ -3843,6 +3855,7 @@ class Wheel {
   public bool UseRight, HavePrev, Flipped;
   public Vector3D Prev;
   public float LastOverride = float.NaN, LastFriction = float.NaN;
+  public float RollBase = float.NaN;   // Strength before anti-roll changed it (NaN = not changed)
   public string Type;
 }
 
@@ -3864,7 +3877,9 @@ long tick;
 int steps, idleSteps, lbSteps, lbStreak;
 bool idle, wasActive = true, lbWasStraight;
 double steerI, yawTarget; bool wasTurning, holdValid; Vector3D holdFwd;
-double turnRatio, rideBase = double.NaN, elevSum, parkSum; int elevN, parkN;
+double turnRatio, turnTime, rideBase = double.NaN, elevSum, parkSum; int elevN, parkN;
+bool rollActive;
+readonly Dictionary&lt;long, float&gt; pendingRoll = new Dictionary&lt;long, float&gt;();
 double avgMs, maxMs; string lbLast = "-";
 
 public Program() {
@@ -3883,6 +3898,9 @@ public void Save() {
   sb.Append('|');
   foreach (var kv in radius)
     if (kv.Key.IndexOfAny(STORE_CHARS) &lt; 0) sb.Append(kv.Key).Append('=').Append(Fixed(kv.Value)).Append(';');
+  sb.Append('|');
+  // Mid-turn the anti-roll has changed the Strengths: keep the real ones so a reload puts them back.
+  foreach (var w in wheels) if (!float.IsNaN(w.RollBase)) sb.Append(w.S.EntityId).Append('=').Append(Fixed(w.RollBase)).Append(';');
   Storage = sb.ToString();
 }
 
@@ -3907,6 +3925,10 @@ void LoadStorage() {
       foreach (var item in parts[3].Split(';')) {
         var kv = item.Split('=');
         if (kv.Length == 2 &amp;&amp; Unfixed(kv[1], out d) &amp;&amp; d &gt; 0) radius[kv[0]] = d; }
+    if (parts.Length &gt; 4)
+      foreach (var item in parts[4].Split(';')) {
+        var kv = item.Split('='); long id;
+        if (kv.Length == 2 &amp;&amp; long.TryParse(kv[0], out id) &amp;&amp; Unfixed(kv[1], out d)) pendingRoll[id] = (float)d; }
     return; }
   // Format of v1.0-1.8: plain numbers, written on this same machine.
   if (parts.Length &gt; 0 &amp;&amp; double.TryParse(parts[0], out d)) rideBase = d;
@@ -3928,7 +3950,9 @@ void ReadIni() {
     adaptiveAngleDeg = ini.Get(SECTION, "Adaptive turn friction max angle (deg)").ToSingle(adaptiveAngleDeg);
     turnRateDeg = ini.Get(SECTION, "Turn rate (deg per s)").ToSingle(turnRateDeg);
     pivotRateDeg = ini.Get(SECTION, "Pivot turn rate (deg per s), 0 for full power").ToSingle(pivotRateDeg);
-    maxSideAccel = ini.Get(SECTION, "Max sideways acceleration in turns (m per s2)").ToSingle(maxSideAccel);
+    turnStartDeg = ini.Get(SECTION, "Turn start rate (deg per s)").ToSingle(turnStartDeg);
+    turnRampTime = ini.Get(SECTION, "Turn ramp-up time (s)").ToSingle(turnRampTime);
+    rollStiffPct = ini.Get(SECTION, "Anti-roll in turns (%)").ToSingle(rollStiffPct);
     straightHold = ini.Get(SECTION, "Hold heading when driving straight").ToBoolean(straightHold);
     steerGain = ini.Get(SECTION, "Steering gain").ToSingle(steerGain);
     invertSteerReversing = ini.Get(SECTION, "Invert steer when reversing").ToBoolean(invertSteerReversing);
@@ -3944,6 +3968,7 @@ void ReadIni() {
     lbMaxDrop = ini.Get(SECTION, "Load balancing max hull drop (m)").ToSingle(lbMaxDrop);
   }
   else if (!string.IsNullOrWhiteSpace(Me.CustomData)) ini.EndContent = Me.CustomData;
+  ini.Delete(SECTION, "Max sideways acceleration in turns (m per s2)");   // setting of v1.12 and older
   ini.Set(SECTION, "Group name", groupName);
   ini.Set(SECTION, "Wheel friction - Driving (%)", driveFriction);
   ini.Set(SECTION, "Wheel friction - Turning (%)", turnFriction);
@@ -3952,7 +3977,9 @@ void ReadIni() {
   ini.Set(SECTION, "Adaptive turn friction max angle (deg)", adaptiveAngleDeg);
   ini.Set(SECTION, "Turn rate (deg per s)", turnRateDeg);
   ini.Set(SECTION, "Pivot turn rate (deg per s), 0 for full power", pivotRateDeg);
-  ini.Set(SECTION, "Max sideways acceleration in turns (m per s2)", maxSideAccel);
+  ini.Set(SECTION, "Turn start rate (deg per s)", turnStartDeg);
+  ini.Set(SECTION, "Turn ramp-up time (s)", turnRampTime);
+  ini.Set(SECTION, "Anti-roll in turns (%)", rollStiffPct);
   ini.Set(SECTION, "Hold heading when driving straight", straightHold);
   ini.Set(SECTION, "Steering gain", steerGain);
   ini.Set(SECTION, "Invert steer when reversing", invertSteerReversing);
@@ -3994,8 +4021,10 @@ void Setup() {
   foreach (var s in tmpSusp) {
     Wheel w;
     if (!old.TryGetValue(s.EntityId, out w)) w = new Wheel { S = s };
+    float base_; if (pendingRoll.TryGetValue(s.EntityId, out base_)) s.Strength = base_;
     if (!origStrength.ContainsKey(s.EntityId)) origStrength[s.EntityId] = s.Strength;
     wheels.Add(w); }
+  pendingRoll.Clear();
   geoCtrl = null;
 }
 
@@ -4126,13 +4155,17 @@ void Control() {
   double vFwd = Math.Abs(Vector3D.Dot(vel.LinearVelocity, m.Forward));
   bool pivoting = turning &amp;&amp; fwd == 0 &amp;&amp; vFwd &lt; PIVOT_MAX_SPEED;
   bool fullPivot = pivoting &amp;&amp; pivotRateDeg &lt;= 0;
+  turnTime = turning ? turnTime + CYCLE / 60.0 : 0;
   if (turning) {
     double dir = fwd &lt; 0 &amp;&amp; invertSteerReversing ? -turn : turn;
     // Full-power pivot: gyros get a high target so they help instead of holding the pivot back.
-    double rate = MathHelper.ToRadians(fullPivot ? 90 : pivoting ? pivotRateDeg : turnRateDeg);
-    // Sideways pull in a turn is speed x turn rate: cap the rate so it stays under the limit.
-    if (!fullPivot &amp;&amp; maxSideAccel &gt; 0 &amp;&amp; vFwd &gt; 0.5) rate = Math.Min(rate, maxSideAccel / vFwd);
-    yawTarget = -dir * rate; }
+    double full = fullPivot ? 90 : pivoting ? pivotRateDeg : turnRateDeg;
+    // A/D are only on or off: the rate builds from the start rate to the full rate while they are held,
+    // so a tap corrects the heading a little and holding them turns at the full rate.
+    if (!fullPivot) {
+      double start = Math.Min(turnStartDeg, full);
+      full = start + (full - start) * Math.Min(1, turnTime / Math.Max(turnRampTime, 1e-3)); }
+    yawTarget = -dir * MathHelper.ToRadians(full); }
   else if (fwd != 0 &amp;&amp; straightHold) {
     // Take the heading once the last turn has stopped, then steer back to it.
     if (!holdValid &amp;&amp; Math.Abs(yawRate) &lt; 0.03) { holdFwd = m.Forward; holdValid = true; }
@@ -4236,7 +4269,8 @@ void Control() {
     }
 
   Gyros(turning);
-  if (loadBalancing) LoadBalance(straight);
+  AntiRoll(vel, m);
+  if (loadBalancing) LoadBalance(straight &amp;&amp; !rollActive);
   Status(turning ? "Turning" : fwd != 0 ? "Driving" : "Coasting");
 }
 
@@ -4257,6 +4291,38 @@ void Gyros(bool turning) {
     if (Math.Abs(g.Roll - l.Z) &gt; 1e-3) g.Roll = (float)l.Z;
     if (Math.Abs(g.GyroPower - power) &gt; 1e-3f) g.GyroPower = power;
     if (!g.GyroOverride) g.GyroOverride = true; }
+}
+
+// Anti-roll bar: in a turn the sideways pull moves weight from the inner wheels to the outer ones.
+// Each wheel's stiffness is scaled with its share of that load, so both sides keep their sag and the hull
+// stays level. Load moved = sideways pull / gravity x (centre-of-mass height / half the track width);
+// 100% takes that ratio as 1. Stiffness is (Strength/100) squared (decompiled MyMotorSuspension,
+// 2026-10-24), so Strength scales with the square root. Load balancing waits while this is active.
+void AntiRoll(MyShipVelocities vel, MatrixD m) {
+  double share = 0, aLat = 0;
+  double g = ctrl.GetNaturalGravity().Length();
+  if (rollStiffPct &gt; 0 &amp;&amp; g &gt; 0.1) {
+    aLat = Vector3D.Dot(Vector3D.Cross(vel.AngularVelocity, vel.LinearVelocity), m.Right);
+    share = MathHelper.Clamp(rollStiffPct / 100.0 * Math.Abs(aLat) / g, 0, 0.8);
+    if (share &lt; 0.03) share = 0; }
+  // Centripetal acceleration to the right means a right turn, so the left wheels are on the outside.
+  bool leftOuter = aLat &gt; 0;
+  rollActive = false;
+  foreach (var w in wheels) {
+    var s = w.S;
+    if (s.Closed || !s.IsAttached) continue;
+    if (share == 0) { RollRestore(w); continue; }
+    if (float.IsNaN(w.RollBase)) w.RollBase = s.Strength;
+    float target = MathHelper.Clamp((float)(w.RollBase * Math.Sqrt(1 + (w.Left == leftOuter ? share : -share))), 1f, 100f);
+    // Every Strength change is synced over the network, so small changes are left unwritten.
+    if (Math.Abs(target - s.Strength) &gt;= Math.Max(0.2f, 0.02f * s.Strength)) s.Strength = target;
+    rollActive = true; }
+}
+
+void RollRestore(Wheel w) {
+  if (float.IsNaN(w.RollBase)) return;
+  if (!w.S.Closed) w.S.Strength = w.RollBase;
+  w.RollBase = float.NaN;
 }
 
 // Once a second of straight driving: soften wheels that grip (if the hull may still drop),
@@ -4325,8 +4391,8 @@ void SetFriction(Wheel w, float v) {
 }
 
 void Release() {
-  foreach (var w in wheels) { if (w.Driven || w.S.PropulsionOverride != 0) SetOverride(w, 0); w.Gain = 1; }
-  yawTarget = 0;
+  foreach (var w in wheels) { if (w.Driven || w.S.PropulsionOverride != 0) SetOverride(w, 0); w.Gain = 1; RollRestore(w); }
+  rollActive = false; yawTarget = 0;
   Gyros(false);
 }
 
@@ -4336,7 +4402,7 @@ void SetIdle(bool on, UpdateFrequency f) {
 }
 
 void Reset() {
-  foreach (var w in wheels) { float v; if (origStrength.TryGetValue(w.S.EntityId, out v)) w.S.Strength = v; }
+  foreach (var w in wheels) { w.RollBase = float.NaN; float v; if (origStrength.TryGetValue(w.S.EntityId, out v)) w.S.Strength = v; }
   origStrength.Clear(); radius.Clear(); rideBase = double.NaN; geoCtrl = null;
   foreach (var w in wheels) origStrength[w.S.EntityId] = w.S.Strength;
   Save();
@@ -5883,6 +5949,7 @@ public sealed class VariableReference
               </Blocks>
             </MyObjectBuilder_BlockGroup>
           </BlockGroups>
+          <Handbrake>true</Handbrake>
           <DisplayName>Medium Tank - M13/40</DisplayName>
           <Icon>Textures\GUI\Icons\StoreVehicles\M13_40.png</Icon>
           <TooltipImage>Textures\GUI\Icons\StoreVehicles\M13_40.png</TooltipImage>
@@ -6771,6 +6838,7 @@ public sealed class VariableReference
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Main Gun</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>

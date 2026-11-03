@@ -2,19 +2,22 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<SpawnGroups>
 
-<!-- Garage Spawns -->
+<!-- Garage Spawns. Standard placement (D-064): each building's floor top is 1.0 m above its ground point (building Y 2.45);
+     a vehicle's Y is 1.0 + its height above the floor (box centre + at least 0.5 m, 0.5 steps): AB41 4.0, AB43 2.5,
+     M13/40 2.0, Panhard 2.0, R35 2.5, Somua 3.0, Fiat 626 4.0, Renault AHN 4.0. X/Z put each vehicle's box centre on the slot
+     (it turns about its driver seat). Each faction's garages weigh 0.5 + 0.5 = 1.0 in every War Level band. -->
 
-<!-- Gray AB 41 Garage 1 (barn, one gate) -->
+<!-- Gray Garage 1 (barn, one gate), War Level 1: one of AB41. -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-Garage-Gray-AB41-1</SubtypeId>
+			<SubtypeId>WW2-Garage1-Gray-WL1</SubtypeId>
 		</Id>
 		<Description>
 
 		[Modular Encounters SpawnGroup]
 
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Garage1-WL1]
 		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 
@@ -22,13 +25,13 @@
 		[SpawnRandomCargo:true]
 
 		</Description>
-		<Frequency>1.0</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Garage1">
 				<Position>
 					<X>2.0</X>
-					<Y>2.5</Y>
+					<Y>2.45</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-HangarGarage-Gray</Behaviour>
@@ -36,8 +39,8 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-AB41">
 				<Position>
-					<X>0</X>
-					<Y>4.5</Y>
+					<X>0.0</X>
+					<Y>5.0</Y>
 					<Z>12.5</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
@@ -45,18 +48,17 @@
 			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
-
-<!-- Gray AB 41 Garage 2 (concrete, two bays). -->
+<!-- Gray Garage 2 (concrete, two bays), War Level 1: one of AB41 plus the Fiat626. -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-Garage-Gray-AB41-2</SubtypeId>
+			<SubtypeId>WW2-Garage2-Gray-WL1</SubtypeId>
 		</Id>
 		<Description>
 
 		[Modular Encounters SpawnGroup]
 
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Garage2-WL1]
 		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 
@@ -64,13 +66,13 @@
 		[SpawnRandomCargo:true]
 
 		</Description>
-		<Frequency>1.0</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Garage2">
 				<Position>
 					<X>-2.0</X>
-					<Y>2.5</Y>
+					<Y>2.45</Y>
 					<Z>-12.5</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-HangarGarage-Gray</Behaviour>
@@ -78,36 +80,35 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-AB41">
 				<Position>
-					<X>0</X>
-					<Y>4.5</Y>
-					<Z>0</Z>
+					<X>0.5</X>
+					<Y>5.0</Y>
+					<Z>-2.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-Fiat626">
 				<Position>
-					<X>-10.0</X>
-					<Y>5.5</Y>
-					<Z>-1.5</Z>
+					<X>-13.0</X>
+					<Y>5.0</Y>
+					<Z>-3.5</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-GarageVehicle-Fiat626</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
-
-<!-- Gray AB 43 Garage 1 (War Level 3+) (barn, one gate) -->
+<!-- Gray Garage 1 (barn, one gate), War Level 2: one of AB41, AB43. -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-Garage-Gray-AB43-1</SubtypeId>
+			<SubtypeId>WW2-Garage1-Gray-WL2</SubtypeId>
 		</Id>
 		<Description>
 
 		[Modular Encounters SpawnGroup]
 
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-WL3]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Garage1-WL2]
 		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 
@@ -115,22 +116,31 @@
 		[SpawnRandomCargo:true]
 
 		</Description>
-		<Frequency>1.0</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Garage1">
 				<Position>
 					<X>2.0</X>
-					<Y>2.5</Y>
+					<Y>2.45</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-HangarGarage-Gray</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
+			<Prefab SubtypeId="Player-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>5.0</Y>
+					<Z>12.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
 			<Prefab SubtypeId="Player-WW2-AB43">
 				<Position>
-					<X>0</X>
-					<Y>4.5</Y>
+					<X>2.0</X>
+					<Y>3.5</Y>
 					<Z>12.5</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-GarageVehicle-AB43</Behaviour>
@@ -138,18 +148,17 @@
 			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
-
-<!-- Gray AB 43 Garage 2 (concrete, two bays). -->
+<!-- Gray Garage 2 (concrete, two bays), War Level 2: one of AB41, AB43 plus the Fiat626. -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-Garage-Gray-AB43-2</SubtypeId>
+			<SubtypeId>WW2-Garage2-Gray-WL2</SubtypeId>
 		</Id>
 		<Description>
 
 		[Modular Encounters SpawnGroup]
 
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-WL3]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Garage2-WL2]
 		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 
@@ -157,50 +166,185 @@
 		[SpawnRandomCargo:true]
 
 		</Description>
-		<Frequency>1.0</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Garage2">
 				<Position>
 					<X>-2.0</X>
-					<Y>2.5</Y>
+					<Y>2.45</Y>
 					<Z>-12.5</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-HangarGarage-Gray</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
+			<Prefab SubtypeId="Player-WW2-AB41">
+				<Position>
+					<X>0.5</X>
+					<Y>5.0</Y>
+					<Z>-2.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
 			<Prefab SubtypeId="Player-WW2-AB43">
 				<Position>
-					<X>0</X>
-					<Y>4.5</Y>
-					<Z>0</Z>
+					<X>2.5</X>
+					<Y>3.5</Y>
+					<Z>-2.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-GarageVehicle-AB43</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-Fiat626">
 				<Position>
-					<X>-10.0</X>
-					<Y>5.5</Y>
-					<Z>-1.5</Z>
+					<X>-13.0</X>
+					<Y>5.0</Y>
+					<Z>-3.5</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-GarageVehicle-Fiat626</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
-
-<!-- Green Panhard 178 Garage 1 (barn, one gate). -->
+<!-- Gray Garage 1 (barn, one gate), War Level 3+: one of AB41, AB43, M13 40. -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-Garage-Green-Panhard178-1</SubtypeId>
+			<SubtypeId>WW2-Garage1-Gray-WL3</SubtypeId>
 		</Id>
 		<Description>
 
 		[Modular Encounters SpawnGroup]
 
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Garage1-WL3]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GRAY]
+		[SpawnRandomCargo:true]
+
+		</Description>
+		<Frequency>0.5</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Garage1">
+				<Position>
+					<X>2.0</X>
+					<Y>2.45</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarGarage-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>5.0</Y>
+					<Z>12.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-AB43">
+				<Position>
+					<X>2.0</X>
+					<Y>3.5</Y>
+					<Z>12.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-AB43</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-M13_40">
+				<Position>
+					<X>0.0</X>
+					<Y>3.0</Y>
+					<Z>12.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-M1340</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+<!-- Gray Garage 2 (concrete, two bays), War Level 3+: one of AB41, AB43, M13 40 plus the Fiat626. -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Garage2-Gray-WL3</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Garage2-WL3]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GRAY]
+		[SpawnRandomCargo:true]
+
+		</Description>
+		<Frequency>0.5</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Garage2">
+				<Position>
+					<X>-2.0</X>
+					<Y>2.45</Y>
+					<Z>-12.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarGarage-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-AB41">
+				<Position>
+					<X>0.5</X>
+					<Y>5.0</Y>
+					<Z>-2.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-AB43">
+				<Position>
+					<X>2.5</X>
+					<Y>3.5</Y>
+					<Z>-2.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-AB43</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-M13_40">
+				<Position>
+					<X>0.5</X>
+					<Y>3.0</Y>
+					<Z>-2.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-M1340</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Fiat626">
+				<Position>
+					<X>-13.0</X>
+					<Y>5.0</Y>
+					<Z>-3.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-Fiat626</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+<!-- Green Garage 1 (barn, one gate), War Level 1: one of Panhard178. -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Garage1-Green-WL1</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Garage1-WL1]
 		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 
@@ -208,13 +352,13 @@
 		[SpawnRandomCargo:true]
 
 		</Description>
-		<Frequency>1.0</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Garage1">
 				<Position>
 					<X>2.0</X>
-					<Y>2.5</Y>
+					<Y>2.45</Y>
 					<Z>0.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-HangarGarage-Green</Behaviour>
@@ -222,27 +366,26 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-Panhard178">
 				<Position>
-					<X>1</X>
-					<Y>3</Y>
-					<Z>10</Z>
+					<X>1.5</X>
+					<Y>3.0</Y>
+					<Z>13.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-GarageVehicle-Panhard178</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
-
-<!-- Green Garage 2 (concrete, two bays): Panhard 178 and Renault AHN. -->
+<!-- Green Garage 2 (concrete, two bays), War Level 1: one of Panhard178 plus the RenaultAHN. -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-Garage-Green-2</SubtypeId>
+			<SubtypeId>WW2-Garage2-Green-WL1</SubtypeId>
 		</Id>
 		<Description>
 
 		[Modular Encounters SpawnGroup]
 
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Garage2-WL1]
 		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 
@@ -250,13 +393,13 @@
 		[SpawnRandomCargo:true]
 
 		</Description>
-		<Frequency>1.0</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Garage2">
 				<Position>
 					<X>-2.0</X>
-					<Y>2.5</Y>
+					<Y>2.45</Y>
 					<Z>-12.5</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-HangarGarage-Green</Behaviour>
@@ -264,18 +407,254 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-Panhard178">
 				<Position>
-					<X>2.5</X>
-					<Y>2.5</Y>
-					<Z>-3.5</Z>
+					<X>2.0</X>
+					<Y>3.0</Y>
+					<Z>-1.5</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-GarageVehicle-Panhard178</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-RenaultAHN">
 				<Position>
-					<X>-8.0</X>
-					<Y>3</Y>
-					<Z>-7.5</Z>
+					<X>-12.5</X>
+					<Y>5.0</Y>
+					<Z>-3.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-RenaultAHN</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+<!-- Green Garage 1 (barn, one gate), War Level 2: one of Panhard178, R35. -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Garage1-Green-WL2</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Garage1-WL2]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GREEN]
+		[SpawnRandomCargo:true]
+
+		</Description>
+		<Frequency>0.5</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Garage1">
+				<Position>
+					<X>2.0</X>
+					<Y>2.45</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarGarage-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Panhard178">
+				<Position>
+					<X>1.5</X>
+					<Y>3.0</Y>
+					<Z>13.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-Panhard178</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-R35">
+				<Position>
+					<X>0.5</X>
+					<Y>3.5</Y>
+					<Z>13.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-R35</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+<!-- Green Garage 2 (concrete, two bays), War Level 2: one of Panhard178, R35 plus the RenaultAHN. -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Garage2-Green-WL2</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Garage2-WL2]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GREEN]
+		[SpawnRandomCargo:true]
+
+		</Description>
+		<Frequency>0.5</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Garage2">
+				<Position>
+					<X>-2.0</X>
+					<Y>2.45</Y>
+					<Z>-12.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarGarage-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Panhard178">
+				<Position>
+					<X>2.0</X>
+					<Y>3.0</Y>
+					<Z>-1.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-Panhard178</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-R35">
+				<Position>
+					<X>1.0</X>
+					<Y>3.5</Y>
+					<Z>-1.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-R35</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-RenaultAHN">
+				<Position>
+					<X>-12.5</X>
+					<Y>5.0</Y>
+					<Z>-3.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-RenaultAHN</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+<!-- Green Garage 1 (barn, one gate), War Level 3+: one of Panhard178, R35, Somua S35. -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Garage1-Green-WL3</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Garage1-WL3]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GREEN]
+		[SpawnRandomCargo:true]
+
+		</Description>
+		<Frequency>0.5</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Garage1">
+				<Position>
+					<X>2.0</X>
+					<Y>2.45</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarGarage-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Panhard178">
+				<Position>
+					<X>1.5</X>
+					<Y>3.0</Y>
+					<Z>13.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-Panhard178</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-R35">
+				<Position>
+					<X>0.5</X>
+					<Y>3.5</Y>
+					<Z>13.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-R35</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Somua_S35">
+				<Position>
+					<X>-2.0</X>
+					<Y>4.0</Y>
+					<Z>11.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-SomuaS35</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+<!-- Green Garage 2 (concrete, two bays), War Level 3+: one of Panhard178, R35, Somua S35 plus the RenaultAHN. -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Garage2-Green-WL3</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Garage2-WL3]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+
+		[FactionOverride:GREEN]
+		[SpawnRandomCargo:true]
+
+		</Description>
+		<Frequency>0.5</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Garage2">
+				<Position>
+					<X>-2.0</X>
+					<Y>2.45</Y>
+					<Z>-12.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-HangarGarage-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Panhard178">
+				<Position>
+					<X>2.0</X>
+					<Y>3.0</Y>
+					<Z>-1.5</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-Panhard178</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-R35">
+				<Position>
+					<X>1.0</X>
+					<Y>3.5</Y>
+					<Z>-1.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-R35</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Somua_S35">
+				<Position>
+					<X>-1.5</X>
+					<Y>4.0</Y>
+					<Z>-3.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-GarageVehicle-SomuaS35</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-RenaultAHN">
+				<Position>
+					<X>-12.5</X>
+					<Y>5.0</Y>
+					<Z>-3.0</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-GarageVehicle-RenaultAHN</Behaviour>
 				<Speed>0.0</Speed>

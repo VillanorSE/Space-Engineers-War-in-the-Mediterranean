@@ -14,6 +14,8 @@
 		[GridsAreDestructable:false]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-GridName-Depot-Benghazi]
+		[ManipulationProfiles:WW2-Manipulation-Name-Depot-Benghazi]
 		[FactionOverride:UNOWNED]
 		</Description>
 		<Frequency>1.0</Frequency>
@@ -42,6 +44,8 @@
 		[GridsAreDestructable:false]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-GridName-Depot-Tunis]
+		[ManipulationProfiles:WW2-Manipulation-Name-Depot-Tunis]
 		[FactionOverride:UNOWNED]
 		</Description>
 		<Frequency>1.0</Frequency>
@@ -70,6 +74,8 @@
 		[GridsAreDestructable:false]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-GridName-Depot-Tobruk]
+		[ManipulationProfiles:WW2-Manipulation-Name-Depot-Tobruk]
 		[FactionOverride:UNOWNED]
 		</Description>
 		<Frequency>1.0</Frequency>
@@ -98,6 +104,8 @@
 		[GridsAreDestructable:false]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-GridName-Depot-Abruzzo]
+		[ManipulationProfiles:WW2-Manipulation-Name-Depot-Abruzzo]
 		[FactionOverride:UNOWNED]
 		</Description>
 		<Frequency>1.0</Frequency>
@@ -126,6 +134,8 @@
 		[GridsAreDestructable:false]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-GridName-Depot-Mascara]
+		[ManipulationProfiles:WW2-Manipulation-Name-Depot-Mascara]
 		[FactionOverride:UNOWNED]
 		</Description>
 		<Frequency>1.0</Frequency>
@@ -154,6 +164,8 @@
 		[GridsAreDestructable:false]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-GridName-Depot-Sirte]
+		[ManipulationProfiles:WW2-Manipulation-Name-Depot-Sirte]
 		[FactionOverride:UNOWNED]
 		</Description>
 		<Frequency>1.0</Frequency>
@@ -262,13 +274,13 @@
 				<Behaviour>WW2-Behavior-DepotDefense-Gray-Car</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-AB41">
+			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
 					<X>12.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -290,22 +302,22 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-AB41">
+			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
 					<X>0.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-AB41">
+			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
 					<X>12.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -327,40 +339,40 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-AB41">
+			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
 					<X>0.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-AB41">
+			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
 					<X>12.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-AB41">
+			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
 					<X>24.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-AB41">
+			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
 					<X>36.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -456,13 +468,13 @@
 				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Car</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-AB41">
+			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
 					<X>12.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -484,22 +496,22 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-AB41">
+			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
 					<X>0.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-AB41">
+			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
 					<X>12.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -521,52 +533,53 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-AB41">
+			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
 					<X>0.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-AB41">
+			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
 					<X>12.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-AB41">
+			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
 					<X>24.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-AB41">
+			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
 					<X>36.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
+<!-- Garage bay (Gray): one random vehicle from the holder's vehicles at this War Level and below (equal odds, PrefabSpawningMode Random). The bay spawn point is the floor top (RC + 3.75); each vehicle's Y is its height above the floor (D-064). -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-DepotGarageBay-Gray</SubtypeId>
+			<SubtypeId>WW2-DepotGarageBay-WL1-Gray</SubtypeId>
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnit]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotGarageBay]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[FactionOverride:GRAY]
@@ -577,10 +590,89 @@
 			<Prefab SubtypeId="Player-WW2-AB41">
 				<Position>
 					<X>0.0</X>
+					<Y>4.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotGarageVehicle-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotGarageBay-WL2-Gray</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotGarageBay]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="Player-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>4.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotGarageVehicle-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-AB43">
+				<Position>
+					<X>0.0</X>
+					<Y>2.5</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotGarageVehicle-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotGarageBay-WL3-Gray</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotGarageBay]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="Player-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>4.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotGarageVehicle-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-AB43">
+				<Position>
+					<X>0.0</X>
+					<Y>2.5</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotGarageVehicle-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-M13_40">
+				<Position>
+					<X>0.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotGarageVehicle</Behaviour>
+				<Behaviour>WW2-Behavior-DepotGarageVehicle-Gray</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -639,13 +731,13 @@
 				<Behaviour>WW2-Behavior-DepotDefense-Green-Car</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-R35">
 				<Position>
 					<X>12.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Green-Light</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -667,22 +759,22 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-R35">
 				<Position>
 					<X>0.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Green-Light</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
 				<Position>
 					<X>12.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -704,22 +796,22 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
 				<Position>
 					<X>0.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
 				<Position>
 					<X>12.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -741,40 +833,40 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
 				<Position>
 					<X>0.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
 				<Position>
 					<X>12.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
 				<Position>
 					<X>24.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
 				<Position>
 					<X>36.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotDefense-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotDefense-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -833,13 +925,13 @@
 				<Behaviour>WW2-Behavior-DepotPatrol-Green-Car</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-R35">
 				<Position>
 					<X>12.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Green-Light</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -861,22 +953,22 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-R35">
 				<Position>
 					<X>0.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Green-Light</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
 				<Position>
 					<X>12.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -898,22 +990,22 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
 				<Position>
 					<X>0.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
 				<Position>
 					<X>12.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -935,52 +1027,53 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
 				<Position>
 					<X>0.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
 				<Position>
 					<X>12.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
 				<Position>
 					<X>24.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-Panhard178">
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
 				<Position>
 					<X>36.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotPatrol-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
+<!-- Garage bay (Green): one random vehicle from the holder's vehicles at this War Level and below (equal odds, PrefabSpawningMode Random). The bay spawn point is the floor top (RC + 3.75); each vehicle's Y is its height above the floor (D-064). -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-DepotGarageBay-Green</SubtypeId>
+			<SubtypeId>WW2-DepotGarageBay-WL1-Green</SubtypeId>
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnit]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotGarageBay]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[FactionOverride:GREEN]
@@ -994,7 +1087,86 @@
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotGarageVehicle</Behaviour>
+				<Behaviour>WW2-Behavior-DepotGarageVehicle-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotGarageBay-WL2-Green</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotGarageBay]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="Player-WW2-Panhard178">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotGarageVehicle-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-R35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.5</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotGarageVehicle-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotGarageBay-WL3-Green</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotGarageBay]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="Player-WW2-Panhard178">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotGarageVehicle-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-R35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.5</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotGarageVehicle-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Somua_S35">
+				<Position>
+					<X>0.0</X>
+					<Y>3.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotGarageVehicle-Green</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>

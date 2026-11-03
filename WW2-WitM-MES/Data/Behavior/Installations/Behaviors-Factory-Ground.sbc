@@ -58,6 +58,42 @@
 			</Description>
         </EntityComponent>
 <!-- End Gray Factory Behaviors -->
+<!-- Green Factory Behaviors -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Factory-Ground-R35</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+			[TriggerGroups:WW2-Points-Group-Green-Factory]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[TriggerGroups:WW2-TriggerGroup-Retaliation-Tag-Green]
+			[Triggers:WW2-Trigger-Activation-Factory-Plane-Green]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-DefenseSpawn-Green]
+			[Triggers:WW2-Store-Trigger-UpdateSales-FactoryGround-R35]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Behavior-Factory-Ground-SomuaS35</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Behavior]
+			[BehaviorName:Passive]
+			[TriggerGroups:WW2-Points-Group-Green-Factory]
+			[Triggers:WW2-Trigger-ReputationDamageLight-Green]
+			[TriggerGroups:WW2-TriggerGroup-Retaliation-Tag-Green]
+			[Triggers:WW2-Trigger-Activation-Factory-Plane-Green]
+			[Triggers:WW2-Trigger-BotCrew-3]
+			[Triggers:WW2-Trigger-DefenseSpawn-Green]
+			[Triggers:WW2-Store-Trigger-UpdateSales-FactoryGround-SomuaS35]
+			</Description>
+		</EntityComponent>
+<!-- End Green Factory Behaviors -->
 
 	</EntityComponents>
 </Definitions>

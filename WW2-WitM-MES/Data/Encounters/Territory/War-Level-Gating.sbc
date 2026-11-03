@@ -76,7 +76,7 @@
 			</Description>
 		</EntityComponent>
 
-<!-- Exact level (convoy raid tiers). No Exactly1: WarLevel is unset at level 1, use AtLeast2 + ElseActions. -->
+<!-- Exact level (convoy raid tiers). No Exactly1 (WarLevel was unset at level 1 before the D-064 seed): use AtLeast2 + ElseActions. -->
 
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>

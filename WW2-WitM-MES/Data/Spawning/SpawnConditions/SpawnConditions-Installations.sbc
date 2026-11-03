@@ -561,6 +561,37 @@
 
 		</Description>
 	</EntityComponent>
+<!-- Tobruk airfield (owner 2026-10-31): Benghazi prefab, tower on owner GPS Villanor #2, main runway parallel to #2-#3 (turned to run away from #3, less levelling); pad flattened to 32.5 m; exact coords (direction/altitude kept for RefreshSites). -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Airfield-Tobruk</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[StaticEncounter:true]
+			[StaticEncounterUsePlanetDirectionAndAltitude:false]
+			[StaticEncounterCoords:{X:-14724.803 Y:25497.422 Z:-6408.120}]
+			[TriggerCoords:{X:-14724.803 Y:25497.422 Z:-6408.120}]
+			[StaticEncounterPlanet:WW2WitM_Mediterranean]
+			[StaticEncounterPlanetDirection:{X:-0.488641342 Y:0.846175133 Z:-0.212643559}]
+			[StaticEncounterPlanetAltitude:-0.85]
+			[StaticEncounterForward:{X:-0.862664 Y:-0.504668 Z:-0.033491}]
+			[StaticEncounterUp:{X:-0.487437 Y:0.847227 Z:-0.211212}]
+			[ForceExactPositionAndOrientation:true]
+			[PlanetWhitelist:WW2WitM_Mediterranean]
+
+			[FactionOwner:UNOWNED]
+
+			[TriggerRadius:20000]
+
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+		</Description>
+	</EntityComponent>
 
 	</EntityComponents>
 </Definitions>

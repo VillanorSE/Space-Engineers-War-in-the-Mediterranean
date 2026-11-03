@@ -145,6 +145,11 @@ namespace WW2WitM.Refresh
         {
             if (!isServer)
                 return;
+            // WarLevel stays unset until a world first reaches level 2, and MES fails every counter check on an unset
+            // variable (even Less 2), so seed level 1 for the WL1 garage bands (D-064). Level-downs already set it to 1.
+            int warLevel;
+            if (!MyAPIGateway.Utilities.GetVariable("WarLevel", out warLevel))
+                MyAPIGateway.Utilities.SetVariable("WarLevel", 1);
             LoadState();
             if (!string.IsNullOrEmpty(state.InProgress))
             {
@@ -1542,6 +1547,26 @@ namespace WW2WitM.Refresh
             if (scan.HasFootprint)
                 scan.Footprint = scan.Footprint.Inflate(FootprintMargin);
 
+            // A depot's bay vehicle is its own spawn (WW2-DepotGarageBay-*, D-064) parked inside the depot: it goes with the depot.
+            if (site.Depot && (scan.HasFootprint || haveAnchor))
+                foreach (var g in allGrids)
+                {
+                    NpcDataLite data;
+                    if (siteIds.Contains(g.EntityId) || !npcData.TryGetValue(g.EntityId, out data) || !IsBayGroup(data.SpawnGroupName))
+                        continue;
+                    var box = g.PositionComp.WorldAABB;
+                    if (!(scan.HasFootprint ? scan.Footprint.Intersects(box) : Vector3D.Distance(box.Center, scan.Anchor) < AnchorClearance))
+                        continue;
+                    groupBuffer.Clear();
+                    MyAPIGateway.GridGroups.GetGroup(g, GridLinkTypeEnum.Mechanical, groupBuffer);
+                    if (groupBuffer.Count == 0)
+                        groupBuffer.Add(g);
+                    foreach (var m in groupBuffer)
+                        if (siteIds.Add(m.EntityId))
+                            scan.Grids.Add(m);
+                    groupBuffer.Clear();
+                }
+
             // A site grid that is not NPC-only, or is attached and carries another encounter's (or unreadable) spawn data, stops the site.
             foreach (var g in scan.Grids)
             {
@@ -1549,7 +1574,8 @@ namespace WW2WitM.Refresh
                 string reason = NonNpcReason(g, true);
                 if (reason == null && unreadable.Contains(g.EntityId))
                     reason = "unreadable MES spawn data";
-                if (reason == null && npcData.TryGetValue(g.EntityId, out data) && data.SpawnGroupName != site.Group)
+                if (reason == null && npcData.TryGetValue(g.EntityId, out data) && data.SpawnGroupName != site.Group
+                    && !(site.Depot && IsBayGroup(data.SpawnGroupName)))
                     reason = "belongs to " + data.SpawnGroupName;
                 if (reason != null)
                 {
@@ -1646,8 +1672,8 @@ namespace WW2WitM.Refresh
         }
 
         // Why a grid is not purely NPC property, or null. qa F1: both ownership lists (MES reads both: EntityEvaluator.cs:243-268,
-        // OwnershipHelper.cs:52-55); an owner counts as NPC only if it has no SteamId and its faction is all-NPC (MES classifies NPC factions by
-        // IsEveryoneNpc, SpawnGroupManager.cs:720). With blocks: also a block built by a player or a seat with a non-bot character in it.
+        // OwnershipHelper.cs:52-55); an owner counts as NPC only if it has no SteamId and no member of its faction has one (IsNpcIdentity).
+        // With blocks: also a block built by a player or a seat with a non-bot character in it.
         private string NonNpcReason(IMyCubeGrid grid, bool blocks)
         {
             foreach (var o in grid.BigOwners)
@@ -1679,12 +1705,24 @@ namespace WW2WitM.Refresh
             return reason;
         }
 
+        // No SteamId, in a faction with no human member. Not IsEveryoneNpc: MES AddBotsToGrid bots (AI Enabled) join the faction
+        // with identities SE does not list as NPC, so a depot with guard bots would count as player property.
         private static bool IsNpcIdentity(long id)
         {
             if (MyAPIGateway.Players.TryGetSteamId(id) != 0)
                 return false;
             var faction = MyAPIGateway.Session.Factions.TryGetPlayerFaction(id);
-            return faction != null && faction.IsEveryoneNpc();
+            if (faction == null)
+                return false;
+            foreach (var member in faction.Members)
+                if (MyAPIGateway.Players.TryGetSteamId(member.Key) != 0)
+                    return false;
+            return true;
+        }
+
+        private static bool IsBayGroup(string spawnGroup)
+        {
+            return spawnGroup != null && spawnGroup.StartsWith("WW2-DepotGarageBay-", StringComparison.Ordinal);
         }
 
         private static string IdentityName(long id)

@@ -122,6 +122,7 @@
               <ColorMaskHSV x="0.313888878" y="-0.62" z="-0.25" />
               <SkinSubtypeId>Battered_Armor</SkinSubtypeId>
               <ShareMode>Faction</ShareMode>
+              <CustomName>Gyroscope</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -858,6 +859,7 @@
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Connector</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -1057,6 +1059,7 @@
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Cargo Container</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
@@ -1078,12 +1081,13 @@
               <ColorMaskHSV x="0.313888878" y="-0.62" z="-0.25" />
               <SkinSubtypeId>Battered_Armor</SkinSubtypeId>
               <ShareMode>Faction</ShareMode>
+              <CustomName>Hydrogen Engine</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
-              <Enabled>true</Enabled>
+              <Enabled>false</Enabled>
               <Capacity>10000</Capacity>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
@@ -2636,6 +2640,7 @@ public sealed class VariableReference
               <BlockOrientation Forward="Down" Up="Left" />
               <ColorMaskHSV x="0.0305555556" y="-0.1" z="-0.06" />
               <SkinSubtypeId>Battered_Armor</SkinSubtypeId>
+              <CustomName>Camera</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -2720,6 +2725,7 @@ public sealed class VariableReference
               <BlockOrientation Forward="Left" Up="Down" />
               <ColorMaskHSV x="0.0305555556" y="-0.1" z="-0.06" />
               <SkinSubtypeId>Battered_Armor</SkinSubtypeId>
+              <CustomName>Hatch</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -2912,6 +2918,7 @@ public sealed class VariableReference
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Fuel Tank</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -2948,6 +2955,7 @@ public sealed class VariableReference
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Cargo Container</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>false</ShowInToolbarConfig>
@@ -2979,6 +2987,7 @@ public sealed class VariableReference
               <ColorMaskHSV x="0.313888878" y="-0.62" z="-0.25" />
               <SkinSubtypeId>Battered_Armor</SkinSubtypeId>
               <ShareMode>Faction</ShareMode>
+              <CustomName>Battery</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -3356,12 +3365,13 @@ public sealed class VariableReference
               <BlockOrientation Forward="Backward" Up="Left" />
               <ColorMaskHSV x="0" y="-0.75" z="-0.29" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
+              <CustomName>Exhaust Pipe</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
-              <Enabled>true</Enabled>
+              <Enabled>false</Enabled>
               <ExhaustEffect>CarSmoke</ExhaustEffect>
               <PowerDependency>0</PowerDependency>
             </MyObjectBuilder_CubeBlock>
@@ -3420,7 +3430,7 @@ public sealed class VariableReference
               <BlockOrientation Forward="Left" Up="Backward" />
               <ColorMaskHSV x="0.313888878" y="-0.62" z="-0.25" />
               <SkinSubtypeId>Battered_Armor</SkinSubtypeId>
-              <CustomName>Wheel Suspension 3x3 - Back Left</CustomName>
+              <CustomName>Wheel Suspension - L2</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -3460,7 +3470,7 @@ public sealed class VariableReference
               <BlockOrientation Forward="Left" Up="Forward" />
               <ColorMaskHSV x="0.313888878" y="-0.62" z="-0.25" />
               <SkinSubtypeId>Battered_Armor</SkinSubtypeId>
-              <CustomName>Wheel Suspension 3x3 - Back Right</CustomName>
+              <CustomName>Wheel Suspension - R2</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -3500,7 +3510,7 @@ public sealed class VariableReference
               <BlockOrientation Forward="Left" Up="Backward" />
               <ColorMaskHSV x="0.313888878" y="-0.62" z="-0.25" />
               <SkinSubtypeId>Battered_Armor</SkinSubtypeId>
-              <CustomName>Wheel Suspension 3x3 - Front Left</CustomName>
+              <CustomName>Wheel Suspension - L1</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -3539,7 +3549,7 @@ public sealed class VariableReference
               <BlockOrientation Forward="Left" Up="Forward" />
               <ColorMaskHSV x="0.313888878" y="-0.62" z="-0.25" />
               <SkinSubtypeId>Battered_Armor</SkinSubtypeId>
-              <CustomName>Wheel Suspension 3x3 - Front Right</CustomName>
+              <CustomName>Wheel Suspension - R1</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -3608,12 +3618,13 @@ public sealed class VariableReference
               <BlockOrientation Forward="Up" Up="Forward" />
               <ColorMaskHSV x="0.313888878" y="-0.62" z="-0.25" />
               <SkinSubtypeId>Battered_Armor</SkinSubtypeId>
+              <CustomName>Exhaust Pipe</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>2</NumberInGrid>
-              <Enabled>true</Enabled>
+              <Enabled>false</Enabled>
               <ExhaustEffect>CarSmoke</ExhaustEffect>
               <PowerDependency>0</PowerDependency>
             </MyObjectBuilder_CubeBlock>
@@ -3669,6 +3680,7 @@ public sealed class VariableReference
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Turret Controller</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -3869,6 +3881,7 @@ public sealed class VariableReference
               </Blocks>
             </MyObjectBuilder_BlockGroup>
           </BlockGroups>
+          <Handbrake>true</Handbrake>
           <DisplayName>Armored Car - Panhard 178</DisplayName>
           <Icon>Textures\GUI\Icons\StoreVehicles\Panhard178.png</Icon>
           <TooltipImage>Textures\GUI\Icons\StoreVehicles\Panhard178.png</TooltipImage>
@@ -4403,6 +4416,7 @@ public sealed class VariableReference
               <Min x="0" y="2" z="0" />
               <ColorMaskHSV x="0.313888878" y="-0.62" z="-0.25" />
               <SkinSubtypeId>Battered_Armor</SkinSubtypeId>
+              <CustomName>Hatch</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -4456,7 +4470,7 @@ public sealed class VariableReference
                         <dictionary>
                           <item>
                             <Key>75bbb4f5-4fb9-4230-beef-bb79c9811501</Key>
-                            <Value>+nzaAQoJCAAQGR0AAAAAEswBCAASQC0AAEhCMjkIABAAGAAgACgAMABIAFgAeACAAQCQAQCgAQCwAQDAAQDQAQDYAQDoAQDwAQD4AQGwAgDQAgDgAgAaRRIKDQAAAAAQACCFARgAIJeAgICAgICAAjAAOABAAEgAUiMaGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAACAAKAAwACItCAAQACAAKgYgh/r//wcyGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAADgAKhAIACABKAAwADgAQAFIAFAACCI=</Value>
+                            <Value>+nzaAQoJCAAQGR0AAAAAEswBCAASQC0AAEhDMjkIABAAGAAgACgAMABIAFgAeACAAQCQAQCgAQCwAQDAAQDQAQDYAQDoAQDwAQD4AQGwAgDQAgDgAgAaRRIKDQAAAAAQACCFARgAIJeAgICAgICAAjAAOABAAEgAUiMaGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAACAAKAAwACItCAAQACAAKgYgh/r//wcyGwkAAAAAAAAAACEAAAAAAAAAADkAAAAAAAAAADgAKhAIACABKAAwADgAQAFIAFAACCI=</Value>
                           </item>
                         </dictionary>
                       </Storage>
@@ -4628,6 +4642,7 @@ public sealed class VariableReference
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Machine Gun</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -4672,6 +4687,7 @@ public sealed class VariableReference
               <ColorMaskHSV x="0.5638889" y="-0.68" z="-0.2" />
               <SkinSubtypeId>Battered_Armor</SkinSubtypeId>
               <ShareMode>Faction</ShareMode>
+              <CustomName>Camera</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>

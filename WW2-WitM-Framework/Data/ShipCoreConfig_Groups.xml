@@ -100,6 +100,16 @@
       <CountWeight>1</CountWeight>
     </BlockTypes>
     <BlockTypes>
+      <TypeId>MyObjectBuilder_SmallMissileLauncher</TypeId>
+      <SubtypeId>KGS_LMG_Hammer_762</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_SmallMissileLauncher</TypeId>
+      <SubtypeId>KGS_CoaxialMG</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
       <TypeId>MyObjectBuilder_ConveyorSorter</TypeId>
       <SubtypeId>TT40MMBOFORSQUAD</SubtypeId>
       <CountWeight>2</CountWeight>
@@ -402,6 +412,16 @@
     <BlockTypes>
       <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
       <SubtypeId>GBU-6Battery</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
+      <SubtypeId>KGS_Battery_EC10</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_BatteryBlock</TypeId>
+      <SubtypeId>KGS_Battery_EC20</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
   </BlockGroup>
@@ -1175,6 +1195,36 @@
       <SubtypeId>StandingSeatMinimalEvenSide</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>KGS_DriverSeat</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>KGS_GunnerSeat</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>KGS_GunnerSeatOffset</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>KGS_PassengerSeat</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>KGS_PassengerSeatOffset</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Cockpit</TypeId>
+      <SubtypeId>KGS_StandingSeat</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
   </BlockGroup>
 
   <!-- Connectors -->
@@ -1183,6 +1233,11 @@
     <BlockTypes>
       <TypeId>MyObjectBuilder_ShipConnector</TypeId>
       <SubtypeId>any</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_ShipConnector</TypeId>
+      <SubtypeId>KGS_SlimConnector</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
   </BlockGroup>
@@ -1268,6 +1323,16 @@
     <BlockTypes>
       <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
       <SubtypeId>Karston_Singlebank</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
+      <SubtypeId>KGS_TankEngine_Light_01</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_HydrogenEngine</TypeId>
+      <SubtypeId>KGS_TankEngine_Medium_01</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
   </BlockGroup>
@@ -1364,6 +1429,11 @@
       <TypeId>MyObjectBuilder_Gyro</TypeId>
       <SubtypeId>TE-80_Transmission</SubtypeId>
       <CountWeight>3</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_Gyro</TypeId>
+      <SubtypeId>KGS_Gyro_Transmission</SubtypeId>
+      <CountWeight>1</CountWeight>
     </BlockTypes>
   </BlockGroup>
 
@@ -3541,6 +3611,11 @@
       <SubtypeId>YtD_CC77-42_gun</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_SmallMissileLauncher</TypeId>
+      <SubtypeId>KGS_20K_45_Tank_Cannon</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
   </BlockGroup>
 
   <!-- GroundHeavyWeapons: tank guns 84 mm and up; also in Weapons. Ground cores call their limit HeavyWeapons -->
@@ -3599,6 +3674,21 @@
     <BlockTypes>
       <TypeId>MyObjectBuilder_SmallGatlingGun</TypeId>
       <SubtypeId>YtD_CC127-55_gun</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_SmallMissileLauncher</TypeId>
+      <SubtypeId>KGS_F34_Tank_Cannon</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_SmallMissileLauncher</TypeId>
+      <SubtypeId>KGS_M3_75_Tank_Cannon</SubtypeId>
+      <CountWeight>1</CountWeight>
+    </BlockTypes>
+    <BlockTypes>
+      <TypeId>MyObjectBuilder_SmallMissileLauncher</TypeId>
+      <SubtypeId>KGS_KWK36_88_Tank_Cannon</SubtypeId>
       <CountWeight>1</CountWeight>
     </BlockTypes>
   </BlockGroup>

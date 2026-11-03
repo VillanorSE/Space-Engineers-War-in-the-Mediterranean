@@ -653,7 +653,7 @@
 				<Position>
 					<X>28</X>
 					<Y>6.5</Y>
-					<Z>2.5</Z>
+					<Z>4.5</Z>
 				</Position>
 				<PlaceToGridOrigin>true</PlaceToGridOrigin>
 				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
@@ -663,7 +663,7 @@
 				<Position>
 					<X>28</X>
 					<Y>6.5</Y>
-					<Z>22.5</Z>
+					<Z>24.5</Z>
 				</Position>
 				<PlaceToGridOrigin>true</PlaceToGridOrigin>
 				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
@@ -673,7 +673,7 @@
 				<Position>
 					<X>28</X>
 					<Y>6.5</Y>
-					<Z>42.5</Z>
+					<Z>44.5</Z>
 				</Position>
 				<PlaceToGridOrigin>true</PlaceToGridOrigin>
 				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
@@ -762,6 +762,156 @@
 				</Position>
 				<PlaceToGridOrigin>true</PlaceToGridOrigin>
 				<Behaviour>WW2-Behavior-GarageVehicle-Fiat626</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Green R35 Factory (the Gray building for now; vehicle offsets from tools/grids/layout.py) -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Factory-Green-Ground-R35</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-Medium-FactoryGround]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-33pct]
+
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Factory-Ground">
+				<Position>
+					<X>0.0</X>
+					<Y>-14.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-Factory-Ground-R35</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-R35">
+				<Position>
+					<X>30.0</X>
+					<Y>3.0</Y>
+					<Z>4.9</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-R35</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-R35">
+				<Position>
+					<X>30.0</X>
+					<Y>3.0</Y>
+					<Z>24.9</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-R35</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-R35">
+				<Position>
+					<X>30.0</X>
+					<Y>3.0</Y>
+					<Z>44.9</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-R35</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-RenaultAHN">
+				<Position>
+					<X>17.2</X>
+					<Y>3.0</Y>
+					<Z>25.6</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-RenaultAHN</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Green Somua S35 Factory (the Gray building for now; vehicle offsets from tools/grids/layout.py place with a box centre, on the R35 spots: the Somua grid origin sits off-centre) -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Factory-Green-Ground-SomuaS35</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-Medium-FactoryGround]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-33pct]
+
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Factory-Ground">
+				<Position>
+					<X>0.0</X>
+					<Y>-14.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-Factory-Ground-SomuaS35</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Somua_S35">
+				<Position>
+					<X>23.2</X>
+					<Y>4.1</Y>
+					<Z>0.9</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-SomuaS35</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Somua_S35">
+				<Position>
+					<X>23.2</X>
+					<Y>4.1</Y>
+					<Z>20.9</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-SomuaS35</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Somua_S35">
+				<Position>
+					<X>23.2</X>
+					<Y>4.1</Y>
+					<Z>40.9</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-SomuaS35</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-RenaultAHN">
+				<Position>
+					<X>17.2</X>
+					<Y>3.0</Y>
+					<Z>25.6</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-RenaultAHN</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>

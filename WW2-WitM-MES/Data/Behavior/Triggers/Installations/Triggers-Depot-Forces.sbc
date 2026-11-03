@@ -105,7 +105,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Defense-WL1-Gray]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-40}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -148,7 +148,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Defense-WL2-Gray]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-40}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -191,7 +191,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Defense-WL3-Gray]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-40}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -234,7 +234,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Defense-WL4-Gray]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-40}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -277,7 +277,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Defense-WL5-Gray]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-40}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -321,7 +321,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Patrol-WL1-Gray]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-60}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -364,7 +364,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Patrol-WL2-Gray]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-60}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -407,7 +407,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Patrol-WL3-Gray]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-60}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -450,7 +450,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Patrol-WL4-Gray]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-60}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -493,7 +493,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Patrol-WL5-Gray]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-60}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -518,7 +518,7 @@
 			[BroadcastChatType:Chat]
 			</Description>
 		</EntityComponent>
-<!-- Garage bay (Gray): one of the holder's vehicles parked in the yard while a player is near, at most hourly. -->
+<!-- Garage bay (Gray): one of the holder's vehicles parked in the garage, every two hours while a player is near, only if the bay is empty. The check clears GarageBayOccupied and arms GarageBayCheck; a parked bay vehicle pings the depot every 60 s (WitM-GarageBayOccupied), which sets it again, so the check spawns only if no ping came in 90 s. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -529,8 +529,8 @@
 			[UseTrigger:false]
 			[Type:PlayerNear]
 			[TargetDistance:1500]
-			[MinCooldownMs:3600000]
-			[MaxCooldownMs:3600001]
+			[MinCooldownMs:7200000]
+			[MaxCooldownMs:7200001]
 			[StartsReady:true]
 			[MaxActions:-1]
 			[Actions:WW2-Depot-Action-GarageBay-Gray]
@@ -543,23 +543,172 @@
 			</Id>
 			<Description>
 			[RivalAI Action]
-			[SpawnEncounter:true]
-			[Spawner:WW2-Depot-Spawn-GarageBay-Gray]
+			[SetBooleansFalse:GarageBayOccupied]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Depot-Trigger-GarageBayCheck-Gray]
+			[ResetCooldownTimeOfTriggers:true]
+			[ResetTriggerCooldownNames:WW2-Depot-Trigger-GarageBayCheck-Gray]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Depot-Spawn-GarageBay-Gray</SubtypeId>
+				<SubtypeId>WW2-Depot-Trigger-GarageBayCheck-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:90000]
+			[MaxCooldownMs:90001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Conditions:WW2-Depot-Condition-GarageBayEmpty]
+			[Actions:WW2-Depot-Action-GarageBaySpawn-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-GarageBaySpawn-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ManuallyActivateTrigger:true]
+			[ManuallyActivatedTriggerTags:DepotGarageBay-Gray]
+			[ForceManualTriggerActivation:false]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Depot-Trigger-GarageBayCheck-Gray]
+			</Description>
+		</EntityComponent>
+<!-- Garage bay (Gray) by War Level: the band picks the spawn group (WL1 = else of the next band's condition); each group draws one vehicle at random from that War Level and below. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-GarageBay-WL1-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotGarageBay-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast2]
+			[UseElseActions:true]
+			[ElseActions:WW2-Depot-Action-GarageBay-WL1-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-GarageBay-WL1-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-GarageBay-WL1-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-GarageBay-WL1-Gray</SubtypeId>
 			</Id>
 			<Description>
 			[RivalAI Spawn]
 			[UseSpawn:true]
 			[StartsReady:true]
 			[SpawningType:CustomSpawn]
-			[SpawnGroups:WW2-DepotGarageBay-Gray]
+			[SpawnGroups:WW2-DepotGarageBay-WL1-Gray]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:20 Y:2 Z:0}]
+			[RelativeSpawnOffset:{X:20 Y:3.75 Z:22.5}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-GarageBay-WL2-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotGarageBay-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly2]
+			[Actions:WW2-Depot-Action-GarageBay-WL2-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-GarageBay-WL2-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-GarageBay-WL2-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-GarageBay-WL2-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotGarageBay-WL2-Gray]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:20 Y:3.75 Z:22.5}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-GarageBay-WL3-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotGarageBay-Gray]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast3]
+			[Actions:WW2-Depot-Action-GarageBay-WL3-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-GarageBay-WL3-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-GarageBay-WL3-Gray]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-GarageBay-WL3-Gray</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotGarageBay-WL3-Gray]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:20 Y:3.75 Z:22.5}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -666,7 +815,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Defense-WL1-Green]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-40}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -709,7 +858,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Defense-WL2-Green]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-40}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -752,7 +901,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Defense-WL3-Green]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-40}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -795,7 +944,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Defense-WL4-Green]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-40}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -838,7 +987,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Defense-WL5-Green]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-40}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -882,7 +1031,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Patrol-WL1-Green]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-60}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -925,7 +1074,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Patrol-WL2-Green]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-60}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -968,7 +1117,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Patrol-WL3-Green]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-60}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -1011,7 +1160,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Patrol-WL4-Green]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-60}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -1054,7 +1203,7 @@
 			[SpawningType:CustomSpawn]
 			[SpawnGroups:WW2-DepotUnit-Patrol-WL5-Green]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:0 Y:2 Z:-40}]
+			[RelativeSpawnOffset:{X:0 Y:4.5 Z:-60}]
 			[IgnoreSafetyChecks:false]
 			</Description>
 		</EntityComponent>
@@ -1079,7 +1228,7 @@
 			[BroadcastChatType:Chat]
 			</Description>
 		</EntityComponent>
-<!-- Garage bay (Green): one of the holder's vehicles parked in the yard while a player is near, at most hourly. -->
+<!-- Garage bay (Green): one of the holder's vehicles parked in the garage, every two hours while a player is near, only if the bay is empty. The check clears GarageBayOccupied and arms GarageBayCheck; a parked bay vehicle pings the depot every 60 s (WitM-GarageBayOccupied), which sets it again, so the check spawns only if no ping came in 90 s. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -1090,8 +1239,8 @@
 			[UseTrigger:false]
 			[Type:PlayerNear]
 			[TargetDistance:1500]
-			[MinCooldownMs:3600000]
-			[MaxCooldownMs:3600001]
+			[MinCooldownMs:7200000]
+			[MaxCooldownMs:7200001]
 			[StartsReady:true]
 			[MaxActions:-1]
 			[Actions:WW2-Depot-Action-GarageBay-Green]
@@ -1104,24 +1253,267 @@
 			</Id>
 			<Description>
 			[RivalAI Action]
-			[SpawnEncounter:true]
-			[Spawner:WW2-Depot-Spawn-GarageBay-Green]
+			[SetBooleansFalse:GarageBayOccupied]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Depot-Trigger-GarageBayCheck-Green]
+			[ResetCooldownTimeOfTriggers:true]
+			[ResetTriggerCooldownNames:WW2-Depot-Trigger-GarageBayCheck-Green]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
-				<SubtypeId>WW2-Depot-Spawn-GarageBay-Green</SubtypeId>
+				<SubtypeId>WW2-Depot-Trigger-GarageBayCheck-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:90000]
+			[MaxCooldownMs:90001]
+			[StartsReady:false]
+			[MaxActions:-1]
+			[Conditions:WW2-Depot-Condition-GarageBayEmpty]
+			[Actions:WW2-Depot-Action-GarageBaySpawn-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-GarageBaySpawn-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ManuallyActivateTrigger:true]
+			[ManuallyActivatedTriggerTags:DepotGarageBay-Green]
+			[ForceManualTriggerActivation:false]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Depot-Trigger-GarageBayCheck-Green]
+			</Description>
+		</EntityComponent>
+<!-- Garage bay (Green) by War Level: the band picks the spawn group (WL1 = else of the next band's condition); each group draws one vehicle at random from that War Level and below. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-GarageBay-WL1-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotGarageBay-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast2]
+			[UseElseActions:true]
+			[ElseActions:WW2-Depot-Action-GarageBay-WL1-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-GarageBay-WL1-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-GarageBay-WL1-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-GarageBay-WL1-Green</SubtypeId>
 			</Id>
 			<Description>
 			[RivalAI Spawn]
 			[UseSpawn:true]
 			[StartsReady:true]
 			[SpawningType:CustomSpawn]
-			[SpawnGroups:WW2-DepotGarageBay-Green]
+			[SpawnGroups:WW2-DepotGarageBay-WL1-Green]
 			[UseRelativeSpawnPosition:true]
-			[RelativeSpawnOffset:{X:20 Y:2 Z:0}]
+			[RelativeSpawnOffset:{X:20 Y:3.75 Z:22.5}]
 			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-GarageBay-WL2-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotGarageBay-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-Exactly2]
+			[Actions:WW2-Depot-Action-GarageBay-WL2-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-GarageBay-WL2-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-GarageBay-WL2-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-GarageBay-WL2-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotGarageBay-WL2-Green]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:20 Y:3.75 Z:22.5}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-GarageBay-WL3-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Manual]
+			[Tags:DepotGarageBay-Green]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Conditions:WW2-WarLevel-Condition-AtLeast3]
+			[Actions:WW2-Depot-Action-GarageBay-WL3-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-GarageBay-WL3-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SpawnEncounter:true]
+			[Spawner:WW2-Depot-Spawn-GarageBay-WL3-Green]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Spawn-GarageBay-WL3-Green</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Spawn]
+			[UseSpawn:true]
+			[StartsReady:true]
+			[SpawningType:CustomSpawn]
+			[SpawnGroups:WW2-DepotGarageBay-WL3-Green]
+			[UseRelativeSpawnPosition:true]
+			[RelativeSpawnOffset:{X:20 Y:3.75 Z:22.5}]
+			[IgnoreSafetyChecks:false]
+			</Description>
+		</EntityComponent>
+<!-- Convoy parking: an escort truck past the gate halt asks with WW2_Convoy_Park (Convoy-Trucks.sbc); the depot assigns it its closest free spot (the depot's EscortOffsets) with the convoy's shared WW2-Convoy-Action-AssignSlot. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-ConvoyParkAssign</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:WW2_Convoy_Park]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Convoy-Action-AssignSlot]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Condition-GarageBayEmpty</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Condition]
+			[UseConditions:true]
+			[MatchAnyCondition:false]
+			[CheckFalseBooleans:true]
+			[FalseBooleans:GarageBayOccupied]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-GarageBayOccupied</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:WitM-GarageBayOccupied]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Depot-Action-GarageBayOccupied]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-GarageBayOccupied</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[SetBooleansTrue:GarageBayOccupied]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Trigger-GarageBayPing</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Depot-Action-GarageBayPing]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Depot-Action-GarageBayPing</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[BroadcastCommandProfiles:true]
+			[CommandProfileIds:WW2-Command-GarageBayPing]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Command-GarageBayPing</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Command]
+			[CommandCode:WitM-GarageBayOccupied]
+			[IgnoreAntennaRequirement:true]
+			[IgnoreReceiverAntennaRequirement:true]
+			[Radius:150]
 			</Description>
 		</EntityComponent>
 	</EntityComponents>

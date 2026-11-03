@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Airfield beacon text '<Site> Airfield' (owner 2026-10-30), set at spawn like the depots' (WW2-Tool-GenDepots.py): the literal pattern goes to the HUD text of the beacon whose name contains 'Airfield Block'; the grid keeps its name. The airfield prefab beacons broadcast 2 km. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Name-Airfield-Gibraltar</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Gibraltar Airfield]
+			[RenameGrid:false]
+			[ReplaceBeaconNameWithRandomizedName:Airfield Block]
+			[ReplaceBeaconHudTextInsteadOfName:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Name-Airfield-Bizerte</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Bizerte Airfield]
+			[RenameGrid:false]
+			[ReplaceBeaconNameWithRandomizedName:Airfield Block]
+			[ReplaceBeaconHudTextInsteadOfName:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Name-Airfield-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Tripoli Airfield]
+			[RenameGrid:false]
+			[ReplaceBeaconNameWithRandomizedName:Airfield Block]
+			[ReplaceBeaconHudTextInsteadOfName:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Name-Airfield-Foggia</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Foggia Airfield]
+			[RenameGrid:false]
+			[ReplaceBeaconNameWithRandomizedName:Airfield Block]
+			[ReplaceBeaconHudTextInsteadOfName:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Name-Airfield-Casablanca</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Casablanca Airfield]
+			[RenameGrid:false]
+			[ReplaceBeaconNameWithRandomizedName:Airfield Block]
+			[ReplaceBeaconHudTextInsteadOfName:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Name-Airfield-Benghazi</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Benghazi Airfield]
+			[RenameGrid:false]
+			[ReplaceBeaconNameWithRandomizedName:Airfield Block]
+			[ReplaceBeaconHudTextInsteadOfName:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-Name-Airfield-Tobruk</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Tobruk Airfield]
+			[RenameGrid:false]
+			[ReplaceBeaconNameWithRandomizedName:Airfield Block]
+			[ReplaceBeaconHudTextInsteadOfName:true]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

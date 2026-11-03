@@ -18,6 +18,7 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Airfield-Gibraltar]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Name-Airfield-Gibraltar]
 
 		[GridsAreEditable:false]
 		[GridsAreDestructable:false]
@@ -52,6 +53,7 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Airfield-Bizerte]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Name-Airfield-Bizerte]
 
 		[GridsAreEditable:false]
 		[GridsAreDestructable:false]
@@ -86,6 +88,7 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Airfield-Tripoli]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Name-Airfield-Tripoli]
 
 		[GridsAreEditable:false]
 		[GridsAreDestructable:false]
@@ -120,6 +123,7 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Airfield-Foggia]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Name-Airfield-Foggia]
 
 		[GridsAreEditable:false]
 		[GridsAreDestructable:false]
@@ -154,6 +158,7 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Airfield-Casablanca]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Name-Airfield-Casablanca]
 
 		[GridsAreEditable:false]
 		[GridsAreDestructable:false]
@@ -188,6 +193,41 @@
 
 		[SpawnConditionsProfiles:WW2-SpawnConditions-Airfield-Benghazi]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Name-Airfield-Benghazi]
+
+		[GridsAreEditable:false]
+		[GridsAreDestructable:false]
+		[IgnoreCleanupRules:true]
+
+		[FactionOverride:UNOWNED]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>false</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Airport-Benghazi">
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-Airfield</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Airfield-Tobruk</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Airfield-Tobruk]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Name-Airfield-Tobruk]
 
 		[GridsAreEditable:false]
 		[GridsAreDestructable:false]

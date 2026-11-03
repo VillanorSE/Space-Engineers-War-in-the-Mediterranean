@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Garages by War Level band (WL1 = below 2, WL2 = exactly 2, WL3 = 3 and up; the bands never overlap, so a faction's garage weight is the same at every War Level).
+     Prefab order in the group: 0 building, 1..n the band's vehicles, then the truck (Garage2). RandomSelectedIndexes spawns the building, one vehicle
+     (equal odds) and the truck (SpawnGroupCollection.cs). -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Garage1-WL1</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[PlanetaryInstallation:true]
+			[InstallationSpawnsOnDryLand:true]
+			[MaxWaterCoverage:0.6]
+			[InstallationTerrainValidation:true]
+			[DisallowedTerrainTypes:SoilDry]
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:Less]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Building,Vehicle]
+			[PrefabIndexGroupValues:0,1]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Garage2-WL1</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[PlanetaryInstallation:true]
+			[InstallationSpawnsOnDryLand:true]
+			[MaxWaterCoverage:0.6]
+			[InstallationTerrainValidation:true]
+			[DisallowedTerrainTypes:SoilDry]
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:Less]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Building,Vehicle,Truck]
+			[PrefabIndexGroupValues:0,1,2]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Garage1-WL2</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[PlanetaryInstallation:true]
+			[InstallationSpawnsOnDryLand:true]
+			[MaxWaterCoverage:0.6]
+			[InstallationTerrainValidation:true]
+			[DisallowedTerrainTypes:SoilDry]
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:Equal]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Building,Vehicle,Vehicle]
+			[PrefabIndexGroupValues:0,1,2]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Garage2-WL2</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[PlanetaryInstallation:true]
+			[InstallationSpawnsOnDryLand:true]
+			[MaxWaterCoverage:0.6]
+			[InstallationTerrainValidation:true]
+			[DisallowedTerrainTypes:SoilDry]
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:Equal]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Building,Vehicle,Vehicle,Truck]
+			[PrefabIndexGroupValues:0,1,2,3]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Garage1-WL3</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[PlanetaryInstallation:true]
+			[InstallationSpawnsOnDryLand:true]
+			[MaxWaterCoverage:0.6]
+			[InstallationTerrainValidation:true]
+			[DisallowedTerrainTypes:SoilDry]
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Building,Vehicle,Vehicle,Vehicle]
+			[PrefabIndexGroupValues:0,1,2,3]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-Garage2-WL3</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[PlanetaryInstallation:true]
+			[InstallationSpawnsOnDryLand:true]
+			[MaxWaterCoverage:0.6]
+			[InstallationTerrainValidation:true]
+			[DisallowedTerrainTypes:SoilDry]
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:3]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Building,Vehicle,Vehicle,Vehicle,Truck]
+			[PrefabIndexGroupValues:0,1,2,3,4]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

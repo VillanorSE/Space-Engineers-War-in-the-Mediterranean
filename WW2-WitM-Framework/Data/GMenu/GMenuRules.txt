@@ -71,6 +71,8 @@ rule Logistics   2499720849 * *
 rule Armor      2758773086 CubeBlock *ArmorPanel*
 rule Power       2844434226 ExhaustBlock SmallExhaustPipe,LargeExhaustPipe
 rule Armor      @NAVAL Conveyor *Barbette*
+# Flatbed parts (VAP lists them in A51Decorative) go with the vehicle parts (owner 2026-10-28)
+rule Ground      * * *Flatbed*
 
 # --- 3. Weapons ---
 rule WpnAir      @ORDNANCE * *

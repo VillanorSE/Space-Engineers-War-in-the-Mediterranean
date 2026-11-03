@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+
+<!-- Shares garage vehicle blocks with everyone, so players can use them without hacking.
+     MES spawns give every block to the faction with Faction sharing (SE overwrites any ShareMode in the prefab),
+     so this runs after spawn. Matches exact block names across the Player garage vehicles (owner kept);
+     names a vehicle doesn't have are skipped. Memory: npc_vehicle_share_all. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-ShareAll</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:true]
+			[Type:Timer]
+
+			[MinCooldownMs:500]
+			[MaxCooldownMs:501]
+			[StartsReady:true]
+
+			[MaxActions:1]
+			[Actions:WW2-Action-ShareAll]
+
+			</Description>
+        </EntityComponent>
+
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Action-ShareAll</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Action]
+
+			[ChangeBlocksShareModeAll:true]
+			[//Seats]
+			[BlockNamesShareModeAll:Seat - Driver,Seat - Passenger,Tank Seat,Tank Seat - Driver,Tank Seat - Passenger,Tank Seat - Rear]
+			[//Wheels and tracks]
+			[BlockNamesShareModeAll:Sprocket Suspension - Front Left,Sprocket Suspension - Front Right,Sprocket Suspension - L1,Sprocket Suspension - L2,Sprocket Suspension - R1,Sprocket Suspension - R2,Sprocket Suspension - Rear Left,Sprocket Suspension - Rear Right,Wheel Suspension - L1,Wheel Suspension - L2,Wheel Suspension - L3,Wheel Suspension - R1,Wheel Suspension - R2,Wheel Suspension - R3]
+			[//Hatches and doors]
+			[BlockNamesShareModeAll:Cupola Hatch - Top,Hatch,Hatch - Rear 1,Hatch - Rear 2,Hinge - Front hatch,Sliding Hatch - Back,Sloped Hatch - Front,Tank Hatch - Back,Tank Hatch - Rear,Tank Hatch - Side,Tank Hatch - Side Large,Tank Hatch - Side Small,Tank Hatch - Top,Tank hatch - Side Large]
+			[//Cargo]
+			[BlockNamesShareModeAll:Cargo - Quarter Stowage Crate,Cargo - Stowage Crate,Cargo Container,Cargo Container - Cabin,Cargo Container - Gun,Cargo Container - Side,Medium Cargo Container,Medium Cargo Container 1,Small Cargo Container 1,Small Cargo Container 2,Small Cargo Container 3,Small Cargo Container 4,Small Cargo Container Gun,Survival Kit]
+			[//Power and fuel]
+			[BlockNamesShareModeAll:12V Car Battery 1,12V Car Battery 2,Battery,Connector,Exhaust Pipe,Fuel Can 15L 1,Fuel Can 15L 2,Fuel Can 15L 3,Fuel Can 15L 4,Fuel Tank,Fuel Tank 1,Fuel Tank 2,Fuel Tank 3,Gyroscope,Gyroscope - Tiny Transmission,Hydrogen Engine,Inline Hydrogen Engine,Karston Singlebank Engine,Small Battery 1,Small Battery 2,Small Hydrogen Tank,Tank Engine 1,Tank Engine 2,Vehicle Battery]
+			[//Lights]
+			[BlockNamesShareModeAll:Headlight - Left,Headlight - Right,Light,Light - Front,Light - Front Left,Light - Front Right,Light - Left,Light - Rear,Light - Rear Left,Light - Rear Right,Light - Right,Spotlight Headlight,Tail Light]
+			[//Guns and turrets]
+			[BlockNamesShareModeAll:Gunsight Camera,Gunsight Camera - Gun,Gunsight Optic,Light Machine Gun,Light Machine Gun - Rear,Light Machine Gun - Top,MG-7A Coaxial Machine Gun,Machine Gun,Main Gun,Slim Rotor - Elevation,Turret Controller,Turret Ring Rotor - Azimuth,TurretRing Rotor - Azimuth]
+			[//Optics and panels]
+			[BlockNamesShareModeAll:Button Panel,Camera,Periscope,Vision Port Camera]
+
+			</Description>
+        </EntityComponent>
+<!-- End Shares garage vehicle blocks -->
+
+	</EntityComponents>
+</Definitions>

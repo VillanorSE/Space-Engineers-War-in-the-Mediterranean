@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<EntityComponents>
-<!-- Supply convoy trucks, spawned only by the port convoy triggers (Triggers-Convoy-Port.sbc). WarLevel is unset at level 1, so an unset counter fails these checks, which is what slots 3-5 need. -->
+<!-- Supply convoy trucks, spawned only by the port convoy triggers (Triggers-Convoy-Port.sbc). Slots 3-5 gate on WarLevel >= 3/4/5, so level 1 (seeded) and 2 fail them, as intended. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>

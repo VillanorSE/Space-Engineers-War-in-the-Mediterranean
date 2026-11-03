@@ -231,7 +231,7 @@
               <Min x="-2" y="2" z="-13" />
               <BlockOrientation Forward="Up" Up="Left" />
               <ColorMaskHSV x="0.105555557" y="-0.39" z="0.06" />
-              <CustomName>Wheel Suspension - Left Front</CustomName>
+              <CustomName>Wheel Suspension - L1</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -531,6 +531,7 @@
                   </ComponentData>
                 </Components>
               </ComponentContainer>
+              <CustomName>Fuel Tank</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -1425,7 +1426,7 @@
                         <dictionary>
                           <item>
                             <Key>75bbb4f5-4fb9-4230-beef-bb79c9811501</Key>
-                            <Value>+nzZAQoJCAAQGR0AAAAAEssBCAASQC0AAEhCMjkIABAAGAAgACgAMABIAFgAeACAAQCQAQCgAQCwAQDAAQDQAQDYAQDoAQDwAQD4AQGwAgDQAgDgAgAaRBIJDQAAAAAQACAXGAAgl4CAgICAgIACMAA4AEAASABSIxobCQAAAAAAAAAAIQAAAAAAAAAAOQAAAAAAAAAAIAAoADAAIi0IABAAIAAqBiCC////BzIbCQAAAAAAAAAAIQAAAAAAAAAAOQAAAAAAAAAAOAAqEAgAIAEoADAAOA9AAUgAUAAIIg==</Value>
+                            <Value>+nzZAQoJCAAQGR0AAAAAEssBCAASQC0AAEhDMjkIABAAGAAgACgAMABIAFgAeACAAQCQAQCgAQCwAQDAAQDQAQDYAQDoAQDwAQD4AQGwAgDQAgDgAgAaRBIJDQAAAAAQACAXGAAgl4CAgICAgIACMAA4AEAASABSIxobCQAAAAAAAAAAIQAAAAAAAAAAOQAAAAAAAAAAIAAoADAAIi0IABAAIAAqBiCC////BzIbCQAAAAAAAAAAIQAAAAAAAAAAOQAAAAAAAAAAOAAqEAgAIAEoADAAOA9AAUgAUAAIIg==</Value>
                           </item>
                         </dictionary>
                       </Storage>
@@ -2141,7 +2142,7 @@
               <Min x="2" y="2" z="-13" />
               <BlockOrientation Forward="Up" Up="Right" />
               <ColorMaskHSV x="0.105555557" y="-0.39" z="0.06" />
-              <CustomName>Wheel Suspension - Right Front</CustomName>
+              <CustomName>Wheel Suspension - R1</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -2179,7 +2180,7 @@
               <Min x="-2" y="2" z="-4" />
               <BlockOrientation Forward="Up" Up="Left" />
               <ColorMaskHSV x="0.105555557" y="-0.39" z="0.06" />
-              <CustomName>Wheel Suspension - Left Rear</CustomName>
+              <CustomName>Wheel Suspension - L3</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -2217,7 +2218,7 @@
               <Min x="2" y="2" z="-4" />
               <BlockOrientation Forward="Up" Up="Right" />
               <ColorMaskHSV x="0.105555557" y="-0.39" z="0.06" />
-              <CustomName>Wheel Suspension - Right Rear</CustomName>
+              <CustomName>Wheel Suspension - R3</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -2290,7 +2291,7 @@
               <Min x="-2" y="3" z="-9" />
               <BlockOrientation Forward="Up" Up="Left" />
               <ColorMaskHSV x="0.105555557" y="-0.39" z="0.06" />
-              <CustomName>Wheel Suspension - Left Middle</CustomName>
+              <CustomName>Wheel Suspension - L2</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -2329,7 +2330,7 @@
               <Min x="2" y="3" z="-9" />
               <BlockOrientation Forward="Up" Up="Right" />
               <ColorMaskHSV x="0.105555557" y="-0.39" z="0.06" />
-              <CustomName>Wheel Suspension - Right Middle</CustomName>
+              <CustomName>Wheel Suspension - R2</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -2549,6 +2550,7 @@
               <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.105555557" y="-0.39" z="0.06" />
               <ShareMode>Faction</ShareMode>
+              <CustomName>Battery</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
@@ -2700,6 +2702,7 @@
                 </SlotsGamepad>
               </Toolbar>
               <SelectedGunId xsi:nil="true" />
+              <IsMainCockpit>true</IsMainCockpit>
               <BuildToolbar>
                 <ToolbarType>Character</ToolbarType>
                 <SelectedSlot xsi:nil="true" />
@@ -3006,30 +3009,6 @@
                       </TextPanelsContents>
                     </Component>
                   </ComponentData>
-                  <ComponentData>
-                    <TypeId>MyModStorageComponent</TypeId>
-                    <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-                      <Storage>
-                        <dictionary>
-                          <item>
-                            <Key>74de02b3-27f9-4960-b1c4-27351f2b06d1</Key>
-                            <Value>[WitM Suspension Assist]
-Group name=Suspension Assist
-Ride height control=true
-Sag below the offset (% of travel)=25
-Follow mass changes=true
-Bump stop starts at (% of travel)=60
-Bump stop extra stiffness at the end (%)=300
-Rebound softening (%)=25
-Anti-roll in turns (%)=100
-Min strength (%)=2
-Max strength (%)=100
-</Value>
-                          </item>
-                        </dictionary>
-                      </Storage>
-                    </Component>
-                  </ComponentData>
                 </Components>
               </ComponentContainer>
               <CustomName>PB - Driving Assist</CustomName>
@@ -3066,9 +3045,14 @@ Setup:
 3.) Set each suspension's Height (offset) to the ride height you want; the script never changes
     it. The Strength you set is only the starting point; "off" and "reset" put it back.
 4.) Calibration: the script has to learn where each wheel sits in its travel. The first time the
-    vehicle stands still on the ground it lowers it onto its suspension stops for about two
+    vehicle stands still on the ground with a driver it lowers it onto its suspension stops for about two
     seconds, measures, and raises it back. It does this again after a wheel is replaced, or after
-    "calibrate".
+    "calibrate". After 3 failed tries in a row it waits until the vehicle has driven. It also waits
+    while the vehicle is static (a station).
+5.) It only works while someone drives: a player in a seat that controls the vehicle, or at its
+    remote control. With nobody driving it checks for a driver about every 1.7 seconds and does
+    nothing else (the springs keep their base strengths), so parked vehicles cost the server
+    almost nothing.
 
 Don't run it together with Tank Drive's load balancing: both set Strength.
 
@@ -3080,8 +3064,8 @@ Arguments:
              again from the current settings
 */
 
-const string VERSION = "1.0";
-const string DATE = "2026/10/24";
+const string VERSION = "1.2";
+const string DATE = "2026/10/30";
 const string SECTION = "WitM Suspension Assist";
 
 // Custom Data settings (defaults)
@@ -3099,6 +3083,9 @@ const double MEAN_TIME = 2;          // s: sag is averaged this long before the 
 const double ADAPT_TIME = 4;         // s: time constant of the ride-height correction
 const double MIN_MULT = 0.3, MAX_MULT = 4;   // limits on the moment-to-moment stiffness change
 const int CAL_MIN_STEPS = 30, CAL_MAX_STEPS = 200, CAL_STEADY_STEPS = 10;
+const int CAL_TRIES = 3;            // failed calibrations in a row before it waits for the vehicle to drive
+const double DRIVE_SPEED = 3;        // m/s: driving this fast allows new calibration tries
+const int ECHO_TIME = 10;            // s: the readout's numbers are rewritten at most this often
 
 // Engine facts (decompiled MyMotorSuspension, 2026-10-24): the spring strength the physics gets is
 // (Strength/100) squared, so the script works in that "stiffness" K and writes Strength = 100 * sqrt(K).
@@ -3127,11 +3114,12 @@ readonly List&lt;IMyShipController&gt; ctrls = new List&lt;IMyShipController&gt;
 readonly HashSet&lt;long&gt; seen = new HashSet&lt;long&gt;();
 readonly List&lt;long&gt; stale = new List&lt;long&gt;();
 readonly StringBuilder echo = new StringBuilder();
-string statusText = "Starting", warnText = "", lastCustomData;
+string statusText = "Starting", warnText = "", lastCustomData, lastEcho, lastEchoHead;
+long lastEchoTick;
 IMyShipController ctrl;
-bool running = true, rescan;
+bool running = true, rescan, idle;
 long tick;
-int steps, stillSteps, quietSteps, calStep = -1, calSteady;
+int steps, stillSteps, quietSteps, calStep = -1, calSteady, calFails;
 double massRef, mass, aLat;
 
 public Program() {
@@ -3245,26 +3233,30 @@ void Setup() {
 public void Main(string argument, UpdateType updateSource) {
   var arg = (argument ?? "").Trim().ToLowerInvariant();
   if (arg != "") Command(arg);
-  if ((updateSource &amp; UpdateType.Update1) == 0) { Report(); return; }
-  if (++tick % CYCLE != 0) return;
-  Step();
-  if (++steps % 10 == 0) Report();
+  if ((updateSource &amp; UpdateType.Update100) != 0) { if (running &amp;&amp; idle &amp;&amp; Driven()) Wake(); }
+  else if ((updateSource &amp; UpdateType.Update1) == 0) Report();
+  else if (++tick % CYCLE == 0) { Step(); if (++steps % 10 == 0) Report(); }
+  // The game clears the K menu's info text at the start of every run (decompiled MyProgrammableBlock,
+  // 2026-10-28), so a run without an Echo blanks it and the panel (and Build Info's section) jumps.
+  // Echo the same text every run.
+  Echo(lastEcho ?? "");
 }
 
 void Command(string arg) {
   if (arg == "calibrate") {
     foreach (var w in known.Values) { w.C = double.NaN; w.Failed = false; }
+    calFails = 0;
     statusText = "Calibration requested: stop the vehicle on the ground."; }
   else if (arg == "off") {
-    StopCalibration(); Restore(); running = false;
+    StopCalibration(); Restore(); running = false; idle = false;
     Runtime.UpdateFrequency = UpdateFrequency.None;
     statusText = "Off: strengths restored. Run \"on\" to start again."; Save(); }
   else if (arg == "on") {
-    running = true; Runtime.UpdateFrequency = UpdateFrequency.Update1; rescan = true;
+    running = true; idle = false; Runtime.UpdateFrequency = UpdateFrequency.Update1; rescan = true;
     statusText = "Starting"; }
   else if (arg == "reset") {
-    StopCalibration(); Restore(); known.Clear(); massRef = 0; quietSteps = 0;
-    running = true; Runtime.UpdateFrequency = UpdateFrequency.Update1; Setup();
+    StopCalibration(); Restore(); known.Clear(); massRef = 0; quietSteps = 0; calFails = 0;
+    running = true; idle = false; Runtime.UpdateFrequency = UpdateFrequency.Update1; Setup();
     statusText = "Reset: strengths restored, calibration and learned strengths forgotten."; Save(); }
   else statusText = "Unknown argument \"" + arg + "\". Use calibrate, off, on or reset.";
 }
@@ -3274,6 +3266,8 @@ void Step() {
   if (rescan || tick % 600 == 0) Setup();
   ctrl = PickController();
   if (ctrl == null) { StopCalibration(); statusText = "No working seat or remote control on the vehicle's body."; Hold(); return; }
+  if (!(ctrl.IsUnderControl &amp;&amp; ctrl.CanControlShip)) { Sleep(); return; }
+  if (Me.CubeGrid.IsStatic) { StopCalibration(); stillSteps = 0; statusText = "Vehicle is static (a station): waiting."; Hold(); return; }
   var grav = ctrl.GetNaturalGravity();
   if (grav.LengthSquared() &lt; 0.01) { StopCalibration(); statusText = "No gravity: waiting."; Hold(); return; }
   var down = Vector3D.Normalize(grav);
@@ -3281,6 +3275,7 @@ void Step() {
   var flat = vel.LinearVelocity - Vector3D.Dot(vel.LinearVelocity, down) * down;
   bool still = vel.LinearVelocity.Length() &lt; 0.2 &amp;&amp; vel.AngularVelocity.Length() &lt; 0.05;
   stillSteps = still ? stillSteps + 1 : 0;
+  if (flat.Length() &gt; DRIVE_SPEED) calFails = 0;
 
   if (calStep &gt;= 0) { Calibrate(flat.Length()); return; }
 
@@ -3295,7 +3290,7 @@ void Step() {
     var s = w.S;
     if (s.Closed || !s.IsAttached || s.Top == null) { w.HavePrev = false; continue; }
     w.Side = Vector3D.Dot(s.GetPosition() - com, right) &lt; 0 ? 1 : -1;
-    if (s.Top.EntityId != w.TopId) { w.C = double.NaN; w.Failed = false; w.TopId = s.Top.EntityId; }
+    if (s.Top.EntityId != w.TopId) { w.C = double.NaN; w.Failed = false; w.TopId = s.Top.EntityId; calFails = 0; }
     if (double.IsNaN(w.C)) { if (!w.Failed) needCal = true; w.HavePrev = false; continue; }
     double sag = w.Sign * (X(w) - w.C - s.Height);
     w.Travel = Math.Max(0.01, w.Sign * (w.StopH - s.Height));
@@ -3304,9 +3299,12 @@ void Step() {
     w.Sag = sag; w.HavePrev = true; w.Ok = true;
     up += w.Sign * s.WorldMatrix.Forward; n++; }
 
-  if (needCal &amp;&amp; stillSteps &gt;= 20) { StartCalibration(down); return; }
+  bool gaveUp = calFails &gt;= CAL_TRIES;
+  if (needCal &amp;&amp; !gaveUp &amp;&amp; stillSteps &gt;= 20) { StartCalibration(down); return; }
   if (n == 0) {
-    statusText = needCal ? "Waiting to calibrate: stop the vehicle on the ground." : "No calibrated wheels.";
+    statusText = !needCal ? "No calibrated wheels."
+      : gaveUp ? "Calibration failed " + CAL_TRIES + " times: it tries again after the vehicle drives, or run \"calibrate\"."
+      : "Waiting to calibrate: stop the vehicle on the ground.";
     return; }
   statusText = needCal ? "Running; some wheels wait for calibration (stop on the ground)." : "Running";
   double tilt = Math.Acos(MathHelper.Clamp(Vector3D.Dot(Vector3D.Normalize(up), -down), -1, 1));
@@ -3372,6 +3370,26 @@ void SetStrength(Wheel w, double v) {
   if (Math.Abs(target - cur) &gt;= Math.Max(0.2f, 0.02f * cur)) w.S.Strength = target;
 }
 
+// Nobody drives: base strengths, then only a cheap check for a driver every 100 ticks.
+void Sleep() {
+  StopCalibration(); Hold(); stillSteps = 0; quietSteps = 0;
+  idle = true; Runtime.UpdateFrequency = UpdateFrequency.Update100;
+  statusText = "Nobody driving: waiting.";
+  Report();
+}
+
+void Wake() {
+  idle = false; rescan = true; Runtime.UpdateFrequency = UpdateFrequency.Update1;
+  statusText = "Starting";
+}
+
+bool Driven() {
+  // The block list is read again each time, so a seat rebuilt while parked is found.
+  GridTerminalSystem.GetBlocksOfType(ctrls, c =&gt; c.CubeGrid == Me.CubeGrid);
+  foreach (var c in ctrls) if (!c.Closed &amp;&amp; c.IsFunctional &amp;&amp; c.IsUnderControl &amp;&amp; c.CanControlShip) return true;
+  return false;
+}
+
 IMyShipController PickController() {
   IMyShipController best = null;
   foreach (var c in ctrls) {
@@ -3413,12 +3431,12 @@ void StartCalibration(Vector3D down) {
 void Calibrate(double flatSpeed) {
   foreach (var w in calWheels)
     if (w.S.Closed || !w.S.IsAttached || w.S.Top == null) { StopCalibration(); statusText = "Calibration stopped: a wheel came off."; return; }
-  if (flatSpeed &gt; 1) { StopCalibration(); statusText = "Calibration stopped: the vehicle moved. It retries when it stands still."; return; }
+  if (flatSpeed &gt; 1) { StopCalibration(); calFails++; statusText = "Calibration stopped: the vehicle moved. It retries when it stands still."; return; }
   calStep++;
   bool steady = true;
   foreach (var w in calWheels) { double x = X(w); if (Math.Abs(x - w.PrevX) &gt; 0.001) steady = false; w.PrevX = x; }
   calSteady = steady ? calSteady + 1 : 0;
-  if (calStep &gt;= CAL_MAX_STEPS) { StopCalibration(); statusText = "Calibration stopped: the wheels didn't settle. It retries when the vehicle stands still."; return; }
+  if (calStep &gt;= CAL_MAX_STEPS) { StopCalibration(); calFails++; statusText = "Calibration stopped: the wheels didn't settle. It retries when the vehicle stands still."; return; }
   if (calStep &lt; CAL_MIN_STEPS || calSteady &lt; CAL_STEADY_STEPS) return;
 
   int bad = 0;
@@ -3431,7 +3449,7 @@ void Calibrate(double flatSpeed) {
     double sagBefore = w.Sign * (w.X0 - w.C - w.CalH), travel = w.Sign * (w.StopH - w.CalH);
     if (moved &lt; -0.01 || sagBefore &lt; -0.05 || sagBefore &gt; travel + 0.05) { w.C = double.NaN; w.Failed = true; bad++; }
     w.HavePrev = false; }
-  StopCalibration();
+  StopCalibration(); calFails = 0;
   statusText = bad == 0 ? "Calibrated." : "Calibration failed on " + bad + " wheel(s); they are left alone. Run \"calibrate\" to retry.";
   Save();
 }
@@ -3459,10 +3477,13 @@ void Report() {
       if (w.Ok) echo.Append(w.Sag.ToString("0.00")).Append(" / ").Append((sagPct / 100.0 * w.Travel).ToString("0.00")).Append(" m");
       else echo.Append(w.Failed ? "calibration failed" : "not calibrated");
       echo.Append('\n'); } }
-  Echo(echo.ToString());
+  // The numbers change all the time; a status change shows at once, the numbers at most every ECHO_TIME seconds.
+  var head = statusText + warnText + running;
+  if (head == lastEchoHead &amp;&amp; tick - lastEchoTick &lt; ECHO_TIME * 60) return;
+  lastEcho = echo.ToString(); lastEchoHead = head; lastEchoTick = tick;
 }
 </Program>
-              <Storage>v1|15272800781|1|101520079261663041,140212341904079763,-214372,1000000,250000,10206,10102301;108270185948031293,132068518583486322,-214341,1000000,250000,10461,10227669;134691000420035956,113629685743246307,-214344,1000000,250000,10249,10123872;107372480045334325,90395952343655745,-214341,1000000,250000,9815,9906952;107996524836292632,105800692678120160,-214257,1000000,250000,25813,16066553;128084256966116521,77244420884559120,-214255,1000000,250000,25624,16007399;|</Storage>
+              <Storage />
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_MyProgrammableBlock">
               <SubtypeName>SmallProgrammableBlockReskin</SubtypeName>
@@ -4833,6 +4854,7 @@ public sealed class VariableReference
               </Blocks>
             </MyObjectBuilder_BlockGroup>
           </BlockGroups>
+          <Handbrake>true</Handbrake>
           <DisplayName>Armored Car - AB 41</DisplayName>
           <Icon>Textures\GUI\Icons\StoreVehicles\AB41.png</Icon>
           <TooltipImage>Textures\GUI\Icons\StoreVehicles\AB41.png</TooltipImage>
