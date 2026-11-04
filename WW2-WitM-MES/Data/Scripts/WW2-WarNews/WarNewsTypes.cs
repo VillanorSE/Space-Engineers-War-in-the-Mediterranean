@@ -47,9 +47,28 @@ namespace WW2WitM.WarNewsSystem
         [ProtoMember(4)] public int Clock;
     }
 
+    // One active supply run for the "Supply Runs" LCD: a truck column (all live, undelivered trucks of one route) or a cargo ship.
+    // Built on the server every 10 s (WW2WitM.Supply.SupplyRuns); the LCD shows its own side's runs in full, the other side's as type only.
+    [ProtoContract]
+    public class SupplyRun
+    {
+        [ProtoMember(1)] public string Faction = "";
+        [ProtoMember(2)] public bool Ship;
+        [ProtoMember(3)] public string From = "";
+        [ProtoMember(4)] public string To = "";
+        [ProtoMember(5)] public int Count;
+        // The lead truck (lowest start slot) or the ship.
+        [ProtoMember(6)] public double X;
+        [ProtoMember(7)] public double Y;
+        [ProtoMember(8)] public double Z;
+        // Straight-line metres to the destination site; negative if unknown.
+        [ProtoMember(9)] public double ToGo = -1;
+    }
+
     // Network packet on WarNewsSession.NetChannel. Kind: 1 full feed (server to one client), 2 one new item (server to all), 3 feed request (client to server),
     // 4 admin /witm command (client to server, Text), 5 command reply (server to one client, Text; Screen = show as a report window),
-    // 6 faction scores (server to all). Kinds 1 and 6 carry the scores.
+    // 6 faction scores (server to all), 7 active supply runs (server to all, or to one client after its feed request; Runs).
+    // Kinds 1 and 6 carry the scores.
     [ProtoContract]
     public class WarNewsPacket
     {
@@ -59,5 +78,6 @@ namespace WW2WitM.WarNewsSystem
         [ProtoMember(4)] public bool Screen;
         [ProtoMember(5)] public int GrayScore;
         [ProtoMember(6)] public int GreenScore;
+        [ProtoMember(7)] public List<SupplyRun> Runs = new List<SupplyRun>();
     }
 }

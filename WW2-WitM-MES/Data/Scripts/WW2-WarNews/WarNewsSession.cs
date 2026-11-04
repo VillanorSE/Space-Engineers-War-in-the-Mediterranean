@@ -56,7 +56,11 @@ namespace WW2WitM.WarNewsSystem
         public static int GrayScore { get { return WarNewsSession.Instance != null ? WarNewsSession.Instance.GrayScore : 0; } }
         public static int GreenScore { get { return WarNewsSession.Instance != null ? WarNewsSession.Instance.GreenScore : 0; } }
 
+        // Active supply runs, both sides (server and clients; SupplyRunsTss filters by side). Refreshed every 10 s.
+        public static IList<SupplyRun> Runs { get { return WarNewsSession.Instance != null ? WarNewsSession.Instance.Runs : EmptyRuns; } }
+
         private static readonly List<NewsItem> EmptyItems = new List<NewsItem>();
+        private static readonly List<SupplyRun> EmptyRuns = new List<SupplyRun>();
     }
 
     [MySessionComponentDescriptor(MyUpdateOrder.AfterSimulation)]
@@ -67,6 +71,7 @@ namespace WW2WitM.WarNewsSystem
         public const int MaxItems = 20;
         private const int MarkerUpdateTicks = 600;
         private const int ScoreUpdateTicks = 600;
+        private const int RunsUpdateTicks = 600;
         private const double RetiredKeepSeconds = 48 * 3600;
         private const double DuplicateWindowSeconds = 60;
         private const int ClockVersion = 2;
@@ -80,6 +85,7 @@ namespace WW2WitM.WarNewsSystem
         public int FeedVersion;
         public int GrayScore;
         public int GreenScore;
+        public readonly List<SupplyRun> Runs = new List<SupplyRun>();
 
         private readonly List<MarkerState> markers = new List<MarkerState>();
         private readonly List<RetiredName> retired = new List<RetiredName>();
@@ -169,11 +175,30 @@ namespace WW2WitM.WarNewsSystem
                     var packet = new WarNewsPacket { Kind = 6, GrayScore = GrayScore, GreenScore = GreenScore };
                     MyAPIGateway.Multiplayer.SendMessageToOthers(NetChannel, MyAPIGateway.Utilities.SerializeToBinary(packet));
                 }
+
+                if (tick % RunsUpdateTicks == 0)
+                    UpdateRuns();
             }
             catch (Exception e)
             {
                 Log("update: " + e);
             }
+        }
+
+        // ---------------- supply runs (Supply Runs LCD) ----------------
+
+        private void UpdateRuns()
+        {
+            WW2WitM.Supply.SupplyRuns.Build(Runs);
+            if (MyAPIGateway.Multiplayer.MultiplayerActive)
+                MyAPIGateway.Multiplayer.SendMessageToOthers(NetChannel, MyAPIGateway.Utilities.SerializeToBinary(RunsPacket()));
+        }
+
+        private WarNewsPacket RunsPacket()
+        {
+            var packet = new WarNewsPacket { Kind = 7 };
+            packet.Runs.AddRange(Runs);
+            return packet;
         }
 
         // ---------------- feed ----------------
@@ -238,11 +263,19 @@ namespace WW2WitM.WarNewsSystem
                     var reply = new WarNewsPacket { Kind = 1, GrayScore = GrayScore, GreenScore = GreenScore };
                     reply.Items.AddRange(Items);
                     MyAPIGateway.Multiplayer.SendMessageTo(NetChannel, MyAPIGateway.Utilities.SerializeToBinary(reply), sender);
+                    MyAPIGateway.Multiplayer.SendMessageTo(NetChannel, MyAPIGateway.Utilities.SerializeToBinary(RunsPacket()), sender);
                     return;
                 }
 
                 if (!fromServer)
                     return;
+                if (packet.Kind == 7)
+                {
+                    Runs.Clear();
+                    if (packet.Runs != null)
+                        Runs.AddRange(packet.Runs);
+                    return;
+                }
                 if (packet.Kind == 5)
                 {
                     WW2WitM.Refresh.RefreshSession.ShowReply(packet.Text, packet.Screen);

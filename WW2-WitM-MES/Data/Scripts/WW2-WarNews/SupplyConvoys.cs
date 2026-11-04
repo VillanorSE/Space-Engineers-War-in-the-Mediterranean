@@ -101,7 +101,7 @@ namespace WW2WitM.Supply
         }
 
         // Once per load: a route is ready when its truck prefab exists, its Lead and Follow behaviors carry the same non-empty
-        // [CustomWaypoints:] list and all 5 start slots have coordinates. Unready routes never open (a missing start waypoint would
+        // [CustomWaypoints:] list, all 5 start slots have coordinates, the Halt trigger has a position and Follow-3..5 exist. Unready routes never open (a missing start waypoint would
         // otherwise reach MES's spawn task as null).
         public static void CheckReady()
         {
@@ -111,7 +111,8 @@ namespace WW2WitM.Supply
                 if (def == null || string.IsNullOrEmpty(def.DescriptionText))
                     continue;
                 var id = def.Id.SubtypeName;
-                if (id != null && (id.StartsWith("WW2-Behavior-Convoy-", StringComparison.Ordinal) || id.StartsWith("WW2-Convoy-Start-", StringComparison.Ordinal)))
+                if (id != null && (id.StartsWith("WW2-Behavior-Convoy-", StringComparison.Ordinal) || id.StartsWith("WW2-Convoy-Start-", StringComparison.Ordinal)
+                    || id.StartsWith("WW2-Convoy-Trigger-Halt-", StringComparison.Ordinal)))
                     texts[id] = def.DescriptionText;
             }
             int ready = 0;
@@ -137,6 +138,12 @@ namespace WW2WitM.Supply
                 for (int k = 1; k <= Slots; k++)
                     if (Start(texts, "WW2-Convoy-Start-" + r.Id + "-" + k) == Vector3D.Zero)
                         problems.Add("start slot " + k + " empty");
+                // Escort column (2026-11-01): without the lead's Halt trigger trucks 2-5 never deliver; slots 3-5 need their Follow-k.
+                if (Vector3D.Zero == Position(texts, "WW2-Convoy-Trigger-Halt-" + r.Id, "[GlobalPosition:"))
+                    problems.Add("no Halt trigger position");
+                for (int k = 3; k <= Slots; k++)
+                    if (!texts.ContainsKey("WW2-Behavior-Convoy-" + r.Id + "-Follow-" + k))
+                        problems.Add("no Follow-" + k + " behavior");
                 r.Ready = problems.Count == 0;
                 r.Problem = r.Ready ? "" : string.Join(", ", problems);
                 if (r.Ready)
@@ -174,7 +181,12 @@ namespace WW2WitM.Supply
 
         private static Vector3D Start(Dictionary<string, string> texts, string id)
         {
-            var value = TagValue(texts, id, "[Coordinates:");
+            return Position(texts, id, "[Coordinates:");
+        }
+
+        private static Vector3D Position(Dictionary<string, string> texts, string id, string tag)
+        {
+            var value = TagValue(texts, id, tag);
             Vector3D v;
             if (value == null || !Vector3D.TryParse(value.Trim().Trim('{', '}'), out v))
                 return Vector3D.Zero;

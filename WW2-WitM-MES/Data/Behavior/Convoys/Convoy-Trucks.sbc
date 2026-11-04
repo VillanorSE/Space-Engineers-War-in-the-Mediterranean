@@ -31,6 +31,8 @@
 			[MaxRotationMagnitude:0.3]
 			[UseVelocityCollisionEvasion:false]
 			[HoverUpAngle:30]
+			[UseAircraftFlightModel:true]
+			[MaxRotationStep:0.5]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -62,6 +64,8 @@
 			[MaxRotationMagnitude:0.3]
 			[UseVelocityCollisionEvasion:false]
 			[HoverUpAngle:30]
+			[UseAircraftFlightModel:true]
+			[MaxRotationStep:0.5]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -93,6 +97,8 @@
 			[MaxRotationMagnitude:0.3]
 			[UseVelocityCollisionEvasion:false]
 			[HoverUpAngle:30]
+			[UseAircraftFlightModel:true]
+			[MaxRotationStep:0.5]
 			[EscortSpeedMatchMaxDistance:15]
 			[EscortUsesRelativeDampening:false]
 			</Description>
@@ -126,6 +132,8 @@
 			[MaxRotationMagnitude:0.3]
 			[UseVelocityCollisionEvasion:false]
 			[HoverUpAngle:30]
+			[UseAircraftFlightModel:true]
+			[MaxRotationStep:0.5]
 			[EscortSpeedMatchMaxDistance:15]
 			[EscortUsesRelativeDampening:false]
 			</Description>
@@ -160,8 +168,21 @@
 			[MaxRotationMagnitude:0.3]
 			[UseVelocityCollisionEvasion:false]
 			[HoverUpAngle:30]
+			[UseAircraftFlightModel:true]
+			[MaxRotationStep:0.5]
 			[EscortSpeedMatchMaxDistance:2]
 			[EscortUsesRelativeDampening:false]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-SlowIn</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ChangeAutopilotSpeed:true]
+			[NewAutopilotSpeed:5]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -372,13 +393,14 @@
 			[ChangeAutopilotProfile:true]
 			[AutopilotProfile:Secondary]
 			[ChangeInertiaDampeners:true]
-			[InertiaDampenersEnable:true]
+			[InertiaDampenersEnable:false]
 			[BroadcastCommandProfiles:true]
 			[CommandProfileIds:WW2-Convoy-Command-Park]
 			[ResetCooldownTimeOfTriggers:true]
 			[ResetTriggerCooldownNames:WW2-Convoy-Trigger-ParkStop]
 			[EnableTriggers:true]
 			[EnableTriggerNames:WW2-Convoy-Trigger-ParkStop]
+			[EnableTriggerTags:WW2-Convoy-ParkedTag]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -419,6 +441,7 @@
 			</Id>
 			<Description>
 			[RivalAI Action]
+			[LeaveEscortSlot:true]
 			[StopAllRotation:true]
 			[ChangeAutopilotSpeed:true]
 			[NewAutopilotSpeed:0]
@@ -430,6 +453,9 @@
 			[EnableTriggers:true]
 			[EnableTriggerNames:WW2-Convoy-Trigger-Delivered]
 			[EnableTriggerNames:WW2-Convoy-Trigger-Leave]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Convoy-Trigger-ParkStop]
+			[DisableTriggerTags:WW2-Convoy-ParkedTag]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">

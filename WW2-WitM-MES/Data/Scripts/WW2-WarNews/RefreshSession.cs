@@ -1837,7 +1837,7 @@ namespace WW2WitM.Refresh
                 g.GetBlocks(blockBuffer, IsAirfieldBlock);
                 if (blockBuffer.Count == 0)
                     continue;
-                var owner = blockBuffer[0].OwnerId;
+                var owner = FirstOwner(blockBuffer);
                 blockBuffer.Clear();
                 return FactionName(owner);
             }
@@ -1860,6 +1860,16 @@ namespace WW2WitM.Refresh
         {
             var terminal = block.FatBlock as IMyTerminalBlock;
             return terminal != null && (terminal.CustomName == AirfieldBlockName || terminal.CustomName == DepotBlockName);
+        }
+
+        // The first named block that has an owner: seats such as couches and the bathroom carry the name but never have an owner
+        // (OwnerId 0), and block order changes between loads (owner 2026-11-03: Casablanca read as unowned after a reload).
+        internal static long FirstOwner(List<IMySlimBlock> blocks)
+        {
+            foreach (var b in blocks)
+                if (b.OwnerId != 0)
+                    return b.OwnerId;
+            return blocks.Count > 0 ? blocks[0].OwnerId : 0;
         }
 
         private static string FactionName(long owner)

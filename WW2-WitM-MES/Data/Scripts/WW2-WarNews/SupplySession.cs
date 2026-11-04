@@ -298,7 +298,7 @@ namespace WW2WitM.Supply
             gridBuffer.Clear();
             if (blockBuffer.Count == 0)
                 return null;
-            var owner = blockBuffer[0].OwnerId;
+            var owner = WW2WitM.Refresh.RefreshSession.FirstOwner(blockBuffer);
             blockBuffer.Clear();
             var faction = MyAPIGateway.Session.Factions.TryGetPlayerFaction(owner);
             if (faction == null) return "";
