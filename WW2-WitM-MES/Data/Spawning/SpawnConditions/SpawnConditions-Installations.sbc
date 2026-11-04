@@ -533,6 +533,7 @@
 		</Description>
 	</EntityComponent>
 
+<!-- Benghazi airfield moved (owner 2026-11-02): 75 m from Benghazi Depot, so MES's 250 m static-spawn grid check let only one of them spawn. Tower on owner GPS Villanor #12, runway turned to keep the painted road outside the footprint; pad flattened to 29.0 m; exact coords (direction/altitude kept for RefreshSites). -->
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
@@ -542,12 +543,14 @@
 			[MES Spawn Conditions]
 
 			[StaticEncounter:true]
-			[StaticEncounterUsePlanetDirectionAndAltitude:true]
+			[StaticEncounterUsePlanetDirectionAndAltitude:false]
+			[StaticEncounterCoords:{X:-18224.656 Y:23991.882 Z:203.352}]
+			[TriggerCoords:{X:-18224.656 Y:23991.882 Z:203.352}]
 			[StaticEncounterPlanet:WW2WitM_Mediterranean]
-			[StaticEncounterPlanetDirection:{X:-0.609556573339072 Y:0.782094995327427 Z:0.129492093128965}]
-			[StaticEncounterPlanetAltitude:-0.849765043556545]
-			[StaticEncounterForward:{X:-0.07929425 Y:0.101492234 Z:-0.9916712}]
-			[StaticEncounterUp:{X:-0.610533059 Y:0.7814481 Z:0.128795385}]
+			[StaticEncounterPlanetDirection:{X:-0.604857874 Y:0.796304701 Z:0.006765815}]
+			[StaticEncounterPlanetAltitude:-0.85]
+			[StaticEncounterForward:{X:-0.723441 Y:-0.545922 Z:-0.422614}]
+			[StaticEncounterUp:{X:-0.604858 Y:0.796305 Z:0.006766}]
 			[ForceExactPositionAndOrientation:true]
 			[PlanetWhitelist:WW2WitM_Mediterranean]
 

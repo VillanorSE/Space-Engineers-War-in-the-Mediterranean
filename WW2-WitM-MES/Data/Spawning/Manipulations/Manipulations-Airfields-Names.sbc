@@ -107,5 +107,97 @@
 			[ReplaceBeaconHudTextInsteadOfName:true]
 			</Description>
 		</EntityComponent>
+<!-- Airfield grid name 'Airfield - <Site>' (owner 2026-11-03, to match the depots' 'Vehicle Depot - <Site>'). A second profile for the same reason as the depots: one name-generator pattern feeds both the grid name and the beacon text; the group lists this one first. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-GridName-Airfield-Gibraltar</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Airfield - Gibraltar]
+			[RenameGrid:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-GridName-Airfield-Bizerte</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Airfield - Bizerte]
+			[RenameGrid:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-GridName-Airfield-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Airfield - Tripoli]
+			[RenameGrid:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-GridName-Airfield-Foggia</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Airfield - Foggia]
+			[RenameGrid:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-GridName-Airfield-Casablanca</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Airfield - Casablanca]
+			[RenameGrid:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-GridName-Airfield-Benghazi</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Airfield - Benghazi]
+			[RenameGrid:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-GridName-Airfield-Tobruk</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Airfield - Tobruk]
+			[RenameGrid:true]
+			</Description>
+		</EntityComponent>
 	</EntityComponents>
 </Definitions>

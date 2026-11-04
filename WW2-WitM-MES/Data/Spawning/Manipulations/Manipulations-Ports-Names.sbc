@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+<!-- Port grid name 'Port - <Site>' (owner 2026-11-03: admins tell scenario grids from player grids in a long grid list; same as 'Airfield - <Site>' and 'Vehicle Depot - <Site>'). MES renames only the prefab's first grid; the rotor subgrid is named 'Port - <Site> - Rotor' in the prefab itself. The port name filters in Behaviors-Fighter.sbc and Targeting-Ships.sbc use these names. -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-GridName-Port-LaSpezia</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Port - La Spezia]
+			[RenameGrid:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-GridName-Port-Toulon</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Port - Toulon]
+			[RenameGrid:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-GridName-Port-Oran</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Port - Oran]
+			[RenameGrid:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-GridName-Port-Alexandria</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Port - Alexandria]
+			[RenameGrid:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-GridName-Port-Tripoli</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Port - Tripoli]
+			[RenameGrid:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-GridName-Port-Valencia</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Port - Valencia]
+			[RenameGrid:true]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Manipulation-GridName-Port-Civitavecchia</SubtypeId>
+			</Id>
+			<Description>
+			[MES Manipulation]
+			[ManipulationChance:100]
+			[UseRandomNameGenerator:true]
+			[RandomGridNamePattern:Port - Civitavecchia]
+			[RenameGrid:true]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

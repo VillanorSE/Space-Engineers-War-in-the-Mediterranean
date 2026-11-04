@@ -253,6 +253,7 @@
 <!-- End Behaviors -->
 
 <!-- Targeting -->
+<!-- Never lock onto an invulnerable scenario grid (ports with their rotors, airfields, depots: GridsAreDestructable false; owner 2026-11-03). Exact grid names, not prefixes, so a player cannot make a grid untargetable by naming it "Port - ..." (owner). A new invulnerable site must be added here. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -275,12 +276,33 @@
 
 			[MatchNoneFilters:Name]
 			[UsePartialNameMatching:false]
-			[Names:La Spezia]
-			[Names:Port of Toulon]
-			[Names:Port of Oran]
-			[Names:Port of Tripoli]
-			[Names:Port of Alexandria]
-			[Names:Port of Civitavecchia]
+			[Names:Port - La Spezia]
+			[Names:Port - Toulon]
+			[Names:Port - Oran]
+			[Names:Port - Alexandria]
+			[Names:Port - Tripoli]
+			[Names:Port - Valencia]
+			[Names:Port - Civitavecchia]
+			[Names:Port - La Spezia - Rotor]
+			[Names:Port - Toulon - Rotor]
+			[Names:Port - Oran - Rotor]
+			[Names:Port - Alexandria - Rotor]
+			[Names:Port - Tripoli - Rotor]
+			[Names:Port - Valencia - Rotor]
+			[Names:Port - Civitavecchia - Rotor]
+			[Names:Airfield - Gibraltar]
+			[Names:Airfield - Bizerte]
+			[Names:Airfield - Tripoli]
+			[Names:Airfield - Foggia]
+			[Names:Airfield - Casablanca]
+			[Names:Airfield - Benghazi]
+			[Names:Airfield - Tobruk]
+			[Names:Vehicle Depot - Benghazi]
+			[Names:Vehicle Depot - Tunis]
+			[Names:Vehicle Depot - Tobruk]
+			[Names:Vehicle Depot - Abruzzo]
+			[Names:Vehicle Depot - Mascara]
+			[Names:Vehicle Depot - Sirte]
 
 			[MatchNoneFilters:Faction]
 			[FactionTargets:UNOWNED]

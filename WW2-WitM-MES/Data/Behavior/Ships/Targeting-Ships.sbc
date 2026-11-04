@@ -7,7 +7,8 @@
 	     safe for a Neutral-default faction living alongside Enemies-default factions (GVK's own
 	     combat targeting uses the identical belt-and-suspenders pattern for their neutral
 	     trader). "NPC Trader" is the naming convention for any future roving TRADER-faction
-	     grid - give it that prefix to keep it excluded here too. -->
+	     grid - give it exactly that grid name to keep it excluded here (exact matching since 2026-11-03). -->
+<!-- Never lock onto an invulnerable scenario grid (ports with their rotors, airfields, depots: GridsAreDestructable false; owner 2026-11-03). Exact grid names, not prefixes, so a player cannot make a grid untargetable by naming it "Port - ..." (owner). A new invulnerable site must be added here. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -37,14 +38,34 @@
 			[MinUnderWaterDepth:150]
 
 			[MatchNoneFilters:Name]
-			[UsePartialNameMatching:true]
-			[Names:La Spezia]
-			[Names:Port of Toulon]
-			[Names:Port of Oran]
-			[Names:Port of Tripoli]
-			[Names:Port of Valencia]
-			[Names:Port of Alexandria]
-			[Names:Port of Civitavecchia]
+			[UsePartialNameMatching:false]
+			[Names:Port - La Spezia]
+			[Names:Port - Toulon]
+			[Names:Port - Oran]
+			[Names:Port - Alexandria]
+			[Names:Port - Tripoli]
+			[Names:Port - Valencia]
+			[Names:Port - Civitavecchia]
+			[Names:Port - La Spezia - Rotor]
+			[Names:Port - Toulon - Rotor]
+			[Names:Port - Oran - Rotor]
+			[Names:Port - Alexandria - Rotor]
+			[Names:Port - Tripoli - Rotor]
+			[Names:Port - Valencia - Rotor]
+			[Names:Port - Civitavecchia - Rotor]
+			[Names:Airfield - Gibraltar]
+			[Names:Airfield - Bizerte]
+			[Names:Airfield - Tripoli]
+			[Names:Airfield - Foggia]
+			[Names:Airfield - Casablanca]
+			[Names:Airfield - Benghazi]
+			[Names:Airfield - Tobruk]
+			[Names:Vehicle Depot - Benghazi]
+			[Names:Vehicle Depot - Tunis]
+			[Names:Vehicle Depot - Tobruk]
+			[Names:Vehicle Depot - Abruzzo]
+			[Names:Vehicle Depot - Mascara]
+			[Names:Vehicle Depot - Sirte]
 			[Names:NPC Trader]
 
 			[MatchNoneFilters:Faction]

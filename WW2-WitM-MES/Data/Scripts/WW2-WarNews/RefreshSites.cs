@@ -99,7 +99,7 @@ namespace WW2WitM.Refresh
             new RefreshSite("WW2-Airfield-Tripoli", "Tripoli", true, -0.0858730279300504, 0.699611068160377, 0.709344892405395, 0.0645265073144401),
             new RefreshSite("WW2-Airfield-Foggia", "Foggia", true, -0.433940790701937, -0.615315371008138, 0.658089951576603, 2.44283087217264),
             new RefreshSite("WW2-Airfield-Casablanca", "Casablanca", true, 0.132644238359419, 0.637365737443778, -0.759058905990042, 0.383512724933098),
-            new RefreshSite("WW2-Airfield-Benghazi", "Benghazi", true, -0.609556573339072, 0.782094995327427, 0.129492093128965, -0.849765043556545),
+            new RefreshSite("WW2-Airfield-Benghazi", "Benghazi", true, -0.604857874, 0.796304701, 0.006765815, -0.85),
             new RefreshSite("WW2-Airfield-Tobruk", "Tobruk", true, -0.488641342, 0.846175133, -0.212643559, -0.85),
         };
 
