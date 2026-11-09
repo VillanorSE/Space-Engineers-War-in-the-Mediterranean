@@ -4,11 +4,11 @@
      the 5 ZoneChip. CriticalComponent unchanged. SafeZoneUpkeep 0 (vanilla 1 chip per 60 min; Mod Adjuster applies any
      value present, 0 included). If SiegeableSafeZones (3605260551) is loaded it overwrites SafeZoneUpkeep at load from
      the world's Storage SiegableSafeZoneConfig.xml, so set SafeZoneUpKeepAmt 0 there too (default 1).
-     Radius fixed at 250 m and power near zero (1 W; vanilla 5-128 MW), owner 2026-11-08. Min radius is 249, not 250:
+     Radius fixed at 200 m (owner 2026-11-08, was 250) and power near zero (1 W; vanilla 5-128 MW), owner 2026-11-08. Min radius is 199, not 200:
      SE's power formula divides by (MaxSafeZoneRadius - MinSafeZoneRadius), so equal values give NaN (decompiled
-     MySafeZoneComponent.GetMaxPowerDrain). Box shape still allows 249-500 m sides (sliders go to 2x max radius).
+     MySafeZoneComponent.GetMaxPowerDrain). Box shape still allows 199-400 m sides (SiegeableSafeZones hides the shape choice) (sliders go to 2x max radius).
      SiegeableSafeZones also overwrites Default/MaxSafeZoneRadius (SafeZoneRadius, default 200) and MaxSafeZonePowerDrainkW
-     (ActivePowerDrainMW x 1000, default 300) from its config: set 250 and 1E-06 there.
+     (ActivePowerDrainMW x 1000, default 300) from its config: set 200 and 1E-06 there.
      Sieges still cost Zone Chips (owner choice, as on Kharak). SafeZoneBlockNPC (NPC-only) is left alone. -->
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <CubeBlocks>
@@ -25,9 +25,9 @@
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
       <SafeZoneUpkeep>0</SafeZoneUpkeep>
-      <MinSafeZoneRadius>249</MinSafeZoneRadius>
-      <MaxSafeZoneRadius>250</MaxSafeZoneRadius>
-      <DefaultSafeZoneRadius>250</DefaultSafeZoneRadius>
+      <MinSafeZoneRadius>199</MinSafeZoneRadius>
+      <MaxSafeZoneRadius>200</MaxSafeZoneRadius>
+      <DefaultSafeZoneRadius>200</DefaultSafeZoneRadius>
       <MinSafeZonePowerDrainkW>0.001</MinSafeZonePowerDrainkW>
       <MaxSafeZonePowerDrainkW>0.001</MaxSafeZonePowerDrainkW>
     </Definition>
@@ -44,9 +44,9 @@
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
       <SafeZoneUpkeep>0</SafeZoneUpkeep>
-      <MinSafeZoneRadius>249</MinSafeZoneRadius>
-      <MaxSafeZoneRadius>250</MaxSafeZoneRadius>
-      <DefaultSafeZoneRadius>250</DefaultSafeZoneRadius>
+      <MinSafeZoneRadius>199</MinSafeZoneRadius>
+      <MaxSafeZoneRadius>200</MaxSafeZoneRadius>
+      <DefaultSafeZoneRadius>200</DefaultSafeZoneRadius>
       <MinSafeZonePowerDrainkW>0.001</MinSafeZonePowerDrainkW>
       <MaxSafeZonePowerDrainkW>0.001</MaxSafeZonePowerDrainkW>
     </Definition>
