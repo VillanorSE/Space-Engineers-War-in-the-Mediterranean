@@ -276,9 +276,9 @@
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
-					<X>12.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-DepotDefense-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
@@ -304,18 +304,18 @@
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
-					<X>0.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>0.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-DepotDefense-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
-					<X>12.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-DepotDefense-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
@@ -341,36 +341,36 @@
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
-					<X>0.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>0.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-DepotDefense-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
-					<X>12.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-DepotDefense-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
-					<X>24.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>24.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-DepotDefense-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
-					<X>36.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>36.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-DepotDefense-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
@@ -380,11 +380,11 @@
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-DepotUnit-Patrol-WL1-Gray</SubtypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL1-Gray-Mascara</SubtypeId>
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnit]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Mascara]
 		[ReplenishSystems:true]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
@@ -400,7 +400,7 @@
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Gray-Car</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -408,11 +408,11 @@
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-DepotUnit-Patrol-WL2-Gray</SubtypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL2-Gray-Mascara</SubtypeId>
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnit-Pick1]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Mascara-Pick1]
 		[ReplenishSystems:true]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
@@ -428,7 +428,7 @@
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Gray-Car</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-AB41">
@@ -437,7 +437,7 @@
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Gray-Car</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -445,11 +445,11 @@
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-DepotUnit-Patrol-WL3-Gray</SubtypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL3-Gray-Mascara</SubtypeId>
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnit-Pick1]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Mascara-Pick1]
 		[ReplenishSystems:true]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
@@ -465,16 +465,16 @@
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Gray-Car</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
-					<X>12.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Medium</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -482,11 +482,11 @@
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-DepotUnit-Patrol-WL4-Gray</SubtypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL4-Gray-Mascara</SubtypeId>
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnit]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Mascara]
 		[ReplenishSystems:true]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
@@ -498,20 +498,20 @@
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
-					<X>0.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>0.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Medium</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
-					<X>12.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Medium</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -519,11 +519,11 @@
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-DepotUnit-Patrol-WL5-Gray</SubtypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL5-Gray-Mascara</SubtypeId>
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnit-WL5]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Mascara-WL5]
 		[ReplenishSystems:true]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
@@ -535,38 +535,1008 @@
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
+					<X>0.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>24.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>36.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL1-Gray-Abruzzo</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Abruzzo]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
 					<X>0.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Medium</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Gray-Car</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
-			<Prefab SubtypeId="NPC-WW2-M13_40">
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL2-Gray-Abruzzo</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Abruzzo-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-AB41">
 				<Position>
 					<X>12.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Medium</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL3-Gray-Abruzzo</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Abruzzo-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Gray-Car</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
-					<X>24.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Medium</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL4-Gray-Abruzzo</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Abruzzo]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>0.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-M13_40">
 				<Position>
-					<X>36.0</X>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL5-Gray-Abruzzo</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Abruzzo-WL5]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>0.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>24.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>36.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL1-Gray-Benghazi</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Benghazi]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>0.0</X>
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Gray-Medium</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL2-Gray-Benghazi</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Benghazi-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL3-Gray-Benghazi</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Benghazi-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL4-Gray-Benghazi</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Benghazi]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>0.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL5-Gray-Benghazi</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Benghazi-WL5]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>0.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>24.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>36.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL1-Gray-Tunis</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tunis]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL2-Gray-Tunis</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tunis-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL3-Gray-Tunis</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tunis-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL4-Gray-Tunis</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tunis]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>0.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL5-Gray-Tunis</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tunis-WL5]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>0.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>24.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>36.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL1-Gray-Tobruk</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tobruk]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL2-Gray-Tobruk</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tobruk-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL3-Gray-Tobruk</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tobruk-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL4-Gray-Tobruk</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tobruk]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>0.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL5-Gray-Tobruk</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tobruk-WL5]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>0.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>24.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>36.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL1-Gray-Sirte</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Sirte]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL2-Gray-Sirte</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Sirte-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL3-Gray-Sirte</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Sirte-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-AB41">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Gray-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL4-Gray-Sirte</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Sirte]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>0.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL5-Gray-Sirte</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Sirte-WL5]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GRAY]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>0.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>12.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>24.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Gray-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-M13_40">
+				<Position>
+					<X>36.6</X>
+					<Y>3.0</Y>
+					<Z>1.6</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Gray-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -668,9 +1638,9 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-M13_40">
 				<Position>
-					<X>0.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>0.85</X>
+					<Y>3.0</Y>
+					<Z>1.7</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-DepotGarageVehicle-Gray</Behaviour>
 				<Speed>0.0</Speed>
@@ -696,9 +1666,9 @@
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Panhard178">
 				<Position>
-					<X>0.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>0.9</X>
+					<Y>1.5</Y>
+					<Z>-0.2</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-DepotDefense-Green-Car</Behaviour>
 				<Speed>0.0</Speed>
@@ -724,9 +1694,9 @@
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Panhard178">
 				<Position>
-					<X>0.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>0.9</X>
+					<Y>1.5</Y>
+					<Z>-0.2</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-DepotDefense-Green-Car</Behaviour>
 				<Speed>0.0</Speed>
@@ -874,11 +1844,11 @@
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-DepotUnit-Patrol-WL1-Green</SubtypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL1-Green-Mascara</SubtypeId>
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnit]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Mascara]
 		[ReplenishSystems:true]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
@@ -890,11 +1860,11 @@
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Panhard178">
 				<Position>
-					<X>0.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>0.9</X>
+					<Y>1.5</Y>
+					<Z>-0.2</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Green-Car</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -902,11 +1872,11 @@
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-DepotUnit-Patrol-WL2-Green</SubtypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL2-Green-Mascara</SubtypeId>
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnit-Pick1]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Mascara-Pick1]
 		[ReplenishSystems:true]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
@@ -918,11 +1888,11 @@
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Panhard178">
 				<Position>
-					<X>0.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>0.9</X>
+					<Y>1.5</Y>
+					<Z>-0.2</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Car</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Green-Car</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-R35">
@@ -931,7 +1901,7 @@
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Light</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Green-Light</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -939,11 +1909,11 @@
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-DepotUnit-Patrol-WL3-Green</SubtypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL3-Green-Mascara</SubtypeId>
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnit-Pick1]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Mascara-Pick1]
 		[ReplenishSystems:true]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
@@ -959,7 +1929,7 @@
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Light</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Green-Light</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-Somua_S35">
@@ -968,7 +1938,7 @@
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Medium</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -976,11 +1946,11 @@
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-DepotUnit-Patrol-WL4-Green</SubtypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL4-Green-Mascara</SubtypeId>
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnit]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Mascara]
 		[ReplenishSystems:true]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
@@ -996,7 +1966,7 @@
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Medium</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-Somua_S35">
@@ -1005,7 +1975,7 @@
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Medium</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -1013,11 +1983,11 @@
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-DepotUnit-Patrol-WL5-Green</SubtypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL5-Green-Mascara</SubtypeId>
 		</Id>
 		<Description>
 		[Modular Encounters SpawnGroup]
-		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnit-WL5]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Mascara-WL5]
 		[ReplenishSystems:true]
 		[IgnoreCleanupRules:true]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
@@ -1033,7 +2003,7 @@
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Medium</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-Somua_S35">
@@ -1042,7 +2012,7 @@
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Medium</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-Somua_S35">
@@ -1051,7 +2021,7 @@
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Medium</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 			<Prefab SubtypeId="NPC-WW2-Somua_S35">
@@ -1060,7 +2030,977 @@
 					<Y>2.0</Y>
 					<Z>0.0</Z>
 				</Position>
-				<Behaviour>WW2-Behavior-DepotPatrol-Green-Medium</Behaviour>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Mascara-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL1-Green-Abruzzo</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Abruzzo]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Panhard178">
+				<Position>
+					<X>0.9</X>
+					<Y>1.5</Y>
+					<Z>-0.2</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Green-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL2-Green-Abruzzo</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Abruzzo-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Panhard178">
+				<Position>
+					<X>0.9</X>
+					<Y>1.5</Y>
+					<Z>-0.2</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Green-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-R35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Green-Light</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL3-Green-Abruzzo</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Abruzzo-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-R35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Green-Light</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL4-Green-Abruzzo</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Abruzzo]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL5-Green-Abruzzo</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Abruzzo-WL5]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>24.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>36.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Abruzzo-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL1-Green-Benghazi</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Benghazi]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Panhard178">
+				<Position>
+					<X>0.9</X>
+					<Y>1.5</Y>
+					<Z>-0.2</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Green-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL2-Green-Benghazi</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Benghazi-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Panhard178">
+				<Position>
+					<X>0.9</X>
+					<Y>1.5</Y>
+					<Z>-0.2</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Green-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-R35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Green-Light</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL3-Green-Benghazi</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Benghazi-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-R35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Green-Light</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL4-Green-Benghazi</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Benghazi]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL5-Green-Benghazi</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Benghazi-WL5]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>24.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>36.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Benghazi-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL1-Green-Tunis</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tunis]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Panhard178">
+				<Position>
+					<X>0.9</X>
+					<Y>1.5</Y>
+					<Z>-0.2</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Green-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL2-Green-Tunis</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tunis-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Panhard178">
+				<Position>
+					<X>0.9</X>
+					<Y>1.5</Y>
+					<Z>-0.2</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Green-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-R35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Green-Light</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL3-Green-Tunis</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tunis-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-R35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Green-Light</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL4-Green-Tunis</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tunis]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL5-Green-Tunis</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tunis-WL5]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>24.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>36.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tunis-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL1-Green-Tobruk</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tobruk]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Panhard178">
+				<Position>
+					<X>0.9</X>
+					<Y>1.5</Y>
+					<Z>-0.2</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Green-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL2-Green-Tobruk</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tobruk-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Panhard178">
+				<Position>
+					<X>0.9</X>
+					<Y>1.5</Y>
+					<Z>-0.2</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Green-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-R35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Green-Light</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL3-Green-Tobruk</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tobruk-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-R35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Green-Light</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL4-Green-Tobruk</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tobruk]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL5-Green-Tobruk</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Tobruk-WL5]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>24.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>36.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Tobruk-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL1-Green-Sirte</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Sirte]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Panhard178">
+				<Position>
+					<X>0.9</X>
+					<Y>1.5</Y>
+					<Z>-0.2</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Green-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL2-Green-Sirte</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Sirte-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Panhard178">
+				<Position>
+					<X>0.9</X>
+					<Y>1.5</Y>
+					<Z>-0.2</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Green-Car</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-R35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Green-Light</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL3-Green-Sirte</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Sirte-Pick1]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-R35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Green-Light</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL4-Green-Sirte</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Sirte]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-DepotUnit-Patrol-Road-WL5-Green-Sirte</SubtypeId>
+		</Id>
+		<Description>
+		[Modular Encounters SpawnGroup]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-DepotUnitRoad-Sirte-WL5]
+		[ReplenishSystems:true]
+		[IgnoreCleanupRules:true]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-DepotUnit]
+		[FactionOverride:GREEN]
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>0.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>12.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>24.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Green-Medium</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="NPC-WW2-Somua_S35">
+				<Position>
+					<X>36.0</X>
+					<Y>2.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<Behaviour>WW2-Behavior-DepotRoadPatrol-Sirte-Green-Medium</Behaviour>
 				<Speed>0.0</Speed>
 			</Prefab>
 		</Prefabs>
@@ -1083,9 +3023,9 @@
 		<Prefabs>
 			<Prefab SubtypeId="Player-WW2-Panhard178">
 				<Position>
-					<X>0.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>0.1</X>
+					<Y>2.5</Y>
+					<Z>0.3</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-DepotGarageVehicle-Green</Behaviour>
 				<Speed>0.0</Speed>
@@ -1109,9 +3049,9 @@
 		<Prefabs>
 			<Prefab SubtypeId="Player-WW2-Panhard178">
 				<Position>
-					<X>0.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>0.1</X>
+					<Y>2.5</Y>
+					<Z>0.3</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-DepotGarageVehicle-Green</Behaviour>
 				<Speed>0.0</Speed>
@@ -1144,9 +3084,9 @@
 		<Prefabs>
 			<Prefab SubtypeId="Player-WW2-Panhard178">
 				<Position>
-					<X>0.0</X>
-					<Y>2.0</Y>
-					<Z>0.0</Z>
+					<X>0.1</X>
+					<Y>2.5</Y>
+					<Z>0.3</Z>
 				</Position>
 				<Behaviour>WW2-Behavior-DepotGarageVehicle-Green</Behaviour>
 				<Speed>0.0</Speed>

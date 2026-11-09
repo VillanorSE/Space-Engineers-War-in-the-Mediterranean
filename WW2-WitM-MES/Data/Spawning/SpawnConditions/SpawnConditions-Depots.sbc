@@ -59,6 +59,385 @@
 			[PrefabIndexGroupValues:0,1,2,-1,3,-1]
 			</Description>
 		</EntityComponent>
+<!-- Patrol units: the generic groups stay out of each road-patrol depot's circle; that depot's road groups stay inside it (ROAD_RADIUS_M around the depot's StaticEncounterCoords). -->
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Mascara</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[CustomWorldCenter:{X:22642.81 Y:10212.65 Z:-17183.31}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Mascara-Pick1</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Unit,Unit]
+			[PrefabIndexGroupValues:0,1]
+			[CustomWorldCenter:{X:22642.81 Y:10212.65 Z:-17183.31}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Mascara-WL5</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Heavy,Medium1,Medium2,Medium2,Medium3,Medium3]
+			[PrefabIndexGroupValues:0,1,2,-1,3,-1]
+			[CustomWorldCenter:{X:22642.81 Y:10212.65 Z:-17183.31}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Abruzzo</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[CustomWorldCenter:{X:-3134.30 Y:-21721.00 Z:20733.44}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Abruzzo-Pick1</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Unit,Unit]
+			[PrefabIndexGroupValues:0,1]
+			[CustomWorldCenter:{X:-3134.30 Y:-21721.00 Z:20733.44}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Abruzzo-WL5</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Heavy,Medium1,Medium2,Medium2,Medium3,Medium3]
+			[PrefabIndexGroupValues:0,1,2,-1,3,-1]
+			[CustomWorldCenter:{X:-3134.30 Y:-21721.00 Z:20733.44}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Benghazi</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[CustomWorldCenter:{X:-18394.03 Y:23504.64 Z:3944.23}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Benghazi-Pick1</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Unit,Unit]
+			[PrefabIndexGroupValues:0,1]
+			[CustomWorldCenter:{X:-18394.03 Y:23504.64 Z:3944.23}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Benghazi-WL5</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Heavy,Medium1,Medium2,Medium2,Medium3,Medium3]
+			[PrefabIndexGroupValues:0,1,2,-1,3,-1]
+			[CustomWorldCenter:{X:-18394.03 Y:23504.64 Z:3944.23}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Tunis</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[CustomWorldCenter:{X:12406.02 Y:3441.39 Z:27214.81}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Tunis-Pick1</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Unit,Unit]
+			[PrefabIndexGroupValues:0,1]
+			[CustomWorldCenter:{X:12406.02 Y:3441.39 Z:27214.81}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Tunis-WL5</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Heavy,Medium1,Medium2,Medium2,Medium3,Medium3]
+			[PrefabIndexGroupValues:0,1,2,-1,3,-1]
+			[CustomWorldCenter:{X:12406.02 Y:3441.39 Z:27214.81}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Tobruk</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[CustomWorldCenter:{X:-17232.39 Y:23535.02 Z:-7469.99}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Tobruk-Pick1</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Unit,Unit]
+			[PrefabIndexGroupValues:0,1]
+			[CustomWorldCenter:{X:-17232.39 Y:23535.02 Z:-7469.99}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Tobruk-WL5</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Heavy,Medium1,Medium2,Medium2,Medium3,Medium3]
+			[PrefabIndexGroupValues:0,1,2,-1,3,-1]
+			[CustomWorldCenter:{X:-17232.39 Y:23535.02 Z:-7469.99}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Sirte</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[CustomWorldCenter:{X:-9948.11 Y:26100.47 Z:11230.85}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Sirte-Pick1</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Unit,Unit]
+			[PrefabIndexGroupValues:0,1]
+			[CustomWorldCenter:{X:-9948.11 Y:26100.47 Z:11230.85}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-SpawnConditions-DepotUnitRoad-Sirte-WL5</SubtypeId>
+			</Id>
+			<Description>
+			[MES Spawn Conditions]
+			[RivalAiSpawn:true]
+			[SkipVoxelSpawnChecks:true]
+			[RotateFirstCockpitToForward:true]
+			[DisableDampeners:false]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+			[PrefabSpawningMode:RandomSelectedIndexes]
+			[PrefabIndexGroupNames:Heavy,Medium1,Medium2,Medium2,Medium3,Medium3]
+			[PrefabIndexGroupValues:0,1,2,-1,3,-1]
+			[CustomWorldCenter:{X:-9948.11 Y:26100.47 Z:11230.85}]
+			[MaxSpawnFromWorldCenter:400]
+			</Description>
+		</EntityComponent>
 <!-- Garage bay: MES picks one of the group's prefabs per spawn, equal odds (SpawnGroupCollection.cs, Random). -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>

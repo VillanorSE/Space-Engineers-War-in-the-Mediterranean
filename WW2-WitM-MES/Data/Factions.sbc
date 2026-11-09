@@ -2,7 +2,9 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Factions>
 
-<!-- GRAY/GREEN StaticReputation false: in SE, static rep blocks EVERY change (admin menu, MES actions,
+<!-- GRAY/GREEN StaticReputation false, and no StartingReputation (SE overwrites every saved personal rep with it at each
+	 world load, decompiled MyFactionCollection.Init; that undid Alliance Rep Helper alliances, 2026-11-07).
+	GRAY/GREEN StaticReputation false: in SE, static rep blocks EVERY change (admin menu, MES actions,
 	 mod API), not just damage. Vanilla damage rep is zeroed instead in WW2-WitM-Framework
 	 Reputation/ReputationSettings.sbc; reputation is changed only by the MES combat-triggered system
 	 (see WW2-WitM-Roadmap.md's Reputation section). TRADER/UNOWNED keep StaticReputation:true +
@@ -26,7 +28,6 @@
 	  <DiscoveredByDefault>true</DiscoveredByDefault>
 	  <StaticReputation>false</StaticReputation>
 	  <EnableFriendlyFire>false</EnableFriendlyFire>
-	  <StartingReputation>-600</StartingReputation>
 	  <FactionIcon>Textures\FactionLogo\Builders\BuilderIcon_1.dds</FactionIcon>
 	  <BackgroundColor R="0" G="0" B="0" />
 	  <IconColor R="255" G="255" B="255" />
@@ -50,7 +51,6 @@
 	  <DiscoveredByDefault>true</DiscoveredByDefault>
 	  <StaticReputation>false</StaticReputation>
 	  <EnableFriendlyFire>false</EnableFriendlyFire>
-	  <StartingReputation>-600</StartingReputation>
 	  <FactionIcon>Textures\FactionLogo\Builders\BuilderIcon_2.dds</FactionIcon>
 	  <BackgroundColor R="0" G="0" B="0" />
 	  <IconColor R="255" G="255" B="255" />

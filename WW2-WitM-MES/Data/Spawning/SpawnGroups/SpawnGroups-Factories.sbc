@@ -535,14 +535,15 @@
 <!-- End Plane Factory Spawns -->
 
 <!-- Ground Vehicle Factory Spawns
-     Shell NPC-WW2-Factory-Ground plus its display vehicles. Every prefab uses PlaceToGridOrigin, so each
+     Shell NPC-WW2-Factory-Ground (Gray) or NPC-WW2-Factory-Ground-Green (Green, owner 2026-11-08) plus its display
+     vehicles. Both shells carry the 2026-10-25 export's grid orientation so the offsets below still fit. Every prefab uses PlaceToGridOrigin, so each
      Position is that grid's origin in the spawn frame (X right, Y up, Z back), taken from the owner's
      parked layout in the Build World (2026-10-25): shell origin 0.43 m above the ground, vehicles at their
      parked grid origins relative to the shell (+0.1 m). The M13/40 hull grid is built sideways (seats face
      its right) and the Fiat 626 grid faces its back, so with no rotation the truck stands at 90 degrees to
      the row. Prefab indexes 2 and 3 get the 66% / 33% build states, as in the plane factories. -->
 
-	<!-- Gray M13/40 Factory -->
+	<!-- Gray M13/40 (War Level 3+) Factory -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
@@ -552,7 +553,7 @@
 
 		[Modular Encounters SpawnGroup]
 
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-Medium-FactoryGround]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-WL3-Medium-FactoryGround]
 		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
@@ -561,7 +562,7 @@
 		[FactionOverride:GRAY]
 
 		</Description>
-		<Frequency>1.0</Frequency>
+		<Frequency>0.5</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Factory-Ground">
@@ -576,9 +577,9 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-M13_40">
 				<Position>
-					<X>30</X>
-					<Y>2</Y>
-					<Z>2.5</Z>
+					<X>25.9</X>
+					<Y>4.5</Y>
+					<Z>3.7</Z>
 				</Position>
 				<PlaceToGridOrigin>true</PlaceToGridOrigin>
 				<Behaviour>WW2-Behavior-GarageVehicle-M1340</Behaviour>
@@ -586,9 +587,9 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-M13_40">
 				<Position>
-					<X>30</X>
-					<Y>2</Y>
-					<Z>22.5</Z>
+					<X>25.9</X>
+					<Y>4.5</Y>
+					<Z>23.7</Z>
 				</Position>
 				<PlaceToGridOrigin>true</PlaceToGridOrigin>
 				<Behaviour>WW2-Behavior-GarageVehicle-M1340</Behaviour>
@@ -596,9 +597,9 @@
 			</Prefab>
 			<Prefab SubtypeId="Player-WW2-M13_40">
 				<Position>
-					<X>30</X>
-					<Y>2</Y>
-					<Z>42.5</Z>
+					<X>25.9</X>
+					<Y>4.5</Y>
+					<Z>43.7</Z>
 				</Position>
 				<PlaceToGridOrigin>true</PlaceToGridOrigin>
 				<Behaviour>WW2-Behavior-GarageVehicle-M1340</Behaviour>
@@ -617,7 +618,7 @@
 		</Prefabs>
 	</SpawnGroup>
 
-	<!-- Gray AB 41 Factory -->
+	<!-- Gray AB 41 (War Level 1+) Factory -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
@@ -653,7 +654,7 @@
 				<Position>
 					<X>28</X>
 					<Y>6.5</Y>
-					<Z>4.5</Z>
+					<Z>9.5</Z>
 				</Position>
 				<PlaceToGridOrigin>true</PlaceToGridOrigin>
 				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
@@ -663,7 +664,7 @@
 				<Position>
 					<X>28</X>
 					<Y>6.5</Y>
-					<Z>24.5</Z>
+					<Z>29.5</Z>
 				</Position>
 				<PlaceToGridOrigin>true</PlaceToGridOrigin>
 				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
@@ -673,7 +674,7 @@
 				<Position>
 					<X>28</X>
 					<Y>6.5</Y>
-					<Z>44.5</Z>
+					<Z>49.5</Z>
 				</Position>
 				<PlaceToGridOrigin>true</PlaceToGridOrigin>
 				<Behaviour>WW2-Behavior-GarageVehicle-AB41</Behaviour>
@@ -692,7 +693,7 @@
 		</Prefabs>
 	</SpawnGroup>
 
-	<!-- Gray AB 43 (War Level 3+) Factory -->
+	<!-- Gray AB 43 (War Level 2+) Factory -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
@@ -702,7 +703,7 @@
 
 		[Modular Encounters SpawnGroup]
 
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-WL3-Medium-FactoryGround]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-WL2-Medium-FactoryGround]
 		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
@@ -711,7 +712,7 @@
 		[FactionOverride:GRAY]
 
 		</Description>
-		<Frequency>1.0</Frequency>
+		<Frequency>0.8</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
 			<Prefab SubtypeId="NPC-WW2-Factory-Ground">
@@ -767,7 +768,7 @@
 		</Prefabs>
 	</SpawnGroup>
 
-	<!-- Green R35 Factory (the Gray building for now; vehicle offsets from tools/grids/layout.py) -->
+	<!-- Green R35 (War Level 2+) Factory (the Gray building for now; vehicle offsets from tools/grids/layout.py) -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
@@ -777,7 +778,7 @@
 
 		[Modular Encounters SpawnGroup]
 
-		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-Medium-FactoryGround]
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-WL2-Medium-FactoryGround]
 		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
 		[ManipulationProfiles:MES-Manipulation-RivalAi]
 		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
@@ -786,10 +787,10 @@
 		[FactionOverride:GREEN]
 
 		</Description>
-		<Frequency>1.0</Frequency>
+		<Frequency>0.8</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Factory-Ground">
+			<Prefab SubtypeId="NPC-WW2-Factory-Ground-Green">
 				<Position>
 					<X>0.0</X>
 					<Y>-14.0</Y>
@@ -841,12 +842,11 @@
 			</Prefab>
 		</Prefabs>
 	</SpawnGroup>
-
-	<!-- Green Somua S35 Factory (the Gray building for now; vehicle offsets from tools/grids/layout.py place with a box centre, on the R35 spots: the Somua grid origin sits off-centre) -->
+	<!-- Green Panhard 178 (War Level 1+) Factory (owner 2026-11-07); vehicles placed with layout.py on the R35 slots -->
 	<SpawnGroup>
 		<Id>
 			<TypeId>SpawnGroupDefinition</TypeId>
-			<SubtypeId>WW2-Factory-Green-Ground-SomuaS35</SubtypeId>
+			<SubtypeId>WW2-Factory-Green-Ground-Panhard178</SubtypeId>
 		</Id>
 		<Description>
 
@@ -864,7 +864,82 @@
 		<Frequency>1.0</Frequency>
 		<IsPirate>true</IsPirate>
 		<Prefabs>
-			<Prefab SubtypeId="NPC-WW2-Factory-Ground">
+			<Prefab SubtypeId="NPC-WW2-Factory-Ground-Green">
+				<Position>
+					<X>0.0</X>
+					<Y>-14.0</Y>
+					<Z>0.0</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-Factory-Ground-Panhard178</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Panhard178">
+				<Position>
+					<X>27.5</X>
+					<Y>1.6</Y>
+					<Z>1.8</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-Panhard178</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Panhard178">
+				<Position>
+					<X>27.5</X>
+					<Y>1.6</Y>
+					<Z>21.8</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-Panhard178</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-Panhard178">
+				<Position>
+					<X>27.5</X>
+					<Y>1.6</Y>
+					<Z>41.8</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-Panhard178</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+			<Prefab SubtypeId="Player-WW2-RenaultAHN">
+				<Position>
+					<X>17.2</X>
+					<Y>3.0</Y>
+					<Z>25.6</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-GarageVehicle-RenaultAHN</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Green Somua S35 (War Level 3+) Factory (the Gray building for now; vehicle offsets from tools/grids/layout.py place with a box centre, on the R35 spots: the Somua grid origin sits off-centre) -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Factory-Green-Ground-SomuaS35</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-WL3-Medium-FactoryGround]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-66pct]
+		[ManipulationProfiles:WW2-Manipulation-FactoryBuildState-33pct]
+
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Frequency>0.5</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Factory-Ground-Green">
 				<Position>
 					<X>0.0</X>
 					<Y>-14.0</Y>

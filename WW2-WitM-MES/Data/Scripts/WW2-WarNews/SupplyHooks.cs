@@ -296,7 +296,7 @@ namespace WW2WitM.Supply
                     var route = SupplyConvoys.Find(t.Route);
                     if (t.Delivered || route == null)
                         return;
-                    if (RemoteWorking(grid))
+                    if (!t.Lost && RemoteWorking(grid))
                         session.ChangeOnward(route.Port, t.Cost, "refund, convoy truck on " + route.Id + " removed before delivering (" + (source ?? "") + ")");
                     else
                         SupplySession.Log(route.Port + ": convoy truck lost, no refund");

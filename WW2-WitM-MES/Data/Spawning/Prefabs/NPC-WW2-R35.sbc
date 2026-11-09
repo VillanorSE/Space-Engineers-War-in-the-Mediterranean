@@ -2623,7 +2623,7 @@ void Status(string state) {
                         <dictionary>
                           <item>
                             <Key>75bbb4f5-4fb9-4230-beef-bb79c9811501</Key>
-                            <Value>4nxqCmgIABI8LQBg6kUyNQgAEAAYACAAKAAwAHgAgAEAkAEAoAEAsAEAwAEA0AEA2AEA6AEA8AEA+AEBsAIA0AIA4AIAGhsIABIHDQAAAAAQABgAIJeAgICAgICAAigDMAAiCQ0AAAAAEAAYAAgi</Value>
+                            <Value>4nxqCmgIABI8LQAASEQyNQgAEAAYACAAKAAwAHgAgAEAkAEAoAEAsAEAwAEA0AEA2AEA6AEA8AEA+AEBsAIA0AIA4AIAGhsIABIHDQAAAAAQABgAIJeAgICAgICAAigDMAAiCQ0AAAAAEAAYAAgi</Value>
                           </item>
                         </dictionary>
                       </Storage>
@@ -2641,8 +2641,8 @@ void Status(string state) {
               <ElevationId>126578850259914308</ElevationId>
               <CameraId>135739150417393115</CameraId>
               <ToolIds />
-              <VelocityMultiplierAzimuth>0.3</VelocityMultiplierAzimuth>
-              <VelocityMultiplierElevation>0.3</VelocityMultiplierElevation>
+              <VelocityMultiplierAzimuth>1</VelocityMultiplierAzimuth>
+              <VelocityMultiplierElevation>1</VelocityMultiplierElevation>
               <PreviousControlledEntityId xsi:nil="true" />
               <IsCorrect>true</IsCorrect>
               <TargetingGroup />
@@ -2928,7 +2928,7 @@ void Status(string state) {
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>2</NumberInGrid>
               <Enabled>true</Enabled>
-              <GyroPower>0.1</GyroPower>
+              <GyroPower>1</GyroPower>
               <GyroOverride>true</GyroOverride>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ShipConnector">

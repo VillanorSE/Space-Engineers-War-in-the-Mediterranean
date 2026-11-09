@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SpawnGroups>
+
+<!-- Manufactory (owner 2026-11-08): one shared building for both factions, a Medium planetary installation in
+     each faction's territory from War Level 1. Behavior Behaviors-Manufactory.sbc; loot Loot-Manufactory.sbc;
+     store WW2-Store-Behavior-ManufactorySales.sbc. Offset from layout.py (2026-11-08): building within ~3 m of
+     the spawn point (where MES samples the ground), floor top ~1.0 m above the ground (Y 2.4 -> 2.8, owner after an in-game look), Remote Control and beacon
+     below it. The console module at the grid origin is IsMainCockpit, so MES's cockpit-forward turn pivots on the
+     origin and doesn't move the building (qa 2026-11-08: the origin used to be 97 m from the building centre, a
+     slope risk; the prefab's blocks were shifted +13,0,+33 cells). Not yet checked in game. -->
+
+	<!-- Gray Manufactory (War Level 1+) -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Manufactory-Gray</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-Medium]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Gray]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Loot-Manufactory]
+
+		[FactionOverride:GRAY]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Manufactory">
+				<Position>
+					<X>0.0</X>
+					<Y>2.8</Y>
+					<Z>0.0</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-Manufactory-Gray</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	<!-- Green Manufactory (War Level 1+) -->
+	<SpawnGroup>
+		<Id>
+			<TypeId>SpawnGroupDefinition</TypeId>
+			<SubtypeId>WW2-Manufactory-Green</SubtypeId>
+		</Id>
+		<Description>
+
+		[Modular Encounters SpawnGroup]
+
+		[SpawnConditionsProfiles:WW2-SpawnConditions-Installations-Medium]
+		[PersistentConditions:WW2-SpawnConditions-Territory-Green]
+		[ManipulationProfiles:MES-Manipulation-RivalAi]
+		[ManipulationProfiles:WW2-Manipulation-Loot-Manufactory]
+
+		[FactionOverride:GREEN]
+
+		</Description>
+		<Frequency>1.0</Frequency>
+		<IsPirate>true</IsPirate>
+		<Prefabs>
+			<Prefab SubtypeId="NPC-WW2-Manufactory">
+				<Position>
+					<X>0.0</X>
+					<Y>2.8</Y>
+					<Z>0.0</Z>
+				</Position>
+				<PlaceToGridOrigin>true</PlaceToGridOrigin>
+				<Behaviour>WW2-Behavior-Manufactory-Green</Behaviour>
+				<Speed>0.0</Speed>
+			</Prefab>
+		</Prefabs>
+	</SpawnGroup>
+
+	</SpawnGroups>
+</Definitions>

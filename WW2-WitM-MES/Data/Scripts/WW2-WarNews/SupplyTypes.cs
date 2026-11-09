@@ -54,6 +54,8 @@ namespace WW2WitM.Supply
         [ProtoMember(2)] public string Route = "";
         [ProtoMember(3)] public int Cost;
         [ProtoMember(4)] public bool Delivered;
+        // Disabled (no working engine / lost wheel, GroundDisable): not refunded.
+        [ProtoMember(5)] public bool Lost;
     }
 
     // A cargo ship (charged to its HQ's Onward box) or a cargo plane (charged to its airfield); refunded if MES removes it

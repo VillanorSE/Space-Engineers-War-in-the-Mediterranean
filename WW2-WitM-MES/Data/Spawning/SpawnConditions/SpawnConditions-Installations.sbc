@@ -124,6 +124,41 @@
 		</Description>
 	</EntityComponent>
 
+	<!-- WL2 copy of WW2-SpawnConditions-Installations-WL3-Medium-FactoryGround (AB43 factory, owner 2026-11-07): keep in sync -->
+	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+		<Id>
+			<TypeId>Inventory</TypeId>
+			<SubtypeId>WW2-SpawnConditions-Installations-WL2-Medium-FactoryGround</SubtypeId>
+		</Id>
+		<Description>
+			[MES Spawn Conditions]
+
+			[PlanetaryInstallation:true]
+			[PlanetaryInstallationType:Medium]
+
+			[InstallationSpawnsOnDryLand:true]
+			[MaxWaterCoverage:0.6]
+			[InstallationTerrainValidation:true]
+			[DisallowedTerrainTypes:SoilDry]
+
+			[MaxSpawnFromPlanetSurface:5000]
+			[PlanetRequiresAtmo:true]
+			[UsePlayerCountCheck:true]
+			[MinimumPlayers:1]
+			[IgnoreCombatPhase:true]
+
+			[CutVoxelsAtAirtightCells:true]
+			[CutVoxelSize:2.7]
+
+			[RotateInstallations:{X:0 Y:0 Z:0},{X:0 Y:0 Z:0},{X:0 Y:0 Z:0},{X:0 Y:0 Z:0},{X:0 Y:1000000 Z:0}]
+
+			[CheckCustomSandboxCounters:true]
+			[CustomSandboxCounters:WarLevel]
+			[CustomSandboxCountersTargets:2]
+			[SandboxCounterCompareTypes:GreaterOrEqual]
+		</Description>
+	</EntityComponent>
+
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
@@ -387,7 +422,7 @@
 
 <!-- Secondary installations (airfields, vehicle depots, garrisons). These spawn UNOWNED and
 	 their FactionOverride/ownership/flag color is reassigned at runtime by the installation's
-	 own Behavior once territory ownership claims it. 20km TriggerRadius. -->
+	 own Behavior once territory ownership claims it. 65km TriggerRadius (planet-wide, as ports): all spawn at world start (owner 2026-11-07). -->
 	<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 		<Id>
 			<TypeId>Inventory</TypeId>
@@ -408,7 +443,7 @@
 
 			[FactionOwner:UNOWNED]
 
-			[TriggerRadius:20000]
+			[TriggerRadius:65000]
 
 			[UsePlayerCountCheck:true]
 			[MinimumPlayers:1]
@@ -437,7 +472,7 @@
 
 			[FactionOwner:UNOWNED]
 
-			[TriggerRadius:20000]
+			[TriggerRadius:65000]
 
 			[UsePlayerCountCheck:true]
 			[MinimumPlayers:1]
@@ -466,7 +501,7 @@
 
 			[FactionOwner:UNOWNED]
 
-			[TriggerRadius:20000]
+			[TriggerRadius:65000]
 
 			[UsePlayerCountCheck:true]
 			[MinimumPlayers:1]
@@ -495,7 +530,7 @@
 
 			[FactionOwner:UNOWNED]
 
-			[TriggerRadius:20000]
+			[TriggerRadius:65000]
 
 			[UsePlayerCountCheck:true]
 			[MinimumPlayers:1]
@@ -524,7 +559,7 @@
 
 			[FactionOwner:UNOWNED]
 
-			[TriggerRadius:20000]
+			[TriggerRadius:65000]
 
 			[UsePlayerCountCheck:true]
 			[MinimumPlayers:1]
@@ -556,7 +591,7 @@
 
 			[FactionOwner:UNOWNED]
 
-			[TriggerRadius:20000]
+			[TriggerRadius:65000]
 
 			[UsePlayerCountCheck:true]
 			[MinimumPlayers:1]
@@ -587,7 +622,7 @@
 
 			[FactionOwner:UNOWNED]
 
-			[TriggerRadius:20000]
+			[TriggerRadius:65000]
 
 			[UsePlayerCountCheck:true]
 			[MinimumPlayers:1]

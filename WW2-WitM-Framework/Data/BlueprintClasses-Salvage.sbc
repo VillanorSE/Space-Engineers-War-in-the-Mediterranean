@@ -2,7 +2,8 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
 <!-- Routes the 4 Blueprints in Blueprints-Salvage.sbc into vanilla's own "CommonMetals"
-     (Refinery) and "Components" (Assembler) BlueprintClasses, so they show up on any Refinery/
+     (Basic Refinery only), "Ingots" (Refinery, Industrial and Prototech Refineries; added 2026-11-08,
+     the full-size refineries rejected Battle Wreckage) and "Components" (Assembler) BlueprintClasses, so they show up on any Refinery/
      Assembler players already have - no custom production block needed.
      This is a plain SBC file, NOT a Mod Adjuster patch: Mod Adjuster's BlueprintClassEntries
      patch clears a class's entire existing entry list on first write (would wipe every vanilla
@@ -14,6 +15,7 @@
 
 	<BlueprintClassEntries>
 		<Entry Class="CommonMetals" BlueprintSubtypeId="WW2-Blueprint-BattleWreckageToSalvageAlloy" />
+		<Entry Class="Ingots" BlueprintSubtypeId="WW2-Blueprint-BattleWreckageToSalvageAlloy" />
 		<Entry Class="Components" BlueprintSubtypeId="WW2-Blueprint-IndustrialComponents" />
 		<Entry Class="Components" BlueprintSubtypeId="WW2-Blueprint-MilitaryComponents" />
 		<Entry Class="Components" BlueprintSubtypeId="WW2-Blueprint-AdvancedMilitaryComponents" />

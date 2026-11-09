@@ -119,9 +119,9 @@ namespace WW2WitM.WarNewsSystem
                         : "Reports of " + Adjective(run.Faction) + " truck convoys on the roads out of " + run.From;
                     if (!reported.Add(text))
                         continue;
-                    if (!Block(frame, text, corner, ref y, width, bottom, WarNewsTss.FactionColor(run.Faction, fg), SmallScale))
+                    if (!Block(frame, text, corner, ref y, width, bottom, WarNewsTss.FactionColor(run.Faction, fg), TextScale))
                         return;
-                    y += LineHeight(SmallScale) * 0.3f;
+                    y += LineHeight(TextScale) * 0.3f;
                 }
             }
         }
@@ -140,13 +140,26 @@ namespace WW2WitM.WarNewsSystem
                 return "Green";
             var gray = factions.TryGetFactionByTag("GRAY");
             var green = factions.TryGetFactionByTag("GREEN");
-            int toGray = gray != null ? factions.GetReputationBetweenPlayerAndFaction(owner, gray.FactionId) : 0;
-            int toGreen = green != null ? factions.GetReputationBetweenPlayerAndFaction(owner, green.FactionId) : 0;
+            int toGray = Rep(owner, own, gray);
+            int toGreen = Rep(owner, own, green);
             if (toGray > FriendlyRep && toGray >= toGreen)
                 return "Gray";
             if (toGreen > FriendlyRep)
                 return "Green";
             return "";
+        }
+
+        // The higher of the owner's personal rep and their faction's rep with the side: /alliance sets the faction rep, and
+        // personal rep can be reset at load.
+        private static int Rep(long owner, IMyFaction own, IMyFaction side)
+        {
+            if (side == null)
+                return 0;
+            var factions = MyAPIGateway.Session.Factions;
+            int rep = factions.GetReputationBetweenPlayerAndFaction(owner, side.FactionId);
+            if (own != null)
+                rep = Math.Max(rep, factions.GetReputationBetweenFactions(own.FactionId, side.FactionId));
+            return rep;
         }
 
         private static string Adjective(string faction)

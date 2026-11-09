@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Owner 2026-11-08: player safe zones don't use Zone Chips to build. Vanilla <Components> lists reproduced in full
+     (verified against Content/Data/CubeBlocks/CubeBlocks_Economy.sbc and CubeBlocks_Economy2Pack.sbc, identical) minus
+     the 5 ZoneChip. CriticalComponent unchanged. SafeZoneUpkeep 0 (vanilla 1 chip per 60 min; Mod Adjuster applies any
+     value present, 0 included). If SiegeableSafeZones (3605260551) is loaded it overwrites SafeZoneUpkeep at load from
+     the world's Storage SiegableSafeZoneConfig.xml, so set SafeZoneUpKeepAmt 0 there too (default 1).
+     Radius fixed at 250 m and power near zero (1 W; vanilla 5-128 MW), owner 2026-11-08. Min radius is 249, not 250:
+     SE's power formula divides by (MaxSafeZoneRadius - MinSafeZoneRadius), so equal values give NaN (decompiled
+     MySafeZoneComponent.GetMaxPowerDrain). Box shape still allows 249-500 m sides (sliders go to 2x max radius).
+     SiegeableSafeZones also overwrites Default/MaxSafeZoneRadius (SafeZoneRadius, default 200) and MaxSafeZonePowerDrainkW
+     (ActivePowerDrainMW x 1000, default 300) from its config: set 250 and 1E-06 there.
+     Sieges still cost Zone Chips (owner choice, as on Kharak). SafeZoneBlockNPC (NPC-only) is left alone. -->
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CubeBlocks>
+
+    <Definition xsi:type="SafeZoneBlockDefinition">
+      <Id Type="MyObjectBuilder_SafeZoneBlock" Subtype="SafeZoneBlock" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="750" />
+        <Component Subtype="Construction" Count="180" />
+        <Component Subtype="GravityGenerator" Count="10" />
+        <Component Subtype="MetalGrid" Count="80" />
+        <Component Subtype="Computer" Count="120" />
+        <Component Subtype="SteelPlate" Count="50" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <SafeZoneUpkeep>0</SafeZoneUpkeep>
+      <MinSafeZoneRadius>249</MinSafeZoneRadius>
+      <MaxSafeZoneRadius>250</MaxSafeZoneRadius>
+      <DefaultSafeZoneRadius>250</DefaultSafeZoneRadius>
+      <MinSafeZonePowerDrainkW>0.001</MinSafeZonePowerDrainkW>
+      <MaxSafeZonePowerDrainkW>0.001</MaxSafeZonePowerDrainkW>
+    </Definition>
+
+    <Definition xsi:type="SafeZoneBlockDefinition">
+      <Id Type="MyObjectBuilder_SafeZoneBlock" Subtype="SafeZoneBlockReskin" />
+      <Components>
+        <Component Subtype="SteelPlate" Count="750" />
+        <Component Subtype="Construction" Count="180" />
+        <Component Subtype="GravityGenerator" Count="10" />
+        <Component Subtype="MetalGrid" Count="80" />
+        <Component Subtype="Computer" Count="120" />
+        <Component Subtype="SteelPlate" Count="50" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <SafeZoneUpkeep>0</SafeZoneUpkeep>
+      <MinSafeZoneRadius>249</MinSafeZoneRadius>
+      <MaxSafeZoneRadius>250</MaxSafeZoneRadius>
+      <DefaultSafeZoneRadius>250</DefaultSafeZoneRadius>
+      <MinSafeZonePowerDrainkW>0.001</MinSafeZonePowerDrainkW>
+      <MaxSafeZonePowerDrainkW>0.001</MaxSafeZonePowerDrainkW>
+    </Definition>
+
+  </CubeBlocks>
+</Definitions>

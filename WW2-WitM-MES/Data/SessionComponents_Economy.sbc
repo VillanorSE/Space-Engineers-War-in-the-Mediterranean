@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <!-- Economy session component: identical to the vanilla Default definition except: PirateId points at WW2-Unowned because the vanilla
-         SpacePirates faction is hidden (IsDefault false) in WW2-WitM-MES Factions.sbc, and ReputationDecayPerHour is 0 (vanilla 50) so reputation does not drift back to neutral. -->
+         SpacePirates faction is hidden (IsDefault false) in Factions.sbc, and ReputationDecayPerHour is 0 (vanilla 50) so reputation does not drift back to neutral.
+         Lives in WW2-WitM-MES next to Factions.sbc (moved from WW2-WitM-Framework 2026-11-08): WW2-Unowned only exists with this
+         mod, and a world loading the Framework alone crashed creating default factions (null PirateId definition). -->
     <Definition xsi:type="MyObjectbuilder_SessionComponentEconomyDefinition">
         <Id>
             <TypeId>MyObjectbuilder_SessionComponentEconomyDefinition</TypeId>

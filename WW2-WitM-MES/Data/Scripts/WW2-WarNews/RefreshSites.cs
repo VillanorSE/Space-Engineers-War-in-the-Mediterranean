@@ -49,7 +49,7 @@ namespace WW2WitM.Refresh
         public bool Owned { get { return Kind != SiteKind.Port; } }
         public string Label { get { return (Kind == SiteKind.Airfield ? "Airfield " : Kind == SiteKind.Depot ? "Depot " : "Port ") + Name; } }
         public string Short { get { return Group.StartsWith("WW2-", System.StringComparison.Ordinal) ? Group.Substring(4) : Group; } }
-        public double TriggerRadiusKm { get { return Kind == SiteKind.Port ? 65 : 20; } }
+        public double TriggerRadiusKm { get { return 65; } }  // every site spawns at world start (owner 2026-11-07; was 20 km for airfields and depots)
     }
 
     // A vehicle depot (D-049) and whether it is open: its spawn conditions have [StaticEncounter:true], coordinates, forward

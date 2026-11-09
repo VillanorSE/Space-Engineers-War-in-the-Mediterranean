@@ -52,6 +52,7 @@ namespace Scripts
                     Thrust, Utility, Offense, Power, Production, Any,
                 },
                 ClosestFirst = true,
+                MaxTrackingTime = 120, // WitM 2026-11-07 (#62): drop the target every 2 s and re-acquire. A CTC-aimed fixed gun gets WC's terrain re-check only on (re)acquisition, so without this it fires through hills.
             },
             HardPoint = new HardPointDef
             {

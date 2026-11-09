@@ -380,7 +380,7 @@
 			<Description>
 			[RivalAI Action]
 			[RecolorGrid:true]
-			[OldBlockColors:{X:0 Y:0 Z:0.9}]
+			[OldBlockColors:{X:0 Y:-0.8 Z:0.55}]
 			[NewBlockColors:{X:0 Y:-0.75 Z:0}]
 			[ChangeBlockOwnership:true]
 			[OwnershipBlockNames:Airfield Block]
@@ -421,7 +421,7 @@
 			<Description>
 			[RivalAI Action]
 			[RecolorGrid:true]
-			[OldBlockColors:{X:0 Y:0 Z:0.9}]
+			[OldBlockColors:{X:0 Y:-0.8 Z:0.55}]
 			[NewBlockColors:{X:0.25555557 Y:-0.41 Z:-0.3}]
 			[ChangeBlockOwnership:true]
 			[OwnershipBlockNames:Airfield Block]
@@ -511,7 +511,7 @@
 			[RivalAI Action]
 			[RecolorGrid:true]
 			[OldBlockColors:{X:0 Y:-0.75 Z:0}]
-			[NewBlockColors:{X:0 Y:0 Z:0.9}]
+			[NewBlockColors:{X:0 Y:-0.8 Z:0.55}]
 			[SetCustomStrings:true]
 			[CustomStrings:OldOwner,Gray]
 			[UseChatBroadcast:true]
@@ -601,7 +601,7 @@
 			[RivalAI Action]
 			[RecolorGrid:true]
 			[OldBlockColors:{X:0.25555557 Y:-0.41 Z:-0.3}]
-			[NewBlockColors:{X:0 Y:0 Z:0.9}]
+			[NewBlockColors:{X:0 Y:-0.8 Z:0.55}]
 			[SetCustomStrings:true]
 			[CustomStrings:OldOwner,Green]
 			[UseChatBroadcast:true]
@@ -885,127 +885,127 @@
      ([UseTrigger:false]) and are switched on/off by the flip actions below, exactly like the
      offense, cargo-request and store triggers. Same Actions as the originals, which are left
      untouched for the factories and ports. -->
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-Airfield-Gated-ReputationDamageLight-Gray</SubtypeId>
-            </Id>
-            <Description>
-
-			[RivalAI Trigger]
-
-			[UseTrigger:false]
-			[Type:Damage]
-
-			[DamageTypes:Any]
-			[ExcludedDamageTypes:Environment]
-			[ExcludedDamageTypes:Deformation]
-
-			[Conditions:WW2-Condition-ReputationDamage]
-
-			[MinCooldownMs:900000]
-			[MaxCooldownMs:900000]
-			[StartsReady:true]
-			[MaxActions:-1]
-            [Actions:WW2-Action-ReputationDamageLight-Gray]
-
-			</Description>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-Airfield-Gated-ReputationDamageLight-Gray</SubtypeId>
+            </Id>
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:false]
+			[Type:Damage]
+
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+
+			[Conditions:WW2-Condition-ReputationDamage]
+
+			[MinCooldownMs:900000]
+			[MaxCooldownMs:900000]
+			[StartsReady:true]
+			[MaxActions:-1]
+            [Actions:WW2-Action-ReputationDamageLight-Gray]
+
+			</Description>
         </EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-Airfield-Gated-ReputationDamageLight-Green</SubtypeId>
-            </Id>
-			<!-- Damage excluding; environment and deformation. 15 minute cooldown. -->
-            <Description>
-
-			[RivalAI Trigger]
-
-			[UseTrigger:false]
-			[Type:Damage]
-
-			[DamageTypes:Any]
-			[ExcludedDamageTypes:Environment]
-			[ExcludedDamageTypes:Deformation]
-
-			[Conditions:WW2-Condition-ReputationDamage]
-
-			[MinCooldownMs:900000]
-			[MaxCooldownMs:900000]
-			[StartsReady:true]
-			[MaxActions:-1]
-            [Actions:WW2-Action-ReputationDamageLight-Green]
-
-			</Description>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-Airfield-Gated-ReputationDamageLight-Green</SubtypeId>
+            </Id>
+			<!-- Damage excluding; environment and deformation. 15 minute cooldown. -->
+            <Description>
+
+			[RivalAI Trigger]
+
+			[UseTrigger:false]
+			[Type:Damage]
+
+			[DamageTypes:Any]
+			[ExcludedDamageTypes:Environment]
+			[ExcludedDamageTypes:Deformation]
+
+			[Conditions:WW2-Condition-ReputationDamage]
+
+			[MinCooldownMs:900000]
+			[MaxCooldownMs:900000]
+			[StartsReady:true]
+			[MaxActions:-1]
+            [Actions:WW2-Action-ReputationDamageLight-Green]
+
+			</Description>
         </EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-Airfield-Gated-BotCrew-3</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Trigger]
-			
-			[UseTrigger:false]
-			[Type:PlayerNear]
-
-			[TargetDistance:800]
-			
-			[StartsReady:false]
-			[MaxActions:1]
-			
-			[Actions:WW2-Action-BotCrew-3]
-			
-			</Description>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-Airfield-Gated-BotCrew-3</SubtypeId>
+            </Id>
+            <Description>
+			
+			[RivalAI Trigger]
+			
+			[UseTrigger:false]
+			[Type:PlayerNear]
+
+			[TargetDistance:800]
+			
+			[StartsReady:false]
+			[MaxActions:1]
+			
+			[Actions:WW2-Action-BotCrew-3]
+			
+			</Description>
         </EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-Airfield-Gated-DefenseSpawn-Gray</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Trigger]
-			
-			[UseTrigger:false]
-			[Type:PlayerNear]
-			[TargetDistance:1200]
-
-			[MinCooldownMs:600000]
-			[MaxCooldownMs:1800000]
-			[StartsReady:true]
-			
-			[MaxPlayerReputation:-500]
-			[Conditions:WW2-Supply-Condition-Defense]
-			
-            [Actions:WW2-Action-DefenseSpawn-Gray]
-
-			</Description>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-Airfield-Gated-DefenseSpawn-Gray</SubtypeId>
+            </Id>
+            <Description>
+			
+			[RivalAI Trigger]
+			
+			[UseTrigger:false]
+			[Type:PlayerNear]
+			[TargetDistance:1200]
+
+			[MinCooldownMs:600000]
+			[MaxCooldownMs:1800000]
+			[StartsReady:true]
+			
+			[MaxPlayerReputation:-500]
+			[Conditions:WW2-Supply-Condition-Defense]
+			
+            [Actions:WW2-Action-DefenseSpawn-Gray]
+
+			</Description>
         </EntityComponent>
-		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
-            <Id>
-                <TypeId>Inventory</TypeId>
-                <SubtypeId>WW2-Trigger-Airfield-Gated-DefenseSpawn-Green</SubtypeId>
-            </Id>
-            <Description>
-			
-			[RivalAI Trigger]
-			
-			[UseTrigger:false]
-			[Type:PlayerNear]
-			[TargetDistance:1200]
-
-			[MinCooldownMs:600000]
-			[MaxCooldownMs:1800000]
-			[StartsReady:true]
-			
-			[MaxPlayerReputation:-500]
-			[Conditions:WW2-Supply-Condition-Defense]
-			
-            [Actions:WW2-Action-DefenseSpawn-Green]
-
-			</Description>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+            <Id>
+                <TypeId>Inventory</TypeId>
+                <SubtypeId>WW2-Trigger-Airfield-Gated-DefenseSpawn-Green</SubtypeId>
+            </Id>
+            <Description>
+			
+			[RivalAI Trigger]
+			
+			[UseTrigger:false]
+			[Type:PlayerNear]
+			[TargetDistance:1200]
+
+			[MinCooldownMs:600000]
+			[MaxCooldownMs:1800000]
+			[StartsReady:true]
+			
+			[MaxPlayerReputation:-500]
+			[Conditions:WW2-Supply-Condition-Defense]
+			
+            [Actions:WW2-Action-DefenseSpawn-Green]
+
+			</Description>
         </EntityComponent>
 
 <!-- Ownership-change announcements. {NewOwner}/{OldOwner} are custom strings set by each state

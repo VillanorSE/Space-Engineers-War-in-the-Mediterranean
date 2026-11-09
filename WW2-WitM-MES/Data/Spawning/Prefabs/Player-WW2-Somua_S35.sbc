@@ -2017,7 +2017,7 @@
               <BlockOrientation Forward="Left" Up="Forward" />
               <ColorMaskHSV x="0.1" y="0.03" z="-0.33" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
-              <ShareMode>Faction</ShareMode>
+              <ShareMode>All</ShareMode>
               <CustomName>Sloped Hatch - Front</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
@@ -2679,7 +2679,7 @@
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
               <Enabled>true</Enabled>
-              <GyroPower>0.1</GyroPower>
+              <GyroPower>1</GyroPower>
               <GyroOverride>true</GyroOverride>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
@@ -5114,6 +5114,7 @@ public sealed class VariableReference
               <BlockOrientation Forward="Backward" Up="Left" />
               <ColorMaskHSV x="0.313888878" y="-0.65" z="-0.24" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
+              <ShareMode>All</ShareMode>
               <CustomName>Sliding Hatch - Back</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
@@ -5964,6 +5965,7 @@ public sealed class VariableReference
               <Min x="-1" y="5" z="-7" />
               <ColorMaskHSV x="0.313888878" y="-0.65" z="-0.24" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
+              <ShareMode>All</ShareMode>
               <CustomName>Tank Hatch - Back</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
@@ -6867,6 +6869,7 @@ public sealed class VariableReference
               <BlockOrientation Forward="Left" Up="Up" />
               <ColorMaskHSV x="0.313888878" y="-0.65" z="-0.24" />
               <SkinSubtypeId>Weldless</SkinSubtypeId>
+              <ShareMode>All</ShareMode>
               <CustomName>Cupola Hatch - Top</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>

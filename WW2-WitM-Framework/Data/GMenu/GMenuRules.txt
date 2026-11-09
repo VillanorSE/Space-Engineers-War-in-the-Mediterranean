@@ -85,6 +85,7 @@ rule WpnAir      3043566172 * *BOFORS*
 rule WpnAir      2883075089 * *GBU-6*
 rule WpnNaval    @NAVAL @WEAPON *
 rule WpnNaval    2685161727 * Torpedo*
+rule WpnGround   3793621303,WW2-WitM-Framework LargeGatlingTurret WitM_Breda38*
 rule WpnGround   @GROUND @WEAPON *
 rule WpnGround   2883075089 RadioAntenna,SensorBlock ECS_*,Active Protection*
 rule WpnGround   vanilla,3154371364 @WEAPON *
@@ -119,6 +120,12 @@ rule Armor25    2930049835,2883075089 CubeBlock *_25mm,*_25mm_*,25mm*
 rule Armor50    2930049835,2883075089 CubeBlock *_50mm,*_50mm_*,50mm*
 rule Armor75    2930049835,2883075089 CubeBlock *_75mm,*_75mm_*,75mm*
 rule Armor100   2930049835,2883075089 CubeBlock *_100mm,*_100mm_*,100mm*
+# WitM's own TP armour (Data/TP_Armour), SETB-style names
+rule Armor12   3793621303,WW2-WitM-Framework CubeBlock 12mm_*
+rule Armor25   3793621303,WW2-WitM-Framework CubeBlock 25mm_*
+rule Armor50   3793621303,WW2-WitM-Framework CubeBlock 50mm_*
+rule Armor75   3793621303,WW2-WitM-Framework CubeBlock 75mm_*
+rule Armor100  3793621303,WW2-WitM-Framework CubeBlock 100mm_*
 # SETB and some IAP armour carry the thickness only in the display name ("4mm 6 Slope Corner 1")
 rulename Armor4     2930049835,2883075089,3579674659 CubeBlock 4mm*,* 4mm*,*(4mm*
 rulename Armor12    2930049835,2883075089,3579674659 CubeBlock 12mm*,* 12mm*,*(12mm*

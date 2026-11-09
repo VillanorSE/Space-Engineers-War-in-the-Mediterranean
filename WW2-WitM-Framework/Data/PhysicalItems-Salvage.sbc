@@ -10,7 +10,8 @@
      - Salvaged Ordnance (Ingot) - looted directly (no ore of its own), from larger NPC kills
        only. Unlock ingredient for the toughest naval gun ammo (see ModAdjuster patch). Sourced
        only via loot or Port stores.
-     Icon/Model paths below reuse real vanilla assets (Scrap/Iron ingot/Uranium ingot), same
+     Icons (2026-11-08, owner): Prototech Scrap icon + "Wreck", unused vanilla potassium ingot + "Alloy",
+     uranium ingot + our OrdnanceBadge.png overlay (orange diamond) + "Ord.". Models still reuse vanilla assets, same
      asset-reuse pattern used elsewhere in this project - these are not custom models.
      Economy fields (MinimumOfferAmount/MaximumOfferAmount/MinimumOrderAmount/MaximumOrderAmount/
      CanPlayerOffer/MinimumAcquisitionAmount/MaximumAcquisitionAmount, plus MinimalPricePerUnit
@@ -25,7 +26,8 @@
 				<SubtypeId>BattleWreckage</SubtypeId>
 			</Id>
 			<DisplayName>Battle Wreckage</DisplayName>
-			<Icon>Textures\GUI\Icons\component\ScrapMetalComponent.dds</Icon>
+			<Icon>Textures\GUI\Icons\component\ScrapPrototechComponent.dds</Icon>
+			<IconSymbol>Wreck</IconSymbol>
 			<Size>
 				<X>0.2</X>
 				<Y>0.2</Y>
@@ -53,7 +55,8 @@
 				<SubtypeId>SalvageAlloy</SubtypeId>
 			</Id>
 			<DisplayName>Salvage Alloy</DisplayName>
-			<Icon>Textures\GUI\Icons\ingot\iron_ingot.dds</Icon>
+			<Icon>Textures\GUI\Icons\ingot\potassium_ingot.dds</Icon>
+			<IconSymbol>Alloy</IconSymbol>
 			<Size>
 				<X>0.05</X>
 				<Y>0.05</Y>
@@ -81,6 +84,8 @@
 			</Id>
 			<DisplayName>Salvaged Ordnance</DisplayName>
 			<Icon>Textures\GUI\Icons\ingot\uranium_ingot.dds</Icon>
+			<Icon>Textures\GUI\Icons\Salvage\OrdnanceBadge.png</Icon>
+			<IconSymbol>Ord.</IconSymbol>
 			<Size>
 				<X>0.037</X>
 				<Y>0.037</Y>

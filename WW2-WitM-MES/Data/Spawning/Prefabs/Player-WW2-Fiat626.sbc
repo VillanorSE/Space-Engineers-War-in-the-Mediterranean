@@ -6030,6 +6030,10 @@ Strength so the springs stay soft without bottoming out:
   throw the vehicle into the air.
 - Turns: as the body leans, the outer wheels stiffen and the inner wheels soften, like an
   anti-roll bar. The outer springs take the lean progressively instead of letting the body roll.
+- Speed: the tyres grip harder when slow (climbing, pulling away) and less when fast, so a hard
+  turn makes the tyres slide instead of tipping the vehicle over; and the steering angle narrows
+  at speed. The game already narrows steering a little as speed rises; this adds to it. While
+  nobody drives, or after "off", each suspension's own Friction and Max steer angle are put back.
 
 Setup:
 1.) Put the programmable block on the vehicle's body, with at least one seat (or remote control)
@@ -6039,10 +6043,11 @@ Setup:
 3.) Set each suspension's Height (offset) to the ride height you want; the script never changes
     it. The Strength you set is only the starting point; "off" and "reset" put it back.
 4.) Calibration: the script has to learn where each wheel sits in its travel. The first time the
-    vehicle stands still on the ground with a driver it lowers it onto its suspension stops for about two
-    seconds, measures, and raises it back. It does this again after a wheel is replaced, or after
-    "calibrate". After 3 failed tries in a row it waits until the vehicle has driven. It also waits
-    while the vehicle is static (a station).
+    vehicle stands still on the ground with a driver it puts the handbrake on, lowers the vehicle onto
+    its suspension stops for about two seconds, measures, raises it back and sets the handbrake as it
+    was. Level ground is not needed. It does this again after a wheel is replaced, or after
+    "calibrate". After 3 failed tries in a row it waits until the vehicle has driven; the readout
+    keeps the reason of the last failed try. It also waits while the vehicle is static (a station).
 5.) It only works while someone drives: a player in a seat that controls the vehicle, or at its
     remote control. With nobody driving it checks for a driver about every 1.7 seconds and does
     nothing else (the springs keep their base strengths), so parked vehicles cost the server
@@ -6058,15 +6063,20 @@ Arguments:
              again from the current settings
 */
 
-const string VERSION = "1.2";
-const string DATE = "2026/10/30";
+const string VERSION = "1.4";
+const string DATE = "2026/11/07";
 const string SECTION = "WitM Suspension Assist";
 
 // Custom Data settings (defaults)
 string groupName = "Suspension Assist";
-bool rideHeight = true, followMass = true;
+bool rideHeight = true, followMass = true, speedFriction = true, speedSteering = true;
 float sagPct = 25f, bumpStartPct = 60f, bumpStiffPct = 300f, reboundSoftPct = 25f, rollStiffPct = 100f;
 float minStrength = 2f, maxStrength = 100f;
+// Friction % (terminal scale). The game turns it into tyre grip on a steep curve (decompiled
+// MyMotorSuspension, 2026-11-07): 30% -&gt; 2.9, 40% -&gt; 8.1, 50% -&gt; 17.5. The owner found 30% stops the
+// armored cars tipping over in turns.
+float slowFriction = 40f, fastFriction = 30f, fastFrictionSpeed = 10f;
+float fastSteerPct = 50f, fullSteerSpeed = 5f, fastSteerSpeed = 20f;
 
 const string STORE_V1 = "v1";
 const int CYCLE = 3;                 // control runs on 1 tick of every 3 (20 per second)
@@ -6076,7 +6086,9 @@ const double REBOUND_RATE = 0.5;     // m/s of extension that gets the full rebo
 const double MEAN_TIME = 2;          // s: sag is averaged this long before the ride height is corrected
 const double ADAPT_TIME = 4;         // s: time constant of the ride-height correction
 const double MIN_MULT = 0.3, MAX_MULT = 4;   // limits on the moment-to-moment stiffness change
-const int CAL_MIN_STEPS = 30, CAL_MAX_STEPS = 200, CAL_STEADY_STEPS = 10;
+const int CAL_MIN_STEPS = 30, CAL_MAX_STEPS = 400, CAL_STEADY_STEPS = 10;
+// During calibration a wheel counts as steady below QUIET_RATE (1.2 asked for 1 mm per step, about
+// 2 cm/s, which uneven or sloped ground rarely gave).
 const int CAL_TRIES = 3;            // failed calibrations in a row before it waits for the vehicle to drive
 const double DRIVE_SPEED = 3;        // m/s: driving this fast allows new calibration tries
 const int ECHO_TIME = 10;            // s: the readout's numbers are rewritten at most this often
@@ -6093,6 +6105,7 @@ class Wheel {
   public long TopId;
   public double C = double.NaN, Sign, StopH;   // calibration; Sign +1 when the block's Forward points up
   public double K, Orig;                        // base stiffness, Strength when first seen (%)
+  public double OrigF = double.NaN, OrigSteer = double.NaN;   // own Friction (%) and Max steer angle (rad)
   public double Sag, Travel, Rate, Mean;        // m below the rest point, m from rest point to the stop, m/s
   public double Side;                           // +1 left of the centre of mass, -1 right
   public bool Ok, HavePrev, Failed;
@@ -6108,10 +6121,14 @@ readonly List&lt;IMyShipController&gt; ctrls = new List&lt;IMyShipController&gt;
 readonly HashSet&lt;long&gt; seen = new HashSet&lt;long&gt;();
 readonly List&lt;long&gt; stale = new List&lt;long&gt;();
 readonly StringBuilder echo = new StringBuilder();
-string statusText = "Starting", warnText = "", lastCustomData, lastEcho, lastEchoHead;
+string statusText = "Starting", warnText = "", calFailText = "", lastCustomData, lastEcho, lastEchoHead;
 long lastEchoTick;
-IMyShipController ctrl;
-bool running = true, rescan, idle;
+// Speed settings last written (friction %, steering % of each wheel's own angle); -1 = own values.
+double frictionNow = -1, steerNow = -1, flatSpeed;
+// True while the blocks may hold script-set Friction / Max steer angle (so their own values must not be re-read).
+bool speedApplied = true, restoreSpeed;
+IMyShipController ctrl, calCtrl;
+bool running = true, rescan, idle, calBrake;
 long tick;
 int steps, stillSteps, quietSteps, calStep = -1, calSteady, calFails;
 double massRef, mass, aLat;
@@ -6131,7 +6148,9 @@ public void Save() {
     var w = kv.Value;
     sb.Append(kv.Key).Append(',').Append(w.TopId).Append(',')
       .Append(double.IsNaN(w.C) ? "n" : Fixed(w.C).ToString()).Append(',').Append(Fixed(w.Sign)).Append(',')
-      .Append(Fixed(w.StopH)).Append(',').Append(Fixed(w.K)).Append(',').Append(Fixed(w.Orig)).Append(';'); }
+      .Append(Fixed(w.StopH)).Append(',').Append(Fixed(w.K)).Append(',').Append(Fixed(w.Orig)).Append(',')
+      .Append(double.IsNaN(w.OrigF) ? "n" : Fixed(w.OrigF).ToString()).Append(',')
+      .Append(double.IsNaN(w.OrigSteer) ? "n" : Fixed(w.OrigSteer).ToString()).Append(';'); }
   sb.Append('|');
   // Mid-calibration the Heights sit at the stops: keep the real ones so a reload puts them back.
   if (calStep &gt;= 0) foreach (var w in calWheels) sb.Append(w.S.EntityId).Append('=').Append(Fixed(w.CalH)).Append(';');
@@ -6154,13 +6173,17 @@ void LoadStorage() {
   running = parts[2] != "0";
   foreach (var item in parts[3].Split(';')) {
     var f = item.Split(',');
-    if (f.Length != 7 || !long.TryParse(f[0], out id) || !long.TryParse(f[1], out top)) continue;
+    // 1.3 stored 7 fields; 1.4 adds the wheel's own Friction and Max steer angle.
+    if ((f.Length != 7 &amp;&amp; f.Length != 9) || !long.TryParse(f[0], out id) || !long.TryParse(f[1], out top)) continue;
     var w = new Wheel { TopId = top };
     if (f[2] != "n" &amp;&amp; Unfixed(f[2], out d)) w.C = d;
     if (Unfixed(f[3], out d)) w.Sign = d;
     if (Unfixed(f[4], out d)) w.StopH = d;
     if (Unfixed(f[5], out d)) w.K = d;
     if (Unfixed(f[6], out d)) w.Orig = d;
+    if (f.Length == 9) {
+      if (f[7] != "n" &amp;&amp; Unfixed(f[7], out d)) w.OrigF = d;
+      if (f[8] != "n" &amp;&amp; Unfixed(f[8], out d)) w.OrigSteer = d; }
     if (w.K &gt; 0) known[id] = w; }
   if (parts.Length &gt; 4)
     foreach (var item in parts[4].Split(';')) {
@@ -6183,6 +6206,14 @@ void ReadIni() {
     rollStiffPct = ini.Get(SECTION, "Anti-roll in turns (%)").ToSingle(rollStiffPct);
     minStrength = ini.Get(SECTION, "Min strength (%)").ToSingle(minStrength);
     maxStrength = ini.Get(SECTION, "Max strength (%)").ToSingle(maxStrength);
+    speedFriction = ini.Get(SECTION, "Speed-based friction").ToBoolean(speedFriction);
+    slowFriction = ini.Get(SECTION, "Friction when stopped (%)").ToSingle(slowFriction);
+    fastFriction = ini.Get(SECTION, "Friction when fast (%)").ToSingle(fastFriction);
+    fastFrictionSpeed = ini.Get(SECTION, "Friction is fast from (m/s)").ToSingle(fastFrictionSpeed);
+    speedSteering = ini.Get(SECTION, "Speed-based steering").ToBoolean(speedSteering);
+    fastSteerPct = ini.Get(SECTION, "Steering when fast (% of max steer angle)").ToSingle(fastSteerPct);
+    fullSteerSpeed = ini.Get(SECTION, "Full steering up to (m/s)").ToSingle(fullSteerSpeed);
+    fastSteerSpeed = ini.Get(SECTION, "Steering is fast from (m/s)").ToSingle(fastSteerSpeed);
   }
   else if (!string.IsNullOrWhiteSpace(Me.CustomData)) ini.EndContent = Me.CustomData;
   sagPct = MathHelper.Clamp(sagPct, 1f, 90f);
@@ -6190,6 +6221,12 @@ void ReadIni() {
   reboundSoftPct = MathHelper.Clamp(reboundSoftPct, 0f, 70f);
   minStrength = MathHelper.Clamp(minStrength, 0.5f, 100f);
   maxStrength = MathHelper.Clamp(maxStrength, minStrength, 100f);
+  slowFriction = MathHelper.Clamp(slowFriction, 0f, 100f);
+  fastFriction = MathHelper.Clamp(fastFriction, 0f, 100f);
+  fastFrictionSpeed = MathHelper.Clamp(fastFrictionSpeed, 0.5f, 200f);
+  fastSteerPct = MathHelper.Clamp(fastSteerPct, 5f, 100f);
+  fullSteerSpeed = MathHelper.Clamp(fullSteerSpeed, 0f, 200f);
+  fastSteerSpeed = MathHelper.Clamp(fastSteerSpeed, fullSteerSpeed + 0.5f, 200f);
   ini.Set(SECTION, "Group name", groupName);
   ini.Set(SECTION, "Ride height control", rideHeight);
   ini.Set(SECTION, "Sag below the offset (% of travel)", sagPct);
@@ -6200,7 +6237,16 @@ void ReadIni() {
   ini.Set(SECTION, "Anti-roll in turns (%)", rollStiffPct);
   ini.Set(SECTION, "Min strength (%)", minStrength);
   ini.Set(SECTION, "Max strength (%)", maxStrength);
+  ini.Set(SECTION, "Speed-based friction", speedFriction);
+  ini.Set(SECTION, "Friction when stopped (%)", slowFriction);
+  ini.Set(SECTION, "Friction when fast (%)", fastFriction);
+  ini.Set(SECTION, "Friction is fast from (m/s)", fastFrictionSpeed);
+  ini.Set(SECTION, "Speed-based steering", speedSteering);
+  ini.Set(SECTION, "Steering when fast (% of max steer angle)", fastSteerPct);
+  ini.Set(SECTION, "Full steering up to (m/s)", fullSteerSpeed);
+  ini.Set(SECTION, "Steering is fast from (m/s)", fastSteerSpeed);
   Me.CustomData = lastCustomData = ini.ToString();
+  restoreSpeed = true;   // settings may have changed: own values back, then the speed settings again
   if (groupName != oldGroup) rescan = true;
 }
 
@@ -6216,12 +6262,16 @@ void Setup() {
     if (!known.TryGetValue(s.EntityId, out w)) {
       w = new Wheel { Orig = s.Strength, K = Square(s.Strength / 100.0) };
       known[s.EntityId] = w; }
+    // Own Friction / Max steer angle: read while the script hasn't changed them, so a player's own
+    // terminal change (made while nobody drives) becomes the new value to put back.
+    if (double.IsNaN(w.OrigF) || !speedApplied) { w.OrigF = s.Friction; w.OrigSteer = s.MaxSteerAngle; }
     w.S = s; wheels.Add(w); seen.Add(s.EntityId);
     float h; if (pendingHeight.TryGetValue(s.EntityId, out h)) s.Height = h; }
   pendingHeight.Clear();
   stale.Clear();
   foreach (var id in known.Keys) if (!seen.Contains(id)) stale.Add(id);
   foreach (var id in stale) known.Remove(id);
+  frictionNow = steerNow = -1;   // a new or replaced wheel gets the speed settings too
 }
 
 public void Main(string argument, UpdateType updateSource) {
@@ -6239,7 +6289,7 @@ public void Main(string argument, UpdateType updateSource) {
 void Command(string arg) {
   if (arg == "calibrate") {
     foreach (var w in known.Values) { w.C = double.NaN; w.Failed = false; }
-    calFails = 0;
+    calFails = 0; calFailText = "";
     statusText = "Calibration requested: stop the vehicle on the ground."; }
   else if (arg == "off") {
     StopCalibration(); Restore(); running = false; idle = false;
@@ -6249,7 +6299,7 @@ void Command(string arg) {
     running = true; idle = false; Runtime.UpdateFrequency = UpdateFrequency.Update1; rescan = true;
     statusText = "Starting"; }
   else if (arg == "reset") {
-    StopCalibration(); Restore(); known.Clear(); massRef = 0; quietSteps = 0; calFails = 0;
+    StopCalibration(); Restore(); known.Clear(); massRef = 0; quietSteps = 0; calFails = 0; calFailText = "";
     running = true; idle = false; Runtime.UpdateFrequency = UpdateFrequency.Update1; Setup();
     statusText = "Reset: strengths restored, calibration and learned strengths forgotten."; Save(); }
   else statusText = "Unknown argument \"" + arg + "\". Use calibrate, off, on or reset.";
@@ -6257,6 +6307,7 @@ void Command(string arg) {
 
 void Step() {
   ReadIni();
+  if (restoreSpeed) { restoreSpeed = false; RestoreOwn(); }
   if (rescan || tick % 600 == 0) Setup();
   ctrl = PickController();
   if (ctrl == null) { StopCalibration(); statusText = "No working seat or remote control on the vehicle's body."; Hold(); return; }
@@ -6303,6 +6354,7 @@ void Step() {
   statusText = needCal ? "Running; some wheels wait for calibration (stop on the ground)." : "Running";
   double tilt = Math.Acos(MathHelper.Clamp(Vector3D.Dot(Vector3D.Normalize(up), -down), -1, 1));
   if (tilt &gt; MathHelper.ToRadians(50)) { statusText = "Tipped over: holding the base strengths."; Hold(); return; }
+  SpeedAdjust(flat.Length());
 
   // Mass changes: the load on every wheel changes with it, and so must the spring stiffness.
   mass = ctrl.CalculateShipMass().PhysicalMass;
@@ -6393,13 +6445,50 @@ IMyShipController PickController() {
   return best;
 }
 
-// Base strengths, without the moment-to-moment changes.
+// Base strengths, without the moment-to-moment changes; each wheel's own Friction and steer angle.
 void Hold() {
   foreach (var w in wheels) if (!w.S.Closed &amp;&amp; w.S.IsAttached) SetStrength(w, 100 * Math.Sqrt(w.K));
+  RestoreOwn();
 }
 
 void Restore() {
   foreach (var w in wheels) if (!w.S.Closed) w.S.Strength = (float)w.Orig;
+  RestoreOwn();
+}
+
+// Speed: friction from "stopped" to "fast" over 0..fastFrictionSpeed; steering from the full angle
+// to fastSteerPct of it between fullSteerSpeed and fastSteerSpeed. Both move in whole-percent steps
+// with some hysteresis, so speed noise doesn't rewrite the blocks (every change is network-synced):
+// at a steady speed nothing is written, while speeding up it is a few writes per second at most.
+void SpeedAdjust(double speed) {
+  flatSpeed = speed;
+  bool fCh = false, sCh = false;
+  if (speedFriction) {
+    double f = slowFriction + (fastFriction - slowFriction) * MathHelper.Clamp(speed / fastFrictionSpeed, 0, 1);
+    if (frictionNow &lt; 0 || Math.Abs(f - frictionNow) &gt;= 0.75) { frictionNow = Math.Round(f); fCh = true; } }
+  if (speedSteering) {
+    double st = 100 + (fastSteerPct - 100) * MathHelper.Clamp((speed - fullSteerSpeed) / (fastSteerSpeed - fullSteerSpeed), 0, 1);
+    if (steerNow &lt; 0 || Math.Abs(st - steerNow) &gt;= 0.75) { steerNow = Math.Round(st); sCh = true; } }
+  if (!fCh &amp;&amp; !sCh) return;
+  speedApplied = true;
+  foreach (var w in wheels) {
+    var s = w.S;
+    if (s.Closed || double.IsNaN(w.OrigF)) continue;
+    if (fCh &amp;&amp; Math.Abs(s.Friction - frictionNow) &gt; 0.1) s.Friction = (float)frictionNow;
+    if (sCh &amp;&amp; s.Steering) {
+      float a = (float)(w.OrigSteer * steerNow / 100);
+      if (Math.Abs(s.MaxSteerAngle - a) &gt; 0.001f) s.MaxSteerAngle = a; } }
+}
+
+// Each wheel's own Friction and Max steer angle back (nobody driving, off, settings changed).
+void RestoreOwn() {
+  if (speedApplied)
+    foreach (var w in wheels) {
+      var s = w.S;
+      if (s.Closed || double.IsNaN(w.OrigF)) continue;
+      if (Math.Abs(s.Friction - w.OrigF) &gt; 0.1) s.Friction = (float)w.OrigF;
+      if (Math.Abs(s.MaxSteerAngle - w.OrigSteer) &gt; 0.001) s.MaxSteerAngle = (float)w.OrigSteer; }
+  speedApplied = false; frictionNow = steerNow = -1;
 }
 
 void StartCalibration(Vector3D down) {
@@ -6417,6 +6506,8 @@ void StartCalibration(Vector3D down) {
     s.Strength = 100f;
     calWheels.Add(w); }
   if (calWheels.Count == 0) { statusText = "No upright suspensions to calibrate."; return; }
+  // The handbrake keeps the vehicle from creeping on a slope while it sits on its stops.
+  calCtrl = ctrl; calBrake = ctrl.HandBrake; ctrl.HandBrake = true;
   calStep = 0; calSteady = 0;
   statusText = "Calibrating: lowering the vehicle onto its suspension stops...";
   Save();
@@ -6425,12 +6516,12 @@ void StartCalibration(Vector3D down) {
 void Calibrate(double flatSpeed) {
   foreach (var w in calWheels)
     if (w.S.Closed || !w.S.IsAttached || w.S.Top == null) { StopCalibration(); statusText = "Calibration stopped: a wheel came off."; return; }
-  if (flatSpeed &gt; 1) { StopCalibration(); calFails++; statusText = "Calibration stopped: the vehicle moved. It retries when it stands still."; return; }
+  if (flatSpeed &gt; 1) { CalFailed("the vehicle moved"); return; }
   calStep++;
   bool steady = true;
-  foreach (var w in calWheels) { double x = X(w); if (Math.Abs(x - w.PrevX) &gt; 0.001) steady = false; w.PrevX = x; }
+  foreach (var w in calWheels) { double x = X(w); if (Math.Abs(x - w.PrevX) &gt; QUIET_RATE * DT) steady = false; w.PrevX = x; }
   calSteady = steady ? calSteady + 1 : 0;
-  if (calStep &gt;= CAL_MAX_STEPS) { StopCalibration(); calFails++; statusText = "Calibration stopped: the wheels didn't settle. It retries when the vehicle stands still."; return; }
+  if (calStep &gt;= CAL_MAX_STEPS) { CalFailed("the wheels didn't settle"); return; }
   if (calStep &lt; CAL_MIN_STEPS || calSteady &lt; CAL_STEADY_STEPS) return;
 
   int bad = 0;
@@ -6444,14 +6535,24 @@ void Calibrate(double flatSpeed) {
     if (moved &lt; -0.01 || sagBefore &lt; -0.05 || sagBefore &gt; travel + 0.05) { w.C = double.NaN; w.Failed = true; bad++; }
     w.HavePrev = false; }
   StopCalibration(); calFails = 0;
+  calFailText = bad == 0 ? "" : "Last calibration: " + bad + " wheel(s) failed the checks.";
   statusText = bad == 0 ? "Calibrated." : "Calibration failed on " + bad + " wheel(s); they are left alone. Run \"calibrate\" to retry.";
   Save();
+}
+
+// A failed try: the reason stays on the readout until a calibration succeeds.
+void CalFailed(string reason) {
+  StopCalibration(); calFails++;
+  calFailText = "Last calibration try failed (" + calFails + " of " + CAL_TRIES + "): " + reason + ".";
+  statusText = "Calibration stopped: " + reason + ". It retries when the vehicle stands still.";
 }
 
 void StopCalibration() {
   if (calStep &lt; 0) return;
   foreach (var w in calWheels)
     if (!w.S.Closed) { w.S.Height = (float)w.CalH; w.S.Strength = MathHelper.Clamp((float)(100 * Math.Sqrt(w.K)), minStrength, maxStrength); }
+  if (calCtrl != null &amp;&amp; !calCtrl.Closed) calCtrl.HandBrake = calBrake;
+  calCtrl = null;
   calStep = -1; calWheels.Clear(); stillSteps = 0;
 }
 
@@ -6459,9 +6560,14 @@ void Report() {
   echo.Clear();
   echo.Append("Villanor's Suspension Assist ").Append(VERSION).Append(" (").Append(DATE).Append(")\n");
   echo.Append(statusText).Append('\n');
+  if (calFailText != "") echo.Append(calFailText).Append('\n');
   if (warnText != "") echo.Append(warnText).Append('\n');
   if (ctrl != null &amp;&amp; running) {
     echo.Append("Mass ").Append(mass.ToString("N0")).Append(" kg, sideways ").Append(aLat.ToString("0.0")).Append(" m/s2\n");
+    if (speedApplied)
+      echo.Append("Speed ").Append(flatSpeed.ToString("0.0")).Append(" m/s: friction ")
+        .Append(frictionNow &lt; 0 ? "own" : frictionNow.ToString("0") + "%").Append(", steering ")
+        .Append(steerNow &lt; 0 ? "own" : steerNow.ToString("0") + "% of max").Append('\n');
     sorted.Clear(); sorted.AddRange(wheels);
     var fwd = ctrl.WorldMatrix.Forward; var com = ctrl.CenterOfMass;
     sorted.Sort((a, b) =&gt; Vector3D.Dot(b.S.GetPosition() - com, fwd).CompareTo(Vector3D.Dot(a.S.GetPosition() - com, fwd)));
@@ -6472,7 +6578,7 @@ void Report() {
       else echo.Append(w.Failed ? "calibration failed" : "not calibrated");
       echo.Append('\n'); } }
   // The numbers change all the time; a status change shows at once, the numbers at most every ECHO_TIME seconds.
-  var head = statusText + warnText + running;
+  var head = statusText + calFailText + warnText + running;
   if (head == lastEchoHead &amp;&amp; tick - lastEchoTick &lt; ECHO_TIME * 60) return;
   lastEcho = echo.ToString(); lastEchoHead = head; lastEchoTick = tick;
 }

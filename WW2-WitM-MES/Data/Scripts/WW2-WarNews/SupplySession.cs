@@ -132,6 +132,7 @@ namespace WW2WitM.Supply
                 if (started) SupplyHooks.Unregister(Mes());
                 SupplySites.Clear();
                 SupplyConvoys.Clear();
+                GroundDisable.Unload();
             }
             catch (Exception e)
             {
@@ -178,6 +179,8 @@ namespace WW2WitM.Supply
                     }
                     Log("loaded, " + ports + " ports " + airfields + " airfields " + depots + " depots" + (mes.HasSpawnApi ? "" : " (MES spawn API missing: sorties are not charged)"));
                 }
+
+                GroundDisable.Update(tick);
 
                 if (tick % MaintainTicks == 0)
                 {

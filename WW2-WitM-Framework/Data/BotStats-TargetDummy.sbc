@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- WitM bot crews (MES bot spawn profile WW2-BotSpawnProfile-CombatBot) are the Bot_spawner mod's (2336089504)
+       Target_Dummy character, whose health stat is 200 there (RobotStats_Drone.sbc). Owner 2026-11-07: a bot dies to 3
+       body hits from the SETB .308 Semi-Automatic Rifle (CarbineBullet, ProjectileHealthDamage 29; headshot 100):
+       2 hits = 58 must not kill, 3 hits = 87 must, so 80. Same Id as Bot_spawner's, so this replaces it as long as
+       WW2-WitM-Framework loads after Bot_spawner (above it in the world's mod list). -->
+  <StatDefinitions>
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>Target_Dummy_Health</SubtypeId>
+      </Id>
+      <Name>Health</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>80</DefaultValue>
+      <MaxValue>80</MaxValue>
+    </Stat>
+  </StatDefinitions>
+</Definitions>

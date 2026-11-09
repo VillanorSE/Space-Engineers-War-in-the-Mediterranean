@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!-- Manufactory store (owner 2026-11-08): sells and buys basic components, buys ores. Same for both factions.
+     Referenced from WW2-Behavior-Manufactory-Gray/-Green (Behaviors-Manufactory.sbc).
+     REQUIRES A STORE BLOCK named exactly "Store-Manufactory". -->
+	<EntityComponents>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Trigger-UpdateSales-Manufactory</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Trigger]
+			[UseTrigger:true]
+			[Type:Timer]
+			[MinCooldownMs:60000]
+			[MaxCooldownMs:60001]
+			[StartsReady:true]
+			[MaxActions:-1]
+			[Actions:WW2-Store-Action-UpdateSales-Manufactory]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Action-UpdateSales-Manufactory</SubtypeId>
+			</Id>
+			<Description>
+			[MES AI Action]
+			[ApplyStoreProfiles:true]
+			[ClearStoreContentsFirst:true]
+			[StoreBlocks:Store-Manufactory]
+			[StoreProfiles:WW2-Store-Profile-Manufactory]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Store-Profile-Manufactory</SubtypeId>
+			</Id>
+			<Description>
+			[MES Store]
+			[FileSource:WW2-Store-StoreItems-Manufactory.xml]
+			[MinOfferItems:16]
+			[MaxOfferItems:16]
+			[MinOrderItems:24]
+			[MaxOrderItems:24]
+			[ItemsRequireInventory:false]
+
+			[RequiredOffers:WW2-Manufactory-SteelPlate]
+			[RequiredOffers:WW2-Manufactory-Construction]
+			[RequiredOffers:WW2-Manufactory-MetalGrid]
+			[RequiredOffers:WW2-Manufactory-InteriorPlate]
+			[RequiredOffers:WW2-Manufactory-SmallTube]
+			[RequiredOffers:WW2-Manufactory-LargeTube]
+			[RequiredOffers:WW2-Manufactory-Motor]
+			[RequiredOffers:WW2-Manufactory-Display]
+			[RequiredOffers:WW2-Manufactory-BulletproofGlass]
+			[RequiredOffers:WW2-Manufactory-Girder]
+			[RequiredOffers:WW2-Manufactory-Computer]
+			[RequiredOffers:WW2-Manufactory-Medical]
+			[RequiredOffers:WW2-Manufactory-RadioCommunication]
+			[RequiredOffers:WW2-Manufactory-Detector]
+			[RequiredOffers:WW2-Manufactory-PowerCell]
+			[RequiredOffers:WW2-Manufactory-Superconductor]
+			[RequiredOrders:WW2-Manufactory-SteelPlate]
+			[RequiredOrders:WW2-Manufactory-Construction]
+			[RequiredOrders:WW2-Manufactory-MetalGrid]
+			[RequiredOrders:WW2-Manufactory-InteriorPlate]
+			[RequiredOrders:WW2-Manufactory-SmallTube]
+			[RequiredOrders:WW2-Manufactory-LargeTube]
+			[RequiredOrders:WW2-Manufactory-Motor]
+			[RequiredOrders:WW2-Manufactory-Display]
+			[RequiredOrders:WW2-Manufactory-BulletproofGlass]
+			[RequiredOrders:WW2-Manufactory-Girder]
+			[RequiredOrders:WW2-Manufactory-Computer]
+			[RequiredOrders:WW2-Manufactory-Medical]
+			[RequiredOrders:WW2-Manufactory-RadioCommunication]
+			[RequiredOrders:WW2-Manufactory-Detector]
+			[RequiredOrders:WW2-Manufactory-PowerCell]
+			[RequiredOrders:WW2-Manufactory-Superconductor]
+			[RequiredOrders:WW2-Manufactory-Ore-Iron]
+			[RequiredOrders:WW2-Manufactory-Ore-Nickel]
+			[RequiredOrders:WW2-Manufactory-Ore-Silicon]
+			[RequiredOrders:WW2-Manufactory-Ore-Cobalt]
+			[RequiredOrders:WW2-Manufactory-Ore-Silver]
+			[RequiredOrders:WW2-Manufactory-Ore-Gold]
+			[RequiredOrders:WW2-Manufactory-Ore-Platinum]
+			[RequiredOrders:WW2-Manufactory-Ore-Uranium]
+			</Description>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

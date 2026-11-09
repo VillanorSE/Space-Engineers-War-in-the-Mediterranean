@@ -1721,6 +1721,7 @@ void Status(string state) {
               <Min x="2" y="3" z="6" />
               <BlockOrientation Forward="Left" Up="Forward" />
               <ColorMaskHSV x="0.313888878" y="-0.73" z="-0.25" />
+              <ShareMode>All</ShareMode>
               <CustomName>Hatch - Rear 2</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
@@ -3617,6 +3618,7 @@ public sealed class VariableReference
               <Min x="0" y="3" z="6" />
               <BlockOrientation Forward="Right" Up="Forward" />
               <ColorMaskHSV x="0.313888878" y="-0.73" z="-0.25" />
+              <ShareMode>All</ShareMode>
               <CustomName>Hatch - Rear 1</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>
@@ -3855,7 +3857,7 @@ public sealed class VariableReference
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>2</NumberInGrid>
               <Enabled>true</Enabled>
-              <GyroPower>0.1</GyroPower>
+              <GyroPower>1</GyroPower>
               <GyroOverride>true</GyroOverride>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ShipConnector">
@@ -4386,7 +4388,7 @@ public sealed class VariableReference
               <ShowInToolbarConfig>true</ShowInToolbarConfig>
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
-              <Enabled>true</Enabled>
+              <Enabled>false</Enabled>
               <Radius>1.5</Radius>
               <ReflectorRadius>120</ReflectorRadius>
               <ColorBlue>0.784313738</ColorBlue>
@@ -5227,6 +5229,7 @@ public sealed class VariableReference
               <Min x="0" y="2" z="1" />
               <BlockOrientation Forward="Up" Up="Backward" />
               <ColorMaskHSV x="0.313888878" y="-0.73" z="-0.25" />
+              <ShareMode>All</ShareMode>
               <CustomName>Tank Hatch - Rear</CustomName>
               <ShowOnHUD>false</ShowOnHUD>
               <ShowInTerminal>true</ShowInTerminal>

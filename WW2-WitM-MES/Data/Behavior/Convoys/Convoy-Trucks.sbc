@@ -250,6 +250,7 @@
 			<Description>
 			[RivalAI TriggerGroup]
 			[Triggers:WW2-Convoy-Trigger-Arrived-Lead]
+			[Triggers:WW2-Convoy-Trigger-Disabled]
 			[Triggers:WW2-Convoy-Trigger-Delivered]
 			[Triggers:WW2-Convoy-Trigger-Leave]
 			[Triggers:WW2-Convoy-Trigger-GiveUp]
@@ -281,6 +282,7 @@
 			[Triggers:WW2-Convoy-Trigger-NoLeader]
 			[Triggers:WW2-Convoy-Trigger-LostFromLeader]
 			[Triggers:WW2-Convoy-Trigger-StrandedDespawn]
+			[Triggers:WW2-Convoy-Trigger-Disabled]
 			[Triggers:WW2-Convoy-Trigger-Delivered]
 			[Triggers:WW2-Convoy-Trigger-Leave]
 			[Triggers:WW2-Convoy-Trigger-GiveUp]
@@ -297,6 +299,7 @@
 			<Description>
 			[RivalAI TriggerGroup]
 			[Triggers:WW2-Convoy-Trigger-Arrived-Lead]
+			[Triggers:WW2-Convoy-Trigger-Disabled]
 			[Triggers:WW2-Convoy-Trigger-Delivered]
 			[Triggers:WW2-Convoy-Trigger-Leave]
 			[Triggers:WW2-Convoy-Trigger-GiveUp]
@@ -328,6 +331,7 @@
 			[Triggers:WW2-Convoy-Trigger-NoLeader]
 			[Triggers:WW2-Convoy-Trigger-LostFromLeader]
 			[Triggers:WW2-Convoy-Trigger-StrandedDespawn]
+			[Triggers:WW2-Convoy-Trigger-Disabled]
 			[Triggers:WW2-Convoy-Trigger-Delivered]
 			[Triggers:WW2-Convoy-Trigger-Leave]
 			[Triggers:WW2-Convoy-Trigger-GiveUp]
@@ -373,6 +377,8 @@
 			[EnableTriggerNames:WW2-Convoy-Trigger-Delivered]
 			[EnableTriggerNames:WW2-Convoy-Trigger-Leave]
 			[EnableTriggerNames:WW2-Convoy-Trigger-EscortPay]
+			[ResetTriggerCooldownNames:WW2-Convoy-Trigger-ParkSettle]
+			[EnableTriggerNames:WW2-Convoy-Trigger-ParkSettle]
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Convoy-Trigger-EscortTick]
 			[DisableTriggerNames:WW2-Convoy-Trigger-Tilt]
@@ -453,9 +459,38 @@
 			[EnableTriggers:true]
 			[EnableTriggerNames:WW2-Convoy-Trigger-Delivered]
 			[EnableTriggerNames:WW2-Convoy-Trigger-Leave]
+			[ResetTriggerCooldownNames:WW2-Convoy-Trigger-ParkSettle]
+			[EnableTriggerNames:WW2-Convoy-Trigger-ParkSettle]
 			[DisableTriggers:true]
 			[DisableTriggerNames:WW2-Convoy-Trigger-ParkStop]
 			[DisableTriggerTags:WW2-Convoy-ParkedTag]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-ParkSettle</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:false]
+			[Type:Timer]
+			[MinCooldownMs:3000]
+			[MaxCooldownMs:3001]
+			[StartsReady:false]
+			[MaxActions:1]
+			[Actions:WW2-Convoy-Action-ParkSettle]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-ParkSettle</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[ChangeInertiaDampeners:true]
+			[InertiaDampenersEnable:false]
 			</Description>
 		</EntityComponent>
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
@@ -552,7 +587,7 @@
 			[ForceDespawn:true]
 			</Description>
 		</EntityComponent>
-<!-- Escort trucks (slots 2-5, Behavior Escort). Each asks the truck ahead of it in the chain for its one escort place (per route triggers in Convoy-Routes.sbc) and follows it with dampeners off. The lead halts them at the gate or road end (WW2-Convoy-Action-Halt): they leave the slot, stop and deliver like the lead. A truck whose leader is lost, or that gets no place within 60 s, is stranded: it stops (Passive, dampeners on), tells its own escort to do the same, and despawns once no player is within 1 km (refunded as an intact truck). MES Escort.cs retreats a leaderless escort after WaypointWaitTimeTrigger (120 s on the escort autopilot), so every path leaves Escort or despawns before that. -->
+<!-- Escort trucks (slots 2-5, Behavior Escort). Each asks the truck ahead of it in the chain for its one escort place (per route triggers in Convoy-Routes.sbc) and follows it with dampeners off. The lead halts them at the gate or road end (WW2-Convoy-Action-Halt): they leave the slot, stop and deliver like the lead. A truck whose leader is lost, or that gets no place within 60 s, is stranded: it stops (Passive, dampeners off), tells its own escort to do the same, and despawns once no player is within 1 km (refunded as an intact truck). MES Escort.cs retreats a leaderless escort after WaypointWaitTimeTrigger (120 s on the escort autopilot), so every path leaves Escort or despawns before that. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
 			<Id>
 				<TypeId>Inventory</TypeId>
@@ -653,7 +688,7 @@
 			[ChangeAutopilotProfile:true]
 			[AutopilotProfile:Primary]
 			[ChangeInertiaDampeners:true]
-			[InertiaDampenersEnable:true]
+			[InertiaDampenersEnable:false]
 			[EnableTriggers:true]
 			[EnableTriggerNames:WW2-Convoy-Trigger-StrandedDespawn]
 			[DisableTriggers:true]
@@ -661,6 +696,51 @@
 			[DisableTriggerNames:WW2-Convoy-Trigger-NoLeader]
 			[DisableTriggerNames:WW2-Convoy-Trigger-LeaderLost]
 			[DisableTriggerNames:WW2-Convoy-Trigger-LostFromLeader]
+			[DisableTriggerTags:WW2-Convoy-RequestTag]
+			[DisableTriggerTags:WW2-Convoy-HaltTag]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Trigger-Disabled</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Trigger]
+			[UseTrigger:true]
+			[Type:CommandReceived]
+			[CommandReceiveCode:WW2_Ground_Disabled]
+			[StartsReady:true]
+			[MaxActions:1]
+			[Actions:WW2-Convoy-Action-Disabled]
+			</Description>
+		</EntityComponent>
+		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
+			<Id>
+				<TypeId>Inventory</TypeId>
+				<SubtypeId>WW2-Convoy-Action-Disabled</SubtypeId>
+			</Id>
+			<Description>
+			[RivalAI Action]
+			[LeaveEscortSlot:true]
+			[BroadcastCommandProfiles:true]
+			[CommandProfileIds:WW2-Convoy-Command-Lost]
+			[ChangeBehaviorSubclass:true]
+			[NewBehaviorSubclass:Passive]
+			[ChangeAutopilotSpeed:true]
+			[NewAutopilotSpeed:0]
+			[ChangeAutopilotProfile:true]
+			[AutopilotProfile:Primary]
+			[ChangeInertiaDampeners:true]
+			[InertiaDampenersEnable:false]
+			[EnableTriggers:true]
+			[EnableTriggerNames:WW2-Convoy-Trigger-StrandedDespawn]
+			[DisableTriggers:true]
+			[DisableTriggerNames:WW2-Convoy-Trigger-Tilt]
+			[DisableTriggerNames:WW2-Convoy-Trigger-NoLeader]
+			[DisableTriggerNames:WW2-Convoy-Trigger-LeaderLost]
+			[DisableTriggerNames:WW2-Convoy-Trigger-LostFromLeader]
+			[DisableTriggerNames:WW2-Convoy-Trigger-Disabled]
 			[DisableTriggerTags:WW2-Convoy-RequestTag]
 			[DisableTriggerTags:WW2-Convoy-HaltTag]
 			</Description>
