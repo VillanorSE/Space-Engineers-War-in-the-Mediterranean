@@ -167,7 +167,17 @@ namespace WW2WitM.WarNewsSystem
                 if (ShipTypes.TryGetValue(type, out shipType))
                     WarNews.Post(WarNewsText.WarshipLost(faction, shipType, GridName(rc), place), faction);
                 else if (type == "Factory")
-                    WarNews.Post(WarNewsText.FactoryLost(faction, place), faction);
+                {
+                    // Plane factories, ground factories and the Manufactory share the Factory points group; their prefab
+                    // grids are named "Factory - Plane", "Factory - Ground" and "Manufactory".
+                    var gridName = rc.CubeGrid != null ? rc.CubeGrid.CustomName ?? "" : "";
+                    if (gridName.IndexOf("Manufactory", StringComparison.OrdinalIgnoreCase) >= 0)
+                        WarNews.Post(WarNewsText.ManufactoryLost(faction, place), faction);
+                    else if (gridName.IndexOf("Ground", StringComparison.OrdinalIgnoreCase) >= 0)
+                        WarNews.Post(WarNewsText.VehicleFactoryLost(faction, place), faction);
+                    else
+                        WarNews.Post(WarNewsText.FactoryLost(faction, place), faction);
+                }
                 else if (type == "Hangar")
                 {
                     // Hangars and garages share WW2-Behavior-HangarGarage-* and the Hangar points group; their prefab grids are named "Hangar" / "Garage".

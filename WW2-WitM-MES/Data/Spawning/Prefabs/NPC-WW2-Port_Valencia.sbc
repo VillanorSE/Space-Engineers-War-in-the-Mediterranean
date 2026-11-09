@@ -85966,7 +85966,7 @@
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
               <Enabled>true</Enabled>
-              <AnyoneCanUse>false</AnyoneCanUse>
+              <AnyoneCanUse>true</AnyoneCanUse>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Planter">
               <SubtypeName>LargeBlockPlanters</SubtypeName>
@@ -86008,7 +86008,7 @@
                   <ComponentData>
                     <TypeId>MyAccessAnyoneCanUse</TypeId>
                     <Component xsi:type="MyObjectBuilder_AccessAnyoneCanUse">
-                      <AnyoneCanUse>false</AnyoneCanUse>
+                      <AnyoneCanUse>true</AnyoneCanUse>
                     </Component>
                   </ComponentData>
                   <ComponentData>
@@ -87703,7 +87703,7 @@ Valencia</Text>
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
               <Enabled>true</Enabled>
-              <AnyoneCanUse>false</AnyoneCanUse>
+              <AnyoneCanUse>true</AnyoneCanUse>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Cockpit">
               <SubtypeName>LargeBlockDesk</SubtypeName>

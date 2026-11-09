@@ -2,6 +2,8 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
 
+		<!-- ToolSubtypeId: SETB SMLE Mk III (owner 2026-11-08). Without it AiEnabled gives soldiers vanilla's
+		     RapidFireAutomaticRifleItem, which WitM restricts for players (handweapons.xml), and they drop it. -->
 		<EntityComponent xsi:type="MyObjectBuilder_InventoryComponentDefinition">
             <Id>
                 <TypeId>Inventory</TypeId>
@@ -17,6 +19,7 @@
 			[BotType:Target_Dummy]
 			[BotBehavior:SOLDIER]
 			[UseAiEnabled:true]
+			[ToolSubtypeId:BoltAction]
 			
 			[CanUseLadders:true]
 			[CanUseSeats:true]

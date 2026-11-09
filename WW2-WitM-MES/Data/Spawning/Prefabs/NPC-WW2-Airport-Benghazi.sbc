@@ -759,7 +759,7 @@
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
               <Enabled>true</Enabled>
-              <AnyoneCanUse>false</AnyoneCanUse>
+              <AnyoneCanUse>true</AnyoneCanUse>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Cockpit">
               <SubtypeName>LargeBlockCouch</SubtypeName>
@@ -1388,7 +1388,7 @@
                   <ComponentData>
                     <TypeId>MyAccessAnyoneCanUse</TypeId>
                     <Component xsi:type="MyObjectBuilder_AccessAnyoneCanUse">
-                      <AnyoneCanUse>false</AnyoneCanUse>
+                      <AnyoneCanUse>true</AnyoneCanUse>
                     </Component>
                   </ComponentData>
                   <ComponentData>
@@ -7746,7 +7746,7 @@
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
               <Enabled>true</Enabled>
-              <AnyoneCanUse>false</AnyoneCanUse>
+              <AnyoneCanUse>true</AnyoneCanUse>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
               <SubtypeName>LargeArmorPanelLight</SubtypeName>

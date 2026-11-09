@@ -134,6 +134,16 @@ namespace WW2WitM.WarNewsSystem
             return "FACTORY DESTROYED - " + AnAdj(faction) + " aircraft factory near " + place + " has been destroyed.";
         }
 
+        public static string VehicleFactoryLost(string faction, string place)
+        {
+            return "FACTORY DESTROYED - " + AnAdj(faction) + " vehicle factory near " + place + " has been destroyed.";
+        }
+
+        public static string ManufactoryLost(string faction, string place)
+        {
+            return "MANUFACTORY DESTROYED - " + AnAdj(faction) + " manufactory near " + place + " has been destroyed.";
+        }
+
         public static string HangarLost(string faction, string place)
         {
             return "HANGAR DESTROYED - " + AnAdj(faction) + " hangar near " + place + " has been destroyed.";

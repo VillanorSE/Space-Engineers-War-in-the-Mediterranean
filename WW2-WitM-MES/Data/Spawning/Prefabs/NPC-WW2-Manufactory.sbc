@@ -13296,7 +13296,7 @@
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
               <Enabled>true</Enabled>
-              <AnyoneCanUse>false</AnyoneCanUse>
+              <AnyoneCanUse>true</AnyoneCanUse>
               <PlayerItems />
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ContractBlock">
@@ -13429,7 +13429,7 @@
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
               <Enabled>true</Enabled>
-              <AnyoneCanUse>false</AnyoneCanUse>
+              <AnyoneCanUse>true</AnyoneCanUse>
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_FunctionalBlock">
               <SubtypeName>ServicesTerminal</SubtypeName>
@@ -13463,7 +13463,7 @@
                   <ComponentData>
                     <TypeId>MyAccessAnyoneCanUse</TypeId>
                     <Component xsi:type="MyObjectBuilder_AccessAnyoneCanUse">
-                      <AnyoneCanUse>false</AnyoneCanUse>
+                      <AnyoneCanUse>true</AnyoneCanUse>
                     </Component>
                   </ComponentData>
                   <ComponentData>
@@ -13718,7 +13718,7 @@
               <ShowInInventory>true</ShowInInventory>
               <NumberInGrid>1</NumberInGrid>
               <Enabled>true</Enabled>
-              <AnyoneCanUse>false</AnyoneCanUse>
+              <AnyoneCanUse>true</AnyoneCanUse>
               <PlayerItems />
             </MyObjectBuilder_CubeBlock>
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CargoContainer">
@@ -14957,8 +14957,8 @@
             <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_RemoteControl">
               <SubtypeName>LargeBlockRemoteControl</SubtypeName>
               <EntityId>116150064040508497</EntityId>
-              <Min x="-1" y="-2" z="1" />
-              <BlockOrientation Forward="Left" Up="Up" />
+              <Min x="3" y="0" z="7" />
+              <BlockOrientation Forward="Forward" Up="Up" />
               <ColorMaskHSV x="0" y="-0.75" z="-0.29" />
               <ShareMode>Faction</ShareMode>
               <CustomName>Manufactory - Remote Control</CustomName>
